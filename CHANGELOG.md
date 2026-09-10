@@ -1,5 +1,32 @@
 # Changelog
 
+Changes follow semantic versioning. Historical entries below are preserved.
+
+## Unreleased — 0.3.0 development
+
+### Added
+
+- MkDocs Material website, source API reference, input/output guides, glossary,
+  24 executable tutorials, 10 demo projects and five curated notebooks.
+- Circuit drawings, richer MBQC diagrams and compilation provenance with SVG,
+  PNG and PDF export.
+- Experimental mixed-Fock density matrices, thermal attenuation and conditional
+  counting/homodyne; calibrated inefficient/noisy detection.
+- Cubic-resource compilation and approximate quartic/Kerr synthesis over a
+  Gaussian-plus-cubic target gate set, with explicit refinement controls.
+- Finite-energy square-lattice GKP resources, stabilizer diagnostics and elementary
+  modular syndrome correction infrastructure.
+- Optional JAX finite-Fock execution, fixed-branch gradients, Gaussian sampling
+  reparameterization and a discrete likelihood-ratio estimator primitive.
+- Documentation CI/Pages configuration, Codecov uploads and community templates.
+
+### Changed
+
+- Source installation paths, metadata, contribution guidance and result explanations.
+- Cutoff studies may select the mixed-Fock backend.
+- New research paths remain experimental; no publication or remote deployment is
+  implied by this development version. Existing v0.2 evidence remains historical.
+
 ## 0.2.0 — experimental non-Gaussian MBQC
 
 - Add sparse correlated Fock resources and public native pure-state import.
