@@ -1,4 +1,10 @@
-"""Run with: python examples/non_gaussian.py"""
+"""Run with: python examples/non_gaussian.py.
+
+The discrete herald has a probability; fixed homodyne postselection has a density.
+The injection sweep is a larger research example and can take longer than the
+introductory scripts in examples/tutorials. Increase cutoff independently of
+finite-resource squeezing when assessing convergence.
+"""
 
 import numpy as np
 

@@ -1,4 +1,9 @@
-"""Run with: python examples/first_cluster.py"""
+"""Run with: python examples/first_cluster.py.
+
+This hand-written resource illustrates measurement and feed-forward. Outcomes
+are sampled quadratures; mean/covariance describe the surviving conditional mode.
+Use a certified protocol builder when a particular gate transformation is needed.
+"""
 
 import photographiq as pg
 

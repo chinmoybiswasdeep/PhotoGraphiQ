@@ -1,3 +1,10 @@
+"""Compare real adaptive homodyne readings with integer photon counts.
+
+The first dictionary contains quadrature outcomes. The second contains a
+deterministic count for a prepared number state; neither dictionary is amplitudes.
+See tutorials 04 and 09 for interpretation and validation.
+"""
+
 import photographiq as pg
 
 pattern = pg.protocols.adaptive(squeezing=0.8)
