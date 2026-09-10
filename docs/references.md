@@ -33,3 +33,17 @@ into the distributed package. Original code is MIT; the supplied PDFs and
 The official class was downloaded from
 https://github.com/quantum-journal/quantum-journal/blob/master/quantumarticle.cls.
 Quantum author instructions: https://quantum-journal.org/instructions/authors/.
+
+
+Non-Gaussian extension references:
+
+* P. Marek, R. Filip and A. Furusawa, Deterministic implementation of weak quantum
+  cubic nonlinearity, Physical Review A 84, 053802 (2011).
+  https://doi.org/10.1103/PhysRevA.84.053802
+* K. Miyata et al., Implementation of a quantum cubic gate by adaptive
+  non-Gaussian measurement, Physical Review A 93, 022301 (2016).
+  https://doi.org/10.1103/PhysRevA.93.022301
+
+These motivate resource/adaptive approaches. The PhotoGraphiQ finite-envelope
+injection map is derived explicitly and is not claimed to reproduce all details
+of either experimental proposal.

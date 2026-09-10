@@ -109,29 +109,41 @@ class FockInput:
             a.ndim != 1
             or not len(a)
             or not np.isfinite(a).all()
-            or not np.isclose(np.vdot(a, a), 1)
+            or not np.isclose(np.vdot(a, a), 1, atol=1e-10, rtol=0)
         ):
             raise ValueError("Fock input amplitudes must be finite and normalized")
+        object.__setattr__(self, "amplitudes", tuple(map(complex, a)))
 
     @classmethod
     def number(cls, n: int):
-        if not isinstance(n, int) or n < 0:
+        if not isinstance(n, int) or isinstance(n, bool) or n < 0:
             raise ValueError("Photon number must be a nonnegative integer")
         return cls((0j,) * n + (1 + 0j,))
 
     @classmethod
     def cat(cls, alpha: complex, cutoff: int, parity: int = 1):
-        import math
-
-        if cutoff < 1 or parity not in (-1, 1):
+        if (
+            not isinstance(cutoff, int)
+            or isinstance(cutoff, bool)
+            or cutoff < 1
+            or parity not in (-1, 1)
+            or not np.isfinite(alpha)
+        ):
             raise ValueError("Invalid cutoff or parity")
-        a = np.array(
-            [
-                (alpha**n + parity * (-alpha) ** n) / np.sqrt(float(math.factorial(n)))
-                for n in range(cutoff)
-            ],
-            dtype=complex,
-        )
+        from scipy.special import gammaln
+
+        n = np.arange(cutoff)
+        if alpha == 0:
+            a = np.zeros(cutoff, dtype=complex)
+            a[0] = 1 + parity
+        else:
+            logabs = n * np.log(abs(alpha)) - gammaln(n + 1) / 2
+            allowed = (1 + parity * (-1) ** n) != 0
+            if not allowed.any():
+                raise ValueError("Zero cat vector at this cutoff")
+            logabs -= logabs[allowed].max()
+            logabs[~allowed] = -np.inf
+            a = np.exp(logabs + 1j * n * np.angle(alpha)) * (1 + parity * (-1) ** n)
         norm = np.linalg.norm(a)
         if norm == 0:
             raise ValueError("Zero cat vector")
@@ -148,3 +160,58 @@ class FockInput:
         if np.linalg.norm(a) == 0:
             raise ValueError("Photon subtraction has zero norm")
         return FockInput(tuple(a / np.linalg.norm(a)))
+
+
+@dataclass(frozen=True)
+class FockSuperposition:
+    """Sparse normalized pure state with explicitly ordered occupation tuples.
+
+    A basis entry (n0, n1, ...) refers to the order of preparation/input labels.
+    Zero coefficients are allowed; support must fit the execution cutoff.
+    """
+
+    occupations: tuple[tuple[int, ...], ...]
+    amplitudes: tuple[complex, ...]
+
+    def __post_init__(self):
+        basis = tuple(tuple(b) for b in self.occupations)
+        if (
+            not basis
+            or not basis[0]
+            or len(set(basis)) != len(basis)
+            or any(len(b) != len(basis[0]) for b in basis)
+            or any(
+                not isinstance(n, (int, np.integer)) or isinstance(n, bool) or n < 0
+                for b in basis
+                for n in b
+            )
+        ):
+            raise ValueError("Invalid or duplicate occupation tuples")
+        amplitudes = FockInput(self.amplitudes).amplitudes
+        if len(amplitudes) != len(basis):
+            raise ValueError("Occupation and amplitude dimensions differ")
+        object.__setattr__(self, "occupations", basis)
+        object.__setattr__(self, "amplitudes", amplitudes)
+
+    @property
+    def modes(self):
+        return len(self.occupations[0])
+
+    @property
+    def amplitude_map(self):
+        return dict(zip(self.occupations, self.amplitudes, strict=True))
+
+    @classmethod
+    def from_mapping(cls, amplitudes):
+        return cls(tuple(amplitudes), tuple(amplitudes.values()))
+
+    @classmethod
+    def number(cls, occupations):
+        return cls((tuple(occupations),), (1 + 0j,))
+
+    @classmethod
+    def from_piquasso(cls, state):
+        """Copy a normalized public PureFockState; mixed states are rejected."""
+        if not hasattr(state, "state_vector"):
+            raise TypeError("Only native pure Fock states can be imported")
+        return cls.from_mapping(dict(state.fock_amplitudes_map))

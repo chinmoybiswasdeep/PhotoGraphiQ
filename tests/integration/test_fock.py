@@ -33,8 +33,7 @@ def test_fock_capability_errors():
     p = pg.Pattern().append(pg.Prepare(0, 0)).measure(0)
     with pytest.raises(ValueError, match="cutoff"):
         pg.simulate(p, backend="piquasso-fock")
-    with pytest.raises(NotImplementedError):
-        pg.simulate(p, backend="piquasso-fock", cutoff=4)
+    assert np.isfinite(pg.simulate(p, backend="piquasso-fock", cutoff=4).outcomes[0])
     p = pg.Pattern().append(pg.Prepare(0, 2.0))
     with pytest.raises(ValueError, match="truncation"):
         pg.simulate(p, backend="piquasso-fock", cutoff=4)

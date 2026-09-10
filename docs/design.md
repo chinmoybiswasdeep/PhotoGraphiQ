@@ -1,3 +1,5 @@
+> Historical v0.1 design audit. The v0.2 extension is recorded in [non_gaussian_design.md](non_gaussian_design.md).
+
 # Pre-implementation design record
 
 This record was written before implementation, following inspection of the supplied
@@ -118,12 +120,13 @@ raw measurement samples are not silently treated as a physics oracle.
 
 ```python
 import photographiq as pg
+
 graph = pg.CVGraph.line(3, squeezing=1.2, inputs=(0,))
 pattern = pg.Pattern(graph)
 pattern.measure(0, pg.Homodyne.p())
 pattern.displace(1, q=-pg.Outcome(0))
-pattern.measure(1, pg.Homodyne(angle=pg.Parameter('theta')))
-result = pg.simulate(pattern, parameters={'theta': 1.0}, seed=12)
+pattern.measure(1, pg.Homodyne(angle=pg.Parameter("theta")))
+result = pg.simulate(pattern, parameters={"theta": 1.0}, seed=12)
 print(result.outcomes, result.state.mean, result.state.covariance)
 ```
 

@@ -71,6 +71,44 @@ class CubicPhase:
 
 
 @dataclass(frozen=True)
+class Kerr:
+    """exp(i kappa n^2)."""
+
+    node: Any
+    kappa: Any
+
+
+@dataclass(frozen=True)
+class QuadraticPhase:
+    """exp(i s q^2/4), hence p -> p+s q."""
+
+    node: Any
+    s: Any
+
+
+@dataclass(frozen=True)
+class PhotonAdd:
+    """Normalized ideal a-dagger operation; not a physical heralding channel."""
+
+    node: Any
+
+
+@dataclass(frozen=True)
+class PhotonSubtract:
+    """Normalized ideal a operation; not a physical heralding channel."""
+
+    node: Any
+
+
+@dataclass(frozen=True)
+class PrepareResource:
+    """Prepare a correlated sparse pure resource on explicitly ordered nodes."""
+
+    nodes: tuple
+    state: Any
+
+
+@dataclass(frozen=True)
 class Signal:
     key: Any
     value: Any
@@ -91,6 +129,11 @@ COMMANDS = (
     BeamSplitter,
     Loss,
     CubicPhase,
+    Kerr,
+    QuadraticPhase,
+    PhotonAdd,
+    PhotonSubtract,
+    PrepareResource,
     Signal,
     Output,
 )
@@ -111,6 +154,6 @@ def command_dependencies(command):
 def quantum_nodes(command):
     if isinstance(command, (Entangle, BeamSplitter)):
         return (command.u, command.v)
-    if isinstance(command, Output):
+    if isinstance(command, (Output, PrepareResource)):
         return tuple(command.nodes)
     return (command.node,) if hasattr(command, "node") else ()

@@ -7,7 +7,7 @@ from dataclasses import fields, is_dataclass
 
 import numpy as np
 
-from . import commands, measurements, states
+from . import commands, measurements, resources, states
 from .expressions import _OPS, CallableExpression, Expr
 from .graph import CVGraph
 from .pattern import Pattern
@@ -22,6 +22,9 @@ _TYPES = {
         measurements.PhotonNumber,
         states.GaussianInput,
         states.FockInput,
+        states.FockSuperposition,
+        resources.CatResource,
+        resources.CubicPhaseResource,
         Expr,
     )
 }

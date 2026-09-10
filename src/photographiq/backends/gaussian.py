@@ -12,6 +12,21 @@ from .base import BaseBackend
 
 
 class GaussianBackend(BaseBackend):
+    capabilities = frozenset(
+        {
+            "gaussian",
+            "homodyne",
+            "noisy_homodyne",
+            "heterodyne",
+            "generaldyne",
+            "loss",
+            "quadratic_phase",
+        }
+    )
+
+    def quadratic_phase(self, node, s):
+        self.transform((node,), np.array([[1.0, 0.0], [s, 1.0]]))
+
     def __init__(self):
         self.reset()
 

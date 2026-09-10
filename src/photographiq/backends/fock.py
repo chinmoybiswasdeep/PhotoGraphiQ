@@ -1,18 +1,21 @@
 """Experimental pure-Fock execution with explicit total-photon truncation.
 
-Photon counting is conditional; homodyne/heterodyne conditioning is unsupported.
+Photon counting and ideal homodyne are conditional. Mixed channels are rejected.
 """
 
 from __future__ import annotations
 
+import warnings
 from dataclasses import dataclass
+from math import comb
 from typing import Any
 
 import numpy as np
 import piquasso as pq
 
-from ..measurements import PhotonNumber
-from ..states import FockInput, GaussianInput
+from ..measurements import Homodyne, PhotonNumber
+from ..resources import CatResource, CubicPhaseResource
+from ..states import FockInput, FockSuperposition, GaussianInput
 from .base import BaseBackend
 
 
@@ -21,6 +24,65 @@ class FockResultState:
     native: Any
     nodes: tuple
     retained_norms: tuple
+    diagnostics: tuple = ()
+
+    @property
+    def basis(self):
+        return tuple(self.probabilities)
+
+    @property
+    def state_vector(self):
+        if self.native is None:
+            return np.ones(1, dtype=complex)
+        if not hasattr(self.native, "state_vector"):
+            raise ValueError("A mixed reduced state has no state vector")
+        return np.array(self.native.state_vector, copy=True)
+
+    @property
+    def norm(self):
+        return float(np.trace(self.density_matrix).real)
+
+    def reduced(self, nodes):
+        nodes = tuple(nodes)
+        if len(set(nodes)) != len(nodes) or not set(nodes) <= set(self.nodes):
+            raise ValueError("Invalid reduced-state labels")
+        if nodes == self.nodes:
+            return FockResultState(
+                self.native.copy() if self.native is not None else None,
+                nodes,
+                self.retained_norms,
+                self.diagnostics,
+            )
+        native = self.native.reduced(tuple(self.nodes.index(n) for n in nodes)) if nodes else None
+        return FockResultState(native, nodes, self.retained_norms, self.diagnostics)
+
+    def quadrature(self, node, angle=0.0):
+        """Mean/variance with exact ladder moments, including vacuum boundary term."""
+        if not np.isfinite(angle):
+            raise ValueError("Angle must be finite")
+        state = self.reduced((node,))
+        rho = state.density_matrix
+        n = np.arange(len(rho))
+        a = sum(np.sqrt(k) * rho[k, k - 1] for k in range(1, len(rho)))
+        a2 = sum(np.sqrt(k * (k - 1)) * rho[k, k - 2] for k in range(2, len(rho)))
+        mean = 2 * np.real(np.exp(-1j * angle) * a)
+        second = 2 * np.dot(n, rho.diagonal()).real + 1 + 2 * np.real(np.exp(-2j * angle) * a2)
+        return float(mean), float(second - mean**2)
+
+    def fidelity(self, other):
+        from ..fock_analysis import fidelity
+
+        return fidelity(self, other)
+
+    def trace_distance(self, other):
+        from ..fock_analysis import trace_distance
+
+        return trace_distance(self, other)
+
+    def wigner(self, q, p, node=None):
+        from ..fock_analysis import wigner
+
+        return wigner(self, q, p, node)
 
     @property
     def density_matrix(self):
@@ -49,12 +111,39 @@ class FockResultState:
 
 
 class PiquassoFockBackend(BaseBackend):
-    def __init__(self, cutoff=None, *, norm_tolerance=1e-3):
+    capabilities = frozenset(
+        {
+            "gaussian",
+            "fock_input",
+            "multimode_fock",
+            "cat_state",
+            "cubic_phase",
+            "kerr",
+            "photon_counting",
+            "homodyne",
+            "quadratic_phase",
+            "photon_addition",
+            "photon_subtraction",
+            "postselection",
+        }
+    )
+
+    def __init__(
+        self, cutoff=None, *, norm_tolerance=1e-3, max_dimension=1_000_000, boundary_warning=0.02
+    ):
         if not isinstance(cutoff, int) or isinstance(cutoff, bool) or cutoff < 2:
             raise ValueError("piquasso-fock requires an explicit total-photon cutoff >= 2")
         if not 0 < norm_tolerance < 1:
             raise ValueError("Invalid norm tolerance")
         self.cutoff, self.norm_tolerance = cutoff, norm_tolerance
+        if (
+            not isinstance(max_dimension, int)
+            or max_dimension < 1
+            or not np.isfinite(boundary_warning)
+            or not 0 < boundary_warning <= 1
+        ):
+            raise ValueError("Invalid dimension/boundary diagnostic settings")
+        self.max_dimension, self.boundary_warning = max_dimension, boundary_warning
         self.reset()
 
     def reset(self, seed=None):
@@ -62,19 +151,71 @@ class PiquassoFockBackend(BaseBackend):
         self.nodes: tuple = ()
         self.native: Any = None
         self.retained_norms: list[float] = []
+        self.diagnostics: list[dict] = []
+        self.last_measurement: dict = {}
+
+    def dimension(self, modes):
+        """Number of occupations with total photon number strictly below cutoff."""
+        if not isinstance(modes, int) or modes < 0:
+            raise ValueError("Mode count must be a nonnegative integer")
+        return comb(modes + self.cutoff - 1, modes)
+
+    def _guard(self, modes):
+        dimension = self.dimension(modes)
+        if dimension > self.max_dimension:
+            raise MemoryError(
+                f"Fock dimension {dimension} exceeds max_dimension={self.max_dimension}"
+            )
+        if dimension >= 100_000:
+            warnings.warn(
+                f"Fock dimension {dimension}: vector alone needs {16 * dimension} bytes; "
+                "gate workspaces can be much larger",
+                RuntimeWarning,
+                stacklevel=3,
+            )
 
     def _config(self):
         return pq.Config(cutoff=self.cutoff, hbar=2.0)
 
-    def _check(self, state):
+    def _check(self, state, operation="preparation"):
         norm = float(state.norm)
         self.retained_norms.append(norm)
         if not np.isfinite(norm) or abs(norm - 1) > self.norm_tolerance:
             raise ValueError(f"Fock truncation norm {norm:.8g}; increase cutoff={self.cutoff}")
+        if abs(norm - 1) > 1e-8:
+            warnings.warn(
+                f"{operation}: retained Fock norm {norm:.8g}; test a larger cutoff",
+                RuntimeWarning,
+                stacklevel=3,
+            )
         state.normalize()
+        boundary = float(
+            sum(
+                p
+                for b, p in state.fock_probabilities_map.items()
+                if sum(b) >= max(1, self.cutoff - 2)
+            )
+        )
+        self.diagnostics.append(
+            {
+                "operation": operation,
+                "retained_norm": norm,
+                "boundary_population": boundary,
+                "cutoff": self.cutoff,
+                "dimension": len(state.fock_probabilities_map),
+            }
+        )
+        if boundary > self.boundary_warning:
+            warnings.warn(
+                f"{operation}: boundary population {boundary:.3g}; cutoff convergence "
+                "is required even when norm is one",
+                RuntimeWarning,
+                stacklevel=3,
+            )
         return state
 
     def _vector(self, amplitudes, modes):
+        self._guard(modes)
         with pq.Program() as program:
             for basis, coefficient in amplitudes.items():
                 if abs(coefficient) > 0:
@@ -86,10 +227,39 @@ class PiquassoFockBackend(BaseBackend):
             raise ValueError("Duplicate Fock node")
         if not np.isfinite(squeezing) or squeezing < 0:
             raise ValueError("Invalid squeezing")
+        self._guard(len(self.nodes) + 1)
+        resource_mass = 1.0
+        if isinstance(state, CatResource):
+            from scipy.special import gammaln
+
+            intensity = abs(state.alpha) ** 2
+            if intensity > 0:
+                n = np.arange(self.cutoff)
+                weights = (
+                    np.exp(-intensity + n * np.log(intensity) - gammaln(n + 1))
+                    * (1 + state.parity * (-1) ** n) ** 2
+                    / (
+                        2
+                        * (
+                            1 + np.exp(-2 * intensity)
+                            if state.parity == 1
+                            else -np.expm1(-2 * intensity)
+                        )
+                    )
+                )
+                resource_mass = float(weights.sum())
+            state = FockInput.cat(state.alpha, self.cutoff, state.parity)
+        if isinstance(state, CubicPhaseResource):
+            self.prepare(node, squeezing=state.squeezing)
+            self.cubic_phase(node, state.gamma)
+            return
+        if isinstance(state, FockSuperposition):
+            self.prepare_resource((node,), state)
+            return
         if isinstance(state, FockInput):
             if len(state.amplitudes) > self.cutoff:
                 raise ValueError("Input exceeds cutoff")
-            local = {(n,): a for n, a in enumerate(state.amplitudes)}
+            local = {(n,): a * np.sqrt(resource_mass) for n, a in enumerate(state.amplitudes)}
         else:
             if state is not None and not isinstance(state, GaussianInput):
                 raise NotImplementedError("Unsupported Fock input")
@@ -124,6 +294,25 @@ class PiquassoFockBackend(BaseBackend):
         self.native = self._check(self._vector(tensor, len(self.nodes) + 1))
         self.nodes += (node,)
 
+    def prepare_resource(self, nodes, state):
+        nodes = tuple(nodes)
+        if not isinstance(state, FockSuperposition) or state.modes != len(nodes):
+            raise ValueError("Provide a FockSuperposition matching the ordered resource nodes")
+        if len(set(nodes)) != len(nodes) or set(nodes) & set(self.nodes):
+            raise ValueError("Duplicate resource nodes")
+        if any(sum(b) >= self.cutoff and abs(a) > 0 for b, a in state.amplitude_map.items()):
+            raise ValueError("Resource support exceeds total-photon cutoff")
+        self._guard(len(self.nodes) + len(nodes))
+        old = {(): 1.0} if self.native is None else self.native.fock_amplitudes_map
+        tensor = {
+            b + n: a * c
+            for b, a in old.items()
+            for n, c in state.amplitude_map.items()
+            if sum(b) + sum(n) < self.cutoff
+        }
+        self.native = self._check(self._vector(tensor, len(self.nodes) + len(nodes)))
+        self.nodes += nodes
+
     def _gate(self, nodes, instruction):
         if len(set(nodes)) != len(nodes):
             raise ValueError("Repeated gate mode")
@@ -132,7 +321,7 @@ class PiquassoFockBackend(BaseBackend):
         result = pq.PureFockSimulator(d=len(self.nodes), config=self._config()).execute(
             program, initial_state=self.native
         )
-        self.native = self._check(result.state)
+        self.native = self._check(result.state, type(instruction).__name__)
 
     def entangle(self, u, v, weight=1.0):
         passive = np.array([[1, 1j * weight / 2], [1j * weight / 2, 1]])
@@ -155,17 +344,89 @@ class PiquassoFockBackend(BaseBackend):
     def cubic_phase(self, node, gamma):
         self._gate((node,), pq.CubicPhase(gamma=gamma))
 
-    def measure(self, node, measurement, angle=0.0):
+    def kerr(self, node, kappa):
+        self._gate((node,), pq.Kerr(xi=kappa))
+
+    def quadratic_phase(self, node, s):
+        self._gate((node,), pq.QuadraticPhase(s=s))
+
+    def ladder(self, node, addition):
+        i = self.nodes.index(node)
+        projected = {}
+        expected = retained = 0.0
+        for basis, amplitude in self.native.fock_amplitudes_map.items():
+            factor = basis[i] + int(addition)
+            if factor == 0:
+                continue
+            value = amplitude * np.sqrt(factor)
+            expected += abs(value) ** 2
+            target = list(basis)
+            target[i] += 1 if addition else -1
+            if sum(target) < self.cutoff:
+                projected[tuple(target)] = value
+                retained += abs(value) ** 2
+        if expected <= 1e-28:
+            raise ValueError("Ideal ladder operation has zero norm")
+        if expected - retained > 1e-12:
+            raise ValueError("Photon addition exceeds cutoff; increase cutoff")
+        self.native = self._vector(
+            {b: a / np.sqrt(retained) for b, a in projected.items()}, len(self.nodes)
+        )
+        self.diagnostics.append(
+            {
+                "operation": "PhotonAdd" if addition else "PhotonSubtract",
+                "ladder_norm_squared": float(expected),
+                "retained_norm": retained / expected,
+                "cutoff": self.cutoff,
+                "dimension": self.dimension(len(self.nodes)),
+                "boundary_population": float(
+                    sum(
+                        p
+                        for b, p in self.native.fock_probabilities_map.items()
+                        if sum(b) >= max(1, self.cutoff - 2)
+                    )
+                ),
+            }
+        )
+
+    def measure(self, node, measurement, angle=0.0, *, outcome=None):
+        if isinstance(measurement, Homodyne):
+            if measurement.efficiency != 1 or measurement.noise != 0:
+                raise NotImplementedError("Noisy Fock homodyne requires mixed-state conditioning")
+            from ..fock_measurements import homodyne_projection
+
+            value, projected, density = homodyne_projection(
+                self.native.fock_amplitudes_map,
+                self.nodes.index(node),
+                self.cutoff,
+                angle,
+                self.rng,
+                outcome,
+            )
+            self.nodes = tuple(n for n in self.nodes if n != node)
+            self.native = self._vector(projected, len(self.nodes)) if self.nodes else None
+            self.last_measurement = {"kind": "density", "value": density}
+            return value
         if not isinstance(measurement, PhotonNumber):
             raise NotImplementedError(
-                "Adaptive Fock homodyne/heterodyne has no conditional-state adapter"
+                "Fock backend supports ideal Homodyne and PhotonNumber measurements only"
             )
         i = self.nodes.index(node)
         amplitudes = self.native.fock_amplitudes_map
         probabilities = np.zeros(self.cutoff)
         for basis, amplitude in amplitudes.items():
             probabilities[basis[i]] += abs(amplitude) ** 2
-        outcome = int(self.rng.choice(self.cutoff, p=probabilities / probabilities.sum()))
+        if outcome is None:
+            outcome = int(self.rng.choice(self.cutoff, p=probabilities / probabilities.sum()))
+        if (
+            not isinstance(outcome, (int, np.integer))
+            or isinstance(outcome, bool)
+            or not 0 <= outcome < self.cutoff
+        ):
+            raise ValueError("Photon-count outcome must be an integer within cutoff")
+        if probabilities[outcome] <= 1e-300:
+            raise ValueError("Photon-count postselection has zero probability")
+        self.last_measurement = {"kind": "probability", "value": float(probabilities[outcome])}
         projected = {
             b[:i] + b[i + 1 :]: a / np.sqrt(probabilities[outcome])
             for b, a in amplitudes.items()
@@ -178,10 +439,15 @@ class PiquassoFockBackend(BaseBackend):
     def get_state(self, nodes=None):
         nodes = self.nodes if nodes is None else tuple(nodes)
         if not nodes:
-            return FockResultState(None, (), tuple(self.retained_norms))
+            return FockResultState(None, (), tuple(self.retained_norms), tuple(self.diagnostics))
         native = (
             self.native
             if nodes == self.nodes
             else self.native.reduced(tuple(self.nodes.index(n) for n in nodes))
         )
-        return FockResultState(native.copy(), nodes, tuple(self.retained_norms))
+        return FockResultState(
+            native.copy(),
+            nodes,
+            tuple(self.retained_norms),
+            tuple(dict(d) for d in self.diagnostics),
+        )

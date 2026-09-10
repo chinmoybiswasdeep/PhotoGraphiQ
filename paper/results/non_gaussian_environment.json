@@ -1,0 +1,16 @@
+{
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "packages": {
+    "photographiq": "0.2.0",
+    "piquasso": "8.0.1",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "seed": 0,
+  "gate_gamma": 0.65,
+  "injection_gamma": 0.3,
+  "injection_squeezing": 0.2,
+  "fixed_homodyne_outcome": 0.4,
+  "timings": "Local wall-clock observations, including first-call overhead; not comparative benchmarks"
+}

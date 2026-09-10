@@ -140,10 +140,13 @@ error bound: observable convergence versus increasing cutoff is still required.
 Number, cat and arbitrary normalized Fock vectors are available. Photon addition
 and subtraction construct normalized offline resources; their normalization is
 not a detector heralding probability. A cubic-phase gate can create a truncated
-non-Gaussian resource. Fock homodyne conditioning, mixed-input injection and GKP
+non-Gaussian resource. Noisy Fock homodyne, mixed-input injection and GKP
 states are not implemented. No universal non-Gaussian MBQC compilation is claimed.
 
 Gaussian mean photon number is (Tr V_i+mu_i^T mu_i-2)/4.
 Parity is exp(-mu^T V^-1 mu/2)/sqrt(det V). Gaussian overlap is
 2^n exp(-Delta^T(V1+V2)^-1 Delta/2)/sqrt(det(V1+V2)); it equals fidelity when at
 least one state is pure, and is otherwise only Tr(rho1 rho2).
+
+The v0.2 [non-Gaussian derivations](non_gaussian.md) specify ideal Fock homodyne,
+ladder factors, finite-envelope cubic injection and phase-space normalization.

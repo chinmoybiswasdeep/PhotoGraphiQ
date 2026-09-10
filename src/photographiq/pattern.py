@@ -11,6 +11,7 @@ from .commands import (
     Measure,
     Output,
     Prepare,
+    PrepareResource,
     Signal,
     command_dependencies,
     expressions,
@@ -71,6 +72,8 @@ class Pattern:
         for command in self.commands:
             if isinstance(command, Prepare):
                 active.append(command.node)
+            elif isinstance(command, PrepareResource):
+                active.extend(command.nodes)
             elif isinstance(command, Measure) and command.node in active:
                 active.remove(command.node)
         return tuple(active)
@@ -83,6 +86,9 @@ class Pattern:
         for c in self.commands:
             if isinstance(c, Prepare):
                 graph.add_node(c.node, c.squeezing)
+            elif isinstance(c, PrepareResource):
+                for node in c.nodes:
+                    graph.add_node(node, squeezing=0.0)
             elif isinstance(c, Entangle):
                 if graph.network.has_edge(c.u, c.v):
                     old = graph.network[c.u][c.v]["weight"]
@@ -104,11 +110,12 @@ class Pattern:
                 raise ValueError("Output must be the final command")
             if not command_dependencies(c) <= records:
                 raise ValueError(f"Command {i} depends on a future outcome")
-            if isinstance(c, Prepare):
-                if c.node in ever:
-                    raise ValueError(f"Node {c.node!r} prepared twice")
-                active.add(c.node)
-                ever.add(c.node)
+            if isinstance(c, (Prepare, PrepareResource)):
+                nodes = quantum_nodes(c)
+                if not nodes or len(set(nodes)) != len(nodes) or set(nodes) & ever:
+                    raise ValueError("Empty, duplicate or previously prepared resource nodes")
+                active.update(nodes)
+                ever.update(nodes)
             else:
                 if not set(quantum_nodes(c)) <= active:
                     raise ValueError(f"Command {i} uses a missing or measured node")

@@ -56,6 +56,9 @@ class PiquassoBackend(GaussianBackend):
     def squeeze(self, node, r):
         self._gate((node,), pq.Squeezing(r=r))
 
+    def quadratic_phase(self, node, s):
+        self._gate((node,), pq.QuadraticPhase(s=s))
+
     def beamsplitter(self, u, v, theta):
         self._gate((u, v), pq.Beamsplitter(theta=theta, phi=0.0))
 

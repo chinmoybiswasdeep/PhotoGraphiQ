@@ -4,6 +4,31 @@ from abc import ABC, abstractmethod
 
 
 class BaseBackend(ABC):
+    capabilities: frozenset[str] = frozenset()
+
+    def supports(self, feature: str) -> bool:
+        """Whether this backend implements a named execution capability."""
+        return feature in self.capabilities
+
+    def require(self, *features):
+        missing = set(features) - self.capabilities
+        if missing:
+            raise NotImplementedError(
+                f"{type(self).__name__} does not support {', '.join(sorted(missing))}"
+            )
+
+    def prepare_resource(self, nodes, state):
+        raise NotImplementedError("Correlated Fock resource requires a Fock backend")
+
+    def kerr(self, node, kappa):
+        raise NotImplementedError("Kerr requires a Fock backend")
+
+    def quadratic_phase(self, node, s):
+        raise NotImplementedError("Quadratic phase is unsupported")
+
+    def ladder(self, node, addition):
+        raise NotImplementedError("Ladder operations require a Fock backend")
+
     @abstractmethod
     def reset(self, seed=None): ...
     @abstractmethod

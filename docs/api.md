@@ -54,3 +54,15 @@ The current engine converts scalar parameters to Python floats and performs
 stochastic control flow; its execution is not end-to-end differentiable. Batching
 means independent trajectories, not a vectorized accelerator implementation.
 PhotoGraphiQ deliberately introduces no ML runtime dependencies.
+
+
+## v0.2 non-Gaussian API
+
+See [the complete non-Gaussian guide](non_gaussian.md) for resource and command
+signatures, postselection statistics, metrics and cutoff diagnostics.
+New backends must advertise their supported features in `capabilities`; execution
+preflights them before running. Optional methods include `prepare_resource`,
+`quadratic_phase`, `kerr` and `ladder`. Gaussian backends implement quadratic phase.
+Fock snapshots additionally expose vector/basis/norm, reductions, quadrature
+moments, fidelity, trace distance and Wigner grids. `simulate` accepts
+`measurement_outcomes` on backends supporting explicit postselection.

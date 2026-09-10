@@ -54,6 +54,9 @@ class Expr:
     def __pow__(self, x):
         return Expr("pow", (self, expression(x)))
 
+    def __rpow__(self, x):
+        return expression(x) ** self
+
     def __neg__(self):
         return Expr("neg", (self,))
 

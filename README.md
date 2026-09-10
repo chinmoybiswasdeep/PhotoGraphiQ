@@ -41,7 +41,10 @@ causal scheduling; total-order CV-flow certificates; Gaussian circuit compilatio
 finite-squeezing channel analysis; photon loss and detector inefficiency;
 versioned JSON; graph/dependency diagrams; and independent repeated trajectories.
 Experimental Fock execution supports number, cat and arbitrary pure Fock inputs,
-photon counting, Gaussian gates and cubic-phase resources with explicit cutoff checks.
+conditional photon counting and ideal homodyne, Kerr/cubic gates, mathematical
+photon addition/subtraction, physical heralding, finite cat/cubic resource injection,
+Wigner diagnostics and occupation-aligned cutoff convergence. See the
+[non-Gaussian tutorial](docs/non_gaussian.md).
 
 **Conventions:** `[q,p]=2i`, interleaved `(q0,p0,q1,p1,...)`, statistical vacuum
 covariance `V=I`, radians, `CZ(g): p_i -> p_i + g*q_j`, and positive resource
@@ -53,7 +56,7 @@ Gaussian. `ensemble_state()` returns its first two moments in a Gaussian contain
 The Piquasso backend uses native physical gates and PhotoGraphiQ's exact measurement
 adapter; see the documented upstream detector-convention discrepancies.
 
-The release does not implement adaptive Fock homodyne, GKP error correction,
+The release does not implement noisy Fock homodyne, mixed Fock inputs, GKP error correction,
 universal non-Gaussian compilation, arbitrary-order CV-flow search, hardware
 temporal scheduling or automatic differentiation. Unsupported operations raise
 clear exceptions. The beam-splitter compiler prioritizes a transparent correct
@@ -66,10 +69,11 @@ decomposition over resource efficiency.
 * [Validation and limitations](docs/validation.md)
 * [Coverage of the supplied specification](docs/specification-status.md)
 * [References](docs/references.md)
-* [Quantum-style paper source](paper/PhotoGraphiQ.tex) and [PDF](paper/PhotoGraphiQ.pdf)
+* [Quantum-style paper source](paper/PhotoGraphiQ.tex) and [PDF](paper/PhotoGraphiQ-v0.2.pdf)
 * [Reproducible paper data](paper/results/finite_squeezing.csv)
 
-Reproduce the paper figures with `python experiments/reproduce.py`. Build the
+Reproduce the paper figures with `python experiments/reproduce.py` and
+`python experiments/non_gaussian.py`. Build the
 manuscript by running `pdflatex PhotoGraphiQ.tex` twice from `paper/`; the official
 Quantum class is included under its original LaTeX Project Public License.
 The manuscript is a software paper draft, not a claim of journal acceptance.

@@ -17,8 +17,8 @@ result = pg.simulate(pg.Pattern(graph), seed=1)
 print(graph.nullifiers() @ result.state.covariance @ graph.nullifiers().T)
 
 weighted = nx.Graph()
-weighted.add_edge('left', 'right', weight=0.7)
-graph = pg.CVGraph(weighted, squeezing={'left': 0.7, 'right': 1.2}, inputs=('left',))
+weighted.add_edge("left", "right", weight=0.7)
+graph = pg.CVGraph(weighted, squeezing={"left": 0.7, "right": 1.2}, inputs=("left",))
 ```
 
 Labels can be hashable Python objects at runtime; safe JSON supports primitive
@@ -33,7 +33,7 @@ defined by a pattern's `Measure` commands, and `pattern.outputs` reports survivo
 
 ```python
 pattern = pg.protocols.identity(squeezing=1.0)
-result = pg.simulate(pattern, inputs={0: pg.GaussianInput.coherent(0.3+0.1j)}, seed=7)
+result = pg.simulate(pattern, inputs={0: pg.GaussianInput.coherent(0.3 + 0.1j)}, seed=7)
 print(result.state.quadrature(pattern.outputs[0]))
 
 pattern = pg.Circuit(1).rotate(0, 0.4).squeeze(0, 0.2).compile(squeezing=1.2)
@@ -55,11 +55,12 @@ as `initial_state`. Declaring the external hbar prevents silent unit mismatch.
 
 ```python
 pattern = pg.protocols.adaptive(squeezing=0.8)
-result = pg.simulate(pattern, parameters={'k': 0.3}, seed=10, frame=True)
+result = pg.simulate(pattern, parameters={"k": 0.3}, seed=10, frame=True)
 print(result.outcomes)
 
 from photographiq.expressions import CallableExpression
-angle = CallableExpression(lambda records: 0.2 + records[0]**2, dependencies={0})
+
+angle = CallableExpression(lambda records: 0.2 + records[0] ** 2, dependencies={0})
 ```
 
 `Outcome(key)` refers to an earlier measurement or `Signal`. Heterodyne outcomes
@@ -74,6 +75,7 @@ Duplicate keys, missing producers, cycles and future dependencies are rejected.
 
 ```python
 from photographiq.cvflow import certify_cv_flow, flow_pattern
+
 graph = pg.CVGraph.line(4, squeezing=0.8, inputs=(0,), outputs=(3,))
 certificate = certify_cv_flow(graph, [0, 1, 2])
 pattern = flow_pattern(graph, [0, 1, 2], shears={1: 0.3})
@@ -89,7 +91,7 @@ returns command indices. Neither should be labeled qubit gflow.
 
 ```python
 pattern = pg.protocols.identity(squeezing=0.8)
-shots = pg.run_shots(pattern, 1000, backend='gaussian', seed=123)
+shots = pg.run_shots(pattern, 1000, backend="gaussian", seed=123)
 ensemble = shots.ensemble_state()
 print(ensemble.covariance)
 
@@ -112,15 +114,15 @@ average them instead when necessary.
 
 ```python
 resource = pg.FockInput.cat(alpha=0.4, cutoff=12).photon_added()
-pattern = pg.Pattern().append(pg.Prepare('a', state=resource))
-pattern.append(pg.CubicPhase('a', gamma=0.005))
-result = pg.simulate(pattern, backend='piquasso-fock', cutoff=16, seed=4)
-print(result.state.photon_number('a'), result.state.retained_norms)
+pattern = pg.Pattern().append(pg.Prepare("a", state=resource))
+pattern.append(pg.CubicPhase("a", gamma=0.005))
+result = pg.simulate(pattern, backend="piquasso-fock", cutoff=16, seed=4)
+print(result.state.photon_number("a"), result.state.retained_norms)
 ```
 
 Photon-number measurement is supported via `PhotonNumber()`. Use a cutoff scan
 to check observables. A low retained norm raises an exception. Gaussian MBQC uses
-no Fock cutoff. Adaptive Fock homodyne, mixed Fock inputs, GKP resources and universal
+no Fock cutoff. Noisy Fock homodyne, mixed Fock inputs, GKP resources and universal
 non-Gaussian compilation are explicitly unavailable in this release.
 
 ## Saving, inspecting and plotting
@@ -131,8 +133,9 @@ restored = pg.Pattern.from_json(text)
 print(restored.inspect())
 
 from photographiq.visualization import draw_graph, draw_dependencies
-draw_graph(pg.CVGraph.square(3)).figure.savefig('cluster.pdf', bbox_inches='tight')
-draw_dependencies(pg.protocols.wire([0, 0.3])).figure.savefig('dag.pdf', bbox_inches='tight')
+
+draw_graph(pg.CVGraph.square(3)).figure.savefig("cluster.pdf", bbox_inches="tight")
+draw_dependencies(pg.protocols.wire([0, 0.3])).figure.savefig("dag.pdf", bbox_inches="tight")
 ```
 
 `to_json(path)` optionally writes to a file; `from_json` takes JSON text rather
@@ -141,3 +144,6 @@ Drawing returns a matplotlib Axes for customization. Inputs, outputs, labels,
 weights and squeezing are visible; `draw_pattern` adds measurement order and
 angle annotations, while `draw_dependencies` shows classical and quantum causal
 edges. For large patterns export these views separately for legibility.
+
+See [Experimental non-Gaussian MBQC](non_gaussian.md) for conditional homodyne,
+correlated resources, cubic/cat injection, heralding, Wigner plots and cutoff studies.

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any
 
 import numpy as np
@@ -13,10 +13,15 @@ from .commands import (
     CubicPhase,
     Displace,
     Entangle,
+    Kerr,
     Loss,
     Measure,
     Output,
+    PhotonAdd,
+    PhotonSubtract,
     Prepare,
+    PrepareResource,
+    QuadraticPhase,
     Rotate,
     Signal,
     Squeeze,
@@ -35,6 +40,18 @@ class Result:
     backend: str
     seed: object
     physical_displacements: int = 0
+    measurement_statistics: dict = field(default_factory=dict)
+
+    @property
+    def log_likelihood(self):
+        """Log product of recorded conditional probabilities/densities.
+
+        If homodyne is present this is a joint density, not an event probability.
+        Gaussian backends currently do not populate this diagnostic.
+        """
+        if len(self.measurement_statistics) != len(self.outcomes):
+            raise NotImplementedError("Backend did not report every measurement likelihood")
+        return float(sum(np.log(item["value"]) for item in self.measurement_statistics.values()))
 
 
 @dataclass
@@ -83,6 +100,7 @@ def simulate(
     frame=False,
     cutoff=None,
     initial_state=None,
+    measurement_outcomes=None,
 ):
     """Execute one conditional trajectory. Missing inputs default to vacuum.
 
@@ -99,10 +117,19 @@ def simulate(
     if not inputs.keys() <= set(pattern.inputs):
         raise ValueError("Input supplied for a non-input node")
     engine = _backend(backend, cutoff)
+    from .capabilities import preflight
+    from .states import FockSuperposition
+
+    measurement_outcomes = dict(measurement_outcomes or {})
+    preflight(engine, pattern, inputs, initial_state, measurement_outcomes)
     if frame and not isinstance(engine, GaussianBackend):
         raise NotImplementedError("Exact displacement-frame tracking requires a Gaussian backend")
     engine.reset(seed)
-    if initial_state is not None:
+    if isinstance(initial_state, FockSuperposition):
+        if inputs:
+            raise ValueError("Do not combine correlated and individual inputs")
+        engine.prepare_resource(pattern.inputs, initial_state)
+    elif initial_state is not None:
         if (
             inputs
             or not isinstance(initial_state, GaussianState)
@@ -119,6 +146,7 @@ def simulate(
             engine.prepare(node, squeezing=0, state=inputs.get(node, GaussianInput()))
     outcomes: dict = {}
     records: dict = {}
+    statistics: dict = {}
     pending: dict = {}
     applied = 0
 
@@ -142,6 +170,8 @@ def simulate(
     for c in pattern.commands:
         if isinstance(c, Prepare):
             engine.prepare(c.node, value(c.squeezing), c.state)
+        elif isinstance(c, PrepareResource):
+            engine.prepare_resource(c.nodes, c.state)
         elif isinstance(c, Entangle):
             g = value(c.weight)
             engine.entangle(c.u, c.v, g)
@@ -175,7 +205,15 @@ def simulate(
             shift = pending.pop(c.node, np.zeros(2)) if virtual else np.zeros(2)
             if not virtual:
                 flush(c.node)
-            record = engine.measure(c.node, c.measurement, angle)
+            if c.result_key in measurement_outcomes:
+                record = engine.measure(
+                    c.node, c.measurement, angle, outcome=measurement_outcomes[c.result_key]
+                )
+            else:
+                record = engine.measure(c.node, c.measurement, angle)
+            if engine.supports("fock_input"):
+                statistics[c.result_key] = dict(engine.last_measurement)
+                statistics[c.result_key]["postselected"] = c.result_key in measurement_outcomes
             if virtual:
                 if isinstance(c.measurement, Homodyne):
                     record += float(np.array([np.cos(angle), np.sin(angle)]) @ shift)
@@ -191,12 +229,28 @@ def simulate(
         elif isinstance(c, CubicPhase):
             flush(c.node)
             engine.cubic_phase(c.node, value(c.gamma))
+        elif isinstance(c, Kerr):
+            flush(c.node)
+            engine.kerr(c.node, value(c.kappa))
+        elif isinstance(c, QuadraticPhase):
+            s = value(c.s)
+            engine.quadratic_phase(c.node, s)
+            propagate((c.node,), np.array([[1, 0], [s, 1]]))
+        elif isinstance(c, (PhotonAdd, PhotonSubtract)):
+            flush(c.node)
+            engine.ladder(c.node, isinstance(c, PhotonAdd))
         elif not isinstance(c, Output):
             raise NotImplementedError(type(c).__name__)
     for node in tuple(pending):
         flush(node)
     return Result(
-        outcomes, records, engine.get_state(pattern.outputs), type(engine).__name__, seed, applied
+        outcomes,
+        records,
+        engine.get_state(pattern.outputs),
+        type(engine).__name__,
+        seed,
+        applied,
+        statistics,
     )
 
 

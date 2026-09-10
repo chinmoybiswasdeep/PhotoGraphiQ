@@ -32,8 +32,9 @@ general Gaussian measurements, displacement feed-forward, causal validation,
 numerical CV-flow certificates for specified measurement orders, serialization,
 and visualization. A Gaussian compiler constructs teleportation patterns for
 single-mode symplectic gates and two-mode interactions, while an experimental
-Fock adapter supports explicitly truncated non-Gaussian resources and conditional
-photon counting. We derive the conventions, measurement updates, teleportation
+Fock adapter supports correlated resources, conditional photon counting and
+homodyne, Kerr and cubic gates, ideal ladder operations, and finite cat/cubic
+resource injection with nonlinear feed-forward and cutoff diagnostics. We derive the conventions, measurement updates, teleportation
 noise, compiler factorization, and displacement-frame rules used by the software.
 Validation distinguishes analytical physics, raw Piquasso comparisons, and
 structural comparisons with the qubit MBQC framework GraphiX. Reproducible
@@ -68,19 +69,21 @@ present runtime.
 
 \subsection{Contributions and assumptions}
 
-This article describes the implemented version 0.1.0 repository. Its contributions
+This article describes the implemented version 0.2.0 repository. Its contributions
 are a backend-independent command representation with causal classical signals;
 finite-squeezing Gaussian graph preparation and exact destructive measurement
 conditioning; a teleportation-based Gaussian compiler; independent unconditional
 channel analysis; specified-order CV-flow certification; a conservative
 displacement frame and rewrite system; and a validation suite with reproducible
-examples and data. We additionally expose a bounded experimental Fock backend.
+examples and data. The non-Gaussian extension adds finite-resource injection,
+conditional wavefunction updates, physical heralding, occupation-aligned state
+metrics and independent Fock-space validation.
 
 The assumptions are explicit. Gaussian trajectories use dense first and second
 moments with $\hbar=2$. Gaussian compilation implements noisy finite-resource
 channels whose ideal symplectic targets are checked separately. The Fock adapter
-uses a global total-photon cutoff and does not support adaptive homodyne
-conditioning. CV-flow is checked for a supplied total order; the software does
+uses a global total-photon cutoff and supports ideal adaptive homodyne
+conditioning through an explicit wavefunction adapter. CV-flow is checked for a supplied total order; the software does
 not search for maximally parallel flow. A dependency DAG by itself is not a
 determinism certificate. GraphiX validates corresponding structures, not equality
 between CV and qubit states.
@@ -514,43 +517,7 @@ adaptation can produce a non-Gaussian mixture, for which a Gaussian formula
 applied to this container need not equal the mixture's actual observable.
 Per-trajectory observable averages avoid that misinterpretation.
 
-\section{Experimental Fock resources and noise}
-
-The Fock adapter uses the subspace
-\begin{align}
- \mathcal H_{d,c}=\operatorname{span}\{
- |n_1,\ldots,n_d\rangle:\textstyle\sum_jn_j<c\},\\
- \dim\mathcal H_{d,c}=\binom{d+c-1}{d}.
-\end{align}
-The cutoff is global, not a separate cutoff for each mode. The backend accepts
-number states, normalized user amplitudes, finite cat approximations and pure
-Gaussian inputs. It uses Piquasso's pure Fock simulator for native Gaussian and
-cubic-phase gates. Photon counting samples the finite-space probabilities and
-projects the surviving amplitudes with the correct normalization.
-
-Retained norms are recorded after gate and tensor operations. Excessive norm
-deviation raises an error instructing the user to increase the cutoff; smaller
-deviations are explicitly normalized and retained in result diagnostics.
-Norm monitoring is not a rigorous bound on observable error, especially when
-a truncated operation is norm preserving. Cutoff-convergence scans remain
-necessary. Photon-added and photon-subtracted input helpers construct normalized
-offline resource vectors, not physical heralding probabilities.
-
-Pure-Fock homodyne in the inspected upstream implementation does not provide
-a conditional output state. PhotoGraphiQ therefore rejects adaptive Fock
-homodyne and heterodyne rather than returning a sample with a fictitious
-post-measurement state. Mixed Fock input injection, GKP resources and a universal
-non-Gaussian compiler are outside this release.
-
-Gaussian noise support includes attenuation with thermal environment,
-\begin{equation}
- V\mapsto XVX^T+Y,
-\end{equation}
-where a local mode has $X=\sqrt\eta\I$ and
-$Y=(1-\eta)(2n_{\mathrm{th}}+1)\I$. Detector inefficiency is a measurement
-parameter, and finite squeezing remains a resource property. Phase diffusion,
-mode mismatch and detailed detector hardware are not silently approximated by
-these channels.
+\input{non_gaussian.tex}
 
 \section{Validation and reproducible results}
 
@@ -641,7 +608,9 @@ print(channel.matrix, channel.noise)
 
 Install the development extras and run \texttt{python -m pytest}. Running
 \texttt{python experiments/reproduce.py} regenerates the CSV, environment JSON,
-LaTeX table and figures. The manuscript uses the official Quantum document class,
+LaTeX table and figures. Running
+\texttt{python experiments/non\_gaussian.py} regenerates the non-Gaussian
+convergence CSV, figures and local environment record. The manuscript uses the official Quantum document class,
 included with its original license. Running pdfLaTeX twice in the paper directory
 builds the manuscript. No remote quantum service or hardware account is required.
 
@@ -669,7 +638,7 @@ Gaussian fitting of adaptive mixtures must not obscure non-Gaussian ensemble
 features.
 
 Non-Gaussian resource experiments remain bounded by the explicit Fock cutoff.
-Adaptive Fock homodyne, mixed-state input resources, GKP error correction,
+Noisy Fock homodyne, mixed-state input resources, GKP error correction,
 fault-tolerant compilation and realistic temporal hardware scheduling are not
 implemented. These omissions are exposed as documented capability boundaries
 rather than apparently functional placeholder APIs.
@@ -736,6 +705,15 @@ R. I. Booth and D. Markham,
 S. L. Braunstein and H. J. Kimble,
 ``Teleportation of Continuous Quantum Variables,''
 \href{https://doi.org/10.1103/PhysRevLett.80.869}{Phys. Rev. Lett. \textbf{80}, 869 (1998)}.
+\bibitem{marek2011}
+P. Marek, R. Filip, and A. Furusawa,
+``Deterministic implementation of weak quantum cubic nonlinearity,''
+\href{https://doi.org/10.1103/PhysRevA.84.053802}{Phys. Rev. A \textbf{84}, 053802 (2011)}.
+
+\bibitem{miyata2016}
+K. Miyata, H. Ogawa, P. Marek, R. Filip, H. Yonezawa, J.-i. Yoshikawa, and A. Furusawa,
+``Implementation of a quantum cubic gate by adaptive non-Gaussian measurement,''
+\href{https://doi.org/10.1103/PhysRevA.93.022301}{Phys. Rev. A \textbf{93}, 022301 (2016)}.
 \end{thebibliography}
 
 \appendix
