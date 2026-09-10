@@ -1,6 +1,6 @@
 # PhotoGraphiQ manuscript
 
-`PhotoGraphiQ-v0.2.pdf` is the revised manuscript including the non-Gaussian extension.
+`PhotoGraphiQ-hardened.pdf` is the revised manuscript including the non-Gaussian extension.
 `PhotoGraphiQ.tex` (including `non_gaussian.tex`) is the complete software paper draft.
 `PhotoGraphiQ.pdf` is the previous Gaussian-focused manuscript retained because
 it was locked by an open PDF viewer during this update. `quantumarticle.cls` is

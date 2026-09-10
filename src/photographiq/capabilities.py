@@ -5,7 +5,7 @@ import numpy as np
 from . import commands as c
 from .measurements import Generaldyne, Heterodyne, Homodyne, PhotonNumber
 from .resources import CatResource, CubicPhaseResource
-from .states import FockInput, FockSuperposition, GaussianInput
+from .states import FockInput, FockSuperposition, GaussianInput, GaussianState
 
 
 def preflight(engine, pattern, inputs, initial_state=None, measurement_outcomes=None):
@@ -55,7 +55,7 @@ def preflight(engine, pattern, inputs, initial_state=None, measurement_outcomes=
         if (
             engine.supports("fock_input")
             and isinstance(state, GaussianInput)
-            and not np.isclose(np.linalg.det(state.covariance), 1)
+            and not np.isclose(np.linalg.det(state.covariance), 1, atol=1e-10, rtol=0)
         ):
             raise NotImplementedError("Mixed Gaussian inputs require a mixed Fock backend")
     if measurement_outcomes:
@@ -63,3 +63,19 @@ def preflight(engine, pattern, inputs, initial_state=None, measurement_outcomes=
             raise ValueError("Postselection key does not identify a measurement")
         features.add("postselection")
     engine.require(*features)
+    # Do this after capability checks but before reset or any preparation.
+    if initial_state is not None:
+        if inputs:
+            raise ValueError("Do not combine correlated and individual inputs")
+        if isinstance(initial_state, GaussianState):
+            if engine.supports("fock_input"):
+                raise NotImplementedError(
+                    "Correlated Gaussian injection requires a Gaussian backend"
+                )
+        else:
+            engine.validate_preparation(initial_state, len(pattern.inputs))
+    for state in inputs.values():
+        engine.validate_preparation(state)
+    for command in pattern.commands:
+        if isinstance(command, (c.Prepare, c.PrepareResource)):
+            engine.validate_preparation(command.state, len(c.quantum_nodes(command)))

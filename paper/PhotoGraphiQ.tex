@@ -754,8 +754,8 @@ the command DAG, including quantum ordering as well as classical dependencies.
 These figures are standard matplotlib artifacts suitable for export; they are
 not diagrams of physical interferometer layouts.
 
-CI configuration covers Python 3.11, 3.12 and 3.13 and includes pytest, Ruff and
-wheel/source-distribution builds. Static checking uses Python 3.12 because the
+CI configuration covers Python 3.11--3.14 and includes pytest, Ruff, mypy and
+wheel/source-distribution builds on every version. Static checking targets Python 3.12 because the
 installed recent NumPy type stubs use its syntax. The local run is one tested
 environment, not evidence that every configured CI platform has already passed.
 Source formatting, annotations, a pre-commit configuration and contribution

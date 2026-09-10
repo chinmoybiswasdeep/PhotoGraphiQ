@@ -69,7 +69,7 @@ decomposition over resource efficiency.
 * [Validation and limitations](docs/validation.md)
 * [Coverage of the supplied specification](docs/specification-status.md)
 * [References](docs/references.md)
-* [Quantum-style paper source](paper/PhotoGraphiQ.tex) and [PDF](paper/PhotoGraphiQ-v0.2.pdf)
+* [Quantum-style paper source](paper/PhotoGraphiQ.tex) and [PDF](paper/PhotoGraphiQ-hardened.pdf)
 * [Reproducible paper data](paper/results/finite_squeezing.csv)
 
 Reproduce the paper figures with `python experiments/reproduce.py` and
@@ -80,3 +80,6 @@ The manuscript is a software paper draft, not a claim of journal acceptance.
 
 MIT license for original software. Upstream source references and bundled research
 papers retain their own licenses. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+Run all release gates with `python experiments/validate_release.py --output .validation`.
+This includes tests, lint, formatting, mypy, builds and independent numerical evidence.

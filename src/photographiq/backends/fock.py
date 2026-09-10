@@ -40,7 +40,20 @@ class FockResultState:
 
     @property
     def norm(self):
-        return float(np.trace(self.density_matrix).real)
+        return 1.0 if self.native is None else float(self.native.norm)
+
+    def quadrature_moment(self, node, order, angle=0.0):
+        """Raw quadrature moment through order four, with complete ladder paths."""
+        from ..fock_analysis import quadrature_moment
+
+        return quadrature_moment(self, node, order, angle)
+
+    def photon_moment(self, node, order=2):
+        """Raw photon-number moment through order four."""
+        if not isinstance(order, int) or isinstance(order, bool) or not 0 <= order <= 4:
+            raise ValueError("Moment order must be an integer from zero through four")
+        i = self.nodes.index(node)
+        return float(sum(b[i] ** order * p for b, p in self.probabilities.items()))
 
     def reduced(self, nodes):
         nodes = tuple(nodes)
@@ -125,6 +138,7 @@ class PiquassoFockBackend(BaseBackend):
             "photon_addition",
             "photon_subtraction",
             "postselection",
+            "high_order_moments",
         }
     )
 
@@ -138,6 +152,7 @@ class PiquassoFockBackend(BaseBackend):
         self.cutoff, self.norm_tolerance = cutoff, norm_tolerance
         if (
             not isinstance(max_dimension, int)
+            or isinstance(max_dimension, bool)
             or max_dimension < 1
             or not np.isfinite(boundary_warning)
             or not 0 < boundary_warning <= 1
@@ -156,7 +171,7 @@ class PiquassoFockBackend(BaseBackend):
 
     def dimension(self, modes):
         """Number of occupations with total photon number strictly below cutoff."""
-        if not isinstance(modes, int) or modes < 0:
+        if not isinstance(modes, int) or isinstance(modes, bool) or modes < 0:
             raise ValueError("Mode count must be a nonnegative integer")
         return comb(modes + self.cutoff - 1, modes)
 
@@ -222,7 +237,32 @@ class PiquassoFockBackend(BaseBackend):
                     pq.Q() | pq.NumberState(tuple(basis)) * coefficient
         return pq.PureFockSimulator(d=modes, config=self._config()).execute(program).state
 
+    def validate_preparation(self, state, modes=1):
+        """Reject unsupported/mismatched resources before native state allocation."""
+        if isinstance(state, FockInput):
+            if modes != 1 or len(state.amplitudes) > self.cutoff:
+                raise ValueError("Input mode count or support exceeds cutoff")
+        elif isinstance(state, FockSuperposition):
+            if state.modes != modes:
+                raise ValueError("Resource mode count does not match preparation labels")
+            if any(sum(b) >= self.cutoff and abs(a) > 0 for b, a in state.amplitude_map.items()):
+                raise ValueError("Resource support exceeds total-photon cutoff")
+        elif isinstance(state, GaussianInput):
+            state.state(0).validate()
+            if modes != 1:
+                raise ValueError("GaussianInput is single mode")
+            # Physicality and purity are distinct. Default np.isclose would
+            # silently purify thermal inputs with small but nonzero mixedness.
+            if not np.isclose(np.linalg.det(state.covariance), 1, atol=1e-10, rtol=0):
+                raise NotImplementedError("Mixed Gaussian inputs require a mixed Fock backend")
+        elif state is None or isinstance(state, (CatResource, CubicPhaseResource)):
+            if modes != 1:
+                raise ValueError("This resource requires one mode")
+        else:
+            raise NotImplementedError("Only pure supported input descriptions can be prepared")
+
     def prepare(self, node, squeezing=1.0, state=None):
+        self.validate_preparation(state)
         if node in self.nodes:
             raise ValueError("Duplicate Fock node")
         if not np.isfinite(squeezing) or squeezing < 0:
@@ -269,10 +309,6 @@ class PiquassoFockBackend(BaseBackend):
                     pq.Q(0) | pq.Squeezing(r=-squeezing)
                 else:
                     cov = np.array(state.covariance)
-                    if not np.isclose(np.linalg.det(cov), 1):
-                        raise NotImplementedError(
-                            "Mixed Gaussian inputs require a mixed Fock backend"
-                        )
                     values, vectors = np.linalg.eigh(cov)
                     r = -0.5 * np.log(values[0])
                     phi = np.arctan2(vectors[1, 0], vectors[0, 0])
@@ -296,6 +332,7 @@ class PiquassoFockBackend(BaseBackend):
 
     def prepare_resource(self, nodes, state):
         nodes = tuple(nodes)
+        self.validate_preparation(state, len(nodes))
         if not isinstance(state, FockSuperposition) or state.modes != len(nodes):
             raise ValueError("Provide a FockSuperposition matching the ordered resource nodes")
         if len(set(nodes)) != len(nodes) or set(nodes) & set(self.nodes):

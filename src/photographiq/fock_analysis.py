@@ -6,6 +6,32 @@ import numpy as np
 from scipy.special import eval_genlaguerre, gammaln
 
 
+def quadrature_moment(state, node, order, angle=0.0) -> float:
+    """Raw <q_angle^order>, orders 0--4, for the finite-support physical state.
+
+    Intermediate occupation paths may leave stored support and return. Dropping
+    them instead computes powers of P q P and gives incorrect boundary moments.
+    """
+    if not isinstance(order, int) or isinstance(order, bool) or not 0 <= order <= 4:
+        raise ValueError("Moment order must be an integer from zero through four")
+    if not np.isfinite(angle):
+        raise ValueError("Angle must be finite")
+    rho = state.reduced((node,)).density_matrix
+    result = 0j
+    lower, upper = np.exp(-1j * angle), np.exp(1j * angle)
+    for initial in range(len(rho)):
+        paths = {initial: 1 + 0j}
+        for _ in range(order):
+            following: dict[int, complex] = {}
+            for n, coefficient in paths.items():
+                if n:
+                    following[n - 1] = following.get(n - 1, 0j) + coefficient * lower * np.sqrt(n)
+                following[n + 1] = following.get(n + 1, 0j) + coefficient * upper * np.sqrt(n + 1)
+            paths = following
+        result += sum(rho[initial, n] * value for n, value in paths.items() if n < len(rho))
+    return float(result.real)
+
+
 def _aligned(left, right):
     if left.nodes != right.nodes:
         raise ValueError("State labels and order must agree")
@@ -20,6 +46,23 @@ def _aligned(left, right):
     return matrices
 
 
+def _pure_vectors(left, right):
+    if left.nodes != right.nodes:
+        raise ValueError("State labels and order must agree")
+    if not all(s.native is None or hasattr(s.native, "state_vector") for s in (left, right)):
+        return None
+    basis = sorted(set(left.basis) | set(right.basis))
+    vectors = []
+    for state in (left, right):
+        amplitudes = dict(zip(state.basis, state.state_vector, strict=True))
+        vector = np.array([amplitudes.get(b, 0j) for b in basis])
+        norm = np.linalg.norm(vector)
+        if not np.isclose(norm, 1, atol=1e-8, rtol=0):
+            raise ValueError("State metrics require normalized states")
+        vectors.append(vector / norm)
+    return vectors
+
+
 def _sqrt_psd(matrix):
     values, vectors = np.linalg.eigh((matrix + matrix.conj().T) / 2)
     if values.min() < -1e-8:
@@ -28,7 +71,14 @@ def _sqrt_psd(matrix):
 
 
 def fidelity(left, right) -> float:
-    """Squared Uhlmann fidelity; occupation alignment permits differing cutoffs."""
+    """Squared Uhlmann fidelity; pure/pure is |<psi|phi>|^2, not root fidelity.
+
+    Occupations align across cutoffs. Reorder states explicitly with reduced()
+    before comparing different node orders; semantic labels are never guessed.
+    """
+    vectors = _pure_vectors(left, right)
+    if vectors is not None:
+        return float(np.clip(abs(np.vdot(*vectors)) ** 2, 0, 1))
     a, b = _aligned(left, right)
     if any(
         state.native is None or hasattr(state.native, "state_vector") for state in (left, right)
@@ -40,6 +90,15 @@ def fidelity(left, right) -> float:
 
 def trace_distance(left, right) -> float:
     """Half the trace norm of the occupation-aligned density difference."""
+    vectors = _pure_vectors(left, right)
+    if vectors is not None:
+        a, b = vectors
+        overlap = np.vdot(a, b)
+        aligned = b * (overlap.conjugate() / abs(overlap) if abs(overlap) else 1)
+        # Stable near identical states: avoid subtracting F from one, and avoid
+        # constructing dense pure-state density matrices of dimension D squared.
+        distance_squared = float(np.vdot(a - aligned, a - aligned).real)
+        return float(np.sqrt(np.clip(distance_squared * (1 - distance_squared / 4), 0, 1)))
     a, b = _aligned(left, right)
     return float(np.abs(np.linalg.eigvalsh(a - b)).sum() / 2)
 

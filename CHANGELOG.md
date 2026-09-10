@@ -24,3 +24,18 @@ Fock loss/noisy measurements, mixed-state inputs, dynamic representation switchi
 GKP decoding and universal non-Gaussian compilation remain unsupported.
 The revised PDF is `paper/PhotoGraphiQ-v0.2.pdf`; `paper/PhotoGraphiQ.pdf` retains
 the prior version because the open PDF viewer locked it during the update.
+
+
+## v0.2 validation hardening
+
+- Retain the original failing injection cases while separating finite-Fock,
+  Gaussian-decomposition and independent quadrature error budgets.
+- Reject invalid/insufficient resources before earlier native preparations and
+  prevent slightly mixed Gaussian inputs from being silently treated as pure.
+- Add optional raw quadrature moments through order four and photon moments;
+  avoid dense allocation for pure norms and pure/pure state metrics.
+- Check partial homodyne CDF integration errors; expand analytical density,
+  Wigner, mixed-state, sensitivity, heralding and label-aware Graphix validation.
+- Run every release gate on Python 3.11?3.14, retain per-version artifacts and
+  disable fail-fast cancellations. See docs/release-hardening-report.md for
+  actual outcomes; a configured workflow alone is not a release certification.

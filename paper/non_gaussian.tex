@@ -221,6 +221,8 @@ are
 \end{align}
 When one state is pure, fidelity reduces to $\tr(\rho\sigma)$.
 Ordered output labels must agree; differing cutoffs are padded by occupations.
+Pure norms and pure/pure metrics avoid dense density allocation; native partial
+reductions and mixed-state metrics remain dense.
 
 The single-mode Wigner marginal uses analytic displacement matrix elements:
 \begin{equation}
@@ -253,14 +255,19 @@ solely from a norm or a single pair of cutoffs.
 
 Independent dense reference operators occur only in \texttt{tests/fock}.
 They construct $a,a^\dagger,n,q,p$, displacement and squeezing exponentials,
-and the cubic matrix exponential. Tests use nonzero cubic strengths $0.2$ and
-$0.65$, nontrivial Kerr phases $\kappa=0.71$, analytical ladder factors,
+and the cubic matrix exponential. Parameterized hardening tests use cubic strengths
+$0.05,0.2,0.5,0.8$ and Kerr phases $\kappa=0.1,0.3,0.7,1.1$, with vacuum,
+coherent, complex superposition and cat inputs, analytical ladder factors,
 heralding probabilities, entangled conditional homodyne states and cat parity.
 Direct native programs separately validate gates, photon-count frequencies and
 the synthesized injection interaction. A direct SUM Bogoliubov decomposition
 and Fourier--CZ synthesis differ slightly at finite cutoff: their observed
-infidelity decreases from about $4.0\times10^{-7}$ at $c=24$ to
-$1.8\times10^{-8}$ at $c=48$ for the stated test resource. Identical native
+infidelity in the original Windows run decreased from about $4.0\times10^{-7}$
+at $c=24$ to $1.8\times10^{-8}$ at $c=48$. The original Linux CI instead
+observed $5.95\times10^{-6}$ and $1.94\times10^{-7}$, respectively.
+The hardening regression therefore requires an asymptotic decrease and a
+tenfold improvement over these two cutoffs, supported by measurements on both
+platforms, rather than machine-specific equality thresholds. Identical native
 instruction sequences agree to numerical tolerance; different finite-space
 projections are not required to coincide exactly.
 
@@ -270,8 +277,13 @@ input, cubic-resource homodyne density is
 \begin{equation}
  p(m)=\frac{\exp[-m^2/(2(1+e^{2r}))]}{\sqrt{2\pi(1+e^{2r})}},
 \end{equation}
-independent of $\gamma$ before conditioning corrections. The test at
-$\gamma=0.3,r=0.2,m=0.4,c=36$ checks this density and conditional wavefunction.
+independent of $\gamma$ before conditioning corrections. Tests retain $\gamma=0.3,r=0.2,m=0.4,c=36$ and compare $c=64,96$ as well.
+The fixed-outcome density calculation does not execute the homodyne CDF
+integrator; its observed discrepancy is finite-Fock error. At $c=96$, multiple
+$(\gamma,r,m)$ regimes must satisfy absolute density error below $10^{-6}$
+and state infidelity below $10^{-7}$. Independently tightening wavefunction
+quadrature and expanding its interval changes the reference vector by less than
+$10^{-9}$. These are separate error budgets.
 Graphix supplies only a corresponding preparation--edge--measurement--correction
 skeleton and classical domains; its qubit amplitudes never validate these maps.
 
@@ -333,3 +345,53 @@ $Y=(1-\eta)(2n_{\rm th}+1)\I$. Detector inefficiency is a Gaussian measurement
 parameter and finite squeezing is a resource property. Phase diffusion, mode
 mismatch and detailed detector hardware are not silently approximated by these
 channels.
+
+
+\subsection{Release hardening and high-order observables}
+
+The optional \texttt{high\_order\_moments} convergence flag records
+$\langle q^k\rangle,\langle p^k\rangle$ for $k=2,3,4$ and $\langle n^2\rangle$.
+The observable evaluator sums ladder paths including temporary excursions above
+stored occupation support. It therefore computes moments of the finite-support
+physical state, not powers of a prematurely projected quadrature operator.
+For cubic phase on vacuum, differentiation of
+$e^{-q^2/4+i\gamma q^3/6}$ gives
+\begin{align}
+ \langle p^2\rangle&=1+3\gamma^2,\\
+ \langle p^3\rangle&=\gamma+15\gamma^3,\\
+ \langle p^4\rangle&=3+10\gamma^2+105\gamma^4.
+\end{align}
+These identities include noncommuting corrections. Tests compare $c=80,160$
+for $\gamma=0.2,0.5,0.8$ and require $0.02\%$ relative high-moment accuracy at
+$c=160$. High-order moments amplify tails and converge more slowly than fidelity.
+
+Expanded measurement tests cover number-state Hermite densities and CDFs,
+complex displaced/rotated Gaussian marginals, entangled conditional states and
+finite-support interval mass. For any normalized cutoff-$c$ marginal,
+$p(x)\leq\sum_{n<c}|h_n(x)|^2$ by Cauchy--Schwarz and convexity. This supplies
+a state-independent tail envelope for the represented state, including large
+resolved displacement. An unresolved displacement is rejected at preparation;
+the tail test does not certify its untruncated physical input. Partial-CDF error
+estimates are now checked as well as total interval mass.
+
+The preflight rejects insufficient explicit resource support, mismatched mode
+counts and nonphysical Gaussian covariance before earlier native preparations.
+Pure Gaussian conversion uses absolute determinant tolerance $10^{-10}$ with
+zero relative tolerance; this prevents the earlier silent conversion of slightly
+mixed input into a pure state. Mathematical gate definitions were not changed.
+
+Graphix comparisons now use exact label-aware edge sets, input/output and
+measurement labels, correction targets, multiple adaptive domains and transitive
+classical support. Arbitrary CV labels use an explicit bijection to Graphix's
+integer labels. Line, ring, star and small two-dimensional resources are covered.
+The CV-flow routine remains a numerical real-linear certificate for a supplied
+total order; no equivalence to qubit gflow or Pauli flow is asserted.
+
+The release harness runs pytest, Ruff lint, Ruff formatting, mypy, source/wheel
+builds and numerical evidence generation on each configured Python version.
+It records exact environments, source/test hashes and exit codes, and continues
+to later checks after failures. CI covers Python 3.11--3.14 with fail-fast disabled.
+The original failing run cancelled Python 3.11/3.12 and never reached static or
+build checks; it is not counted as successful validation. Actual local and remote
+outcomes, remaining limitations and the release decision are recorded in
+\texttt{docs/release-hardening-report.md} and \texttt{validation/hardening}.

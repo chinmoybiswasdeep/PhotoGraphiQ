@@ -10,6 +10,9 @@ class BaseBackend(ABC):
         """Whether this backend implements a named execution capability."""
         return feature in self.capabilities
 
+    def validate_preparation(self, state, modes=1):
+        """Optional allocation-free resource validation used by execution preflight."""
+
     def require(self, *features):
         missing = set(features) - self.capabilities
         if missing:

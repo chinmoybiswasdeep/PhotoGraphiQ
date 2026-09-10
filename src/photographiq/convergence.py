@@ -16,7 +16,9 @@ class CutoffStudy:
     results: list
 
 
-def cutoff_convergence(pattern, cutoffs, *, seed=0, **kwargs) -> CutoffStudy:
+def cutoff_convergence(
+    pattern, cutoffs, *, seed=0, high_order_moments=False, **kwargs
+) -> CutoffStudy:
     """Run a pattern (or cutoff -> pattern factory) at strictly increasing cutoffs.
 
     Use measurement_outcomes to compare the same conditional branch. Equal seeds
@@ -53,6 +55,7 @@ def cutoff_convergence(pattern, cutoffs, *, seed=0, **kwargs) -> CutoffStudy:
             ),
             "peak_dimension": max((d["dimension"] for d in state.diagnostics), default=1),
             "outcomes": result.outcomes,
+            "measurement_statistics": result.measurement_statistics,
             "photon_numbers": {n: state.photon_number(n) for n in state.nodes},
             "quadratures": {
                 n: {"q": state.quadrature(n), "p": state.quadrature(n, np.pi / 2)}
@@ -63,6 +66,18 @@ def cutoff_convergence(pattern, cutoffs, *, seed=0, **kwargs) -> CutoffStudy:
             "probability_l1_to_previous": None,
             "comparable_to_previous": False,
         }
+        if high_order_moments:
+            row["high_order_moments"] = {
+                node: {
+                    **{
+                        f"{axis}{order}": state.quadrature_moment(node, order, angle)
+                        for axis, angle in (("q", 0.0), ("p", np.pi / 2))
+                        for order in (2, 3, 4)
+                    },
+                    "n2": state.photon_moment(node, 2),
+                }
+                for node in state.nodes
+            }
         if results:
             previous = results[-1]
             comparable = (

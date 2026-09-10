@@ -22,7 +22,7 @@ in the supplied specification. See `design.md` for the pre-implementation choice
 | 20–22: parameters, shots, observables | Reusable real parameters; independent seeded shots; Gaussian moments, photon number, parity, overlap; Fock probabilities and parity | General circuit matrix decomposition is numeric; no differentiable stochastic runtime; overlap is not general mixed-state fidelity |
 | 24–25: visualization and serialization | Resource/pattern/DAG matplotlib exports; versioned allowlisted JSON with label and expression preservation | No pickle/eval; runtime callables explicitly rejected |
 | 26–30: API and validation | Public API, analytical tests, raw Piquasso tests, GraphiX structural/causal-flow tests, pytest suites and error cases | Tests establish the stated examples and invariants, not a proof for every possible computation |
-| 31–34: documentation, engineering and ML boundary | Tutorials, API guide, derivations, modular src layout, Ruff, mypy, CI, pre-commit, build metadata | Python 3.12 is locally tested; CI configuration is not a report of remote runs; no ML runtime dependencies |
+| 31–34: documentation, engineering and ML boundary | Tutorials, API guide, derivations, modular src layout, Ruff, mypy, CI, pre-commit, build metadata | Per-version Python 3.11?3.14 evidence is recorded in the hardening report; no ML runtime dependencies |
 | 38–40: development and release | Design-first incremental tests, v0.2 API, source/wheel builds, reproducibility artifacts | Research extensions above remain explicit future work; no remote release or commit is implied |
 | Additional request: paper | Updated Quantum-class manuscript, compiled PDF, equations, source audit, data, plots, bibliography and AI-use disclosure | Collective author metadata must be finalized by the actual authors; not peer-reviewed or submitted |
 
@@ -47,3 +47,7 @@ The tutorial and exact capability boundaries are [non_gaussian.md](non_gaussian.
 Finite injection retains an envelope and is not an exact finite-energy unitary.
 Physical addition heralding is not implemented; mathematical a-dagger is explicit.
 No universal compiler, GKP protocol or representation-switching engine is claimed.
+
+Hardening adds optional fourth-order quadrature/photon moments, allocation-free
+resource preflight, label-aware Graphix families/domains, expanded independent
+physics references and per-version release gates. See [release-hardening-report.md](release-hardening-report.md).

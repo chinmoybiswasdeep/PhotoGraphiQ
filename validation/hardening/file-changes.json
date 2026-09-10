@@ -1,0 +1,298 @@
+[
+  {
+    "file": ".github/workflows/ci.yml",
+    "reason": "Test Python 3.11-3.14, disable fail-fast, run all release gates and upload exact evidence."
+  },
+  {
+    "file": ".gitignore",
+    "reason": "Ignore local CI output directory."
+  },
+  {
+    "file": "CHANGELOG.md",
+    "reason": "Align documented support, conventions, validation scope and reproduction instructions with tested behavior."
+  },
+  {
+    "file": "README.md",
+    "reason": "Align documented support, conventions, validation scope and reproduction instructions with tested behavior."
+  },
+  {
+    "file": "docs/hardening-audit.md",
+    "reason": "Preserve pre-change source/log audit and numerical diagnosis before production edits."
+  },
+  {
+    "file": "docs/non_gaussian.md",
+    "reason": "Align documented support, conventions, validation scope and reproduction instructions with tested behavior."
+  },
+  {
+    "file": "docs/release-hardening-report.md",
+    "reason": "Provide requested A?J findings, CI status, release/ML decisions and limitations."
+  },
+  {
+    "file": "docs/specification-status.md",
+    "reason": "Align documented support, conventions, validation scope and reproduction instructions with tested behavior."
+  },
+  {
+    "file": "docs/validation.md",
+    "reason": "Align documented support, conventions, validation scope and reproduction instructions with tested behavior."
+  },
+  {
+    "file": "experiments/hardening_evidence.py",
+    "reason": "Generate independent decomposition, injection, quadrature and high-moment evidence on each platform."
+  },
+  {
+    "file": "experiments/validate_release.py",
+    "reason": "Run every release gate independently and record versions, code/test hash, logs and exit codes."
+  },
+  {
+    "file": "paper/PhotoGraphiQ-hardened.pdf",
+    "reason": "Update manuscript claims, hardening derivations and versioned PDF/build links."
+  },
+  {
+    "file": "paper/PhotoGraphiQ.tex",
+    "reason": "Update manuscript claims, hardening derivations and versioned PDF/build links."
+  },
+  {
+    "file": "paper/README.md",
+    "reason": "Update manuscript claims, hardening derivations and versioned PDF/build links."
+  },
+  {
+    "file": "paper/non_gaussian.tex",
+    "reason": "Update manuscript claims, hardening derivations and versioned PDF/build links."
+  },
+  {
+    "file": "paper/results/coverage.json",
+    "reason": "Replace stale 87-test report with final 216-test hardening results and coverage."
+  },
+  {
+    "file": "paper/results/tests.xml",
+    "reason": "Replace stale 87-test report with final 216-test hardening results and coverage."
+  },
+  {
+    "file": "src/photographiq/backends/base.py",
+    "reason": "Add optional allocation-free preparation validation hook without changing mandatory backend methods."
+  },
+  {
+    "file": "src/photographiq/backends/fock.py",
+    "reason": "Validate pure Gaussian/resource support before allocation; reject boolean dimensions; expose high moments and use native norm."
+  },
+  {
+    "file": "src/photographiq/capabilities.py",
+    "reason": "Preflight all known preparations and correlated inputs; explicit small-mixedness rejection."
+  },
+  {
+    "file": "src/photographiq/convergence.py",
+    "reason": "Add optional raw high-order moment and measurement-likelihood diagnostics to cutoff rows."
+  },
+  {
+    "file": "src/photographiq/fock_analysis.py",
+    "reason": "Compute complete ladder-path moments; squared fidelity documentation; avoid dense pure metrics and stabilize trace distance."
+  },
+  {
+    "file": "src/photographiq/fock_measurements.py",
+    "reason": "Check partial-CDF integration error instead of silently discarding it."
+  },
+  {
+    "file": "tests/fock/reference.py",
+    "reason": "Extend independent NumPy/SciPy operators and global-phase comparison helper."
+  },
+  {
+    "file": "tests/fock/test_cat_wigner_hardening.py",
+    "reason": "Analytic cat coefficients/interference, parity, alpha limits, cutoff/grid/window convergence."
+  },
+  {
+    "file": "tests/fock/test_high_moments.py",
+    "reason": "Boundary-correct raw moments, padded reference powers and cubic noncommuting identities."
+  },
+  {
+    "file": "tests/fock/test_homodyne_validation.py",
+    "reason": "Number/coherent densities and CDFs, rotated and challenging finite-state tails, integration failure checks."
+  },
+  {
+    "file": "tests/fock/test_metrics_hardening.py",
+    "reason": "Mixed Uhlmann fidelity, reductions, labels, empty outputs, phase invariance and no dense pure allocation."
+  },
+  {
+    "file": "tests/fock/test_preflight_hardening.py",
+    "reason": "Regressions for early rejection, mixed-state guards, dimensions and memory warnings."
+  },
+  {
+    "file": "tests/graphix_reference/helpers.py",
+    "reason": "Canonical semantic edge-set comparison shared by Graphix tests."
+  },
+  {
+    "file": "tests/graphix_reference/test_labelled_structures.py",
+    "reason": "Graph families, explicit label bijections, s/t domains, transitive supports, ordering and restricted-flow structure."
+  },
+  {
+    "file": "tests/graphix_reference/test_non_gaussian_structure.py",
+    "reason": "Require semantic edge equality in the injection skeleton."
+  },
+  {
+    "file": "tests/graphix_reference/test_structure.py",
+    "reason": "Require semantic edge equality as well as isomorphism."
+  },
+  {
+    "file": "tests/non_gaussian/test_heralding_limits.py",
+    "reason": "Full count Kraus amplitudes and probabilities; quantitative weak-tap limit and ideal cat/coherent identities."
+  },
+  {
+    "file": "tests/non_gaussian/test_injection.py",
+    "reason": "Retain original failed cases; separate identical-sequence checks from decomposition and independent-wavefunction convergence."
+  },
+  {
+    "file": "tests/non_gaussian/test_sensitivity.py",
+    "reason": "Cubic/Kerr parameter and input sweeps; independent native and adapter checks."
+  },
+  {
+    "file": "validation/hardening/file-changes.json",
+    "reason": "Exact changed-file inventory with reasons against audited baseline."
+  },
+  {
+    "file": "validation/hardening/local-python-3.11/build.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.11/environment.json",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.11/mypy.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.11/physics-evidence.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.11/physics.json",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.11/pytest.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.11/ruff-check.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.11/ruff-format.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.11/tests.xml",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.12/build.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.12/environment.json",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.12/mypy.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.12/physics-evidence.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.12/physics.json",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.12/pytest.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.12/ruff-check.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.12/ruff-format.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.12/tests.xml",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.13/build.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.13/environment.json",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.13/mypy.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.13/physics-evidence.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.13/physics.json",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.13/pytest.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.13/ruff-check.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.13/ruff-format.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.13/tests.xml",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.14/build.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.14/environment.json",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.14/mypy.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.14/physics-evidence.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.14/physics.json",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.14/pytest.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.14/ruff-check.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.14/ruff-format.log",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/local-python-3.14/tests.xml",
+    "reason": "Preserve final per-interpreter Windows validation provenance, check logs, test results or numerical convergence evidence."
+  },
+  {
+    "file": "validation/hardening/original-ci.json",
+    "reason": "Preserve fetched failing Linux job evidence and cancelled version status."
+  }
+]

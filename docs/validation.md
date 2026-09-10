@@ -39,8 +39,8 @@ diag(z^2,z^-2). No such finite-detector approximation is used by PhotoGraphiQ.
 * Gaussian MBQC, affine gate compilation, total-order CV-flow certification and
   finite-squeezing analysis are implemented. A full optimal CV-flow/order finder
   is not. Binary gflow, Pauli flow and qubit Clifford preprocessing are not ported.
-* The pure-Fock adapter supports resource experiments and photon counting, not
-  adaptive homodyne. Gaussian photon counting is rejected because its conditional
+* The pure-Fock adapter supports resource experiments, photon counting and ideal
+  adaptive homodyne. Noisy Fock homodyne is rejected. Gaussian photon counting is rejected because its conditional
   state is non-Gaussian. Mixed Fock preparation, GKP resources and non-Gaussian
   universal compilation remain future work.
 * Norm monitoring detects many cutoff problems but is not a rigorous Fock error
@@ -81,3 +81,65 @@ cutoff-dependent tolerances; identical sequences agree at numerical precision.
 `experiments/non_gaussian.py` writes measured convergence data, figures and local
 timings. Norm conservation is not a convergence certificate. Runtime warnings in
 validation artifacts expose deliberately tested truncation and boundary effects.
+
+
+## Numerical test classes and error budgets
+
+| Class | Examples | Assertion model |
+|---|---|---|
+| A: algebraic/deterministic | Kerr phases, ladder factors, dimensions, causal domains | Tight float64 absolute/relative error; exact integers/sets where appropriate |
+| B: finite-cutoff | Cubic gates, native Gaussian decompositions, injection | Several cutoffs; retained norm and boundary diagnostics; independent high-cutoff accuracy targets |
+| C: Monte Carlo | Photon counts, Gaussian detector samples | Fixed independent seeds; shot-count-scaled sampling uncertainty, not precision amplitude tolerances |
+| D: quadrature | Fock homodyne inverse CDF, injection wavefunction integrals | Separate integration error estimates, interval refinement and Hilbert truncation error |
+
+The original Linux injection density failure **did not execute quadrature**:
+fixed-outcome conditioning contracts a Hermite vector, and its reference density
+is analytical. At c=36 the density error was 2.0235e-5, just beyond the old
+2e-5 threshold. The regression retains c=36 but verifies improvement at c=96
+and a stricter 1e-6 absolute density target. Multiple (gamma,r,m) values also
+must reach 1e-7 state infidelity against independently integrated wavefunctions.
+Refining that oracle's integration tolerance and interval changes its normalized
+vector by less than 1e-9, separately from the Fock budget.
+
+For direct SUM versus Fourier-CZ, c=12,18,24,32,48 are retained, including both
+original failed c=24/48 cases. Tests require decreasing asymptotic infidelity,
+boundary population and norm loss. Original Linux and Windows runs both showed
+more than 20-fold infidelity improvement from c=24 to c=48; the regression
+requires only a tenfold improvement. This is an empirical acceptance criterion
+for the stated parameter regime, **not** a proven universal convergence rate.
+The c=12 diagnostic scan explicitly permits and reports underresolved norm loss;
+production defaults continue rejecting excessive truncation.
+
+Low-cutoff errors need not decrease at every step: the original density scan
+increases between c=12 and c=18. Neither monotonicity nor norm conservation is
+assumed to prove an infinite-dimensional limit. Identical native instruction
+sequences retain direct vector comparisons; different realizations and physical
+state comparisons use squared fidelity or phase-aligned vectors.
+
+## Feature validation matrix
+
+| Feature | Analytical | Independent NumPy/SciPy | Raw Piquasso | Cutoff | Graphix |
+|---|---|---|---|---|---|
+| Cubic phase | Convention and vacuum moments | Matrix exponential, gamma .05/.2/.5/.8 and four inputs | Separately compared to oracle | Strong-gate and high moments | Gate ordering only |
+| Kerr | Exact exp(i kappa n?) | Diagonal oracle; kappa .1/.3/.7/1.1 | Separately compared to oracle | Support-invariant scan | No physics comparison |
+| Cat | Coefficients, parity, small-alpha limits | Direct coherent expansion | Native preparation | alpha .3/.8/1.5/2 and complex case | Resource labels |
+| Ladders/heralding | sqrt factors; BS Kraus map; weak-tap limit | Dense ladder and binomial amplitudes | Native BS/PNR | Fixed support and weak-angle convergence | Pattern dependencies |
+| Homodyne | Hermite densities, n=0/1/2 CDFs, coherent rotation | Hermite polynomial evaluation, tail bound | Native amplitudes only; no native conditional oracle | Challenging finite-support states | Adaptive domains |
+| Cubic injection | Explicit envelope/phase derivation | Independent wavefunction integration | Same sequence and distinct SUM realization | c=36/64/96, multiple parameters | Labelled causal skeleton |
+| Metrics/reductions | Pure fidelity, mixed-qubit identity, number moments | Padded dense powers | Native partial trace | Occupation alignment | N/A |
+| Wigner | Vacuum, one photon, even/odd complex cats | Analytic interference formula | Native state amplitudes | Window, grid and cat support | N/A |
+| CV-flow | Supplied-order real matrix equation | Linear residual checks | Gaussian physical channels | Finite squeezing, not a non-Gaussian compiler | Common line support only |
+
+## Reproduction and CI provenance
+
+Run `python experiments/validate_release.py --output .validation` with each
+interpreter. It runs pytest, Ruff lint, Ruff formatting, mypy, build and numerical
+evidence generation even when an earlier gate fails. The JSON records exact
+installed packages, interpreter, platform, exit codes, Git HEAD and a normalized
+source/test/configuration SHA-256. Logs and test XML are separate artifacts.
+
+The workflow tests Python 3.11, 3.12, 3.13 and 3.14 with fail-fast disabled and
+uploads per-version evidence. A workflow configuration is not a green run:
+[the release report](release-hardening-report.md) identifies actual local and
+remote outcomes. Local historical paper XML and the frozen v0.2 environment are
+not substitutes for these per-version reports.

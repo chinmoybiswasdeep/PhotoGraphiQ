@@ -46,7 +46,10 @@ def homodyne_projection(amplitudes, mode, cutoff, angle, rng, outcome=None):
         target = float(rng.random()) * mass
 
         def residual(x):
-            return quad(density, -bound, x, epsabs=1e-10, epsrel=1e-10, limit=300)[0] - target
+            mass_to_x, error_to_x = quad(density, -bound, x, epsabs=1e-10, epsrel=1e-10, limit=300)
+            if not np.isfinite(mass_to_x) or not np.isfinite(error_to_x) or error_to_x > 1e-7:
+                raise ArithmeticError("Homodyne partial-CDF integration failed its error budget")
+            return mass_to_x - target
 
         outcome = brentq(residual, -bound, bound, xtol=1e-10)
     if not isinstance(outcome, (int, float, np.integer, np.floating)) or not np.isfinite(outcome):

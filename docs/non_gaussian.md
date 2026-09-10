@@ -201,3 +201,57 @@ wavefunctions, independent dense operators in tests only, direct public Piquasso
 programs and increasing cutoffs. Graphix tests compare only the causal skeleton.
 Run `python experiments/non_gaussian.py` to regenerate CSV, figures and provenance,
 and `python examples/non_gaussian.py` for a complete tutorial script.
+
+
+## Hardening: high-order moments and numerical scope
+
+`state.quadrature_moment(node, order, angle=0)` returns raw moments for integer
+orders 0 through 4. `state.photon_moment(node, order=2)` supplies photon moments.
+`cutoff_convergence(..., high_order_moments=True)` records q?,q?,q?,p?,p?,p?,n?
+per output. These observables are optional and currently specific to Fock
+snapshots. For a state with stored occupation n<c, ladder paths may temporarily
+reach n+order before returning. Those paths are included: powers of PqP would
+otherwise give the wrong physical moments at the highest stored level.
+These are moments of the normalized finite-support state, not guarantees of
+infinite-cutoff convergence; high moments can converge much more slowly than
+fidelity. For cubic phase on vacuum the infinite-space targets are
+<p>=gamma, <p?>=1+3gamma?, <p?>=gamma+15gamma? and
+<p?>=3+10gamma?+105gamma?. Noncommutativity matters for the last two identities.
+
+The fixed homodyne window is justified by finite Fock support: for any normalized
+single-mode marginal, p(x) <= sum(n<c) |h_n(x)|? by Cauchy-Schwarz (and convexity
+for mixed marginals). It therefore covers all represented states, regardless of
+how displacement or squeezing was prepared. Tests include coherent alpha=4,
+squeezing r=.7, cats and cubic states at c=96, and an independent Hermite tail
+envelope. This does **not** certify an inadequately represented infinite-state
+input: alpha=10 at c=24 is rejected by retained norm before sampling. Both total
+mass and partial-CDF error estimates are checked; the turning-point bound is not
+an unlimited accuracy guarantee at arbitrary enormous cutoff.
+
+The Fock preparation preflight validates mode count, explicit support and
+Gaussian physicality before earlier native preparations run. Gaussian purity uses
+an explicit 1e-10 absolute determinant tolerance, with zero relative tolerance;
+slightly mixed states beyond it are rejected rather than silently purified.
+Generic mixed native/reduced states cannot be injected into pure execution.
+Pure norms and pure/pure state metrics avoid dense density allocation. Native
+partial reduction and mixed/mixed metrics still require dense matrices; the
+vector-dimension guard does not make those operations scalable to a million modes
+or amplitudes. Plan memory for the specific observable as well as the trajectory.
+
+Squared fidelity is |<psi|phi>|? for pure states and Tr(rho sigma) if either
+state is pure. Mixed/mixed uses the squared Uhlmann expression. Comparisons
+require identical ordered labels; use `reduced(ordered_labels)` explicitly to
+reorder. Empty outputs have unit scalar state and fidelity one. A reduced native
+mixed-state representation does not expose a pure vector, even if a special
+parameter value happens to give a rank-one matrix.
+
+The cubic correction derivation includes the global phase:
+
+1. The chronological resource rotations and CZ give q_a -> q_a-q_in.
+2. Selecting resource q_a=m contracts psi(q) phi(q+m).
+3. gamma(q+m)?/6 = gamma q?/6 + gamma m q?/2 + gamma m?q/2 + gamma m?/6.
+4. Q(-2gamma m) and Z(-gamma m?) cancel the middle two terms.
+5. The global phase exp(i gamma m?/6) is immaterial; the Gaussian envelope remains.
+
+The [hardening audit](hardening-audit.md) and [release report](release-hardening-report.md)
+separate observed defects, finite-cutoff sensitivity and unsupported future work.

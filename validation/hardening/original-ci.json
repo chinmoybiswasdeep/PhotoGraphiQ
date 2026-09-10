@@ -1,0 +1,16 @@
+{
+  "run_url": "https://github.com/chinmoybiswasdeep/PhotoGraphiQ/actions/runs/34454699908",
+  "head": "8705e6934cc5f83b257d20c3c4bf8aa6da411a1e",
+  "job_id": 102798272710,
+  "conclusion": "failure",
+  "other_jobs": "Python 3.11 and 3.12 cancelled by fail-fast",
+  "evidence": [
+    "2026-09-10T08:21:57.5227277Z Successfully installed antlr4-python3-runtime-4.9.2 ast-serialize-0.11.1 autoray-0.11.0 build-1.6.1 contourpy-1.3.3 cotengra-0.8.2 coverage-7.16.0 cycler-0.12.1 cytoolz-1.1.0 fonttools-4.64.0 graphix-0.4 iniconfig-2.3.0 kiwisolver-1.5.1 librt-0.15.0 llvmlite-0.49.0 matplotlib-3.11.1 mpmath-1.3.0 mypy-2.3.1 mypy_extensions-1.1.0 networkx-3.6.1 numba-0.67.0 numpy-2.5.3 packaging-26.3 pathspec-1.1.1 photographiq-0.2.0 pillow-12.3.0 piquasso-8.0.1 pluggy-1.6.0 psutil-7.2.2 pygments-2.21.0 pyparsing-3.3.2 pyproject_hooks-1.2.0 pytest-9.1.1 pytest-cov-7.1.0 python-dateutil-2.9.0.post0 quantum-blackbird-0.5.0 quimb-1.15.0 ruff-0.16.6 scipy-1.18.1 six-1.17.0 sympy-1.14.0 toolz-1.1.0 tqdm-4.70.0 typing_extensions-4.16.0",
+    "2026-09-10T08:23:04.5830189Z platform linux -- Python 3.13.15, pytest-9.1.1, pluggy-1.6.0",
+    "2026-09-10T08:23:04.5833032Z collected 87 items",
+    "2026-09-10T08:24:13.1734547Z E           assert np.float64(2.0234936140367532e-05) < 2e-05",
+    "2026-09-10T08:24:13.1750074Z E       AssertionError: assert (np.float64(0.999997023055669) ** 2) > (1 - 5e-07)",
+    "2026-09-10T08:24:13.1780933Z E       AssertionError: assert (np.float64(0.9999999029808242) ** 2) > (1 - 3e-08)",
+    "2026-09-10T08:24:13.1838860Z _______________ coverage: platform linux, python 3.13.15-final-0 _______________"
+  ]
+}

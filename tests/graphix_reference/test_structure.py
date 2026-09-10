@@ -7,6 +7,7 @@ graphix = pytest.importorskip("graphix")
 from graphix import command  # noqa: E402
 
 import photographiq as pg  # noqa: E402
+from tests.graphix_reference.helpers import canonical_edges  # noqa: E402
 
 
 def test_wire_connectivity_io_measurement_order_and_domains():
@@ -25,6 +26,7 @@ def test_wire_connectivity_io_measurement_order_and_domains():
     cv.displace(2, q=pg.Outcome(1), p=pg.Outcome(0))
     og = dv.to_opengraph()
     assert nx.is_isomorphic(og.graph, cv.graph.network)
+    assert canonical_edges(og.graph) == canonical_edges(cv.graph.network)
     assert tuple(dv.input_nodes) == cv.inputs
     assert tuple(dv.output_nodes) == cv.outputs
     assert [c.node for c in dv if isinstance(c, command.M)] == [
