@@ -1,7 +1,7 @@
 {
   "local_full_suite_passed": 426,
-  "additional_targeted_tests_passed": 7,
-  "final_collected_suite_size": 433,
+  "additional_targeted_tests_passed": 8,
+  "final_collected_suite_size": 434,
   "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
   "platform": "Windows-11-10.0.26200-SP0",
   "source_sha256_at_full_run": "cbce62f5d62487d926117a886b57f74d0894a943ea071f218df4ffce98a4fba0",
@@ -44,7 +44,7 @@
   },
   "installed_wheel_smoke": "passed",
   "strict_mkdocs": "passed",
-  "remote_status": "pending",
+  "remote_status": "passed on ce893b21227e12f400e02ffc2ca78ab58cbb05e7",
   "first_remote_hardening": {
     "commit": "e6776060bce41e28923d8d68ce1e6386588e6aec",
     "test_run": 34536433226,
@@ -57,5 +57,25 @@
       "3.14": "passed"
     },
     "docs": "passed"
+  },
+  "accepted_remote": {
+    "commit": "ce893b21227e12f400e02ffc2ca78ab58cbb05e7",
+    "tests": 433,
+    "python_matrix": [
+      "3.11",
+      "3.12",
+      "3.13",
+      "3.14"
+    ],
+    "all_release_gates": "passed",
+    "test_run": 34537350853,
+    "docs_run": 34537350526,
+    "docs": "passed",
+    "codecov": "explicitly skipped because repository token is absent",
+    "coverage": {
+      "covered_statements": 2658,
+      "statements": 2907,
+      "percent": 91.43446852425181
+    }
   }
 }

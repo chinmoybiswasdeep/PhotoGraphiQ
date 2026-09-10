@@ -8,6 +8,22 @@ jax = pytest.importorskip("jax")
 jax.config.update("jax_enable_x64", True)
 
 
+def test_kerr_gradient_resolves_nonlinear_level_spacing():
+    # Levels 1 and 2 acquire relative phase (2²-1²)*kappa=3*kappa,
+    # distinguishing Kerr from a rotation on the 0/1 subspace.
+    p = pg.Pattern(inputs=(0,)).append(pg.Kerr(0, pg.Parameter("k")))
+    source = pg.FockInput((0, 2**-0.5, 2**-0.5))
+
+    def objective(k):
+        return ad.expectation(p, {"k": k}, inputs={0: source}, cutoff=6, observable="q")
+
+    k = 0.23
+    assert float(objective(k)) == pytest.approx(np.sqrt(2) * np.cos(3 * k), abs=2e-12)
+    assert float(jax.grad(objective)(k)) == pytest.approx(
+        -3 * np.sqrt(2) * np.sin(3 * k), abs=2e-12
+    )
+
+
 @pytest.mark.parametrize(
     "name,value,expected",
     [
