@@ -105,6 +105,14 @@ def trace_distance(left, right) -> float:
 
 @dataclass
 class WignerGrid:
+    """Single-mode Wigner quasiprobability values on ordered q and p axes.
+
+    Args:
+        q (float): Position translation; hbar=2 quadrature units.
+        p (float): Momentum translation; hbar=2 quadrature units.
+        values (object): Values as described by this object’s contract.
+    """
+
     q: np.ndarray
     p: np.ndarray
     values: np.ndarray
@@ -122,6 +130,7 @@ class WignerGrid:
 
     @property
     def captured_mass(self):
+        """Numerical integral over the finite grid; refine window and resolution separately."""
         return self._integral(self.values)
 
     @property
@@ -130,6 +139,14 @@ class WignerGrid:
         return self._integral(np.maximum(-self.values, 0))
 
     def plot(self, ax=None):
+        """Plot the signed Wigner grid; return (Axes, QuadMesh).
+
+        Args:
+            ax (Axes): Optional existing matplotlib axes.
+
+        Returns:
+            result (tuple): Matplotlib Axes and QuadMesh artist.
+        """
         import matplotlib.pyplot as plt
 
         if ax is None:

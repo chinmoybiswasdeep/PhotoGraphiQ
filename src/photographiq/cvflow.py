@@ -16,6 +16,14 @@ from .pattern import Pattern
 
 @dataclass(frozen=True)
 class CVFlow:
+    """Supplied-total-order real-linear CV-flow certificate, including correction vectors.
+
+    Args:
+        order (object): Order as described by this object’s contract.
+        corrections (object): Corrections as described by this object’s contract.
+        residuals (object): Residuals as described by this object’s contract.
+    """
+
     order: tuple
     corrections: dict
     residuals: tuple[float, ...]

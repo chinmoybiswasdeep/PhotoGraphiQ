@@ -201,6 +201,6 @@ unconditional samples or pure-state feature analysis as mixed-channel support.
 
 ## Exact file changes and reasons
 
-The accompanying [file-changes.json](../validation/hardening/file-changes.json) lists every changed
+The accompanying [file-changes.json](https://github.com/chinmoybiswasdeep/PhotoGraphiQ/blob/validation/v0.2-physics-hardening/validation/hardening/file-changes.json) lists every changed
 file against the audited baseline with its concrete role. Generated numerical
 evidence and the revised manuscript are distinguished from production fixes.

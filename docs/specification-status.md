@@ -1,5 +1,7 @@
 # Specification coverage for v0.2
 
+> Historical v0.2 reference. For the v0.3 additions and current backend support, see the [documentation home](index.md) and [feature matrix](validation/feature-matrix.md).
+
 This audit distinguishes implemented release behavior from the longer-term vision
 in the supplied specification. See `design.md` for the pre-implementation choices,
 `theory.md` for derivations and `validation.md` for evidence boundaries.

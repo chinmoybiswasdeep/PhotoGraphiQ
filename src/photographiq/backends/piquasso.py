@@ -37,6 +37,16 @@ class PiquassoBackend(GaussianBackend):
         )
 
     def prepare(self, node, squeezing=1.0, state=None):
+        """Prepare a fresh labelled mode; resource squeezing is momentum squeezing.
+
+        Args:
+            node (object): Hashable mode label.
+            squeezing (float): Finite momentum resource squeezing; nonnegative.
+            state (object): Supported state preparation or independent state snapshot.
+
+        Raises:
+            ValueError: Invalid resource squeezing.
+        """
         if not np.isfinite(squeezing) or squeezing < 0:
             raise ValueError("Invalid resource squeezing")
         super().prepare(node, squeezing=0.0, state=GaussianInput() if state is None else state)
@@ -44,25 +54,68 @@ class PiquassoBackend(GaussianBackend):
             self._gate((node,), pq.Squeezing(r=-squeezing))
 
     def entangle(self, u, v, weight=1.0):
+        """Apply weighted controlled-Z to two existing modes.
+
+        Args:
+            u (object): First mode label.
+            v (object): Second mode label.
+            weight (float): Real controlled-Z edge weight.
+        """
         self._gate((u, v), pq.ControlledZ(s=weight))
 
     def displace(self, node, q=0.0, p=0.0):
+        """Apply or append quadrature translations q and p in hbar=2 coordinates.
+
+        Args:
+            node (object): Hashable mode label.
+            q (float): Position translation; hbar=2 quadrature units.
+            p (float): Momentum translation; hbar=2 quadrature units.
+        """
         alpha = complex(q, p) / 2
         self._gate((node,), pq.Displacement(r=abs(alpha), phi=np.angle(alpha)))
 
     def rotate(self, node, angle):
+        """Append a rotation by angle radians to this optical circuit.
+
+        Args:
+            node (object): Hashable mode label.
+            angle (float): Quadrature or gate angle in radians; expressions allowed where documented.
+        """
         self._gate((node,), pq.Phaseshifter(phi=angle))
 
     def squeeze(self, node, r):
+        """Append or apply q squeezing by parameter r.
+
+        Args:
+            node (object): Hashable mode label.
+            r (float): Dimensionless squeezing parameter.
+        """
         self._gate((node,), pq.Squeezing(r=r))
 
     def quadratic_phase(self, node, s):
         self._gate((node,), pq.QuadraticPhase(s=s))
 
     def beamsplitter(self, u, v, theta):
+        """Mix two optical modes using the package real beamsplitter convention.
+
+        Args:
+            u (object): First mode label.
+            v (object): Second mode label.
+            theta (float): Beamsplitter mixing angle in radians.
+        """
         self._gate((u, v), pq.Beamsplitter(theta=theta, phi=0.0))
 
     def loss(self, node, transmissivity, thermal_photons=0.0):
+        """Apply attenuation with thermal environment noise where supported.
+
+        Args:
+            node (object): Hashable mode label.
+            transmissivity (float): Intensity transmission in [0,1].
+            thermal_photons (float): Nonnegative mean environment occupation.
+
+        Raises:
+            ValueError: Invalid loss parameters.
+        """
         if not 0 <= transmissivity <= 1 or not np.isfinite(thermal_photons) or thermal_photons < 0:
             raise ValueError("Invalid loss parameters")
         self._gate(
@@ -87,4 +140,5 @@ class PiquassoBackend(GaussianBackend):
         )
 
     def export_state(self):
+        """Return an independent native Piquasso Gaussian representation."""
         return self._native()

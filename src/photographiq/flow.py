@@ -8,6 +8,14 @@ from .commands import Measure, Signal, command_dependencies, quantum_nodes
 
 
 def dependency_graph(commands):
+    """Build a command DAG including mode lifetimes and classical record dependencies.
+
+    Args:
+        commands (iterable): Commands in intended execution order.
+
+    Raises:
+        ValueError: Cyclic command dependencies.
+    """
     graph = nx.DiGraph()
     producers = {}
     for i, command in enumerate(commands):
@@ -33,4 +41,9 @@ def dependency_graph(commands):
 
 
 def topological_schedule(commands):
+    """Return a valid causal ordering of command indices or reject a cyclic dependency.
+
+    Args:
+        commands (iterable): Commands in intended execution order.
+    """
     return tuple(nx.lexicographical_topological_sort(dependency_graph(commands)))

@@ -24,6 +24,16 @@ _OPS: dict[str, Callable[..., Any]] = {
 
 @dataclass(frozen=True)
 class Expr:
+    """Immutable arithmetic expression tree with explicit parameter and outcome dependencies.
+
+    Args:
+        op (object): Op as described by this object’s contract.
+        args (object): Args as described by this object’s contract.
+
+    Raises:
+        ValueError: Expression must evaluate to a finite real scalar.
+    """
+
     op: str
     args: tuple[Any, ...]
 
@@ -62,17 +72,39 @@ class Expr:
 
     @property
     def dependencies(self) -> frozenset:
+        """Classical/quantum dependencies required before executing this object.
+
+        Returns:
+            result (object): Dependency keys or command DAG, according to the owning object.
+        """
         if self.op == "outcome":
             return frozenset((self.args[0],))
         return frozenset().union(*(a.dependencies for a in self.args if isinstance(a, Expr)))
 
     @property
     def parameters(self) -> frozenset[str]:
+        """Names of external scalar parameters required by this object.
+
+        Returns:
+            result (frozenset): External parameter names.
+        """
         if self.op == "parameter":
             return frozenset((self.args[0],))
         return frozenset().union(*(a.parameters for a in self.args if isinstance(a, Expr)))
 
     def evaluate(self, records: Mapping, parameters: Mapping[str, float]) -> float:
+        """Resolve the expression using declared classical records and externally bound parameters.
+
+        Args:
+            records (dict): Previously produced classical records.
+            parameters (dict): Externally bound scalar parameter values.
+
+        Returns:
+            result (float): Finite resolved scalar.
+
+        Raises:
+            ValueError: Expression must evaluate to a finite real scalar.
+        """
         if self.op == "constant":
             value = self.args[0]
         elif self.op == "parameter":
@@ -104,6 +136,14 @@ def Outcome(key, component: int | None = None) -> Expr:
 
 
 def expression(value) -> Expr:
+    """Convert a finite real scalar to a constant expression or preserve an existing Expr.
+
+    Args:
+        value (object): Finite real value or supported expression.
+
+    Raises:
+        ValueError: Constants must be finite.
+    """
     if isinstance(value, Expr):
         return value
     value = float(value)
@@ -124,20 +164,52 @@ class CallableExpression:
 
     @property
     def parameters(self):
+        """Names of external scalar parameters required by this object.
+
+        Returns:
+            result (frozenset): External parameter names.
+        """
         return frozenset()
 
     def evaluate(self, records, parameters):
         # Undeclared access raises KeyError, even if that result exists.
+        """Resolve the expression using declared classical records and externally bound parameters.
+
+        Args:
+            records (dict): Previously produced classical records.
+            parameters (dict): Externally bound scalar parameter values.
+
+        Returns:
+            result (float): Finite resolved scalar.
+        """
         return expression(self.function({k: records[k] for k in self.dependencies})).evaluate(
             {}, {}
         )
 
 
 def dependencies(value) -> frozenset:
+    """Classical/quantum dependencies required before executing this object.
+
+    Args:
+        value (object): Finite real value or supported expression.
+
+    Returns:
+        object (object): Dependency keys or command DAG, according to the owning object.
+    """
     return getattr(value, "dependencies", frozenset())
 
 
 def resolve(value, records, parameters) -> float:
+    """Evaluate an expression or real constant; reject undeclared Python callables.
+
+    Args:
+        value (object): Finite real value or supported expression.
+        records (dict): Previously produced classical records.
+        parameters (dict): Externally bound scalar parameter values.
+
+    Raises:
+        TypeError: Wrap callables in CallableExpression with declared dependencies.
+    """
     if isinstance(value, (Expr, CallableExpression)):
         return value.evaluate(records, parameters)
     if callable(value):
@@ -146,16 +218,37 @@ def resolve(value, records, parameters) -> float:
 
 
 def sin(value):
+    """Build the sine of an expression in radians.
+
+    Args:
+        value (object): Finite real value or supported expression.
+    """
     return Expr("sin", (expression(value),))
 
 
 def cos(value):
+    """Build the cosine of an expression in radians.
+
+    Args:
+        value (object): Finite real value or supported expression.
+    """
     return Expr("cos", (expression(value),))
 
 
 def exp(value):
+    """Build the exponential of an expression.
+
+    Args:
+        value (object): Finite real value or supported expression.
+    """
     return Expr("exp", (expression(value),))
 
 
 def atan2(y, x):
+    """Build a quadrant-aware angle expression from y and x.
+
+    Args:
+        y (object): Y as described by this object’s contract.
+        x (object): X as described by this object’s contract.
+    """
     return Expr("atan2", (expression(y), expression(x)))

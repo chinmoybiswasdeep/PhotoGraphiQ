@@ -1,5 +1,7 @@
 # Experimental non-Gaussian MBQC
 
+> Historical v0.2 reference. For the v0.3 additions and current backend support, see the [documentation home](index.md) and [feature matrix](validation/feature-matrix.md).
+
 PhotoGraphiQ 0.2 extends the existing pattern, dependency and backend model.
 Piquasso 8.0.1 executes physical Fock gates. PhotoGraphiQ supplies labelled
 resources, causal measurement updates, nonlinear classical signals and injection

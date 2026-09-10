@@ -1,5 +1,7 @@
 # API and extension guide
 
+> Historical v0.2 reference. For the v0.3 additions and current backend support, see the [documentation home](index.md) and [feature matrix](validation/feature-matrix.md).
+
 | Module | Public concepts | Execution contract |
 |---|---|---|
 | graph | CVGraph, ClusterState | labels, resource edges, squeezing and I/O |

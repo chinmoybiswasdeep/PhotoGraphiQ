@@ -1,5 +1,7 @@
 # Non-Gaussian extension: preimplementation design
 
+> Historical v0.2 reference. For the v0.3 additions and current backend support, see the [documentation home](index.md) and [feature matrix](validation/feature-matrix.md).
+
 This audit precedes implementation. Reference environment: Piquasso 8.0.1,
 Graphix 0.4. The existing Gaussian compiler, flow certificates and moment backend
 remain the Gaussian layer. The extension is experimental finite-Fock research

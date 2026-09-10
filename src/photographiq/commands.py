@@ -8,6 +8,14 @@ from .expressions import CallableExpression, Expr
 
 @dataclass(frozen=True)
 class Prepare:
+    """Prepare a fresh mode; an explicit state overrides resource squeezing.
+
+    Args:
+        node (object): Hashable mode label.
+        squeezing (float): Finite momentum resource squeezing; nonnegative.
+        state (object): Supported state preparation or independent state snapshot.
+    """
+
     node: Any
     squeezing: Any = 1.0
     state: Any = None
@@ -15,6 +23,14 @@ class Prepare:
 
 @dataclass(frozen=True)
 class Entangle:
+    """Controlled-Z resource interaction: p_u -> p_u + weight*q_v and conversely.
+
+    Args:
+        u (object): First mode label.
+        v (object): Second mode label.
+        weight (float): Real controlled-Z edge weight.
+    """
+
     u: Any
     v: Any
     weight: Any = 1.0
@@ -22,17 +38,34 @@ class Entangle:
 
 @dataclass(frozen=True)
 class Measure:
+    """Destructively measure a mode and store one uniquely keyed classical result.
+
+    Args:
+        node (object): Hashable mode label.
+        measurement (object): Homodyne, Heterodyne, Generaldyne or PhotonNumber description.
+        key (object): Unique classical record key; None uses the measured node.
+    """
+
     node: Any
     measurement: Any
     key: Any = None
 
     @property
     def result_key(self):
+        """Explicit measurement key, or the measured node label when key is None."""
         return self.node if self.key is None else self.key
 
 
 @dataclass(frozen=True)
 class Displace:
+    """Translate q and p quadratures by the specified real amounts.
+
+    Args:
+        node (object): Hashable mode label.
+        q (float): Position translation; hbar=2 quadrature units.
+        p (float): Momentum translation; hbar=2 quadrature units.
+    """
+
     node: Any
     q: Any = 0.0
     p: Any = 0.0
@@ -40,18 +73,40 @@ class Displace:
 
 @dataclass(frozen=True)
 class Rotate:
+    """Apply a phase-space rotation by angle radians.
+
+    Args:
+        node (object): Hashable mode label.
+        angle (float): Quadrature or gate angle in radians; expressions allowed where documented.
+    """
+
     node: Any
     angle: Any
 
 
 @dataclass(frozen=True)
 class Squeeze:
+    """Apply single-mode squeezing, with positive r squeezing q.
+
+    Args:
+        node (object): Hashable mode label.
+        r (float): Dimensionless squeezing parameter.
+    """
+
     node: Any
     r: Any
 
 
 @dataclass(frozen=True)
 class BeamSplitter:
+    """Mix two modes using a real beamsplitter angle in radians.
+
+    Args:
+        u (object): First mode label.
+        v (object): Second mode label.
+        theta (float): Beamsplitter mixing angle in radians.
+    """
+
     u: Any
     v: Any
     theta: Any
@@ -59,6 +114,14 @@ class BeamSplitter:
 
 @dataclass(frozen=True)
 class Loss:
+    """Attenuate a mode with intensity transmissivity and thermal environment occupation.
+
+    Args:
+        node (object): Hashable mode label.
+        transmissivity (float): Intensity transmission in [0,1].
+        thermal_photons (float): Nonnegative mean environment occupation.
+    """
+
     node: Any
     transmissivity: Any
     thermal_photons: Any = 0.0
@@ -66,6 +129,13 @@ class Loss:
 
 @dataclass(frozen=True)
 class CubicPhase:
+    """Apply exp(i gamma q^3/6), requiring a Fock-capable backend.
+
+    Args:
+        node (object): Hashable mode label.
+        gamma (float): Cubic coefficient in exp(i gamma q³/6).
+    """
+
     node: Any
     gamma: Any
 
@@ -110,12 +180,25 @@ class PrepareResource:
 
 @dataclass(frozen=True)
 class Signal:
+    """Write an evaluated expression into a uniquely named classical register.
+
+    Args:
+        key (object): Unique classical record key; None uses the measured node.
+        value (object): Finite real value or supported expression.
+    """
+
     key: Any
     value: Any
 
 
 @dataclass(frozen=True)
 class Output:
+    """Select the final ordered surviving output modes; must be the final command.
+
+    Args:
+        nodes (tuple): Ordered mode labels.
+    """
+
     nodes: tuple
 
 

@@ -1,5 +1,7 @@
 # User guide
 
+> Historical v0.2 reference. For the v0.3 additions and current backend support, see the [documentation home](index.md) and [feature matrix](validation/feature-matrix.md).
+
 Install with `pip install -e '.[dev]'` in a Python environment. `visualization`
 and `validation` extras install matplotlib and GraphiX separately. The package
 pins Piquasso because its covariance conventions and instruction support are

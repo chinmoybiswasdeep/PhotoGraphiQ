@@ -30,6 +30,19 @@ from .states import GaussianInput, GaussianState
 
 @dataclass
 class GaussianChannel:
+    """Affine unconditional Gaussian channel: mean -> S mean + d, V -> S V S.T + N.
+
+    Args:
+        matrix (array-like): Matrix in the documented quadrature or occupation basis.
+        noise (float): Nonnegative added calibrated quadrature variance.
+        displacement (object): Displacement as described by this object’s contract.
+        inputs (tuple): Ordered input labels supplied externally.
+        outputs (tuple): Ordered surviving output labels.
+
+    Raises:
+        ValueError: Input state ordering differs from channel.
+    """
+
     matrix: np.ndarray
     noise: np.ndarray
     displacement: np.ndarray
@@ -37,6 +50,14 @@ class GaussianChannel:
     outputs: tuple
 
     def apply(self, state):
+        """Apply this affine channel to an input with matching ordered node labels.
+
+        Args:
+            state (object): Supported state preparation or independent state snapshot.
+
+        Raises:
+            ValueError: Input state ordering differs from channel.
+        """
         if state.nodes != self.inputs:
             raise ValueError("Input state ordering differs from channel")
         return GaussianState(

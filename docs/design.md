@@ -1,5 +1,7 @@
 > Historical v0.1 design audit. The v0.2 extension is recorded in [non_gaussian_design.md](non_gaussian_design.md).
 
+> Historical v0.2 reference. For the v0.3 additions and current backend support, see the [documentation home](index.md) and [feature matrix](validation/feature-matrix.md).
+
 # Pre-implementation design record
 
 This record was written before implementation, following inspection of the supplied

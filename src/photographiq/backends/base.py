@@ -4,6 +4,12 @@ from abc import ABC, abstractmethod
 
 
 class BaseBackend(ABC):
+    """Trajectory backend contract using labelled modes and hbar=2 conventions.
+
+    Implement abstract operations, advertise supported capabilities, and return
+    independent snapshots. Unsupported optional operations raise explicitly.
+    """
+
     capabilities: frozenset[str] = frozenset()
 
     def supports(self, feature: str) -> bool:
@@ -14,6 +20,7 @@ class BaseBackend(ABC):
         """Optional allocation-free resource validation used by execution preflight."""
 
     def require(self, *features):
+        """Raise NotImplementedError if any requested capability is absent."""
         missing = set(features) - self.capabilities
         if missing:
             raise NotImplementedError(
@@ -52,7 +59,26 @@ class BaseBackend(ABC):
     def get_state(self, nodes=None): ...
 
     def loss(self, node, transmissivity, thermal_photons=0.0):
+        """Apply attenuation with thermal environment noise where supported.
+
+        Args:
+            node (object): Hashable mode label.
+            transmissivity (float): Intensity transmission in [0,1].
+            thermal_photons (float): Nonnegative mean environment occupation.
+
+        Raises:
+            NotImplementedError: Loss channel is not implemented by this backend.
+        """
         raise NotImplementedError("Loss channel is not implemented by this backend")
 
     def cubic_phase(self, node, gamma):
+        """Apply exp(i gamma q^3/6) on a Fock-capable backend.
+
+        Args:
+            node (object): Hashable mode label.
+            gamma (float): Cubic coefficient in exp(i gamma q³/6).
+
+        Raises:
+            NotImplementedError: Cubic phase requires a non-Gaussian backend.
+        """
         raise NotImplementedError("Cubic phase requires a non-Gaussian backend")
