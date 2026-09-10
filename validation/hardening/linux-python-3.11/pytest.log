@@ -1,0 +1,104 @@
+........................................................................ [ 33%]
+........................................................................ [ 66%]
+........................................................................ [100%]
+=============================== warnings summary ===============================
+tests/cutoff/test_convergence.py::test_finite_cubic_injection_cutoff_convergence
+tests/non_gaussian/test_injection.py::test_resource_injection_independent_wavefunction_and_fixed_branch[cubic]
+tests/non_gaussian/test_injection.py::test_regression_ci_cubic_injection_error_budget[0.3-0.2-0.4]
+  /home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99992944; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cutoff/test_convergence.py::test_finite_cubic_injection_cutoff_convergence
+  /home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998494; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cutoff/test_convergence.py::test_finite_cubic_injection_cutoff_convergence
+tests/non_gaussian/test_injection.py::test_regression_ci_cubic_injection_error_budget[0.3-0.2-0.4]
+  /home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999745; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cutoff/test_convergence.py::test_cat_factory_convergence_and_branch_comparability
+tests/fock/test_cat_wigner_hardening.py::test_cat_phase_normalization_and_cutoff_convergence[1-1.5]
+  /home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/simulator.py:172: RuntimeWarning: preparation: boundary population 0.0377; cutoff convergence is required even when norm is one
+    engine.prepare(c.node, value(c.squeezing), c.state)
+
+tests/fock/test_cat_wigner_hardening.py::test_cat_phase_normalization_and_cutoff_convergence[-1-2.0]
+  /home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/simulator.py:172: RuntimeWarning: preparation: boundary population 0.123; cutoff convergence is required even when norm is one
+    engine.prepare(c.node, value(c.squeezing), c.state)
+
+tests/fock/test_cat_wigner_hardening.py::test_cat_phase_normalization_and_cutoff_convergence[1-2.0]
+  /home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/simulator.py:172: RuntimeWarning: preparation: boundary population 0.224; cutoff convergence is required even when norm is one
+    engine.prepare(c.node, value(c.squeezing), c.state)
+
+tests/fock/test_high_moments.py::test_number_moments_include_boundary_ladder_paths[1]
+tests/fock/test_high_moments.py::test_number_moments_include_boundary_ladder_paths[2]
+tests/fock/test_high_moments.py::test_number_moments_include_boundary_ladder_paths[5]
+tests/non_gaussian/test_execution.py::test_ideal_ladders_sqrt_factors_and_failures
+  /home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/simulator.py:172: RuntimeWarning: preparation: boundary population 1; cutoff convergence is required even when norm is one
+    engine.prepare(c.node, value(c.squeezing), c.state)
+
+tests/non_gaussian/test_injection.py::test_resource_injection_independent_wavefunction_and_fixed_branch[cubic]
+tests/non_gaussian/test_injection.py::test_regression_ci_cubic_injection_error_budget[0.3-0.2-0.4]
+  /home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999987; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/non_gaussian/test_injection.py::test_raw_piquasso_resource_entanglement_before_measurement[24]
+tests/non_gaussian/test_injection.py::test_regression_ci_inverse_sum_decomposition_converges
+  /home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99991668; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/non_gaussian/test_injection.py::test_raw_piquasso_resource_entanglement_before_measurement[48]
+tests/non_gaussian/test_injection.py::test_regression_ci_inverse_sum_decomposition_converges
+  /home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999896; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/non_gaussian/test_injection.py::test_regression_ci_inverse_sum_decomposition_converges
+  /home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99826534; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/non_gaussian/test_injection.py::test_regression_ci_inverse_sum_decomposition_converges
+  /home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99965835; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/non_gaussian/test_injection.py::test_regression_ci_inverse_sum_decomposition_converges
+  /home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998386; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/non_gaussian/test_injection.py::test_regression_ci_cubic_injection_error_budget[-0.25-0.1-0.8]
+  /home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999704; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/non_gaussian/test_injection.py::test_regression_ci_cubic_injection_error_budget[-0.25-0.1-0.8]
+  /home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999997; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/non_gaussian/test_injection.py::test_regression_ci_cubic_injection_error_budget[0.2-0.3-0]
+  /home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99997916; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/non_gaussian/test_injection.py::test_regression_ci_cubic_injection_error_budget[0.2-0.3-0]
+  /home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999961; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/non_gaussian/test_injection.py::test_regression_ci_cubic_injection_error_budget[0.2-0.3-0]
+  /home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999999; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/piquasso_reference/test_fock_convergence.py::test_fock_cz_raw_reference_and_cutoff_convergence
+  /home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/simulator.py:172: RuntimeWarning: preparation: retained Fock norm 0.99999993; test a larger cutoff
+    engine.prepare(c.node, value(c.squeezing), c.state)
+
+tests/piquasso_reference/test_fock_convergence.py::test_fock_cz_raw_reference_and_cutoff_convergence
+  /home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/simulator.py:172: RuntimeWarning: preparation: retained Fock norm 0.99999997; test a larger cutoff
+    engine.prepare(c.node, value(c.squeezing), c.state)
+
+tests/piquasso_reference/test_fock_convergence.py::test_fock_cz_raw_reference_and_cutoff_convergence
+  /home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999982; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.11.16-final-0 _______________
+
+Coverage JSON written to file /home/runner/work/PhotoGraphiQ/PhotoGraphiQ/.validation/coverage.json
+216 passed, 31 warnings in 122.11s (0:02:02)

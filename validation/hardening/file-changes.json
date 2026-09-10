@@ -1,7 +1,7 @@
 [
   {
     "file": ".github/workflows/ci.yml",
-    "reason": "Test Python 3.11-3.14, disable fail-fast, run all release gates and upload exact evidence."
+    "reason": "Test Python 3.11-3.14, disable fail-fast, run every gate, upload hidden-directory evidence and fail if artifacts are missing."
   },
   {
     "file": ".gitignore",
@@ -25,7 +25,7 @@
   },
   {
     "file": "docs/release-hardening-report.md",
-    "reason": "Provide requested A?J findings, CI status, release/ML decisions and limitations."
+    "reason": "Provide requested A-J findings, CI status, release/ML decisions and limitations."
   },
   {
     "file": "docs/specification-status.md",
@@ -146,6 +146,150 @@
   {
     "file": "validation/hardening/file-changes.json",
     "reason": "Exact changed-file inventory with reasons against audited baseline."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.11/build.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.11/environment.json",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.11/mypy.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.11/physics-evidence.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.11/physics.json",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.11/pytest.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.11/ruff-check.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.11/ruff-format.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.11/tests.xml",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.12/build.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.12/environment.json",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.12/mypy.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.12/physics-evidence.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.12/physics.json",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.12/pytest.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.12/ruff-check.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.12/ruff-format.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.12/tests.xml",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.13/build.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.13/environment.json",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.13/mypy.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.13/physics-evidence.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.13/physics.json",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.13/pytest.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.13/ruff-check.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.13/ruff-format.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.13/tests.xml",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.14/build.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.14/environment.json",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.14/mypy.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.14/physics-evidence.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.14/physics.json",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.14/pytest.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.14/ruff-check.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.14/ruff-format.log",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
+  },
+  {
+    "file": "validation/hardening/linux-python-3.14/tests.xml",
+    "reason": "Preserve downloaded GitHub Actions artifact evidence: exact Linux environment, check log, JUnit results or numerical convergence measurements."
   },
   {
     "file": "validation/hardening/local-python-3.11/build.log",
@@ -294,5 +438,13 @@
   {
     "file": "validation/hardening/original-ci.json",
     "reason": "Preserve fetched failing Linux job evidence and cancelled version status."
+  },
+  {
+    "file": "validation/hardening/remote-run-34458767003.json",
+    "reason": "Preserve actual GitHub run and per-version job/step outcomes for immutable validated commit."
+  },
+  {
+    "file": "validation/hardening/remote-run-34459232823.json",
+    "reason": "Preserve actual GitHub run and per-version job/step outcomes for immutable validated commit."
   }
 ]

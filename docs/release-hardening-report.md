@@ -119,11 +119,34 @@ Local Windows validation: **216 tests passed on each of Python 3.11.16,
 builds and physics-evidence generation also passed on every version. Exact
 packages, logs and numerical results are in `validation/hardening/local-python-*`.
 
-The [first hardened Linux matrix](https://github.com/chinmoybiswasdeep/PhotoGraphiQ/actions/runs/34458767003)
-passed all six gates on all four versions at commit `267adaa`. Inspection then
-found that upload-artifact excluded the hidden `.validation` directory. The
-workflow now includes that directory explicitly and treats missing artifacts
-as an error. The follow-up artifact-preserving run is being verified.
+The [artifact-preserving Linux matrix](https://github.com/chinmoybiswasdeep/PhotoGraphiQ/actions/runs/34459232823)
+passed at commit `201c9b0`. All four artifact archives were downloaded and their
+JUnit counts, exact environments, numerical evidence and six exit codes inspected.
+
+| Python | Windows pytest | Linux pytest | Lint / format / mypy / build / evidence |
+|---|---:|---:|---|
+| 3.11.16 | 216 passed | 216 passed | All passed on both |
+| 3.12.14 | 216 passed | 216 passed | All passed on both |
+| 3.13.15 | 216 passed | 216 passed | All passed on both |
+| 3.14 (Windows .4; Linux .7) | 216 passed | 216 passed | All passed on both |
+
+There were no failures or skips. The expected truncation/boundary warnings remain.
+Piquasso 8.0.1 and Graphix 0.4 were used throughout. Python 3.11 used NumPy 2.4.6
+and SciPy 1.17.1; 3.12-3.14 used NumPy 2.5.3 and SciPy 1.18.1. Full dependency
+lists and logs are in `validation/hardening/{local,linux}-python-*`. Linux source
+hash: `3daf6f2ee13b755c95f9846ed058fd5fd6dd70caa24a20e7fd12a737543be401`.
+The local hash differs because the workflow subsequently gained explicit hidden
+artifact inclusion and missing-artifact failure; production and test code match.
+
+The first hardened run also passed but artifact upload silently excluded the
+hidden output directory. This was fixed and verified by the linked second run.
+An isolated installed-wheel smoke check also verified the number-state fourth
+moment, and the revised 16-page manuscript compiled with resolved references.
+
+Linux reproduced the original c=36 density discrepancy on 3.12/3.13 exactly,
+then reduced it to 5.447e-8 at c=96. Raw decomposition infidelity fell from
+5.954e-6 at c=24 to 1.940e-7 at c=48. Thus the original difficult regime was
+retained, with independently measured convergence rather than a looser boundary.
 
 `experiments/validate_release.py` writes exact versions, normalized source/test
 hash, head commit, separate logs and exit codes. Local Windows results are not
@@ -160,16 +183,17 @@ not evidence for an untested Python/platform/dependency combination.
 
 ## I. v0.2 release decision
 
-Pending the final local and remote matrix. No stable-release success is declared
-solely from the passing development machine or the workflow configuration.
-Any positive decision is limited to an **experimental research release** within
-the documented parameter regimes and capabilities.
+**Ready for an experimental v0.2 research release** within the documented
+parameter regimes and capabilities: both Windows and actual Linux CI passed
+all required gates, including package builds. This is not a claim of universal
+CV-MBQC, unrestricted numerical accuracy or broad production stability. No
+release tag, package publication or default-branch merge was performed.
 
 ## J. PhotoGraphiQML readiness
 
 The resource/IR/backend separation, explicit classical dependencies, reproducible
 seeds, state diagnostics and capability failures provide a defensible basis for
-starting feature extraction and model prototypes after matrix acceptance.
+starting feature extraction and model prototypes now that the matrix passed.
 They do not supply autodifferentiation or a validated gradient estimator. A future
 ML layer must state its cutoff, postselection, sampling and differentiation
 contracts; it must not treat normalized heralded trajectories as unbiased
@@ -177,6 +201,6 @@ unconditional samples or pure-state feature analysis as mixed-channel support.
 
 ## Exact file changes and reasons
 
-The accompanying `validation/hardening/file-changes.json` lists every changed
+The accompanying [file-changes.json](../validation/hardening/file-changes.json) lists every changed
 file against the audited baseline with its concrete role. Generated numerical
 evidence and the revised manuscript are distinguished from production fixes.

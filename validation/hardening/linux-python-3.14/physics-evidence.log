@@ -1,0 +1,18 @@
+/home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99992944; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+/home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998494; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+/home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999745; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+/home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999987; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+/home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99826534; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+/home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99965835; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+/home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99991668; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+/home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998386; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+/home/runner/work/PhotoGraphiQ/PhotoGraphiQ/src/photographiq/backends/fock.py:366: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999896; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
