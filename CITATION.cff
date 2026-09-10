@@ -1,9 +1,16 @@
 cff-version: 1.2.0
-message: "Please cite the PhotoGraphiQ repository and the Piquasso and Graphix papers described in docs/references.md."
+message: "Please cite the software version and commit, plus relevant upstream software and protocols."
 title: "PhotoGraphiQ"
 type: software
-version: 0.2.0
+version: 0.3.0
 license: MIT
 repository-code: "https://github.com/chinmoybiswasdeep/PhotoGraphiQ"
 authors:
   - name: "PhotoGraphiQ contributors"
+preferred-citation:
+  type: software
+  title: "PhotoGraphiQ"
+  authors:
+    - name: "PhotoGraphiQ contributors"
+  version: 0.3.0
+  url: "https://github.com/chinmoybiswasdeep/PhotoGraphiQ"

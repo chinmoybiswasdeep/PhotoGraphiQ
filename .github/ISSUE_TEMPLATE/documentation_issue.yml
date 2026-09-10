@@ -1,0 +1,29 @@
+name: Documentation issue
+description: Report unclear, missing or incorrect documentation
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Problem or proposed outcome
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: "PhotoGraphiQ, Python and Piquasso versions; operating system"
+  - type: textarea
+    id: backend
+    attributes:
+      label: "Backend and cutoff (if applicable)"
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: "Minimal reproduction or documentation page/code block"
+  - type: textarea
+    id: expected
+    attributes:
+      label: "Expected result"
+  - type: textarea
+    id: actual
+    attributes:
+      label: "Actual result or missing behavior"

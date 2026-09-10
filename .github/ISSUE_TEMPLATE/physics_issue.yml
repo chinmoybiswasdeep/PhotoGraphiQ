@@ -1,0 +1,37 @@
+name: Physics or numerical issue
+description: Report conventions, convergence or scientific discrepancies
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Problem or proposed outcome
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: "PhotoGraphiQ, Python and Piquasso versions; operating system"
+  - type: textarea
+    id: backend
+    attributes:
+      label: "Backend and cutoff (if applicable)"
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: "Minimal reproduction or documentation page/code block"
+  - type: textarea
+    id: expected
+    attributes:
+      label: "Expected result"
+  - type: textarea
+    id: actual
+    attributes:
+      label: "Actual result or missing behavior"
+  - type: textarea
+    id: convention
+    attributes:
+      label: "Quadrature/hbar and gate conventions"
+  - type: textarea
+    id: convergence
+    attributes:
+      label: "Cutoff, integration, grid or synthesis refinement evidence; independent reference"
