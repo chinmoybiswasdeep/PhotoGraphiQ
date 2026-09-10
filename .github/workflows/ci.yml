@@ -20,6 +20,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: validation-python-${{ matrix.python }}
+          include-hidden-files: true
+          if-no-files-found: error
           path: |
             .validation/*.json
             .validation/*.xml

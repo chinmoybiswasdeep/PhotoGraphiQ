@@ -119,7 +119,11 @@ Local Windows validation: **216 tests passed on each of Python 3.11.16,
 builds and physics-evidence generation also passed on every version. Exact
 packages, logs and numerical results are in `validation/hardening/local-python-*`.
 
-**New remote CI: pending verification.**
+The [first hardened Linux matrix](https://github.com/chinmoybiswasdeep/PhotoGraphiQ/actions/runs/34458767003)
+passed all six gates on all four versions at commit `267adaa`. Inspection then
+found that upload-artifact excluded the hidden `.validation` directory. The
+workflow now includes that directory explicitly and treats missing artifacts
+as an error. The follow-up artifact-preserving run is being verified.
 
 `experiments/validate_release.py` writes exact versions, normalized source/test
 hash, head commit, separate logs and exit codes. Local Windows results are not
