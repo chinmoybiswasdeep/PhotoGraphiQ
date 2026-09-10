@@ -10,6 +10,15 @@ jax = pytest.importorskip("jax")
 jax.config.update("jax_enable_x64", True)
 
 
+def test_double_precision_requirement_is_enforced():
+    try:
+        jax.config.update("jax_enable_x64", False)
+        with pytest.raises(RuntimeError, match="jax_enable_x64"):
+            ad.fock_state(pg.Pattern(inputs=(0,)), cutoff=4)
+    finally:
+        jax.config.update("jax_enable_x64", True)
+
+
 @pytest.mark.parametrize("cutoff", [2, 3, 5])
 def test_beamsplitter_top_sector_preserves_trace_and_binomial_weights(cutoff):
     n, theta = cutoff - 1, 0.3

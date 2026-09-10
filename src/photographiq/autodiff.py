@@ -22,7 +22,7 @@ def _jax():
         raise ImportError(
             "Automatic differentiation requires pip install 'photographiq[autodiff]' (or source extras)"
         ) from exc
-    if not jax.config.x64_enabled:
+    if not getattr(jax.config, "x64_enabled"):
         raise RuntimeError("Enable jax_enable_x64 before execution for scientific precision")
     return jax, jnp
 

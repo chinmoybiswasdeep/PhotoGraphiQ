@@ -3,6 +3,8 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      HAS_CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN != '' }}
     strategy:
       fail-fast: false
       matrix:
@@ -32,9 +34,12 @@ jobs:
             .validation/*.log
             .validation/dist/*
       - name: Upload measured coverage
-        if: always() && matrix.python == '3.12' && hashFiles('.validation/coverage.xml') != ''
+        if: always() && matrix.python == '3.12' && env.HAS_CODECOV_TOKEN == 'true' && hashFiles('.validation/coverage.xml') != ''
         uses: codecov/codecov-action@v5
         with:
           files: .validation/coverage.xml
           token: ${{ secrets.CODECOV_TOKEN }}
-          fail_ci_if_error: false
+          fail_ci_if_error: true
+      - name: Report pending Codecov setup
+        if: matrix.python == '3.12' && env.HAS_CODECOV_TOKEN != 'true'
+        run: echo "::notice::Codecov upload skipped. Add CODECOV_TOKEN in repository Actions secrets. Measured coverage is available in the validation artifact."

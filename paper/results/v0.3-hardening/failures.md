@@ -80,3 +80,12 @@ The action step was green because upload failures were nonblocking, but its actu
 log said: `Token required - not valid tokenless upload`. This was not a successful
 coverage upload. A repository `CODECOV_TOKEN` Actions secret is required. The main
 coverage badge is withheld until a successful main-branch upload is verified.
+
+## Python 3.11 JAX type compatibility (run 34536433226)
+
+Python 3.11.16 resolved JAX 0.10.2. All 426 tests passed, but mypy reported
+`autodiff.py:25: "Config" has no attribute "x64_enabled"`. This public runtime
+property exists (the tests exercised it), but is not declared in that version's
+static Config interface. Accessing it via getattr accommodates the dynamic API
+without suppressing mypy or removing the double-precision check. A regression
+also explicitly disables x64 and verifies that execution is still rejected.

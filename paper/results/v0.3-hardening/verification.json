@@ -1,0 +1,61 @@
+{
+  "local_full_suite_passed": 426,
+  "additional_targeted_tests_passed": 7,
+  "final_collected_suite_size": 433,
+  "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "source_sha256_at_full_run": "cbce62f5d62487d926117a886b57f74d0894a943ea071f218df4ffce98a4fba0",
+  "starting_head": "c97ae9cc7f9fc6d06aff9b9de4dd5d7e6f3c10fa",
+  "checks": {
+    "pytest": {
+      "exit_code": 0,
+      "log": "pytest.log"
+    },
+    "ruff-check": {
+      "exit_code": 0,
+      "log": "ruff-check.log"
+    },
+    "ruff-format": {
+      "exit_code": 0,
+      "log": "ruff-format.log"
+    },
+    "mypy": {
+      "exit_code": 0,
+      "log": "mypy.log"
+    },
+    "build": {
+      "exit_code": 0,
+      "log": "build.log"
+    },
+    "physics-evidence": {
+      "exit_code": 0,
+      "log": "physics-evidence.log"
+    }
+  },
+  "coverage": {
+    "covered_lines": 2651,
+    "num_statements": 2907,
+    "percent_covered": 91.19367045063639,
+    "percent_covered_display": "91",
+    "missing_lines": 256,
+    "excluded_lines": 19,
+    "percent_statements_covered": 91.19367045063639,
+    "percent_statements_covered_display": "91"
+  },
+  "installed_wheel_smoke": "passed",
+  "strict_mkdocs": "passed",
+  "remote_status": "pending",
+  "first_remote_hardening": {
+    "commit": "e6776060bce41e28923d8d68ce1e6386588e6aec",
+    "test_run": 34536433226,
+    "docs_run": 34536433414,
+    "pytest": "426 passed on Python 3.11, 3.12, 3.13, 3.14",
+    "release_gates": {
+      "3.11": "mypy failed: JAX 0.10.2 Config stub",
+      "3.12": "passed",
+      "3.13": "passed",
+      "3.14": "passed"
+    },
+    "docs": "passed"
+  }
+}

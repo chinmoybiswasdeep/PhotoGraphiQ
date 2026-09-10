@@ -1,0 +1,85 @@
+{
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "allocation_scope": "Python and registered NumPy allocations, not process RSS or all native workspaces; warm mixed backend; concurrent validation can affect wall times",
+  "measurements": [
+    {
+      "kind": "dense coherent density preparation and rotation",
+      "modes": 1,
+      "cutoff": 16,
+      "dimension": 16,
+      "matrix_bytes": 4096,
+      "runtime_seconds": 0.09197819999826606,
+      "tracemalloc_peak_bytes": 135674
+    },
+    {
+      "kind": "dense coherent density preparation and rotation",
+      "modes": 1,
+      "cutoff": 32,
+      "dimension": 32,
+      "matrix_bytes": 16384,
+      "runtime_seconds": 0.9779617000021972,
+      "tracemalloc_peak_bytes": 477838
+    },
+    {
+      "kind": "dense coherent density preparation and rotation",
+      "modes": 2,
+      "cutoff": 8,
+      "dimension": 36,
+      "matrix_bytes": 20736,
+      "runtime_seconds": 2.6608111999958055,
+      "tracemalloc_peak_bytes": 606230
+    },
+    {
+      "kind": "dense coherent density preparation and rotation",
+      "modes": 2,
+      "cutoff": 12,
+      "dimension": 78,
+      "matrix_bytes": 97344,
+      "runtime_seconds": 42.14907449999009,
+      "tracemalloc_peak_bytes": 2647143
+    },
+    {
+      "kind": "dense coherent density preparation and rotation",
+      "modes": 3,
+      "cutoff": 5,
+      "dimension": 35,
+      "matrix_bytes": 19600,
+      "runtime_seconds": 5.0878444999980275,
+      "tracemalloc_peak_bytes": 598872
+    },
+    {
+      "kind": "dense coherent density preparation and rotation",
+      "modes": 3,
+      "cutoff": 7,
+      "dimension": 84,
+      "matrix_bytes": 112896,
+      "runtime_seconds": 60.73878320000949,
+      "tracemalloc_peak_bytes": 2956917
+    },
+    {
+      "kind": "Kerr MBQC compilation",
+      "modes": 1,
+      "steps": 1,
+      "commands": 2489,
+      "runtime_seconds": 1.1462865000066813,
+      "tracemalloc_peak_bytes": 18348983
+    },
+    {
+      "kind": "Kerr MBQC compilation",
+      "modes": 1,
+      "steps": 2,
+      "commands": 4977,
+      "runtime_seconds": 1.6593278999935137,
+      "tracemalloc_peak_bytes": 36597184
+    },
+    {
+      "kind": "Kerr MBQC compilation",
+      "modes": 1,
+      "steps": 4,
+      "commands": 9953,
+      "runtime_seconds": 3.8081309999979567,
+      "tracemalloc_peak_bytes": 72896002
+    }
+  ]
+}
