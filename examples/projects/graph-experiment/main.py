@@ -25,7 +25,7 @@ for weight in (0.2, 0.4, 0.6, 0.8):
 pattern.draw(output=output / "resource.svg")
 data = np.asarray(rows)
 np.savetxt(
-    output / "data.csv", data, delimiter=",", header="CZ weight,q_a,p_b covariance", comments=""
+    output / "data.csv", data, delimiter=",", header="cz_weight,q_a_p_b_covariance", comments=""
 )
 fig, ax = plt.subplots()
 ax.plot(data[:, 0], data[:, 1], marker="o")

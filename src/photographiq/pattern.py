@@ -225,7 +225,7 @@ class Pattern:
         return topological_schedule(self.commands)
 
     def inspect(self):
-        """Return a compact description of inputs, outputs, commands and parameters."""
+        """Return the numbered command sequence as a readable string."""
         return "\n".join(f"{i}: {command!r}" for i, command in enumerate(self.commands))
 
     def standardize(self):

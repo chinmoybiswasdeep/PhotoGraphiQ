@@ -101,7 +101,7 @@ def fock_state(
         pattern (Pattern): Validated command sequence with fixed topology.
         parameters (dict): Mapping from names to JAX scalar parameters.
         cutoff (int): Exclusive total-photon cutoff (integer >= 2).
-        inputs (tuple): Constant input descriptions; parameterize preparation with gates.
+        inputs (dict): Constant node-to-input descriptions; parameterize preparation with gates.
         measurement_outcomes (object): Required fixed results for every measurement.
         max_dimension (object): Dense state-space allocation limit.
 

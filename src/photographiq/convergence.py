@@ -15,8 +15,8 @@ class CutoffStudy:
     """Rows of numerical diagnostics paired with the simulated states at each cutoff.
 
     Args:
-        rows (int): Positive number of grid rows.
-        results (object): Results as described by this object’s contract.
+        rows (list[dict]): Diagnostics for each evaluated cutoff.
+        results (object): Simulation results in the same order as the cutoff rows.
     """
 
     rows: list[dict]

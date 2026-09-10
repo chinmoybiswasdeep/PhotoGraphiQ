@@ -12,11 +12,11 @@ class CVGraph:
     """Weighted continuous-variable resource graph with explicit squeezing and input/output labels.
 
     Args:
-        graph (CVGraph): Labelled weighted resource graph.
+        graph (networkx.Graph): Optional undirected simple weighted graph.
         squeezing (float): Finite momentum resource squeezing; nonnegative.
         inputs (tuple): Ordered input labels supplied externally.
         outputs (tuple): Ordered surviving output labels.
-        ideal (object): Ideal as described by this object’s contract.
+        ideal (object): Whether this graph is an ideal symbolic resource specification.
 
     Raises:
         ValueError: Resources require an undirected simple graph.
@@ -155,7 +155,7 @@ class CVGraph:
         """Construct a labelled resource from a real symmetric weighted adjacency matrix.
 
         Args:
-            adjacency (object): Adjacency as described by this object’s contract.
+            adjacency (object): Symmetric weighted adjacency matrix in node order.
             labels (tuple): Unique labels in matrix order.
 
         Raises:

@@ -40,10 +40,10 @@ class Result:
         outcomes (dict): Measurement readings keyed by result key.
         records (dict): Previously produced classical records.
         state (object): Supported state preparation or independent state snapshot.
-        backend (object): Backend as described by this object’s contract.
+        backend (object): Name of the execution backend.
         seed (object): Random seed or SeedSequence; zero is valid.
-        physical_displacements (object): Physical displacements as described by this object’s contract.
-        measurement_statistics (object): Measurement statistics as described by this object’s contract.
+        physical_displacements (object): Number of displacement commands physically executed.
+        measurement_statistics (object): Per-key conditional probability or density diagnostics.
 
     Raises:
         NotImplementedError: Backend did not report every measurement likelihood.
@@ -77,7 +77,7 @@ class ShotResult:
     """Independent seeded trajectories with record extraction and Gaussian ensemble moments.
 
     Args:
-        trajectories (object): Trajectories as described by this object’s contract.
+        trajectories (object): Independent Result objects, in shot order.
 
     Raises:
         ValueError: Empty ensemble.

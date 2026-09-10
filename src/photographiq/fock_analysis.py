@@ -108,9 +108,9 @@ class WignerGrid:
     """Single-mode Wigner quasiprobability values on ordered q and p axes.
 
     Args:
-        q (float): Position translation; hbar=2 quadrature units.
-        p (float): Momentum translation; hbar=2 quadrature units.
-        values (object): Values as described by this object’s contract.
+        q (ndarray): One-dimensional ordered position grid.
+        p (ndarray): One-dimensional ordered momentum grid.
+        values (object): Wigner values with shape (len(p), len(q)).
     """
 
     q: np.ndarray

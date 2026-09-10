@@ -225,16 +225,16 @@ class MixedFockBackend(PiquassoFockBackend):
         )
 
     def measure(self, node, measurement, angle=0.0, *, outcome=None):
-        """Append a destructive measurement; its key becomes a later classical dependency.
+        """Execute a destructive measurement on the density matrix.
 
         Args:
             node (object): Hashable mode label.
             measurement (object): Homodyne, Heterodyne, Generaldyne or PhotonNumber description.
             angle (float): Quadrature or gate angle in radians; expressions allowed where documented.
-            outcome (object): Outcome as described by this object’s contract.
+            outcome (object): Fixed postselection value, or None to sample.
 
         Returns:
-            result (object): Pattern when constructing; sampled outcome when executing.
+            result (float or int): Sampled or postselected measurement outcome.
 
         Raises:
             NotImplementedError: Mixed Fock supports PhotonNumber and Homodyne.

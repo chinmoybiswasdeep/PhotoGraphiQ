@@ -34,8 +34,8 @@ class GaussianChannel:
 
     Args:
         matrix (array-like): Matrix in the documented quadrature or occupation basis.
-        noise (float): Nonnegative added calibrated quadrature variance.
-        displacement (object): Displacement as described by this object’s contract.
+        noise (ndarray): Added output covariance matrix N.
+        displacement (object): Output quadrature displacement vector d.
         inputs (tuple): Ordered input labels supplied externally.
         outputs (tuple): Ordered surviving output labels.
 

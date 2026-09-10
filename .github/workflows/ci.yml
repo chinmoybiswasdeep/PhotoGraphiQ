@@ -13,8 +13,14 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
       - run: python -m pip install -e '.[dev]'
+      - name: Include optional differentiation in the coverage environment
+        if: matrix.python == '3.12'
+        run: python -m pip install -e '.[autodiff]'
       - name: Test, lint, format, type-check and build (all gates)
         run: python experiments/validate_release.py --output .validation
+      - name: Enforce measured coverage floor
+        if: matrix.python == '3.12'
+        run: python -m coverage report --data-file=.validation/.coverage --fail-under=90
       - name: Upload validation logs and exact environment
         if: always()
         uses: actions/upload-artifact@v4

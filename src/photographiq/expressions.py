@@ -27,8 +27,8 @@ class Expr:
     """Immutable arithmetic expression tree with explicit parameter and outcome dependencies.
 
     Args:
-        op (object): Op as described by this object’s contract.
-        args (object): Args as described by this object’s contract.
+        op (object): Operation name identifying a literal, dependency or arithmetic operation.
+        args (object): Immutable operands or payload for the selected operation.
 
     Raises:
         ValueError: Expression must evaluate to a finite real scalar.
@@ -248,7 +248,7 @@ def atan2(y, x):
     """Build a quadrant-aware angle expression from y and x.
 
     Args:
-        y (object): Y as described by this object’s contract.
-        x (object): X as described by this object’s contract.
+        y (object): Real scalar or expression for the vertical coordinate.
+        x (object): Real scalar or expression for the horizontal coordinate.
     """
     return Expr("atan2", (expression(y), expression(x)))

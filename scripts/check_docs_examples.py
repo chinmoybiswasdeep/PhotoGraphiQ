@@ -1,6 +1,7 @@
 """Execute documentation sources, projects and optional notebooks in isolation."""
 
 import argparse
+import csv
 import os
 import subprocess
 import sys
@@ -58,6 +59,10 @@ def main():
                     or not (Path(temp) / "figure.svg").is_file()
                 ):
                     raise RuntimeError(f"Missing project artifacts: {source}")
+                with (Path(temp) / "data.csv").open(newline="", encoding="utf-8") as stream:
+                    rows = list(csv.reader(stream))
+                if len(rows) < 2 or any(len(row) != 2 for row in rows):
+                    raise RuntimeError(f"Expected a two-column CSV with header: {source}")
             print(f"PASS project {source.parent.name}", flush=True)
     if args.notebooks:
         import nbformat

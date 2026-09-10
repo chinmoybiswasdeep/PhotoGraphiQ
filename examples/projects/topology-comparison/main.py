@@ -30,7 +30,7 @@ np.savetxt(
     output / "data.csv",
     data,
     delimiter=",",
-    header="Topology index: line, ring, star,Total mean photons",
+    header="topology_index,total_mean_photons",
     comments="",
 )
 fig, ax = plt.subplots()

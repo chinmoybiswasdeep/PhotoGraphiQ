@@ -18,6 +18,9 @@ PhotoGraphiQ connects optical circuits to labelled cluster resources, adaptive
 measurements and classical corrections. Build a reusable experiment, simulate its
 conditional outputs, and inspect finite-squeezing noise or Fock-cutoff convergence.
 
+See the [v0.3 release report](docs/development/v0.3-release-report.md) for local
+validation results, the changed-file inventory and experimental feature limits.
+
 ## Why PhotoGraphiQ?
 
 Piquasso supplies photonic state evolution. PhotoGraphiQ adds the CV-MBQC layer:

@@ -19,9 +19,9 @@ class CVFlow:
     """Supplied-total-order real-linear CV-flow certificate, including correction vectors.
 
     Args:
-        order (object): Order as described by this object’s contract.
-        corrections (object): Corrections as described by this object’s contract.
-        residuals (object): Residuals as described by this object’s contract.
+        order (object): Total measurement order of all non-output nodes.
+        corrections (object): Per-measured-node correction vectors indexed by future node labels.
+        residuals (object): Linear-system residual norms in measurement order.
     """
 
     order: tuple

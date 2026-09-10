@@ -405,7 +405,7 @@ class FockSuperposition:
         """Construct a normalized correlated pure resource from an occupation-amplitude mapping.
 
         Args:
-            amplitudes (object): Amplitudes as described by this object’s contract.
+            amplitudes (object): Mapping from occupation tuples to complex amplitudes.
         """
         return cls(tuple(amplitudes), tuple(amplitudes.values()))
 
