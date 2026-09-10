@@ -24,6 +24,20 @@ from .measurements import Generaldyne, Heterodyne, Homodyne, PhotonNumber
 
 
 class Pattern:
+    """Causal measurement computation with ordered input labels and backend-neutral commands.
+
+    Args:
+        graph (CVGraph): Labelled weighted resource graph.
+        inputs (tuple): Ordered input labels supplied externally.
+
+    Raises:
+        ValueError: Duplicate inputs.
+        ValueError: Remaining modes differ from declared graph outputs; add an Output command.
+        ValueError: Ideal graph is symbolic; choose finite squeezing to build a physical pattern.
+        ValueError: Output must be the final command.
+        ValueError: Empty, duplicate or previously prepared resource nodes.
+    """
+
     def __init__(self, graph: CVGraph | None = None, *, inputs=()):
         self.commands: list = []
         self.inputs = tuple(inputs if graph is None else graph.inputs)
@@ -40,31 +54,78 @@ class Pattern:
             self.extend(Entangle(u, v, d["weight"]) for u, v, d in graph.network.edges(data=True))
 
     def append(self, command):
+        """Append one supported command and return this pattern.
+
+        Args:
+            command (object): Backend-neutral command.
+
+        Returns:
+            result (Pattern): This pattern for fluent construction.
+        """
         if not isinstance(command, COMMANDS):
             raise TypeError(f"Unknown command: {type(command).__name__}")
         self.commands.append(command)
         return self
 
+    def __repr__(self):
+        return f"Pattern(inputs={len(self.inputs)}, outputs={len(self.outputs)}, commands={len(self.commands)})"
+
     def extend(self, commands):
+        """Append an iterable of commands and return this pattern.
+
+        Args:
+            commands (iterable): Commands in intended execution order.
+
+        Returns:
+            result (Pattern): This pattern for fluent construction.
+        """
         for command in commands:
             self.append(command)
         return self
 
     def copy(self):
+        """Return an independent copy of this object.
+
+        Returns:
+            result (object): Independent object copy.
+        """
         return deepcopy(self)
 
     def measure(self, node, measurement=None, *, key=None):
+        """Append a destructive measurement; its key becomes a later classical dependency.
+
+        Args:
+            node (object): Hashable mode label.
+            measurement (object): Homodyne, Heterodyne, Generaldyne or PhotonNumber description.
+            key (object): Unique classical record key; None uses the measured node.
+
+        Returns:
+            result (object): Pattern when constructing; sampled outcome when executing.
+        """
         return self.append(Measure(node, Homodyne.q() if measurement is None else measurement, key))
 
     def displace(self, node, *, q=0.0, p=0.0):
+        """Apply or append quadrature translations q and p in hbar=2 coordinates.
+
+        Args:
+            node (object): Hashable mode label.
+            q (float): Position translation; hbar=2 quadrature units.
+            p (float): Momentum translation; hbar=2 quadrature units.
+        """
         return self.append(Displace(node, q, p))
 
     @property
     def parameters(self):
+        """Names of external scalar parameters required by this object.
+
+        Returns:
+            result (frozenset): External parameter names.
+        """
         return frozenset().union(*(e.parameters for c in self.commands for e in expressions(c)))
 
     @property
     def outputs(self):
+        """Ordered labels of surviving modes selected by the final Output command."""
         explicit = [c.nodes for c in self.commands if isinstance(c, Output)]
         if explicit:
             return tuple(explicit[-1])
@@ -80,6 +141,7 @@ class Pattern:
 
     @property
     def graph(self):
+        """Construct entangling connectivity; repeated CZ edges are aggregated, not temporally simulated."""
         graph = CVGraph(inputs=())
         for n in self.inputs:
             graph.add_node(n, squeezing=0.0)
@@ -99,6 +161,18 @@ class Pattern:
         return graph
 
     def validate(self):
+        """Validate dimensions, labels, causality or physicality for this object; return self.
+
+        Returns:
+            result (object): This validated object.
+
+        Raises:
+            ValueError: Duplicate inputs.
+            ValueError: Remaining modes differ from declared graph outputs; add an Output command.
+            ValueError: Output must be the final command.
+            ValueError: Empty, duplicate or previously prepared resource nodes.
+            ValueError: Self CZ is invalid.
+        """
         if len(set(self.inputs)) != len(self.inputs):
             raise ValueError("Duplicate inputs")
         dependency_graph(self.commands)
@@ -139,12 +213,19 @@ class Pattern:
         return self
 
     def dependencies(self):
+        """Classical/quantum dependencies required before executing this object.
+
+        Returns:
+            result (object): Dependency keys or command DAG, according to the owning object.
+        """
         return dependency_graph(self.commands)
 
     def schedule(self):
+        """Return a causally valid ordering of command indices."""
         return topological_schedule(self.commands)
 
     def inspect(self):
+        """Return a compact description of inputs, outputs, commands and parameters."""
         return "\n".join(f"{i}: {command!r}" for i, command in enumerate(self.commands))
 
     def standardize(self):
@@ -201,6 +282,14 @@ class Pattern:
         return result.validate()
 
     def to_json(self, path=None):
+        """Serialize the pattern using the versioned allowlisted JSON schema; optionally write a file.
+
+        Args:
+            path (str): Optional destination path.
+
+        Returns:
+            result (str): Versioned JSON text.
+        """
         from .serialization import dumps
 
         text = dumps(self)
@@ -212,11 +301,24 @@ class Pattern:
 
     @classmethod
     def from_json(cls, text):
+        """Load a pattern from JSON text, rejecting unknown types and invalid causal structure.
+
+        Args:
+            text (str): Serialized JSON text, not a filename.
+
+        Returns:
+            result (Pattern): Validated reconstructed pattern.
+        """
         from .serialization import loads
 
         return loads(text)
 
     def draw(self, **kwargs):
+        """Draw this computation with optional matplotlib; return Axes for customization/export.
+
+        Returns:
+            result (Axes): Customizable matplotlib axes.
+        """
         from .visualization import draw_pattern
 
         return draw_pattern(self, **kwargs)

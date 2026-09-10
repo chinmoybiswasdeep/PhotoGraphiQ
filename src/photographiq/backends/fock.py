@@ -26,12 +26,21 @@ class FockResultState:
     retained_norms: tuple
     diagnostics: tuple = ()
 
+    def __repr__(self):
+        return f"FockResultState(modes={len(self.nodes)}, diagnostics={len(self.diagnostics)}, norm={self.norm:.6g})"
+
     @property
     def basis(self):
+        """Ordered occupation tuples corresponding to vector/matrix indices."""
         return tuple(self.probabilities)
 
     @property
     def state_vector(self):
+        """Copy pure-state amplitudes; mixed reduced states have no state vector.
+
+        Raises:
+            ValueError: A mixed reduced state has no state vector.
+        """
         if self.native is None:
             return np.ones(1, dtype=complex)
         if not hasattr(self.native, "state_vector"):
@@ -40,6 +49,7 @@ class FockResultState:
 
     @property
     def norm(self):
+        """Return the state norm or density-matrix trace."""
         return 1.0 if self.native is None else float(self.native.norm)
 
     def quadrature_moment(self, node, order, angle=0.0):
@@ -56,6 +66,17 @@ class FockResultState:
         return float(sum(b[i] ** order * p for b, p in self.probabilities.items()))
 
     def reduced(self, nodes):
+        """Return the partial trace on requested nodes in exactly that label order.
+
+        Args:
+            nodes (tuple): Ordered mode labels.
+
+        Returns:
+            result (object): Reduced state snapshot.
+
+        Raises:
+            ValueError: Invalid reduced-state labels.
+        """
         nodes = tuple(nodes)
         if len(set(nodes)) != len(nodes) or not set(nodes) <= set(self.nodes):
             raise ValueError("Invalid reduced-state labels")
@@ -83,22 +104,46 @@ class FockResultState:
         return float(mean), float(second - mean**2)
 
     def fidelity(self, other):
+        """Return squared Uhlmann fidelity after occupation-basis alignment.
+
+        Args:
+            other (object): State with matching node labels and order.
+
+        Returns:
+            result (float): Squared Uhlmann fidelity.
+        """
         from ..fock_analysis import fidelity
 
         return fidelity(self, other)
 
     def trace_distance(self, other):
+        """Return half the trace norm of the occupation-aligned state difference.
+
+        Args:
+            other (object): State with matching node labels and order.
+
+        Returns:
+            result (float): Trace distance.
+        """
         from ..fock_analysis import trace_distance
 
         return trace_distance(self, other)
 
     def wigner(self, q, p, node=None):
+        """Compute a single-mode reduced Wigner quasiprobability grid.
+
+        Args:
+            q (float): Position translation; hbar=2 quadrature units.
+            p (float): Momentum translation; hbar=2 quadrature units.
+            node (object): Hashable mode label.
+        """
         from ..fock_analysis import wigner
 
         return wigner(self, q, p, node)
 
     @property
     def density_matrix(self):
+        """Copy the density matrix; allocation scales quadratically with Fock dimension."""
         return (
             np.ones((1, 1))
             if self.native is None
@@ -107,13 +152,30 @@ class FockResultState:
 
     @property
     def probabilities(self):
+        """Return occupation-tuple probabilities in basis order."""
         return {(): 1.0} if self.native is None else dict(self.native.fock_probabilities_map)
 
     def photon_number(self, node):
+        """Return mean photon occupation on a labelled mode.
+
+        Args:
+            node (object): Hashable mode label.
+
+        Returns:
+            result (float): Mean occupation.
+        """
         i = self.nodes.index(node)
         return float(sum(basis[i] * p for basis, p in self.probabilities.items()))
 
     def parity(self, nodes=None):
+        """Return the joint photon-number parity expectation on selected modes.
+
+        Args:
+            nodes (tuple): Ordered mode labels.
+
+        Returns:
+            result (float): Parity expectation.
+        """
         indices = range(len(self.nodes)) if nodes is None else [self.nodes.index(n) for n in nodes]
         return float(
             sum(
@@ -162,6 +224,11 @@ class PiquassoFockBackend(BaseBackend):
         self.reset()
 
     def reset(self, seed=None):
+        """Clear backend state and initialize the trajectory random-number generator.
+
+        Args:
+            seed (object): Random seed or SeedSequence; zero is valid.
+        """
         self.rng = np.random.default_rng(seed)
         self.nodes: tuple = ()
         self.native: Any = None
@@ -239,6 +306,12 @@ class PiquassoFockBackend(BaseBackend):
 
     def validate_preparation(self, state, modes=1):
         """Reject unsupported/mismatched resources before native state allocation."""
+        from ..gkp import GKPResource
+
+        if isinstance(state, GKPResource):
+            if modes != 1:
+                raise ValueError("GKPResource requires one mode")
+            return
         if isinstance(state, FockInput):
             if modes != 1 or len(state.amplitudes) > self.cutoff:
                 raise ValueError("Input mode count or support exceeds cutoff")
@@ -262,6 +335,19 @@ class PiquassoFockBackend(BaseBackend):
             raise NotImplementedError("Only pure supported input descriptions can be prepared")
 
     def prepare(self, node, squeezing=1.0, state=None):
+        """Prepare a fresh labelled mode; resource squeezing is momentum squeezing.
+
+        Args:
+            node (object): Hashable mode label.
+            squeezing (float): Finite momentum resource squeezing; nonnegative.
+            state (object): Supported state preparation or independent state snapshot.
+
+        Raises:
+            ValueError: Duplicate Fock node.
+            ValueError: Invalid squeezing.
+            ValueError: Input exceeds cutoff.
+            NotImplementedError: Unsupported Fock input.
+        """
         self.validate_preparation(state)
         if node in self.nodes:
             raise ValueError("Duplicate Fock node")
@@ -269,6 +355,10 @@ class PiquassoFockBackend(BaseBackend):
             raise ValueError("Invalid squeezing")
         self._guard(len(self.nodes) + 1)
         resource_mass = 1.0
+        from ..gkp import GKPResource
+
+        if isinstance(state, GKPResource):
+            state, resource_mass = state.project(self.cutoff)
         if isinstance(state, CatResource):
             from scipy.special import gammaln
 
@@ -361,24 +451,63 @@ class PiquassoFockBackend(BaseBackend):
         self.native = self._check(result.state, type(instruction).__name__)
 
     def entangle(self, u, v, weight=1.0):
+        """Apply weighted controlled-Z to two existing modes.
+
+        Args:
+            u (object): First mode label.
+            v (object): Second mode label.
+            weight (float): Real controlled-Z edge weight.
+        """
         passive = np.array([[1, 1j * weight / 2], [1j * weight / 2, 1]])
         active = np.array([[0, 1j * weight / 2], [1j * weight / 2, 0]])
         self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
 
     def displace(self, node, q=0.0, p=0.0):
+        """Apply or append quadrature translations q and p in hbar=2 coordinates.
+
+        Args:
+            node (object): Hashable mode label.
+            q (float): Position translation; hbar=2 quadrature units.
+            p (float): Momentum translation; hbar=2 quadrature units.
+        """
         alpha = complex(q, p) / 2
         self._gate((node,), pq.Displacement(r=abs(alpha), phi=np.angle(alpha)))
 
     def rotate(self, node, angle):
+        """Append a rotation by angle radians to this optical circuit.
+
+        Args:
+            node (object): Hashable mode label.
+            angle (float): Quadrature or gate angle in radians; expressions allowed where documented.
+        """
         self._gate((node,), pq.Phaseshifter(phi=angle))
 
     def squeeze(self, node, r):
+        """Append or apply q squeezing by parameter r.
+
+        Args:
+            node (object): Hashable mode label.
+            r (float): Dimensionless squeezing parameter.
+        """
         self._gate((node,), pq.Squeezing(r=r))
 
     def beamsplitter(self, u, v, theta):
+        """Mix two optical modes using the package real beamsplitter convention.
+
+        Args:
+            u (object): First mode label.
+            v (object): Second mode label.
+            theta (float): Beamsplitter mixing angle in radians.
+        """
         self._gate((u, v), pq.Beamsplitter(theta=theta, phi=0))
 
     def cubic_phase(self, node, gamma):
+        """Apply exp(i gamma q^3/6) on a Fock-capable backend.
+
+        Args:
+            node (object): Hashable mode label.
+            gamma (float): Cubic coefficient in exp(i gamma q³/6).
+        """
         self._gate((node,), pq.CubicPhase(gamma=gamma))
 
     def kerr(self, node, kappa):
@@ -427,6 +556,23 @@ class PiquassoFockBackend(BaseBackend):
         )
 
     def measure(self, node, measurement, angle=0.0, *, outcome=None):
+        """Append a destructive measurement; its key becomes a later classical dependency.
+
+        Args:
+            node (object): Hashable mode label.
+            measurement (object): Homodyne, Heterodyne, Generaldyne or PhotonNumber description.
+            angle (float): Quadrature or gate angle in radians; expressions allowed where documented.
+            outcome (object): Outcome as described by this object’s contract.
+
+        Returns:
+            result (object): Pattern when constructing; sampled outcome when executing.
+
+        Raises:
+            NotImplementedError: Fock backend supports ideal Homodyne and PhotonNumber measurements only.
+            ValueError: Photon-count outcome must be an integer within cutoff.
+            ValueError: Photon-count postselection has zero probability.
+            NotImplementedError: Noisy Fock homodyne requires mixed-state conditioning.
+        """
         if isinstance(measurement, Homodyne):
             if measurement.efficiency != 1 or measurement.noise != 0:
                 raise NotImplementedError("Noisy Fock homodyne requires mixed-state conditioning")
@@ -474,6 +620,14 @@ class PiquassoFockBackend(BaseBackend):
         return outcome
 
     def get_state(self, nodes=None):
+        """Return an independent state snapshot, optionally reduced and reordered.
+
+        Args:
+            nodes (tuple): Ordered mode labels.
+
+        Returns:
+            result (object): Independent backend state snapshot.
+        """
         nodes = self.nodes if nodes is None else tuple(nodes)
         if not nodes:
             return FockResultState(None, (), tuple(self.retained_norms), tuple(self.diagnostics))

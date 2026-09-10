@@ -12,12 +12,19 @@ from .simulator import simulate
 
 @dataclass
 class CutoffStudy:
+    """Rows of numerical diagnostics paired with the simulated states at each cutoff.
+
+    Args:
+        rows (int): Positive number of grid rows.
+        results (object): Results as described by this object’s contract.
+    """
+
     rows: list[dict]
     results: list
 
 
 def cutoff_convergence(
-    pattern, cutoffs, *, seed=0, high_order_moments=False, **kwargs
+    pattern, cutoffs, *, seed=0, high_order_moments=False, backend="piquasso-fock", **kwargs
 ) -> CutoffStudy:
     """Run a pattern (or cutoff -> pattern factory) at strictly increasing cutoffs.
 
@@ -33,14 +40,14 @@ def cutoff_convergence(
         or any(b <= a for a, b in zip(cutoffs, cutoffs[1:]))
     ):
         raise ValueError("Provide at least two strictly increasing integer cutoffs >=2")
-    if "backend" in kwargs or "cutoff" in kwargs:
+    if backend not in ("piquasso-fock", "piquasso-mixed-fock") or "cutoff" in kwargs:
         raise ValueError("The convergence helper controls backend and cutoff")
     results: list = []
     rows: list[dict] = []
     for cutoff in cutoffs:
         current = pattern(cutoff) if callable(pattern) else pattern
         start = perf_counter()
-        result = simulate(current, backend="piquasso-fock", cutoff=cutoff, seed=seed, **kwargs)
+        result = simulate(current, backend=backend, cutoff=cutoff, seed=seed, **kwargs)
         elapsed = perf_counter() - start
         state = result.state
         if not isinstance(state, FockResultState):
@@ -51,9 +58,9 @@ def cutoff_convergence(
             "norm": state.norm,
             "minimum_retained_norm": min(state.retained_norms, default=1),
             "maximum_boundary_population": max(
-                (d["boundary_population"] for d in state.diagnostics), default=0
+                (d.get("boundary_population", 0) for d in state.diagnostics), default=0
             ),
-            "peak_dimension": max((d["dimension"] for d in state.diagnostics), default=1),
+            "peak_dimension": max((d.get("dimension", 1) for d in state.diagnostics), default=1),
             "outcomes": result.outcomes,
             "measurement_statistics": result.measurement_statistics,
             "photon_numbers": {n: state.photon_number(n) for n in state.nodes},

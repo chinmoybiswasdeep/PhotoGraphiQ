@@ -9,11 +9,103 @@ import numpy as np
 from .gaussian import omega, rotation
 
 
+@dataclass(frozen=True)
+class FockDensityMatrix:
+    """Normalized mixed input on an explicit ordered occupation basis.
+
+    Args:
+        matrix (array-like): Hermitian positive semidefinite density matrix with trace one.
+        basis (object): Unique nonnegative integer occupation tuples, one per row.
+
+    Raises:
+        ValueError: Invalid basis, dimensions, positivity, or normalization.
+
+    Example:
+        ``FockDensityMatrix([[0.5, 0], [0, 0.5]], ((0,), (1,)))``.
+    """
+
+    matrix: object
+    basis: tuple
+
+    def __post_init__(self):
+        basis = tuple(tuple(b) for b in self.basis)
+        rho = np.asarray(self.matrix, dtype=complex)
+        if (
+            not basis
+            or not basis[0]
+            or len(set(basis)) != len(basis)
+            or any(len(b) != len(basis[0]) for b in basis)
+            or any(
+                isinstance(n, bool) or not isinstance(n, (int, np.integer)) or n < 0
+                for b in basis
+                for n in b
+            )
+        ):
+            raise ValueError("Provide unique, equally sized nonnegative integer occupations")
+        if rho.shape != (len(basis), len(basis)) or not np.isfinite(rho).all():
+            raise ValueError("Density matrix shape must match the finite occupation basis")
+        if not np.allclose(rho, rho.conj().T, atol=1e-12, rtol=0) or not np.isclose(
+            np.trace(rho), 1, atol=1e-10, rtol=0
+        ):
+            raise ValueError("Density matrix must be Hermitian with trace one")
+        if np.linalg.eigvalsh(rho).min() < -1e-12:
+            raise ValueError("Density matrix must be positive semidefinite")
+        object.__setattr__(self, "basis", basis)
+        object.__setattr__(self, "matrix", tuple(map(tuple, rho)))
+
+    @property
+    def modes(self):
+        """Number of modes in each occupation tuple."""
+        return len(self.basis[0])
+
+    @classmethod
+    def thermal(cls, mean_photons, cutoff):
+        """Return a normalized truncated single-mode thermal input.
+
+        The omitted infinite-state weight is ``(nbar/(1+nbar))**cutoff``;
+        rebuild this resource when studying cutoff convergence.
+        """
+        if (
+            not np.isfinite(mean_photons)
+            or mean_photons < 0
+            or isinstance(cutoff, bool)
+            or not isinstance(cutoff, int)
+            or cutoff < 2
+        ):
+            raise ValueError("Thermal input requires mean_photons >= 0 and integer cutoff >= 2")
+        weights = (mean_photons / (1 + mean_photons)) ** np.arange(cutoff)
+        return cls(np.diag(weights / weights.sum()), tuple((n,) for n in range(cutoff)))
+
+    def __repr__(self):
+        return f"FockDensityMatrix(modes={self.modes}, basis_size={len(self.basis)})"
+
+
 @dataclass
 class GaussianState:
+    """Gaussian statistical moments in interleaved hbar=2 quadratures with ordered labels.
+
+    Args:
+        mean (array-like): Interleaved quadrature mean vector.
+        covariance (array-like): Statistical covariance, with vacuum covariance I.
+        nodes (tuple): Ordered mode labels.
+
+    Raises:
+        ValueError: Invalid Gaussian moment dimensions.
+        ValueError: Provide one unique label per mode.
+        ValueError: Moments must be finite.
+        ValueError: Covariance must be symmetric.
+        ValueError: Covariance violates the uncertainty relation V+i Omega >= 0.
+    """
+
     mean: np.ndarray
     covariance: np.ndarray
     nodes: tuple = ()
+
+    def __repr__(self):
+        preview = repr(self.nodes)
+        if len(preview) > 80:
+            preview = preview[:77] + "..."
+        return f"GaussianState(modes={len(self.nodes)}, nodes={preview}, covariance_shape={self.covariance.shape})"
 
     def __post_init__(self):
         self.mean = np.array(self.mean, dtype=float, copy=True)
@@ -22,6 +114,18 @@ class GaussianState:
         self.validate()
 
     def validate(self):
+        """Validate dimensions, labels, causality or physicality for this object; return self.
+
+        Returns:
+            result (object): This validated object.
+
+        Raises:
+            ValueError: Invalid Gaussian moment dimensions.
+            ValueError: Provide one unique label per mode.
+            ValueError: Moments must be finite.
+            ValueError: Covariance must be symmetric.
+            ValueError: Covariance violates the uncertainty relation V+i Omega >= 0.
+        """
         n = self.mean.size
         if self.mean.shape != (n,) or n % 2 or self.covariance.shape != (n, n):
             raise ValueError("Invalid Gaussian moment dimensions")
@@ -36,9 +140,22 @@ class GaussianState:
         return self
 
     def copy(self):
+        """Return an independent copy of this object.
+
+        Returns:
+            result (object): Independent object copy.
+        """
         return GaussianState(self.mean, self.covariance, self.nodes)
 
     def reduced(self, nodes):
+        """Return the partial trace on requested nodes in exactly that label order.
+
+        Args:
+            nodes (tuple): Ordered mode labels.
+
+        Returns:
+            result (object): Reduced state snapshot.
+        """
         nodes = tuple(nodes)
         indices = [
             j
@@ -48,6 +165,15 @@ class GaussianState:
         return GaussianState(self.mean[indices], self.covariance[np.ix_(indices, indices)], nodes)
 
     def quadrature(self, node, angle=0.0):
+        """Return (mean, variance) of q*cos(angle)+p*sin(angle) on a labelled mode.
+
+        Args:
+            node (object): Hashable mode label.
+            angle (float): Quadrature or gate angle in radians; expressions allowed where documented.
+
+        Returns:
+            result (tuple): Mean and variance of the chosen quadrature.
+        """
         i = self.nodes.index(node)
         v = np.array([np.cos(angle), np.sin(angle)])
         return float(v @ self.mean[2 * i : 2 * i + 2]), float(
@@ -55,10 +181,26 @@ class GaussianState:
         )
 
     def photon_number(self, node):
+        """Return mean photon occupation on a labelled mode.
+
+        Args:
+            node (object): Hashable mode label.
+
+        Returns:
+            result (float): Mean occupation.
+        """
         state = self.reduced((node,))
         return float((np.trace(state.covariance) + state.mean @ state.mean - 2) / 4)
 
     def parity(self, nodes=None):
+        """Return the joint photon-number parity expectation on selected modes.
+
+        Args:
+            nodes (tuple): Ordered mode labels.
+
+        Returns:
+            result (float): Parity expectation.
+        """
         state = self if nodes is None else self.reduced(nodes)
         return float(
             np.exp(-0.5 * state.mean @ np.linalg.solve(state.covariance, state.mean))
@@ -80,18 +222,50 @@ class GaussianState:
 
 @dataclass(frozen=True)
 class GaussianInput:
+    """Single-mode Gaussian preparation described by mean and statistical covariance.
+
+    Args:
+        mean (array-like): Interleaved quadrature mean vector.
+        covariance (array-like): Statistical covariance, with vacuum covariance I.
+    """
+
     mean: tuple = (0.0, 0.0)
     covariance: tuple = ((1.0, 0.0), (0.0, 1.0))
 
     def state(self, node):
+        """Materialize this preparation as a labelled GaussianState.
+
+        Args:
+            node (object): Hashable mode label.
+
+        Returns:
+            result (GaussianState): Labelled Gaussian moments.
+        """
         return GaussianState(np.asarray(self.mean), np.asarray(self.covariance), (node,))
 
     @classmethod
     def coherent(cls, alpha: complex):
+        """Describe a coherent state with mean (2 Re(alpha), 2 Im(alpha)) and vacuum covariance.
+
+        Args:
+            alpha (complex): Coherent-state amplitude.
+
+        Returns:
+            result (GaussianInput): Coherent preparation description.
+        """
         return cls((2 * complex(alpha).real, 2 * complex(alpha).imag))
 
     @classmethod
     def squeezed(cls, r: float, angle: float = 0.0):
+        """Describe a rotated q-squeezed state with principal variances exp(-2r), exp(2r).
+
+        Args:
+            r (float): Dimensionless squeezing parameter.
+            angle (float): Quadrature or gate angle in radians; expressions allowed where documented.
+
+        Returns:
+            result (GaussianInput): Squeezed preparation description.
+        """
         rot = rotation(angle)
         cov = rot @ np.diag([np.exp(-2 * r), np.exp(2 * r)]) @ rot.T
         return cls(covariance=tuple(map(tuple, cov)))
@@ -102,6 +276,9 @@ class FockInput:
     """Single-mode normalized amplitudes, from vacuum up to an explicit cutoff."""
 
     amplitudes: tuple[complex, ...]
+
+    def __repr__(self):
+        return f"FockInput(levels={len(self.amplitudes)}, occupied={sum(a != 0 for a in self.amplitudes)})"
 
     def __post_init__(self):
         a = np.asarray(self.amplitudes, dtype=complex)
@@ -116,12 +293,32 @@ class FockInput:
 
     @classmethod
     def number(cls, n: int):
+        """Construct a normalized photon-number basis state.
+
+        Args:
+            n (int): Nonnegative photon occupation.
+
+        Raises:
+            ValueError: Photon number must be a nonnegative integer.
+        """
         if not isinstance(n, int) or isinstance(n, bool) or n < 0:
             raise ValueError("Photon number must be a nonnegative integer")
         return cls((0j,) * n + (1 + 0j,))
 
     @classmethod
     def cat(cls, alpha: complex, cutoff: int, parity: int = 1):
+        """Construct a normalized finite-Fock projection of |alpha> + parity|-alpha>.
+
+        Args:
+            alpha (complex): Coherent-state amplitude.
+            cutoff (int): Exclusive total-photon cutoff.
+            parity (int): Cat parity +1 or -1.
+
+        Raises:
+            ValueError: Invalid cutoff or parity.
+            ValueError: Zero cat vector.
+            ValueError: Zero cat vector at this cutoff.
+        """
         if (
             not isinstance(cutoff, int)
             or isinstance(cutoff, bool)
@@ -195,18 +392,30 @@ class FockSuperposition:
 
     @property
     def modes(self):
+        """Number of ordered modes represented by each occupation tuple."""
         return len(self.occupations[0])
 
     @property
     def amplitude_map(self):
+        """Return independent occupation-tuple to complex-amplitude data."""
         return dict(zip(self.occupations, self.amplitudes, strict=True))
 
     @classmethod
     def from_mapping(cls, amplitudes):
+        """Construct a normalized correlated pure resource from an occupation-amplitude mapping.
+
+        Args:
+            amplitudes (object): Amplitudes as described by this object’s contract.
+        """
         return cls(tuple(amplitudes), tuple(amplitudes.values()))
 
     @classmethod
     def number(cls, occupations):
+        """Construct a normalized photon-number basis state.
+
+        Args:
+            occupations (tuple): Nonnegative integer occupations in mode order.
+        """
         return cls((tuple(occupations),), (1 + 0j,))
 
     @classmethod

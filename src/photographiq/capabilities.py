@@ -5,7 +5,7 @@ import numpy as np
 from . import commands as c
 from .measurements import Generaldyne, Heterodyne, Homodyne, PhotonNumber
 from .resources import CatResource, CubicPhaseResource
-from .states import FockInput, FockSuperposition, GaussianInput, GaussianState
+from .states import FockDensityMatrix, FockInput, FockSuperposition, GaussianInput, GaussianState
 
 
 def preflight(engine, pattern, inputs, initial_state=None, measurement_outcomes=None):
@@ -44,6 +44,12 @@ def preflight(engine, pattern, inputs, initial_state=None, measurement_outcomes=
                     }[type(measurement)]
                 )
     for state in states:
+        from .gkp import GKPResource
+
+        if isinstance(state, GKPResource):
+            features.add("fock_input")
+        if isinstance(state, FockDensityMatrix):
+            features.add("mixed_fock")
         if isinstance(state, (FockInput, FockSuperposition)):
             features.add("fock_input")
         if isinstance(state, FockSuperposition):
@@ -54,6 +60,7 @@ def preflight(engine, pattern, inputs, initial_state=None, measurement_outcomes=
             features.add("cubic_phase")
         if (
             engine.supports("fock_input")
+            and not engine.supports("mixed_fock")
             and isinstance(state, GaussianInput)
             and not np.isclose(np.linalg.det(state.covariance), 1, atol=1e-10, rtol=0)
         ):

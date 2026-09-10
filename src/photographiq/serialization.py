@@ -9,6 +9,7 @@ import numpy as np
 
 from . import commands, measurements, resources, states
 from .expressions import _OPS, CallableExpression, Expr
+from .gkp import GKPResource
 from .graph import CVGraph
 from .pattern import Pattern
 
@@ -23,6 +24,8 @@ _TYPES = {
         states.GaussianInput,
         states.FockInput,
         states.FockSuperposition,
+        states.FockDensityMatrix,
+        GKPResource,
         resources.CatResource,
         resources.CubicPhaseResource,
         Expr,
@@ -91,6 +94,14 @@ def _decode(value):
 
 
 def dumps(pattern):
+    """Return allowlisted versioned JSON text for a validated pattern.
+
+    Args:
+        pattern (Pattern): Validated causal measurement pattern.
+
+    Returns:
+        str (object): Versioned JSON text.
+    """
     pattern.validate()
     resource = None
     if pattern.resource is not None:
@@ -116,6 +127,19 @@ def dumps(pattern):
 
 
 def loads(text):
+    """Parse versioned JSON text into a validated Pattern; never evaluate Python code.
+
+    Args:
+        text (str): Serialized JSON text, not a filename.
+
+    Returns:
+        result (Pattern): Validated reconstructed pattern.
+
+    Raises:
+        ValueError: Unsupported PhotoGraphiQ schema/version.
+        ValueError: Invalid pattern schema fields.
+    """
+
     def invalid_constant(value):
         raise ValueError(f"Invalid JSON numeric constant: {value}")
 

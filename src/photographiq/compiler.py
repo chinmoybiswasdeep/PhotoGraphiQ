@@ -6,7 +6,7 @@ from dataclasses import dataclass, field
 
 import numpy as np
 
-from .commands import Displace, Entangle, Output, Prepare
+from .commands import Displace, Entangle, Measure, Output, Prepare, QuadraticPhase
 from .expressions import Outcome, atan2, sin
 from .gaussian import rotation, squeezing, teleportation_matrix
 from .measurements import Homodyne
@@ -38,45 +38,166 @@ def decompose_symplectic(matrix):
 
 @dataclass
 class Circuit:
+    """Ordered photonic gates with Gaussian and resource-injection compilation.
+
+    Args:
+        modes (int): Positive number of optical modes, indexed from zero.
+        gates (object): Optional legacy gate tuples; fluent construction is preferred.
+    """
+
     modes: int
     gates: list = field(default_factory=list)
+    _labels: list = field(default_factory=list, repr=False)
 
     def __post_init__(self):
-        if not isinstance(self.modes, int) or self.modes < 1:
-            raise ValueError("modes must be positive")
+        if isinstance(self.modes, bool) or not isinstance(self.modes, int) or self.modes < 1:
+            raise ValueError("Circuit modes must be a positive integer")
 
     def _add(self, name, modes, *params):
         if len(set(modes)) != len(modes) or any(
-            not isinstance(m, int) or m < 0 or m >= self.modes for m in modes
+            isinstance(m, bool) or not isinstance(m, int) or m < 0 or m >= self.modes for m in modes
         ):
-            raise ValueError("Invalid circuit modes")
+            raise ValueError(
+                f"Circuit gate modes must be distinct integers in range(0, {self.modes})"
+            )
         self.gates.append((name, tuple(modes), params))
         return self
 
     def displace(self, mode, q=0.0, p=0.0):
+        """Apply or append quadrature translations q and p in hbar=2 coordinates.
+
+        Args:
+            mode (int): Zero-based optical mode index.
+            q (float): Position translation; hbar=2 quadrature units.
+            p (float): Momentum translation; hbar=2 quadrature units.
+        """
         return self._add("displace", (mode,), q, p)
 
     def rotate(self, mode, angle):
-        return self._add("symplectic", (mode,), rotation(angle))
+        """Append a rotation by angle radians to this optical circuit.
+
+        Args:
+            mode (int): Zero-based optical mode index.
+            angle (float): Quadrature or gate angle in radians; expressions allowed where documented.
+        """
+        self._add("symplectic", (mode,), rotation(angle))
+        self._labels.append((len(self.gates) - 1, "R", angle))
+        return self
 
     def squeeze(self, mode, r):
-        return self._add("symplectic", (mode,), squeezing(r))
+        """Append or apply q squeezing by parameter r.
+
+        Args:
+            mode (int): Zero-based optical mode index.
+            r (float): Dimensionless squeezing parameter.
+        """
+        self._add("symplectic", (mode,), squeezing(r))
+        self._labels.append((len(self.gates) - 1, "S", r))
+        return self
 
     def gaussian(self, mode, matrix):
+        """Compile a real single-mode symplectic matrix through teleportation steps.
+
+        Args:
+            mode (int): Zero-based optical mode index.
+            matrix (array-like): Matrix in the documented quadrature or occupation basis.
+        """
         decompose_symplectic(matrix)
         return self._add("symplectic", (mode,), np.array(matrix, copy=True))
 
     def cz(self, u, v, weight=1.0):
+        """Append or construct a controlled-Z interaction of the specified weight.
+
+        Args:
+            u (object): First mode label.
+            v (object): Second mode label.
+            weight (float): Real controlled-Z edge weight.
+        """
         return self._add("cz", (u, v), weight)
 
     def beamsplitter(self, u, v, theta):
+        """Mix two optical modes using the package real beamsplitter convention.
+
+        Args:
+            u (object): First mode label.
+            v (object): Second mode label.
+            theta (float): Beamsplitter mixing angle in radians.
+        """
         return self._add("beamsplitter", (u, v), theta)
 
     def identity(self, mode):
+        """Construct four Fourier wire steps whose ideal map is identity; finite noise remains.
+
+        Args:
+            mode (int): Zero-based optical mode index.
+        """
         return self._add("wire", (mode,), [0.0] * 4)
 
-    def compile(self, squeezing=1.0):
-        return compile_circuit(self, squeezing=squeezing)
+    def cubic_phase(self, mode, gamma):
+        """Append CP(gamma)=exp(i gamma q³/6); compile by finite resource injection."""
+        return self._add("cubic_phase", (mode,), gamma)
+
+    def kerr(self, mode, kappa):
+        """Append exp(i kappa n²); compilation requires approximate cubic synthesis."""
+        return self._add("kerr", (mode,), kappa)
+
+    def compile(self, squeezing=1.0, *, return_trace=False, synthesis_steps=8):
+        """Return a Pattern, optionally paired with gate-to-command provenance."""
+        return compile_circuit(
+            self, squeezing=squeezing, return_trace=return_trace, synthesis_steps=synthesis_steps
+        )
+
+    def draw(self, **kwargs):
+        """Draw optical wires and gates; return a matplotlib Axes."""
+        from .visualization import draw_circuit
+
+        return draw_circuit(self, **kwargs)
+
+    def __repr__(self):
+        return f"Circuit(modes={self.modes}, gates={len(self.gates)})"
+
+
+@dataclass(frozen=True)
+class CompilationStep:
+    """One source gate's generated commands and frontier mapping."""
+
+    gate_index: int
+    source_gate: str
+    source_modes: tuple
+    input_nodes: tuple
+    output_nodes: tuple
+    resource_nodes: tuple
+    command_indices: tuple
+    edges: tuple
+    measurements: tuple
+    corrections: tuple
+    source_parameters: tuple = ()
+
+
+@dataclass(frozen=True)
+class CompilationTrace:
+    """Ordered provenance for a specific compiled pattern."""
+
+    steps: tuple[CompilationStep, ...]
+    pattern_signature: str = field(default="", repr=False)
+    source_signature: str = field(default="", repr=False)
+
+
+def _pattern_signature(pattern):
+    """Fingerprint ordinary patterns without excluding runtime-only callables."""
+    try:
+        return pattern.to_json()
+    except TypeError:
+        return repr(pattern.inputs) + repr(pattern.commands)
+
+
+def _circuit_signature(circuit):
+    return repr(
+        [
+            (name, modes, tuple(p.tolist() if isinstance(p, np.ndarray) else p for p in params))
+            for name, modes, params in circuit.gates
+        ]
+    )
 
 
 class _Builder:
@@ -111,9 +232,16 @@ class _Builder:
         self.single(target, rotation(-np.pi / 2))
 
 
-def compile_circuit(circuit, *, squeezing=1.0):
+def compile_circuit(circuit, *, squeezing=1.0, return_trace=False, synthesis_steps=8):
+    """Compile gates into finite-resource MBQC; optionally return provenance.
+
+    Kerr lowering is approximate. Increase synthesis_steps and independently
+    study resource squeezing and Fock cutoff before interpreting gate accuracy.
+    """
     builder = _Builder(circuit.modes, squeezing)
-    for name, modes, params in circuit.gates:
+    trace = []
+
+    def lower(name, modes, params):
         if name == "symplectic":
             builder.single(modes[0], params[0])
         elif name == "wire":
@@ -137,7 +265,66 @@ def compile_circuit(circuit, *, squeezing=1.0):
                 builder.sum(v, u, -np.tan(theta / 4))
                 builder.sum(u, v, np.sin(theta / 2))
                 builder.sum(v, u, -np.tan(theta / 4))
+        elif name == "cubic_phase":
+            from .non_gaussian import cubic_injection
+
+            ancilla = builder.next_node
+            builder.next_node += 1
+            gadget = cubic_injection(
+                params[0],
+                squeezing=squeezing,
+                input_node=builder.frontier[modes[0]],
+                ancilla=ancilla,
+                key=("cubic", ancilla),
+            )
+            builder.pattern.extend(gadget.commands[:-1])
+        elif name == "kerr":
+            from .synthesis import synthesize_kerr
+
+            expanded, _ = synthesize_kerr(
+                params[0], steps=synthesis_steps, modes=circuit.modes, mode=modes[0]
+            )
+            for gate in expanded.gates:
+                lower(*gate)
         else:
             raise NotImplementedError(f"Unsupported circuit gate: {name}")
+
+    labels = {i: label for i, label, _ in circuit._labels}
+    for index, (name, modes, params) in enumerate(circuit.gates):
+        start = len(builder.pattern.commands)
+        before = tuple(builder.frontier[m] for m in modes)
+        lower(name, modes, params)
+        indices = tuple(range(start, len(builder.pattern.commands)))
+        commands = builder.pattern.commands
+        trace.append(
+            CompilationStep(
+                index,
+                labels.get(index, name),
+                modes,
+                before,
+                tuple(builder.frontier[m] for m in modes),
+                tuple(commands[i].node for i in indices if isinstance(commands[i], Prepare)),
+                indices,
+                tuple(
+                    (commands[i].u, commands[i].v, commands[i].weight)
+                    for i in indices
+                    if isinstance(commands[i], Entangle)
+                ),
+                tuple(i for i in indices if isinstance(commands[i], Measure)),
+                tuple(i for i in indices if isinstance(commands[i], (Displace, QuadraticPhase))),
+                source_parameters=next(
+                    ((value,) for i, _, value in circuit._labels if i == index),
+                    tuple(
+                        tuple(map(tuple, p.tolist())) if isinstance(p, np.ndarray) else p
+                        for p in params
+                    ),
+                ),
+            )
+        )
     builder.pattern.append(Output(tuple(builder.frontier)))
-    return builder.pattern.validate()
+    pattern = builder.pattern.validate()
+    provenance = CompilationTrace(
+        tuple(trace), _pattern_signature(pattern), _circuit_signature(circuit)
+    )
+    pattern._compilation_trace = provenance
+    return (pattern, provenance) if return_trace else pattern

@@ -34,6 +34,21 @@ from .states import GaussianState
 
 @dataclass
 class Result:
+    """One conditional trajectory: measurement outcomes, classical records and surviving state.
+
+    Args:
+        outcomes (dict): Measurement readings keyed by result key.
+        records (dict): Previously produced classical records.
+        state (object): Supported state preparation or independent state snapshot.
+        backend (object): Backend as described by this object’s contract.
+        seed (object): Random seed or SeedSequence; zero is valid.
+        physical_displacements (object): Physical displacements as described by this object’s contract.
+        measurement_statistics (object): Measurement statistics as described by this object’s contract.
+
+    Raises:
+        NotImplementedError: Backend did not report every measurement likelihood.
+    """
+
     outcomes: dict
     records: dict
     state: Any
@@ -41,6 +56,9 @@ class Result:
     seed: object
     physical_displacements: int = 0
     measurement_statistics: dict = field(default_factory=dict)
+
+    def __repr__(self):
+        return f"Result(backend={self.backend!r}, outcomes={len(self.outcomes)}, records={len(self.records)}, output_modes={len(self.state.nodes)}, seed={self.seed!r})"
 
     @property
     def log_likelihood(self):
@@ -56,9 +74,27 @@ class Result:
 
 @dataclass
 class ShotResult:
+    """Independent seeded trajectories with record extraction and Gaussian ensemble moments.
+
+    Args:
+        trajectories (object): Trajectories as described by this object’s contract.
+
+    Raises:
+        ValueError: Empty ensemble.
+        NotImplementedError: Gaussian moments require Gaussian trajectory states.
+    """
+
     trajectories: list[Result]
 
     def values(self, key):
+        """Return one classical record across all trajectories as a NumPy array.
+
+        Args:
+            key (object): Unique classical record key; None uses the measured node.
+
+        Returns:
+            result (ndarray): One record per trajectory.
+        """
         return np.asarray([r.records[key] for r in self.trajectories])
 
     def ensemble_state(self):
@@ -87,6 +123,10 @@ def _backend(backend, cutoff):
         from .backends.fock import PiquassoFockBackend
 
         return PiquassoFockBackend(cutoff=cutoff)
+    if backend == "piquasso-mixed-fock":
+        from .backends.mixed_fock import MixedFockBackend
+
+        return MixedFockBackend(cutoff=cutoff)
     raise ValueError(f"Unknown backend: {backend!r}")
 
 
@@ -106,6 +146,32 @@ def simulate(
 
     ``frame=True`` defers Gaussian displacements, propagates them through gates,
     and materializes them before measurements or non-Gaussian operations.
+
+    Args:
+        pattern (Pattern): Causal commands and ordered input/output labels.
+        backend (str): gaussian, piquasso, piquasso-fock, piquasso-mixed-fock,
+            or a configured BaseBackend instance.
+        parameters (dict): External real parameter bindings.
+        inputs (dict): Individual input descriptions keyed by input labels.
+        seed (object): Random seed or SeedSequence; zero is valid.
+        frame (bool): Defer Gaussian displacements where supported.
+        cutoff (int): Exclusive total-photon cutoff, required for Fock execution.
+        initial_state (object): Correlated GaussianState, FockSuperposition or
+            FockDensityMatrix in pattern input order, without individual inputs.
+        measurement_outcomes (dict): Explicit Fock postselection outcomes.
+
+    Returns:
+        result (Result): Conditional output snapshot and classical trajectory records.
+
+    Raises:
+        ValueError: Unbound parameters, invalid input labels or invalid state.
+        NotImplementedError: Backend capabilities do not support the request.
+
+    Examples:
+        >>> import photographiq as pg
+        >>> result = pg.simulate(pg.Pattern(inputs=(0,)), backend="gaussian", seed=0)
+        >>> result.state.quadrature(0)
+        (0.0, 1.0)
     """
     from .states import GaussianInput
 
@@ -118,14 +184,14 @@ def simulate(
         raise ValueError("Input supplied for a non-input node")
     engine = _backend(backend, cutoff)
     from .capabilities import preflight
-    from .states import FockSuperposition
+    from .states import FockDensityMatrix, FockSuperposition
 
     measurement_outcomes = dict(measurement_outcomes or {})
     preflight(engine, pattern, inputs, initial_state, measurement_outcomes)
     if frame and not isinstance(engine, GaussianBackend):
         raise NotImplementedError("Exact displacement-frame tracking requires a Gaussian backend")
     engine.reset(seed)
-    if isinstance(initial_state, FockSuperposition):
+    if isinstance(initial_state, (FockSuperposition, FockDensityMatrix)):
         if inputs:
             raise ValueError("Do not combine correlated and individual inputs")
         engine.prepare_resource(pattern.inputs, initial_state)
@@ -255,6 +321,19 @@ def simulate(
 
 
 def run_shots(pattern, shots: int, *, seed=None, **kwargs):
+    """Run independent conditional trajectories with reproducible child seeds.
+
+    Args:
+        pattern (Pattern): Validated causal measurement pattern.
+        shots (int): Positive number of independent trajectories.
+        seed (object): Random seed or SeedSequence; zero is valid.
+
+    Returns:
+        result (ShotResult): Independent conditional trajectories.
+
+    Raises:
+        ValueError: shots must be a positive integer.
+    """
     if not isinstance(shots, int) or isinstance(shots, bool) or shots < 1:
         raise ValueError("shots must be a positive integer")
     seeds = np.random.SeedSequence(seed).spawn(shots)
