@@ -33,8 +33,10 @@ from .simulator import Result, ShotResult, run_shots, sample, simulate
 from .states import FockDensityMatrix, FockInput, FockSuperposition, GaussianInput, GaussianState
 
 __version__ = "0.3.0"
+from .visualization import visualize_compilation
 
 __all__ = [
+    "visualize_compilation",
     "gkp",
     "synthesis",
     "GKPResource",

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="349.2pt" height="144.054967pt" viewBox="0 0 349.2 144.054967" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 144.054967 
+L 349.2 144.054967 
+L 349.2 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 132.309474 105.137072 
+L 199.269474 105.137072 
+Q 201.031579 105.137072 201.031579 103.374967 
+L 201.031579 64.608651 
+Q 201.031579 62.846546 199.269474 62.846546 
+L 132.309474 62.846546 
+Q 130.547368 62.846546 130.547368 64.608651 
+L 130.547368 103.374967 
+Q 130.547368 105.137072 132.309474 105.137072 
+z
+" clip-path="url(#p79eaf17fd2)" style="fill: #a8c7e0; stroke: #334155; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 220.414737 105.137072 
+L 287.374737 105.137072 
+Q 289.136842 105.137072 289.136842 103.374967 
+L 289.136842 64.608651 
+Q 289.136842 62.846546 287.374737 62.846546 
+L 220.414737 62.846546 
+Q 218.652632 62.846546 218.652632 64.608651 
+L 218.652632 103.374967 
+Q 218.652632 105.137072 220.414737 105.137072 
+z
+" clip-path="url(#p79eaf17fd2)" style="fill: #a8c7e0; stroke: #334155; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 77.684211 83.991809 
+L 342 83.991809 
+" clip-path="url(#p79eaf17fd2)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: square"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end" x="64.468421" y="86.330051" transform="rotate(-0 64.468421 86.330051)">mode 0</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="165.789474" y="86.069934" transform="rotate(-0 165.789474 86.069934)">R(0.3)</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="253.894737" y="86.069934" transform="rotate(-0 253.894737 86.069934)">S(0.15)</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle" x="174.6" y="16.318125" transform="rotate(-0 174.6 16.318125)">Photonic circuit</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p79eaf17fd2">
+   <rect x="7.2" y="22.318125" width="334.8" height="114.536842"/>
+  </clipPath>
+ </defs>
+</svg>
