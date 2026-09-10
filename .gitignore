@@ -24,5 +24,6 @@ paper/*.synctex.gz
 site/
 .ipynb_checkpoints/
 outputs/
+!docs/tutorials/outputs/
 coverage.xml
 coverage.json

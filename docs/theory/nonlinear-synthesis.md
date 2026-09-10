@@ -25,6 +25,14 @@ The constant from converting $q^2p^2+p^2q^2$ to Weyl order cancels the constant
 in $(q^2+p^2-2)^2/16$. Omitting this ordering step gives the wrong phase generator.
 Repeated product-formula slices approximate the sum of these terms.
 
+For a fixed target strength and N slices, s and t scale as N^(-1/2).
+The commutator's cubic remainder is therefore O(N^(-3/2)) per slice and
+O(N^(-1/2)) after N slices. Generic phase-aligned amplitude errors have order
+1/2; pure-state infidelity is quadratic in a small orthogonal amplitude error
+and can have order 1. Do not infer a second-order algorithm from an infidelity
+plot or from the symmetric auxiliary splitting. Independent tests fit amplitude
+errors only in a regime where the cutoff and floating-point floors are resolved.
+
 The expansion is useful on energy-controlled states; unbounded oscillator
 operators prevent a uniform whole-Hilbert-space norm claim from a chosen step
 count. Tests compare finite-energy states to independent direct matrix evolution

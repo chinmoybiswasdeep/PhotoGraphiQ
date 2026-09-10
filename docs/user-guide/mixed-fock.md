@@ -27,3 +27,9 @@ The matrix has D² complex entries, where D=comb(modes+cutoff-1,modes). A config
 `max_matrix_bytes` guard bounds one matrix, not all native workspaces. Start with
 one or two modes. Trace drift, boundary weight and cutoff sensitivity all matter.
 Fock heterodyne/general-dyne remain unsupported.
+
+Hardening tests cover n=1 through 4 attenuation, coherent attenuation, thermal
+environment dilation, independent unitaries, and correlated noisy-homodyne
+Schur complements. These regimes do not establish dense-state scalability or
+uniform accuracy for every input. Inspect pre-normalization retained trace;
+normalizing a truncated thermal tail does not turn it into physical photon loss.

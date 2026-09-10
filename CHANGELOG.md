@@ -1,5 +1,17 @@
 # Changelog
 
+### v0.3 scientific hardening
+
+- Correct JAX beamsplitter boundary ordering and package phase convention.
+- Reject unresolved JAX tensor/addition normalization; expose retained masses
+  and boundary diagnostics, with explicit eager/traced invalid-branch behavior.
+- Canonicalize mixed-state occupation integers for Windows/Numba preparation.
+- Correct GKP floating-point half-cell tie parity.
+- Preserve nonlinear approximation metadata and warn during Kerr compilation.
+- Add independent channel, GKP, gradient and synthesis tests and measured evidence.
+- Restore missing tutorial transcripts to clean documentation builds; withhold
+  the coverage badge until Codecov receives a verified main-branch upload.
+
 Changes follow semantic versioning. Historical entries below are preserved.
 
 ## Unreleased — 0.3.0 development

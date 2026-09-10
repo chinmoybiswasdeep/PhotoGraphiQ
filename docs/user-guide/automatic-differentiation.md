@@ -27,6 +27,16 @@ Kerr and vacuum loss are supported in this Fock representation.
 Every measurement requires an explicit fixed outcome. These derivatives describe
 the selected branch and include its normalization; branch likelihood is separately
 available. Zero-probability branches have undefined conditional derivatives.
+Eager execution raises `ValueError` for zero or invalid normalization; under
+`jax.jit`/`jax.grad`, invalid states explicitly contain NaNs. A zero branch has
+log likelihood `-inf`; its derivative is undefined. Do not replace those values
+with zeros in an optimization objective.
+
+`retained_norms` records preparation projection masses before normalization;
+`boundary_population` reports the final top two total-photon shells. Tensor
+preparation with lost mass above 1e-3 is rejected eagerly (NaNs under tracing).
+Photon addition cannot silently discard support above the cutoff. Projected
+unitaries conserve trace even when their infinite-space approximation is poor.
 Thermal loss, noisy homodyne and arbitrary Python callable expressions are not
 supported in this path. Loss derivatives at exact endpoints can be singular in
 the Kraus parametrization; evaluate interior values for smooth optimization.

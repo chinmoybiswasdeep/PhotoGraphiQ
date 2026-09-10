@@ -28,3 +28,17 @@ discard their different likelihood weights.
 Density matrices scale as D², where D is the total-photon basis dimension.
 Check trace, positivity, basis ordering and cutoff convergence before interpreting
 a mixed-state observable. See [mixed Fock usage](../user-guide/mixed-fock.md).
+
+## Thermal channel reference
+
+The implementation factors thermal attenuation into vacuum loss with transmission
+eta/G and a quantum-limited amplifier with $G=1+(1-\eta)\bar n_{env}$.
+The amplifier's Kraus coefficient for $|n\rangle\to|n+\ell\rangle$ is
+$\sqrt{\binom{n+\ell}{\ell}(G-1)^\ell/G^{n+\ell+1}}$.
+An independent reference mixes the system and a thermal environment on a
+number-conserving beamsplitter, then explicitly traces the environment. Tests
+include input coherences, not just a thermal output mean.
+
+Physical loss preserves trace. Truncated amplification can lose represented mass.
+Retained-norm diagnostics record that trace before renormalization; it is not an
+absorption probability. Loss beyond the configured tolerance raises an error.

@@ -3,7 +3,6 @@
 **Continuous-variable photonic measurement-based quantum computing in Python.**
 
 [![Tests](https://github.com/chinmoybiswasdeep/PhotoGraphiQ/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/chinmoybiswasdeep/PhotoGraphiQ/actions/workflows/ci.yml)
-[![Coverage](https://codecov.io/gh/chinmoybiswasdeep/PhotoGraphiQ/branch/main/graph/badge.svg)](https://codecov.io/gh/chinmoybiswasdeep/PhotoGraphiQ)
 [![Python](https://img.shields.io/badge/Python-3.11%E2%80%933.14-blue)](pyproject.toml)
 [![License](https://img.shields.io/github/license/chinmoybiswasdeep/PhotoGraphiQ)](LICENSE)
 [![Docs build](https://github.com/chinmoybiswasdeep/PhotoGraphiQ/actions/workflows/docs.yml/badge.svg?branch=main)](https://github.com/chinmoybiswasdeep/PhotoGraphiQ/actions/workflows/docs.yml)
@@ -86,6 +85,12 @@ print(result.state.photon_number("in"))  # one photon, conditioned on the herald
 v0.3 also introduces experimental density-matrix evolution, Gaussian-plus-cubic
 compilation with quartic/Kerr synthesis, finite-energy GKP resources and optional
 JAX differentiation. These paths have explicit numerical and feature limits.
+
+The [scientific hardening report](docs/development/v0.3-scientific-hardening.md)
+records independent validation, repaired defects, convergence measurements and
+remote release gates. Codecov rejected tokenless upload; a `CODECOV_TOKEN`
+repository secret and a verified main-branch upload are required before restoring
+the coverage badge. Measured coverage remains available in CI artifacts.
 
 ## Documentation and examples
 

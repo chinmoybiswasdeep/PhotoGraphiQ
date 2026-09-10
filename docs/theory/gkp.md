@@ -25,3 +25,27 @@ back-action; a one-round correction example does not establish fault tolerance.
 The construction follows the oscillator-code principles of
 [Gottesman, Kitaev and Preskill](https://arxiv.org/abs/quant-ph/0008040).
 See [the resource guide](../user-guide/gkp.md) for numerical controls.
+
+## Derivation and independent references
+
+Position translation is $X(a)=e^{-iap/2}$ and momentum translation is
+$Z(b)=e^{ibq/2}$. The Weyl relation is
+$X(a)Z(b)=e^{-iab/2}Z(b)X(a)$. Choosing a=b=L gives the logical Pauli
+anticommutator when $L^2=2\pi$. Squaring gives stabilizers $X(2L),Z(2L)$
+with phase $e^{-2iL^2}=1$; each also commutes with the other logical operator.
+
+For equal peak width Delta, Gaussian-peak overlap integrals are
+$\sqrt{2\pi}\Delta\exp[-(c-d)^2/(8\Delta^2)]$, for centers c,d.
+Summing with the envelope weights gives independent analytic normalization and
+logical overlap without grid quadrature or Fock projection. Shifting centers
+and integrating an added phase similarly validates displacement expectations.
+
+The q-syndrome SUM yields the unnormalized wavefunction $\psi(q)\phi(m-q)$.
+For decoded residual r, translation by -r gives
+$\psi(q+r)\phi(m-q-r)$. Its norm before correction is the measurement density.
+The p branch Fourier-conjugates the complete protocol, giving the same kernel in
+p coordinates. Ancilla envelopes and fixed measurement records must be retained.
+
+Decoder tests include exact floating-point half-cell boundaries and their adjacent
+representable values. At sufficiently large shifts, floating-point spacing loses
+subcell resolution, so parity/residual interpretation requires a resolved input.

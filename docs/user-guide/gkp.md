@@ -28,3 +28,9 @@ resolution, and cutoff for Fock projection. Captured weight measures only the
 last of these. Stabilizer expectations need not equal one for finite resources.
 This is experimental preparation, diagnostics and elementary correction
 infrastructure, not a demonstrated fault-tolerant architecture or threshold study.
+
+Validation includes analytic Gaussian-comb overlap/stabilizer integrals and both
+q and p syndrome kernels. For the tested ancilla with peak_width=envelope=0.7,
+a shift beyond one cell required cutoff 72 to meet a 2e-6 mean/density accuracy
+target. Cutoffs 32 and 48 remain recorded as underresolved examples. Sharper or
+higher-energy resources require their own convergence studies.

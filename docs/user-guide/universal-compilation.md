@@ -23,6 +23,19 @@ front end does not accept arbitrary black-box unitaries or arbitrary-degree
 polynomial expressions. Quartic/Kerr synthesis is experimental and can generate
 very large patterns. There is no automatic certified tolerance solver.
 
+`SynthesisReport` exposes `approximate`, `order`, `steps`, `primitive_count`,
+`target_gate` and `target_parameter`. `order` means the leading amplitude-error
+power in inverse slice count: 0.5 for the complete quartic commutator and Kerr
+construction, 1 for a general Lie split of noncommuting lower-degree terms, and
+`None` for an exact single ideal quadrature power. This is an asymptotic model on
+resolved, energy-controlled states, not a certified bound. The symmetric splitting
+inside one auxiliary pulse does not make the entire construction second order.
+
+`trace.steps[i].synthesis_report` retains the report for a compiled source gate.
+Kerr compilation emits an approximation warning. Cubic trace metadata separately
+identifies the finite-resource injection approximation; an exact ideal cubic
+primitive does not mean its finite-ancilla realization is an exact unitary.
+
 Validate three different limits: synthesis step refinement, Fock cutoff refinement,
 and finite-resource squeezing. Increasing squeezing alone can worsen truncation.
 An injection output retains a physical finite-energy envelope; it is not an exact
