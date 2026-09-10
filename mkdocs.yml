@@ -1,0 +1,158 @@
+site_name: PhotoGraphiQ
+site_description: Continuous-variable photonic measurement-based quantum computing
+site_url: https://chinmoybiswasdeep.github.io/PhotoGraphiQ/
+repo_url: https://github.com/chinmoybiswasdeep/PhotoGraphiQ
+edit_uri: edit/main/docs/
+theme:
+  name: material
+  logo: assets/logo.svg
+  palette:
+    primary: teal
+    accent: deep orange
+  features: [navigation.tabs, navigation.sections, navigation.top, content.code.copy, search.suggest]
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            docstring_style: google
+            show_source: true
+            show_signature_annotations: true
+            members_order: source
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.arithmatex:
+      generic: true
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+validation:
+  nav:
+    omitted_files: info
+  links:
+    not_found: warn
+    unrecognized_links: warn
+    anchors: warn
+nav:
+  - Home: index.md
+  - Start:
+      - Installation: getting-started/installation.md
+      - Quickstart: getting-started/quickstart.md
+      - Concepts: getting-started/concepts.md
+      - Conventions: getting-started/conventions.md
+      - Glossary: glossary.md
+  - User guide:
+      - Graphs: user-guide/graphs.md
+      - Patterns: user-guide/patterns.md
+      - Inputs: user-guide/inputs.md
+      - Measurements: user-guide/measurements.md
+      - Outputs: user-guide/outputs.md
+      - Feed-forward: user-guide/feedforward.md
+      - Backends: user-guide/backends.md
+      - Gaussian: user-guide/gaussian.md
+      - Non-Gaussian: user-guide/non-gaussian.md
+      - Compilation: user-guide/compilation.md
+      - Universal gate-set compilation: user-guide/universal-compilation.md
+      - Mixed Fock: user-guide/mixed-fock.md
+      - GKP: user-guide/gkp.md
+      - Automatic differentiation: user-guide/automatic-differentiation.md
+      - Flow: user-guide/flow.md
+      - Convergence: user-guide/convergence.md
+      - Visualization: user-guide/visualization.md
+      - Performance: performance.md
+  - Learn:
+      - Tutorials:
+          - Overview: tutorials/index.md
+          - "Your first CV cluster state": tutorials/01-first-cluster.md
+          - "CV quantum teleportation": tutorials/02-teleportation.md
+          - "One-dimensional quantum wire": tutorials/03-quantum-wire.md
+          - "Adaptive homodyne measurement": tutorials/04-adaptive-homodyne.md
+          - "Classical feed-forward": tutorials/05-feedforward.md
+          - "Finite squeezing and noise": tutorials/06-finite-squeezing.md
+          - "Gaussian gate compilation": tutorials/07-gaussian-compilation.md
+          - "Two-mode entangling computation": tutorials/08-two-mode-entangling.md
+          - "Photon-number measurement": tutorials/09-photon-number.md
+          - "Kerr nonlinearity": tutorials/10-kerr.md
+          - "Cubic-phase gate": tutorials/11-cubic-phase.md
+          - "Cat-state resource": tutorials/12-cat-resource.md
+          - "Heralded photon subtraction": tutorials/13-photon-subtraction.md
+          - "Cubic resource injection": tutorials/14-cubic-injection.md
+          - "Cutoff convergence": tutorials/15-cutoff-convergence.md
+          - "Wigner-function analysis": tutorials/16-wigner-analysis.md
+          - "Graphix structural validation": tutorials/17-graphix-validation.md
+          - "Custom CV graph topology": tutorials/18-custom-topology.md
+          - "Building a reusable Pattern": tutorials/19-reusable-pattern.md
+          - "Circuit to MBQC compilation and visualization": tutorials/20-compilation-visualization.md
+          - "Mixed Fock evolution": tutorials/21-mixed-fock.md
+          - "Compiling a nonlinear resource injection": tutorials/22-universal-compilation.md
+          - "Finite-energy GKP resources": tutorials/23-gkp.md
+          - "Automatic differentiation": tutorials/24-automatic-differentiation.md
+      - Projects:
+          - Overview: examples/index.md
+          - "Adaptive MBQC calculator": examples/adaptive-calculator.md
+          - "Cat states and Wigner negativity": examples/cat-wigner.md
+          - "Cubic-phase convergence study": examples/cubic-convergence.md
+          - "Finite-squeezing quantum wire": examples/finite-squeezing-wire.md
+          - "Gaussian circuit compiler": examples/gaussian-compiler.md
+          - "Small graph-state experiment": examples/graph-experiment.md
+          - "Heralded photon subtraction": examples/heralded-subtraction.md
+          - "Introductory reservoir-style feature extraction": examples/reservoir-features.md
+          - "Teleportation fidelity versus squeezing": examples/teleportation-fidelity.md
+          - "Graph topology comparison": examples/topology-comparison.md
+      - Gallery: gallery.md
+  - Research:
+      - Theory:
+          - Overview: theory/index.md
+          - Gaussian conventions: theory/gaussian.md
+          - Nonlinear synthesis: theory/nonlinear-synthesis.md
+          - Mixed conditioning: theory/mixed-state-conditioning.md
+          - GKP: theory/gkp.md
+          - Gradient estimators: theory/gradient-estimators.md
+      - Validation: validation/index.md
+      - Feature matrix: validation/feature-matrix.md
+      - Numerical policy: validation/numerical-policy.md
+      - v0.2 evidence: release-hardening-report.md
+      - References: references.md
+  - API:
+      - Overview: api/index.md
+      - Analysis: api/analysis.md
+      - Autodiff: api/autodiff.md
+      - Backends: api/backends.md
+      - Commands: api/commands.md
+      - Compilation: api/compilation.md
+      - Convergence: api/convergence.md
+      - Expressions: api/expressions.md
+      - Flow: api/flow.md
+      - Gkp: api/gkp.md
+      - Graphs: api/graphs.md
+      - Measurements: api/measurements.md
+      - Non Gaussian: api/non-gaussian.md
+      - Patterns: api/patterns.md
+      - Protocols: api/protocols.md
+      - Serialization: api/serialization.md
+      - Simulation: api/simulation.md
+      - States: api/states.md
+      - Synthesis: api/synthesis.md
+      - Visualization: api/visualization.md
+  - Contribute:
+      - Development: development/index.md
+      - Architecture: development/architecture.md
+      - Backends: development/backends.md
+      - Compiler: development/compiler.md
+      - Testing: development/testing.md
+      - Documentation: development/documentation.md
+      - Releasing: development/releasing.md
+      - Branding: development/branding.md
+      - Roadmap: roadmap.md
+      - Citation: citing.md

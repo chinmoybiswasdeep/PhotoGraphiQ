@@ -20,3 +20,9 @@ paper/*.fls
 paper/*.fdb_latexmk
 paper/*.xdv
 paper/*.synctex.gz
+
+site/
+.ipynb_checkpoints/
+outputs/
+coverage.xml
+coverage.json
