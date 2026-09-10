@@ -1,85 +1,125 @@
 # PhotoGraphiQ
 
-Continuous-variable photonic measurement-based quantum computing in Python.
-PhotoGraphiQ represents weighted cluster resources, adaptive measurement patterns,
-classical feed-forward and Gaussian gate compilation above a Piquasso backend.
-An independent NumPy backend and analytical channel engine check the physics.
-GraphiX is used for **structural** validation, never as a CV numerical oracle.
+**Continuous-variable photonic measurement-based quantum computing in Python.**
+
+[![Tests](https://github.com/chinmoybiswasdeep/PhotoGraphiQ/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/chinmoybiswasdeep/PhotoGraphiQ/actions/workflows/ci.yml)
+[![Coverage](https://codecov.io/gh/chinmoybiswasdeep/PhotoGraphiQ/branch/main/graph/badge.svg)](https://codecov.io/gh/chinmoybiswasdeep/PhotoGraphiQ)
+[![Python](https://img.shields.io/badge/Python-3.11%E2%80%933.14-blue)](pyproject.toml)
+[![License](https://img.shields.io/github/license/chinmoybiswasdeep/PhotoGraphiQ)](LICENSE)
+[![Docs build](https://github.com/chinmoybiswasdeep/PhotoGraphiQ/actions/workflows/docs.yml/badge.svg?branch=main)](https://github.com/chinmoybiswasdeep/PhotoGraphiQ/actions/workflows/docs.yml)
+[![Ruff](https://img.shields.io/badge/code%20style-Ruff-261230)](https://docs.astral.sh/ruff/)
+[![Stars](https://img.shields.io/github/stars/chinmoybiswasdeep/PhotoGraphiQ)](https://github.com/chinmoybiswasdeep/PhotoGraphiQ/stargazers)
+[![Issues](https://img.shields.io/github/issues/chinmoybiswasdeep/PhotoGraphiQ)](https://github.com/chinmoybiswasdeep/PhotoGraphiQ/issues)
+[![Pull requests](https://img.shields.io/github/issues-pr/chinmoybiswasdeep/PhotoGraphiQ)](https://github.com/chinmoybiswasdeep/PhotoGraphiQ/pulls)
+
+![Circuit to MBQC compilation with gate-to-resource correspondence](docs/assets/circuit-to-mbqc.svg)
+
+PhotoGraphiQ connects optical circuits to labelled cluster resources, adaptive
+measurements and classical corrections. Build a reusable experiment, simulate its
+conditional outputs, and inspect finite-squeezing noise or Fock-cutoff convergence.
+
+## Why PhotoGraphiQ?
+
+Piquasso supplies photonic state evolution. PhotoGraphiQ adds the CV-MBQC layer:
+weighted graphs, causal patterns, compilation, feed-forward, resource injection,
+diagnostics and independent validation. PhotoGraphiQML is a separate downstream
+direction; no ML framework is required by the core package.
+
+## Install from source
+
+Python 3.11–3.14. Until a package release is verified, use the source checkout:
 
 ```sh
-python -m pip install -e '.[dev]'
-python -m pytest
-python examples/gaussian_compilation.py
+git clone https://github.com/chinmoybiswasdeep/PhotoGraphiQ.git
+cd PhotoGraphiQ
+python -m pip install '.[visualization]'
 ```
 
-Python 3.11–3.14 is supported by the package metadata; the local reference
-environment is Python 3.12, Piquasso 8.0.1 and GraphiX 0.4. GraphiX and matplotlib
-are optional validation/visualization dependencies. Piquasso is a runtime dependency.
+The v0.3 development branch is `feature/v0.3`; check it out before installation
+while these changes are awaiting release. Piquasso 8.0.1 is a core dependency.
+`[validation]` adds Graphix, `[autodiff]` adds JAX, `[docs]` builds the website,
+and `pip install -e '.[dev]'` installs an editable development environment.
+
+## Five-minute start
 
 ```python
 import photographiq as pg
 
-pattern = pg.Circuit(1).rotate(0, 0.4).squeeze(0, 0.2).compile(squeezing=1.2)
-result = pg.simulate(
-    pattern,
-    inputs={0: pg.GaussianInput.coherent(0.3 + 0.1j)},
-    seed=42,
-    frame=True,
-)
-print(result.outcomes)
-print(result.state.mean, result.state.covariance)
-
-# Exact unconditional channel for fixed-angle, affine Gaussian patterns:
-channel = pg.gaussian_channel(pattern)
-print(channel.matrix, channel.noise)
+graph = pg.CVGraph.line(2, squeezing=1.0, inputs=(0,))
+pattern = pg.Pattern(graph).measure(0, pg.Homodyne.p())
+pattern.displace(1, q=-pg.Outcome(0))
+result = pg.simulate(pattern, inputs={0: pg.GaussianInput.coherent(0.3+0.2j)}, seed=7)
+print(result.outcomes)              # sampled readings, not amplitudes
+print(result.state.quadrature(1))   # q mean and variance
+pattern.draw(output="cluster.svg")
 ```
 
-Implemented features include weighted graph families and arbitrary labels;
-typed commands; safe symbolic parameter/outcome expressions and declared callables;
-exact homodyne, heterodyne and general Gaussian conditioning; displacement frames;
-causal scheduling; total-order CV-flow certificates; Gaussian circuit compilation;
-finite-squeezing channel analysis; photon loss and detector inefficiency;
-versioned JSON; graph/dependency diagrams; and independent repeated trajectories.
-Experimental Fock execution supports number, cat and arbitrary pure Fock inputs,
-conditional photon counting and ideal homodyne, Kerr/cubic gates, mathematical
-photon addition/subtraction, physical heralding, finite cat/cubic resource injection,
-Wigner diagnostics and occupation-aligned cutoff convergence. See the
-[non-Gaussian tutorial](docs/non_gaussian.md).
+This is one Fourier wire step with finite resource noise. For identity transport,
+use `pg.protocols.identity()`. [Read the quickstart](docs/getting-started/quickstart.md).
 
-**Conventions:** `[q,p]=2i`, interleaved `(q0,p0,q1,p1,...)`, statistical vacuum
-covariance `V=I`, radians, `CZ(g): p_i -> p_i + g*q_j`, and positive resource
-squeezing means momentum squeezed. Piquasso's covariance is `2*V`.
+## Circuit → MBQC
 
-Finite squeezing is physical by default. A conditional output is not an ideal
-unitary output, and a mixture of adaptive Gaussian trajectories need not be
-Gaussian. `ensemble_state()` returns its first two moments in a Gaussian container.
-The Piquasso backend uses native physical gates and PhotoGraphiQ's exact measurement
-adapter; see the documented upstream detector-convention discrepancies.
+```python
+circuit = pg.Circuit(1).rotate(0, 0.3).squeeze(0, 0.15)
+compiled, trace = circuit.compile(squeezing=0.8, return_trace=True)
+pg.visualize_compilation(circuit, compiled, trace=trace, output="compilation.svg")
+channel = pg.gaussian_channel(compiled)
+print(channel.matrix, channel.noise)  # ideal linear map and physical added noise
+```
 
-The release does not implement noisy Fock homodyne, mixed Fock inputs, GKP error correction,
-universal non-Gaussian compilation, arbitrary-order CV-flow search, hardware
-temporal scheduling or automatic differentiation. Unsupported operations raise
-clear exceptions. The beam-splitter compiler prioritizes a transparent correct
-decomposition over resource efficiency.
+Matching colors link source gates to generated resources. The trace identifies
+measurements and corrections. PNG, SVG and PDF export use optional Matplotlib.
 
-* [User guide and tutorials](docs/guide.md)
-* [Mathematics and derivations](docs/theory.md)
-* [API and extension guide](docs/api.md)
-* [Design matrix and inspected source](docs/design.md)
-* [Validation and limitations](docs/validation.md)
-* [Coverage of the supplied specification](docs/specification-status.md)
-* [References](docs/references.md)
-* [Quantum-style paper source](paper/PhotoGraphiQ.tex) and [PDF](paper/PhotoGraphiQ-hardened.pdf)
-* [Reproducible paper data](paper/results/finite_squeezing.csv)
+## Non-Gaussian experiments
 
-Reproduce the paper figures with `python experiments/reproduce.py` and
-`python experiments/non_gaussian.py`. Build the
-manuscript by running `pdflatex PhotoGraphiQ.tex` twice from `paper/`; the official
-Quantum class is included under its original LaTeX Project Public License.
-The manuscript is a software paper draft, not a claim of journal acceptance.
+```python
+pattern = pg.non_gaussian.photon_subtraction(theta=0.2)
+result = pg.simulate(pattern, inputs={"in": pg.FockInput.number(2)},
+                     backend="piquasso-fock", cutoff=8,
+                     measurement_outcomes={"count": 1})
+print(result.state.photon_number("in"))  # one photon, conditioned on the herald
+```
 
-MIT license for original software. Upstream source references and bundled research
-papers retain their own licenses. See [CONTRIBUTING.md](CONTRIBUTING.md).
+v0.3 also introduces experimental density-matrix evolution, Gaussian-plus-cubic
+compilation with quartic/Kerr synthesis, finite-energy GKP resources and optional
+JAX differentiation. These paths have explicit numerical and feature limits.
 
-Run all release gates with `python experiments/validate_release.py --output .validation`.
-This includes tests, lint, formatting, mypy, builds and independent numerical evidence.
+## Documentation and examples
+
+- [Documentation home](docs/index.md) and [installation](docs/getting-started/installation.md)
+- [24 executable tutorials](docs/tutorials/index.md), [10 demo projects](examples/projects/README.md), and [notebooks](notebooks)
+- [Inputs](docs/user-guide/inputs.md), [outputs](docs/user-guide/outputs.md), and [API reference](docs/api/index.md)
+- [Feature matrix](docs/validation/feature-matrix.md), [performance](docs/performance.md), and [roadmap](ROADMAP.md)
+
+The Pages workflow targets `https://chinmoybiswasdeep.github.io/PhotoGraphiQ/`.
+Until deployment is verified, use the repository documentation or run
+`python -m mkdocs serve` with the docs extra. Badge status comes from the named
+services; coverage may remain unavailable until Codecov is activated.
+
+## Validation and research status
+
+Conventions: `[q,p]=2i`, interleaved quadratures, vacuum statistical covariance I,
+radians, and positive resource squeezing means momentum squeezed. A coherent
+amplitude alpha has means `(2 Re(alpha), 2 Im(alpha))`.
+
+Analytical CV theory, independent NumPy/SciPy references and raw Piquasso programs
+check numerical physics. Graphix checks **MBQC structure**, never CV amplitudes or
+quadrature distributions. See the [validation policy](docs/validation/index.md)
+and preserved [v0.2 hardening evidence](docs/release-hardening-report.md).
+
+Finite squeezing is physical. Fock truncation, synthesis steps, GKP grids and
+gradient estimators each require their own convergence checks. A selected
+homodyne outcome reports a density, not an event probability. A universal target
+gate set does not imply exact finite-resource gates or arbitrary-unitary synthesis.
+
+## Citation and contribution
+
+Use [CITATION.cff](CITATION.cff) and include the version/commit used. Cite relevant
+upstream software and protocols listed in [references](docs/references.md).
+No DOI or journal acceptance is claimed. The [paper source](paper/PhotoGraphiQ.tex)
+and historical validation artifacts remain available for reproducibility.
+
+Contributions are welcome: read [CONTRIBUTING.md](CONTRIBUTING.md), the
+[code of conduct](CODE_OF_CONDUCT.md), and [security policy](SECURITY.md).
+Original software is [MIT licensed](LICENSE); bundled third-party research
+material retains its original licensing.
