@@ -1,0 +1,70 @@
+{
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "packages": {
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "piquasso": "8.0.1",
+    "graphix": "0.4",
+    "networkx": "3.6.1",
+    "matplotlib": "3.11.1"
+  },
+  "seed_base": 20260910,
+  "rows": [
+    {
+      "r": 0.3,
+      "squeezing_db": 2.6057668914195107,
+      "predicted_variance": 2.097623272188053,
+      "observed_q_variance": 2.0254526019422716,
+      "observed_p_variance": 2.1504545934970607,
+      "max_covariance_error": 0.07217067024578139,
+      "coherent_fidelity": 0.6456563062257954,
+      "shots": 600,
+      "seconds": 1.4312554999996792
+    },
+    {
+      "r": 0.6,
+      "squeezing_db": 5.211533782839021,
+      "predicted_variance": 1.6023884238244044,
+      "observed_q_variance": 1.5775331745824097,
+      "observed_p_variance": 1.5434545517911114,
+      "max_covariance_error": 0.05893387203329303,
+      "coherent_fidelity": 0.7685247834990175,
+      "shots": 600,
+      "seconds": 1.4004293999969377
+    },
+    {
+      "r": 0.9,
+      "squeezing_db": 7.817300674258532,
+      "predicted_variance": 1.3305977764431731,
+      "observed_q_variance": 1.3279269335177561,
+      "observed_p_variance": 1.3228520161189579,
+      "max_covariance_error": 0.011477550339551772,
+      "coherent_fidelity": 0.8581489350995123,
+      "shots": 600,
+      "seconds": 1.3663432999965153
+    },
+    {
+      "r": 1.2,
+      "squeezing_db": 10.423067565678043,
+      "predicted_variance": 1.181435906578825,
+      "observed_q_variance": 1.1789333684299914,
+      "observed_p_variance": 1.1647238141134113,
+      "max_covariance_error": 0.01671209246541361,
+      "coherent_fidelity": 0.9168273035060777,
+      "shots": 600,
+      "seconds": 1.458585200001835
+    },
+    {
+      "r": 1.5,
+      "squeezing_db": 13.028834457097554,
+      "predicted_variance": 1.099574136735728,
+      "observed_q_variance": 1.0976484565522073,
+      "observed_p_variance": 1.092480397828831,
+      "max_covariance_error": 0.007093738906896796,
+      "coherent_fidelity": 0.9525741268224334,
+      "shots": 600,
+      "seconds": 1.384146200005489
+    }
+  ]
+}
