@@ -47,6 +47,9 @@ class MixedFockBackend(PiquassoFockBackend):
             )
 
     def _density(self, matrix, basis):
+        # Native occupations can use int32 while local resources use Python
+        # ints. Numba's dynamically indexed tuples require homogeneous types.
+        basis = tuple(tuple(int(n) for n in b) for b in basis)
         modes = len(basis[0])
         self._guard(modes)
         with pq.Program() as program:

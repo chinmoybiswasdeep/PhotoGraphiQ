@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import warnings
 from dataclasses import dataclass, field
 
 import numpy as np
@@ -172,6 +173,7 @@ class CompilationStep:
     measurements: tuple
     corrections: tuple
     source_parameters: tuple = ()
+    synthesis_report: object = None
 
 
 @dataclass(frozen=True)
@@ -267,6 +269,7 @@ def compile_circuit(circuit, *, squeezing=1.0, return_trace=False, synthesis_ste
                 builder.sum(v, u, -np.tan(theta / 4))
         elif name == "cubic_phase":
             from .non_gaussian import cubic_injection
+            from .synthesis import SynthesisReport
 
             ancilla = builder.next_node
             builder.next_node += 1
@@ -278,14 +281,28 @@ def compile_circuit(circuit, *, squeezing=1.0, return_trace=False, synthesis_ste
                 key=("cubic", ancilla),
             )
             builder.pattern.extend(gadget.commands[:-1])
+            return SynthesisReport(
+                "Finite-resource cubic injection",
+                1,
+                len(gadget.commands) - 1,
+                approximate=True,
+                target_gate="CubicPhase",
+                target_parameter=params[0],
+            )
         elif name == "kerr":
             from .synthesis import synthesize_kerr
 
-            expanded, _ = synthesize_kerr(
+            expanded, report = synthesize_kerr(
                 params[0], steps=synthesis_steps, modes=circuit.modes, mode=modes[0]
+            )
+            warnings.warn(
+                "Kerr compilation is approximate: cubic commutator synthesis has leading amplitude error O(steps**-0.5), before finite-resource and cutoff errors. Verify all three limits.",
+                UserWarning,
+                stacklevel=3,
             )
             for gate in expanded.gates:
                 lower(*gate)
+            return report
         else:
             raise NotImplementedError(f"Unsupported circuit gate: {name}")
 
@@ -293,7 +310,7 @@ def compile_circuit(circuit, *, squeezing=1.0, return_trace=False, synthesis_ste
     for index, (name, modes, params) in enumerate(circuit.gates):
         start = len(builder.pattern.commands)
         before = tuple(builder.frontier[m] for m in modes)
-        lower(name, modes, params)
+        synthesis_report = lower(name, modes, params)
         indices = tuple(range(start, len(builder.pattern.commands)))
         commands = builder.pattern.commands
         trace.append(
@@ -319,6 +336,7 @@ def compile_circuit(circuit, *, squeezing=1.0, return_trace=False, synthesis_ste
                         for p in params
                     ),
                 ),
+                synthesis_report=synthesis_report,
             )
         )
     builder.pattern.append(Output(tuple(builder.frontier)))

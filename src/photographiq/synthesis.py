@@ -4,7 +4,7 @@ Finite-energy injection, finite-Fock projection and product-formula error are
 separate limits. No returned step count is an a priori operator-norm guarantee.
 """
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 
 import numpy as np
 
@@ -17,6 +17,10 @@ class SynthesisReport:
     steps: int
     primitive_count: int
     warning: str = "Refine synthesis steps, resource squeezing and cutoff independently."
+    approximate: bool = True
+    order: float | None = None
+    target_gate: str = "quadrature_polynomial"
+    target_parameter: object = None
 
 
 def _power(circuit, mode, angle, degree, strength):
@@ -93,8 +97,20 @@ def quadrature_polynomial(terms, *, steps=8, modes=1, mode=0):
                 circuit.rotate(mode, angle)
             else:
                 _power(circuit, mode, angle, degree, strength)
+    active = [(c, angle, degree) for c, angle, degree in terms if c != 0]
+    quartic = any(degree == 4 for _, _, degree in active)
+    approximate = quartic or len(active) > 1
     return circuit, SynthesisReport(
-        "Lie product formula with cubic commutators", steps, len(circuit.gates)
+        "Lie product formula with cubic commutators"
+        if quartic
+        else "Lie product formula"
+        if approximate
+        else "Exact quadrature power",
+        steps,
+        len(circuit.gates),
+        approximate=approximate,
+        order=0.5 if quartic else 1.0 if approximate else None,
+        target_parameter=terms,
     )
 
 
@@ -106,4 +122,5 @@ def synthesize_kerr(kappa, *, steps=8, modes=1, mode=0):
     """
     terms = [(kappa / 24, theta, 4) for theta in (0, np.pi / 2, np.pi / 4, -np.pi / 4)]
     terms += [(-kappa / 4, theta, 2) for theta in (0, np.pi / 2)]
-    return quadrature_polynomial(terms, steps=steps, modes=modes, mode=mode)
+    circuit, report = quadrature_polynomial(terms, steps=steps, modes=modes, mode=mode)
+    return circuit, replace(report, target_gate="Kerr", target_parameter=kappa)

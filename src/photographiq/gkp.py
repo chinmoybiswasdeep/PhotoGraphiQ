@@ -127,7 +127,11 @@ def decode_shift(outcome):
     """
     if not np.isfinite(outcome):
         raise ValueError("Syndrome outcome must be finite")
-    cell = int(np.floor(outcome / SPACING + 0.5))
+    # Compare in the original coordinate: dividing a rounded half-cell value
+    # can round just below the tie, incorrectly changing the logical parity.
+    cell = int(np.floor(outcome / SPACING))
+    if outcome >= (cell + 0.5) * SPACING:
+        cell += 1
     return float(outcome - cell * SPACING), cell % 2
 
 

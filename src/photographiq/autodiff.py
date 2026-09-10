@@ -84,12 +84,19 @@ def _operators(basis, mode):
 
 
 class DifferentiableState(NamedTuple):
-    """Density matrix, ordered basis/nodes and branch log likelihood."""
+    """Conditional state, branch likelihood and finite-space diagnostics.
+
+    retained_norms records preparation projection masses before normalization.
+    boundary_population is the final weight in the top two total-number shells.
+    Unitary projected evolution conserves trace even when cutoff error is large.
+    """
 
     density_matrix: object
     basis: tuple
     nodes: tuple
     log_likelihood: object
+    retained_norms: tuple = ()
+    boundary_population: object = 0.0
 
 
 def fock_state(
@@ -136,6 +143,19 @@ def fock_state(
     basis: tuple = ((),)
     rho = jnp.ones((1, 1), dtype=jnp.complex128)
     log_likelihood = jnp.asarray(0.0)
+    retained_norms = []
+
+    def require(condition, message):
+        # Eager calls can raise. During JAX tracing, invalid states are explicitly
+        # poisoned with NaNs; no host callback or tracer-to-bool conversion.
+        if not isinstance(condition, jax.core.Tracer) and not bool(condition):
+            raise ValueError(message)
+        return condition
+
+    def normalize(matrix, message, valid=True):
+        mass = jnp.trace(matrix).real
+        ok = require(jnp.isfinite(mass) & (mass > 0) & valid, message)
+        return matrix / jnp.where(ok, mass, jnp.nan)
 
     def val(x):
         return resolve(x, parameters, records)
@@ -151,6 +171,7 @@ def fock_state(
         helper = MixedFockBackend(cutoff, max_matrix_bytes=16 * max_dimension**2)
         helper.prepare_resource(new_nodes, state, squeezing=0.0)
         snap = helper.get_state()
+        retained_norms.extend(snap.retained_norms)
         local_basis = snap.basis
         local = jnp.asarray(snap.density_matrix)
         target_basis = _basis(len(nodes) + len(new_nodes), cutoff)
@@ -161,7 +182,13 @@ def fock_state(
         ii = np.array([old_lookup[b[: len(nodes)]] for b in target_basis])
         jj = np.array([new_lookup[b[len(nodes) :]] for b in target_basis])
         rho = rho[jnp.ix_(ii, ii)] * local[jnp.ix_(jj, jj)]
-        rho = rho / jnp.trace(rho).real
+        mass = jnp.trace(rho).real
+        retained_norms.append(mass)
+        rho = normalize(
+            rho,
+            "Fock tensor truncation exceeds tolerance; increase cutoff",
+            jnp.abs(mass - 1) <= 1e-3,
+        )
         nodes += tuple(new_nodes)
         basis = target_basis
         if state is None and len(new_nodes) == 1:
@@ -196,7 +223,9 @@ def fock_state(
             generator = (
                 1j * val(command.weight) * jnp.asarray((q @ x + x @ q) / 4)
                 if isinstance(command, c.Entangle)
-                else val(command.theta) * jnp.asarray(a.conj().T @ b - a @ b.conj().T)
+                # Projected different-mode ladders need not commute at the
+                # total-number boundary. Keep the explicitly adjoint ordering.
+                else val(command.theta) * jnp.asarray(b.conj().T @ a - a.conj().T @ b)
             )
             unitary(jax.scipy.linalg.expm(generator))
             continue
@@ -218,8 +247,15 @@ def fock_state(
             generator = 1j * val(command.kappa) * (number @ number)
         elif isinstance(command, (c.PhotonAdd, c.PhotonSubtract)):
             op = jnp.asarray(a.conj().T if isinstance(command, c.PhotonAdd) else a)
+            expected = jnp.trace(
+                rho @ jnp.asarray(number + np.eye(len(basis)) * isinstance(command, c.PhotonAdd))
+            ).real
             rho = op @ rho @ op.conj().T
-            rho /= jnp.trace(rho).real
+            rho = normalize(
+                rho,
+                "Ladder has zero norm or exceeds cutoff",
+                expected - jnp.trace(rho).real <= 1e-12,
+            )
         elif isinstance(command, c.Loss):
             if command.thermal_photons != 0:
                 raise NotImplementedError(
@@ -278,7 +314,7 @@ def fock_state(
             rho = op @ rho @ op.conj().T
             mass = jnp.trace(rho).real
             log_likelihood += jnp.log(mass)
-            rho /= mass
+            rho = normalize(rho, "Postselection has zero or invalid probability/density")
             records[command.result_key] = outcome
             basis, nodes = survivor_basis, nodes[:mode] + nodes[mode + 1 :]
         else:
@@ -301,7 +337,10 @@ def fock_state(
                     lookup[tuple(basis[j][k] for k in keep)],
                 ].add(rho[i, j])
         rho, basis, nodes = reduced, target, outputs
-    return DifferentiableState(rho, basis, nodes, log_likelihood)
+    boundary = jnp.sum(
+        jnp.diag(rho).real * jnp.asarray([sum(b) >= max(1, cutoff - 2) for b in basis])
+    )
+    return DifferentiableState(rho, basis, nodes, log_likelihood, tuple(retained_norms), boundary)
 
 
 def expectation(pattern, parameters=None, *, observable="photon_number", node=None, **kwargs):
