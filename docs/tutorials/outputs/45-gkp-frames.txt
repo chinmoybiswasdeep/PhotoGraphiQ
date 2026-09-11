@@ -1,0 +1,4 @@
+H: LogicalPauliFrame(x_bit=0, z_bit=1) S: LogicalPauliFrame(x_bit=1, z_bit=1)
+CZ: (LogicalPauliFrame(x_bit=1, z_bit=0), LogicalPauliFrame(x_bit=0, z_bit=0))
+adapted angle: -0.3
+{'m': LogicalDecodeResult(bit=1, raw_outcome=0.1, cell=0, residual=0.1, decoder='nearest-cell', confidence=None, probabilities=None, code_subspace_leakage=None, frame_correction=1), 'bit': 1.0}

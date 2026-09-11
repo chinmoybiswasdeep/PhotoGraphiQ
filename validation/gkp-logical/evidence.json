@@ -1,0 +1,1402 @@
+{
+  "model": "finite-energy-gkp",
+  "physical_muta_validated": false,
+  "supported_readout_bases": [
+    "X",
+    "Z"
+  ],
+  "single_mode": [
+    {
+      "cutoff": 24,
+      "input": [
+        1,
+        0
+      ],
+      "gate": "X",
+      "target_fidelity": 0.6802423228193131,
+      "code_subspace_leakage": 0.3197546589264946,
+      "stabilizers": {
+        "q_translation": [
+          0.38252357457408903,
+          0.0
+        ],
+        "p_translation": [
+          0.38699399514001187,
+          -0.0004782895050551711
+        ]
+      }
+    },
+    {
+      "cutoff": 24,
+      "input": [
+        1,
+        0
+      ],
+      "gate": "Z",
+      "target_fidelity": 0.621775649739425,
+      "code_subspace_leakage": 0.3686810278823037,
+      "stabilizers": {
+        "q_translation": [
+          0.38243447452915424,
+          0.0005229156207438995
+        ],
+        "p_translation": [
+          0.3825149370771901,
+          1.8399894244441797e-16
+        ]
+      }
+    },
+    {
+      "cutoff": 24,
+      "input": [
+        1,
+        0
+      ],
+      "gate": "H",
+      "target_fidelity": 0.9778121993862443,
+      "code_subspace_leakage": 0.01736764907238819,
+      "stabilizers": {
+        "q_translation": [
+          0.38647398825427864,
+          -3.757526443047143e-17
+        ],
+        "p_translation": [
+          0.38277306091666974,
+          -6.162975822039155e-32
+        ]
+      }
+    },
+    {
+      "cutoff": 24,
+      "input": [
+        1,
+        0
+      ],
+      "gate": "S",
+      "target_fidelity": 0.8988828988284536,
+      "code_subspace_leakage": 0.09838838248038351,
+      "stabilizers": {
+        "q_translation": [
+          0.15090698121720816,
+          -6.938893903907228e-17
+        ],
+        "p_translation": [
+          0.3762651559259438,
+          2.0816681711721685e-17
+        ]
+      }
+    },
+    {
+      "cutoff": 24,
+      "input": [
+        0,
+        1
+      ],
+      "gate": "X",
+      "target_fidelity": 0.6807040076003849,
+      "code_subspace_leakage": 0.31910899958981187,
+      "stabilizers": {
+        "q_translation": [
+          0.5259966010565105,
+          0.0
+        ],
+        "p_translation": [
+          0.38702801129945413,
+          -0.0015257305552429795
+        ]
+      }
+    },
+    {
+      "cutoff": 24,
+      "input": [
+        0,
+        1
+      ],
+      "gate": "Z",
+      "target_fidelity": 0.6217323722339395,
+      "code_subspace_leakage": 0.3687189920724776,
+      "stabilizers": {
+        "q_translation": [
+          0.5422103918141362,
+          0.000114981654836116
+        ],
+        "p_translation": [
+          0.3845237230490049,
+          1.4966830024871003e-16
+        ]
+      }
+    },
+    {
+      "cutoff": 24,
+      "input": [
+        0,
+        1
+      ],
+      "gate": "H",
+      "target_fidelity": 0.9589173412654168,
+      "code_subspace_leakage": 0.037227137638362384,
+      "stabilizers": {
+        "q_translation": [
+          0.38672583543256256,
+          -5.0884387250848666e-18
+        ],
+        "p_translation": [
+          0.5421585940499204,
+          -4.237045877651919e-33
+        ]
+      }
+    },
+    {
+      "cutoff": 24,
+      "input": [
+        0,
+        1
+      ],
+      "gate": "S",
+      "target_fidelity": 0.620402302369642,
+      "code_subspace_leakage": 0.36995665051739945,
+      "stabilizers": {
+        "q_translation": [
+          0.20641131438015514,
+          -1.3877787807814457e-17
+        ],
+        "p_translation": [
+          0.38816557428875337,
+          1.0148132334464322e-16
+        ]
+      }
+    },
+    {
+      "cutoff": 24,
+      "input": [
+        1,
+        1
+      ],
+      "gate": "X",
+      "target_fidelity": 0.6916903809094019,
+      "code_subspace_leakage": 0.3082740136295916,
+      "stabilizers": {
+        "q_translation": [
+          0.47114237535524295,
+          0.0
+        ],
+        "p_translation": [
+          0.3013636476674789,
+          -0.0003779798482864971
+        ]
+      }
+    },
+    {
+      "cutoff": 24,
+      "input": [
+        1,
+        1
+      ],
+      "gate": "Z",
+      "target_fidelity": 0.6312660622753343,
+      "code_subspace_leakage": 0.36873393765729645,
+      "stabilizers": {
+        "q_translation": [
+          0.47760923868506877,
+          0.0001431963968438199
+        ],
+        "p_translation": [
+          0.30194636646026907,
+          1.697233016908618e-16
+        ]
+      }
+    },
+    {
+      "cutoff": 24,
+      "input": [
+        1,
+        1
+      ],
+      "gate": "H",
+      "target_fidelity": 0.9778121993862443,
+      "code_subspace_leakage": 0.01859278812284937,
+      "stabilizers": {
+        "q_translation": [
+          0.30185690795282055,
+          -5.38487075813619e-17
+        ],
+        "p_translation": [
+          0.4780489170473932,
+          -1.6948183510607676e-32
+        ]
+      }
+    },
+    {
+      "cutoff": 24,
+      "input": [
+        1,
+        1
+      ],
+      "gate": "S",
+      "target_fidelity": 0.7572148612648614,
+      "code_subspace_leakage": 0.23215852252607405,
+      "stabilizers": {
+        "q_translation": [
+          0.13720836947231502,
+          -2.0816681711721685e-17
+        ],
+        "p_translation": [
+          0.2958909352324537,
+          7.806255641895632e-17
+        ]
+      }
+    },
+    {
+      "cutoff": 24,
+      "input": [
+        1,
+        -1
+      ],
+      "gate": "X",
+      "target_fidelity": 0.6662426706080498,
+      "code_subspace_leakage": 0.3337217165489741,
+      "stabilizers": {
+        "q_translation": [
+          0.43258370773556,
+          0.0
+        ],
+        "p_translation": [
+          0.4966982000002622,
+          -0.0018007903874426856
+        ]
+      }
+    },
+    {
+      "cutoff": 24,
+      "input": [
+        1,
+        -1
+      ],
+      "gate": "Z",
+      "target_fidelity": 0.6313434342396418,
+      "code_subspace_leakage": 0.36865656517921674,
+      "stabilizers": {
+        "q_translation": [
+          0.4427556187714503,
+          0.0005439894478626028
+        ],
+        "p_translation": [
+          0.4879797921765976,
+          1.6313121275545567e-16
+        ]
+      }
+    },
+    {
+      "cutoff": 24,
+      "input": [
+        1,
+        -1
+      ],
+      "gate": "H",
+      "target_fidelity": 0.9589173412654168,
+      "code_subspace_leakage": 0.03844293245684283,
+      "stabilizers": {
+        "q_translation": [
+          0.49510643663207554,
+          2.0303338113595938e-17
+        ],
+        "p_translation": [
+          0.4425129485854279,
+          -3.0814879110195774e-32
+        ]
+      }
+    },
+    {
+      "cutoff": 24,
+      "input": [
+        1,
+        -1
+      ],
+      "gate": "S",
+      "target_fidelity": 0.755212568313281,
+      "code_subspace_leakage": 0.23713967102179712,
+      "stabilizers": {
+        "q_translation": [
+          0.23184059522164524,
+          3.469446951953614e-18
+        ],
+        "p_translation": [
+          0.4928220332132843,
+          -2.42861286636753e-17
+        ]
+      }
+    },
+    {
+      "cutoff": 48,
+      "input": [
+        1,
+        0
+      ],
+      "gate": "X",
+      "target_fidelity": 0.6803065174031977,
+      "code_subspace_leakage": 0.3196905491040627,
+      "stabilizers": {
+        "q_translation": [
+          0.38341707760868415,
+          0.0
+        ],
+        "p_translation": [
+          0.38661246546482997,
+          -4.6707960937864e-07
+        ]
+      }
+    },
+    {
+      "cutoff": 48,
+      "input": [
+        1,
+        0
+      ],
+      "gate": "Z",
+      "target_fidelity": 0.6217230143636454,
+      "code_subspace_leakage": 0.3687319289002029,
+      "stabilizers": {
+        "q_translation": [
+          0.3834198178183338,
+          -3.151882502216985e-08
+        ],
+        "p_translation": [
+          0.38661260269093084,
+          1.8494872494584663e-16
+        ]
+      }
+    },
+    {
+      "cutoff": 48,
+      "input": [
+        1,
+        0
+      ],
+      "gate": "H",
+      "target_fidelity": 0.9778057388172837,
+      "code_subspace_leakage": 0.017373747076459334,
+      "stabilizers": {
+        "q_translation": [
+          0.3866127322024219,
+          -3.627123003345773e-17
+        ],
+        "p_translation": [
+          0.38341986963591446,
+          -1.3866695599588098e-32
+        ]
+      }
+    },
+    {
+      "cutoff": 48,
+      "input": [
+        1,
+        0
+      ],
+      "gate": "S",
+      "target_fidelity": 0.8952441172579455,
+      "code_subspace_leakage": 0.10204431389189761,
+      "stabilizers": {
+        "q_translation": [
+          0.14824326994188539,
+          -2.0816681711721685e-17
+        ],
+        "p_translation": [
+          0.38662924959076517,
+          4.5102810375396984e-17
+        ]
+      }
+    },
+    {
+      "cutoff": 48,
+      "input": [
+        0,
+        1
+      ],
+      "gate": "X",
+      "target_fidelity": 0.6803065025820458,
+      "code_subspace_leakage": 0.3195074439113035,
+      "stabilizers": {
+        "q_translation": [
+          0.5422171932618186,
+          0.0
+        ],
+        "p_translation": [
+          0.3866127228126449,
+          -5.597939298218613e-08
+        ]
+      }
+    },
+    {
+      "cutoff": 48,
+      "input": [
+        0,
+        1
+      ],
+      "gate": "Z",
+      "target_fidelity": 0.621698624268004,
+      "code_subspace_leakage": 0.36875669345419415,
+      "stabilizers": {
+        "q_translation": [
+          0.5422186029800591,
+          -1.9737553580423395e-07
+        ],
+        "p_translation": [
+          0.38661233233251696,
+          1.543497092424046e-16
+        ]
+      }
+    },
+    {
+      "cutoff": 48,
+      "input": [
+        0,
+        1
+      ],
+      "gate": "H",
+      "target_fidelity": 0.958902080740002,
+      "code_subspace_leakage": 0.037242566088832585,
+      "stabilizers": {
+        "q_translation": [
+          0.38661272287279475,
+          -5.590040545107875e-18
+        ],
+        "p_translation": [
+          0.5422188805583676,
+          5.007417855406813e-33
+        ]
+      }
+    },
+    {
+      "cutoff": 48,
+      "input": [
+        0,
+        1
+      ],
+      "gate": "S",
+      "target_fidelity": 0.6193776125215431,
+      "code_subspace_leakage": 0.37098645525998886,
+      "stabilizers": {
+        "q_translation": [
+          0.20962067646695326,
+          -2.6291902682773483e-18
+        ],
+        "p_translation": [
+          0.38646123134841776,
+          -6.862999751833243e-17
+        ]
+      }
+    },
+    {
+      "cutoff": 48,
+      "input": [
+        1,
+        1
+      ],
+      "gate": "X",
+      "target_fidelity": 0.6915434980235348,
+      "code_subspace_leakage": 0.30842093626438616,
+      "stabilizers": {
+        "q_translation": [
+          0.47827003793748457,
+          0.0
+        ],
+        "p_translation": [
+          0.3019439277634945,
+          -8.203815791973934e-08
+        ]
+      }
+    },
+    {
+      "cutoff": 48,
+      "input": [
+        1,
+        1
+      ],
+      "gate": "Z",
+      "target_fidelity": 0.6312556890604344,
+      "code_subspace_leakage": 0.368744310892141,
+      "stabilizers": {
+        "q_translation": [
+          0.4782718859915514,
+          -1.4640303022672718e-07
+        ],
+        "p_translation": [
+          0.30194391925318376,
+          1.6932133634773184e-16
+        ]
+      }
+    },
+    {
+      "cutoff": 48,
+      "input": [
+        1,
+        1
+      ],
+      "gate": "H",
+      "target_fidelity": 0.9778057388172835,
+      "code_subspace_leakage": 0.018599474664767746,
+      "stabilizers": {
+        "q_translation": [
+          0.3019441677768108,
+          -5.3126501300992093e-17
+        ],
+        "p_translation": [
+          0.47827213116237377,
+          3.235562306570556e-32
+        ]
+      }
+    },
+    {
+      "cutoff": 48,
+      "input": [
+        1,
+        1
+      ],
+      "gate": "S",
+      "target_fidelity": 0.7552214784302698,
+      "code_subspace_leakage": 0.2341693265511302,
+      "stabilizers": {
+        "q_translation": [
+          0.1338580842331653,
+          3.8163916471489756e-17
+        ],
+        "p_translation": [
+          0.30198712255914867,
+          -7.806255641895632e-17
+        ]
+      }
+    },
+    {
+      "cutoff": 48,
+      "input": [
+        1,
+        -1
+      ],
+      "gate": "X",
+      "target_fidelity": 0.6660529228921978,
+      "code_subspace_leakage": 0.3339115113955028,
+      "stabilizers": {
+        "q_translation": [
+          0.44303106609069826,
+          0.0
+        ],
+        "p_translation": [
+          0.49502331315832826,
+          -4.913522440863627e-07
+        ]
+      }
+    },
+    {
+      "cutoff": 48,
+      "input": [
+        1,
+        -1
+      ],
+      "gate": "Z",
+      "target_fidelity": 0.6312556883800714,
+      "code_subspace_leakage": 0.3687443115421778,
+      "stabilizers": {
+        "q_translation": [
+          0.4430334296915097,
+          -7.353054876091392e-08
+        ],
+        "p_translation": [
+          0.4950230345062101,
+          1.7006903932488236e-16
+        ]
+      }
+    },
+    {
+      "cutoff": 48,
+      "input": [
+        1,
+        -1
+      ],
+      "gate": "H",
+      "target_fidelity": 0.9589020807400025,
+      "code_subspace_leakage": 0.03845885143838412,
+      "stabilizers": {
+        "q_translation": [
+          0.49502330937655903,
+          2.0293315808966252e-17
+        ],
+        "p_translation": [
+          0.44303349140217674,
+          3.851859888774472e-33
+        ]
+      }
+    },
+    {
+      "cutoff": 48,
+      "input": [
+        1,
+        -1
+      ],
+      "gate": "S",
+      "target_fidelity": 0.7528612346240121,
+      "code_subspace_leakage": 0.23951312936316338,
+      "stabilizers": {
+        "q_translation": [
+          0.23664393228417852,
+          -8.673617379884035e-17
+        ],
+        "p_translation": [
+          0.4948148913431588,
+          1.214306433183765e-17
+        ]
+      }
+    },
+    {
+      "cutoff": 80,
+      "input": [
+        1,
+        0
+      ],
+      "gate": "X",
+      "target_fidelity": 0.6803065023617856,
+      "code_subspace_leakage": 0.3196905641474561,
+      "stabilizers": {
+        "q_translation": [
+          0.3834198717344615,
+          0.0
+        ],
+        "p_translation": [
+          0.38661273268893287,
+          1.4348652279698644e-12
+        ]
+      }
+    },
+    {
+      "cutoff": 80,
+      "input": [
+        1,
+        0
+      ],
+      "gate": "Z",
+      "target_fidelity": 0.6217230140277837,
+      "code_subspace_leakage": 0.3687319292477905,
+      "stabilizers": {
+        "q_translation": [
+          0.38341987216434203,
+          -1.5829065548207135e-13
+        ],
+        "p_translation": [
+          0.38661273268504415,
+          1.850135170956272e-16
+        ]
+      }
+    },
+    {
+      "cutoff": 80,
+      "input": [
+        1,
+        0
+      ],
+      "gate": "H",
+      "target_fidelity": 0.9778057387749954,
+      "code_subspace_leakage": 0.017373747114249438,
+      "stabilizers": {
+        "q_translation": [
+          0.38661273268620905,
+          -3.6270168895016087e-17
+        ],
+        "p_translation": [
+          0.38341987216497214,
+          1.5487467210501868e-32
+        ]
+      }
+    },
+    {
+      "cutoff": 80,
+      "input": [
+        1,
+        0
+      ],
+      "gate": "S",
+      "target_fidelity": 0.8952403868233932,
+      "code_subspace_leakage": 0.10204805588312371,
+      "stabilizers": {
+        "q_translation": [
+          0.14823493479810773,
+          -1.7774139365184238e-17
+        ],
+        "p_translation": [
+          0.3866130488563932,
+          6.179952383167375e-18
+        ]
+      }
+    },
+    {
+      "cutoff": 80,
+      "input": [
+        0,
+        1
+      ],
+      "gate": "X",
+      "target_fidelity": 0.6803065023616736,
+      "code_subspace_leakage": 0.31950744414060583,
+      "stabilizers": {
+        "q_translation": [
+          0.5422189225312114,
+          0.0
+        ],
+        "p_translation": [
+          0.38661273268678636,
+          -5.302692787787015e-13
+        ]
+      }
+    },
+    {
+      "cutoff": 80,
+      "input": [
+        0,
+        1
+      ],
+      "gate": "Z",
+      "target_fidelity": 0.6216986237871264,
+      "code_subspace_leakage": 0.3687566939417427,
+      "stabilizers": {
+        "q_translation": [
+          0.5422189225332378,
+          1.2220181684190765e-13
+        ],
+        "p_translation": [
+          0.38661273268659535,
+          1.5433362485728086e-16
+        ]
+      }
+    },
+    {
+      "cutoff": 80,
+      "input": [
+        0,
+        1
+      ],
+      "gate": "H",
+      "target_fidelity": 0.958902080482397,
+      "code_subspace_leakage": 0.037242566340383365,
+      "stabilizers": {
+        "q_translation": [
+          0.38661273268621454,
+          -5.590118921073785e-18
+        ],
+        "p_translation": [
+          0.5422189225330711,
+          -7.046007178376857e-33
+        ]
+      }
+    },
+    {
+      "cutoff": 80,
+      "input": [
+        0,
+        1
+      ],
+      "gate": "S",
+      "target_fidelity": 0.6193500930804442,
+      "code_subspace_leakage": 0.3710144023491284,
+      "stabilizers": {
+        "q_translation": [
+          0.20962863126211287,
+          3.4558944247975454e-17
+        ],
+        "p_translation": [
+          0.3866129026753411,
+          -5.079487178094588e-17
+        ]
+      }
+    },
+    {
+      "cutoff": 80,
+      "input": [
+        1,
+        1
+      ],
+      "gate": "X",
+      "target_fidelity": 0.6915434914916808,
+      "code_subspace_leakage": 0.3084209427951444,
+      "stabilizers": {
+        "q_translation": [
+          0.4782721480800038,
+          0.0
+        ],
+        "p_translation": [
+          0.3019441710212794,
+          -2.362722190341277e-13
+        ]
+      }
+    },
+    {
+      "cutoff": 80,
+      "input": [
+        1,
+        1
+      ],
+      "gate": "Z",
+      "target_fidelity": 0.6312556883445124,
+      "code_subspace_leakage": 0.3687443116080643,
+      "stabilizers": {
+        "q_translation": [
+          0.478272148298022,
+          -2.6133706219684486e-13
+        ],
+        "p_translation": [
+          0.3019441710171877,
+          1.6929934578862916e-16
+        ]
+      }
+    },
+    {
+      "cutoff": 80,
+      "input": [
+        1,
+        1
+      ],
+      "gate": "H",
+      "target_fidelity": 0.9778057387749961,
+      "code_subspace_leakage": 0.018599474715500497,
+      "stabilizers": {
+        "q_translation": [
+          0.30194417101820203,
+          -5.3130618318916764e-17
+        ],
+        "p_translation": [
+          0.4782721482980819,
+          -8.711259495525742e-33
+        ]
+      }
+    },
+    {
+      "cutoff": 80,
+      "input": [
+        1,
+        1
+      ],
+      "gate": "S",
+      "target_fidelity": 0.7552045770199187,
+      "code_subspace_leakage": 0.23418646948183441,
+      "stabilizers": {
+        "q_translation": [
+          0.13377149243941508,
+          -5.594483210025203e-17
+        ],
+        "p_translation": [
+          0.3019450094579702,
+          1.5395670849294163e-17
+        ]
+      }
+    },
+    {
+      "cutoff": 80,
+      "input": [
+        1,
+        -1
+      ],
+      "gate": "X",
+      "target_fidelity": 0.6660529139261249,
+      "code_subspace_leakage": 0.3339115203607006,
+      "stabilizers": {
+        "q_translation": [
+          0.4430335199918636,
+          0.0
+        ],
+        "p_translation": [
+          0.495023316962904,
+          1.3340762320868571e-12
+        ]
+      }
+    },
+    {
+      "cutoff": 80,
+      "input": [
+        1,
+        -1
+      ],
+      "gate": "Z",
+      "target_fidelity": 0.6312556883445117,
+      "code_subspace_leakage": 0.36874431157773946,
+      "stabilizers": {
+        "q_translation": [
+          0.44303352020515735,
+          2.936760965674256e-13
+        ],
+        "p_translation": [
+          0.49502331696349294,
+          1.7015273314082733e-16
+        ]
+      }
+    },
+    {
+      "cutoff": 80,
+      "input": [
+        1,
+        -1
+      ],
+      "gate": "H",
+      "target_fidelity": 0.958902080482397,
+      "code_subspace_leakage": 0.038458851702912966,
+      "stabilizers": {
+        "q_translation": [
+          0.4950233169630879,
+          2.0299707835074668e-17
+        ],
+        "p_translation": [
+          0.4430335202056091,
+          2.5558444531510767e-32
+        ]
+      }
+    },
+    {
+      "cutoff": 80,
+      "input": [
+        1,
+        -1
+      ],
+      "gate": "S",
+      "target_fidelity": 0.7528410802536531,
+      "code_subspace_leakage": 0.2395334945165779,
+      "stabilizers": {
+        "q_translation": [
+          0.2367555325333398,
+          1.7943545954635098e-17
+        ],
+        "p_translation": [
+          0.4950227987391054,
+          -1.7076184216646695e-18
+        ]
+      }
+    }
+  ],
+  "two_mode": [
+    {
+      "cutoff": 24,
+      "preparation_mass": 0.9999960839911999,
+      "independent_reference_infidelity": 5.3931838363774354e-05,
+      "target_fidelity": 0.5709395039089393,
+      "code_subspace_leakage": 0.4279747235615581,
+      "joint_probabilities": {
+        "(0, 0)": 0.4390606958746176,
+        "(0, 1)": 0.06141030096474139,
+        "(1, 0)": 0.06139837298651019,
+        "(1, 1)": 0.43813063017413034
+      },
+      "marginal_probabilities": {
+        "0": [
+          0.500470996839359,
+          0.49952900316064053
+        ],
+        "1": [
+          0.5004590688611278,
+          0.4995409311388717
+        ]
+      },
+      "stabilizers": {
+        "0": {
+          "q_translation": [
+            0.09607706131687951,
+            2.439454888092385e-19
+          ],
+          "p_translation": [
+            0.21930539287649659,
+            1.4840017235895342e-18
+          ]
+        },
+        "1": {
+          "q_translation": [
+            0.09601690969057694,
+            1.2536087619363645e-19
+          ],
+          "p_translation": [
+            0.2194950320975707,
+            1.2908782116155537e-18
+          ]
+        }
+      }
+    },
+    {
+      "cutoff": 40,
+      "preparation_mass": 0.9999999997428423,
+      "independent_reference_infidelity": 1.90799235277872e-06,
+      "target_fidelity": 0.5693805077415797,
+      "code_subspace_leakage": 0.4295341453890388,
+      "joint_probabilities": {
+        "(0, 0)": 0.439075217511472,
+        "(0, 1)": 0.06095033331612348,
+        "(1, 0)": 0.06095677214345552,
+        "(1, 1)": 0.43901767702894867
+      },
+      "marginal_probabilities": {
+        "0": [
+          0.5000255508275955,
+          0.4999744491724042
+        ],
+        "1": [
+          0.5000319896549275,
+          0.49996801034507216
+        ]
+      },
+      "stabilizers": {
+        "0": {
+          "q_translation": [
+            0.0964700071365417,
+            1.049050305174451e-18
+          ],
+          "p_translation": [
+            0.2240659929248349,
+            -2.1002181927170377e-18
+          ]
+        },
+        "1": {
+          "q_translation": [
+            0.09646884011873091,
+            1.0024634930754645e-18
+          ],
+          "p_translation": [
+            0.224067371424853,
+            -2.126052697608294e-18
+          ]
+        }
+      }
+    },
+    {
+      "cutoff": 64,
+      "preparation_mass": 0.9999999999999983,
+      "independent_reference_infidelity": 5.167711147890941e-09,
+      "target_fidelity": 0.5693291358543368,
+      "code_subspace_leakage": 0.4295856145983665,
+      "joint_probabilities": {
+        "(0, 0)": 0.43903792670571157,
+        "(0, 1)": 0.06098742787973792,
+        "(1, 0)": 0.060992144447784176,
+        "(1, 1)": 0.43898250096676394
+      },
+      "marginal_probabilities": {
+        "0": [
+          0.5000253545854495,
+          0.4999746454145481
+        ],
+        "1": [
+          0.5000300711534957,
+          0.4999699288465019
+        ]
+      },
+      "stabilizers": {
+        "0": {
+          "q_translation": [
+            0.09650855880728577,
+            1.0742321645624028e-18
+          ],
+          "p_translation": [
+            0.22428640179352904,
+            -2.4860855407638368e-18
+          ]
+        },
+        "1": {
+          "q_translation": [
+            0.09650853300910857,
+            1.0788321159488102e-18
+          ],
+          "p_translation": [
+            0.2242864289214186,
+            -2.487017773314184e-18
+          ]
+        }
+      }
+    }
+  ],
+  "studies": {
+    "cutoff": [
+      {
+        "cutoff": 24,
+        "probabilities": [
+          0.012096509869557178,
+          0.9879034901304424
+        ],
+        "residual_mean": 0.0,
+        "residual_second_moment": 0.246969103075425,
+        "code_subspace_leakage": 0.0,
+        "fidelity_to_previous": null,
+        "stabilizers": {
+          "q_translation": [
+            0.44251294858542867,
+            0.0
+          ],
+          "p_translation": [
+            0.49510643663207515,
+            -2.0303338113595914e-17
+          ]
+        }
+      },
+      {
+        "cutoff": 48,
+        "probabilities": [
+          0.012206862773192042,
+          0.9877931372268071
+        ],
+        "residual_mean": 0.0,
+        "residual_second_moment": 0.24695469333500936,
+        "code_subspace_leakage": 0.0,
+        "fidelity_to_previous": 0.9999921404589704,
+        "stabilizers": {
+          "q_translation": [
+            0.44303349140217685,
+            0.0
+          ],
+          "p_translation": [
+            0.4950233093765591,
+            -2.029331580896626e-17
+          ]
+        }
+      },
+      {
+        "cutoff": 80,
+        "probabilities": [
+          0.012206805116958529,
+          0.9877931948830388
+        ],
+        "residual_mean": 0.0,
+        "residual_second_moment": 0.24695473822579833,
+        "code_subspace_leakage": 2.220446049250313e-16,
+        "fidelity_to_previous": 0.9999999999365188,
+        "stabilizers": {
+          "q_translation": [
+            0.443033520205609,
+            0.0
+          ],
+          "p_translation": [
+            0.49502331696308816,
+            -2.0299707835074655e-17
+          ]
+        }
+      }
+    ],
+    "grid_points": [
+      {
+        "grid_points": 2049,
+        "cutoff": 48,
+        "probabilities": [
+          0.012206862773192042,
+          0.9877931372268071
+        ],
+        "residual_mean": 0.0,
+        "residual_second_moment": 0.24695469333500936,
+        "code_subspace_leakage": 0.0,
+        "fidelity_to_previous": null,
+        "stabilizers": {
+          "q_translation": [
+            0.44303349140217685,
+            0.0
+          ],
+          "p_translation": [
+            0.4950233093765591,
+            -2.029331580896626e-17
+          ]
+        }
+      },
+      {
+        "grid_points": 4097,
+        "cutoff": 48,
+        "probabilities": [
+          0.012206862773192037,
+          0.9877931372268074
+        ],
+        "residual_mean": 0.0,
+        "residual_second_moment": 0.24695469333500927,
+        "code_subspace_leakage": 0.0,
+        "fidelity_to_previous": 1.0,
+        "stabilizers": {
+          "q_translation": [
+            0.4430334914021771,
+            0.0
+          ],
+          "p_translation": [
+            0.4950233093765592,
+            -2.6593987713060195e-17
+          ]
+        }
+      }
+    ],
+    "peaks": [
+      {
+        "peaks": 4,
+        "cutoff": 48,
+        "probabilities": [
+          0.012206862773192032,
+          0.987793137226807
+        ],
+        "residual_mean": 3.851859888774472e-34,
+        "residual_second_moment": 0.24695469333500936,
+        "code_subspace_leakage": 0.0,
+        "fidelity_to_previous": null,
+        "stabilizers": {
+          "q_translation": [
+            0.44303349140217685,
+            0.0
+          ],
+          "p_translation": [
+            0.49502330937655903,
+            1.9061132758329397e-17
+          ]
+        }
+      },
+      {
+        "peaks": 6,
+        "cutoff": 48,
+        "probabilities": [
+          0.012206862773192042,
+          0.9877931372268071
+        ],
+        "residual_mean": 0.0,
+        "residual_second_moment": 0.24695469333500936,
+        "code_subspace_leakage": 0.0,
+        "fidelity_to_previous": 1.0,
+        "stabilizers": {
+          "q_translation": [
+            0.44303349140217685,
+            0.0
+          ],
+          "p_translation": [
+            0.4950233093765591,
+            -2.029331580896626e-17
+          ]
+        }
+      }
+    ],
+    "peak_width": [
+      {
+        "peak_width": 0.4,
+        "cutoff": 48,
+        "probabilities": [
+          0.010526142216784587,
+          0.989473857783216
+        ],
+        "residual_mean": 0.0,
+        "residual_second_moment": 0.23676999187847328,
+        "code_subspace_leakage": 1.1102230246251565e-16,
+        "fidelity_to_previous": null,
+        "stabilizers": {
+          "q_translation": [
+            0.46106041881881893,
+            0.0
+          ],
+          "p_translation": [
+            0.6198355177663664,
+            -4.745254770540178e-17
+          ]
+        }
+      },
+      {
+        "peak_width": 0.55,
+        "cutoff": 48,
+        "probabilities": [
+          0.012206862773192042,
+          0.9877931372268071
+        ],
+        "residual_mean": 0.0,
+        "residual_second_moment": 0.24695469333500936,
+        "code_subspace_leakage": 0.0,
+        "fidelity_to_previous": 0.9800815864321787,
+        "stabilizers": {
+          "q_translation": [
+            0.44303349140217685,
+            0.0
+          ],
+          "p_translation": [
+            0.4950233093765591,
+            -2.029331580896626e-17
+          ]
+        }
+      },
+      {
+        "peak_width": 0.7,
+        "cutoff": 48,
+        "probabilities": [
+          0.016823512992812515,
+          0.9831764870071866
+        ],
+        "residual_mean": 0.0,
+        "residual_second_moment": 0.27455867583544274,
+        "code_subspace_leakage": 2.220446049250313e-16,
+        "fidelity_to_previous": 0.9889517942820413,
+        "stabilizers": {
+          "q_translation": [
+            0.3942590909271601,
+            0.0
+          ],
+          "p_translation": [
+            0.4273547037024211,
+            -1.1903221432340155e-17
+          ]
+        }
+      }
+    ],
+    "envelope": [
+      {
+        "envelope": 0.35,
+        "cutoff": 48,
+        "probabilities": [
+          0.0004067577387563382,
+          0.999593242261241
+        ],
+        "residual_mean": 0.0,
+        "residual_second_moment": 0.12600781092055094,
+        "code_subspace_leakage": 0.0,
+        "fidelity_to_previous": null,
+        "stabilizers": {
+          "q_translation": [
+            0.6725484285162039,
+            0.0
+          ],
+          "p_translation": [
+            0.5077152451566849,
+            -1.8158740582795717e-17
+          ]
+        }
+      },
+      {
+        "envelope": 0.5,
+        "cutoff": 48,
+        "probabilities": [
+          0.012206862773192042,
+          0.9877931372268071
+        ],
+        "residual_mean": 0.0,
+        "residual_second_moment": 0.24695469333500936,
+        "code_subspace_leakage": 0.0,
+        "fidelity_to_previous": 0.9384572502470676,
+        "stabilizers": {
+          "q_translation": [
+            0.44303349140217685,
+            0.0
+          ],
+          "p_translation": [
+            0.4950233093765591,
+            -2.029331580896626e-17
+          ]
+        }
+      },
+      {
+        "envelope": 0.6,
+        "cutoff": 48,
+        "probabilities": [
+          0.02918687812397701,
+          0.9708131218760233
+        ],
+        "residual_mean": 0.0,
+        "residual_second_moment": 0.31310738857408216,
+        "code_subspace_leakage": 0.0,
+        "fidelity_to_previous": 0.9887680728492811,
+        "stabilizers": {
+          "q_translation": [
+            0.33199546161420296,
+            0.0
+          ],
+          "p_translation": [
+            0.4873526901209873,
+            2.7278195841073893e-17
+          ]
+        }
+      }
+    ]
+  }
+}

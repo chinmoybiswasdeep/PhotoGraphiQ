@@ -1,0 +1,193 @@
+{
+  "decompositions": [
+    {
+      "cutoff": 12,
+      "infidelity": 2.4976101965501485e-06,
+      "loss_a": 0.001713896334284426,
+      "loss_b": 0.0016592505449838368,
+      "boundary_a": 0.001203634400465372,
+      "boundary_b": 0.0012351923220026105
+    },
+    {
+      "cutoff": 18,
+      "infidelity": 8.186526746500888e-07,
+      "loss_a": 0.00034243300179404024,
+      "loss_b": 0.00033813346079625273,
+      "boundary_a": 0.00013741453198863596,
+      "boundary_b": 0.0001403732822146823
+    },
+    {
+      "cutoff": 24,
+      "infidelity": 3.9573806487336327e-07,
+      "loss_a": 8.39487988230081e-05,
+      "loss_b": 8.349035989185793e-05,
+      "boundary_a": 2.300012253400025e-05,
+      "boundary_b": 2.286927338872199e-05
+    },
+    {
+      "cutoff": 32,
+      "infidelity": 1.4476854792722094e-07,
+      "loss_a": 1.642246391431179e-05,
+      "loss_b": 1.6514335073325448e-05,
+      "boundary_a": 3.449242618003524e-06,
+      "boundary_b": 3.392565863009643e-06
+    },
+    {
+      "cutoff": 48,
+      "infidelity": 1.8020949066333003e-08,
+      "loss_a": 1.0811166096802438e-06,
+      "loss_b": 1.1177456203936842e-06,
+      "boundary_a": 1.658523879853845e-07,
+      "boundary_b": 1.6111837467661128e-07
+    }
+  ],
+  "injection": [
+    {
+      "cutoff": 36,
+      "density_error": 1.8034758550333763e-05,
+      "infidelity": 1.5846470321490003e-06,
+      "minimum_retained_norm": 0.999927655902915
+    },
+    {
+      "cutoff": 48,
+      "density_error": 3.6891179419906717e-06,
+      "infidelity": 2.642690052345742e-07,
+      "minimum_retained_norm": 0.999984406392618
+    },
+    {
+      "cutoff": 64,
+      "density_error": 8.268764963015318e-07,
+      "infidelity": 3.8563399029634127e-08,
+      "minimum_retained_norm": 0.9999973178438993
+    },
+    {
+      "cutoff": 96,
+      "density_error": 4.940335565639664e-08,
+      "infidelity": 1.503727808938038e-09,
+      "minimum_retained_norm": 0.9999998594924692
+    }
+  ],
+  "strong_cubic_moments": [
+    {
+      "cutoff": 24,
+      "seconds": 0.003192700009094551,
+      "norm": 1.0,
+      "minimum_retained_norm": 1.0,
+      "maximum_boundary_population": 0.00014894766502774579,
+      "peak_dimension": 24,
+      "outcomes": {},
+      "measurement_statistics": {},
+      "photon_numbers": {
+        "0": 0.3142857037439582
+      },
+      "quadratures": {
+        "0": {
+          "q": [
+            0.0,
+            1.0000261118927125
+          ],
+          "p": [
+            0.6464550820334687,
+            1.8392125299962214
+          ]
+        }
+      },
+      "fidelity_to_previous": null,
+      "trace_distance_to_previous": null,
+      "probability_l1_to_previous": null,
+      "comparable_to_previous": false,
+      "high_order_moments": {
+        "0": {
+          "q2": 1.000026111892712,
+          "q3": 0.0,
+          "q4": 3.079417026372311,
+          "p2": 2.257116703083121,
+          "p3": 4.439346756832961,
+          "p4": 24.14792401664588,
+          "n2": 1.7733034532799934
+        }
+      }
+    },
+    {
+      "cutoff": 48,
+      "seconds": 0.0043602000223472714,
+      "norm": 1.0,
+      "minimum_retained_norm": 0.9999999999999885,
+      "maximum_boundary_population": 6.4751031827891314e-06,
+      "peak_dimension": 48,
+      "outcomes": {},
+      "measurement_statistics": {},
+      "photon_numbers": {
+        "0": 0.3167389707630207
+      },
+      "quadratures": {
+        "0": {
+          "q": [
+            0.0,
+            1.0002627952490637
+          ],
+          "p": [
+            0.6498113833971331,
+            1.8444382538105233
+          ]
+        }
+      },
+      "fidelity_to_previous": 0.9996180825890225,
+      "trace_distance_to_previous": 0.01954270736048739,
+      "probability_l1_to_previous": 0.0018098256624718327,
+      "comparable_to_previous": true,
+      "high_order_moments": {
+        "0": {
+          "q2": 1.000262795249064,
+          "q3": 0.0,
+          "q4": 3.0361518267188576,
+          "p2": 2.2666930878030187,
+          "p3": 4.734413721502135,
+          "p4": 25.706932457526044,
+          "n2": 1.8970361323805345
+        }
+      }
+    },
+    {
+      "cutoff": 96,
+      "seconds": 0.008319999993545935,
+      "norm": 1.0,
+      "minimum_retained_norm": 0.9999999999999881,
+      "maximum_boundary_population": 2.29169359422861e-08,
+      "peak_dimension": 96,
+      "outcomes": {},
+      "measurement_statistics": {},
+      "photon_numbers": {
+        "0": 0.31687287947473575
+      },
+      "quadratures": {
+        "0": {
+          "q": [
+            0.0,
+            1.0000012995391212
+          ],
+          "p": [
+            0.6499964399958459,
+            1.8449948463525485
+          ]
+        }
+      },
+      "fidelity_to_previous": 0.9999857863509339,
+      "trace_distance_to_previous": 0.0037700993443190805,
+      "probability_l1_to_previous": 8.656837181922312e-05,
+      "comparable_to_previous": true,
+      "high_order_moments": {
+        "0": {
+          "q2": 1.0000012995391208,
+          "q3": 0.0,
+          "q4": 3.000443170199195,
+          "p2": 2.267490218359822,
+          "p3": 4.768075822674527,
+          "p4": 25.961422412475052,
+          "n2": 1.9104043319524089
+        }
+      }
+    }
+  ],
+  "oracle_quadrature_vector_change": 2.911823307450993e-16
+}

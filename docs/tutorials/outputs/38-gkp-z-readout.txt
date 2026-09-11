@@ -1,0 +1,3 @@
+LogicalDecodeResult(bit=0, raw_outcome=0.25, cell=0, residual=0.25, decoder='nearest-cell', confidence=None, probabilities=None, code_subspace_leakage=None, frame_correction=0)
+{'z': {'kind': 'density', 'value': 0.6020995319145024, 'postselected': True}}
+integrated Z probabilities: [0.97729564 0.02270436]

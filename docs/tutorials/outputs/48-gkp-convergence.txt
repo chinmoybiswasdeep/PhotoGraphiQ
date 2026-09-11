@@ -1,0 +1,3 @@
+{'cutoff': 24, 'probabilities': [0.012096509869557178, 0.9879034901304424], 'residual_mean': 0.0, 'residual_second_moment': 0.246969103075425, 'code_subspace_leakage': 0.0, 'fidelity_to_previous': None, 'stabilizers': {'q_translation': [0.44251294858542867, 0.0], 'p_translation': [0.49510643663207515, -2.0303338113595914e-17]}}
+{'cutoff': 48, 'probabilities': [0.012206862773192042, 0.9877931372268071], 'residual_mean': 0.0, 'residual_second_moment': 0.24695469333500936, 'code_subspace_leakage': 0.0, 'fidelity_to_previous': 0.9999921404589704, 'stabilizers': {'q_translation': [0.44303349140217685, 0.0], 'p_translation': [0.4950233093765591, -2.029331580896626e-17]}}
+Two-mode study: python -m experiments.gkp_logical_evidence

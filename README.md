@@ -131,3 +131,13 @@ Contributions are welcome: read [CONTRIBUTING.md](CONTRIBUTING.md), the
 [code of conduct](CODE_OF_CONDUCT.md), and [security policy](SECURITY.md).
 Original software is [MIT licensed](LICENSE); bundled third-party research
 material retains its original licensing.
+
+## Encoded GKP interface (0.3.1)
+
+Physical GKP X/Z readout, finite Kraus instruments, structured decoding and logical
+Pauli frames are available through the public API. Finite codewords remain
+nonorthogonal. Physical Y, magic-angle and arbitrary logical XY measurements are
+unsupported; full physical MuTA remains blocked. See the
+[downstream contract](docs/development/photographiqml-contract.md),
+[validation report](docs/development/gkp-logical-interface-hardening.md), and
+[encoded tutorials](docs/tutorials/gkp-logical-index.md).

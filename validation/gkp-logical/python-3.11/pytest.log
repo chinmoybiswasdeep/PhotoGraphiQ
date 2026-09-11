@@ -1,0 +1,310 @@
+........................................................................ [ 13%]
+........................................................................ [ 27%]
+........................................................................ [ 40%]
+........................................................................ [ 54%]
+........................................................................ [ 67%]
+........................................................................ [ 81%]
+........................................................................ [ 94%]
+.............................                                            [100%]
+============================== warnings summary ===============================
+tests/autodiff/test_autodiff_execution.py::test_two_mode_ordering_and_output_reduction[command0]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999998; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/autodiff/test_boundary_regressions.py::test_beamsplitter_top_sector_preserves_trace_and_binomial_weights[2]
+tests/autodiff/test_boundary_regressions.py::test_beamsplitter_top_sector_preserves_trace_and_binomial_weights[3]
+tests/autodiff/test_boundary_regressions.py::test_beamsplitter_top_sector_preserves_trace_and_binomial_weights[5]
+tests/autodiff/test_boundary_regressions.py::test_beamsplitter_boundary_gradient
+tests/autodiff/test_boundary_regressions.py::test_addition_does_not_silently_discard_top_occupation
+tests/autodiff/test_gradients.py::test_loss_and_branch_likelihood_gradient
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\mixed_fock.py:108: RuntimeWarning: preparation: boundary population 1; cutoff convergence is required even when norm is one
+    helper.prepare(nodes[0], squeezing, state)
+
+tests/autodiff/test_boundary_regressions.py::test_beamsplitter_top_sector_preserves_trace_and_binomial_weights[2]
+tests/autodiff/test_boundary_regressions.py::test_beamsplitter_top_sector_preserves_trace_and_binomial_weights[3]
+tests/autodiff/test_boundary_regressions.py::test_beamsplitter_top_sector_preserves_trace_and_binomial_weights[5]
+tests/autodiff/test_boundary_regressions.py::test_beamsplitter_boundary_gradient
+tests/autodiff/test_boundary_regressions.py::test_addition_does_not_silently_discard_top_occupation
+tests/autodiff/test_gradients.py::test_loss_and_branch_likelihood_gradient
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\autodiff.py:172: RuntimeWarning: preparation: boundary population 1; cutoff convergence is required even when norm is one
+    helper.prepare_resource(new_nodes, state, squeezing=0.0)
+
+tests/autodiff/test_boundary_regressions.py::test_tensor_preparation_reports_and_rejects_unresolved_projection
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\mixed_fock.py:108: RuntimeWarning: preparation: boundary population 0.5; cutoff convergence is required even when norm is one
+    helper.prepare(nodes[0], squeezing, state)
+
+tests/autodiff/test_boundary_regressions.py::test_tensor_preparation_reports_and_rejects_unresolved_projection
+tests/autodiff/test_gradients.py::test_homodyne_conditional_and_sampling_primitive
+tests/autodiff/test_postselection_gradients.py::test_conditional_likelihood_and_weighted_derivatives_are_distinct
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\autodiff.py:172: RuntimeWarning: preparation: boundary population 0.5; cutoff convergence is required even when norm is one
+    helper.prepare_resource(new_nodes, state, squeezing=0.0)
+
+tests/autodiff/test_gradients.py::test_homodyne_conditional_and_sampling_primitive
+tests/autodiff/test_gradients.py::test_homodyne_conditional_and_sampling_primitive
+tests/autodiff/test_postselection_gradients.py::test_conditional_likelihood_and_weighted_derivatives_are_distinct
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\mixed_fock.py:110: RuntimeWarning: preparation: boundary population 0.5; cutoff convergence is required even when norm is one
+    helper.prepare_resource(nodes, state)
+
+tests/cutoff/test_convergence.py::test_finite_cubic_injection_cutoff_convergence
+tests/non_gaussian/test_injection.py::test_resource_injection_independent_wavefunction_and_fixed_branch[cubic]
+tests/non_gaussian/test_injection.py::test_regression_ci_cubic_injection_error_budget[0.3-0.2-0.4]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99992766; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cutoff/test_convergence.py::test_finite_cubic_injection_cutoff_convergence
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998441; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cutoff/test_convergence.py::test_finite_cubic_injection_cutoff_convergence
+tests/non_gaussian/test_injection.py::test_regression_ci_cubic_injection_error_budget[0.3-0.2-0.4]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999732; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cutoff/test_convergence.py::test_cat_factory_convergence_and_branch_comparability
+tests/fock/test_cat_wigner_hardening.py::test_cat_phase_normalization_and_cutoff_convergence[1-1.5]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\simulator.py:238: RuntimeWarning: preparation: boundary population 0.0377; cutoff convergence is required even when norm is one
+    engine.prepare(c.node, value(c.squeezing), c.state)
+
+tests/fock/test_cat_wigner_hardening.py::test_cat_phase_normalization_and_cutoff_convergence[-1-2.0]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\simulator.py:238: RuntimeWarning: preparation: boundary population 0.123; cutoff convergence is required even when norm is one
+    engine.prepare(c.node, value(c.squeezing), c.state)
+
+tests/fock/test_cat_wigner_hardening.py::test_cat_phase_normalization_and_cutoff_convergence[1-2.0]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\simulator.py:238: RuntimeWarning: preparation: boundary population 0.224; cutoff convergence is required even when norm is one
+    engine.prepare(c.node, value(c.squeezing), c.state)
+
+tests/fock/test_high_moments.py::test_number_moments_include_boundary_ladder_paths[1]
+tests/fock/test_high_moments.py::test_number_moments_include_boundary_ladder_paths[2]
+tests/fock/test_high_moments.py::test_number_moments_include_boundary_ladder_paths[5]
+tests/non_gaussian/test_execution.py::test_ideal_ladders_sqrt_factors_and_failures
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\simulator.py:238: RuntimeWarning: preparation: boundary population 1; cutoff convergence is required even when norm is one
+    engine.prepare(c.node, value(c.squeezing), c.state)
+
+tests/gkp/instruments/test_instruments.py::test_complex_rank_one_entangled_conditioning[+-False]
+tests/gkp/instruments/test_instruments.py::test_complex_rank_one_entangled_conditioning[+-True]
+tests/gkp/instruments/test_instruments.py::test_complex_rank_one_entangled_conditioning[--False]
+tests/gkp/instruments/test_instruments.py::test_complex_rank_one_entangled_conditioning[--True]
+tests/gkp/instruments/test_instruments.py::test_multikraus_partial_measurement_preserves_mixedness_and_rejects_pure_preflight
+tests/gkp/measurements/test_encoded_boundaries.py::test_mixed_input_instrument_and_multimode_contract
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\simulator.py:197: RuntimeWarning: preparation: boundary population 1; cutoff convergence is required even when norm is one
+    engine.prepare_resource(pattern.inputs, initial_state)
+
+tests/gkp/instruments/test_instruments.py::test_complex_rank_one_entangled_conditioning[+-True]
+tests/gkp/instruments/test_instruments.py::test_complex_rank_one_entangled_conditioning[--True]
+tests/gkp/instruments/test_instruments.py::test_multikraus_partial_measurement_preserves_mixedness_and_rejects_pure_preflight
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\mixed_fock.py:110: RuntimeWarning: preparation: boundary population 1; cutoff convergence is required even when norm is one
+    helper.prepare_resource(nodes, state)
+
+tests/gkp/logical_gates/test_finite_reference.py::test_finite_gate_against_quadrature_reference[coefficients0-S]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:519: RuntimeWarning: QuadraticPhase: retained Fock norm 0.9958754; test a larger cutoff
+    self._gate((node,), pq.QuadraticPhase(s=s))
+
+tests/gkp/logical_gates/test_finite_reference.py::test_finite_gate_against_quadrature_reference[coefficients0-S]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:519: RuntimeWarning: QuadraticPhase: retained Fock norm 0.99999577; test a larger cutoff
+    self._gate((node,), pq.QuadraticPhase(s=s))
+
+tests/gkp/logical_gates/test_finite_reference.py::test_finite_gate_against_quadrature_reference[coefficients0-S]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:519: RuntimeWarning: QuadraticPhase: retained Fock norm 0.99999993; test a larger cutoff
+    self._gate((node,), pq.QuadraticPhase(s=s))
+
+tests/gkp/logical_gates/test_finite_reference.py::test_finite_gate_against_quadrature_reference[coefficients1-S]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:519: RuntimeWarning: QuadraticPhase: retained Fock norm 0.99836736; test a larger cutoff
+    self._gate((node,), pq.QuadraticPhase(s=s))
+
+tests/gkp/logical_gates/test_finite_reference.py::test_finite_gate_against_quadrature_reference[coefficients1-S]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:519: RuntimeWarning: QuadraticPhase: retained Fock norm 0.99995541; test a larger cutoff
+    self._gate((node,), pq.QuadraticPhase(s=s))
+
+tests/gkp/logical_gates/test_finite_reference.py::test_finite_gate_against_quadrature_reference[coefficients1-S]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:519: RuntimeWarning: QuadraticPhase: retained Fock norm 0.99999999; test a larger cutoff
+    self._gate((node,), pq.QuadraticPhase(s=s))
+
+tests/gkp/logical_gates/test_finite_reference.py::test_finite_gate_against_quadrature_reference[coefficients2-S]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:519: RuntimeWarning: QuadraticPhase: retained Fock norm 0.99735192; test a larger cutoff
+    self._gate((node,), pq.QuadraticPhase(s=s))
+
+tests/gkp/logical_gates/test_finite_reference.py::test_finite_gate_against_quadrature_reference[coefficients2-S]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:519: RuntimeWarning: QuadraticPhase: retained Fock norm 0.99997752; test a larger cutoff
+    self._gate((node,), pq.QuadraticPhase(s=s))
+
+tests/gkp/logical_gates/test_finite_reference.py::test_finite_gate_against_quadrature_reference[coefficients2-S]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:519: RuntimeWarning: QuadraticPhase: retained Fock norm 0.99999996; test a larger cutoff
+    self._gate((node,), pq.QuadraticPhase(s=s))
+
+tests/gkp/logical_gates/test_finite_reference.py::test_finite_gate_against_quadrature_reference[coefficients3-S]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:519: RuntimeWarning: QuadraticPhase: retained Fock norm 0.99682618; test a larger cutoff
+    self._gate((node,), pq.QuadraticPhase(s=s))
+
+tests/gkp/logical_gates/test_finite_reference.py::test_finite_gate_against_quadrature_reference[coefficients3-S]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:519: RuntimeWarning: QuadraticPhase: retained Fock norm 0.99997312; test a larger cutoff
+    self._gate((node,), pq.QuadraticPhase(s=s))
+
+tests/gkp/logical_gates/test_finite_reference.py::test_finite_gate_against_quadrature_reference[coefficients3-S]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:519: RuntimeWarning: QuadraticPhase: retained Fock norm 0.99999995; test a larger cutoff
+    self._gate((node,), pq.QuadraticPhase(s=s))
+
+tests/gkp/multimode/test_convergence_metrics.py::test_joint_fidelity_and_leakage_convergence_are_distinct
+tests/gkp/multimode/test_cz_reference.py::test_two_mode_cz_independent_reference[coefficients4]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99715366; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/gkp/multimode/test_convergence_metrics.py::test_joint_fidelity_and_leakage_convergence_are_distinct
+tests/gkp/multimode/test_cz_reference.py::test_two_mode_cz_independent_reference[coefficients4]
+tests/gkp/multimode/test_cz_reference.py::test_cz_measurement_step_has_correct_conditional_state_and_density
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99990925; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/gkp/multimode/test_convergence_metrics.py::test_joint_fidelity_and_leakage_convergence_are_distinct
+tests/gkp/multimode/test_cz_reference.py::test_two_mode_cz_independent_reference[coefficients4]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999936; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/gkp/multimode/test_cz_reference.py::test_two_mode_cz_independent_reference[coefficients0]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.9945232; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/gkp/multimode/test_cz_reference.py::test_two_mode_cz_independent_reference[coefficients0]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99987603; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/gkp/multimode/test_cz_reference.py::test_two_mode_cz_independent_reference[coefficients0]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.9999997; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/gkp/multimode/test_cz_reference.py::test_two_mode_cz_independent_reference[coefficients1]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99373521; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/gkp/multimode/test_cz_reference.py::test_two_mode_cz_independent_reference[coefficients1]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99985997; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/gkp/multimode/test_cz_reference.py::test_two_mode_cz_independent_reference[coefficients1]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999926; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/gkp/multimode/test_cz_reference.py::test_two_mode_cz_independent_reference[coefficients2]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99347018; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/gkp/multimode/test_cz_reference.py::test_two_mode_cz_independent_reference[coefficients2]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99985943; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/gkp/multimode/test_cz_reference.py::test_two_mode_cz_independent_reference[coefficients2]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999928; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/gkp/multimode/test_cz_reference.py::test_two_mode_cz_independent_reference[coefficients3]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99685723; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/gkp/multimode/test_cz_reference.py::test_two_mode_cz_independent_reference[coefficients3]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99979731; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/gkp/multimode/test_cz_reference.py::test_two_mode_cz_independent_reference[coefficients3]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.9999987; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/gkp/test_correction.py::test_finite_syndrome_correction_matches_wavefunction_filter
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998128; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/gkp/test_correction.py::test_finite_syndrome_correction_matches_wavefunction_filter
+tests/non_gaussian/test_injection.py::test_regression_ci_cubic_injection_error_budget[-0.25-0.1-0.8]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999997; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/gkp/test_syndrome_validation.py::test_syndrome_filter_probability_and_corrected_mean[0.15-0.1-q]
+tests/gkp/test_syndrome_validation.py::test_syndrome_filter_probability_and_corrected_mean[0.15-0.1-p]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999973; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/gkp/test_syndrome_validation.py::test_syndrome_filter_probability_and_corrected_mean[0.9-1.2233141373155-q]
+tests/gkp/test_syndrome_validation.py::test_syndrome_filter_probability_and_corrected_mean[0.9-1.2233141373155-p]
+tests/gkp/test_syndrome_validation.py::test_syndrome_filter_probability_and_corrected_mean[0.9-1.2833141373155001-q]
+tests/gkp/test_syndrome_validation.py::test_syndrome_filter_probability_and_corrected_mean[0.9-1.2833141373155001-p]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999921; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/gkp/test_syndrome_validation.py::test_syndrome_filter_probability_and_corrected_mean[2.656628274631-2.6066282746310003-q]
+tests/gkp/test_syndrome_validation.py::test_syndrome_filter_probability_and_corrected_mean[2.656628274631-2.6066282746310003-p]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99993103; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/gkp/test_syndrome_validation.py::test_syndrome_filter_probability_and_corrected_mean[2.656628274631-2.6066282746310003-q]
+tests/gkp/test_syndrome_validation.py::test_syndrome_filter_probability_and_corrected_mean[2.656628274631-2.6066282746310003-p]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999989; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/mixed_fock/test_loss_channels.py::test_thermal_tail_diagnostics_and_cutoff_convergence
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\simulator.py:293: RuntimeWarning: ThermalLoss: retained Fock norm 0.99969927; test a larger cutoff
+    engine.loss(c.node, eta, value(c.thermal_photons))
+
+tests/mixed_fock/test_loss_channels.py::test_thermal_tail_diagnostics_and_cutoff_convergence
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\simulator.py:293: RuntimeWarning: ThermalLoss: retained Fock norm 0.99999954; test a larger cutoff
+    engine.loss(c.node, eta, value(c.thermal_photons))
+
+tests/non_gaussian/test_injection.py::test_resource_injection_independent_wavefunction_and_fixed_branch[cubic]
+tests/non_gaussian/test_injection.py::test_regression_ci_cubic_injection_error_budget[0.3-0.2-0.4]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999986; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/non_gaussian/test_injection.py::test_raw_piquasso_resource_entanglement_before_measurement[24]
+tests/non_gaussian/test_injection.py::test_regression_ci_inverse_sum_decomposition_converges
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99991605; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/non_gaussian/test_injection.py::test_raw_piquasso_resource_entanglement_before_measurement[48]
+tests/non_gaussian/test_injection.py::test_regression_ci_inverse_sum_decomposition_converges
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999892; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/non_gaussian/test_injection.py::test_regression_ci_inverse_sum_decomposition_converges
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.9982861; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/non_gaussian/test_injection.py::test_regression_ci_inverse_sum_decomposition_converges
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99965757; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/non_gaussian/test_injection.py::test_regression_ci_inverse_sum_decomposition_converges
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998358; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/non_gaussian/test_injection.py::test_regression_ci_cubic_injection_error_budget[-0.25-0.1-0.8]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999696; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/non_gaussian/test_injection.py::test_regression_ci_cubic_injection_error_budget[0.2-0.3-0]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99997898; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/non_gaussian/test_injection.py::test_regression_ci_cubic_injection_error_budget[0.2-0.3-0]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999959; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/non_gaussian/test_injection.py::test_regression_ci_cubic_injection_error_budget[0.2-0.3-0]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999999; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/piquasso_reference/test_fock_convergence.py::test_fock_cz_raw_reference_and_cutoff_convergence
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\simulator.py:238: RuntimeWarning: preparation: retained Fock norm 0.99999993; test a larger cutoff
+    engine.prepare(c.node, value(c.squeezing), c.state)
+
+tests/piquasso_reference/test_fock_convergence.py::test_fock_cz_raw_reference_and_cutoff_convergence
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\simulator.py:238: RuntimeWarning: preparation: retained Fock norm 0.99999997; test a larger cutoff
+    engine.prepare(c.node, value(c.squeezing), c.state)
+
+tests/piquasso_reference/test_fock_convergence.py::test_fock_cz_raw_reference_and_cutoff_convergence
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999983; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=============================== tests coverage ================================
+______________ coverage: platform win32, python 3.11.16-final-0 _______________
+
+Coverage XML written to file D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\validation\gkp-logical\python-3.11\coverage.xml
+Coverage JSON written to file D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\validation\gkp-logical\python-3.11\coverage.json
+533 passed, 105 warnings in 703.04s (0:11:43)

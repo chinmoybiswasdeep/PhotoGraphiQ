@@ -1,0 +1,2 @@
+total preparation mass: 0.9999999999999962
+{'joint_probabilities': {(0, 0): 0.4513677271037387, (0, 1): 0.048635879150849194, (1, 0): 0.048636475635864485, (1, 1): 0.4513599181095473}, 'marginal_probabilities': {0: (0.5000036062545878, 0.49999639374541177), 1: (0.5000042027396032, 0.4999957972603965)}, 'frames': {}, 'code_subspace_leakage': None, 'residuals': None, 'decoder': 'nearest-cell'}

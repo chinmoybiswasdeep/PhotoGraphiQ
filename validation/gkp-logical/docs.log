@@ -1,0 +1,52 @@
+
+ \u2502  \u26a0  Warning from the Material for MkDocs team
+ \u2502
+ \u2502  MkDocs 2.0, the underlying framework of Material for MkDocs,
+ \u2502  will introduce backward-incompatible changes, including:
+ \u2502
+ \u2502  × All plugins will stop working – the plugin system has been removed
+ \u2502  × All theme overrides will break – the theming system has been rewritten
+ \u2502  × No migration path exists – existing projects cannot be upgraded
+ \u2502  × Closed contribution model – community members can't report bugs
+ \u2502  × Currently unlicensed – unsuitable for production use
+ \u2502
+ \u2502  Our full analysis:
+ \u2502
+ \u2502  https://squidfunk.github.io/mkdocs-material/blog/2026/02/18/mkdocs-2.0/
+
+INFO    -  Cleaning site directory
+INFO    -  Building documentation to directory: D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\site
+INFO    -  The following pages exist in the docs directory, but are not included in the "nav" configuration:
+  - api.md
+  - design.md
+  - guide.md
+  - hardening-audit.md
+  - non_gaussian.md
+  - non_gaussian_design.md
+  - specification-status.md
+  - theory.md
+  - validation.md
+  - api\encoded.md
+  - development\gkp-logical-interface-hardening.md
+  - development\photographiqml-contract.md
+  - development\v0.3-audit.md
+  - theory\compilation.md
+  - theory\flow.md
+  - theory\gkp-decoding.md
+  - theory\gkp-measurement.md
+  - theory\non-gaussian.md
+  - tutorials\37-gkp-finite-codewords.md
+  - tutorials\38-gkp-z-readout.md
+  - tutorials\39-gkp-x-readout.md
+  - tutorials\40-gkp-soft-decoding.md
+  - tutorials\41-gkp-displacements.md
+  - tutorials\42-gkp-hadamard.md
+  - tutorials\43-gkp-phase.md
+  - tutorials\44-gkp-cz.md
+  - tutorials\45-gkp-frames.md
+  - tutorials\46-gkp-instrument.md
+  - tutorials\47-gkp-magic-boundary.md
+  - tutorials\48-gkp-convergence.md
+  - tutorials\49-gkp-downstream-step.md
+  - validation\gkp-logical-validation.md
+INFO    -  Documentation built in 4.16 seconds

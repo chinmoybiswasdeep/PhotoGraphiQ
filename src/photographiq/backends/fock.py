@@ -196,6 +196,8 @@ class PiquassoFockBackend(BaseBackend):
             "kerr",
             "photon_counting",
             "homodyne",
+            "encoded_gkp_xz",
+            "rank_one_instrument",
             "quadratic_phase",
             "photon_addition",
             "photon_subtraction",
@@ -573,6 +575,13 @@ class PiquassoFockBackend(BaseBackend):
             ValueError: Photon-count postselection has zero probability.
             NotImplementedError: Noisy Fock homodyne requires mixed-state conditioning.
         """
+        from ..encoded import PhysicalGKPReadout
+        from ..instruments import MeasurementInstrument, destructive_instrument
+
+        if isinstance(measurement, PhysicalGKPReadout):
+            return measurement.execute(self, node, outcome)
+        if isinstance(measurement, MeasurementInstrument):
+            return destructive_instrument(self, node, measurement, outcome, mixed=False)
         if isinstance(measurement, Homodyne):
             if measurement.efficiency != 1 or measurement.noise != 0:
                 raise NotImplementedError("Noisy Fock homodyne requires mixed-state conditioning")

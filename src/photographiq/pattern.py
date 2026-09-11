@@ -20,7 +20,7 @@ from .commands import (
 from .expressions import CallableExpression
 from .flow import dependency_graph, topological_schedule
 from .graph import CVGraph
-from .measurements import Generaldyne, Heterodyne, Homodyne, PhotonNumber
+from .measurements import Homodyne, MeasurementProtocol
 
 
 class Pattern:
@@ -196,8 +196,9 @@ class Pattern:
                 if isinstance(c, Entangle) and c.u == c.v:
                     raise ValueError("Self CZ is invalid")
             if isinstance(c, Measure):
-                if not isinstance(c.measurement, (Homodyne, Heterodyne, Generaldyne, PhotonNumber)):
+                if not isinstance(c.measurement, MeasurementProtocol):
                     raise NotImplementedError("Unsupported measurement description")
+                c.measurement.validate()
                 active.remove(c.node)
                 records.add(c.result_key)
             elif isinstance(c, Signal):

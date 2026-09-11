@@ -3,7 +3,6 @@
 import numpy as np
 
 from . import commands as c
-from .measurements import Generaldyne, Heterodyne, Homodyne, PhotonNumber
 from .resources import CatResource, CubicPhaseResource
 from .states import FockDensityMatrix, FockInput, FockSuperposition, GaussianInput, GaussianState
 
@@ -31,18 +30,7 @@ def preflight(engine, pattern, inputs, initial_state=None, measurement_outcomes=
         if isinstance(command, c.Measure):
             keys.add(command.result_key)
             measurement = command.measurement
-            if isinstance(measurement, Homodyne):
-                features.add("homodyne")
-                if measurement.efficiency != 1 or measurement.noise != 0:
-                    features.add("noisy_homodyne")
-            else:
-                features.add(
-                    {
-                        PhotonNumber: "photon_counting",
-                        Heterodyne: "heterodyne",
-                        Generaldyne: "generaldyne",
-                    }[type(measurement)]
-                )
+            features.update(measurement.required_capabilities)
     for state in states:
         from .gkp import GKPResource
 
@@ -70,6 +58,9 @@ def preflight(engine, pattern, inputs, initial_state=None, measurement_outcomes=
             raise ValueError("Postselection key does not identify a measurement")
         features.add("postselection")
     engine.require(*features)
+    for command in pattern.commands:
+        if isinstance(command, c.Measure):
+            command.measurement.validate_backend(engine)
     # Do this after capability checks but before reset or any preparation.
     if initial_state is not None:
         if inputs:

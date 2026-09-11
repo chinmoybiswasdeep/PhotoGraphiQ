@@ -383,3 +383,21 @@ def gaussian_sample(mean, covariance, standard_normal):
     return jnp.asarray(mean) + jnp.linalg.cholesky(jnp.asarray(covariance)) @ jnp.asarray(
         standard_normal
     )
+
+
+def parameter_batch_expectation(pattern, parameter_names, parameter_values, **kwargs):
+    """vmap fixed-topology, fixed-outcome expectations over ordered parameter rows.
+
+    Supports precisely ``expectation`` operations; does not differentiate samples,
+    encoded decoders or custom instruments. Each name must bind a pattern parameter.
+    """
+    jax, jnp = _jax()
+    names = tuple(parameter_names)
+    values = jnp.asarray(parameter_values)
+    if len(set(names)) != len(names) or set(names) != set(pattern.parameters):
+        raise ValueError("Names must bind each pattern parameter exactly once")
+    if values.ndim != 2 or values.shape[1] != len(names):
+        raise ValueError("Parameter values must have shape (batch, number of names)")
+    return jax.vmap(lambda row: expectation(pattern, dict(zip(names, row, strict=True)), **kwargs))(
+        values
+    )

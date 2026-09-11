@@ -1,13 +1,35 @@
 """Measurement descriptions. All angles are radians."""
 
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, Protocol, runtime_checkable
 
 import numpy as np
 
 
+@runtime_checkable
+class MeasurementProtocol(Protocol):
+    """Extensible destructive measurement description with allocation-free checks."""
+
+    @property
+    def required_capabilities(self) -> frozenset[str]: ...
+    def validate(self): ...
+    def validate_backend(self, engine): ...
+
+
+class _Measurement:
+    @property
+    def required_capabilities(self) -> frozenset[str]:
+        raise NotImplementedError
+
+    def validate(self):
+        return self
+
+    def validate_backend(self, engine):
+        engine.require(*self.required_capabilities)
+
+
 @dataclass(frozen=True)
-class Homodyne:
+class Homodyne(_Measurement):
     """Destructive q*cos(angle)+p*sin(angle) measurement with incident-quadrature calibration.
 
     Args:
@@ -22,6 +44,12 @@ class Homodyne:
     angle: Any = 0.0
     efficiency: float = 1.0
     noise: float = 0.0
+
+    @property
+    def required_capabilities(self):
+        return frozenset(
+            {"homodyne"} | ({"noisy_homodyne"} if self.efficiency != 1 or self.noise else set())
+        )
 
     def __post_init__(self):
         if not 0 < self.efficiency <= 1 or not np.isfinite(self.noise) or self.noise < 0:
@@ -39,12 +67,14 @@ class Homodyne:
 
 
 @dataclass(frozen=True)
-class Heterodyne:
+class Heterodyne(_Measurement):
     """Returns (q,p) phase-space coordinates; vacuum outcome covariance 2I."""
+
+    required_capabilities = frozenset({"heterodyne"})
 
 
 @dataclass(frozen=True)
-class Generaldyne:
+class Generaldyne(_Measurement):
     """Gaussian phase-space measurement with a physical statistical seed covariance.
 
     Args:
@@ -52,6 +82,7 @@ class Generaldyne:
     """
 
     covariance: Any
+    required_capabilities = frozenset({"generaldyne"})
 
     def __post_init__(self):
         from .states import GaussianState
@@ -60,5 +91,7 @@ class Generaldyne:
 
 
 @dataclass(frozen=True)
-class PhotonNumber:
+class PhotonNumber(_Measurement):
     """Destructive photon counting, requiring a Fock conditional-state backend."""
+
+    required_capabilities = frozenset({"photon_counting"})

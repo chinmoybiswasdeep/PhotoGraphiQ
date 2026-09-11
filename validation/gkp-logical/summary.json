@@ -1,0 +1,190 @@
+{
+  "matrix": [
+    {
+      "python": "3.11.16 (main, Sep  1 2026, 14:15:24) [MSC v.1944 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "source_sha256": "b7c9b56f402e047ece69109fd0ca56e79a8bfdf88ce7a0e3c1d0c6e9602d38f1",
+      "checks": {
+        "pytest": {
+          "exit_code": 0,
+          "log": "pytest.log"
+        },
+        "ruff-check": {
+          "exit_code": 0,
+          "log": "ruff-check.log"
+        },
+        "ruff-format": {
+          "exit_code": 0,
+          "log": "ruff-format.log"
+        },
+        "mypy": {
+          "exit_code": 0,
+          "log": "mypy.log"
+        },
+        "build": {
+          "exit_code": 0,
+          "log": "build.log"
+        },
+        "physics-evidence": {
+          "exit_code": 0,
+          "log": "physics-evidence.log"
+        }
+      },
+      "coverage": {
+        "covered_lines": 3060,
+        "num_statements": 3314,
+        "percent_covered": 92.33554616777309,
+        "percent_covered_display": "92",
+        "missing_lines": 254,
+        "excluded_lines": 29,
+        "percent_statements_covered": 92.33554616777309,
+        "percent_statements_covered_display": "92"
+      },
+      "test_count": 533,
+      "new_tests": 99
+    },
+    {
+      "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "source_sha256": "b7c9b56f402e047ece69109fd0ca56e79a8bfdf88ce7a0e3c1d0c6e9602d38f1",
+      "checks": {
+        "pytest": {
+          "exit_code": 0,
+          "log": "pytest.log"
+        },
+        "ruff-check": {
+          "exit_code": 0,
+          "log": "ruff-check.log"
+        },
+        "ruff-format": {
+          "exit_code": 0,
+          "log": "ruff-format.log"
+        },
+        "mypy": {
+          "exit_code": 0,
+          "log": "mypy.log"
+        },
+        "build": {
+          "exit_code": 0,
+          "log": "build.log"
+        },
+        "physics-evidence": {
+          "exit_code": 0,
+          "log": "physics-evidence.log"
+        }
+      },
+      "coverage": {
+        "covered_lines": 3060,
+        "num_statements": 3314,
+        "percent_covered": 92.33554616777309,
+        "percent_covered_display": "92",
+        "missing_lines": 254,
+        "excluded_lines": 29,
+        "percent_statements_covered": 92.33554616777309,
+        "percent_statements_covered_display": "92"
+      },
+      "test_count": 533,
+      "new_tests": 99
+    },
+    {
+      "python": "3.13.15 (main, Sep  1 2026, 14:16:48) [MSC v.1944 64 bit (AMD64)]",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "source_sha256": "b7c9b56f402e047ece69109fd0ca56e79a8bfdf88ce7a0e3c1d0c6e9602d38f1",
+      "checks": {
+        "pytest": {
+          "exit_code": 0,
+          "log": "pytest.log"
+        },
+        "ruff-check": {
+          "exit_code": 0,
+          "log": "ruff-check.log"
+        },
+        "ruff-format": {
+          "exit_code": 0,
+          "log": "ruff-format.log"
+        },
+        "mypy": {
+          "exit_code": 0,
+          "log": "mypy.log"
+        },
+        "build": {
+          "exit_code": 0,
+          "log": "build.log"
+        },
+        "physics-evidence": {
+          "exit_code": 0,
+          "log": "physics-evidence.log"
+        }
+      },
+      "coverage": {
+        "covered_lines": 3060,
+        "num_statements": 3314,
+        "percent_covered": 92.33554616777309,
+        "percent_covered_display": "92",
+        "missing_lines": 254,
+        "excluded_lines": 29,
+        "percent_statements_covered": 92.33554616777309,
+        "percent_statements_covered_display": "92"
+      },
+      "test_count": 533,
+      "new_tests": 99
+    },
+    {
+      "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "source_sha256": "b7c9b56f402e047ece69109fd0ca56e79a8bfdf88ce7a0e3c1d0c6e9602d38f1",
+      "checks": {
+        "pytest": {
+          "exit_code": 0,
+          "log": "pytest.log"
+        },
+        "ruff-check": {
+          "exit_code": 0,
+          "log": "ruff-check.log"
+        },
+        "ruff-format": {
+          "exit_code": 0,
+          "log": "ruff-format.log"
+        },
+        "mypy": {
+          "exit_code": 0,
+          "log": "mypy.log"
+        },
+        "build": {
+          "exit_code": 0,
+          "log": "build.log"
+        },
+        "physics-evidence": {
+          "exit_code": 0,
+          "log": "physics-evidence.log"
+        }
+      },
+      "coverage": {
+        "covered_lines": 3007,
+        "num_statements": 3261,
+        "percent_covered": 92.21097822753757,
+        "percent_covered_display": "92",
+        "missing_lines": 254,
+        "excluded_lines": 29,
+        "percent_statements_covered": 92.21097822753757,
+        "percent_statements_covered_display": "92"
+      },
+      "test_count": 533,
+      "new_tests": 99
+    }
+  ],
+  "physical_muta_validated": false,
+  "physical_measurements": [
+    "X",
+    "Z",
+    "signed X"
+  ],
+  "unsupported": [
+    "Y",
+    "pi/4 XY",
+    "arbitrary XY",
+    "full MuTA"
+  ],
+  "executed_examples": 52,
+  "strict_docs_exit_code": 0
+}

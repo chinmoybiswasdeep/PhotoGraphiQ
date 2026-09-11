@@ -1,0 +1,2 @@
+LogicalDecodeResult(bit=1, raw_outcome=0.1, cell=0, residual=0.1, decoder='nearest-cell', confidence=None, probabilities=None, code_subspace_leakage=None, frame_correction=1)
+One signed-X step only. Full physical MuTA remains unsupported.

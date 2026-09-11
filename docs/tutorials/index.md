@@ -26,3 +26,8 @@ Begin with 01–08 for Gaussian MBQC, continue with 09–16 for nonlinear experi
 - [Compiling a nonlinear resource injection](22-universal-compilation.md)
 - [Finite-energy GKP resources](23-gkp.md)
 - [Automatic differentiation](24-automatic-differentiation.md)
+## Encoded GKP additions
+
+The [encoded GKP series](gkp-logical-index.md) provides 13 executable tutorials
+covering finite codewords, X/Z readout, decoding, gates, instruments, convergence
+and the explicit downstream execution boundary.

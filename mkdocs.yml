@@ -66,6 +66,11 @@ nav:
       - Universal gate-set compilation: user-guide/universal-compilation.md
       - Mixed Fock: user-guide/mixed-fock.md
       - GKP: user-guide/gkp.md
+      - GKP code: user-guide/gkp-code.md
+      - GKP measurements: user-guide/gkp-measurements.md
+      - GKP decoding: user-guide/gkp-decoding.md
+      - GKP logical gates: user-guide/gkp-logical-gates.md
+      - Encoded GKP tutorials: tutorials/gkp-logical-index.md
       - Automatic differentiation: user-guide/automatic-differentiation.md
       - Flow: user-guide/flow.md
       - Convergence: user-guide/convergence.md

@@ -1,0 +1,79 @@
+PASS 01-first-cluster.py
+PASS 02-teleportation.py
+PASS 03-quantum-wire.py
+PASS 04-adaptive-homodyne.py
+PASS 05-feedforward.py
+PASS 06-finite-squeezing.py
+PASS 07-gaussian-compilation.py
+PASS 08-two-mode-entangling.py
+PASS 09-photon-number.py
+PASS 10-kerr.py
+PASS 11-cubic-phase.py
+PASS 12-cat-resource.py
+PASS 13-photon-subtraction.py
+PASS 14-cubic-injection.py
+PASS 15-cutoff-convergence.py
+PASS 16-wigner-analysis.py
+PASS 17-graphix-validation.py
+PASS 18-custom-topology.py
+PASS 19-reusable-pattern.py
+PASS 20-compilation-visualization.py
+PASS 21-mixed-fock.py
+PASS 22-universal-compilation.py
+PASS 23-gkp.py
+PASS 24-automatic-differentiation.py
+PASS 37-gkp-finite-codewords.py
+PASS 38-gkp-z-readout.py
+PASS 39-gkp-x-readout.py
+PASS 40-gkp-soft-decoding.py
+PASS 41-gkp-displacements.py
+PASS 42-gkp-hadamard.py
+PASS 43-gkp-phase.py
+PASS 44-gkp-cz.py
+PASS 45-gkp-frames.py
+PASS 46-gkp-instrument.py
+PASS 47-gkp-magic-boundary.py
+PASS 48-gkp-convergence.py
+PASS 49-gkp-downstream-step.py
+PASS project adaptive-calculator
+PASS project cat-wigner
+PASS project cubic-convergence
+PASS project finite-squeezing-wire
+PASS project gaussian-compiler
+PASS project graph-experiment
+PASS project heralded-subtraction
+PASS project reservoir-features
+PASS project teleportation-fidelity
+PASS project topology-comparison
+.venv/Scripts/python.exe : 
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\.venv\Lib\site-packages\zmq\_future.py:718: 
+RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an 
+additional selector thread for add_reader support via tornado. Use 
+`asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+At line:2 char:1
++ .venv/Scripts/python.exe scripts/check_docs_examples.py --projects -- ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (D:\Research\QML...d this warning.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  self._get_loop()
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) 
+is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned 
+CurveZMQ keys to enable transport encryption.
+PASS notebook 01_quickstart.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) 
+is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned 
+CurveZMQ keys to enable transport encryption.
+PASS notebook 02_teleportation.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) 
+is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned 
+CurveZMQ keys to enable transport encryption.
+PASS notebook 03_gaussian_compilation.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) 
+is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned 
+CurveZMQ keys to enable transport encryption.
+PASS notebook 04_non_gaussian.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) 
+is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned 
+CurveZMQ keys to enable transport encryption.
+PASS notebook 05_cutoff_convergence.ipynb

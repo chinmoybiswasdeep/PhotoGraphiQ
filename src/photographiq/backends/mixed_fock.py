@@ -25,7 +25,14 @@ class MixedFockBackend(PiquassoFockBackend):
     """
 
     capabilities = PiquassoFockBackend.capabilities | frozenset(
-        {"mixed_fock", "loss", "noisy_homodyne"}
+        {
+            "mixed_fock",
+            "loss",
+            "noisy_homodyne",
+            "custom_kraus_instrument",
+            "finite_outcome_povm",
+            "mixed_conditional_update",
+        }
     )
 
     def __init__(self, cutoff=None, *, max_matrix_bytes=256_000_000, **kwargs):
@@ -246,6 +253,13 @@ class MixedFockBackend(PiquassoFockBackend):
             ArithmeticError: Noisy homodyne convolution did not converge.
             ValueError: Photon count must be an integer within cutoff.
         """
+        from ..encoded import PhysicalGKPReadout
+        from ..instruments import MeasurementInstrument, destructive_instrument
+
+        if isinstance(measurement, PhysicalGKPReadout):
+            return measurement.execute(self, node, outcome)
+        if isinstance(measurement, MeasurementInstrument):
+            return destructive_instrument(self, node, measurement, outcome, mixed=True)
         if not isinstance(measurement, (Homodyne, PhotonNumber)):
             raise NotImplementedError("Mixed Fock supports PhotonNumber and Homodyne")
         if isinstance(measurement, Homodyne) and measurement.efficiency != 1:
