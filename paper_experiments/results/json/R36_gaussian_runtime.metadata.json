@@ -1,6 +1,6 @@
 {
-  "timestamp_utc": "2026-09-14T03:47:51.640137+00:00",
-  "git_commit": "db07f9f9bf47da841bfa6b206562c5a3ffb121d3",
+  "timestamp_utc": "2026-09-14T07:53:36.243719+00:00",
+  "git_commit": "362da973edf097414d1d4f6b1ca4fbceed55b5ec",
   "git_branch": "manuscript-experiments",
   "git_dirty": true,
   "python_version": "3.12.14",
@@ -12,7 +12,7 @@
     "networkx": "3.6.1",
     "matplotlib": "3.11.1",
     "piquasso": "8.0.1",
-    "photographiq": "0.3.0",
+    "photographiq": "0.3.1",
     "graphix": "0.4",
     "jax": "0.11.1"
   }

@@ -3,43 +3,43 @@
     {
       "modes": 5,
       "gates": 14,
-      "raw_piquasso_median_seconds": 0.0012430999777279794,
-      "raw_piquasso_iqr_seconds": 7.6299998909235e-05,
-      "photographiq_median_seconds": 0.01230480003869161,
-      "photographiq_iqr_seconds": 0.0008962000138126314,
-      "overhead_ratio": 9.898479815904397
+      "raw_piquasso_median_seconds": 0.007309800013899803,
+      "raw_piquasso_iqr_seconds": 0.0035767999943345785,
+      "photographiq_median_seconds": 0.05244599998695776,
+      "photographiq_iqr_seconds": 0.010251900006551296,
+      "overhead_ratio": 7.174751687765756
     },
     {
       "modes": 10,
       "gates": 29,
-      "raw_piquasso_median_seconds": 0.002725200029090047,
-      "raw_piquasso_iqr_seconds": 0.0006861000438220799,
-      "photographiq_median_seconds": 0.031844899989664555,
-      "photographiq_iqr_seconds": 0.0026162000140175223,
-      "overhead_ratio": 11.685344066394153
+      "raw_piquasso_median_seconds": 0.012941399996634573,
+      "raw_piquasso_iqr_seconds": 0.0017037000507116318,
+      "photographiq_median_seconds": 0.13048240001080558,
+      "photographiq_iqr_seconds": 0.018512300041038543,
+      "overhead_ratio": 10.082556759294798
     },
     {
       "modes": 20,
       "gates": 59,
-      "raw_piquasso_median_seconds": 0.007886099978350103,
-      "raw_piquasso_iqr_seconds": 0.0006125999498181045,
-      "photographiq_median_seconds": 0.10309839999536052,
-      "photographiq_iqr_seconds": 0.010079499974381179,
-      "overhead_ratio": 13.073433037673755
+      "raw_piquasso_median_seconds": 0.026056800037622452,
+      "raw_piquasso_iqr_seconds": 0.00414539995836094,
+      "photographiq_median_seconds": 0.3211643000249751,
+      "photographiq_iqr_seconds": 0.02107310004066676,
+      "overhead_ratio": 12.325546481580924
     },
     {
       "modes": 40,
       "gates": 119,
-      "raw_piquasso_median_seconds": 0.014518600015435368,
-      "raw_piquasso_iqr_seconds": 0.004107999964617193,
-      "photographiq_median_seconds": 0.3904429000103846,
-      "photographiq_iqr_seconds": 0.011962799995671958,
-      "overhead_ratio": 26.89259980957444
+      "raw_piquasso_median_seconds": 0.05071860004682094,
+      "raw_piquasso_iqr_seconds": 0.002401400008238852,
+      "photographiq_median_seconds": 1.138800100015942,
+      "photographiq_iqr_seconds": 0.02754869998898357,
+      "overhead_ratio": 22.453303107038785
     }
   ],
   "environment": {
-    "timestamp_utc": "2026-09-14T03:38:38.311263+00:00",
-    "git_commit": "db07f9f9bf47da841bfa6b206562c5a3ffb121d3",
+    "timestamp_utc": "2026-09-14T07:54:13.569375+00:00",
+    "git_commit": "362da973edf097414d1d4f6b1ca4fbceed55b5ec",
     "git_branch": "manuscript-experiments",
     "git_dirty": true,
     "python_version": "3.12.14",
@@ -51,7 +51,7 @@
       "networkx": "3.6.1",
       "matplotlib": "3.11.1",
       "piquasso": "8.0.1",
-      "photographiq": "0.3.0",
+      "photographiq": "0.3.1",
       "graphix": "0.4",
       "jax": "0.11.1"
     }

@@ -9,6 +9,20 @@ approximations. See `EXPERIMENT_INDEX.md` for the full catalogue,
 `STATUS.md` for the latest per-experiment run record, and `ISSUES_FOUND.md`
 for genuine software observations made while building this suite.
 
+**Single-notebook version**: `PhotoGraphiQ_Manuscript_Experiments.ipynb`
+combines `common.py`, `metadata.py` and every R1-R42 script into one
+executable notebook, with a leading cell that installs every dependency
+(including `photographiq` itself, editable, from the local checkout) via
+`pip` (bootstrapping `pip` itself via `ensurepip` first if the interpreter
+lacks it, e.g. a bare `uv`-provisioned environment). It is generated from
+the very same script files by `build_notebook.py` -- regenerate it after
+editing any script with `python build_notebook.py`. The checked-in copy
+already contains a verified full run's outputs; running it fresh takes
+roughly 30-45 minutes (see the notebook's own first cell for a runtime
+breakdown). `run_all_safe.py` remains the right choice for a fast,
+subprocess-isolated lightweight run; the notebook is for a single linear,
+shareable, already-executed narrative of the entire suite.
+
 ## 1. Purpose
 
 Generate independent, machine-readable numerical evidence and

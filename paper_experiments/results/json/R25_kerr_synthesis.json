@@ -6,7 +6,7 @@
       "trace_distance_estimate": 0.05998127404879246,
       "primitive_count": 182,
       "synthesis_order": 0.5,
-      "runtime_seconds": 0.43725269997958094,
+      "runtime_seconds": 0.77113880001707,
       "retained_norm": 1.0
     },
     {
@@ -15,7 +15,7 @@
       "trace_distance_estimate": 0.03621487657140131,
       "primitive_count": 364,
       "synthesis_order": 0.5,
-      "runtime_seconds": 0.7249917999724858,
+      "runtime_seconds": 1.5240457999752834,
       "retained_norm": 1.0
     },
     {
@@ -24,7 +24,7 @@
       "trace_distance_estimate": 0.023556323451199616,
       "primitive_count": 728,
       "synthesis_order": 0.5,
-      "runtime_seconds": 1.3282213999773376,
+      "runtime_seconds": 3.0569229000248015,
       "retained_norm": 1.0000000000000004
     },
     {
@@ -33,7 +33,7 @@
       "trace_distance_estimate": 0.015886474534021623,
       "primitive_count": 1456,
       "synthesis_order": 0.5,
-      "runtime_seconds": 2.7376107999589294,
+      "runtime_seconds": 5.89906109997537,
       "retained_norm": 1.0
     },
     {
@@ -42,7 +42,7 @@
       "trace_distance_estimate": 0.010922584000254651,
       "primitive_count": 2912,
       "synthesis_order": 0.5,
-      "runtime_seconds": 5.378589000029024,
+      "runtime_seconds": 12.132691000006162,
       "retained_norm": 1.0000000000000002
     },
     {
@@ -51,7 +51,7 @@
       "trace_distance_estimate": 0.007593248689022021,
       "primitive_count": 5824,
       "synthesis_order": 0.5,
-      "runtime_seconds": 10.3348537000129,
+      "runtime_seconds": 23.911022699961904,
       "retained_norm": 1.0000000000000002
     },
     {
@@ -60,7 +60,7 @@
       "trace_distance_estimate": 0.005313624202102566,
       "primitive_count": 11648,
       "synthesis_order": 0.5,
-      "runtime_seconds": 24.2844313000096,
+      "runtime_seconds": 48.502087499946356,
       "retained_norm": 1.0
     }
   ],
