@@ -1,0 +1,93 @@
+{
+  "rows": [
+    {
+      "alpha": 0.5,
+      "parity_label": "even",
+      "fidelity_vs_independent_analytic": 1.0000000000000004,
+      "expected_ideal_parity": 1.0,
+      "measured_parity": 1.0000000000000004,
+      "mean_photon_number": 0.061229665600927324,
+      "norm": 1.0000000000000004,
+      "retained_norm": 0.9999999999999999,
+      "boundary_population": 3.17035242455847e-51
+    },
+    {
+      "alpha": 0.5,
+      "parity_label": "odd",
+      "fidelity_vs_independent_analytic": 1.0,
+      "expected_ideal_parity": -1.0,
+      "measured_parity": -1.0,
+      "mean_photon_number": 1.0207470412683992,
+      "norm": 1.0,
+      "retained_norm": 1.0,
+      "boundary_population": 1.043912211982627e-52
+    },
+    {
+      "alpha": 1.0,
+      "parity_label": "even",
+      "fidelity_vs_independent_analytic": 1.0,
+      "expected_ideal_parity": 1.0,
+      "measured_parity": 1.0,
+      "mean_photon_number": 0.7615941559557649,
+      "norm": 1.0,
+      "retained_norm": 0.9999999999999996,
+      "boundary_population": 2.4431565945141404e-33
+    },
+    {
+      "alpha": 1.0,
+      "parity_label": "odd",
+      "fidelity_vs_independent_analytic": 1.0,
+      "expected_ideal_parity": -1.0,
+      "measured_parity": -0.9999999999999999,
+      "mean_photon_number": 1.3130352854993312,
+      "norm": 1.0,
+      "retained_norm": 1.0,
+      "boundary_population": 1.03482284406369e-34
+    },
+    {
+      "alpha": 1.5,
+      "parity_label": "even",
+      "fidelity_vs_independent_analytic": 0.9999999999999998,
+      "expected_ideal_parity": 1.0,
+      "measured_parity": 1.0,
+      "mean_photon_number": 2.2005587581623303,
+      "norm": 1.0,
+      "retained_norm": 1.0,
+      "boundary_population": 2.88991390849956e-23
+    },
+    {
+      "alpha": 1.5,
+      "parity_label": "odd",
+      "fidelity_vs_independent_analytic": 1.0,
+      "expected_ideal_parity": -1.0,
+      "measured_parity": -1.0000000000000002,
+      "mean_photon_number": 2.3005520671611857,
+      "norm": 1.0000000000000002,
+      "retained_norm": 0.9999999999999998,
+      "boundary_population": 2.1446443277795235e-24
+    },
+    {
+      "alpha": 2.0,
+      "parity_label": "even",
+      "fidelity_vs_independent_analytic": 1.0,
+      "expected_ideal_parity": 1.0,
+      "measured_parity": 0.9999999999999999,
+      "mean_photon_number": 3.9973171989562677,
+      "norm": 1.0,
+      "retained_norm": 0.9999999999999996,
+      "boundary_population": 1.591644481524678e-16
+    },
+    {
+      "alpha": 2.0,
+      "parity_label": "odd",
+      "fidelity_vs_independent_analytic": 1.0000000000000004,
+      "expected_ideal_parity": -1.0,
+      "measured_parity": -1.0000000000000002,
+      "mean_photon_number": 4.002684601606732,
+      "norm": 1.0000000000000002,
+      "retained_norm": 0.9999999999999998,
+      "boundary_population": 2.0551131798165036e-17
+    }
+  ],
+  "cutoff": 32
+}

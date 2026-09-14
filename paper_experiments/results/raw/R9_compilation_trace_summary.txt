@@ -1,0 +1,8 @@
+Gate  0 [R] modes=(0,) params=(0.4,) : 4 resource nodes, 4 measurements, 4 corrections, 16 commands ((0,) -> (8,))
+Gate  1 [S] modes=(1,) params=(0.3,) : 5 resource nodes, 5 measurements, 5 corrections, 20 commands ((1,) -> (13,))
+Gate  2 [R] modes=(2,) params=(-0.6,) : 4 resource nodes, 4 measurements, 4 corrections, 16 commands ((2,) -> (17,))
+Gate  3 [cz] modes=(0, 1) params=(0.8,) : 8 resource nodes, 8 measurements, 8 corrections, 33 commands ((8, 13) -> (21, 25))
+Gate  4 [displace] modes=(3,) params=(0.2, -0.1) : 4 resource nodes, 4 measurements, 5 corrections, 17 commands ((3,) -> (29,))
+Gate  5 [beamsplitter] modes=(2, 3) params=(0.3,) : 96 resource nodes, 96 measurements, 96 corrections, 390 commands ((17, 29) -> (125, 117))
+Gate  6 [R] modes=(4,) params=(0.5,) : 4 resource nodes, 4 measurements, 4 corrections, 16 commands ((4,) -> (129,))
+Gate  7 [cz] modes=(3, 4) params=(-0.5,) : 8 resource nodes, 8 measurements, 8 corrections, 33 commands ((117, 129) -> (133, 137))

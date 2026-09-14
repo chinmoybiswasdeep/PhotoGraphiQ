@@ -1,0 +1,13 @@
+case,raised,exception_type,message
+duplicate_inputs,True,ValueError,Duplicate inputs
+duplicate_resource_node,True,ValueError,"Empty, duplicate or previously prepared resource nodes"
+self_cz,True,ValueError,Cyclic command dependencies
+output_not_final,True,ValueError,Output must be the final command
+duplicate_outputs,True,ValueError,Cyclic command dependencies
+missing_or_measured_node,True,ValueError,Command 1 uses a missing or measured node
+future_outcome_dependency,True,ValueError,Command 0 depends on a future outcome
+cyclic_dependency,True,ValueError,Cyclic command dependencies
+undefined_classical_key,True,ValueError,No producer for classical key: 'nonexistent'
+duplicate_classical_key,True,ValueError,Duplicate classical key: 'm'
+unsupported_measurement_description,True,NotImplementedError,Unsupported measurement description
+ideal_graph_pattern,True,ValueError,Ideal graph is symbolic; choose finite squeezing to build a physical pattern

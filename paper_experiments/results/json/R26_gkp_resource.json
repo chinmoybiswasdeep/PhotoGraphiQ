@@ -1,0 +1,115 @@
+{
+  "rows": [
+    {
+      "label": "sharp",
+      "peak_width": 0.3,
+      "envelope": 0.3,
+      "logical": 0,
+      "cutoff": 48,
+      "captured_mass": 0.9998513550939362,
+      "q_translation_stabilizer_abs": 0.7521525523569628,
+      "p_translation_stabilizer_abs": 0.7528190305711678,
+      "target_vs_fock_probability_l1": 0.007313266178444822,
+      "mean_photon_number": 5.05483352704031
+    },
+    {
+      "label": "sharp",
+      "peak_width": 0.3,
+      "envelope": 0.3,
+      "logical": 1,
+      "cutoff": 48,
+      "captured_mass": 0.9998082959646712,
+      "q_translation_stabilizer_abs": 0.7532157029214002,
+      "p_translation_stabilizer_abs": 0.7524809346899611,
+      "target_vs_fock_probability_l1": 0.010122432668094428,
+      "mean_photon_number": 5.084754551877369
+    },
+    {
+      "label": "sharp",
+      "peak_width": 0.3,
+      "envelope": 0.3,
+      "logical": "overlap|0><1|",
+      "cutoff": 48,
+      "captured_mass": null,
+      "q_translation_stabilizer_abs": null,
+      "p_translation_stabilizer_abs": null,
+      "target_vs_fock_probability_l1": null,
+      "mean_photon_number": null,
+      "logical_overlap_abs": 0.00031882895778511224
+    },
+    {
+      "label": "default",
+      "peak_width": 0.4,
+      "envelope": 0.4,
+      "logical": 0,
+      "cutoff": 48,
+      "captured_mass": 0.9999998740551588,
+      "q_translation_stabilizer_abs": 0.5873157085271759,
+      "p_translation_stabilizer_abs": 0.6049179120039478,
+      "target_vs_fock_probability_l1": 0.0002601973037168998,
+      "mean_photon_number": 2.4418172998010372
+    },
+    {
+      "label": "default",
+      "peak_width": 0.4,
+      "envelope": 0.4,
+      "logical": 1,
+      "cutoff": 48,
+      "captured_mass": 0.9999996976882929,
+      "q_translation_stabilizer_abs": 0.6230441005388638,
+      "p_translation_stabilizer_abs": 0.6049123787180621,
+      "target_vs_fock_probability_l1": 0.0004465596680593055,
+      "mean_photon_number": 2.894849402441101
+    },
+    {
+      "label": "default",
+      "peak_width": 0.4,
+      "envelope": 0.4,
+      "logical": "overlap|0><1|",
+      "cutoff": 48,
+      "captured_mass": null,
+      "q_translation_stabilizer_abs": null,
+      "p_translation_stabilizer_abs": null,
+      "target_vs_fock_probability_l1": null,
+      "mean_photon_number": null,
+      "logical_overlap_abs": 0.013021654549314705
+    },
+    {
+      "label": "fuzzy",
+      "peak_width": 0.6,
+      "envelope": 0.6,
+      "logical": 0,
+      "cutoff": 48,
+      "captured_mass": 0.9999999999999969,
+      "q_translation_stabilizer_abs": 0.20404684291687994,
+      "p_translation_stabilizer_abs": 0.32271898326523873,
+      "target_vs_fock_probability_l1": 0.00010343368804263598,
+      "mean_photon_number": 0.417148301295546
+    },
+    {
+      "label": "fuzzy",
+      "peak_width": 0.6,
+      "envelope": 0.6,
+      "logical": 1,
+      "cutoff": 48,
+      "captured_mass": 0.99999999999997,
+      "q_translation_stabilizer_abs": 0.51086594147356,
+      "p_translation_stabilizer_abs": 0.3227189832233656,
+      "target_vs_fock_probability_l1": 0.000141122040610976,
+      "mean_photon_number": 1.8544725911832387
+    },
+    {
+      "label": "fuzzy",
+      "peak_width": 0.6,
+      "envelope": 0.6,
+      "logical": "overlap|0><1|",
+      "cutoff": 48,
+      "captured_mass": null,
+      "q_translation_stabilizer_abs": null,
+      "p_translation_stabilizer_abs": null,
+      "target_vs_fock_probability_l1": null,
+      "mean_photon_number": null,
+      "logical_overlap_abs": 0.17448855260726479
+    }
+  ]
+}

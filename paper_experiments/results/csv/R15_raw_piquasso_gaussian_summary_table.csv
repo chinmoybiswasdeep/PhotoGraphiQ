@@ -1,0 +1,7 @@
+gate,n,max_mean_error,max_covariance_error
+beamsplitter,20,7.108895957933346e-16,0.0
+compound(squeeze+rotate+cz+displace),20,2.7303643765501543e-15,6.329245045284193e-16
+cz,20,1.047382306668854e-15,0.0
+displacement,20,4.965068306494546e-16,0.0
+rotation,20,4.577566798522237e-16,0.0
+squeezing,20,7.021666937153402e-16,0.0

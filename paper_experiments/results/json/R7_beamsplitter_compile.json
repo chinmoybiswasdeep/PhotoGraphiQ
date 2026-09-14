@@ -1,0 +1,175 @@
+{
+  "rows": [
+    {
+      "theta": -3.0915926535897933,
+      "squeezing": 1.2,
+      "map_frobenius_error": 3.953727918422607e-15,
+      "noise_spectral_norm": 3.7721450747099174,
+      "noise_trace": 12.904091886699979,
+      "resource_nodes": 96,
+      "measurements": 96,
+      "commands": 391
+    },
+    {
+      "theta": -2.7051435718910692,
+      "squeezing": 1.2,
+      "map_frobenius_error": 3.978430722306971e-15,
+      "noise_spectral_norm": 3.604180078112034,
+      "noise_trace": 11.900957591455184,
+      "resource_nodes": 96,
+      "measurements": 96,
+      "commands": 391
+    },
+    {
+      "theta": -2.318694490192345,
+      "squeezing": 1.2,
+      "map_frobenius_error": 3.8250028533531644e-15,
+      "noise_spectral_norm": 3.536383152045501,
+      "noise_trace": 11.19739436125584,
+      "resource_nodes": 96,
+      "measurements": 96,
+      "commands": 391
+    },
+    {
+      "theta": -1.9322454084936207,
+      "squeezing": 1.2,
+      "map_frobenius_error": 3.8182993539714625e-15,
+      "noise_spectral_norm": 3.5069699947876467,
+      "noise_trace": 10.696002033788726,
+      "resource_nodes": 96,
+      "measurements": 96,
+      "commands": 391
+    },
+    {
+      "theta": -1.5457963267948966,
+      "squeezing": 1.2,
+      "map_frobenius_error": 3.252709778233265e-15,
+      "noise_spectral_norm": 3.5064027268668942,
+      "noise_trace": 10.33828402063072,
+      "resource_nodes": 96,
+      "measurements": 96,
+      "commands": 391
+    },
+    {
+      "theta": -1.1593472450961726,
+      "squeezing": 1.2,
+      "map_frobenius_error": 3.2998392556387404e-15,
+      "noise_spectral_norm": 3.5325801424027428,
+      "noise_trace": 10.088016911650765,
+      "resource_nodes": 96,
+      "measurements": 96,
+      "commands": 391
+    },
+    {
+      "theta": -0.7728981633974481,
+      "squeezing": 1.2,
+      "map_frobenius_error": 3.0952220787669097e-15,
+      "noise_spectral_norm": 3.5748767442761524,
+      "noise_trace": 9.922572136936893,
+      "resource_nodes": 96,
+      "measurements": 96,
+      "commands": 391
+    },
+    {
+      "theta": -0.38644908169872405,
+      "squeezing": 1.2,
+      "map_frobenius_error": 3.2276249682579522e-15,
+      "noise_spectral_norm": 3.61332103774137,
+      "noise_trace": 9.828212832259037,
+      "resource_nodes": 96,
+      "measurements": 96,
+      "commands": 391
+    },
+    {
+      "theta": 0.0,
+      "squeezing": 1.2,
+      "map_frobenius_error": 2.9813418107449522e-15,
+      "noise_spectral_norm": 3.6287181315764987,
+      "noise_trace": 9.797538955256547,
+      "resource_nodes": 96,
+      "measurements": 96,
+      "commands": 391
+    },
+    {
+      "theta": 0.38644908169872405,
+      "squeezing": 1.2,
+      "map_frobenius_error": 3.2276249682579522e-15,
+      "noise_spectral_norm": 3.61332103774137,
+      "noise_trace": 9.828212832259037,
+      "resource_nodes": 96,
+      "measurements": 96,
+      "commands": 391
+    },
+    {
+      "theta": 0.7728981633974481,
+      "squeezing": 1.2,
+      "map_frobenius_error": 3.0952220787669097e-15,
+      "noise_spectral_norm": 3.5748767442761524,
+      "noise_trace": 9.922572136936893,
+      "resource_nodes": 96,
+      "measurements": 96,
+      "commands": 391
+    },
+    {
+      "theta": 1.1593472450961722,
+      "squeezing": 1.2,
+      "map_frobenius_error": 3.164964178406322e-15,
+      "noise_spectral_norm": 3.5325801424027437,
+      "noise_trace": 10.088016911650765,
+      "resource_nodes": 96,
+      "measurements": 96,
+      "commands": 391
+    },
+    {
+      "theta": 1.545796326794897,
+      "squeezing": 1.2,
+      "map_frobenius_error": 3.240307454087117e-15,
+      "noise_spectral_norm": 3.5064027268668942,
+      "noise_trace": 10.338284020630722,
+      "resource_nodes": 96,
+      "measurements": 96,
+      "commands": 391
+    },
+    {
+      "theta": 1.9322454084936211,
+      "squeezing": 1.2,
+      "map_frobenius_error": 3.3964079627981092e-15,
+      "noise_spectral_norm": 3.506969994787646,
+      "noise_trace": 10.696002033788726,
+      "resource_nodes": 96,
+      "measurements": 96,
+      "commands": 391
+    },
+    {
+      "theta": 2.318694490192345,
+      "squeezing": 1.2,
+      "map_frobenius_error": 3.8250028533531644e-15,
+      "noise_spectral_norm": 3.536383152045501,
+      "noise_trace": 11.19739436125584,
+      "resource_nodes": 96,
+      "measurements": 96,
+      "commands": 391
+    },
+    {
+      "theta": 2.7051435718910692,
+      "squeezing": 1.2,
+      "map_frobenius_error": 3.978430722306971e-15,
+      "noise_spectral_norm": 3.604180078112034,
+      "noise_trace": 11.900957591455184,
+      "resource_nodes": 96,
+      "measurements": 96,
+      "commands": 391
+    },
+    {
+      "theta": 3.0915926535897933,
+      "squeezing": 1.2,
+      "map_frobenius_error": 3.953727918422607e-15,
+      "noise_spectral_norm": 3.7721450747099174,
+      "noise_trace": 12.904091886699979,
+      "resource_nodes": 96,
+      "measurements": 96,
+      "commands": 391
+    }
+  ],
+  "squeezing": 1.2
+}

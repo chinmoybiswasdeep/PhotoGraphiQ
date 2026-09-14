@@ -1,0 +1,104 @@
+{
+  "rows": [
+    {
+      "kappa": -2.0,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 2.0062885096040707e-16
+    },
+    {
+      "kappa": -1.75,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 0.0
+    },
+    {
+      "kappa": -1.5,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 1.944128986425528e-16
+    },
+    {
+      "kappa": -1.25,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 0.0
+    },
+    {
+      "kappa": -1.0,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 0.0
+    },
+    {
+      "kappa": -0.75,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 0.0
+    },
+    {
+      "kappa": -0.5,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 0.0
+    },
+    {
+      "kappa": -0.25,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 0.0
+    },
+    {
+      "kappa": 0.0,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 0.0
+    },
+    {
+      "kappa": 0.25,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 0.0
+    },
+    {
+      "kappa": 0.5,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 0.0
+    },
+    {
+      "kappa": 0.75,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 0.0
+    },
+    {
+      "kappa": 1.0,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 0.0
+    },
+    {
+      "kappa": 1.25,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 0.0
+    },
+    {
+      "kappa": 1.5,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 1.944128986425528e-16
+    },
+    {
+      "kappa": 1.75,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 0.0
+    },
+    {
+      "kappa": 2.0,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 2.0062885096040707e-16
+    }
+  ],
+  "input_amplitudes": [
+    [
+      0.5773502691896258,
+      0.0
+    ],
+    [
+      0.5773502691896258,
+      0.0
+    ],
+    [
+      0.5773502691896258,
+      0.0
+    ]
+  ],
+  "cutoff": 8
+}

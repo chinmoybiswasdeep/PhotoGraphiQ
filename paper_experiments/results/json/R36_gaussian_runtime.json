@@ -1,0 +1,143 @@
+{
+  "rows": [
+    {
+      "modes": 10,
+      "commands": 18,
+      "backend": "gaussian",
+      "median_seconds": 0.005264799983706325,
+      "std_seconds": 0.0012936565103526094,
+      "iqr_seconds": 0.0017982999561354518,
+      "min_seconds": 0.0037305000005289912,
+      "max_seconds": 0.007594600028824061,
+      "repeats": 9,
+      "warmup": 2
+    },
+    {
+      "modes": 10,
+      "commands": 18,
+      "backend": "piquasso",
+      "median_seconds": 0.026470899989362806,
+      "std_seconds": 0.004830574917898678,
+      "iqr_seconds": 0.006424800027161837,
+      "min_seconds": 0.01959849998820573,
+      "max_seconds": 0.03260819998104125,
+      "repeats": 9,
+      "warmup": 2
+    },
+    {
+      "modes": 20,
+      "commands": 38,
+      "backend": "gaussian",
+      "median_seconds": 0.014627299970015883,
+      "std_seconds": 0.0025529654181304217,
+      "iqr_seconds": 0.003095800057053566,
+      "min_seconds": 0.009166200004983693,
+      "max_seconds": 0.017836000013630837,
+      "repeats": 9,
+      "warmup": 2
+    },
+    {
+      "modes": 20,
+      "commands": 38,
+      "backend": "piquasso",
+      "median_seconds": 0.05789349996484816,
+      "std_seconds": 0.005295933374857687,
+      "iqr_seconds": 0.004141799989156425,
+      "min_seconds": 0.05040390003705397,
+      "max_seconds": 0.06898199999704957,
+      "repeats": 9,
+      "warmup": 2
+    },
+    {
+      "modes": 50,
+      "commands": 98,
+      "backend": "gaussian",
+      "median_seconds": 0.09928140003466979,
+      "std_seconds": 0.015183792706205018,
+      "iqr_seconds": 0.018308599945157766,
+      "min_seconds": 0.08301930001471192,
+      "max_seconds": 0.13507269998081028,
+      "repeats": 9,
+      "warmup": 2
+    },
+    {
+      "modes": 50,
+      "commands": 98,
+      "backend": "piquasso",
+      "median_seconds": 0.3558540000231005,
+      "std_seconds": 0.03409091228844866,
+      "iqr_seconds": 0.018282299977727234,
+      "min_seconds": 0.3174750999896787,
+      "max_seconds": 0.4236135000246577,
+      "repeats": 9,
+      "warmup": 2
+    },
+    {
+      "modes": 100,
+      "commands": 198,
+      "backend": "gaussian",
+      "median_seconds": 1.3718403999810107,
+      "std_seconds": 0.08841964778654028,
+      "iqr_seconds": 0.07128280005417764,
+      "min_seconds": 1.1995110000134446,
+      "max_seconds": 1.4188823000295088,
+      "repeats": 5,
+      "warmup": 1
+    },
+    {
+      "modes": 100,
+      "commands": 198,
+      "backend": "piquasso",
+      "median_seconds": 6.00595429999521,
+      "std_seconds": 1.3923515649243132,
+      "iqr_seconds": 0.3488409999990836,
+      "min_seconds": 5.876286799961235,
+      "max_seconds": 9.127011200005654,
+      "repeats": 5,
+      "warmup": 1
+    },
+    {
+      "modes": 200,
+      "commands": 398,
+      "backend": "gaussian",
+      "median_seconds": 23.16939909994835,
+      "std_seconds": 0.9524391517531803,
+      "iqr_seconds": 1.1220820999587886,
+      "min_seconds": 21.45518039999297,
+      "max_seconds": 23.8140772000188,
+      "repeats": 5,
+      "warmup": 1
+    },
+    {
+      "modes": 200,
+      "commands": 398,
+      "backend": "piquasso",
+      "median_seconds": 77.29195680003613,
+      "std_seconds": 3.233071727957048,
+      "iqr_seconds": 5.040554600011092,
+      "min_seconds": 71.19923910003854,
+      "max_seconds": 78.15697459998773,
+      "repeats": 5,
+      "warmup": 1
+    }
+  ],
+  "environment": {
+    "timestamp_utc": "2026-09-14T03:47:51.402278+00:00",
+    "git_commit": "db07f9f9bf47da841bfa6b206562c5a3ffb121d3",
+    "git_branch": "manuscript-experiments",
+    "git_dirty": true,
+    "python_version": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "cpu_model": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+    "packages": {
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "networkx": "3.6.1",
+      "matplotlib": "3.11.1",
+      "piquasso": "8.0.1",
+      "photographiq": "0.3.0",
+      "graphix": "0.4",
+      "jax": "0.11.1"
+    }
+  }
+}

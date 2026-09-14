@@ -1,0 +1,5 @@
+case,nodes,edges,graph_isomorphic,canonical_edges_match,input_output_match,measurement_order_match,dependency_domain_checks,dependency_domains_match
+line_n3,3,2,True,True,True,True,2,True
+line_n5,5,4,True,True,True,True,4,True
+star_leaves_3,4,3,True,True,True,True,3,True
+star_leaves_5,6,5,True,True,True,True,5,True

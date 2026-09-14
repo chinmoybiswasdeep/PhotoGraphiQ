@@ -1,0 +1,208 @@
+{
+  "rows": [
+    {
+      "eta": 0.2,
+      "nbar": 0.0,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 3.554447978966673e-16,
+      "piquasso_covariance_error": 0.0
+    },
+    {
+      "eta": 0.2,
+      "nbar": 0.3,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 3.554447978966673e-16,
+      "piquasso_covariance_error": 0.0
+    },
+    {
+      "eta": 0.2,
+      "nbar": 0.8,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 3.554447978966673e-16,
+      "piquasso_covariance_error": 0.0
+    },
+    {
+      "eta": 0.2,
+      "nbar": 1.5,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 3.554447978966673e-16,
+      "piquasso_covariance_error": 6.280369834735101e-16
+    },
+    {
+      "eta": 0.2,
+      "nbar": 3.0,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 3.554447978966673e-16,
+      "piquasso_covariance_error": 1.2560739669470201e-15
+    },
+    {
+      "eta": 0.4,
+      "nbar": 0.0,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 2.7755575615628914e-16,
+      "piquasso_covariance_error": 0.0
+    },
+    {
+      "eta": 0.4,
+      "nbar": 0.3,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 2.7755575615628914e-16,
+      "piquasso_covariance_error": 6.280369834735101e-16
+    },
+    {
+      "eta": 0.4,
+      "nbar": 0.8,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 2.7755575615628914e-16,
+      "piquasso_covariance_error": 6.280369834735101e-16
+    },
+    {
+      "eta": 0.4,
+      "nbar": 1.5,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 2.7755575615628914e-16,
+      "piquasso_covariance_error": 6.280369834735101e-16
+    },
+    {
+      "eta": 0.4,
+      "nbar": 3.0,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 2.7755575615628914e-16,
+      "piquasso_covariance_error": 1.2560739669470201e-15
+    },
+    {
+      "eta": 0.6,
+      "nbar": 0.0,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 3.7238012298709097e-16,
+      "piquasso_covariance_error": 0.0
+    },
+    {
+      "eta": 0.6,
+      "nbar": 0.3,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 3.7238012298709097e-16,
+      "piquasso_covariance_error": 6.280369834735101e-16
+    },
+    {
+      "eta": 0.6,
+      "nbar": 0.8,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 3.7238012298709097e-16,
+      "piquasso_covariance_error": 6.280369834735101e-16
+    },
+    {
+      "eta": 0.6,
+      "nbar": 1.5,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 3.7238012298709097e-16,
+      "piquasso_covariance_error": 1.2560739669470201e-15
+    },
+    {
+      "eta": 0.6,
+      "nbar": 3.0,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 3.7238012298709097e-16,
+      "piquasso_covariance_error": 1.88411095042053e-15
+    },
+    {
+      "eta": 0.8,
+      "nbar": 0.0,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 1.5700924586837752e-16,
+      "piquasso_mean_error": 4.577566798522237e-16,
+      "piquasso_covariance_error": 0.0
+    },
+    {
+      "eta": 0.8,
+      "nbar": 0.3,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 3.1401849173675503e-16,
+      "piquasso_mean_error": 4.577566798522237e-16,
+      "piquasso_covariance_error": 0.0
+    },
+    {
+      "eta": 0.8,
+      "nbar": 0.8,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 4.577566798522237e-16,
+      "piquasso_covariance_error": 3.1401849173675503e-16
+    },
+    {
+      "eta": 0.8,
+      "nbar": 1.5,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 3.1401849173675503e-16,
+      "piquasso_mean_error": 4.577566798522237e-16,
+      "piquasso_covariance_error": 3.1401849173675503e-16
+    },
+    {
+      "eta": 0.8,
+      "nbar": 3.0,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 4.577566798522237e-16,
+      "piquasso_covariance_error": 6.280369834735101e-16
+    },
+    {
+      "eta": 1.0,
+      "nbar": 0.0,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 3.1401849173675503e-16,
+      "piquasso_covariance_error": 0.0
+    },
+    {
+      "eta": 1.0,
+      "nbar": 0.3,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 3.1401849173675503e-16,
+      "piquasso_covariance_error": 0.0
+    },
+    {
+      "eta": 1.0,
+      "nbar": 0.8,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 3.1401849173675503e-16,
+      "piquasso_covariance_error": 0.0
+    },
+    {
+      "eta": 1.0,
+      "nbar": 1.5,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 3.1401849173675503e-16,
+      "piquasso_covariance_error": 0.0
+    },
+    {
+      "eta": 1.0,
+      "nbar": 3.0,
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 3.1401849173675503e-16,
+      "piquasso_covariance_error": 0.0
+    }
+  ],
+  "alpha": [
+    0.5,
+    -0.3
+  ]
+}

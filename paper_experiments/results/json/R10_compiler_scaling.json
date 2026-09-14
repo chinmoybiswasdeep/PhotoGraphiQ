@@ -1,0 +1,356 @@
+{
+  "rows": [
+    {
+      "gate_kind": "rotation",
+      "gate_count": 1,
+      "resource_nodes": 4,
+      "measurements": 4,
+      "edges": 4,
+      "commands": 17,
+      "compile_time_median_seconds": 0.001161100051831454,
+      "compile_time_seconds_raw": [
+        0.0028431000537239015,
+        0.001161100051831454,
+        0.001083600043784827
+      ]
+    },
+    {
+      "gate_kind": "rotation",
+      "gate_count": 2,
+      "resource_nodes": 8,
+      "measurements": 8,
+      "edges": 8,
+      "commands": 33,
+      "compile_time_median_seconds": 0.002062999992631376,
+      "compile_time_seconds_raw": [
+        0.004004400048870593,
+        0.0020529000321403146,
+        0.002062999992631376
+      ]
+    },
+    {
+      "gate_kind": "rotation",
+      "gate_count": 5,
+      "resource_nodes": 20,
+      "measurements": 20,
+      "edges": 20,
+      "commands": 81,
+      "compile_time_median_seconds": 0.004723599995486438,
+      "compile_time_seconds_raw": [
+        0.0051371000008657575,
+        0.004702399950474501,
+        0.004723599995486438
+      ]
+    },
+    {
+      "gate_kind": "rotation",
+      "gate_count": 10,
+      "resource_nodes": 40,
+      "measurements": 40,
+      "edges": 40,
+      "commands": 161,
+      "compile_time_median_seconds": 0.009695100015960634,
+      "compile_time_seconds_raw": [
+        0.009695100015960634,
+        0.009287900000344962,
+        0.012101300002541393
+      ]
+    },
+    {
+      "gate_kind": "rotation",
+      "gate_count": 20,
+      "resource_nodes": 80,
+      "measurements": 80,
+      "edges": 80,
+      "commands": 321,
+      "compile_time_median_seconds": 0.018156600010115653,
+      "compile_time_seconds_raw": [
+        0.018537399999331683,
+        0.018156600010115653,
+        0.017879699997138232
+      ]
+    },
+    {
+      "gate_kind": "rotation",
+      "gate_count": 50,
+      "resource_nodes": 200,
+      "measurements": 200,
+      "edges": 200,
+      "commands": 801,
+      "compile_time_median_seconds": 0.049590200011152774,
+      "compile_time_seconds_raw": [
+        0.049590200011152774
+      ]
+    },
+    {
+      "gate_kind": "rotation",
+      "gate_count": 100,
+      "resource_nodes": 400,
+      "measurements": 400,
+      "edges": 400,
+      "commands": 1601,
+      "compile_time_median_seconds": 0.16840289998799562,
+      "compile_time_seconds_raw": [
+        0.16840289998799562
+      ]
+    },
+    {
+      "gate_kind": "squeeze",
+      "gate_count": 1,
+      "resource_nodes": 5,
+      "measurements": 5,
+      "edges": 5,
+      "commands": 21,
+      "compile_time_median_seconds": 0.0014052000478841364,
+      "compile_time_seconds_raw": [
+        0.0015278999926522374,
+        0.0014052000478841364,
+        0.001316299953032285
+      ]
+    },
+    {
+      "gate_kind": "squeeze",
+      "gate_count": 2,
+      "resource_nodes": 10,
+      "measurements": 10,
+      "edges": 10,
+      "commands": 41,
+      "compile_time_median_seconds": 0.0024358000373467803,
+      "compile_time_seconds_raw": [
+        0.0024358000373467803,
+        0.0024966999772004783,
+        0.0023944000131450593
+      ]
+    },
+    {
+      "gate_kind": "squeeze",
+      "gate_count": 5,
+      "resource_nodes": 25,
+      "measurements": 25,
+      "edges": 25,
+      "commands": 101,
+      "compile_time_median_seconds": 0.005986200005281717,
+      "compile_time_seconds_raw": [
+        0.00601830001687631,
+        0.005708299984689802,
+        0.005986200005281717
+      ]
+    },
+    {
+      "gate_kind": "squeeze",
+      "gate_count": 10,
+      "resource_nodes": 50,
+      "measurements": 50,
+      "edges": 50,
+      "commands": 201,
+      "compile_time_median_seconds": 0.012453800009097904,
+      "compile_time_seconds_raw": [
+        0.012453800009097904,
+        0.011877299984917045,
+        0.013544599991291761
+      ]
+    },
+    {
+      "gate_kind": "squeeze",
+      "gate_count": 20,
+      "resource_nodes": 100,
+      "measurements": 100,
+      "edges": 100,
+      "commands": 401,
+      "compile_time_median_seconds": 0.023367499990854412,
+      "compile_time_seconds_raw": [
+        0.023367499990854412,
+        0.025788100028876215,
+        0.02291309996508062
+      ]
+    },
+    {
+      "gate_kind": "squeeze",
+      "gate_count": 50,
+      "resource_nodes": 250,
+      "measurements": 250,
+      "edges": 250,
+      "commands": 1001,
+      "compile_time_median_seconds": 0.12015829997835681,
+      "compile_time_seconds_raw": [
+        0.12015829997835681
+      ]
+    },
+    {
+      "gate_kind": "squeeze",
+      "gate_count": 100,
+      "resource_nodes": 500,
+      "measurements": 500,
+      "edges": 500,
+      "commands": 2001,
+      "compile_time_median_seconds": 0.1299210999859497,
+      "compile_time_seconds_raw": [
+        0.1299210999859497
+      ]
+    },
+    {
+      "gate_kind": "cz",
+      "gate_count": 1,
+      "resource_nodes": 8,
+      "measurements": 8,
+      "edges": 9,
+      "commands": 34,
+      "compile_time_median_seconds": 0.0018943999893963337,
+      "compile_time_seconds_raw": [
+        0.00297949998639524,
+        0.0018943999893963337,
+        0.0018752000178210437
+      ]
+    },
+    {
+      "gate_kind": "cz",
+      "gate_count": 2,
+      "resource_nodes": 16,
+      "measurements": 16,
+      "edges": 18,
+      "commands": 67,
+      "compile_time_median_seconds": 0.0039317000191658735,
+      "compile_time_seconds_raw": [
+        0.004589799966197461,
+        0.0039317000191658735,
+        0.0038813999854028225
+      ]
+    },
+    {
+      "gate_kind": "cz",
+      "gate_count": 5,
+      "resource_nodes": 40,
+      "measurements": 40,
+      "edges": 45,
+      "commands": 166,
+      "compile_time_median_seconds": 0.008838500012643635,
+      "compile_time_seconds_raw": [
+        0.008838500012643635,
+        0.00871470000129193,
+        0.011314400006085634
+      ]
+    },
+    {
+      "gate_kind": "cz",
+      "gate_count": 10,
+      "resource_nodes": 80,
+      "measurements": 80,
+      "edges": 90,
+      "commands": 331,
+      "compile_time_median_seconds": 0.017661499965470284,
+      "compile_time_seconds_raw": [
+        0.017496700049377978,
+        0.017661499965470284,
+        0.08230140001978725
+      ]
+    },
+    {
+      "gate_kind": "cz",
+      "gate_count": 20,
+      "resource_nodes": 160,
+      "measurements": 160,
+      "edges": 180,
+      "commands": 661,
+      "compile_time_median_seconds": 0.034654200018849224,
+      "compile_time_seconds_raw": [
+        0.034654200018849224,
+        0.03418009995948523,
+        0.04261840000981465
+      ]
+    },
+    {
+      "gate_kind": "cz",
+      "gate_count": 50,
+      "resource_nodes": 400,
+      "measurements": 400,
+      "edges": 450,
+      "commands": 1651,
+      "compile_time_median_seconds": 0.08861649996833876,
+      "compile_time_seconds_raw": [
+        0.08861649996833876
+      ]
+    },
+    {
+      "gate_kind": "cz",
+      "gate_count": 100,
+      "resource_nodes": 800,
+      "measurements": 800,
+      "edges": 900,
+      "commands": 3301,
+      "compile_time_median_seconds": 0.28398539999034256,
+      "compile_time_seconds_raw": [
+        0.28398539999034256
+      ]
+    },
+    {
+      "gate_kind": "beamsplitter",
+      "gate_count": 1,
+      "resource_nodes": 96,
+      "measurements": 96,
+      "edges": 102,
+      "commands": 391,
+      "compile_time_median_seconds": 0.02145980001660064,
+      "compile_time_seconds_raw": [
+        0.02281669998774305,
+        0.02145980001660064,
+        0.02130870003020391
+      ]
+    },
+    {
+      "gate_kind": "beamsplitter",
+      "gate_count": 2,
+      "resource_nodes": 192,
+      "measurements": 192,
+      "edges": 204,
+      "commands": 781,
+      "compile_time_median_seconds": 0.05621179996524006,
+      "compile_time_seconds_raw": [
+        0.05621179996524006,
+        0.1248827000381425,
+        0.047957200033124536
+      ]
+    },
+    {
+      "gate_kind": "beamsplitter",
+      "gate_count": 5,
+      "resource_nodes": 480,
+      "measurements": 480,
+      "edges": 510,
+      "commands": 1951,
+      "compile_time_median_seconds": 0.17226449999725446,
+      "compile_time_seconds_raw": [
+        0.1900478999596089,
+        0.17226449999725446,
+        0.11354310001479462
+      ]
+    },
+    {
+      "gate_kind": "beamsplitter",
+      "gate_count": 10,
+      "resource_nodes": 960,
+      "measurements": 960,
+      "edges": 1020,
+      "commands": 3901,
+      "compile_time_median_seconds": 0.2900004000402987,
+      "compile_time_seconds_raw": [
+        0.2903743000351824,
+        0.289827200002037,
+        0.2900004000402987
+      ]
+    },
+    {
+      "gate_kind": "beamsplitter",
+      "gate_count": 20,
+      "resource_nodes": 1920,
+      "measurements": 1920,
+      "edges": 2040,
+      "commands": 7801,
+      "compile_time_median_seconds": 0.6672930999775417,
+      "compile_time_seconds_raw": [
+        0.6683077000197954,
+        0.6672930999775417,
+        0.6100043000187725
+      ]
+    }
+  ]
+}

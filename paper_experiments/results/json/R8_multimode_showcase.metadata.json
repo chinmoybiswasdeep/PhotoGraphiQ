@@ -1,0 +1,19 @@
+{
+  "timestamp_utc": "2026-09-14T04:09:11.940621+00:00",
+  "git_commit": "db07f9f9bf47da841bfa6b206562c5a3ffb121d3",
+  "git_branch": "manuscript-experiments",
+  "git_dirty": true,
+  "python_version": "3.12.14",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cpu_model": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+  "packages": {
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "networkx": "3.6.1",
+    "matplotlib": "3.11.1",
+    "piquasso": "8.0.1",
+    "photographiq": "0.3.0",
+    "graphix": "0.4",
+    "jax": "0.11.1"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "graph": "line(3), inputs=(0,), outputs=(2,)",
+  "valid_order": [
+    0,
+    1
+  ],
+  "valid_certificate_corrections": {
+    "0": {
+      "1": 1.0,
+      "2": 0.0
+    },
+    "1": {
+      "2": 1.0
+    }
+  },
+  "valid_certificate_residuals": [
+    0.0,
+    0.0
+  ],
+  "invalid_order": [
+    1,
+    0
+  ],
+  "invalid_certificate_result": null,
+  "invalid_order_diagnostic_residual": 1.0,
+  "invalid_order_diagnostic_solution": [
+    0.0
+  ],
+  "flow_pattern_commands": 9,
+  "flow_pattern_output_mean": [
+    -0.9194938223603941,
+    -0.31931562463520635
+  ],
+  "flow_pattern_output_covariance": [
+    [
+      0.9841237600235324,
+      1.843963343648459e-32
+    ],
+    [
+      1.843963343648459e-32,
+      1.0161323612144946
+    ]
+  ],
+  "affine_channel_mean": [
+    -0.6,
+    -0.20000000000000004
+  ],
+  "affine_channel_covariance": [
+    [
+      1.1353352832366128,
+      0.0
+    ],
+    [
+      0.0,
+      1.1353352832366128
+    ]
+  ]
+}

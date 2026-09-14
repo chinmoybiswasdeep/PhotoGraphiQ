@@ -1,0 +1,22 @@
+{
+  "results": [
+    {
+      "estimator": "score_function_surrogate",
+      "exact_gradient": 0.7333749350722375,
+      "mean_estimate": 0.7330200980043476,
+      "bias": -0.00035483706788985714,
+      "standard_error": 0.00036830127328416507,
+      "n_samples_per_repeat": 20000,
+      "n_repeats": 10
+    },
+    {
+      "estimator": "gaussian_sample (pathwise)",
+      "exact_gradient": 0.6,
+      "mean_estimate": 0.5890576154568313,
+      "bias": -0.010942384543168648,
+      "standard_error": 0.003075018088609748,
+      "n_samples_per_repeat": 20000,
+      "n_repeats": 10
+    }
+  ]
+}
