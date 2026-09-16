@@ -6,7 +6,7 @@
       "trace_distance_estimate": 0.05998127404879246,
       "primitive_count": 182,
       "synthesis_order": 0.5,
-      "runtime_seconds": 0.77113880001707,
+      "runtime_seconds": 0.7082407000125386,
       "retained_norm": 1.0
     },
     {
@@ -15,7 +15,7 @@
       "trace_distance_estimate": 0.03621487657140131,
       "primitive_count": 364,
       "synthesis_order": 0.5,
-      "runtime_seconds": 1.5240457999752834,
+      "runtime_seconds": 1.3602254999568686,
       "retained_norm": 1.0
     },
     {
@@ -24,7 +24,7 @@
       "trace_distance_estimate": 0.023556323451199616,
       "primitive_count": 728,
       "synthesis_order": 0.5,
-      "runtime_seconds": 3.0569229000248015,
+      "runtime_seconds": 2.7503695999621414,
       "retained_norm": 1.0000000000000004
     },
     {
@@ -33,7 +33,7 @@
       "trace_distance_estimate": 0.015886474534021623,
       "primitive_count": 1456,
       "synthesis_order": 0.5,
-      "runtime_seconds": 5.89906109997537,
+      "runtime_seconds": 5.457649899995886,
       "retained_norm": 1.0
     },
     {
@@ -42,7 +42,7 @@
       "trace_distance_estimate": 0.010922584000254651,
       "primitive_count": 2912,
       "synthesis_order": 0.5,
-      "runtime_seconds": 12.132691000006162,
+      "runtime_seconds": 10.839331499999389,
       "retained_norm": 1.0000000000000002
     },
     {
@@ -51,7 +51,7 @@
       "trace_distance_estimate": 0.007593248689022021,
       "primitive_count": 5824,
       "synthesis_order": 0.5,
-      "runtime_seconds": 23.911022699961904,
+      "runtime_seconds": 21.752681299985852,
       "retained_norm": 1.0000000000000002
     },
     {
@@ -60,11 +60,13 @@
       "trace_distance_estimate": 0.005313624202102566,
       "primitive_count": 11648,
       "synthesis_order": 0.5,
-      "runtime_seconds": 48.502087499946356,
+      "runtime_seconds": 44.24815479997778,
       "retained_norm": 1.0
     }
   ],
   "kappa": 0.05,
   "cutoff": 16,
-  "note": "synthesis-only execution; MBQC injection noise excluded (see R23)"
+  "note": "synthesis-only execution; MBQC injection noise excluded (see R23)",
+  "fitted_loglog_exponent": -1.1504727830393449,
+  "documented_leading_order_exponent": -1.0
 }

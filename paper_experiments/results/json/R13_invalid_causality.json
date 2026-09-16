@@ -4,73 +4,85 @@
       "case": "duplicate_inputs",
       "raised": true,
       "exception_type": "ValueError",
-      "message": "Duplicate inputs"
+      "message": "Duplicate inputs",
+      "imprecise_message_expected": false
     },
     {
       "case": "duplicate_resource_node",
       "raised": true,
       "exception_type": "ValueError",
-      "message": "Empty, duplicate or previously prepared resource nodes"
+      "message": "Empty, duplicate or previously prepared resource nodes",
+      "imprecise_message_expected": false
     },
     {
       "case": "self_cz",
       "raised": true,
       "exception_type": "ValueError",
-      "message": "Cyclic command dependencies"
+      "message": "Cyclic command dependencies",
+      "imprecise_message_expected": true
     },
     {
       "case": "output_not_final",
       "raised": true,
       "exception_type": "ValueError",
-      "message": "Output must be the final command"
+      "message": "Output must be the final command",
+      "imprecise_message_expected": false
     },
     {
       "case": "duplicate_outputs",
       "raised": true,
       "exception_type": "ValueError",
-      "message": "Cyclic command dependencies"
+      "message": "Cyclic command dependencies",
+      "imprecise_message_expected": true
     },
     {
       "case": "missing_or_measured_node",
       "raised": true,
       "exception_type": "ValueError",
-      "message": "Command 1 uses a missing or measured node"
+      "message": "Command 1 uses a missing or measured node",
+      "imprecise_message_expected": false
     },
     {
       "case": "future_outcome_dependency",
       "raised": true,
       "exception_type": "ValueError",
-      "message": "Command 0 depends on a future outcome"
+      "message": "Command 0 depends on a future outcome",
+      "imprecise_message_expected": false
     },
     {
       "case": "cyclic_dependency",
       "raised": true,
       "exception_type": "ValueError",
-      "message": "Cyclic command dependencies"
+      "message": "Cyclic command dependencies",
+      "imprecise_message_expected": false
     },
     {
       "case": "undefined_classical_key",
       "raised": true,
       "exception_type": "ValueError",
-      "message": "No producer for classical key: 'nonexistent'"
+      "message": "No producer for classical key: 'nonexistent'",
+      "imprecise_message_expected": false
     },
     {
       "case": "duplicate_classical_key",
       "raised": true,
       "exception_type": "ValueError",
-      "message": "Duplicate classical key: 'm'"
+      "message": "Duplicate classical key: 'm'",
+      "imprecise_message_expected": false
     },
     {
       "case": "unsupported_measurement_description",
       "raised": true,
       "exception_type": "NotImplementedError",
-      "message": "Unsupported measurement description"
+      "message": "Unsupported measurement description",
+      "imprecise_message_expected": false
     },
     {
       "case": "ideal_graph_pattern",
       "raised": true,
       "exception_type": "ValueError",
-      "message": "Ideal graph is symbolic; choose finite squeezing to build a physical pattern"
+      "message": "Ideal graph is symbolic; choose finite squeezing to build a physical pattern",
+      "imprecise_message_expected": false
     }
   ]
 }
