@@ -9,7 +9,7 @@ from scipy.stats import multivariate_normal, norm
 from .. import gaussian as gm
 from ..measurements import Generaldyne, Heterodyne, Homodyne
 from ..states import GaussianInput, GaussianState
-from .base import BaseBackend
+from .base import BaseBackend, resolve_angle
 
 
 class GaussianBackend(BaseBackend):
@@ -99,7 +99,7 @@ class GaussianBackend(BaseBackend):
         i = self.state.nodes.index(node)
         self.state.mean[2 * i : 2 * i + 2] += [q, p]
 
-    def measure(self, node, measurement, angle=0.0, *, outcome=None):
+    def measure(self, node, measurement, angle=None, *, outcome=None):
         """Destructively measure one mode and condition the rest exactly (Schur complement).
 
         Homodyne records q cos(angle) + p sin(angle) calibrated to the incident quadrature,
@@ -121,6 +121,7 @@ class GaussianBackend(BaseBackend):
             NotImplementedError: Photon counting has non-Gaussian conditional states.
             ValueError: Outcome must be finite and real, with the measurement's shape.
         """
+        angle = resolve_angle(measurement, angle)
         postselected = outcome is not None
         i = self.state.nodes.index(node)
         measured = [2 * i, 2 * i + 1]

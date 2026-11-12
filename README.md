@@ -57,12 +57,12 @@ extension, the NumPy backends and all pure-Python tools still work. Optional ext
 
 | Extra | Adds | Used by |
 | --- | --- | --- |
-| `piquasso` | Piquasso 8.0.1 | `piquasso*` reference backends; default physical PhotoGraphiQML backend |
+| `piquasso` | Piquasso 8.0.1, numba<0.68 | `piquasso*` reference backends; default physical PhotoGraphiQML backend (numba 0.68 crashes reloading Piquasso's cached kernels) |
 | `precision` | mpmath | multiprecision threshold (torontonian) probabilities |
-| `gpu-cuda12`, `gpu-cuda13` | CuPy | batched Gaussian kernels on an NVIDIA GPU ([GPU guide](docs/gpu.md)) |
+| `gpu-cuda12`, `gpu-cuda13` | CuPy | batched Gaussian and Fock kernels on an NVIDIA GPU ([GPU guide](docs/gpu.md)) |
 | `visualization` | Matplotlib | drawing graphs, patterns, MuTA |
 | `validation` | Graphix 0.4 | MBQC structure cross-checks |
-| `autodiff` | JAX | differentiable fixed-outcome Fock execution |
+| `autodiff` | JAX, Piquasso | differentiable fixed-outcome Fock execution |
 | `ml-validation` | MentPy 0.1.0a15 | independent logical MuTA reference tests |
 | `ml-experiments` | Matplotlib, scikit-learn | classical baselines in the PhotoGraphiQML manuscript suite |
 | `docs` | MkDocs toolchain | building this website |
@@ -137,15 +137,22 @@ print(sampling.threshold_probability(state, [1, 0, 1, 0]))           # torontoni
   hafnians, torontonians, exact distributions and samplers. Threshold probabilities
   report an error estimate and accept `precision=` for multiprecision.
 - **Flows and calculus** (`photographiq.flows`, `photographiq.calculus`): causal
-  flow, gflow, Pauli flow and CV determinism with a `FlowAnalysisResult`; qubit
-  and CV measurement calculus, local Cliffords and a ZX subset.
+  flow, gflow, Pauli flow and CV determinism with a `FlowAnalysisResult`. CV flow results
+  are certified (with the regime stated), impossible (exact witnesses) or numerically
+  uncertain. Also qubit and CV measurement calculus, local Cliffords, a qubit ZX subset and
+  the Gaussian-pure-state graphical calculus (`GaussianGraph`); there is no general CV-ZX.
 - **Interactive views** (`photographiq.interactive`): graph editor, flow and
   correction overlays, execution traces and scientific plots.
-- **GPU** (`photographiq.gpu`): batched Gaussian kernels on CuPy that report the
+- **GPU** (`photographiq.gpu`): batched Gaussian and Fock kernels on CuPy that report the
   device they ran on and never fall back to the CPU silently.
+- **CUDA-Q** (`photographiq.cudaq_dynamics`): a Hamiltonian-level adapter, not a backend.
+  Its gate translation is validated against `native-fock`; execution on CUDA-Q (Linux) is
+  unverified ([CUDA-Q](docs/cudaq.md)).
 
 [Complete functionality reference](docs/COMPLETE_FUNCTIONALITY.md) ·
-[benchmarks](benchmarks/README.md) · [architecture figures](docs/architecture/README.md)
+[benchmarks](benchmarks/README.md) · [architecture figures](docs/architecture/README.md) ·
+[validation status](docs/validation/MASTER_VALIDATION_STATUS.md). Reproduce the evidence with
+`python scripts/reproduce_manuscript.py` (fast) or `--mode full`.
 
 ## Measurement-based learning with PhotoGraphiQML
 

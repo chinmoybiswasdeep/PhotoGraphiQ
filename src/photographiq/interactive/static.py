@@ -25,7 +25,8 @@ COLORS = {
 }
 RC: dict[RcKeyType, Any] = {
     "font.size": 10,
-    "font.family": "DejaVu Sans",
+    "font.family": "sans-serif",  # SVG text then lists a generic fallback after DejaVu Sans
+    "font.sans-serif": ["DejaVu Sans", "Arial", "Helvetica"],
     "svg.fonttype": "none",
     "pdf.fonttype": 42,
     "savefig.bbox": "tight",

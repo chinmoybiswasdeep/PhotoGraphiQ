@@ -9,7 +9,9 @@
 | `piquasso` | Gaussian gates plus exact measurement adapter | Piquasso | `photographiq[piquasso]` |
 | `piquasso-fock` | pure total-cutoff Fock trajectories | Piquasso | `photographiq[piquasso]` |
 | `piquasso-mixed-fock` | density matrices | Piquasso | `photographiq[piquasso]` |
-| `cudaq-dynamics` | bosonic dynamics (probe only) | CUDA-Q | Linux `cudaq`; never executes patterns |
+
+CUDA-Q is not a backend: it cannot execute patterns. Gate Hamiltonians can be evolved
+with the optional adapter module `photographiq.cudaq_dynamics` (see [CUDA-Q adapter](../cudaq.md)).
 
 `photographiq.available_backends()` lists the backends usable in the current
 environment, `describe_backend(name)` reports representation, device, precision,

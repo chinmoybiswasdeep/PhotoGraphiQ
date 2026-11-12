@@ -12,7 +12,7 @@ input_state, captured_weight = resource.project(48)
 print(captured_weight)
 pattern = pg.Pattern(inputs=(0,))
 result = pg.simulate(pattern, inputs={0: input_state},
-                     backend="piquasso-fock", cutoff=48)
+                     backend="native-fock", cutoff=48)
 print(pg.gkp.stabilizers(result.state))
 ```
 

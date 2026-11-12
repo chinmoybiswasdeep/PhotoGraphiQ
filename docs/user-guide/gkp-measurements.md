@@ -4,7 +4,7 @@
 import photographiq as pg
 code = pg.GKPCode(cutoff=48)
 pattern = pg.Pattern(inputs=(0,)).measure(0, code.logical_measurement("X"), key="x")
-result = pg.simulate(pattern, inputs={0: code.plus()}, backend="piquasso-fock",
+result = pg.simulate(pattern, inputs={0: code.plus()}, backend="native-fock",
                      cutoff=48, measurement_outcomes={"x": 0.2})
 print(result.outcomes["x"])
 ```

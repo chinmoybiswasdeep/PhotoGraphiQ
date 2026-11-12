@@ -143,6 +143,48 @@ void test_squeezing() {
   check(residual < 1e-9, "S(-r) S(r) = 1 on low photon numbers", residual);
 }
 
+// One mode, squeezing and displacement combined (the Bargmann recurrence was off by 1.4e2
+// at |alpha| = 6, r = 0.3, cutoff 100, and squeezing alone by 7e-5 at size 400). Checked
+// through identities exact for the matrix elements: a U = U (T a + R a^dag + delta) and
+// S(-r) S(r) = 1. 40-digit references: tests/native/test_native_fock_gaussian_unitary_stability.py.
+void test_single_mode_stability() {
+  const int cutoff = 100;
+  RealMatrix squeeze = RealMatrix::Zero(2, 2);
+  squeeze(0, 0) = std::exp(-0.3), squeeze(1, 1) = std::exp(0.3);
+  const RealMatrix s = rotation(1.9) * squeeze * rotation(0.3);
+  const Complex alpha = std::polar(6.0, 2.1);
+  RealVector d(2);
+  d << 2 * alpha.real(), 2 * alpha.imag();
+  const ComplexMatrix u = gaussian_unitary(s, d, cutoff);
+  const Complex i1(0.0, 1.0);
+  const Complex t = (s(0, 0) + s(1, 1) + i1 * (s(1, 0) - s(0, 1))) / 2.0;
+  const Complex r = (s(0, 0) - s(1, 1) + i1 * (s(1, 0) + s(0, 1))) / 2.0;
+  double heisenberg = 0.0;
+  for (int m = 0; m + 1 < cutoff; ++m) {
+    for (int n = 0; n + 1 < cutoff; ++n) {
+      Complex rhs = r * std::sqrt(n + 1.0) * u(m, n + 1) + alpha * u(m, n);
+      if (n > 0) rhs += t * std::sqrt(Real(n)) * u(m, n - 1);
+      heisenberg = std::max(heisenberg, std::abs(std::sqrt(m + 1.0) * u(m + 1, n) - rhs));
+    }
+  }
+  check(heisenberg < 1e-12, "a U = U (T a + R a^dag + delta) at |alpha| = 6, cutoff 100", heisenberg);
+  // Columns 0..5 lose < 1e-13 above the cutoff, so they are unit vectors.
+  double norm = 0.0;
+  for (int n = 0; n < 6; ++n) norm = std::max(norm, std::abs(u.col(n).squaredNorm() - 1.0));
+  check(norm < 1e-13, "low columns of the combined unitary are normalised", norm);
+
+  RealMatrix sq = RealMatrix::Zero(2, 2);
+  sq(0, 0) = std::exp(-1.0), sq(1, 1) = std::exp(1.0);
+  // S(1)|n> reaches ~e^2 n photons, so 70 x 70 at size 800 has no truncation error
+  // (2e-14; the Bargmann recurrence gave 1.1e-8).
+  const ComplexMatrix forward = gaussian_unitary(rotation(0.4) * sq, RealVector::Zero(2), 800);
+  sq(0, 0) = std::exp(1.0), sq(1, 1) = std::exp(-1.0);
+  const ComplexMatrix inverse = gaussian_unitary(sq * rotation(-0.4), RealVector::Zero(2), 800);
+  const double residual =
+      ((inverse * forward).topLeftCorner(70, 70) - ComplexMatrix::Identity(70, 70)).cwiseAbs().maxCoeff();
+  check(residual < 1e-12, "S(-1) S(1) = 1 on 70 x 70 at size 800", residual);
+}
+
 void test_rotation_and_beamsplitter() {
   const int cutoff = 12;
   const double phi = 0.37;
@@ -259,6 +301,7 @@ int main() {
   test_displacement();
   test_recurrence_stability();
   test_squeezing();
+  test_single_mode_stability();
   test_rotation_and_beamsplitter();
   test_kernels();
   test_loss();

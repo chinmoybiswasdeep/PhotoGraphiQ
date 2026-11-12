@@ -1,5 +1,29 @@
 # Changelog
 
+### Unreleased: validation, hardening and publication readiness (2026-11-12)
+
+- **CI.**
+  - Fix the lint and format failures in three example notebooks.
+  - Constrain `numba<0.68` in every extra that installs Piquasso. With numba 0.68.1 and llvmlite 0.50.0, Piquasso's cached hafnian kernels abort on reload with `LLVM ERROR: Symbol not found`. This was the documentation-CI failure.
+  - Remove `pythonpath = ["src"]` from the pytest configuration, so tests run against the installed package.
+- **Documentation examples** (tutorials, projects, notebooks) run on the native backends. Only the autodiff tutorial needs Piquasso. `cutoff_convergence` and `measurement_convergence` accept `native-fock`; their defaults are unchanged.
+- **Native Fock:** one-mode Gaussian unitaries use a stable rotation–squeeze–rotation–displacement factorisation. Errors drop from up to 1.4e2 to ≤ 1.9e-14 against 60-digit references.
+- **Backends:** `measure()` honours `Homodyne.angle` when no explicit angle is passed (previously a direct call measured q), and raises on contradicting angles.
+- **Sampling:**
+  - `threshold_probability(precision="auto", rtol=..., return_info=...)` and `ThresholdInfo`.
+  - A 382-case multiprecision reference matrix (`threshold_reference_matrix.py`).
+  - A faster mpmath path.
+- **Flows:** CV flow results are classified as certified (with the regime stated), impossible (with exact rational witnesses) or numerically uncertain. New `shift=` and `exact=` options and `flows.exact_ideal_limit`. An uncertain float64 rank decision now gives `unknown` instead of `not_certified`.
+- **Calculus:** `photographiq.calculus.GaussianGraph`, the Gaussian-pure-state graphical calculus of Menicucci, Flammia and van Loock (2011).
+- **GPU:** `photographiq.gpu.fock` (batched Fock gates on CuPy/cuSPARSE).
+- **CUDA-Q:** the `cudaq-dynamics` pattern backend, which always raised, is removed. It is replaced by the Hamiltonian-level adapter `photographiq.cudaq_dynamics`; CUDA-Q execution is unverified.
+- **Interactive views:** fix struck-through correction labels, faded outcome text, a stale selection panel and the static-SVG font fallback. Add real-browser checks (`scripts/check_interactive_browser.py`).
+- **Validation:**
+  - Independent Gaussian and Fock validation suite (`tests/validation`).
+  - `scripts/reproduce_manuscript.py` and `scripts/compare_recorded_results.py`.
+  - Audit documents under `docs/validation/` (Phases 1–5 and the master status).
+  - The 2026-11-12 benchmark bundle `benchmarks/results_20261112/`.
+
 ### Unreleased: scientific software upgrade
 
 - **Breaking:** Piquasso is no longer a runtime dependency. Install

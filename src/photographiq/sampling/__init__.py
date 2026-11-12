@@ -22,6 +22,7 @@ from .boson_sampling import (
 from .gbs import (
     GBSMatrices,
     PNRSamples,
+    ThresholdInfo,
     ThresholdPrecisionWarning,
     TruncatedDistribution,
     apply_loss,
@@ -58,6 +59,7 @@ __all__ = [
     "ClementsDecomposition",
     "GBSMatrices",
     "PNRSamples",
+    "ThresholdInfo",
     "ThresholdPrecisionWarning",
     "TruncatedDistribution",
     "apply_loss",

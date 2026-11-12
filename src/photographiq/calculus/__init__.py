@@ -9,10 +9,13 @@ Submodules:
 * :mod:`.zx` -- scalar-exact ZX diagrams, tensor semantics and a sound rewrite subset.
 * :mod:`.cv` -- command-level view of CV patterns and ideal-limit Gaussian identity checks
   (no CV graphical calculus).
+* :mod:`.gaussian_graph` -- Gaussian pure states as complex-weighted graphs Z = V + iU
+  (Menicucci-Flammia-van Loock 2011): Gaussian unitaries and q/p homodyne graph rules.
 """
 
-from . import clifford, cv, qubit, zx
+from . import clifford, cv, gaussian_graph, qubit, zx
 from .clifford import Clifford, LCEquivalence, lc_equivalence, local_complement
+from .gaussian_graph import GaussianGraph
 from .qubit import (
     QubitPattern,
     equivalent,
@@ -26,11 +29,13 @@ from .zx import Diagram
 __all__ = [
     "Clifford",
     "Diagram",
+    "GaussianGraph",
     "LCEquivalence",
     "QubitPattern",
     "clifford",
     "cv",
     "equivalent",
+    "gaussian_graph",
     "is_deterministic",
     "lc_equivalence",
     "local_complement",

@@ -10,7 +10,7 @@ p = pg.Pattern(inputs=(0,)).measure(0, code.logical_measurement("X"), key="x")
 r = pg.simulate(
     p,
     inputs={0: code.plus()},
-    backend="piquasso-fock",
+    backend="native-fock",
     cutoff=code.cutoff,
     measurement_outcomes={"x": -0.2},
 )

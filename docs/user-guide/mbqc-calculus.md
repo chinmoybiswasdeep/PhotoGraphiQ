@@ -78,7 +78,7 @@ outputs are not listed), `correction_map`, `certificate`, `assumptions` and
 | Status | Meaning |
 |---|---|
 | `certified` | A certificate was found and independently verified. |
-| `not_certified` | The finder found no certificate for this flow notion. `diagnostics['complete']` says whether the finder is complete; when it is, no such flow exists (for CV flow: in exact arithmetic, and up to `tolerance` numerically). This is never a proof of nondeterminism. |
+| `not_certified` | The finder found no certificate for this flow notion. `diagnostics['complete']` says whether the finder is complete; when it is, no such flow exists. For CV flow, `diagnostics['proof']` says how this was shown (combinatorial obstruction, exact rank test with rational witnesses, or a float64 rank test). This is never a proof of nondeterminism. |
 | `unknown` | The analysis could not decide, e.g. the numerical CV check failed or could not run. |
 | `unsupported` | The model and algorithm combination is outside the implemented scope. |
 
@@ -200,12 +200,21 @@ keeps the following quantities separate:
   squeezing (`finite_squeezing_gain`), which must decay like `exp(-2 kappa x)`
 
 If the numerical check fails or cannot run, the status is `unknown`, never
-`certified`. The check is reliable only at moderate resource squeezing. For
-the four-node wire above (with `HomodyneSpec()` on every node and the default
-`shift`), every r from 2.5 to 3.2 is certified. At r = 3.3 the check fails, and
-from r = 3.5 to 4.0 it cannot run because the raised covariances fail float64
-Gaussian validation. Some values in this range (r = 3.4, and r just above 4.0)
-are still certified. Treat `unknown` at high squeezing as undecided.
+`certified`. The check raises every squeezing to r + 2 `shift`, and above
+about 9.5 the raised covariances fail float64 Gaussian validation. With the
+default `shift=3.0` the four-node wire above is certified up to r = 3.4; from
+r = 3.5 the check cannot run. Pass a smaller shift to reach larger squeezing:
+`flows.analyze(og, shift=1.5)` certifies the wire up to r = 6. A smaller shift
+measures the decay exponent over a shorter range, so slowly decaying
+(pre-asymptotic) cases fail more often.
+
+CV results also report `diagnostics['decision']` (`certified`, `impossible`
+or `numerically_uncertain`), the rank-decision margins in
+`diagnostics['rank_decisions']`, and the regimes that a certificate covers in
+`certificate['regimes']`: `ideal_limit` (deterministic unitary or isometry)
+and `finite_squeezing` (the outcome-averaged Gaussian channel at the given
+squeezing). `exact=True` adds an exact rational ideal-limit check that does not
+depend on r. See [CV-flow robustness](../validation/cv-flow-robustness.md).
 
 `search_cv_order(og)` runs the order search alone. `resource_graph(og)` returns
 the `CVGraph` whose output order matches the corrected pattern.

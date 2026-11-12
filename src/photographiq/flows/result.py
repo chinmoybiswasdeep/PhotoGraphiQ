@@ -10,6 +10,12 @@ Status semantics (never conflate them):
 * ``unknown``: the analysis could not decide (e.g. a numerical check disagreed with
   an algebraic certificate, or a heuristic gave up).
 * ``unsupported``: the model/algorithm combination is outside the implemented scope.
+
+CV flow results also carry ``diagnostics['decision']``: ``certified``, ``impossible``
+(status ``not_certified`` with a proof in ``diagnostics['proof']``; the pattern can only
+be postselected) or ``numerically_uncertain`` (status ``unknown``); certified CV results
+state the covered regimes in ``certificate['regimes']`` (``ideal_limit``,
+``finite_squeezing``). See docs/validation/cv-flow-robustness.md.
 """
 
 from __future__ import annotations

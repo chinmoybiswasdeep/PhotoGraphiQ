@@ -17,7 +17,9 @@ output = parser.parse_args().output
 output.mkdir(parents=True, exist_ok=True)
 rows = []
 pattern = pg.Pattern(inputs=(0,)).append(pg.CubicPhase(0, 0.05))
-study = pg.cutoff_convergence(pattern, [12, 18, 24, 32], high_order_moments=True)
+study = pg.cutoff_convergence(
+    pattern, [12, 18, 24, 32], high_order_moments=True, backend="native-fock"
+)
 for row in study.rows:
     rows.append((row["cutoff"], row["high_order_moments"][0]["p4"]))
 data = np.asarray(rows)

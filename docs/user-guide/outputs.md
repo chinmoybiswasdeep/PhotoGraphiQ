@@ -64,7 +64,7 @@ must match, including when comparing a compiled output to a target state.
 ```python
 pattern = pg.Pattern(inputs=("a",))
 result = pg.simulate(pattern, inputs={"a": pg.FockInput.number(1)},
-                     backend="piquasso-fock", cutoff=4)
+                     backend="native-fock", cutoff=4)
 print(result.state.probabilities)
 print(result.state.photon_number("a"))
 print(result.state.parity())

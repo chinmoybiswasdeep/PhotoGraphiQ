@@ -23,6 +23,10 @@ class CutoffStudy:
     results: list
 
 
+# Fock backends whose ``cutoff`` is the total-photon truncation studied here.
+FOCK_BACKENDS = ("piquasso-fock", "piquasso-mixed-fock", "native-fock", "native-mixed-fock")
+
+
 def cutoff_convergence(
     pattern, cutoffs, *, seed=0, high_order_moments=False, backend="piquasso-fock", **kwargs
 ) -> CutoffStudy:
@@ -32,6 +36,8 @@ def cutoff_convergence(
     do not imply equal outcomes: differing branches are marked incomparable.
     A pattern factory regenerates resources whose definition depends on cutoff.
     Native unitary norm conservation is not a convergence certificate.
+    ``backend`` is one of :data:`FOCK_BACKENDS`; the default is kept for reproducibility
+    of recorded studies (``native-fock`` needs no optional dependency).
     """
     cutoffs = tuple(cutoffs)
     if (
@@ -40,7 +46,7 @@ def cutoff_convergence(
         or any(b <= a for a, b in zip(cutoffs, cutoffs[1:]))
     ):
         raise ValueError("Provide at least two strictly increasing integer cutoffs >=2")
-    if backend not in ("piquasso-fock", "piquasso-mixed-fock") or "cutoff" in kwargs:
+    if backend not in FOCK_BACKENDS or "cutoff" in kwargs:
         raise ValueError("The convergence helper controls backend and cutoff")
     results: list = []
     rows: list[dict] = []

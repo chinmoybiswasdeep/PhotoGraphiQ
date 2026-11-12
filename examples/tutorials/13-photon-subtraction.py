@@ -13,7 +13,7 @@ pattern = pg.non_gaussian.photon_subtraction(theta=theta)
 result = pg.simulate(
     pattern,
     inputs={"in": pg.FockInput.number(2)},
-    backend="piquasso-fock",
+    backend="native-fock",
     cutoff=6,
     measurement_outcomes={"count": 1},
 )

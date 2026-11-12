@@ -71,3 +71,57 @@ The input is B copies of a physical n-mode state: a squeezed CZ chain with loss.
 - Small `B * n^2` is dominated by fixed per-call latency: kernel launches and checks.
   `gpu_end_to_end` minus `gpu_kernel` is roughly the transfer cost, which `gpu_h2d` and
   `gpu_d2h` measure directly.
+
+# GPU benchmark: batched Fock local gates
+
+`bench_gpu_fock.py` times one local gate on B states in the native Fock engine's
+total-photon truncated basis (`sum n < cutoff`). Pure batches are `(B, D)` and density
+matrices `(B, D, D)`.
+
+```bash
+python benchmarks/gpu/bench_gpu_fock.py              # complex128 + complex64, default grid (~8 min)
+python benchmarks/gpu/bench_gpu_fock.py --smoke      # tiny grid: checks the script, timings meaningless
+```
+
+**Grid.** Pure states: `(modes, cutoff)` in `(2, 30)`, `(4, 20)`, `(6, 10)`, `(5, 20)`, with
+`B` in 1, 32, 256. Mixed states: `(2, 20)`, `(3, 10)`, `(3, 16)`, `(4, 12)`, with `B` in 1
+and 8.
+
+**Gates.** Displacement on mode 1 and CZ on modes (0, 1); the matrices come from the native
+`gaussian_unitary`. Kerr on mode 1 as a phase gate, pure states only.
+
+| Row | What is timed |
+|---|---|
+| `native_loop` | `apply_pure` / `apply_mixed` / `phase_*` state by state on a fresh copy of the batch (complex128 only). |
+| `numpy` | `photographiq.gpu.fock` with `device="cpu"` (scipy CSR, the same algorithm as the GPU). |
+| `gpu_end_to_end` | NumPy in, NumPy out: H2D, cuSPARSE, D2H. |
+| `gpu_kernel` | Device-resident batch, `on_device=True`, then `Device().synchronize()` inside the timed region. Also reports `peak_device_pool_bytes`. |
+| `gpu_h2d` / `gpu_d2h` | Upload of the batch / download of the result, synchronised. |
+
+**Methodology.**
+
+- **Timing.** `bench_common.time_call`, as for the Gaussian benchmark. `first_call_s`
+  includes building and uploading the cached index maps.
+- **Correctness first.** Before timing, every row is compared with the complex128 native
+  result (`max_rel_deviation_vs_native_complex128`). The run aborts above 1e-12
+  (complex128) or 1e-5 (complex64).
+- **Peak memory.** `peak_device_pool_bytes` is the CuPy pool total after one call started
+  from an emptied pool. It includes the batch, the cached maps, the cuSPARSE workspace and
+  the output.
+- **Load.** System CPU load is recorded at start and end.
+
+**Results.** Run of 2026-11-11 (`results/gpu_fock_20261111-232613.json`): RTX 4050 Laptop
+GPU, i5-12450HX shared with other jobs, load 82 % at the start and 25 % at the end.
+
+| Case | GPU kernel / end-to-end factor vs native loop (complex128) |
+|---|---|
+| B >= 32 pure, all shapes and gates | 1.7-150x / 1-13x |
+| B = 1 pure, D = 465 | **0.05-0.25x** / **0.04-0.2x** (fixed ~0.4-1 ms per call) |
+| B = 1 pure, D = 5005-8855 | 0.5-1.9x / 0.3-1.2x (break-even) |
+| B = 1 pure, D = 42504 | 3.6-8.9x / 2.6-3.2x |
+| mixed, B = 1 | 1.7-8.7x / 0.9-2.9x |
+| mixed, B = 8 | 1.3-14x / 1.1-6.9x |
+
+complex64 kernels reach 610x (pure, Kerr), 210x (pure, displacement) and 46x (mixed). The full
+analysis, including where the native engine spends its time, is in `docs/gpu.md`, section
+"Fock kernels".

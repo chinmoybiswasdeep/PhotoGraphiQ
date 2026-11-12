@@ -9,7 +9,7 @@ SUM, homodyne measurement and outcome-dependent quadratic/displacement correctio
 import photographiq as pg
 circuit = pg.Circuit(1).cubic_phase(0, 0.01)
 pattern, trace = circuit.compile(squeezing=0.2, return_trace=True)
-result = pg.simulate(pattern, backend="piquasso-fock", cutoff=24,
+result = pg.simulate(pattern, backend="native-fock", cutoff=24,
                      measurement_outcomes={("cubic", 1): 0.0})
 ```
 

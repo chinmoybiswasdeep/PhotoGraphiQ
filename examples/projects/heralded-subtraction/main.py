@@ -21,7 +21,7 @@ for theta in np.linspace(0.05, 0.3, 6):
     result = pg.simulate(
         pattern,
         inputs={"in": pg.FockInput.number(2)},
-        backend="piquasso-fock",
+        backend="native-fock",
         cutoff=8,
         measurement_outcomes={"count": 1},
     )

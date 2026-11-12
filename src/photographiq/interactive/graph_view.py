@@ -371,6 +371,7 @@ class GraphView:
             if s not in ids:
                 continue  # outcome keys that are not nodes are listed in notes
             description = f"m[{s}] -> {t}" + (f" ({label})" if label else "")
+            bend = _bend(self.layout, s, t, kind)
             out.append(
                 {
                     "group": "edges",
@@ -380,7 +381,8 @@ class GraphView:
                         "target": ids[t],
                         "label": label,
                         "description": description,
-                        "bend": _bend(self.layout, s, t, kind),
+                        "bend": bend,
+                        "z": 1000 - min(round(abs(bend)), 999),  # short arcs (labels) on top
                     },
                     "classes": kind,
                 }

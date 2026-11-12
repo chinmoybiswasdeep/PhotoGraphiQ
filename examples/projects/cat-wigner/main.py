@@ -20,7 +20,7 @@ for alpha in (0.3, 0.6, 0.9, 1.2):
     result = pg.simulate(
         pg.Pattern(inputs=(0,)),
         inputs={0: pg.CatResource(alpha)},
-        backend="piquasso-fock",
+        backend="native-fock",
         cutoff=24,
     )
     grid = result.state.wigner(np.linspace(-6, 6, 81), np.linspace(-6, 6, 81))

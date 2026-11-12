@@ -5,7 +5,7 @@
 resource = pg.FockInput.cat(alpha=0.4, cutoff=12).photon_added()
 pattern = pg.Pattern().append(pg.Prepare("a", state=resource))
 pattern.append(pg.CubicPhase("a", gamma=0.005))
-result = pg.simulate(pattern, backend="piquasso-fock", cutoff=16, seed=4)
+result = pg.simulate(pattern, backend="native-fock", cutoff=16, seed=4)
 print(result.state.photon_number("a"), result.state.retained_norms)
 ```
 

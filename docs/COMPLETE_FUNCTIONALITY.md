@@ -4,7 +4,12 @@ Every feature of PhotoGraphiQ and PhotoGraphiQML on the `upgraded` branch, with 
 implementation, supported backends, CPU/GPU support, mathematical assumptions, an executed
 example, the tests that cover it and an honest status. Examples were run in a Windows
 development environment with the native extension built and Piquasso, Graphix, JAX, mpmath
-and CuPy installed (CUDA-Q and MentPy were not available).
+and CuPy installed (CUDA-Q, MentPy and Playwright were not available). The document was
+brought up to date with the audit of 2026-11-12 (release engineering, independent
+validation and feature completion; see [Phase 1](validation/PHASE1_RELEASE_AUDIT.md),
+[Phase 2](validation/PHASE2_SCIENTIFIC_AUDIT.md) and
+[Phase 3](validation/PHASE3_FEATURE_COMPLETION.md)); evidence produced outside this
+environment (MentPy, the real-browser check) is labelled as such where it is cited.
 
 Conventions throughout: hbar = 2, `[q, p] = 2i`, interleaved quadratures `(q0, p0, q1, p1, ...)`,
 vacuum covariance `I`, Fock truncation by total photon number `sum n < cutoff`.
@@ -13,15 +18,23 @@ vacuum covariance `I`, Fock truncation by total photon number `sum n < cutoff`.
 
 | Status | Meaning | Features |
 |---|---|---|
-| **Implemented and validated** | implemented, and tests compare it with an independent reference (closed form, brute-force definition, Piquasso, Graphix, mpmath, another backend) | 147 |
-| **Implemented but experimental** | works and is tested, but validation is limited or the code labels it experimental | 97 |
+| **Implemented and validated** | implemented, and tests compare it with an independent reference (closed form, brute-force definition, `expm` on an enlarged space, Piquasso, Graphix, mpmath, MentPy, another backend) | 168 |
+| **Implemented but experimental** | works and is tested, but validation is limited or the code labels it experimental | 91 |
 | **Partially supported** | some cases work, others raise (stated per feature) | 8 |
-| **Unsupported** | explicitly rejected by the code (the error is stated) | 15 |
+| **Unsupported** | explicitly rejected by the code (the error is stated) | 13 |
 | **Planned** | not implemented; never counted as complete | 2 |
+
+The counts are the first status label of each per-feature `Status` row (282 rows), recounted
+by script on 2026-11-12. The **Planned** rows of the Section 36 table are roadmap items, not
+feature entries, and are not counted. Until 2026-11-11 every Fock path was listed as
+experimental because the code and `docs/validation/feature-matrix.md` call Fock execution
+experimental; native Fock entries with a first-principles reference in `tests/validation/`
+are now validated, and each such Tests row says why (Section 13).
 
 Postselected results are never presented as deterministic, and no GPU execution is claimed
 where the code runs on the CPU. Benchmark timings are not quoted here; see
-`benchmarks/README.md` and the result files under `benchmarks/`.
+`benchmarks/README.md`, the 2026-11-12 reproduction bundle `benchmarks/results_20261112/`
+and the result files under `benchmarks/`.
 
 ## Contents
 
@@ -131,14 +144,14 @@ print(native.build_info()["openmp"], native.build_info()["cxx_standard"])
 
 | Field | Value |
 |---|---|
-| Description | Optional extras: `piquasso` (Piquasso 8.0.1 backends and reference checks), `validation` (Graphix 0.4, structural reference), `autodiff` (JAX, plus Piquasso 8.0.1, which prepares every input and `Prepare` state before the JAX evolution), `precision` (mpmath for threshold probabilities), `gpu-cuda12` / `gpu-cuda13` (CuPy), `visualization` (matplotlib), `ml-validation` (MentPy 0.1.0a15), `ml-experiments` (matplotlib, scikit-learn, Piquasso). CUDA-Q is not an extra; it has a probe only. |
+| Description | Optional extras: `piquasso` (Piquasso 8.0.1 backends and reference checks), `validation` (Graphix 0.4, structural reference), `autodiff` (JAX, plus Piquasso 8.0.1, which prepares every input and `Prepare` state before the JAX evolution), `precision` (mpmath for threshold probabilities), `gpu-cuda12` / `gpu-cuda13` (CuPy), `visualization` (matplotlib), `ml-validation` (MentPy 0.1.0a15), `ml-experiments` (matplotlib, scikit-learn, Piquasso). CUDA-Q is not an extra; `photographiq.cudaq_dynamics` is an optional Hamiltonian-level adapter that imports `cudaq` lazily. |
 | Python API | `photographiq._optional.LazyModule` (lazy import with install hints); `pip install 'photographiq[piquasso]'` etc. |
-| Implementation | `src/photographiq/_optional.py`, `pyproject.toml` (`[project.optional-dependencies]`), `src/photographiq/backends/cudaq_dynamics.py` |
-| Backends | `piquasso`, `piquasso-fock`, `piquasso-mixed-fock` need Piquasso; `cudaq-dynamics` needs `cudaq` and still never executes |
+| Implementation | `src/photographiq/_optional.py`, `pyproject.toml` (`[project.optional-dependencies]`), `src/photographiq/cudaq_dynamics.py` |
+| Backends | `piquasso`, `piquasso-fock`, `piquasso-mixed-fock` need Piquasso; CUDA-Q is not a backend (adapter only) |
 | CPU / GPU | CPU for all integrations except CuPy (GPU, `photographiq.gpu`) |
 | Assumptions | Requesting a backend whose package is missing raises `ImportError` with the install command; importing `photographiq` imports no optional package |
-| Tests | `tests/cross_backend/test_registry_planner.py::test_registry_import_is_lazy`, `::test_cudaq_absent_raises_import_error` |
-| Status | **Partially supported** (Piquasso, Graphix, JAX, mpmath, CuPy integrations work; CUDA-Q execution is not implemented) |
+| Tests | `tests/cross_backend/test_registry_planner.py::test_registry_import_is_lazy`, `tests/cudaq_adapter/test_cudaq_adapter.py::test_cudaq_missing_raises_import_error` |
+| Status | **Partially supported** (Piquasso, Graphix, JAX, mpmath, CuPy integrations work; the CUDA-Q path of the CUDA-Q adapter is unverified) |
 
 Example:
 
@@ -161,7 +174,6 @@ The data flow is: user API (graphs, patterns, circuits, protocol builders) -> in
 | `native-fock` | pure Fock vector | C++20 | CPU | native `fock` |
 | `piquasso-mixed-fock` | density matrix | Piquasso | CPU | Piquasso |
 | `native-mixed-fock` | density matrix | C++20 | CPU | native `fock` |
-| `cudaq-dynamics` | bosonic dynamics (probe) | CUDA-Q | declared GPU | `cudaq` (Linux only); never executes |
 
 ### User API layer
 
@@ -264,7 +276,7 @@ print(pg.gaussian_channel(pattern).matrix.round(6))
 | Description | `required_features` lists every capability a pattern needs without allocating a state; `preflight` checks a backend instance before any preparation; `select_backend` returns the cheapest available backend whose class capabilities cover the features and whose preflight passes, and raises `NotImplementedError` with per-candidate reasons otherwise. |
 | Python API | `pg.select_backend(pattern, inputs=None, *, initial_state=None, measurement_outcomes=None, prefer=("native", "numpy"), cutoff=None)` -> `BackendSelection(name, representation, features, explanation, rejected)`; `photographiq.capabilities.required_features(pattern, inputs=None, initial_state=None, measurement_outcomes=None)`; `photographiq.capabilities.preflight(engine, pattern, inputs, initial_state=None, measurement_outcomes=None)`; `photographiq.registry.missing_features(name, features)` |
 | Implementation | `src/photographiq/capabilities.py`, `src/photographiq/registry.py` |
-| Backends | Considers every registered backend; cost order gaussian < pure-fock < mixed-fock < bosonic-dynamics, then `prefer`, then registration order |
+| Backends | Considers every registered backend; cost order gaussian < pure-fock < mixed-fock, then `prefer`, then registration order |
 | CPU / GPU | CPU only |
 | Assumptions | Fock candidates are skipped when no `cutoff` is given; derived requirements `mixed_gaussian_input` and `correlated_gaussian_state` are decided from the backend class |
 | Tests | `tests/cross_backend/test_registry_planner.py` (`test_required_features_basic`, `test_planner_feature_check_agrees_with_preflight`, `test_select_gaussian_pattern`, `test_select_non_gaussian_pattern`, `test_select_mixed_pattern`, `test_select_raises_for_unsupported_combination`, `test_select_rejects_cutoff_too_small_via_preflight`) |
@@ -292,8 +304,8 @@ print(sel.rejected["gaussian"])
 | Description | Static `BackendInfo` entries (import path, representation, implementation family, device, precision, approximations, required packages and native components). Capabilities are read from each backend class, never duplicated. Nothing heavy is imported until a backend is requested. |
 | Python API | `pg.available_backends()`, `pg.describe_backend(name)`, `photographiq.registry.create_backend(name, cutoff=None)`, `photographiq.registry.BACKENDS` |
 | Implementation | `src/photographiq/registry.py` |
-| Backends | The eight entries in the table above |
-| CPU / GPU | CPU only (registry); `cudaq-dynamics` is declared `device="gpu"` but cannot run |
+| Backends | The seven entries in the table above |
+| CPU / GPU | CPU only (registry) |
 | Assumptions | `differentiable` is False for every trajectory backend; Fock entries declare the approximation "Fock truncation by total photon number sum(n) < cutoff" |
 | Tests | `tests/cross_backend/test_registry_planner.py::test_entry_resolves_or_reports_reason`, `::test_capabilities_are_read_from_class`, `::test_fock_entries_declare_total_photon_truncation`, `::test_registry_import_is_lazy` |
 | Status | **Implemented but experimental** (behavioural tests only) |
@@ -335,35 +347,22 @@ Example: see Section 10 (homodyne example on all backends).
 | CPU / GPU | CPU (Piquasso/NumPy) or CPU (C++/OpenMP) |
 | Assumptions | Total-photon truncation sum(n) < cutoff; renormalisation after each operation with the retained norm recorded (error below `norm_tolerance`); native engines apply exact Gaussian matrix elements as P U P, Piquasso decomposes some Gaussian gates, so the two differ at truncation level and agree as the cutoff grows |
 | Tests | `tests/native/test_native_fock_backend.py` (vs Piquasso and exact Gaussian moments, `test_piquasso_difference_vanishes_with_cutoff`), `tests/native/test_native_fock_kernels.py` (closed forms, `expm`), `tests/mixed_fock/`, `tests/fock/` |
-| Status | **Implemented but experimental** (`src/photographiq/backends/fock.py` and `docs/validation/feature-matrix.md` label the Fock paths experimental, although tests use independent references) |
+| Status | **Implemented but experimental** (`src/photographiq/backends/fock.py` and `docs/validation/feature-matrix.md` label the Fock paths experimental; this architecture entry covers the Piquasso engines too, while the native engines are validated feature by feature in Sections 13 and 14 since 2026-11-12) |
 
 Example: see Sections 7 and 9.
 
-### CUDA-Q dynamics probe
+### CUDA-Q Dynamics adapter
 
 | Field | Value |
 |---|---|
-| Description | Registered placeholder `cudaq-dynamics`. `cudaq_probe()` tries `import cudaq`; `cudaq_capabilities()` lists documented CUDA-Q Dynamics features, marked `verified: False`. No PhotoGraphiQ pattern is executed on CUDA-Q. |
-| Python API | `photographiq.backends.cudaq_dynamics.cudaq_probe()`, `cudaq_capabilities()`, `CudaqDynamicsBackend(cutoff=None)` |
-| Implementation | `src/photographiq/backends/cudaq_dynamics.py` |
-| Backends | `cudaq-dynamics` (never available for execution) |
-| CPU / GPU | None: construction raises before any computation |
-| Assumptions | CUDA-Q ships Linux wheels only; it would truncate per mode (not total photon number) and uses position = (a^dag + a)/2, so any future translation must go through ladder operators |
-| Tests | `tests/cross_backend/test_registry_planner.py::test_cudaq_reported_without_claiming_execution`, `::test_cudaq_absent_raises_import_error` |
-| Status | **Unsupported** (`create_backend`/`simulate` raise `ImportError` when `cudaq` is missing, as here; the class raises `NotImplementedError` "CUDA-Q Dynamics execution of PhotoGraphiQ patterns is not implemented ..." when `cudaq` is importable) |
-
-Example:
-
-```python
-import photographiq as pg
-print(pg.describe_backend("cudaq-dynamics")["unavailable_reason"])
-try:
-    pg.simulate(pg.Pattern(inputs=(0,)), backend="cudaq-dynamics", cutoff=4)
-except ImportError as exc:
-    print("ImportError:", exc)
-# Python package 'cudaq' is not installed
-# ImportError: Backend 'cudaq-dynamics' is unavailable: requires the optional package 'cudaq' (CUDA-Q publishes Linux wheels only)
-```
+| Description | Optional Hamiltonian-level adapter, not a registered backend (CUDA-Q cannot execute patterns). Gate generators in PhotoGraphiQ conventions, dense matrices, the per-mode/total-photon truncation mapping, a NumPy/SciPy `reference_evolve`, `to_cudaq` and `evolve` (calls `cudaq.evolve`). See [CUDA-Q adapter](cudaq.md) and Section 16. |
+| Python API | `photographiq.cudaq_dynamics` (`BosonicHamiltonian`, generators, `to_matrix`, `per_mode_to_total_photon`, `total_photon_to_per_mode`, `reference_evolve`, `to_cudaq`, `evolve`, `cudaq_probe`, `cudaq_capabilities`); `photographiq.backends.cudaq_dynamics` re-exports the probe functions |
+| Implementation | `src/photographiq/cudaq_dynamics.py` |
+| Backends | None (`simulate(backend="cudaq-dynamics")` raises `ValueError` naming the adapter module) |
+| CPU / GPU | Reference on CPU; the CUDA-Q path has not been run |
+| Assumptions | CUDA-Q ships Linux wheels only. CUDA-Q truncates per mode and documents position = (a^dag + a)/2; the adapter goes through ladder operators with q = a + a^dag |
+| Tests | `tests/cudaq_adapter/test_cudaq_adapter.py`, `tests/cross_backend/test_registry_planner.py::test_cudaq_is_an_adapter_not_a_backend` |
+| Status | **Implemented but experimental** (conventions validated against native-fock; CUDA-Q execution unverified) |
 
 ### Results layer
 
@@ -449,28 +448,29 @@ This section is a reference listing of every module, one line each; feature stat
 | `photographiq.backends.mixed_fock` | `MixedFockBackend`: density-matrix trajectories, thermal loss, noisy homodyne, instruments |
 | `photographiq.backends.native_gaussian` | `NativeGaussianBackend` plus native diagnostics and batched kernels (`batch_apply_symplectic`, `batch_condition_homodyne`, ...) |
 | `photographiq.backends.native_fock` | `NativeFockBackend`, `NativeMixedFockBackend` (C++ engines; adds `cross_kerr`) |
-| `photographiq.backends.cudaq_dynamics` | CUDA-Q probe and placeholder backend that never executes |
-| `photographiq.calculus` | Qubit measurement calculus, Clifford group, ZX diagrams, CV command view |
+| `photographiq.cudaq_dynamics` | Optional CUDA-Q Dynamics adapter at the Hamiltonian level (not a backend); `photographiq.backends.cudaq_dynamics` is a compatibility shim |
+| `photographiq.calculus` | Qubit measurement calculus, Clifford group, ZX diagrams, CV command view, Gaussian graphical calculus |
 | `photographiq.calculus.qubit` | DKP qubit calculus: `QubitPattern`, standardization, signal shifting, flow-to-pattern, exact branch simulation |
 | `photographiq.calculus.clifford` | 24-element single-qubit Clifford group, local complementation, LC equivalence |
 | `photographiq.calculus.zx` | Scalar-exact qubit ZX diagrams and a sound rewrite subset |
-| `photographiq.calculus.cv` | Command-level view of CV patterns and ideal-limit Gaussian identity checks (no CV graphical calculus) |
+| `photographiq.calculus.cv` | Command-level view of CV patterns and ideal-limit Gaussian identity checks |
+| `photographiq.calculus.gaussian_graph` | `GaussianGraph`: restricted Gaussian graphical calculus for pure Gaussian states (Menicucci, Flammia and van Loock 2011); not CV-ZX |
 | `photographiq.capabilities` | `required_features`, `preflight`: allocation-free pattern analysis |
 | `photographiq.commands` | Command dataclasses (`Prepare`, `Entangle`, `Measure`, gates, `Signal`, `Output`, ...) |
 | `photographiq.compiler` | `Circuit`, `compile_circuit`, `decompose_symplectic`, `CompilationStep`, `CompilationTrace` |
-| `photographiq.convergence` | `cutoff_convergence`, `CutoffStudy`: reproducible cutoff comparisons |
+| `photographiq.convergence` | `cutoff_convergence`, `CutoffStudy`: reproducible cutoff comparisons on any Fock backend (`backend=`, default `piquasso-fock`) |
 | `photographiq.cvflow` | `certify_cv_flow`, `flow_pattern`: supplied-order real-linear CV-flow certificate and corrections |
 | `photographiq.encoded` | GKP code (`GKPCode`), decoders, `LogicalPauliFrame`, `PhysicalGKPReadout`, `modular_effects`, `multimode_readout` |
 | `photographiq.expressions` | `Expr`, `Parameter`, `Outcome`, `CallableExpression`, `sin`, `cos`, `exp`, `atan2`, `resolve` |
 | `photographiq.flow` | Command DAG scheduling (`dependency_graph`, `topological_schedule`); not a determinism certificate |
 | `photographiq.flows` | `analyze` plus causal flow, gflow, Pauli flow (qubit) and CV flow search/verification |
-| `photographiq.flows.causal` / `.gflow` / `.pauli` / `.cv` / `.result` / `._common` | One flow notion per module; `FlowAnalysisResult`; shared GF(2) helpers |
+| `photographiq.flows.causal` / `.gflow` / `.pauli` / `.cv` / `.result` / `._common` / `._exact` | One flow notion per module; `FlowAnalysisResult`; shared GF(2) helpers; exact rational CV-flow re-check |
 | `photographiq.fock_analysis` | `fidelity`, `trace_distance`, `wigner`, `WignerGrid`, `quadrature_moment` |
 | `photographiq.fock_measurements` | Hermite wavefunctions and ideal homodyne projection of Fock amplitudes |
 | `photographiq.gaussian` | Phase-space matrices: `omega`, `rotation`, `squeezing`, `cz`, `beamsplitter`, `teleportation_matrix`, `wire_channel` |
 | `photographiq.gkp` | `GKPResource`, `superposition`, `logical_displacement`, `decode_shift`, `stabilizers`, `correction_pattern` |
 | `photographiq.gkp_studies` | `SoftDecisionDecoder`, `GKPMeasurementStudy`, `measurement_convergence` |
-| `photographiq.gpu` | Optional CuPy batched Gaussian kernels (`device.py`, `gaussian.py`); not imported by `import photographiq` |
+| `photographiq.gpu` | Optional CuPy batched Gaussian kernels (`device.py`, `gaussian.py`) and batched Fock local gates (`fock.py`); not imported by `import photographiq` |
 | `photographiq.graph` | `CVGraph` (alias `ClusterState`) |
 | `photographiq.instruments` | `MeasurementInstrument`, `destructive_instrument`, `density_matrix` |
 | `photographiq.interactive` | Staged interactive views: `graph_view`, `layouts`, `overlays`, `plots`, `static`, `trace`, `editor`, `_html`, `_template` |
@@ -986,12 +986,12 @@ print(np.round(b.get_state().covariance, 6), np.round([np.exp(-0.6), np.exp(0.6)
 |---|---|
 | Description | Pure `GaussianInput`s and resource squeezing are expanded into the truncated Fock basis, so Gaussian preparations can be combined with non-Gaussian operations. |
 | Python API | `pg.simulate(pattern, inputs={...: pg.GaussianInput...}, backend="native-fock", cutoff=N)` |
-| Implementation | `src/photographiq/backends/fock.py` (`_gaussian_vector`, Piquasso squeezing/phase/displacement), `src/photographiq/backends/native_fock.py` (exact Bargmann-recurrence matrix elements) |
+| Implementation | `src/photographiq/backends/fock.py` (`_gaussian_vector`, Piquasso squeezing/phase/displacement), `src/photographiq/backends/native_fock.py` with `cpp/src/fock/gates.cpp` (one-mode Gaussian unitary as R S R D, Section 13) |
 | Backends | `piquasso-fock`, `native-fock` (pure inputs only); `piquasso-mixed-fock`, `native-mixed-fock` (pure and mixed) |
 | CPU / GPU | CPU (NumPy/Piquasso) or CPU (C++/OpenMP) |
-| Assumptions | Total-photon truncation; retained norm below `1 - norm_tolerance` raises `ValueError`; a boundary-population warning is emitted when the top two shells hold more than `boundary_warning` |
-| Tests | `tests/native/test_native_fock_backend.py::test_gaussian_pattern_matches_exact_gaussian_moments`, `tests/native/test_native_fock_kernels.py::test_coherent_and_squeezed_vacuum_closed_forms` (closed forms), `tests/non_gaussian/test_execution.py::test_gaussian_fock_gates_against_independent_operators` |
-| Status | **Implemented but experimental** |
+| Assumptions | Total-photon truncation; retained norm below `1 - norm_tolerance` raises `ValueError`; a boundary-population warning is emitted when the top two shells hold more than `boundary_warning`. Mixed inputs use the thermal columns of the unitary, which the 2026-11-12 stability fix made accurate (Section 13). |
+| Tests | `tests/native/test_native_fock_backend.py::test_gaussian_pattern_matches_exact_gaussian_moments`, `tests/native/test_native_fock_kernels.py::test_coherent_and_squeezed_vacuum_closed_forms` (closed forms), `tests/non_gaussian/test_execution.py::test_gaussian_fock_gates_against_independent_operators`; `tests/validation/test_val_fock.py::test_number_coherent_squeezed_states_analytic` (mpmath amplitudes and the regularised incomplete gamma function for the retained norm) and `::test_displaced_squeezed_and_mixed_gaussian_inputs` (`expm` on a 90-level space, displaced squeezed pure input on `native-fock` and thermal displaced squeezed input on `native-mixed-fock`, 1e-12); `tests/native/test_native_fock_gaussian_unitary_stability.py::test_thermal_columns_of_displaced_squeezed_input` (60-digit mpmath). Upgraded to validated on 2026-11-12 because of these independent references on the native engines; the Piquasso engines are checked only as a secondary comparison there. |
+| Status | **Implemented and validated** (native engines; Piquasso-backed Fock inputs remain a secondary check, and `docs/validation/feature-matrix.md` still marks Fock paths E) |
 
 Example: see Section 8 (`Displace` on `native-fock`).
 
@@ -1243,7 +1243,7 @@ Gaussian gates are pattern commands applied directly to modes (and, in compiled 
 | CPU / GPU | CPU (NumPy) / CPU (C++/OpenMP) |
 | Assumptions | alpha = (q + i p)/2; nonfinite values raise `ValueError`; with `frame=True` displacements are deferred (Section 11) |
 | Tests | `tests/analytical/test_primitives.py::test_vacuum_squeeze_displacement_rotation` (closed form, NumPy and Piquasso), `tests/non_gaussian/test_execution.py::test_gaussian_fock_gates_against_independent_operators`, `tests/native/test_native_fock_kernels.py::test_coherent_and_squeezed_vacuum_closed_forms` |
-| Status | **Implemented and validated** (Gaussian backends; Fock execution experimental) |
+| Status | **Implemented and validated** (Gaussian backends; native Fock engines against `expm` in `tests/validation/test_val_fock.py`, Section 13; Piquasso Fock execution experimental) |
 
 Example:
 
@@ -1268,7 +1268,7 @@ for b in ("gaussian", "native-fock"):
 | CPU / GPU | CPU (NumPy) / CPU (C++/OpenMP) |
 | Assumptions | Angles in radians; exact on Fock backends (number-diagonal phase) |
 | Tests | `tests/analytical/test_primitives.py::test_vacuum_squeeze_displacement_rotation` (closed form, NumPy and Piquasso), `tests/non_gaussian/test_sensitivity.py::test_rotation_quadratic_conventions_against_independent_exponential` (Fock matrix exponential, `piquasso-fock`) |
-| Status | **Implemented and validated** (Gaussian backends; Fock execution experimental, as labelled in `docs/validation/feature-matrix.md`) |
+| Status | **Implemented and validated** (Gaussian backends; native Fock engines against `expm` in `tests/validation/test_val_fock.py`, Section 13; Piquasso Fock execution experimental) |
 
 Example:
 
@@ -1290,7 +1290,7 @@ print(np.round(pg.simulate(p).state.mean, 12))
 | CPU / GPU | CPU (NumPy) / CPU (C++/OpenMP) |
 | Assumptions | Resource preparation uses -r (momentum squeezing), the gate uses +r; Fock execution truncates |
 | Tests | `tests/analytical/test_primitives.py::test_vacuum_squeeze_displacement_rotation`, `tests/native/test_native_fock_kernels.py::test_gaussian_matrix_elements_are_numerically_stable_at_large_cutoff` (native squeezing matrix vs `expm` of the exact generator in a 700-dimensional space, atol 1e-12 at cutoff 80) |
-| Status | **Implemented and validated** (Gaussian backends; Fock execution experimental) |
+| Status | **Implemented and validated** (Gaussian backends; native Fock engines against `expm` in `tests/validation/test_val_fock.py`, Section 13; Piquasso Fock execution experimental) |
 
 Example:
 
@@ -1312,7 +1312,7 @@ print(np.round(np.diag(pg.simulate(p).state.covariance), 6), np.round(np.exp([-0
 | CPU / GPU | CPU (NumPy) / CPU (C++/OpenMP) |
 | Assumptions | u != v required: a backend called directly raises `ValueError` "Repeated gate modes", and inside a pattern `Pattern.validate()` raises `ValueError("Self CZ is invalid: command {i} entangles {u!r} with itself")` (before the fix it reported "Cyclic command dependencies"); Piquasso-Fock applies CZ through a decomposition with truncation after each factor, native Fock applies exact projected matrix elements |
 | Tests | `tests/analytical/test_primitives.py::test_weighted_graph_nullifiers` (closed form), `tests/piquasso_reference/test_fock_convergence.py::test_fock_cz_raw_reference_and_cutoff_convergence` (raw Piquasso), `tests/protocols/test_gaussian_postselection.py::test_cz_pair_closed_form_postselection`, `tests/regression/test_validation_messages.py::test_self_cz_is_not_reported_as_a_cycle` |
-| Status | **Implemented and validated** (Gaussian backends; Fock execution experimental) |
+| Status | **Implemented and validated** (Gaussian backends; native Fock engines against `expm` in `tests/validation/test_val_fock.py`, Section 13; Piquasso Fock execution experimental) |
 
 Example:
 
@@ -1334,7 +1334,7 @@ print(np.round(pg.simulate(p).state.mean, 12))
 | CPU / GPU | CPU (NumPy) / CPU (C++/OpenMP) |
 | Assumptions | Passive, number-conserving, so exact within a total-photon cutoff |
 | Tests | `tests/analytical/test_primitives.py::test_beamsplitter_and_loss_agree` (NumPy vs Piquasso), `tests/native/test_native_fock_kernels.py::test_hong_ou_mandel`, `::test_passive_gates_are_exact_and_unitary_per_sector` |
-| Status | **Implemented and validated** (Gaussian backends; Fock execution experimental, as labelled in `docs/validation/feature-matrix.md`) |
+| Status | **Implemented and validated** (Gaussian backends; native Fock engines against `expm` in `tests/validation/test_val_fock.py`, Section 13; Piquasso Fock execution experimental) |
 
 Example:
 
@@ -1356,7 +1356,7 @@ print(np.round(pg.simulate(p).state.mean, 6))
 | CPU / GPU | CPU (NumPy) / CPU (C++/OpenMP) |
 | Assumptions | [q, p] = 2i; Fock execution truncates |
 | Tests | `tests/analytical/test_cvflow_multimode.py::test_quadratic_phase_channel_matches_analytic_map_and_simulate` (analytic map), `tests/non_gaussian/test_sensitivity.py::test_rotation_quadratic_conventions_against_independent_exponential` (matrix exponential) |
-| Status | **Implemented and validated** (Gaussian backends; Fock execution experimental) |
+| Status | **Implemented and validated** (Gaussian backends; native Fock engines against `expm` in `tests/validation/test_val_fock.py`, Section 13; Piquasso Fock execution experimental) |
 
 Example:
 
@@ -1378,7 +1378,7 @@ print(np.round(pg.simulate(p).state.mean, 12))
 | CPU / GPU | CPU (NumPy) / CPU (C++/OpenMP) |
 | Assumptions | 0 <= eta <= 1, n_th >= 0; the mixed-Fock thermal amplifier tail is truncated at the cutoff |
 | Tests | `tests/analytical/test_primitives.py::test_beamsplitter_and_loss_agree` (vs Piquasso), `tests/mixed_fock/test_loss_channels.py::test_binomial_channel_all_limits`, `::test_thermal_loss_against_environment_dilation` (environment-dilation reference), `tests/native/test_native_mixed_fock_backend.py::test_loss_matches_exact_gaussian_moments` |
-| Status | **Implemented and validated** (Gaussian backends; mixed-Fock execution experimental) |
+| Status | **Implemented and validated** (Gaussian backends; `native-mixed-fock` loss against a beam-splitter dilation, Section 14; `piquasso-mixed-fock` experimental) |
 
 Example:
 
@@ -1636,12 +1636,12 @@ All pattern measurements are destructive: `Measure(node, measurement, key)` remo
 | Field | Value |
 |---|---|
 | Description | Destructive measurement of q cos(theta) + p sin(theta); the remaining modes are conditioned exactly by the Schur complement. |
-| Python API | `pg.Homodyne(angle=0.0, efficiency=1.0, noise=0.0)`, `pg.Homodyne.q()`, `pg.Homodyne.p()`, `Pattern.measure(node, measurement=None, *, key=None)` |
-| Implementation | `src/photographiq/measurements.py`, `src/photographiq/backends/gaussian.py` (`measure`), `src/photographiq/backends/native_gaussian.py`, `cpp/src/gaussian/conditioning.cpp` |
+| Python API | `pg.Homodyne(angle=0.0, efficiency=1.0, noise=0.0)`, `pg.Homodyne.q()`, `pg.Homodyne.p()`, `Pattern.measure(node, measurement=None, *, key=None)`; direct backend call `backend.measure(node, pg.Homodyne(theta), angle=None, *, outcome=None)` |
+| Implementation | `src/photographiq/measurements.py`, `src/photographiq/backends/gaussian.py` (`measure`), `src/photographiq/backends/native_gaussian.py`, `cpp/src/gaussian/conditioning.cpp`; `src/photographiq/backends/base.py` (`resolve_angle`, shared by every backend's `measure`) |
 | Backends | `gaussian`, `piquasso`, `native-gaussian` |
 | CPU / GPU | CPU (NumPy) / CPU (C++/OpenMP) |
-| Assumptions | Angle may be an expression of earlier outcomes; vacuum outcome variance 1; zero or nonfinite variance raises `ValueError` |
-| Tests | `tests/analytical/test_measurements.py::test_exact_homodyne_schur_complement` (closed form), `::test_vacuum_measurement_statistics`, `tests/protocols/test_gaussian_postselection.py::test_sampled_density_is_analytic_density`, `tests/native/test_native_gaussian_backend.py::test_tiny_variance_homodyne_closed_form` |
+| Assumptions | Angle may be an expression of earlier outcomes; vacuum outcome variance 1; zero or nonfinite variance raises `ValueError`. `simulate` resolves the angle and passes it explicitly. A direct `backend.measure(node, Homodyne(theta))` without `angle=` now measures at theta (before the 2026-11-12 fix it silently measured q). An explicit `angle=` that contradicts a nonzero numeric `Homodyne.angle` raises `ValueError("angle=... contradicts Homodyne.angle=...")`; an explicit angle with the default `Homodyne()` (angle 0) still wins; an expression angle without `angle=` raises `ValueError` (run the pattern with `simulate`). The same rule applies on the Fock and mixed-Fock backends. |
+| Tests | `tests/analytical/test_measurements.py::test_exact_homodyne_schur_complement` (closed form), `::test_vacuum_measurement_statistics`, `tests/protocols/test_gaussian_postselection.py::test_sampled_density_is_analytic_density`, `tests/native/test_native_gaussian_backend.py::test_tiny_variance_homodyne_closed_form`; `tests/validation/test_val_gaussian.py::test_homodyne_conditioning_and_density` (conditional state and density against a physical dilation conditioned through the precision matrix, all three Gaussian backends, 6.5e-13); `tests/regression/test_measure_angle.py` (`test_homodyne_angle_used_without_explicit_angle` on every backend class, `test_explicit_angle_contradicting_homodyne_raises`, `test_explicit_angle_with_default_homodyne_still_wins`) |
 | Status | **Implemented and validated** |
 
 Example (postselected density of a vacuum homodyne at x = 0.5, on four backends):
@@ -1660,6 +1660,23 @@ print(round(np.exp(-0.125) / np.sqrt(2 * np.pi), 10))
 # 0.3520653268
 ```
 
+Example (direct backend call; the `Homodyne` angle is used, a contradicting `angle=` raises):
+
+```python
+import numpy as np, photographiq as pg
+from photographiq.backends import GaussianBackend
+e = GaussianBackend(); e.prepare(0, state=pg.GaussianInput.coherent(1j))   # <q> = 0, <p> = 2
+e.measure(0, pg.Homodyne(np.pi / 2), outcome=2.0)                           # no angle= given
+print(round(e.last_measurement["value"], 4), round(1 / np.sqrt(2 * np.pi), 4))  # N(2; 2, 1): p was measured
+e.prepare(0, state=pg.GaussianInput.coherent(1j))
+try:
+    e.measure(0, pg.Homodyne(np.pi / 2), 0.0, outcome=2.0)
+except ValueError as exc:
+    print("ValueError:", exc)
+# 0.3989 0.3989
+# ValueError: angle=0.0 contradicts Homodyne.angle=1.5707963267948966
+```
+
 ### Ideal homodyne on Fock backends
 
 | Field | Value |
@@ -1669,9 +1686,9 @@ print(round(np.exp(-0.125) / np.sqrt(2 * np.pi), 10))
 | Implementation | `src/photographiq/fock_measurements.py` (`wavefunctions`, `homodyne_projection`), `src/photographiq/backends/fock.py`, `src/photographiq/backends/mixed_fock.py` |
 | Backends | Fock backends |
 | CPU / GPU | CPU (NumPy/SciPy) |
-| Assumptions | Integration window 2 sqrt(cutoff) + 10; normalization and partial-CDF error budgets of 1e-7 raise `ArithmeticError` instead of sampling a wrong tail; tolerances control numerical inversion, not the Hilbert-space cutoff |
-| Tests | `tests/fock/test_homodyne_validation.py::test_number_homodyne_density_cdf_and_normalized_condition` (closed form), `::test_displaced_rotated_homodyne_distribution`, `::test_unrepresented_displacement_fails_instead_of_sampling_wrong_tail`, `tests/non_gaussian/test_execution.py::test_homodyne_entangled_conditional_state_and_angle`, `tests/protocols/test_gaussian_postselection.py::test_adaptive_wire_matches_fock_postselection` (Gaussian vs Fock) |
-| Status | **Implemented but experimental** |
+| Assumptions | Integration window 2 sqrt(cutoff) + 10; normalization and partial-CDF error budgets of 1e-7 raise `ArithmeticError` instead of sampling a wrong tail; tolerances control numerical inversion, not the Hilbert-space cutoff. A direct `measure` call without `angle=` uses the `Homodyne` angle (`resolve_angle`, see the previous entry). |
+| Tests | `tests/fock/test_homodyne_validation.py::test_number_homodyne_density_cdf_and_normalized_condition` (closed form), `::test_displaced_rotated_homodyne_distribution`, `::test_unrepresented_displacement_fails_instead_of_sampling_wrong_tail`, `tests/non_gaussian/test_execution.py::test_homodyne_entangled_conditional_state_and_angle`, `tests/protocols/test_gaussian_postselection.py::test_adaptive_wire_matches_fock_postselection` (Gaussian vs Fock); `tests/validation/test_val_fock.py::test_fock_homodyne_density_convention` (closed-form coherent-state density at three angles on all four Fock backends, 6.7e-16; Piquasso rows are a secondary check); `tests/regression/test_measure_angle.py`. Upgraded to validated on 2026-11-12 because of the independent closed-form references on both native engines. |
+| Status | **Implemented and validated** (`docs/validation/feature-matrix.md` still marks Fock homodyne E) |
 
 Example: see the four-backend example above.
 
@@ -1685,8 +1702,8 @@ Example: see the four-backend example above.
 | Backends | `gaussian`, `piquasso`, `native-gaussian`, `piquasso-mixed-fock`, `native-mixed-fock`; pure-Fock backends raise `NotImplementedError` "... does not support noisy_homodyne" |
 | CPU / GPU | CPU (NumPy) / CPU (C++/OpenMP) for native Gaussian |
 | Assumptions | 0 < eta <= 1 and finite noise >= 0 (`ValueError` otherwise); the mixed-Fock noise convolution raises `ArithmeticError` if it does not converge |
-| Tests | `tests/analytical/test_measurements.py::test_detector_efficiency_and_generaldyne` (variance 2 at eta = 0.5), `tests/protocols/test_gaussian_postselection.py::test_lossy_inefficient_noisy_homodyne_matches_mixed_fock` (Gaussian vs mixed Fock), `tests/regression/test_inputs_and_frames.py::test_virtual_measurement_and_loss` |
-| Status | **Implemented and validated** (Gaussian backends; mixed-Fock path experimental) |
+| Tests | `tests/analytical/test_measurements.py::test_detector_efficiency_and_generaldyne` (variance 2 at eta = 0.5), `tests/protocols/test_gaussian_postselection.py::test_lossy_inefficient_noisy_homodyne_matches_mixed_fock` (Gaussian vs mixed Fock), `tests/regression/test_inputs_and_frames.py::test_virtual_measurement_and_loss`; `tests/validation/test_val_gaussian.py::test_homodyne_conditioning_and_density` (loss-beam-splitter dilation with a vacuum ancilla, 3.6e-14); `tests/validation/test_val_fock.py::test_fock_homodyne_density_convention` (mixed-Fock density with eta = 0.6 and noise 0.2 against the closed form N(mu, 1 + (1 - eta)/eta + noise), 5.6e-16). The mixed-Fock qualifier was dropped on 2026-11-12 because of this closed-form test. |
+| Status | **Implemented and validated** (Gaussian and mixed-Fock backends) |
 
 Example (2000 sampled shots, so the variance is a statistical estimate):
 
@@ -1769,8 +1786,8 @@ except ValueError as exc:
 | Backends | Fock backends (capability `photon_counting`); Gaussian backends raise `NotImplementedError` "GaussianBackend does not support photon_counting" (GBS photon statistics of Gaussian states are in `photographiq.sampling`) |
 | CPU / GPU | CPU (NumPy) |
 | Assumptions | Outcomes are 0 .. cutoff-1; postselecting a zero-probability count raises `ValueError` |
-| Tests | `tests/integration/test_fock.py::test_fock_number_and_counting`, `tests/non_gaussian/test_execution.py::test_raw_piquasso_count_statistics` (raw Piquasso), `tests/mixed_fock/test_conditioning.py::test_diagonal_count_conditioning`, `tests/cross_backend/test_cross_backend_agreement.py::test_cat_photon_counting_closed_form` |
-| Status | **Implemented but experimental** |
+| Tests | `tests/integration/test_fock.py::test_fock_number_and_counting`, `tests/non_gaussian/test_execution.py::test_raw_piquasso_count_statistics` (raw Piquasso), `tests/mixed_fock/test_conditioning.py::test_diagonal_count_conditioning`, `tests/cross_backend/test_cross_backend_agreement.py::test_cat_photon_counting_closed_form`; `tests/validation/test_val_fock.py::test_photon_counting_probability_and_conditional_state` (Born probability and conditional state computed independently in NumPy, `native-fock` and `native-mixed-fock`, 2.2e-16). Upgraded to validated on 2026-11-12 because of this independent reference. |
+| Status | **Implemented and validated** (`docs/validation/feature-matrix.md` still marks PNR E) |
 
 Example (single photon on a balanced beamsplitter, vacuum heralded on mode 1):
 
@@ -1833,8 +1850,8 @@ except NotImplementedError as exc:
 | Backends | Rank-one: all Fock backends (`rank_one_instrument`); general Kraus: `piquasso-mixed-fock`, `native-mixed-fock` (`custom_kraus_instrument`) |
 | CPU / GPU | CPU (NumPy) |
 | Assumptions | Effects must sum to the identity to 1e-10 (include failure outcomes); input dimension must equal the backend cutoff (`ValueError` "Instrument input dimension must equal backend cutoff"); effects alone do not define the update |
-| Tests | `tests/gkp/instruments/test_instruments.py::test_kraus_is_not_effect_update`, `::test_complex_rank_one_entangled_conditioning`, `::test_validation_probabilities_and_impossible_branch`, `::test_multikraus_partial_measurement_preserves_mixedness_and_rejects_pure_preflight` (multi-Kraus on `piquasso-mixed-fock`), `tests/native/test_native_fock_backend.py::test_instrument_and_gkp_readout_match_piquasso` (rank-one, `native-fock` vs `piquasso-fock`), `tests/native/test_native_mixed_fock_backend.py::test_multi_kraus_instrument_matches_explicit_partial_trace` (random 2-outcome, 4-Kraus instrument on `native-mixed-fock`: probabilities and conditional state against an explicit partial trace, `1e-12`) |
-| Status | **Implemented but experimental** (general Kraus instruments now have an independent test on both mixed backends; the project labels all Fock execution paths experimental) |
+| Tests | `tests/gkp/instruments/test_instruments.py::test_kraus_is_not_effect_update`, `::test_complex_rank_one_entangled_conditioning`, `::test_validation_probabilities_and_impossible_branch`, `::test_multikraus_partial_measurement_preserves_mixedness_and_rejects_pure_preflight` (multi-Kraus on `piquasso-mixed-fock`), `tests/native/test_native_fock_backend.py::test_instrument_and_gkp_readout_match_piquasso` (rank-one, `native-fock` vs `piquasso-fock`), `tests/native/test_native_mixed_fock_backend.py::test_multi_kraus_instrument_matches_explicit_partial_trace` (random 2-outcome, 4-Kraus instrument on `native-mixed-fock`: probabilities and conditional state against an explicit partial trace, `1e-12`). Upgraded to validated on 2026-11-12: general Kraus instruments have an independent reference (explicit Kraus algebra or an explicit partial trace) on both mixed backends, and rank-one instruments a closed-form conditional state (`test_complex_rank_one_entangled_conditioning`). |
+| Status | **Implemented and validated** (`docs/validation/feature-matrix.md` still marks instruments E; rank-one instruments on `native-fock` are compared with Piquasso only) |
 
 Example:
 
@@ -2339,9 +2356,9 @@ The compiled extension `photographiq._native` is built from `cpp/` (C++20, Eigen
 | Description | Static description of every registered backend (representation, implementation family, device, precision, declared approximations, requirements). It also includes an allocation-free planner that picks the cheapest available backend whose class capabilities cover a pattern's required features and whose `preflight` passes. |
 | Python API | `photographiq.available_backends()`, `photographiq.describe_backend(name)`, `photographiq.select_backend(pattern, inputs=None, *, initial_state=None, measurement_outcomes=None, prefer=("native", "numpy"), cutoff=None)` returning `photographiq.registry.BackendSelection(name, representation, features, explanation, rejected)`; also `photographiq.registry.create_backend(name, cutoff=None)`, `photographiq.capabilities.required_features(pattern, inputs=None, initial_state=None, measurement_outcomes=None)`, `photographiq.registry.missing_features(name, features)`, `photographiq.registry.BACKENDS` (read-only mapping of `BackendInfo`) |
 | Implementation | `src/photographiq/registry.py`, `src/photographiq/capabilities.py` |
-| Backends | Registry entries: `gaussian`, `piquasso`, `piquasso-fock`, `piquasso-mixed-fock`, `native-gaussian`, `native-fock`, `native-mixed-fock`, `cudaq-dynamics` |
-| CPU / GPU | CPU only (metadata; `cudaq-dynamics` is declared `device="gpu"` but never executes) |
-| Assumptions | Capabilities are read from the backend class attribute `capabilities`, never duplicated. Cost order: representation (gaussian < pure-fock < mixed-fock < bosonic-dynamics), then the `prefer` order of implementation families, then registration order. Fock backends are skipped unless `cutoff` is given. Availability checks use `importlib.util.find_spec` and `photographiq.native.components()`; importing the registry imports neither Piquasso, CUDA-Q nor JAX. If no backend qualifies, `select_backend` raises `NotImplementedError` and lists each candidate's reason. `simulate(backend="<name>")` resolves names through the same registry (`create_backend`); an unknown name raises `ValueError("Unknown backend: ...")`. |
+| Backends | Registry entries: `gaussian`, `piquasso`, `piquasso-fock`, `piquasso-mixed-fock`, `native-gaussian`, `native-fock`, `native-mixed-fock` |
+| CPU / GPU | CPU only (metadata) |
+| Assumptions | Capabilities are read from the backend class attribute `capabilities`, never duplicated. Cost order: representation (gaussian < pure-fock < mixed-fock), then the `prefer` order of implementation families, then registration order. Fock backends are skipped unless `cutoff` is given. Availability checks use `importlib.util.find_spec` and `photographiq.native.components()`; importing the registry imports neither Piquasso, CUDA-Q nor JAX. If no backend qualifies, `select_backend` raises `NotImplementedError` and lists each candidate's reason. `simulate(backend="<name>")` resolves names through the same registry (`create_backend`); an unknown name raises `ValueError("Unknown backend: ...")`. |
 | Tests | `tests/cross_backend/test_registry_planner.py` (`test_entry_resolves_or_reports_reason`, `test_capabilities_are_read_from_class`, `test_registry_import_is_lazy`, `test_planner_feature_check_agrees_with_preflight` (the capability check is compared against each backend's real `preflight`), `test_select_gaussian_pattern`, `test_select_non_gaussian_pattern`, `test_select_mixed_pattern`, `test_select_raises_for_unsupported_combination`, `test_select_rejects_cutoff_too_small_via_preflight`) |
 | Status | **Implemented but experimental** (behavioural tests only: the capability check is compared with each backend's own `preflight`, which is internal consistency, not an independent reference; matches Section 2) |
 
@@ -2391,7 +2408,7 @@ print(info["openmp"], info["cxx_standard"], info["eigen"], info["hbar"])
 | Backends | `native-gaussian` |
 | CPU / GPU | CPU (C++, Eigen). Single-state kernels are serial; OpenMP is used only by the batched kernels (next features). |
 | Assumptions | Same semantics as `GaussianBackend`: hbar=2, [q,p]=2i, interleaved xpxp, statistical covariance with vacuum covariance I, exact Schur-complement homodyne/heterodyne/generaldyne conditioning, homodyne records calibrated to the incident quadrature, loss with thermal photons, quadratic phase, postselection with densities, displacement frames (`frame=True`). Outcomes are sampled in Python from natively computed moments with the same `numpy.random.Generator` calls as `GaussianBackend`, so equal seeds give equal trajectories up to summation order. External covariances are symmetrised on load. Postselection on an outcome with zero numerical density raises `ValueError`. The compiled module also has a general Gaussian-channel kernel `photographiq._native.gaussian.apply_channel(mean, cov, modes, X, Y)` that rejects non-completely-positive (X, Y); no Python API or backend method wraps it (tested by `tests/native/test_native_gaussian_diagnostics.py::test_channel_kernel_matches_dense_algebra_and_rejects_non_cp`). |
-| Tests | `tests/native/test_native_gaussian_backend.py` (`test_random_patterns_match_numpy_backend` and `test_postselection_matches_numpy_backend`, against the NumPy reference backend at rtol 1e-12; `test_near_singular_conditioning_large_squeezing`, r = 8, rtol 1e-8; `test_tiny_variance_homodyne_closed_form`, closed form; `test_errors_match_numpy_backend`; `test_snapshots_are_independent_of_backend_storage`); `tests/cross_backend/test_cross_backend_agreement.py` (`test_gaussian_pattern_agreement`, against Piquasso and the Fock backends) |
+| Tests | `tests/native/test_native_gaussian_backend.py` (`test_random_patterns_match_numpy_backend` and `test_postselection_matches_numpy_backend`, against the NumPy reference backend at rtol 1e-12; `test_near_singular_conditioning_large_squeezing`, r = 8, rtol 1e-8; `test_tiny_variance_homodyne_closed_form`, closed form; `test_errors_match_numpy_backend`; `test_snapshots_are_independent_of_backend_storage`); `tests/cross_backend/test_cross_backend_agreement.py` (`test_gaussian_pattern_agreement`, against Piquasso and the Fock backends); `tests/validation/test_val_gaussian.py` (added 2026-11-12, references computed from first principles inside the test: states and purities, gate symplectics built as `expm(2 Omega M)` from each generator, loss and thermal loss against analytic X, Y and a beam-splitter dilation, homodyne and heterodyne conditioning against a physical dilation, the heterodyne density against the Husimi function, the adaptive wire against the analytic map T(k), physicality of random 5-mode circuits; largest error 6.5e-13 against a tolerance of 1e-11, see [independent validation matrix](validation/independent-validation-matrix.md)) |
 | Status | **Implemented and validated** |
 
 ```python
@@ -2418,7 +2435,7 @@ print(np.max(np.abs(a.state.covariance - b.state.covariance)) < 1e-10)
 | Backends | Any `GaussianState` (from `gaussian`, `native-gaussian` or `piquasso`) |
 | CPU / GPU | CPU (C++) |
 | Assumptions | hbar=2, vacuum covariance I, so the vacuum symplectic eigenvalue is 1. Symplectic eigenvalues use a Cholesky factorisation followed by a Hermitian eigensolver. Purity is det(V)^(-1/2). Entropy is in nats and raises `ValueError` for an eigenvalue below 1 - tolerance. Fidelity reorders `other` to `state`'s labels; it uses the overlap formula when one state is pure and the general mixed-state formula otherwise. |
-| Tests | `tests/native/test_native_gaussian_diagnostics.py` (`test_spectral_diagnostics_match_williamson_and_numpy` (Williamson decomposition and NumPy), `test_tmsv_entropy_and_negativity_closed_forms` (two-mode squeezed vacuum closed forms), `test_thermal_entropy_and_unphysical_rejection`, `test_fidelity_closed_forms`, `test_fidelity_matches_numpy_states_and_symmetry`, `test_fidelity_matches_piquasso` (Piquasso)) |
+| Tests | `tests/native/test_native_gaussian_diagnostics.py` (`test_spectral_diagnostics_match_williamson_and_numpy` (Williamson decomposition and NumPy), `test_tmsv_entropy_and_negativity_closed_forms` (two-mode squeezed vacuum closed forms), `test_thermal_entropy_and_unphysical_rejection`, `test_fidelity_closed_forms`, `test_fidelity_matches_numpy_states_and_symmetry`, `test_fidelity_matches_piquasso` (Piquasso)); `tests/validation/test_val_gaussian.py::test_thermal_entropy_and_native_diagnostics`, `::test_mixed_state_spectral_diagnostics`, `::test_tmsv_log_negativity` (independent closed forms on the native functions) |
 | Status | **Implemented and validated** |
 
 ```python
@@ -2485,6 +2502,8 @@ Example: see `tests/native/test_native_gaussian_backend.py::test_errors_match_nu
 
 `native-fock` (pure states) and `native-mixed-fock` (density matrices, section 14) keep every Python code path of the Piquasso-backed Fock backends: preparation, renormalisation with retained-norm diagnostics, photon counting, homodyne, instruments, GKP readout and ladder operations. Only the state object and the gate kernels (and, for `native-mixed-fock`, the loss kernel and density-matrix construction) are replaced, by `photographiq._native.fock`, and Piquasso is never imported. Truncation is by total photon number (sum n < cutoff), with states stored in Piquasso's basis order.
 
+Status policy in this section. Until 2026-11-11 every Fock path was listed as experimental, because `src/photographiq/backends/fock.py` and `docs/validation/feature-matrix.md` call Fock execution experimental. On 2026-11-12 the independent validation suite `tests/validation/test_val_fock.py` (see [independent validation matrix](validation/independent-validation-matrix.md)) added references computed from first principles for both native engines: number, coherent and squeezed states against mpmath amplitudes; every gate (displacement, rotation, squeezing, beam splitter, CZ, quadratic phase, Kerr, cross-Kerr, cubic phase) against `scipy.linalg.expm` on an enlarged per-mode space, with the truncation handled exactly as P U psi / norm(P U psi); photon counting, partial traces, homodyne densities and loss as a dilation. The largest gate error is 5e-16 against a tolerance of 1e-12. Entries covered by these references are now **Implemented and validated**, and each Tests row states the reason. The feature matrix still marks the Fock paths E. Piquasso Fock engines appear in that suite only as a secondary check.
+
 ### NativeFockBackend (`native-fock`)
 
 | Field | Value |
@@ -2495,8 +2514,8 @@ Example: see `tests/native/test_native_gaussian_backend.py::test_errors_match_nu
 | Backends | `native-fock` |
 | CPU / GPU | CPU (C++; gate application uses OpenMP only above a fixed work threshold, 2^22, in `cpp/src/fock/kernels.cpp`); measurement conditioning and sampling run in Python/NumPy |
 | Assumptions | hbar=2, q = a + a^dag, p = -i(a - a^dag), total-photon cutoff sum n < cutoff (cutoff >= 2, required). After each operation the state is renormalised, and the retained norm and the boundary population (weight at total photon number >= cutoff - 2) are recorded in `diagnostics`. A norm loss above `norm_tolerance` raises `ValueError`, and a boundary population above `boundary_warning` warns. Gate matrices are defined up to a global phase. `max_dimension` raises `MemoryError` before allocation. |
-| Tests | `tests/native/test_native_fock_backend.py` (`test_gaussian_pattern_matches_exact_gaussian_moments` (exact Gaussian moments, atol 2e-7), `test_non_gaussian_patterns_match_piquasso`, `test_piquasso_difference_vanishes_with_cutoff`, `test_sampled_trajectories_match_piquasso`, `test_truncation_errors_warnings_and_snapshots`, `test_native_backends_never_import_piquasso`); `tests/native/test_native_fock_cross_layer.py` (Piquasso); `tests/cross_backend/test_cross_backend_agreement.py` (`test_cat_photon_counting_closed_form`, `test_homodyne_postselection_density_closed_form`) |
-| Status | **Implemented but experimental** (the Fock paths are labelled experimental in `src/photographiq/backends/fock.py` and `docs/validation/feature-matrix.md`; the tests nevertheless use independent references: exact Gaussian moments, closed forms and Piquasso) |
+| Tests | `tests/native/test_native_fock_backend.py` (`test_gaussian_pattern_matches_exact_gaussian_moments` (exact Gaussian moments, atol 2e-7), `test_non_gaussian_patterns_match_piquasso`, `test_piquasso_difference_vanishes_with_cutoff`, `test_sampled_trajectories_match_piquasso`, `test_truncation_errors_warnings_and_snapshots`, `test_native_backends_never_import_piquasso`); `tests/native/test_native_fock_cross_layer.py` (Piquasso); `tests/cross_backend/test_cross_backend_agreement.py` (`test_cat_photon_counting_closed_form`, `test_homodyne_postselection_density_closed_form`); `tests/validation/test_val_fock.py` (states against mpmath, all eight gates and the cubic phase against enlarged-space `expm`, counting, homodyne density, partial trace, inner-product preservation of number-conserving gates, norm and positivity after a 21-gate sequence). Upgraded to validated on 2026-11-12 because of this independent suite. |
+| Status | **Implemented and validated** (`src/photographiq/backends/fock.py` and the feature matrix still call Fock execution experimental) |
 
 ```python
 import numpy as np
@@ -2519,16 +2538,29 @@ print(f"{1 - pg.fidelity(a, b):.1e}")
 
 | Field | Value |
 |---|---|
-| Description | Displacement, squeezing, weighted CZ (`Entangle`), quadratic phase, beam splitter and Gaussian inputs use exact Fock matrix elements of the full Gaussian unitary from the Bargmann recurrence, applied as P U P on the truncated space. Displacement uses a Laguerre recurrence. |
-| Python API | Pattern commands `pg.Displace`, `pg.Squeeze`, `pg.Entangle`, `pg.QuadraticPhase`, `pg.BeamSplitter`, `pg.Rotate`; Gaussian inputs `pg.GaussianInput` |
-| Implementation | `cpp/src/fock/gates.cpp` (`gaussian_unitary`, `displacement_matrix`), `src/photographiq/backends/native_fock.py` (`_NativeGates`) |
+| Description | Displacement, squeezing, weighted CZ (`Entangle`), quadratic phase, beam splitter and Gaussian inputs use exact Fock matrix elements of the full Gaussian unitary, applied as P U P on the truncated space. One-mode unitaries (U^dag x U = S x + d) are factorised as U = R(phi1) S_r R(phi2) D(beta): the rotations are exact phases, S = rotation(phi1) diag(e^-r, e^r) rotation(phi2) comes from the 2 x 2 SVD, the squeeze factor uses a closed form in Jacobi polynomials evaluated by a stable three-term recurrence, D(beta) uses a rectangular Laguerre recurrence, and the product runs over an internal size L >= cutoff chosen by a rigorous bound on the displacement tail (discarded part <= 1e-16 for every column). Multi-mode unitaries (CZ, beam splitter, general transforms) use the Bargmann recurrence. |
+| Python API | Pattern commands `pg.Displace`, `pg.Squeeze`, `pg.Entangle`, `pg.QuadraticPhase`, `pg.BeamSplitter`, `pg.Rotate`; Gaussian inputs `pg.GaussianInput`; kernel `photographiq.native.require("fock").gaussian_unitary(symplectic, displacement, cutoff)` |
+| Implementation | `cpp/src/fock/gates.cpp` (`gaussian_unitary`, `single_mode_unitary`, `displacement_tail_cutoff`, `displacement_matrix`), `src/photographiq/backends/native_fock.py` (`_NativeGates`) |
 | Backends | `native-fock`, `native-mixed-fock` |
 | CPU / GPU | CPU (C++) |
-| Assumptions | Piquasso applies CZ, quadratic phase and general Gaussian transforms through an Euler (Bloch-Messiah) decomposition, truncating after every factor. At a fixed cutoff the two engines therefore differ at truncation level, and both converge as the cutoff grows. Asserted by `test_gaussian_matrix_elements_are_numerically_stable_at_large_cutoff` against expm of the exact generator: displacement abs(alpha) = 4 at cutoff 60 and squeezing r = 0.5 at cutoff 80 agree to atol 1e-12; the same displacement routed through the general Bargmann path agrees only to atol 1e-6. **Known unresolved case** (reported in the module docstring, not asserted by a test): a single Gaussian unitary that combines squeezing and displacement loses accuracy at large abs(alpha) and cutoff (8e-5 for abs(alpha) = 4, r = 0.3, cutoff 80); its vacuum column, which is all a pure `GaussianInput` uses, stays at 1e-16. Rotation is an exact phase. |
-| Tests | `tests/native/test_native_fock_kernels.py` (`test_coherent_and_squeezed_vacuum_closed_forms`, `test_passive_gates_are_exact_and_unitary_per_sector`, `test_hong_ou_mandel`, `test_projected_gaussian_gates_are_contractions`, `test_gaussian_matrix_elements_are_numerically_stable_at_large_cutoff`, `test_heisenberg_action_matches_symplectic` (symplectic action), `test_local_gates_on_multimode_states_match_piquasso_truncation_semantics`) |
-| Status | **Implemented but experimental** (the Fock paths are labelled experimental in `src/photographiq/backends/fock.py` and `docs/validation/feature-matrix.md`; the kernels are checked against expm of the exact generator and the symplectic action, within the accuracy limits stated in Assumptions) |
+| Assumptions | Same operator and global phase as the Bargmann form (`<0\|U_S\|0>` real positive); in the old path's accurate regime the old and new results agree to 5.4e-14. One-mode accuracy: at most 1.9e-14 against 60-digit mpmath for abs(alpha) <= 6, abs(r) <= 1, cutoff <= 100 (squeezing alone up to size 800); outside that range the method and the tail bound still hold but rounding has not been measured. Before the fix the same grid reached 8.5e-5 at abs(alpha) = 4, r = 0.3, cutoff 80 and 1.4e2 at abs(alpha) = 6, cutoff 100 (the Bargmann column recurrence amplifies rounding by about sqrt(N + 1)/sqrt(n + 1) per step). The combined squeeze-and-displace cost is O(cutoff^2 L); in the backends it arises only for `GaussianInput`, and very hot mixed Gaussian inputs (size up to 4096) can take minutes. **Multi-mode displaced unitaries** still use the Bargmann recurrence with no general error bound (3e-12 measured at abs(delta) <= 4, r <= 0.6, cutoff <= 40 on two modes). The backends never request one (CZ, beam splitter and Gaussian transforms have d = 0), but a direct `gaussian_unitary` call can. Piquasso applies CZ, quadratic phase and general Gaussian transforms through an Euler (Bloch-Messiah) decomposition, truncating after every factor, so at a fixed cutoff the two engines differ at truncation level and both converge as the cutoff grows. Rotation is an exact phase. Details: [native Fock Gaussian unitary](validation/native-fock-gaussian-unitary.md). |
+| Tests | `tests/native/test_native_fock_gaussian_unitary_stability.py` (60-digit mpmath references built in the test, about 15 s: `test_combined_squeeze_displacement_matches_high_precision` at abs(alpha) = 4, r = 0.3, cutoff 80; abs(alpha) = 6, r = 0.3, cutoff 100; abs(alpha) = 3, r = 1, cutoff 100; abs(alpha) = 0.5, cutoff 40; atol 1e-12 for the full matrix and 3e-14 for column 0, plus column norms against the exact leakage; `test_squeezing_rows_stay_accurate_at_large_size`; `test_thermal_columns_of_displaced_squeezed_input`; 5 of its 6 tests fail on the old build); `cpp/tests/test_fock.cpp::test_single_mode_stability` (Heisenberg relation at abs(alpha) = 6, r = 0.3, cutoff 100; S(-1) S(1) = 1 on 70 x 70 at size 800); `tests/validation/test_val_fock.py::test_gate_against_enlarged_expm` (every gate against `expm` on an enlarged space); `tests/native/test_native_fock_kernels.py` (`test_coherent_and_squeezed_vacuum_closed_forms`, `test_passive_gates_are_exact_and_unitary_per_sector`, `test_hong_ou_mandel`, `test_projected_gaussian_gates_are_contractions`, `test_gaussian_matrix_elements_are_numerically_stable_at_large_cutoff`, `test_heisenberg_action_matches_symplectic` (symplectic action), `test_local_gates_on_multimode_states_match_piquasso_truncation_semantics`). Upgraded to validated on 2026-11-12 because of the mpmath and `expm` references. |
+| Status | **Implemented and validated** (one-mode unitaries and every gate the backends request; direct multi-mode displaced `gaussian_unitary` calls have no error bound) |
 
-Example: see the Hong-Ou-Mandel example above and `tests/native/test_native_fock_kernels.py`.
+Example (the formerly inaccurate case abs(alpha) = 4, r = 0.3, cutoff 80, against `expm` on a 400-level space):
+
+```python
+import numpy as np
+from scipy.linalg import expm
+from photographiq import native
+F = native.require("fock")
+alpha, r, cutoff, big = 4.0 * np.exp(0.7j), 0.3, 80, 400          # the formerly inaccurate case
+a = np.diag(np.sqrt(np.arange(1, big)), 1)
+ref = expm(alpha * a.T - np.conj(alpha) * a) @ expm(r * (a @ a - a.T @ a.T) / 2)
+U = F.gaussian_unitary(np.diag([np.exp(-r), np.exp(r)]), [2 * alpha.real, 2 * alpha.imag], cutoff)
+print(U.shape, f"{np.abs(U - ref[:cutoff, :cutoff]).max():.1e}")
+# (80, 80) 3.9e-15
+```
 
 ### Cubic phase: two matrix definitions
 
@@ -2540,8 +2572,8 @@ Example: see the Hong-Ou-Mandel example above and `tests/native/test_native_fock
 | Backends | `native-fock`, `native-mixed-fock` (`piquasso-fock` provides only the truncated-generator form) |
 | CPU / GPU | CPU (C++) |
 | Assumptions | Both forms converge to the exact gate as the cutoff grows. The truncated-generator form equals the Gauss-Hermite (DVR) quadrature at the cutoff nodes and is identical to Piquasso to about 1e-13. `cubic_tolerance` must lie in (0, 1e-6). With the projected form, leakage can trigger the `norm_tolerance` error where Piquasso continues silently. Non-finite gamma raises `ValueError`. |
-| Tests | `tests/native/test_native_fock_kernels.py` (`test_cubic_phase_projected_against_direct_integration` (direct numerical integration), `test_cubic_phase_heisenberg_action`, `test_cubic_truncated_generator_matches_piquasso_and_converges_to_projected` (Piquasso), `test_projected_cubic_phase_reports_its_truncation_error_exactly`); `tests/native/test_native_fock_backend.py` (`test_cubic_phase_converges_to_exact_state_and_matches_piquasso_definition`, `test_cubic_phase_moments_converge_for_both_definitions`) |
-| Status | **Implemented but experimental** (the Fock paths are labelled experimental in `src/photographiq/backends/fock.py` and `docs/validation/feature-matrix.md`; both definitions are checked against direct numerical integration and Piquasso) |
+| Tests | `tests/native/test_native_fock_kernels.py` (`test_cubic_phase_projected_against_direct_integration` (direct numerical integration), `test_cubic_phase_heisenberg_action`, `test_cubic_truncated_generator_matches_piquasso_and_converges_to_projected` (Piquasso), `test_projected_cubic_phase_reports_its_truncation_error_exactly`); `tests/native/test_native_fock_backend.py` (`test_cubic_phase_converges_to_exact_state_and_matches_piquasso_definition`, `test_cubic_phase_moments_converge_for_both_definitions`); `tests/validation/test_val_fock.py::test_cubic_phase_both_definitions` (truncated generator against `expm` of the truncated q^3, 4.4e-16; projected form against P V P from an independent quadrature, 2.9e-16; 1 - F below 1e-6 at cutoff 28 for both) and `::test_cubic_reference_quadrature_converges`. Upgraded to validated on 2026-11-12 because of these independent references. |
+| Status | **Implemented and validated** (feature matrix: E) |
 
 ```python
 import photographiq as pg
@@ -2562,8 +2594,8 @@ print(be.cubic_phase_method, sorted(be.capabilities - PiquassoFockBackend.capabi
 | Backends | Kerr: `native-fock`, `native-mixed-fock`, `piquasso-fock`, `piquasso-mixed-fock`. Cross-Kerr: native Fock backends only |
 | CPU / GPU | CPU (C++; `phase_mixed` uses OpenMP above the work threshold, `phase_pure` is serial) |
 | Assumptions | There is no cross-Kerr Pattern command, so cross-Kerr cannot be used from `simulate`; call the method on a backend instance whose state you prepared directly. |
-| Tests | `tests/native/test_native_fock_backend.py` (`test_kerr_cross_kerr_and_hong_ou_mandel` (closed-form phases), `test_cross_kerr_matches_piquasso_cross_kerr_gate` (Piquasso `CrossKerr`)); `tests/native/test_native_fock_kernels.py::test_phase_kernels_kerr_and_cross_kerr` |
-| Status | **Implemented but experimental** (Kerr; the Fock paths are labelled experimental in `src/photographiq/backends/fock.py` and `docs/validation/feature-matrix.md`; phases are checked against closed forms and Piquasso). Cross-Kerr is **Partially supported**: backend method only, no Pattern command (as in Section 9) |
+| Tests | `tests/native/test_native_fock_backend.py` (`test_kerr_cross_kerr_and_hong_ou_mandel` (closed-form phases), `test_cross_kerr_matches_piquasso_cross_kerr_gate` (Piquasso `CrossKerr`)); `tests/native/test_native_fock_kernels.py::test_phase_kernels_kerr_and_cross_kerr`; `tests/validation/test_val_fock.py::test_gate_against_enlarged_expm` (Kerr 1.8e-16 and cross-Kerr 9.0e-17 against `expm`, both native engines) and `::test_number_conserving_gates_preserve_inner_products`. Upgraded to validated on 2026-11-12 because of these independent references. |
+| Status | **Implemented and validated** (Kerr on the native engines). Cross-Kerr is **Partially supported**: backend method only, no Pattern command (as in Section 9) |
 
 Example: see `tests/native/test_native_fock_backend.py::test_kerr_cross_kerr_and_hong_ou_mandel`.
 
@@ -2577,7 +2609,7 @@ Example: see `tests/native/test_native_fock_backend.py::test_kerr_cross_kerr_and
 | Backends | `native-fock`, `piquasso-fock` |
 | CPU / GPU | CPU (Python/NumPy conditioning; for `native-fock` the state vector is stored by the C++ engine) |
 | Assumptions | Homodyne with `efficiency != 1` or `noise != 0` raises `NotImplementedError("Noisy Fock homodyne requires mixed-state conditioning")`; use a mixed-Fock backend. Heterodyne and generaldyne raise `NotImplementedError("Fock backend supports ideal Homodyne and PhotonNumber measurements only")`. Postselected outcomes give one conditional branch; its probability or density is in `Result.measurement_statistics`. |
-| Tests | `tests/native/test_native_fock_backend.py` (`test_sampled_trajectories_match_piquasso`, `test_instrument_and_gkp_readout_match_piquasso`); `tests/cross_backend/test_cross_backend_agreement.py::test_homodyne_postselection_density_closed_form` (closed form) |
+| Tests | `tests/native/test_native_fock_backend.py` (`test_sampled_trajectories_match_piquasso`, `test_instrument_and_gkp_readout_match_piquasso`); `tests/cross_backend/test_cross_backend_agreement.py::test_homodyne_postselection_density_closed_form` (closed form); `tests/validation/test_val_fock.py` (`test_photon_counting_probability_and_conditional_state`, `test_fock_homodyne_density_convention`, `test_partial_trace_by_explicit_contraction`); `tests/regression/test_measure_angle.py` (a direct `measure` uses the `Homodyne` angle) |
 | Status | **Partially supported** (ideal homodyne, photon counting, instruments and GKP readout work; noisy/inefficient homodyne, heterodyne and generaldyne raise `NotImplementedError` on pure Fock backends) |
 
 Example: see `tests/native/test_native_fock_backend.py::test_instrument_and_gkp_readout_match_piquasso`.
@@ -2600,8 +2632,8 @@ Two backends evolve truncated density matrices. `piquasso-mixed-fock` applies ga
 | Backends | `piquasso-mixed-fock` (requires the optional `piquasso` package) |
 | CPU / GPU | CPU (Piquasso for gates; NumPy/SciPy for loss, conditioning and sampling) |
 | Assumptions | hbar=2, total-photon cutoff sum n < cutoff, renormalisation after each operation with the retained trace recorded. Normalising a truncated tail does not turn it into physical loss, so inspect `diagnostics`. Capabilities add `mixed_fock`, `loss`, `noisy_homodyne`, `custom_kraus_instrument`, `finite_outcome_povm` and `mixed_conditional_update` to those of `piquasso-fock`. `state_vector` is unavailable; use `density_matrix`, moments, Wigner functions or reductions. |
-| Tests | `tests/mixed_fock/test_evolution.py`, `tests/mixed_fock/test_independent_unitaries.py::test_unitary_against_independent_exponential` (independent matrix exponential), `tests/mixed_fock/test_cross_backend.py::test_overlapping_gaussian_regime_across_backends` (Gaussian backend), `tests/mixed_fock/test_state_physicality.py`, `tests/mixed_fock/test_validation.py` (`test_mixed_convergence_and_nonlinear_pure_limit`, against the pure-state limit) |
-| Status | **Implemented but experimental** (the Fock paths are labelled experimental in `src/photographiq/backends/fock.py` and `docs/validation/feature-matrix.md`; tests use an independent matrix exponential, the Gaussian backend and the pure-state limit) |
+| Tests | `tests/mixed_fock/test_evolution.py`, `tests/mixed_fock/test_independent_unitaries.py::test_unitary_against_independent_exponential` (independent matrix exponential), `tests/mixed_fock/test_cross_backend.py::test_overlapping_gaussian_regime_across_backends` (Gaussian backend), `tests/mixed_fock/test_state_physicality.py`, `tests/mixed_fock/test_validation.py` (`test_mixed_convergence_and_nonlinear_pure_limit`, against the pure-state limit); `tests/validation/test_val_fock.py` runs this backend as a secondary check only (tolerance 1e-10; CZ deviates by 1.5e-5, its documented Euler-factor truncation) |
+| Status | **Implemented but experimental** (kept: the Fock paths are labelled experimental in `src/photographiq/backends/fock.py` and `docs/validation/feature-matrix.md`, and the 2026-11-12 independent suite treats the Piquasso engines as a secondary check; tests use an independent matrix exponential, the Gaussian backend and the pure-state limit) |
 
 ```python
 import photographiq as pg
@@ -2625,9 +2657,9 @@ The binomial reference is P(k) = C(2,k) 0.6^k 0.4^(2-k) = 0.16, 0.48, 0.36.
 | Implementation | `src/photographiq/backends/native_fock.py` (`NativeMixedFockBackend`, `NativeMixedFockState`); `cpp/src/fock/kernels.cpp` (`apply_mixed`, `phase_mixed`, `reduced_mixed`, `marginal_mixed`, `thermal_loss`, `physicality`) |
 | Backends | `native-mixed-fock` (no Piquasso needed) |
 | CPU / GPU | CPU (C++/OpenMP for gates and loss; Python/NumPy/SciPy for conditioning and sampling) |
-| Assumptions | As for `piquasso-mixed-fock`. Gaussian gates use exact Bargmann elements (section 13), so at a fixed cutoff results differ from Piquasso's Euler decomposition at truncation level. A mixed Gaussian input is built as rho = U (sum_k p_k P_k) U^dag (P_k the Fock projector on k) from the Williamson form, with thermal weights summed until the omitted trace-norm tail is below 1e-15. If the number of thermal terms or the cutoff exceeds 4096, `NotImplementedError` is raised. |
-| Tests | `tests/native/test_native_mixed_fock_backend.py` (`test_pure_inputs_give_the_pure_backend_state`, `test_noisy_channels_and_mixed_inputs_match_piquasso_mixed` (Piquasso mixed), `test_ladder_and_counting_match_piquasso_mixed`, `test_loss_matches_exact_gaussian_moments` (exact Gaussian moments), `test_thermal_gaussian_input_is_geometric_and_physical` (geometric distribution), `test_states_stay_physical`, `test_multi_kraus_instrument_matches_explicit_partial_trace` (explicit partial trace)); `tests/native/test_native_fock_kernels.py` (`test_mixed_kernel_equals_conjugation_and_reduction_is_partial_trace`, `test_parallel_density_kernel_matches_serial_pure_kernel`) |
-| Status | **Implemented but experimental** (the Fock paths are labelled experimental in `src/photographiq/backends/fock.py` and `docs/validation/feature-matrix.md`; tests use Piquasso mixed, exact Gaussian moments and the geometric distribution) |
+| Assumptions | As for `piquasso-mixed-fock`. Gaussian gates use exact matrix elements (section 13), so at a fixed cutoff results differ from Piquasso's Euler decomposition at truncation level. A mixed Gaussian input is built as rho = U (sum_k p_k P_k) U^dag (P_k the Fock projector on k) from the Williamson form, with thermal weights summed until the omitted trace-norm tail is below 1e-15. If the number of thermal terms or the cutoff exceeds 4096, `NotImplementedError` is raised. |
+| Tests | `tests/native/test_native_mixed_fock_backend.py` (`test_pure_inputs_give_the_pure_backend_state`, `test_noisy_channels_and_mixed_inputs_match_piquasso_mixed` (Piquasso mixed), `test_ladder_and_counting_match_piquasso_mixed`, `test_loss_matches_exact_gaussian_moments` (exact Gaussian moments), `test_thermal_gaussian_input_is_geometric_and_physical` (geometric distribution), `test_states_stay_physical`, `test_multi_kraus_instrument_matches_explicit_partial_trace` (explicit partial trace)); `tests/native/test_native_fock_kernels.py` (`test_mixed_kernel_equals_conjugation_and_reduction_is_partial_trace`, `test_parallel_density_kernel_matches_serial_pure_kernel`); `tests/validation/test_val_fock.py` on `native-mixed-fock` (states against mpmath, every gate against enlarged-space `expm`, loss and thermal loss against a beam-splitter dilation with a thermal environment (7.5e-16), counting and conditional states, partial trace with reordering, inefficient and noisy homodyne densities, Hermiticity, trace and positivity after a 21-gate sequence). Upgraded to validated on 2026-11-12 because of this independent suite. |
+| Status | **Implemented and validated** (feature matrix: E) |
 
 Example: see the binomial-loss example above (both mixed backends).
 
@@ -2641,8 +2673,8 @@ Example: see the binomial-loss example above (both mixed backends).
 | Backends | `piquasso-mixed-fock`, `native-mixed-fock`; Gaussian backends for mixed Gaussian inputs. Pure Fock backends reject mixed Gaussian inputs (`NotImplementedError: Mixed Gaussian inputs require a mixed Fock backend`). |
 | CPU / GPU | CPU |
 | Assumptions | A `FockDensityMatrix` basis must match the resource's mode count and lie below the total cutoff, otherwise `ValueError`. A multi-mode `GaussianInput` is rejected (`ValueError: GaussianInput requires one mode`). The thermal tail beyond the cutoff is truncated and renormalised. |
-| Tests | `tests/mixed_fock/test_evolution.py` (`test_binomial_loss_and_mixed_input`, `test_gaussian_thermal_and_noisy_vacuum`), `tests/mixed_fock/test_state_physicality.py::test_density_preparations_and_permuted_basis`, `tests/mixed_fock/test_loss_channels.py::test_thermal_tail_diagnostics_and_cutoff_convergence`, `tests/native/test_native_mixed_fock_backend.py::test_thermal_gaussian_input_is_geometric_and_physical` |
-| Status | **Implemented but experimental** (mixed-Fock execution; the Fock paths are labelled experimental in `src/photographiq/backends/fock.py` and `docs/validation/feature-matrix.md`) |
+| Tests | `tests/mixed_fock/test_evolution.py` (`test_binomial_loss_and_mixed_input`, `test_gaussian_thermal_and_noisy_vacuum`), `tests/mixed_fock/test_state_physicality.py::test_density_preparations_and_permuted_basis`, `tests/mixed_fock/test_loss_channels.py::test_thermal_tail_diagnostics_and_cutoff_convergence`, `tests/native/test_native_mixed_fock_backend.py::test_thermal_gaussian_input_is_geometric_and_physical`; `tests/validation/test_val_fock.py::test_displaced_squeezed_and_mixed_gaussian_inputs` (thermal displaced squeezed `GaussianInput` on `native-mixed-fock` against `expm`, 2.2e-16) |
+| Status | **Implemented but experimental** (kept: the independent reference covers mixed Gaussian inputs on `native-mixed-fock` only, not `FockDensityMatrix` inputs or `piquasso-mixed-fock`; the feature matrix labels Fock paths experimental) |
 
 Example: see `tests/mixed_fock/test_evolution.py::test_binomial_loss_and_mixed_input`.
 
@@ -2656,8 +2688,8 @@ Example: see `tests/mixed_fock/test_evolution.py::test_binomial_loss_and_mixed_i
 | Backends | `piquasso-mixed-fock`, `native-mixed-fock`; Gaussian backends (covariance form) |
 | CPU / GPU | CPU (NumPy for `piquasso-mixed-fock`, C++ for `native-mixed-fock`) |
 | Assumptions | Requires 0 <= transmissivity <= 1 and thermal_photons >= 0, else `ValueError`. The amplifier step can push weight above the cutoff. It is truncated, renormalised and reported as a retained-norm warning. |
-| Tests | `tests/mixed_fock/test_loss_channels.py` (`test_binomial_channel_all_limits` (binomial closed form, n = 1..4), `test_coherent_attenuation` (coherent closed form), `test_thermal_loss_against_environment_dilation` (beam-splitter dilation with a thermal environment), `test_thermal_tail_diagnostics_and_cutoff_convergence`); `tests/native/test_native_fock_kernels.py::test_thermal_loss_closed_forms`; `tests/native/test_native_mixed_fock_backend.py::test_loss_matches_exact_gaussian_moments` |
-| Status | **Implemented but experimental** (mixed-Fock path; the Fock paths are labelled experimental in `src/photographiq/backends/fock.py` and `docs/validation/feature-matrix.md`; tests use binomial and coherent closed forms and a thermal-environment dilation. The Gaussian covariance form is validated, Section 8) |
+| Tests | `tests/mixed_fock/test_loss_channels.py` (`test_binomial_channel_all_limits` (binomial closed form, n = 1..4), `test_coherent_attenuation` (coherent closed form), `test_thermal_loss_against_environment_dilation` (beam-splitter dilation with a thermal environment), `test_thermal_tail_diagnostics_and_cutoff_convergence`); `tests/native/test_native_fock_kernels.py::test_thermal_loss_closed_forms`; `tests/native/test_native_mixed_fock_backend.py::test_loss_matches_exact_gaussian_moments`; `tests/validation/test_val_fock.py::test_loss_matches_beam_splitter_dilation` (`native-mixed-fock`, n_env = 0 and 0.15, against a beam-splitter dilation with a thermal environment, 7.5e-16; retained trace 2.9e-15). Upgraded to validated on 2026-11-12: both mixed backends now have an independent dilation reference. |
+| Status | **Implemented and validated** (feature matrix: E; the Gaussian covariance form is validated, Section 8) |
 
 ```python
 import photographiq as pg
@@ -2679,8 +2711,8 @@ print(r.outcomes, r.measurement_statistics["n"])     # one sampled outcome and i
 | Backends | `piquasso-mixed-fock`, `native-mixed-fock` |
 | CPU / GPU | CPU (NumPy/SciPy) |
 | Assumptions | Homodyne outcomes are calibrated to the incident quadrature, as in `GaussianBackend`. Homodyne sampling inverts the numerically integrated CDF (`scipy.integrate.quad` plus `brentq`). It raises `ArithmeticError` if the density is not normalised to 1e-7 or the noisy convolution does not converge. Photon counts must be integers below the cutoff. A postselected outcome with zero numerical probability raises `ValueError`. Postselected results are one conditional branch, with their probability or density in `measurement_statistics`. |
-| Tests | `tests/mixed_fock/test_conditioning.py` (`test_diagonal_count_conditioning`, `test_correlated_gaussian_homodyne_schur_complement` (Gaussian Schur complement, with efficiency and noise)), `tests/mixed_fock/test_validation.py::test_mixed_homodyne_sampling_is_reproducible_and_gaussian`, `tests/mixed_fock/test_evolution.py::test_entangled_pnr_and_homodyne` |
-| Status | **Implemented but experimental** (the Fock paths are labelled experimental in `src/photographiq/backends/fock.py` and `docs/validation/feature-matrix.md`; tests use the Gaussian Schur complement) |
+| Tests | `tests/mixed_fock/test_conditioning.py` (`test_diagonal_count_conditioning`, `test_correlated_gaussian_homodyne_schur_complement` (Gaussian Schur complement, with efficiency and noise)), `tests/mixed_fock/test_validation.py::test_mixed_homodyne_sampling_is_reproducible_and_gaussian`, `tests/mixed_fock/test_evolution.py::test_entangled_pnr_and_homodyne`; `tests/validation/test_val_fock.py::test_photon_counting_probability_and_conditional_state` and `::test_fock_homodyne_density_convention` (eta = 0.6, noise 0.2: closed-form density on both mixed backends). Upgraded to validated on 2026-11-12 because of these independent references. |
+| Status | **Implemented and validated** (feature matrix: E) |
 
 Example: see `tests/mixed_fock/test_conditioning.py::test_correlated_gaussian_homodyne_schur_complement`.
 
@@ -2709,8 +2741,8 @@ Example: see `tests/mixed_fock/test_validation.py::test_mixed_ladder_weighting`.
 | Backends | `piquasso-mixed-fock`, `native-mixed-fock`; pure Fock backends accept rank-one instruments only (preflight rejects multi-Kraus outcomes) |
 | CPU / GPU | CPU (NumPy) |
 | Assumptions | The Kraus update sum_k K rho K^dag is used, not the effect update. Outcomes are single-mode and destructive. |
-| Tests | `tests/gkp/instruments/test_instruments.py` (`test_kraus_is_not_effect_update` (explicit Kraus algebra), `test_complex_rank_one_entangled_conditioning`, `test_multikraus_partial_measurement_preserves_mixedness_and_rejects_pure_preflight` (on `piquasso-mixed-fock`), `test_invalid_instruments`); `tests/native/test_native_mixed_fock_backend.py::test_multi_kraus_instrument_matches_explicit_partial_trace` (on `native-mixed-fock`: a random 2-outcome, 4-Kraus instrument on mode A of a lossy, displaced, squeezed two-mode state; outcome probabilities and the conditional density matrix of mode B against an explicit index-sum partial trace of the unmeasured state, both to `1e-12`). Both mixed backends now have an independent multi-Kraus test; before this test, `native-mixed-fock` multi-Kraus instruments had been checked only by hand. |
-| Status | **Implemented but experimental** (matches Sections 10 and 27; tests on both mixed backends use explicit Kraus sums or an explicit partial trace, but the project labels the Fock paths experimental) |
+| Tests | `tests/gkp/instruments/test_instruments.py` (`test_kraus_is_not_effect_update` (explicit Kraus algebra), `test_complex_rank_one_entangled_conditioning`, `test_multikraus_partial_measurement_preserves_mixedness_and_rejects_pure_preflight` (on `piquasso-mixed-fock`), `test_invalid_instruments`); `tests/native/test_native_mixed_fock_backend.py::test_multi_kraus_instrument_matches_explicit_partial_trace` (on `native-mixed-fock`: a random 2-outcome, 4-Kraus instrument on mode A of a lossy, displaced, squeezed two-mode state; outcome probabilities and the conditional density matrix of mode B against an explicit index-sum partial trace of the unmeasured state, both to `1e-12`). Both mixed backends now have an independent multi-Kraus test; before this test, `native-mixed-fock` multi-Kraus instruments had been checked only by hand. Upgraded to validated on 2026-11-12 because explicit Kraus sums and an explicit partial trace are independent references (matches Section 10). |
+| Status | **Implemented and validated** (feature matrix: E) |
 
 Example: see `tests/gkp/instruments/test_instruments.py::test_complex_rank_one_entangled_conditioning`.
 
@@ -2748,7 +2780,7 @@ Example: see `tests/mixed_fock/test_evolution.py::test_guards_and_serialization`
 
 Covers `photographiq.gpu` (CuPy): what runs on the GPU and what does not.
 
-`photographiq.gpu` provides **batched Gaussian kernels** only: many independent states, given as means `(B, 2n)` and covariances `(B, 2n, 2n)`, processed at once on an NVIDIA GPU through CuPy. The kernels are compositions of cuBLAS batched GEMM, cuSOLVER batched factorisations and CuPy element-wise operations; there are no custom compiled CUDA kernels. `simulate`, `run_shots`, every registered backend and all Fock code run on the CPU. Importing `photographiq.gpu` does not import CuPy. Every kernel takes `device="gpu"` (default) or `device="cpu"`. With `device="gpu"` it raises if CuPy or a CUDA device is missing and never falls back to the CPU silently. Full details are in [GPU acceleration](gpu.md).
+`photographiq.gpu` provides **batched Gaussian kernels** (many independent states, given as means `(B, 2n)` and covariances `(B, 2n, 2n)`) and, since 2026-11-12, **batched Fock local-gate kernels** (`photographiq.gpu.fock`: pure states `(B, D)` or density matrices `(B, D, D)` in the native total-photon basis), processed at once on an NVIDIA GPU through CuPy. The kernels are compositions of cuBLAS batched GEMM, cuSOLVER batched factorisations, cuSPARSE sparse-dense products and CuPy element-wise operations; there are no custom compiled CUDA kernels. `simulate`, `run_shots`, every registered backend, all measurement conditioning and all sampling run on the CPU. Importing `photographiq.gpu` does not import CuPy. Every kernel takes `device="gpu"` (default) or `device="cpu"`. With `device="gpu"` it raises if CuPy or a CUDA device is missing and never falls back to the CPU silently. Full details are in [GPU acceleration](gpu.md).
 
 ### Device discovery and execution record
 
@@ -2869,88 +2901,112 @@ Example: see `tests/gpu/test_gpu_gaussian.py::test_diagnostics_match_gaussian_st
 
 Example: see `tests/gpu/test_gpu_gaussian.py::test_float32_is_explicit_and_close`.
 
-### Pattern simulation, sampling and Fock kernels on the GPU
+### Batched Fock local gates (`photographiq.gpu.fock`)
 
 | Field | Value |
 |---|---|
-| Description | GPU execution of single trajectories (`simulate`, `run_shots`), sampling of measurement outcomes, and Fock-space kernels. |
-| Python API | None. `simulate(..., backend="gpu")` raises `ValueError: Unknown backend: 'gpu'`. No GPU backend is registered except the `cudaq-dynamics` probe (section 16), which never executes. |
+| Description | Applies one local gate to a batch of Fock states in the native engine's total-photon basis (sum n < cutoff, D = C(modes + cutoff - 1, modes)). `apply_operator` maps psi -> P U P psi for pure batches `(B, D)` and rho -> (P U P) rho (P U P)^dag for density-matrix batches `(B, D, D)`. The k-mode operator acts on every fibre of fixed occupations of the other modes as its top-left block, which is one sparse D x D matrix G applied by one cuSPARSE sparse-dense product (two for density matrices). `apply_phase` applies diagonal gates (Kerr, rotation, cross-Kerr) element-wise. |
+| Python API | `photographiq.gpu.apply_operator(states, modes, cutoff, local, op, *, device="gpu", dtype="complex128", on_device=False)`, `photographiq.gpu.apply_phase(states, modes, cutoff, local, phases, *, device="gpu", dtype="complex128", on_device=False)`, both returning `photographiq.gpu.FockBatch(states, execution)` |
+| Implementation | `src/photographiq/gpu/fock.py` (basis and ranks from the native engine's `basis` and `rank`, cached CSR structure per `(modes, cutoff, local)`; only the values are gathered from `op` per call) |
+| Backends | Standalone arrays, not a `simulate` backend (reference: the native kernels `apply_pure`, `apply_mixed`, `phase_pure`, `phase_mixed`). Needs the native `fock` component for the basis. |
+| CPU / GPU | GPU via `photographiq.gpu` (CuPy/cuSPARSE); `device="cpu"` runs the same algorithm with `scipy.sparse` |
+| Assumptions | Same contract as the Gaussian kernels: `device="gpu"` raises without CuPy or a device and never falls back to the CPU; `execution` names the device that produced the result; complex64 only when requested. No renormalisation and no diagnostics; the input is not modified. Gate matrices come from the native engine (`gaussian_unitary`, `cubic_phase_*`). A batch whose shape does not match `(modes, cutoff)`, an operator that is not `(S, S)` with S = C(k + cutoff - 1, k), or repeated, out-of-range or non-integer local modes raise `ValueError`. Measured on an RTX 4050 Laptop GPU (`benchmarks/gpu/bench_gpu_fock.py`, shared machine): batched pure states (B >= 32) and one large pure state (D = 42 504) gain over the native loop, and density-matrix batches gain at kernel level; **single small states are slower on the GPU**, phase gates gain nothing end to end over NumPy, and host-device transfers dominate end-to-end time for large batches. These kernels do not accelerate `simulate`: one trajectory at a time is the wrong shape for a GPU. See [GPU acceleration](gpu.md) for the figures. |
+| Tests | `tests/gpu/test_gpu_fock.py` (29 tests: `test_gates_match_native_engine` (displacement, squeezing, beam splitter, CZ, Kerr, cross-Kerr, both cubic-phase definitions, against the native kernels), `test_arbitrary_operators_and_non_hermitian_matrices_match_native` (index maps), `test_gpu_matches_cpu_path`, `test_norm_and_trace`, `test_gate_sequence_matches_native_backend` (whole `NativeFockBackend` / `NativeMixedFockBackend` gate sequences), `test_complex64_is_explicit_and_bounded`, `test_basis_and_argument_errors`, `test_missing_cupy_raises_instead_of_falling_back`, `test_gpu_results_report_and_live_on_the_gpu`). Largest deviation from the native kernels 7.2e-16 (GPU, complex128) and 2.4e-7 (complex64); norms and traces agree to 3.3e-16. The reference is the native C++ engine, itself validated against `expm` (Section 13). |
+| Status | **Implemented and validated** (complex128; complex64 is checked only against complex128 within 1e-5) |
+
+```python
+import numpy as np
+from photographiq import gpu, native
+F = native.require("fock")
+modes, cutoff, B = 3, 8, 64
+D = F.dimension(modes, cutoff)
+rng = np.random.default_rng(0)
+psi = rng.normal(size=(B, D)) + 1j * rng.normal(size=(B, D))
+psi /= np.linalg.norm(psi, axis=1, keepdims=True)
+U = np.asfortranarray(F.gaussian_unitary(np.diag([np.exp(-0.2), np.exp(0.2)]), [0.3, 0.1], cutoff))
+res = gpu.apply_operator(psi, modes, cutoff, [1], U)              # device="gpu"
+ref = psi.copy()
+for row in ref:                                                    # native kernel, state by state
+    col = row.reshape(-1, 1).copy(); F.apply_pure(col, modes, cutoff, [1], U); row[:] = col[:, 0]
+print(D, res.states.shape, f"{np.abs(res.states - ref).max():.1e}")
+print(res.execution.device, res.execution.dtype)
+# 120 (64, 120) 6.2e-17
+# cuda:0 complex128
+```
+
+### Pattern simulation and sampling on the GPU
+
+| Field | Value |
+|---|---|
+| Description | GPU execution of single trajectories (`simulate`, `run_shots`), sampling of measurement outcomes, and GPU permanents, hafnians and torontonians for boson sampling and GBS. |
+| Python API | None. `simulate(..., backend="gpu")` raises `ValueError: Unknown backend: 'gpu'`. No GPU backend is registered; CUDA-Q is an adapter module, not a backend (section 16). |
 | Implementation | Not implemented |
 | Backends | None |
-| CPU / GPU | CPU only (all registered backends) |
-| Assumptions | Reasons from [GPU acceleration](gpu.md). Single small trajectories are dominated by launch and synchronisation latency; use `native-gaussian`. CuPy random streams differ from NumPy's, so sampled trajectories would not be reproducible across devices. Total-photon truncation makes a single-mode gate on a multimode state more than a plain tensor contraction, and no validated GPU Fock kernel exists. The JAX realization `photographiq.autodiff` has no device option and runs wherever JAX places arrays; in the documented environment JAX reports only `CpuDevice`, and no GPU run of it has been tested. |
+| CPU / GPU | CPU only (all registered backends and `photographiq.sampling`) |
+| Assumptions | Reasons from [GPU acceleration](gpu.md). Single small trajectories are dominated by launch and synchronisation latency; use `native-gaussian`. CuPy random streams differ from NumPy's, so sampled trajectories would not be reproducible across devices. GPU sampling kernels were measured on 2026-11-12 and judged not justified, so nothing ships: batched CuPy permanents gain only for large batches of small matrices (a gain that mostly reflects native per-call overhead), single permanents at n = 20 and 24 and a single torontonian at n = 16 are slower than the native kernels, and no current workload evaluates large batches of same-size matrices. A native batched kernel should come first. The JAX realization `photographiq.autodiff` has no device option and runs wherever JAX places arrays; in the documented environment JAX reports only `CpuDevice`, and no GPU run of it has been tested. |
 | Tests | Not applicable |
 | Status | **Unsupported** |
 
-Example: not applicable. Benchmarks of the batched kernels (NumPy vs native C++/OpenMP vs GPU, transfers timed separately) are in `benchmarks/gpu/bench_gpu_gaussian.py`, with methodology in `benchmarks/gpu/README.md` and `benchmarks/README.md`. No timing numbers are quoted.
+Example: not applicable. Benchmarks of the batched kernels (NumPy vs native C++/OpenMP vs GPU, transfers timed separately) are `benchmarks/gpu/bench_gpu_gaussian.py` and `benchmarks/gpu/bench_gpu_fock.py`, with methodology in `benchmarks/gpu/README.md` and `benchmarks/README.md` (Section 32). No timing numbers are quoted.
 
 ## 16. CUDA-Q support
 
-Implemented in `src/photographiq/backends/cudaq_dynamics.py` as a Linux-only probe.
+Implemented in `src/photographiq/cudaq_dynamics.py` as an optional Hamiltonian-level adapter. Full description: [CUDA-Q adapter](cudaq.md).
 
-CUDA-Q publishes Linux (x86_64/aarch64) wheels only, so it cannot be installed on native Windows (use WSL2). It is not installed in the environment used for this document. PhotoGraphiQ contains a **probe** and a registry placeholder, `cudaq-dynamics`. It does not execute any pattern on CUDA-Q and has no validated gate-to-Hamiltonian translation.
+CUDA-Q publishes Linux (x86_64/aarch64) wheels only, so it cannot be installed on native Windows (use WSL2). It is not installed in the environment used for this document, so the CUDA-Q execution path is **unverified**. CUDA-Q is not a registered backend: it cannot execute patterns (no measurement conditioning), so the former `cudaq-dynamics` registry entry was removed.
+
+### CUDA-Q Dynamics adapter
+
+| Field | Value |
+|---|---|
+| Description | `BosonicHamiltonian` (normal-ordered sums of ladder-operator products, Hermiticity check); generators H with U = exp(-i H) for rotation, displacement, squeezing, beam splitter, CZ, quadratic phase, Kerr, cross-Kerr and cubic phase; `to_matrix`; per-mode/total-photon mapping; `reference_evolve` (unitary, or Lindblad with collapse operators); `to_cudaq` (builds `cudaq.operators.boson` expressions); `evolve` (calls `cudaq.evolve` on the `dynamics` target, no fallback). |
+| Python API | `photographiq.cudaq_dynamics.evolve(hamiltonian, dimensions, times, initial_state, *, collapse_operators=(), observables=(), store_intermediate_results=False, integrator=None)` and `reference_evolve` with the same interface (no `integrator`), returning `EvolutionResult(state, times, intermediate_states, expectation_values, record)` |
+| Implementation | `src/photographiq/cudaq_dynamics.py`; `src/photographiq/backends/cudaq_dynamics.py` re-exports `cudaq_probe`, `cudaq_capabilities` |
+| Backends | Not a backend |
+| CPU / GPU | `reference_evolve`: CPU (SciPy `expm_multiply`). `evolve`: whatever CUDA-Q reports in `record` (never run here) |
+| Assumptions | hbar = 2, q = a + a^dag, p = -i (a - a^dag). Each generator matches the `native-fock` gate up to a global phase (the native Gaussian gates fix the phase by a real positive vacuum amplitude). Lindblad loss with collapse operator sqrt(gamma) a matches the native loss channel with T = exp(-gamma t). Without `cudaq`, `to_cudaq` and `evolve` raise `ImportError` naming CUDA-Q's Linux-only wheels; cudaq older than 0.16 is refused. |
+| Tests | `tests/cudaq_adapter/test_cudaq_adapter.py` (the directory is not called `tests/cudaq`, which would shadow the real package; 29 collected, 28 pass here: every generator against native-fock on enlarged per-mode dimensions to 1.4e-13 with the global phase aligned and sign-flipped generators rejected, Lindblad loss against native-mixed-fock to 6e-17, basis mapping, Hermiticity, missing-cudaq and old-version errors, translation wiring with a fake `cudaq`; `test_real_cudaq_evolve_matches_reference` skips without `cudaq`); `tests/cross_backend/test_registry_planner.py::test_cudaq_is_an_adapter_not_a_backend` |
+| Status | **Implemented but experimental** (conventions validated through the NumPy/SciPy reference path; no CUDA-Q call has run, so CUDA-Q execution is unverified) |
+
+```python
+import numpy as np
+import photographiq as pg
+import photographiq.cudaq_dynamics as cq
+dims = {0: 8}
+psi = np.zeros(8, complex)
+psi[1] = 1
+out = cq.reference_evolve(cq.rotation(0, 0.3), dims, [0.0, 1.0], psi)
+print(np.round(out.state[1], 6), out.record["engine"])
+# (0.955336+0.29552j) numpy-reference
+try:
+    cq.evolve(cq.rotation(0, 0.3), dims, [0.0, 1.0], psi)
+except ImportError:
+    print("ImportError")
+# ImportError
+try:
+    pg.simulate(pg.Pattern(inputs=(0,)), backend="cudaq-dynamics")
+except ValueError as exc:
+    print("ValueError:", exc)
+# ValueError: Unknown backend: 'cudaq-dynamics'. CUDA-Q cannot execute patterns; it is available as the Hamiltonian-level adapter module photographiq.cudaq_dynamics
+```
 
 ### CUDA-Q availability probe
 
 | Field | Value |
 |---|---|
-| Description | Tries `import cudaq` and reports availability, version and the import error. It never raises. |
-| Python API | `photographiq.backends.cudaq_dynamics.cudaq_probe()` returning `{"available", "version", "error"}` |
-| Implementation | `src/photographiq/backends/cudaq_dynamics.py` |
+| Description | `cudaq_probe()` tries `import cudaq` and reports availability, version and the import error (never raises). `cudaq_capabilities()` summarises the documented CUDA-Q Dynamics features the adapter relies on, with `verified: False`. |
+| Python API | `photographiq.cudaq_dynamics.cudaq_probe()`, `cudaq_capabilities()` (also importable from `photographiq.backends.cudaq_dynamics`) |
+| Implementation | `src/photographiq/cudaq_dynamics.py` |
 | Backends | Not a backend |
-| CPU / GPU | CPU only (an import attempt) |
+| CPU / GPU | CPU only |
 | Assumptions | Any import exception is reported as `"<Type>: <message>"`. |
-| Tests | `tests/cross_backend/test_registry_planner.py::test_cudaq_absent_raises_import_error`. Only the absent branch runs here; the installed branch, where construction raises `NotImplementedError`, has not been exercised. |
-| Status | **Implemented but experimental** (only the CUDA-Q-absent path is tested) |
+| Tests | `tests/cross_backend/test_registry_planner.py::test_cudaq_reported_without_claiming_execution`, `::test_cudaq_is_an_adapter_not_a_backend` |
+| Status | **Implemented but experimental** |
 
 ```python
-from photographiq.backends.cudaq_dynamics import cudaq_probe
+from photographiq.cudaq_dynamics import cudaq_probe
 print(cudaq_probe())
 # {'available': False, 'version': None, 'error': "ModuleNotFoundError: No module named 'cudaq'"}
-```
-
-### Documented CUDA-Q Dynamics capabilities (unverified)
-
-| Field | Value |
-|---|---|
-| Description | A static summary of what the CUDA-Q Dynamics documentation says it provides: bosonic operators, per-mode truncation, unitary and density-matrix evolution, Lindblad dynamics, schedules, the `dynamics` target. It also lists what PhotoGraphiQ does not provide on CUDA-Q. |
-| Python API | `photographiq.backends.cudaq_dynamics.cudaq_capabilities()` returning `{"installed", "verified": False, "documented": {...}, "not_provided_by_photographiq": [...]}` |
-| Implementation | `src/photographiq/backends/cudaq_dynamics.py` |
-| Backends | Not a backend |
-| CPU / GPU | CPU only (returns a dictionary) |
-| Assumptions | The entries are documentation, not verified behaviour (`verified` is always `False`). Convention warnings for any future translation: CUDA-Q truncates each mode to a local dimension, while PhotoGraphiQ truncates the total photon number; CUDA-Q documents position = (a^dag + a)/2, while PhotoGraphiQ uses hbar=2, q = a + a^dag. |
-| Tests | `tests/cross_backend/test_registry_planner.py::test_cudaq_reported_without_claiming_execution` |
-| Status | **Implemented but experimental** (descriptive only; nothing has been run against CUDA-Q) |
-
-```python
-from photographiq.backends.cudaq_dynamics import cudaq_capabilities
-caps = cudaq_capabilities()
-print(caps["installed"], caps["verified"], caps["not_provided_by_photographiq"])
-# False False ['pattern execution', 'homodyne/photon-counting conditioning', 'total-photon-number truncation']
-```
-
-### `cudaq-dynamics` backend (pattern execution on CUDA-Q)
-
-| Field | Value |
-|---|---|
-| Description | Registry entry (`bosonic-dynamics` representation, declared `device="gpu"`, per-mode truncation and time-discretised ODE integration as declared approximations) for a backend whose construction always raises. |
-| Python API | `photographiq.simulate(pattern, backend="cudaq-dynamics", cutoff=c)`, `photographiq.backends.cudaq_dynamics.CudaqDynamicsBackend(cutoff=None)` |
-| Implementation | `src/photographiq/backends/cudaq_dynamics.py`, `src/photographiq/registry.py` |
-| Backends | `cudaq-dynamics` (placeholder; `capabilities` is empty) |
-| CPU / GPU | No execution on any device |
-| Assumptions | Without `cudaq`: `simulate` raises `ImportError("Backend 'cudaq-dynamics' is unavailable: requires the optional package 'cudaq' (CUDA-Q publishes Linux wheels only)")`, and direct construction raises `ImportError` mentioning CUDA-Q and WSL2. With `cudaq` importable, construction raises `NotImplementedError("CUDA-Q Dynamics execution of PhotoGraphiQ patterns is not implemented: ...")`. `select_backend` never chooses it, because its capabilities are empty. |
-| Tests | `tests/cross_backend/test_registry_planner.py` (`test_cudaq_reported_without_claiming_execution`, `test_cudaq_absent_raises_import_error`) |
-| Status | **Unsupported** |
-
-```python
-import photographiq as pg
-print(pg.describe_backend("cudaq-dynamics")["unavailable_reason"])
-# Python package 'cudaq' is not installed
-try:
-    pg.simulate(pg.Pattern(inputs=(0,)), backend="cudaq-dynamics", cutoff=4)
-except ImportError as exc:
-    print(type(exc).__name__, exc)
-# ImportError Backend 'cudaq-dynamics' is unavailable: requires the optional package 'cudaq' (CUDA-Q publishes Linux wheels only)
 ```
 
 ## 17. Sampling algorithms
@@ -3247,12 +3303,12 @@ print(S.pnr_probability(pure, [1, 1, 0], method="pure"),
 | Field | Value |
 |---|---|
 | Description | Probability of a click pattern (0 = no click, 1 = at least one photon). With clicked set `S` and dark set `Z`: `P(S) = P_Z ([S empty] + sum_{T subset S} (-1)^{abs(T)} w_T)`, where each vacuum-projection term enters through its deviation `w_T = expm1(...)` from 1. This is equal to `p_0 ltor(O_S, gamma'_S)`. |
-| Python API | `photographiq.sampling.threshold_probability(state, clicks, *, backend="auto", precision=None, return_error=False)`; returns a float, or `(value, relative_error)` with `return_error=True` (section 20). |
+| Python API | `photographiq.sampling.threshold_probability(state, clicks, *, backend="auto", precision=None, rtol=1e-6, return_error=False, return_info=False)`; returns a float, `(value, relative_error)` with `return_error=True`, or `(value, ThresholdInfo)` with `return_info=True` (section 20). `precision` is `None` (double), an `int` number of digits (mpmath) or `"auto"` (double, recomputed in mpmath when needed; section 20). |
 | Implementation | `src/photographiq/sampling/gbs.py` (`_dark_conditioned`, `_vacuum_sum`, `_sum_bound`, `_threshold_double`, `_vacuum_sum_mp`); native sum `threshold_vacuum_sum` in `cpp/src/sampling/torontonian.cpp`. |
 | Backends | Standalone module; `backend=` selects native or NumPy summation and is validated on every path, including `precision=` (`ValueError("Unknown backend ...")`; `backend="native"` raises `ImportError` without the native extension even with `precision=`); `precision=` uses mpmath (section 20). |
 | CPU / GPU | CPU (C++/OpenMP or NumPy; mpmath is pure Python). |
 | Assumptions | Cost `2^{clicks}` small determinants or eigenvalue problems. The dark-mode conditioning reuses one Cholesky factor of `M_ZZ` (`scipy.linalg.cho_solve`). The alternating sum loses digits as the number of clicks grows and `P` shrinks; see the rounding bound in section 20. Clicks must be 0/1 (`ValueError("Threshold patterns contain only 0 and 1")`). Both summation paths raise `ValueError("Conditioned covariance block is not positive definite")` when a block `I + E_T` is not positive definite (native: C++ `PhysicsError`, a `std::invalid_argument`; NumPy: an eigenvalue `<= -1`; before the fix the NumPy path returned `nan`). The native kernel also raises `ValueError("Too many clicked modes")` above 40 clicked modes; the NumPy path has no mode limit. A non-positive-definite block cannot arise from a valid `GaussianState`, whose constructor rejects covariances that violate `V + i Omega >= 0`. |
-| Tests | `tests/sampling/test_sampling_gbs.py::test_two_mode_squeezed_vacuum_closed_form` (`P(0,0) = 1/cosh^2 r` to `rel=1e-12`), `::test_coherent_state_is_poissonian`, `::test_pnr_matches_independent_fock_construction` (sums of Fock-space PNR probabilities over the click support, `abs=1e-12`), `::test_matches_piquasso_gaussian_simulation` (Piquasso `get_threshold_detection_probability`, `abs=1e-13`), `::test_threshold_normalization_and_vacuum_inclusion_exclusion` (inclusion-exclusion over `GaussianState.overlap` with vacuum, `abs=1e-13`), `::test_python_vacuum_sum_raises_like_native_for_non_positive_blocks` (same message on both backends), `::test_threshold_precision_validates_backend`. |
+| Tests | `tests/sampling/test_sampling_gbs.py::test_two_mode_squeezed_vacuum_closed_form` (`P(0,0) = 1/cosh^2 r` to `rel=1e-12`), `::test_coherent_state_is_poissonian`, `::test_pnr_matches_independent_fock_construction` (sums of Fock-space PNR probabilities over the click support, `abs=1e-12`), `::test_matches_piquasso_gaussian_simulation` (Piquasso `get_threshold_detection_probability`, `abs=1e-13`), `::test_threshold_normalization_and_vacuum_inclusion_exclusion` (inclusion-exclusion over `GaussianState.overlap` with vacuum, `abs=1e-13`), `::test_python_vacuum_sum_raises_like_native_for_non_positive_blocks` (same message on both backends), `::test_threshold_precision_validates_backend`. Accuracy matrix: `benchmarks/gaussian_boson_sampling/threshold_reference_matrix.py` against an independent 40-digit mpmath implementation, 382 cases (section 20 and [GBS threshold accuracy](validation/gbs-threshold-accuracy.md)). |
 | Status | **Implemented and validated** |
 
 ```python
@@ -3491,8 +3547,8 @@ print(abs(S.hafnian(a, backend="native") - S.hafnian(a, backend="python")) < 1e-
 | Backends | `backend="native"`, `"python"`; with `precision=`, the estimate is `P_Z mp.eps sum_T abs(1 + w_T)`. It does not strictly cover rounding in the conditioning step, which is negligible at 30 or more digits. |
 | CPU / GPU | CPU only. |
 | Assumptions | The conditioning part (`C`, `eps_Z`) is a derived first-order bound. Finite differences check the click-sensitivity inequality, which at the vacuum is tight to within 1.37x. The alternating-sum part `S` is first-order and empirical: it is calibrated against mpmath, not proven. The factor `max(1, 16 / sqrt(2^k - 1))` is a calibration for 1 to 8 clicks, where the per-term error of the eigensolver otherwise exceeded the model by up to 3.9x. It is 1.002 at k = 8 and 1 from k = 9. With this factor, the sum error stayed below 0.52 of its share in 4140 random states on both backends (k = 1-9, squeezing 5e-5 to 2, transmissivity 0.5-1, with and without displacement). A fresh check found the total error below 0.43 of `B` in 4000 further evaluations. The bound is relative to the covariance and mean as stored: rounding of the stored covariance is not included, the same contract as `precision=`. It is loose for strong squeezing, up to about 6e4 times the old estimate (`norm(V_c) Tr abs(dV_c)` term), so `B / abs(P) > 1e-6` can warn for small but accurate probabilities of strongly squeezed states. The bound is conservative. The orchestrator's measurements put it at 180x to 6e4x the actual error on realistic states. A check made for this section on 37 random states (4-10 modes, squeezing 0.2-1.5, transmissivity 0.5-1, 1-8 clicks, native backend, against `precision=30`) gave 20x to 1.1e4x, with a median of 400x. On the three 24/28/32-mode `threshold_mp_reference.py` cases (r = 0.5, eta = 0.9, 12/14/16 clicks) it is 480x to 1260x the actual error against the 50-digit references; there the relative bound is 1.4e-4, 2.0e-2 and 3.6. On the 16-mode / 8-click test case it is 7.7x the old estimate (1.98e-5 instead of 2.58e-6), against an actual relative error of 2.0e-6. |
-| Tests | `tests/sampling/test_sampling_gbs.py::test_threshold_rounding_bound_holds_against_multiprecision` (12 cases x 2 backends against `precision=30`: small squeezing, displaced, large squeezing (1.2), lossless displaced, no dark modes, three zero-probability patterns, and few clicks (k = 1, 2, 3) at squeezing below 0.01; asserts `abs(value - ref) <= B` and `error == B / abs(value)`); `::test_threshold_flags_negative_and_zero_results`; `::test_conditional_click_sensitivity_bounds` (central differences on 12 random states, and the vacuum value `dF/dV_qq = 1/4` against the bound 0.34). `::test_threshold_error_estimate_bounds_multiprecision_reference` (16 modes, 8 clicks, r = 0.2, eta = 0.9, reference `P = 1.1329737713467e-09` from `precision=30`; asserts `1e-6 < error < 3e-5`, that the warning is issued, and `abs(value - ref) <= error * ref`). Its upper limit was raised from `1e-5` to `3e-5`, and the docstring gives the reason: the limit only caps how pessimistic the bound may be, and the bound now also covers dark-mode conditioning and eigensolver rounding, which the earlier, tighter estimate (2.6e-6) missed. No honest bound fits under 1e-5 on that case, because the old estimate plus the exact per-term rounding already fills that budget. All 63 tests in `tests/sampling/test_sampling_gbs.py` pass on both backends. |
-| Status | **Implemented but experimental** (the alternating-sum part of the bound, including the factor `max(1, 16 / sqrt(2^k - 1))`, is calibrated against mpmath, not proven) |
+| Tests | `tests/sampling/test_sampling_gbs.py::test_threshold_rounding_bound_holds_against_multiprecision` (12 cases x 2 backends against `precision=30`: small squeezing, displaced, large squeezing (1.2), lossless displaced, no dark modes, three zero-probability patterns, and few clicks (k = 1, 2, 3) at squeezing below 0.01; asserts `abs(value - ref) <= B` and `error == B / abs(value)`); `::test_threshold_flags_negative_and_zero_results`; `::test_conditional_click_sensitivity_bounds` (central differences on 12 random states, and the vacuum value `dF/dV_qq = 1/4` against the bound 0.34). `::test_threshold_error_estimate_bounds_multiprecision_reference` (16 modes, 8 clicks, r = 0.2, eta = 0.9, reference `P = 1.1329737713467e-09` from `precision=30`; asserts `1e-6 < error < 3e-5`, that the warning is issued, and `abs(value - ref) <= error * ref`). Its upper limit was raised from `1e-5` to `3e-5`, and the docstring gives the reason: the limit only caps how pessimistic the bound may be, and the bound now also covers dark-mode conditioning and eigensolver rounding, which the earlier, tighter estimate (2.6e-6) missed. No honest bound fits under 1e-5 on that case, because the old estimate plus the exact per-term rounding already fills that budget. All 63 tests in `tests/sampling/test_sampling_gbs.py` pass on both backends. **Reference matrix (2026-11-12):** `benchmarks/gaussian_boson_sampling/threshold_reference_matrix.py` compared both backends with an independent 40-digit mpmath implementation (separate code from `precision=`) on 382 cases: 6 to 24 modes, 1 to 16 clicks, r from 0.05 to 1.5, transmissivity 0.5 to 1, with and without displacement, plus 22 zero-probability patterns. The bound held in every case on both backends (`abs(double - ref) <= B + reference uncertainty`). Its looseness `B / actual` has median 620 (native) and 1100 (Python), ranging from 5.2 to 8.7e6 (native) and 12 to 1.3e7 (Python); it is tightest at small squeezing and few clicks and loosest at large squeezing. No warning was missed: every case with relative error above 1e-6 warned (80/80 native, 72/72 Python), with 37 native and 45 Python false alarms. Double precision failed (relative error above 1e-6) in 80 of 360 random cases (native) and 72 (Python), all at r <= 0.5 with many clicks; Piquasso 8.0.1 fails in the same regime (82 of 360) and returned 0.0 for 14 nonzero probabilities without a warning. Data: `benchmarks/gaussian_boson_sampling/results/threshold_reference_matrix_20261111-233720.json`; see [GBS threshold accuracy](validation/gbs-threshold-accuracy.md). |
+| Status | **Implemented but experimental** (the alternating-sum part of the bound, including the factor `max(1, 16 / sqrt(2^k - 1))`, is calibrated against mpmath, not proven; it held on all 382 reference-matrix cases) |
 
 Example: see the `ThresholdPrecisionWarning` example below.
 
@@ -3505,7 +3561,7 @@ Example: see the `ThresholdPrecisionWarning` example below.
 | Implementation | `src/photographiq/sampling/gbs.py` (`threshold_probability`) |
 | Backends | All threshold paths (native, Python, mpmath). |
 | CPU / GPU | CPU only. |
-| Assumptions | Relative threshold fixed at `1e-6`; depends on the bound of the previous entry. Examples on `product = apply_loss(squeezed_interferometer_state([0.5, 0.0], np.eye(2)), 0.9)`, a lossy squeezed mode next to a vacuum mode. Pattern `(0, 1)` gives `-4.93e-17` with `B = 1.9e-31` and warns "negative beyond". That value is exact for the stored covariance, because the rounded variance `0.9 + 0.1` of mode 1 is below the vacuum. Before the fix this pattern gave no warning. Pattern `(1, 1)` gives exactly 0 (`error = inf`) and warns "consistent with zero", where the old warning was the generic one. `threshold_distribution` and `sample_threshold` can emit the warning once per pattern. Because the bound is loose for strongly squeezed states, case (3) can fire for small but accurate probabilities there. |
+| Assumptions | Relative threshold `1e-6`, or `rtol` with `precision="auto"`; depends on the bound of the previous entry. On the 382-case reference matrix no warning was missed (every case above 1e-6 relative error warned), and 37 native / 45 Python warnings were false alarms with actual errors between 3.5e-11 and 8.2e-7, the cost of the bound's margin. Examples on `product = apply_loss(squeezed_interferometer_state([0.5, 0.0], np.eye(2)), 0.9)`, a lossy squeezed mode next to a vacuum mode. Pattern `(0, 1)` gives `-4.93e-17` with `B = 1.9e-31` and warns "negative beyond". That value is exact for the stored covariance, because the rounded variance `0.9 + 0.1` of mode 1 is below the vacuum. Before the fix this pattern gave no warning. Pattern `(1, 1)` gives exactly 0 (`error = inf`) and warns "consistent with zero", where the old warning was the generic one. `threshold_distribution` and `sample_threshold` can emit the warning once per pattern. Because the bound is loose for strongly squeezed states, case (3) can fire for small but accurate probabilities there. |
 | Tests | `tests/sampling/test_sampling_gbs.py::test_threshold_flags_negative_and_zero_results` (both backends: `(0, 1)` warns "negative beyond"; `(1, 1)` and a TMSV value of `-2.5e-17` inside its bound warn "consistent with zero within"; an ordinary TMSV `(1, 1)` stays silent); `::test_threshold_error_estimate_bounds_multiprecision_reference` (`pytest.warns(ThresholdPrecisionWarning, match="precision=")`; the test passes, see the previous entry). |
 | Status | **Implemented but experimental** (cases (1) to (3) are triggered by the calibrated bound of the previous entry) |
 
@@ -3529,9 +3585,9 @@ print(p, err, caught[0].category.__name__)
 |---|---|
 | Description | Evaluates the dark-mode-conditioned inclusion-exclusion sum in mpmath with the requested number of decimal digits instead of double precision. |
 | Python API | `photographiq.sampling.threshold_probability(state, clicks, *, precision=<digits>)`; optional extra `photographiq[precision]` (`mpmath>=1.3`). |
-| Implementation | `src/photographiq/sampling/gbs.py` (`_vacuum_sum_mp`) |
+| Implementation | `src/photographiq/sampling/gbs.py` (`_vacuum_sum_mp`; since 2026-11-12 it walks the 2^k subsets depth first and extends one Cholesky factor per added mode, O(k^2) multiprecision operations per subset instead of a fresh determinant) |
 | Backends | mpmath only for the evaluation. `backend=` is still validated: an unknown name raises `ValueError("Unknown backend ...")`, and `backend="native"` raises `ImportError` if the native extension is missing. Before the fix, `precision=20, backend="bogus"` returned a value. |
-| CPU / GPU | CPU only (pure Python, `2^clicks` multiprecision determinants; slow). |
+| CPU / GPU | CPU only (pure Python and single threaded; the incremental Cholesky path is much faster than the former determinant-per-subset path, but 16 clicks still take minutes per probability; timings are in [GBS threshold accuracy](validation/gbs-threshold-accuracy.md), not here). |
 | Assumptions | `precision` must be an `int >= 16` (`ValueError("precision is a number of decimal digits >= 16")`); `ImportError` with an install hint if mpmath is missing. The covariance and mean are used exactly as stored in double precision, so the result is exact for the stored state, not for the ideal one. The returned error estimate `P_Z mp.eps sum_T abs(1 + w_T)` does not strictly include rounding in the conditioning step, which is negligible at 30 or more digits. |
 | Tests | `tests/sampling/test_sampling_gbs.py::test_threshold_multiprecision_matches_closed_forms` (TMSV `P(0,0) = 1/cosh^2 r`, `P(1,1)`, coherent-state click product, all to `rel=1e-15`; rejects `precision=8`), `::test_threshold_precision_validates_backend`; used as the reference in `::test_threshold_rounding_bound_holds_against_multiprecision` and `::test_threshold_error_estimate_bounds_multiprecision_reference` (both pass). `benchmarks/gaussian_boson_sampling/threshold_mp_reference.py` is a separate 50-digit reference for benchmark cases. |
 | Status | **Implemented and validated** |
@@ -3544,9 +3600,37 @@ print(S.threshold_probability(state, [1] * 8 + [0] * 8, precision=30))
 # 1.1329737713467033e-09
 ```
 
+### Adaptive precision (`precision="auto"`, `ThresholdInfo`)
+
+| Field | Value |
+|---|---|
+| Description | Evaluates in double precision first and recomputes in mpmath only when the double bound exceeds the tolerance (`B > rtol abs(P)`). The number of digits is chosen from the measured cancellation, `ceil(log10(X / max(abs(P), B)) + log10(1/rtol)) + 10` (20 to 400), where `X = P_Z (2^k + sum_T abs(w_T))` is the term scale of the mpmath sum; if mpmath's own estimate still exceeds `rtol`, it runs once more with more digits. `return_info=True` reports which path ran. |
+| Python API | `photographiq.sampling.threshold_probability(state, clicks, *, precision="auto", rtol=1e-6, return_info=False)`; `photographiq.sampling.ThresholdInfo(path, digits, error, double_error)` (`path` is `"double"` or `"mpmath"`; `digits` is `None` on the double path; `error` is what `return_error=True` returns; `double_error` is the double bound `B / abs(P)`, `None` for `precision=<digits>`) |
+| Implementation | `src/photographiq/sampling/gbs.py` (`threshold_probability`, `ThresholdInfo`, `_threshold_double`, `_vacuum_sum_mp`) |
+| Backends | Standalone sampling module; the double pass uses `backend=` (native or NumPy), the mpmath pass needs the `precision` extra |
+| CPU / GPU | CPU only |
+| Assumptions | Opt-in: existing calls and return types are unchanged. In `auto` mode `rtol` (in (0, 1), else `ValueError`) is also the warning threshold. `return_info` cannot be combined with `return_error` (`ValueError`). A missing mpmath raises `ImportError` naming `photographiq[precision]` on every `auto` call, not only on calls that need it, so behaviour does not depend on the data. Zero patterns with `B = 0` stay in double and return the exact 0; other zero patterns can only be shown consistent with zero. The mpmath estimate `P_Z mp.eps sum abs(terms)` ignores the error growth of the Cholesky factorisation; the `+10`-digit margin covered it on the reference matrix. `threshold_distribution` and `sample_threshold` do not take `precision`. On the 382-case reference matrix, 133 cases went to mpmath (25 to 51 digits) and 249 stayed in double; the largest relative error against the 40-digit reference was 3.1e-8 on the double path and 7.6e-10 on the mpmath path (109 cases with reference uncertainty below 1e-10), below `rtol = 1e-6` everywhere, no random case warned, and the actual error never exceeded the mpmath estimate. |
+| Tests | `tests/sampling/test_sampling_gbs.py::test_threshold_auto_precision_stays_in_double_when_accurate` (both backends, including a zero pattern), `::test_threshold_auto_precision_switches_to_mpmath` (16 modes, 8 clicks, r = 0.2: double bound 2e-5 above `rtol`, mpmath path; `rtol=1e-4` stays in double; `rtol=0` raises), `::test_threshold_precision_without_mpmath_names_the_extra`; reference matrix `benchmarks/gaussian_boson_sampling/threshold_reference_matrix.py` (Section 32) |
+| Status | **Implemented and validated** |
+
+```python
+import numpy as np
+from photographiq import sampling as S
+state = S.squeezed_interferometer_state(np.full(16, 0.2), S.haar_unitary(16, rng=3), 0.9)
+clicks = [1] * 8 + [0] * 8
+p, info = S.threshold_probability(state, clicks, precision="auto", return_info=True)
+print(p, info.path, info.digits, f"{info.double_error:.1e}", f"{info.error:.1e}")
+tmsv = S.squeezed_interferometer_state([0.8, -0.8], np.array([[1, -1], [1, 1]]) / np.sqrt(2))
+print(S.threshold_probability(tmsv, [0, 0], precision="auto", return_info=True)[1])
+# 1.1329737713467033e-09 mpmath 28 2.0e-05 4.3e-18
+# ThresholdInfo(path='double', digits=None, error=5.912305713032234e-15, double_error=5.912305713032234e-15)
+```
+
+The first value equals the `precision=30` reference of the previous entry; no `ThresholdPrecisionWarning` is issued, because the returned value meets `rtol`.
+
 ## 21. Measurement calculus
 
-`photographiq.calculus` provides a qubit measurement calculus after Danos, Kashefi and Panangaden (DKP, J. ACM 54, 8 (2007)) and a command-level view of CV patterns. All of it is pure Python/NumPy, runs on the CPU, and does not go through a simulation backend. No CV graphical calculus is implemented (no CV-ZX, no graphical symplectic algebra); on the CV side there are only `command_view` and `ideal_limit_check`.
+`photographiq.calculus` provides a qubit measurement calculus after Danos, Kashefi and Panangaden (DKP, J. ACM 54, 8 (2007)) and a command-level view of CV patterns. All of it is pure Python/NumPy, runs on the CPU, and does not go through a simulation backend. On the CV side there are `command_view` and `ideal_limit_check` (this section) and, since 2026-11-12, the restricted Gaussian graphical calculus of Menicucci, Flammia and van Loock for pure Gaussian states (`GaussianGraph`, Section 22). No general CV-ZX calculus or graphical symplectic algebra is implemented.
 
 ### Qubit command patterns (`QubitPattern`)
 
@@ -3763,7 +3847,7 @@ print(rep.max_matrix_error < 1e-14, rep.noise_decreasing, [round(p.noise_norm, 4
 
 ## 22. Local Clifford transformations
 
-`photographiq.calculus.clifford` implements the single-qubit Clifford group, qubit graph states, local complementation with the local Clifford that implements it, and an exhaustive LC-equivalence search for small labelled graphs. Local complementation of CV (weighted) graph states is explicitly not implemented.
+`photographiq.calculus.clifford` implements the single-qubit Clifford group, qubit graph states, local complementation with the local Clifford that implements it, and an exhaustive LC-equivalence search for small labelled graphs. Local complementation of CV (weighted) graph states is explicitly not implemented. For CV graph states, `photographiq.calculus.gaussian_graph` (last entry of this section) implements how Gaussian unitaries and ideal homodyne measurements rewrite the complex adjacency matrix of a pure Gaussian state. It is placed here because it is the CV counterpart of local graph-state transformations; it is not a ZX calculus (Section 23).
 
 ### Single-qubit Clifford group (`Clifford`)
 
@@ -3852,9 +3936,47 @@ except NotImplementedError as e:
 # Not implemented: qubit LC does not transfer to CV graph states.
 ```
 
+### Gaussian graphical calculus (`GaussianGraph`)
+
+| Field | Value |
+|---|---|
+| Description | The graphical calculus for Gaussian pure states of Menicucci, Flammia and van Loock (PRA 83, 042335 (2011), arXiv:1007.0725; "MFvL"). A zero-mean pure Gaussian state is a complex symmetric matrix Z = V + iU with U > 0, read as the adjacency matrix of a graph with complex edge weights and self-loops; the displacement is tracked exactly in a separate mean vector. Gaussian unitaries act by the linear-fractional update Z' = (C + D Z)(A + B Z)^-1 (MFvL Eq. 2.24), an ideal q homodyne deletes the vertex, and an ideal p homodyne is a Schur-complement update with the conditional mean tracked. In hbar = 2 conventions the covariance is [[U^-1, U^-1 V], [V U^-1, U + V U^-1 V]] (qq/pp blocks), twice MFvL Eq. 2.19. **This is not a CV-ZX calculus**: it has no spiders, no rewrite system beyond these rules, and no link to the qubit ZX diagrams of Section 23. |
+| Python API | `photographiq.calculus.GaussianGraph(Z, nodes=None, mean=None)` (immutable; `.Z`, `.nodes`, `.mean`); constructors `vacuum(nodes)`, `squeezed(nodes, r)`, `cluster(adjacency, r, nodes=None)` (Z = A + i e^{-2r} I, MFvL Eq. 2.29), `from_covariance(cov, nodes=None, mean=None, rtol=1e-9)`, `from_state(GaussianState)`; `to_covariance()`, `to_state()`, `edges(atol=0)`; gates `apply(S, nodes)`, `cz(u, v, g)`, `quadratic_phase(node, s)`, `rotate(node, t)`, `squeeze(node, r)`, `beamsplitter(u, v, t)`; measurements `measure_q(node, m)`, `measure_p(node, m)`; `tensor(other)`, `relabel(mapping)`, `reorder(nodes)` |
+| Implementation | `src/photographiq/calculus/gaussian_graph.py` |
+| Backends | Backend-independent; the convenience gates use the same matrices as `GaussianBackend`, and `to_state()` returns a `GaussianState` for any Gaussian backend |
+| CPU / GPU | CPU (NumPy, dense O(N^3)) |
+| Assumptions | hbar = 2, interleaved (q0, p0, ...), vacuum covariance I. Pure states only: `from_covariance` raises `ValueError("covariance is not a pure Gaussian state (mixed states have no Gaussian graph) ...")` when the rebuilt covariance differs by more than `rtol`; Z must be complex symmetric with Im Z positive definite, gates must be real symplectic, gate modes distinct, `tensor` labels disjoint and outcomes finite (each `ValueError`). Ideal (r = inf) graphs are rejected; ideal limits are studied as r -> inf sequences. Sequential p measurements through very strongly squeezed intermediate states lose relative accuracy in Im Z (at r = 8 the wire-shortening noise term is accurate to about 1%). Not implemented: mixed states, finite-efficiency or noisy homodyne, heterodyne and general-dyne, non-Gaussian elements (photon counting, cubic phase, GKP, cats), general CV-ZX or graphical symplectic algebra (for example Booth-Carette-Comfort), translation to qubit ZX, and the MFvL H-graph constructions, closest-cluster optimisation and entanglement measure. The determinism question for CV graphs is answered by CV flow (Section 26), not by this calculus. Guide: [Gaussian graphical calculus](user-guide/gaussian-graphical-calculus.md). |
+| Tests | `tests/calculus/test_gaussian_graph.py` (213 tests, references computed by direct Gaussian numerics in `photographiq.gaussian` and `GaussianBackend`, not by the module): `cov -> Z -> cov` and `Z -> cov -> Z` round trips, every gate and `apply` with random symplectics against `GaussianBackend` covariance and mean, `measure_q` / `measure_p` / rotated homodyne against `GaussianBackend.measure` conditioning, the MFvL closed-form local rules (Eqs. 3.12, 3.14, 3.16, 3.18, 3.20, 3.23) against Eq. 2.24, purity `(Omega cov)^2 = -I`, the cluster state against backend `prepare` plus `entangle`, the wire-shortening limit, and rejection of mixed, unphysical and non-symplectic inputs. Largest error 2e-14 over 200 random seeds (tolerance 1e-10). |
+| Status | **Implemented and validated** |
+
+```python
+import numpy as np
+from photographiq.backends.gaussian import GaussianBackend
+from photographiq.calculus import GaussianGraph
+from photographiq.measurements import Homodyne
+wire = np.diag([1.0, 1.0, 1.0], 1); wire = wire + wire.T
+g = GaussianGraph.cluster(wire, r=1.0)                       # Z = A + i e^{-2r} I
+h = g.squeeze(0, 0.3).cz(0, 3, -0.7).measure_p(1, 0.5)      # Eq. 2.24 updates, then Schur complement
+backend = GaussianBackend(); backend.set_state(g.to_state())
+backend.squeeze(0, 0.3); backend.entangle(0, 3, -0.7)
+backend.measure(1, Homodyne(), np.pi / 2, outcome=0.5)
+s = backend.get_state()
+print(h.nodes, np.abs(h.to_covariance() - s.covariance).max() < 1e-12, np.abs(h.mean - s.mean).max() < 1e-12)
+for r in (1.0, 4.0):                                        # wire shortening: Z' -> single edge -1
+    print(r, np.round(GaussianGraph.cluster(wire, r).measure_p(1, 0.0).measure_p(2, 0.0).Z, 6).tolist())
+try:
+    GaussianGraph.from_covariance(2 * np.eye(2))
+except ValueError as e:
+    print(str(e).split(":")[0])
+# (0, 2, 3) True True
+# 1.0 [[0.268236j, (-0.982014+0j)], [(-0.982014+0j), 0.268236j]]
+# 4.0 [[0.000671j, (-1+0j)], [(-1+0j), 0.000671j]]
+# covariance is not a pure Gaussian state (mixed states have no Gaussian graph)
+```
+
 ## 23. ZX calculus
 
-`photographiq.calculus.zx` implements qubit ZX diagrams with exact tensor semantics, including scalars, and a small set of sound rewrites. Each rewrite checks its precondition, multiplies `Diagram.scalar` by the exact factor and appends a `RewriteStep` to `Diagram.trace`. The implemented rules (with their `trace` names) are: spider fusion (`fuse`), self-loop removal (`self-loop`), identity removal including Hadamard-Hadamard cancellation through edge composition (`identity`), colour change (`color-change`), Pauli state copy (`copy`), the 2x2 bialgebra (`bialgebra`), Hopf (`hopf`), and cancellation of parallel Hadamard edges (`hadamard-pair`). Not implemented (no API exists): pi-copy, ZX local complementation and pivoting, circuit extraction, full simplification strategies, and any CV-ZX identities. The bialgebra of other arities is rejected with `RewriteError`. Tensor evaluation is dense and exponential.
+`photographiq.calculus.zx` implements qubit ZX diagrams with exact tensor semantics, including scalars, and a small set of sound rewrites. Each rewrite checks its precondition, multiplies `Diagram.scalar` by the exact factor and appends a `RewriteStep` to `Diagram.trace`. The implemented rules (with their `trace` names) are: spider fusion (`fuse`), self-loop removal (`self-loop`), identity removal including Hadamard-Hadamard cancellation through edge composition (`identity`), colour change (`color-change`), Pauli state copy (`copy`), the 2x2 bialgebra (`bialgebra`), Hopf (`hopf`), and cancellation of parallel Hadamard edges (`hadamard-pair`). Not implemented (no API exists): pi-copy, ZX local complementation and pivoting, circuit extraction, full simplification strategies, and any CV-ZX identities. The bialgebra of other arities is rejected with `RewriteError`. Tensor evaluation is dense and exponential. The only CV graphical calculus in the package is the restricted Gaussian graphical calculus `GaussianGraph` (Section 22); it is not a CV-ZX calculus and has no translation to or from these qubit diagrams.
 
 ### ZX diagrams and tensor semantics (`Diagram`)
 
@@ -3966,7 +4088,7 @@ print(np.allclose(s.matrix(), run_branch(p, {1: 1}).operator), len(bd.spiders())
 
 ## 24. Flow and gflow
 
-Flow analysis works on the typed graph IR `photographiq.ir.OpenGraph`. `photographiq.flows.analyze` applies only the flow notion that belongs to the graph's `Model`: causal flow, gflow and Pauli flow (GF(2), unweighted) for `Model.QUBIT`, and real-linear CV flow for `Model.CV_GAUSSIAN` (section 26). Every finder returns a `FlowAnalysisResult` and checks its certificate with an independent verifier before returning it. A result of `not_certified` is never a proof of nondeterminism. The Graphix comparison benchmark is `benchmarks/graphix/bench_graphix_mbqc.py` (see `benchmarks/README.md`); no timing numbers are quoted here. The guide page is [MBQC calculus and flows](user-guide/mbqc-calculus.md).
+Flow analysis works on the typed graph IR `photographiq.ir.OpenGraph`. `photographiq.flows.analyze` applies only the flow notion that belongs to the graph's `Model`: causal flow, gflow and Pauli flow (GF(2), unweighted) for `Model.QUBIT`, and real-linear CV flow for `Model.CV_GAUSSIAN` (section 26). Every finder returns a `FlowAnalysisResult` and checks its certificate with an independent verifier before returning it. A result of `not_certified` is never a proof of nondeterminism; for CV graphs `diagnostics['decision'] == "impossible"` proves only that no CV flow exists for the given weights (Section 26). The Graphix comparison benchmark is `benchmarks/graphix/bench_graphix_mbqc.py` (see `benchmarks/README.md`); no timing numbers are quoted here. The guide page is [MBQC calculus and flows](user-guide/mbqc-calculus.md).
 
 ### Typed open graph IR (`OpenGraph`)
 
@@ -4147,19 +4269,21 @@ print(r.correction_map[0], is_deterministic(pattern_from_flow(og, r)).determinis
 
 ## 26. CV determinism
 
-For `Model.CV_GAUSSIAN` graphs, determinism means the real-linear CV flow of Booth and Markham (Quantum 7, 1146 (2023), Defs. 5-6 and Lemma 7) on the weighted adjacency, with homodyne measurements and displacement feed-forward. The qubit GF(2) rules are never used as a CV certificate. CV determinism holds only in the infinite-squeezing limit; at finite squeezing the package reports the added noise and the remaining outcome dependence. Non-Gaussian and GKP-logical graphs are not analysed.
+For `Model.CV_GAUSSIAN` graphs, determinism means the real-linear CV flow of Booth and Markham (Quantum 7, 1146 (2023), Defs. 5-6 and Lemma 7) on the weighted adjacency, with homodyne measurements and displacement feed-forward. The qubit GF(2) rules are never used as a CV certificate. CV determinism holds only in the infinite-squeezing limit; at finite squeezing the package reports the added noise and the remaining outcome dependence. Non-Gaussian and GKP-logical graphs are not analysed. The restricted Gaussian graphical calculus (`GaussianGraph`, Section 22) describes how measurements rewrite a pure Gaussian graph state, but it does not decide determinism; that is the job of CV flow.
+
+Since 2026-11-12 every CV result is classified in `diagnostics['decision']` as **certified** (with the regimes it covers in `certificate['regimes']`: `ideal_limit`, `finite_squeezing` or both), **impossible** (proof in `diagnostics['proof']`: a combinatorial obstruction, an exact rank test with rational witnesses in `diagnostics['witnesses']`, or a float64 backward-error statement) or **numerically_uncertain**. The statuses are unchanged except one behaviour change: a float64 rank decision that falls in the uncertain band now gives `unknown`, where it previously gave `not_certified`. On 600 adversarial graphs the defaults give 150 certified, 408 impossible and 42 unknown; in that run `exact=True` certified 41 of the 42 (27 for the ideal limit only, 14 in both regimes). The remaining dynamic-range case is resolved by a rule added afterwards and covered by a regression test; the 600-graph run was not repeated after that change. Evidence: [CV-flow robustness](validation/cv-flow-robustness.md).
 
 ### `FlowAnalysisResult` (fields and statuses)
 
 | Field | Value |
 |---|---|
-| Description | Common frozen result of every flow and determinism analysis. Fields: `status`, `model`, `algorithm`, `measurement_order` (total order, earliest first), `layers` (partial order as layers of measured nodes; outputs are not listed), `correction_map`, `certificate`, `assumptions`, `diagnostics`; property `certified`. Statuses: `certified` (certificate found and independently verified), `not_certified` (no certificate for the named flow notion; `diagnostics['complete']` says whether the finder is complete (all finders here report `True`; the CV search is complete in exact arithmetic and up to `tolerance` numerically), and this is never a proof of nondeterminism), `unknown` (undecided, e.g. the numerical check failed or could not run), `unsupported` (model/algorithm outside scope). |
+| Description | Common frozen result of every flow and determinism analysis. Fields: `status`, `model`, `algorithm`, `measurement_order` (total order, earliest first), `layers` (partial order as layers of measured nodes; outputs are not listed), `correction_map`, `certificate`, `assumptions`, `diagnostics`; property `certified`. Statuses: `certified` (certificate found and independently verified), `not_certified` (no certificate for the named flow notion; `diagnostics['complete']` says whether the finder is complete (all finders here report `True`; the CV search is complete in exact arithmetic), and this is never a proof of nondeterminism), `unknown` (undecided, e.g. an uncertain float64 rank decision, or the numerical check failed or could not run), `unsupported` (model/algorithm outside scope). CV results also carry `diagnostics['decision']` (`certified`, `impossible`, `numerically_uncertain`), `diagnostics['proof']` for impossible results, `diagnostics['rank_decisions']` (rule, uncertain band, margin in decades, `decided_by`) and `certificate['regimes']` for certified ones. |
 | Python API | `photographiq.flows.FlowAnalysisResult(status, model, algorithm, measurement_order=(), layers=(), correction_map={}, certificate={}, assumptions=(), diagnostics={})`; `.certified`; `photographiq.flows.result.STATUSES`; `photographiq.flows.result.unsupported(model, algorithm, reason)` |
 | Implementation | `src/photographiq/flows/result.py` |
 | Backends | Backend-independent |
 | CPU / GPU | CPU only (pure Python) |
 | Assumptions | Any other status raises `ValueError`. Qubit `correction_map`: `{node: {'x': frozenset, 'z': frozenset}}`. CV `correction_map`: `{node: {target: {'q': cq, 'p': cp}}}`, meaning `q += cq*m`, `p += cp*m` with `m = record / sin(theta)`. |
-| Tests | `tests/flow/test_flows_cv.py::test_random_weighted_graphs_existence_matches_brute_force_over_orders` (`certified` iff a brute-force search over all orders finds a certificate), `::test_weights_decide_cv_flow_on_the_same_skeleton`, `::test_corrections_respect_layers_and_large_squeezing_is_undecided_not_an_error` (`unknown`), `::test_large_squeezing_is_certified_or_undecided_never_failed` (`certified` or `unknown`, never a failed check); `tests/flow/test_flows_qubit.py::test_existence_agrees_with_graphix`, `::test_no_flow_is_not_reported_as_nondeterminism`, `::test_model_and_input_validation` (`unsupported`) |
+| Tests | `tests/flow/test_flows_cv.py::test_random_weighted_graphs_existence_matches_brute_force_over_orders` (`certified` iff a brute-force search over all orders finds a certificate), `::test_weights_decide_cv_flow_on_the_same_skeleton`, `::test_corrections_respect_layers_and_large_squeezing_is_undecided_not_an_error` (`unknown`), `::test_large_squeezing_is_certified_or_undecided_never_failed` (`certified` or `unknown`, never a failed check); `tests/flow/test_flows_cv_robustness.py` (25 tests: decisions, proofs, witnesses and regimes on the graph set of [CV-flow robustness](validation/cv-flow-robustness.md)); `tests/flow/test_flows_qubit.py::test_existence_agrees_with_graphix`, `::test_no_flow_is_not_reported_as_nondeterminism`, `::test_model_and_input_validation` (`unsupported`) |
 | Status | **Implemented and validated** |
 
 Example: see the `find_cv_flow` example below.
@@ -4169,12 +4293,12 @@ Example: see the `find_cv_flow` example below.
 | Field | Value |
 |---|---|
 | Description | Searches an admissible measurement order by backward real-linear layering, re-certifies it with the independent supplied-order checker `certify_cv_flow`, builds the corrected finite-squeezing pattern from exactly the reported correction map, and (by default) verifies determinism numerically. Also reached through `analyze(og)` or `analyze(og, "cv", ...)`. |
-| Python API | `photographiq.flows.find_cv_flow(og, *, tolerance=1e-10, verify=True, seed=0, verify_tolerance=1e-9) -> FlowAnalysisResult`; `certificate` keys `total_order` (a `cvflow.CVFlow`), `layer_corrections`, `shears`, `checks`, `determinism` (the `verify_cv_determinism` report) |
-| Implementation | `src/photographiq/flows/cv.py`, `src/photographiq/cvflow.py` |
-| Backends | Order search and certificate: backend-independent (NumPy least squares). Verification: `gaussian_channel` and `simulate(backend="gaussian")` |
-| CPU / GPU | CPU (NumPy) |
-| Assumptions | Homodyne measurements at angle `atan2(1, shear)` on a weighted graph; unit-efficiency detection; missing resource squeezing defaults to r = 1.0. The search is complete in exact arithmetic and exact up to `tolerance` numerically. Nodes in one layer do not correct each other. `certified` requires the algebraic certificate and, if `verify=True`, the numerical check; a failed or impossible numerical check gives `unknown`, never `certified`. The numerical check runs only at moderate resource squeezing. On the four-node unit-weight wire of the example (shift 3), re-run after the fix, every r from 2.5 to 3.4 in steps of 0.1 is certified, and so is r = 3.3 + 1e-12. Every r from 3.5 to 4.5, and r = 3.999999999999, 4.000000000000002, 5 and 6, gives `unknown` (check could not run: the raised-squeezing covariances fail the absolute -1e-7 tolerance of `GaussianState.validate` in float64). Before the fix r = 3.3 gave `unknown` because the numerical check failed. The fixer's sweep on the wire without shears had the same false negative at r = 3.1. The cause was a fixed absolute bound on the law-of-total-covariance check, now replaced (see `verify_cv_determinism`). Near r = 3.5 to 4.5 the outcome can flip between certified and could-not-run for tiny changes of r (for example, without shears, 4.0 against 4.000000000000002); either result is safe. On random weighted graphs the could-not-run regime was seen from about r = 2.9. Treat `unknown` at high squeezing as undecided. `verify=False` adds the assumption "numerical determinism verification skipped". Missing `HomodyneSpec` or a non-positive `tolerance` raises `ValueError`. O(n^4). |
-| Tests | `tests/flow/test_flows_cv.py::test_wire_order_search_matches_teleportation_closed_form` (closed form `gaussian.wire_channel`, atol 1e-12), `::test_weighted_two_node_correction_closed_form` (closed form `[[0, -1/w], [w, 0]]`), `::test_multimode_graph_teleportation_matches_closed_form` (Booth-Markham closed-form `C_Z(A) (+) F D(s)`), `::test_random_weighted_graphs_existence_matches_brute_force_over_orders` (brute force over all orders), `::test_cv_flow_and_qubit_gflow_are_different_notions`, `::test_found_order_is_admissible_where_supplied_reverse_order_is_not` |
+| Python API | `photographiq.flows.find_cv_flow(og, *, tolerance=1e-10, verify=True, seed=0, verify_tolerance=1e-9, shift=3.0, exact=None) -> FlowAnalysisResult`; `analyze(og, shift=..., exact=...)` forwards both; `certificate` keys `total_order` (a `cvflow.CVFlow`), `layer_corrections`, `shears`, `checks`, `determinism` (the `verify_cv_determinism` report), `regimes`; `diagnostics` keys `decision`, `proof`, `witnesses`, `rank_decisions`, `correction_gain_max` |
+| Implementation | `src/photographiq/flows/cv.py`, `src/photographiq/flows/_exact.py` (exact rational re-check), `src/photographiq/cvflow.py` |
+| Backends | Order search and certificate: backend-independent (NumPy SVD, `fractions.Fraction` for the exact path). Verification: `gaussian_channel` and `simulate(backend="gaussian")` |
+| CPU / GPU | CPU (NumPy; pure Python for the exact path) |
+| Assumptions | Homodyne measurements at angle `atan2(1, shear)` on a weighted graph; unit-efficiency detection; missing resource squeezing defaults to r = 1.0. Rank decisions are made on the power-of-two-equilibrated, normalised correction matrix: a singular value (or appended-row quantity) at most `max(dims) * eps` is zero, at least `sqrt(eps)` is nonzero, and anything in between is uncertain; `tolerance` is kept only for backward compatibility. `exact=None` (default) redoes the search in exact rational arithmetic on graphs of at most 40 nodes (`EXACT_NODE_LIMIT`) when a decision is uncertain or no flow is found; `exact=True` makes every decision exact at any size and also runs `exact_ideal_limit` (next entry); `exact=False` is float64 only. `shift` is the squeezing increment of the float64 determinism check (levels r, r + shift, r + 2 shift); keep r + 2 shift below about 9. Nodes in one layer do not correct each other. `certified` requires the algebraic certificate and, if `verify=True`, the float64 or exact ideal-limit check; `regimes['finite_squeezing']` is claimed only from a float64 check that ran at that squeezing. A failed or impossible numerical check gives `unknown`, never `certified`, and so does an uncertain rank decision that was not re-checked exactly (before 2026-11-12 it gave `not_certified`). Corrections with gains above 1/sqrt(eps) are reported in `diagnostics['correction_gain_max']` with a `diagnostics['warning']` entry; only the ideal-limit statement is then meaningful. The following measurements at the default `shift=3.0` predate the new options. The numerical check runs only at moderate resource squeezing. On the four-node unit-weight wire of the example (shift 3), re-run after the fix, every r from 2.5 to 3.4 in steps of 0.1 is certified, and so is r = 3.3 + 1e-12. Every r from 3.5 to 4.5, and r = 3.999999999999, 4.000000000000002, 5 and 6, gives `unknown` (check could not run: the raised-squeezing covariances fail the absolute -1e-7 tolerance of `GaussianState.validate` in float64). Before the fix r = 3.3 gave `unknown` because the numerical check failed. The fixer's sweep on the wire without shears had the same false negative at r = 3.1. The cause was a fixed absolute bound on the law-of-total-covariance check, now replaced (see `verify_cv_determinism`). Near r = 3.5 to 4.5 the outcome can flip between certified and could-not-run for tiny changes of r (for example, without shears, 4.0 against 4.000000000000002); either result is safe. On random weighted graphs the could-not-run regime was seen from about r = 2.9. Treat `unknown` at high squeezing as undecided. `verify=False` adds the assumption "numerical determinism verification skipped". Missing `HomodyneSpec` or a non-positive `tolerance` raises `ValueError`. O(n^4). |
+| Tests | `tests/flow/test_flows_cv.py::test_wire_order_search_matches_teleportation_closed_form` (closed form `gaussian.wire_channel`, atol 1e-12), `::test_weighted_two_node_correction_closed_form` (closed form `[[0, -1/w], [w, 0]]`), `::test_multimode_graph_teleportation_matches_closed_form` (Booth-Markham closed-form `C_Z(A) (+) F D(s)`), `::test_random_weighted_graphs_existence_matches_brute_force_over_orders` (brute force over all orders), `::test_cv_flow_and_qubit_gflow_are_different_notions`, `::test_found_order_is_admissible_where_supplied_reverse_order_is_not`; `tests/flow/test_flows_cv_robustness.py` (`test_impossible_graphs_carry_exact_witnesses` (witnesses re-checked independently with `Fraction`), `test_combinatorial_obstruction`, `test_near_singular_weights_are_uncertain_or_resolved_exactly`, `test_rounding_level_determinant_float_and_exact_answers_differ_and_are_labelled`, `test_extreme_weights_float_check_cannot_run_exact_check_certifies`, `test_long_wires_and_grids_certified_in_both_regimes`, `test_large_squeezing_certified_with_smaller_shift` (unit wire r = 3.5 to 4.5 with `shift=1.5`, kappa = 1 +- 0.05), `test_very_large_squeezing_ideal_limit_only_by_exact_check`, `test_random_graphs_exact_and_float_agree`, `test_float64_false_negatives_resolved_by_exact_check`, `test_failed_float_checks_are_named_and_never_overruled_for_extra_directions`) |
 | Status | **Implemented and validated** |
 
 ```python
@@ -4191,11 +4315,54 @@ print(flows.analyze(og, "gflow").status)
 # unsupported
 ```
 
+### Exact CV-flow re-check and exact ideal-limit check (`exact=`, `exact_ideal_limit`)
+
+| Field | Value |
+|---|---|
+| Description | Separates three outcomes that float64 alone cannot keep apart: a flow that is impossible, a decision float64 cannot make, and a certificate with the regime it covers. The exact path repeats the layered search in rational arithmetic (`fractions.Fraction`; every float64 weight is a dyadic rational, so the conversion is exact and the result is a proof for the given weights) and returns rational witnesses y with y^T A[W, C] = 0 and y_u != 0 when a node cannot be corrected. `exact_ideal_limit` propagates linear Wigner variables exactly (inputs; anti-squeezed q and squeezed p per resource node), applies the CZ gates, records and corrections, and checks the flow condition, rank L_Q = abs(O) - abs(I), full rank of the record rows R_Q, and S Omega S^T = Omega when abs(O) = abs(I). These conditions imply every criterion of `verify_cv_determinism` and do not depend on r, so they settle the ideal limit at any squeezing. |
+| Python API | `photographiq.flows.find_cv_flow(og, exact=None \| True \| False, shift=3.0)`, `photographiq.flows.analyze(og, exact=..., shift=...)`; `photographiq.flows.exact_ideal_limit(og, layers, exact_vectors) -> dict`; `photographiq.flows.cv.EXACT_NODE_LIMIT` (40) |
+| Implementation | `src/photographiq/flows/_exact.py`, `src/photographiq/flows/cv.py` (`_search`, `exact_ideal_limit`) |
+| Backends | Backend-independent (no simulation) |
+| CPU / GPU | CPU only (pure Python rational arithmetic) |
+| Assumptions | The exact ideal-limit conditions are sufficient, not necessary: a failure means "not shown". The exact check overrules a float64 check only when the float64 check failed `decay` alone or counted fewer singular directions than expected (the dynamic-range artifact); more singular directions (missing or wrong corrections) are never overruled, and any other disagreement gives `unknown`. The exact certificate covers the exact rational correction map; the reported float `correction_map` is its rounding. `finite_squeezing` is never certified exactly; it remains a float64 statement at the given r. A float64 "impossible" on a graph above 40 nodes, or with `exact=False`, is a backward-error statement (weights perturbed by at most `max(dims) * eps` admit no flow), not an exact proof. The exact path costs about O(n^4) rational operations on growing integers (seconds for a 31-node wire) and is not meant for hundreds of nodes. Unit-efficiency detection and lossless resources are assumed. A smaller `shift` reaches larger r in the float64 check (`shift=1.5` certifies the unit wire up to r = 4.5 in the tests) but measures the decay exponent over a shorter range. |
+| Tests | `tests/flow/test_flows_cv_robustness.py::test_exact_check_matches_closed_form_and_rejects_wrong_corrections` (reproduces the closed-form wire map; rejects every scaled correction vector, including a factor 1 + 2^-60), `::test_impossible_graphs_carry_exact_witnesses`, `::test_very_large_squeezing_ideal_limit_only_by_exact_check` (unit wire at r = 8), `::test_random_graphs_exact_and_float_agree`, `::test_float64_false_negatives_resolved_by_exact_check`, `::test_failed_float_checks_are_named_and_never_overruled_for_extra_directions` |
+| Status | **Implemented and validated** |
+
+```python
+import networkx as nx
+from photographiq import flows
+from photographiq.ir import HomodyneSpec, Model, OpenGraph
+def cv_graph(edges, inputs, outputs, squeezing=0.8):
+    g = nx.Graph(); g.add_weighted_edges_from(edges)
+    return OpenGraph(Model.CV_GAUSSIAN, g, inputs, outputs,
+                     {n: HomodyneSpec() for n in g if n not in outputs}, {n: squeezing for n in g})
+def bridge(d):   # inputs u, v; outputs a, b; correction matrix [[1, 1], [1, 1 + d]], det = d
+    return cv_graph([("u", "a", 1.0), ("u", "b", 1.0), ("v", "a", 1.0), ("v", "b", 1.0 + d)], ("u", "v"), ("a", "b"))
+r = flows.analyze(bridge(0.0))
+print(r.status, r.diagnostics["decision"], r.diagnostics["witnesses"])
+for exact in (None, True):
+    r = flows.analyze(bridge(1e-10), exact=exact)
+    print(exact, r.status, r.diagnostics["decision"], sorted(r.certificate.get("regimes", {})))
+print(f"{r.diagnostics['correction_gain_max']:.1e}", "warning" in r.diagnostics)
+w = cv_graph([(i, i + 1, 1.0) for i in range(4)], (0,), (4,), squeezing=4.0)
+for shift in (3.0, 1.5):
+    r = flows.find_cv_flow(w, shift=shift)
+    print(shift, r.status, sorted(r.certificate.get("regimes", {})))
+# not_certified impossible {'u': {'u': Fraction(-1, 2), 'v': Fraction(1, 2)}, 'v': {'u': Fraction(-1, 2), 'v': Fraction(1, 2)}}
+# None unknown numerically_uncertain []
+# True certified certified ['ideal_limit']
+# 1.0e+10 True
+# 3.0 unknown []
+# 1.5 certified ['finite_squeezing', 'ideal_limit']
+```
+
+The singular bridge is provably impossible (rational witnesses). The bridge with determinant 1e-10 is `unknown` by default (the exact re-check finds the flow, but the float64 re-certification fails) and certified for the ideal limit only with `exact=True`; its correction gain of about 1/det is reported with a `diagnostics['warning']` entry (not a Python warning). The unit wire at r = 4 cannot be checked in float64 with the default `shift=3.0` and is certified in both regimes with `shift=1.5`.
+
 ### CV order search (`search_cv_order`)
 
 | Field | Value |
 |---|---|
-| Description | The backward layered search alone: a node joins the next-earlier layer when `A[W, C] c = e_u` is solvable by least squares within `tolerance` (A the weighted adjacency, W the unsolved nodes, C the solved non-input nodes). |
+| Description | The backward layered search alone: a node joins the next-earlier layer when `A[W, C] c = e_u` is solvable (A the weighted adjacency, W the unsolved nodes, C the solved non-input nodes). Since 2026-11-12 solvability is decided by the float64 rank test with margins of `find_cv_flow` (relative thresholds on the equilibrated matrix), not by `tolerance`, which is kept for backward compatibility; this function does not re-check uncertain decisions (use `find_cv_flow`). |
 | Python API | `photographiq.flows.search_cv_order(og, *, tolerance=1e-10) -> (layers, vectors, unsolved, max_residual)` |
 | Implementation | `src/photographiq/flows/cv.py` |
 | Backends | Backend-independent |
@@ -4224,7 +4391,7 @@ print(layers, unsolved)
 | Implementation | `src/photographiq/flows/cv.py` |
 | Backends | `gaussian` (NumPy) through `simulate(..., backend="gaussian", measurement_outcomes=...)` and `analysis.gaussian_channel` |
 | CPU / GPU | CPU (NumPy) |
-| Assumptions | hbar = 2, vacuum covariance I. The postselected runs are a numerical certificate only; they are not deterministic execution. At finite r the conditional output still depends on the records (reported as `finite_squeezing_gain`), and the added noise is reported separately from the ideal map. Directions whose variance diverges as r -> infinity are projected out before the outcome dependence is assessed. Loss or detector inefficiency would break the two-term noise model and fail the check. Probes are random directions from `seed`. The law-of-total-covariance check is `spread_min >= -(scale + spread_rounding)` with `scale = tolerance * max(magnitude, abs(N))`. The term `spread_rounding = len(commands) * dim(total) * eps * peak`, reported per level as `levels[k]['spread_rounding']`, uses `peak`, the largest absolute covariance entry of any intermediate state in the conditional runs. A `GaussianBackend` subclass records `peak` without changing the arithmetic. The old fixed absolute bound (-1e-9) caused false negatives at r of about 3.1 to 3.3, where the quantity's float64 rounding is about eps x e^{2(r + 2 shift)}. `spread_rounding` is a heuristic first-order estimate, not a rigorous bound. On the wire the true error is 0.004 to 0.03 of it (against a 90-digit mpmath model). On adversarial graphs the error reached about 1670 times it, through anti-squeezed output directions and ill-conditioned Schur complements, but the `scale` term absorbed it in every case: `spread_min` never fell below -0.023 (scale + allowance) on 300 graphs, and there was no false negative on 600 more. Loosening this check cannot certify a wrong pattern, because the identity holds for every Gaussian pattern. Nondeterminism is caught by the unchanged decay-exponent and singular-direction checks: wrong corrections (p or q scaled by 0, 0.5, 1 + 1e-3 or 1 + 1e-6, q and p swapped) are still rejected at r = 3.1, 3.3 and 3.45. Example allowances on the wire with shears 0.2, -0.4, 0.7 and r = 0.6 are 4.3e-14, 1.7e-11 and 6.7e-9 at the three levels; at r + 6 of about 9.3 the allowance is about 1.5e-6, so the check is nearly blind there. The other checks still use absolute float64 tolerances, and `GaussianState.validate` (absolute -1e-7) makes the raised levels fail above about r = 3.5. There the result is `unknown` ("could not run"), and near the threshold it can flip with tiny changes of r (see `find_cv_flow`). A few adversarial graphs (7 of 600, for example r = 2.49 with abs(S) = 283) are certified algebraically but give a decay exponent of about 0.65, so the result is `unknown`. These are slow-decay false negatives of the decay check. The `covariance_outcome_dependence` check measures exactly 0 and needs no allowance. |
+| Assumptions | hbar = 2, vacuum covariance I. The postselected runs are a numerical certificate only; they are not deterministic execution. At finite r the conditional output still depends on the records (reported as `finite_squeezing_gain`), and the added noise is reported separately from the ideal map. Directions whose variance diverges as r -> infinity are projected out before the outcome dependence is assessed. Loss or detector inefficiency would break the two-term noise model and fail the check. Probes are random directions from `seed`. The law-of-total-covariance check is `spread_min >= -(scale + spread_rounding)` with `scale = tolerance * max(magnitude, abs(N))`. The term `spread_rounding = len(commands) * dim(total) * eps * peak`, reported per level as `levels[k]['spread_rounding']`, uses `peak`, the largest absolute covariance entry of any intermediate state in the conditional runs. A `GaussianBackend` subclass records `peak` without changing the arithmetic. The old fixed absolute bound (-1e-9) caused false negatives at r of about 3.1 to 3.3, where the quantity's float64 rounding is about eps x e^{2(r + 2 shift)}. `spread_rounding` is a heuristic first-order estimate, not a rigorous bound. On the wire the true error is 0.004 to 0.03 of it (against a 90-digit mpmath model). On adversarial graphs the error reached about 1670 times it, through anti-squeezed output directions and ill-conditioned Schur complements, but the `scale` term absorbed it in every case: `spread_min` never fell below -0.023 (scale + allowance) on 300 graphs, and there was no false negative on 600 more. Loosening this check cannot certify a wrong pattern, because the identity holds for every Gaussian pattern. Nondeterminism is caught by the unchanged decay-exponent and singular-direction checks: wrong corrections (p or q scaled by 0, 0.5, 1 + 1e-3 or 1 + 1e-6, q and p swapped) are still rejected at r = 3.1, 3.3 and 3.45. Example allowances on the wire with shears 0.2, -0.4, 0.7 and r = 0.6 are 4.3e-14, 1.7e-11 and 6.7e-9 at the three levels; at r + 6 of about 9.3 the allowance is about 1.5e-6, so the check is nearly blind there. The other checks still use absolute float64 tolerances, and `GaussianState.validate` (absolute -1e-7) makes the raised levels fail above about r = 3.5. There the result is `unknown` ("could not run"), and near the threshold it can flip with tiny changes of r (see `find_cv_flow`). Since 2026-11-12, `find_cv_flow` and `analyze` forward `shift` to this check, and `exact=True` replaces it by the exact ideal-limit check, which does not depend on r (previous entries). A few adversarial graphs (7 of 600, for example r = 2.49 with abs(S) = 283) are certified algebraically but give a decay exponent of about 0.65, so the result is `unknown`. These are slow-decay false negatives of the decay check. The `covariance_outcome_dependence` check measures exactly 0 and needs no allowance. |
 | Tests | `tests/flow/test_flows_cv.py::test_wire_order_search_matches_teleportation_closed_form` (matrix and noise against the closed form `gaussian.wire_channel`, atol 1e-12; decay exponent within 0.05 of kappa = 1; finite-squeezing gain > 0.1 reported), `::test_broken_feed_forward_fails_ideal_limit_check` (four broken feed-forward variants rejected), `::test_random_certified_graphs_pass_ideal_limit_verification`, `::test_corrections_respect_layers_and_large_squeezing_is_undecided_not_an_error` (r in {6, 6 + 1e-12, 7.3, 8, 10}, where e^{-2(r+6)} is below eps x e^{2(r+6)}: `unknown`, "could not run", a recorded `ValueError`), `::test_large_squeezing_is_certified_or_undecided_never_failed` (r = 3.0 to 4.5 plus 3.3 + 1e-12, 4.0 and 4.000000000000002: certified with exponent about 1 or "could not run", never a failed check; r < 3.45 must be certified; fails on the old code), `::test_wrong_correction_is_still_rejected_at_large_squeezing` (r = 3.1 and 3.3, q corrections scaled by 0, 0.5 and 1 + 1e-3: not deterministic, extra singular directions). `::test_conditional_simulation_agrees_with_unconditional_channel_on_average` (4000 sampled-outcome trajectories against `gaussian_channel`) checks the conditional Gaussian simulation that the verifier relies on, not the verifier itself. |
 | Status | **Implemented and validated** |
 
@@ -4631,9 +4798,9 @@ print({k: round(v, 4) for k, v in out["joint_probabilities"].items()})
 | Field | Value |
 |---|---|
 | Description | Varies one parameter (`cutoff`, `grid_points`, `peaks`, `peak_width` or `envelope`) and reports, for each value: decoded probabilities, per-cell residual moments, code-subspace leakage, fidelity to the previous value and stabilizers. |
-| Python API | `photographiq.measurement_convergence(code, values, *, axis="cutoff", basis="Z", coefficients=(1, 0)) -> GKPMeasurementStudy(axis, rows)` |
+| Python API | `photographiq.measurement_convergence(code, values, *, axis="cutoff", basis="Z", coefficients=(1, 0), backend="piquasso-fock") -> GKPMeasurementStudy(axis, rows)` |
 | Implementation | `src/photographiq/gkp_studies.py` |
-| Backends | Runs the stabilizer snapshot on `piquasso-fock` (hard-coded), so Piquasso must be installed. |
+| Backends | `backend=` prepares the codeword state: `piquasso-fock` (default, kept for reproducibility of recorded studies) or `native-fock` (since 2026-11-12, no Piquasso needed); any other name raises `ValueError("backend must be piquasso-fock or native-fock")`. The two give identical study rows in the example below. |
 | CPU / GPU | CPU |
 | Assumptions | The study never certifies convergence. Width and envelope sweeps change the physical resource; they are not numerical refinements. At least two strictly increasing values are required. |
 | Tests | `tests/gkp/decoders/test_soft_and_studies.py::test_measurement_study_tracks_more_than_projection_mass` and `::test_invalid_decoder_and_study_requests` |
@@ -4642,11 +4809,14 @@ print({k: round(v, 4) for k, v in out["joint_probabilities"].items()})
 ```python
 import photographiq as pg
 code = pg.GKPCode(0.55, 0.5, 24, 6, 2049)
-study = pg.measurement_convergence(code, (24, 32), basis="Z")
-for row in study.rows:
-    print(row["cutoff"], [round(x, 5) for x in row["probabilities"]], row["fidelity_to_previous"] is None)
-# 24 [0.97733, 0.02267] True
-# 32 [0.97729, 0.02271] False
+for backend in ("piquasso-fock", "native-fock"):
+    study = pg.measurement_convergence(code, (24, 32), basis="Z", backend=backend)
+    for row in study.rows:
+        print(backend, row["cutoff"], [round(x, 5) for x in row["probabilities"]], row["fidelity_to_previous"] is None)
+# piquasso-fock 24 [0.97733, 0.02267] True
+# piquasso-fock 32 [0.97729, 0.02271] False
+# native-fock 24 [0.97733, 0.02267] True
+# native-fock 32 [0.97729, 0.02271] False
 ```
 
 ### Finite-ancilla syndrome extraction and correction (`correction_pattern`)
@@ -5167,9 +5337,9 @@ Example: see `tests/ml/training/test_diagnostics.py::test_fisher_psd_and_refinem
 | Implementation | `src/photographiqml/validation.py` |
 | Backends | MentPy `numpy-sv` (optional extra `ml-validation`, `mentpy==0.1.0a15`); `contract_branch` is pure NumPy and limited to 16 graph nodes |
 | CPU / GPU | CPU |
-| Assumptions | MentPy is not installed in this environment: the helpers raise `ImportError("MentPy validation requires photographiq[ml-validation]")`, so the MentPy comparison was not executed here. Only full connectivity is supported (`ValueError`). `contract_branch` is itself a reference implementation used to check `MuTA.run`; nothing checks it against a third implementation in this environment. |
-| Tests | `tests/ml/muta/test_core_dependency.py::test_core_without_mentpy_import` and `::test_mentpy_helpers_name_the_install_extra` (run here; they check only the missing-dependency path); `tests/ml/mentpy_reference/` (skipped here, run in `.github/workflows/ml-reference.yml`); `contract_branch` is exercised by `tests/ml/muta/test_logical.py::test_all_adaptive_branches` |
-| Status | **Implemented but experimental** |
+| Assumptions | MentPy is not installed in the project environment used for this document: there the helpers raise `ImportError("MentPy validation requires photographiq[ml-validation]")`. On 2026-11-12 the comparison was run in an isolated Windows venv with MentPy 0.1.0a15 from the CI's exact commit `63c3d83e` (non-editable install, `numba` 0.67.0): see [PhotoGraphiQML MentPy validation](validation/photographiqml-mentpy-validation.md). Only full connectivity is supported (`ValueError`). `contract_branch` is itself a reference implementation used to check `MuTA.run`. |
+| Tests | `tests/ml/muta/test_core_dependency.py::test_core_without_mentpy_import` and `::test_mentpy_helpers_name_the_install_extra` (missing-dependency path, run here); `tests/ml/mentpy_reference/` (34/34 passed in the isolated MentPy venv, together with 154/154 of `tests/ml`; skipped in the project venv; also run in `.github/workflows/ml-reference.yml`); `contract_branch` is exercised by `tests/ml/muta/test_logical.py::test_all_adaptive_branches`. Upgraded to validated on 2026-11-12 because the comparison against MentPy, an independent implementation, was executed and passed. |
+| Status | **Implemented and validated** (against MentPy in an isolated environment; not re-run in the project venv) |
 
 Example: see `examples/ml/tutorials/20.py` (requires MentPy).
 
@@ -5459,6 +5629,8 @@ Covers `photographiq.interactive`.
 
 `photographiq.interactive` shows measurement-based computations as staged, immutable views of an `OpenGraph`: construct, flow, corrections, execution. It also provides scientific plots. Python is the authoritative model: every number is computed by PhotoGraphiQ, and the browser only displays and edits. HTML pages load Cytoscape.js 3.30.2 or Plotly.js 2.35.2 from pinned jsDelivr CDN URLs, or inline a local copy for offline use. The Python `plotly` package is not needed. Static figures use Matplotlib and need no browser. In this section, "validated" means the tests compare what is displayed with an independent PhotoGraphiQ computation (certified flow, simulator records, closed-form physics). See the [interactive visualization guide](user-guide/interactive.md).
 
+**Real-browser verification (2026-11-12).** `scripts/check_interactive_browser.py OUT_DIR [--channel msedge|chrome]` drives the pages with real mouse, wheel and keyboard input through Playwright (1.65.1, using the installed Edge 157 or Chrome; no browser download), takes screenshots and compares what is drawn with the Python model, the flow result, the `Pattern` commands and a real `simulate` trace. It writes `*.html`, `*.png` and `report.json` and exits 1 on any failure; `tests/visualization/test_interactive_browser_playwright.py` runs the same checks and skips without Playwright, a browser or Cytoscape.js. All 9 checks pass (node dragging, panning and zooming, edit round trip through `apply_edits`, construction/flow/corrections stages, execution animation, layout scale on small graphs and a 6 x 6 cluster, static SVG/PDF/PNG exports) after four fixes in `src/photographiq/interactive/`: correction-arc labels are no longer struck through by longer arcs (shorter arcs drawn on top, opaque label backgrounds); recorded outcomes of measured nodes are no longer drawn at 50 % opacity; the Selection panel refreshes after an edit; static SVGs declare a sans-serif fallback after DejaVu Sans, so labels no longer fall back to Times. Remaining limits: straight edges and fixed-bend arcs can pass under other nodes (a dependency 0 -> 2 under node 1 reads like 0 -> 1 -> 2; an edge between collinear nodes is hidden), three-line outcome labels overflow the 42 px node, the flow panel can push the execution controls below the fold at 1280 x 800, labels on the 6 x 6 cluster are 8.8 px at default zoom, static `#k` order labels touch correction arcs on the CV wire, overlays are not recomputed after an edit, and touch input, Firefox/WebKit, high-DPI rendering and the Plotly plot pages were not covered by the real-browser check. Evidence and screenshots: [interactive visualization browser check](validation/interactive-visualization-browser.md). The script needs Playwright, which is not a declared extra and is not installed in the project venv, so it was not re-run for this document.
+
 ### Staged graph view (`GraphView`)
 
 | Field | Value |
@@ -5469,7 +5641,7 @@ Covers `photographiq.interactive`.
 | Backends | Independent of backends (display of `OpenGraph`) |
 | CPU / GPU | CPU only (Python); rendering in the viewer's browser |
 | Assumptions | Requesting a stage whose overlay is missing raises `ValueError`. Node labels whose `str()` collide raise `ValueError`. JSON embedded in `<script>` is escaped against `</script>` injection. `show()` writes a temporary `.html` file and opens the default browser. In notebooks the page is shown as a `srcdoc` iframe. |
-| Tests | `tests/visualization/test_interactive_graph.py` (`test_construct_stage_shows_graph_only`, `test_html_is_injection_safe_and_offline_capable`, `test_generated_javascript_parses` (Node.js `--check`)); `tests/visualization/test_interactive_browser.py::test_editor_and_animation_in_browser` (headless Edge/Chrome); `tests/visualization/test_interactive_notebook.py::test_notebook_executes` (`examples/notebooks/interactive_graph_visualization.ipynb`) |
+| Tests | `tests/visualization/test_interactive_graph.py` (`test_construct_stage_shows_graph_only`, `test_html_is_injection_safe_and_offline_capable`, `test_generated_javascript_parses` (Node.js `--check`)); `tests/visualization/test_interactive_browser.py::test_editor_and_animation_in_browser` (headless Edge/Chrome); `tests/visualization/test_interactive_notebook.py::test_notebook_executes` (`examples/notebooks/interactive_graph_visualization.ipynb`); `tests/visualization/test_interactive_browser_playwright.py` and `scripts/check_interactive_browser.py` (real mouse and keyboard input in Edge, 2026-11-12; skip without Playwright) |
 | Status | **Implemented and validated** |
 
 ```python
@@ -5510,8 +5682,8 @@ Example: see `tests/visualization/test_interactive_graph.py::test_pattern_conver
 | Backends | Independent of backends |
 | CPU / GPU | CPU only |
 | Assumptions | Coordinates are display metadata and never change graph semantics. The y axis grows upward. The publication layout reduces edge crossings but does not minimise them. Non-finite positions, missing nodes and an unknown method name (for example `"force_directed"`) raise `ValueError`. Positions for nodes absent from the graph raise `ValueError` in `import_layout`/`apply_edits`, but `manual` and `GraphView(layout=...)` accept them silently. Node labels whose `str()` collide raise `ValueError`, because JSON keys are `str(node)`. The hierarchical layout accepts graphs whose disconnected components have labels that cannot be compared with each other (for example `"a"` next to `0` and `1`). |
-| Tests | `tests/visualization/test_interactive_graph.py` (`test_layouts_are_deterministic_and_semantics_free`, `test_force_layout_seed_and_layered_columns`, `test_tuple_labels_and_layout_files`, `test_hierarchical_layout_accepts_mixed_label_types`) |
-| Status | **Implemented but experimental** (tests check determinism, coverage and that semantics are unchanged; layout quality has no reference) |
+| Tests | `tests/visualization/test_interactive_graph.py` (`test_layouts_are_deterministic_and_semantics_free`, `test_force_layout_seed_and_layered_columns`, `test_tuple_labels_and_layout_files`, `test_hierarchical_layout_accepts_mixed_label_types`); `tests/visualization/test_interactive_browser_playwright.py` and `scripts/check_interactive_browser.py` (real mouse and keyboard input in Edge, 2026-11-12; skip without Playwright): no node or label boxes overlap on the 4-node wire, the 6-node qubit graph and the 6 x 6 cluster (8.8 px labels at default zoom) |
+| Status | **Implemented but experimental** (tests check determinism, coverage and that semantics are unchanged; layout quality has no reference, and edges can pass under nodes) |
 
 ```python
 import photographiq as pg
@@ -5532,7 +5704,7 @@ print(compute_layout(open_graph, "grid").positions[1])
 | Backends | Independent of backends |
 | CPU / GPU | CPU only |
 | Assumptions | No flow is derived here. A model mismatch between the result and the graph, or unknown nodes in the order, layers or corrections, raises `ValueError`. Outcome keys that are not graph nodes are listed in the notes without an arrow. |
-| Tests | `tests/visualization/test_interactive_graph.py` (`test_flow_arrows_equal_reported_dependencies`, `test_flow_result_is_checked_against_graph`, `test_real_flow_analysis_overlays` (output of `photographiq.flows.analyze`)) |
+| Tests | `tests/visualization/test_interactive_graph.py` (`test_flow_arrows_equal_reported_dependencies`, `test_flow_result_is_checked_against_graph`, `test_real_flow_analysis_overlays` (output of `photographiq.flows.analyze`)); `tests/visualization/test_interactive_browser_playwright.py` and `scripts/check_interactive_browser.py` (real mouse and keyboard input in Edge, 2026-11-12; skip without Playwright): drawn dependency arrows equal `flow_arrows()` and the node layers equal `flow.layers` |
 | Status | **Implemented and validated** |
 
 ```python
@@ -5559,7 +5731,7 @@ print(sorted(GraphView(open_graph).with_flow(flow).flow_arrows()))
 | Backends | Independent of backends |
 | CPU / GPU | CPU only |
 | Assumptions | CV flow coefficients refer to m / sin(theta), with theta = atan2(1, k). The overlay multiplies them by sqrt(1 + k^2), so they match raw records in patterns and traces. Pattern feed-forward must be affine in scalar outcomes, checked at random points: non-affine or opaque `CallableExpression` feed-forward raises `ValueError`, and non-scalar outcomes raise `NotImplementedError`. A bare number as a correction raises `TypeError`. |
-| Tests | `tests/visualization/test_interactive_graph.py` (`test_correction_map_normalization`, `test_cv_corrections_equal_certified_flow` (against `photographiq.cvflow.certify_cv_flow`), `test_nonlinear_feed_forward_is_rejected`) |
+| Tests | `tests/visualization/test_interactive_graph.py` (`test_correction_map_normalization`, `test_cv_corrections_equal_certified_flow` (against `photographiq.cvflow.certify_cv_flow`), `test_nonlinear_feed_forward_is_rejected`); `tests/visualization/test_interactive_browser_playwright.py` and `scripts/check_interactive_browser.py` (real mouse and keyboard input in Edge, 2026-11-12; skip without Playwright): drawn arrows and labels equal `pattern_corrections(pattern)` and the outcome-dependent `Displace` commands of the `Pattern`, and shorter arcs are drawn above longer ones (fix F1) |
 | Status | **Implemented and validated** |
 
 ```python
@@ -5587,7 +5759,7 @@ for target, c in view.corrections.items():
 | Backends | Any backend whose `Result` records the pattern's measurements |
 | CPU / GPU | CPU only |
 | Assumptions | Postselected measurements are labelled `[postselected: conditional branch]`, and the page notes "this is one conditional branch, not a deterministic run". With `frame=True` the trace shows the command arguments, not the moment the deferred frame was physically applied. A `Result` that does not record exactly the pattern's measurement keys raises `ValueError`. A trace with nodes absent from the graph is rejected by `with_execution`. |
-| Tests | `tests/visualization/test_interactive_graph.py` (`test_execution_trace_follows_simulator` (simulator records), `test_postselected_branch_is_labelled`); `tests/visualization/test_interactive_browser.py::test_editor_and_animation_in_browser` |
+| Tests | `tests/visualization/test_interactive_graph.py` (`test_execution_trace_follows_simulator` (simulator records), `test_postselected_branch_is_labelled`); `tests/visualization/test_interactive_browser.py::test_editor_and_animation_in_browser`; `tests/visualization/test_interactive_browser_playwright.py` and `scripts/check_interactive_browser.py` (real mouse and keyboard input in Edge, 2026-11-12; skip without Playwright): each step label equals the trace step and each displayed outcome equals `Result.outcomes` to the displayed digits; outcome text stays opaque (fix F2) |
 | Status | **Implemented and validated** |
 
 ```python
@@ -5615,7 +5787,7 @@ print([s.label for s in execution_trace(pattern, post).steps if s.postselected][
 | Backends | Independent of backends |
 | CPU / GPU | CPU only |
 | Assumptions | Edits in the browser are not trusted. `apply_edits` rebuilds the graph through `OpenGraph.from_dict`, so an invalid edit (zero weight, weighted qubit edge, measured output, unknown node) raises as it would in Python. JSON lists used as labels are turned back into tuples. |
-| Tests | `tests/visualization/test_interactive_graph.py` (`test_apply_edits_round_trip_and_revalidation`, `test_tuple_labels_and_layout_files`); `tests/visualization/test_interactive_browser.py::test_editor_and_animation_in_browser` (drives the editor in headless Edge/Chrome; skips without a browser or offline) |
+| Tests | `tests/visualization/test_interactive_graph.py` (`test_apply_edits_round_trip_and_revalidation`, `test_tuple_labels_and_layout_files`); `tests/visualization/test_interactive_browser.py::test_editor_and_animation_in_browser` (drives the editor in headless Edge/Chrome; skips without a browser or offline); `tests/visualization/test_interactive_browser_playwright.py` and `scripts/check_interactive_browser.py` (real mouse and keyboard input in Edge, 2026-11-12; skip without Playwright): edits made with real clicks and typing round-trip through `apply_edits`, an invalid edit is rejected, and the Selection panel refreshes after an edit (fix F3) |
 | Status | **Implemented and validated** |
 
 ```python
@@ -5646,8 +5818,8 @@ except ValueError as exc:
 | Backends | Independent of backends |
 | CPU / GPU | CPU only (Matplotlib; no browser, no pyplot state when saving) |
 | Assumptions | Requires Matplotlib. Text stays text in SVG (`svg.fonttype: none`), and PDF uses Type 42 fonts. Without `path`, the Axes is returned. |
-| Tests | `tests/visualization/test_interactive_graph.py` (`test_static_exports_are_valid_files` (SVG parsed as XML, PDF/PNG signatures, presence of edge and correction elements), `test_static_flow_export`) |
-| Status | **Implemented but experimental** (tests check file validity and element presence, not rendered geometry) |
+| Tests | `tests/visualization/test_interactive_graph.py` (`test_static_exports_are_valid_files` (SVG parsed as XML, PDF/PNG signatures, presence of edge and correction elements), `test_static_flow_export`); `tests/visualization/test_interactive_browser_playwright.py` and `scripts/check_interactive_browser.py` (real mouse and keyboard input in Edge, 2026-11-12; skip without Playwright): the SVG rendered in Edge, the PDF rendered with `pdftoppm` and the PNG were inspected, and the SVG font declaration ends with a generic `sans-serif` fallback (fix F4) |
+| Status | **Implemented but experimental** (automated tests check file validity, element presence and the font fallback; readability was checked by inspection, which is not an independent reference) |
 
 ```python
 import tempfile, pathlib
@@ -5817,7 +5989,7 @@ while a figure is being redesigned.
 |---|---|---|
 | A | `figure_A_complete_architecture` | User API → quantum IR → compiler → backend planner → numerical engines → results → visualization, as labelled bands. PhotoGraphiQML is an extension band on top. Boson sampling and `photographiq.gpu` appear as direct entry points that bypass the planner. |
 | B | `figure_B_cv_mbqc_pipeline` | Input states → graph construction → entanglement → flow/dependency analysis → measurement calculus → execution schedule → measurements → feed-forward → outputs. Quantum and classical paths use different line styles. |
-| C | `figure_C_simulation_architecture` | Python public API, native loader and C++ bindings; native Gaussian, Fock and mixed-Fock simulators; CPU optimization layers (Eigen, OpenMP, compensated summation); GPU module; CUDA-Q probe; sampling kernels. |
+| C | `figure_C_simulation_architecture` | Python public API, native loader and C++ bindings; native Gaussian, Fock and mixed-Fock simulators; CPU optimization layers (Eigen, OpenMP, compensated summation); GPU module; CUDA-Q adapter; sampling kernels. |
 | D | `figure_D_photonic_qml` | A PhotoGraphiQML training iteration: parameterized MuTA pattern → logical or (experimental) physical GKP representation → simulation → observable → loss → finite-difference gradient → optimizer (Adam, SGD, L-BFGS-B; `DiscreteSearch` for physical models) → updated parameters. |
 | E | `figure_E_graph_compilation` | Open graph → flow analysis (causal flow, gflow, Pauli flow, CV flow) → measurement order → corrections → standardization → signal shifting → executable pattern, with qubit and CV routes side by side. |
 | F | `figure_F_boson_sampling` | Fock input → interferometer → output pattern → permanent. Separately, Gaussian state → interferometer → PNR or threshold detection → (loop) hafnian or dark-mode-conditioned threshold probability, with Python and native kernel dispatch. |
@@ -5830,11 +6002,11 @@ at 6.8 in width it fits a standard text page with all text at 6.0 pt or larger.
 Limitations recorded in the captions:
 - **Figure D:** PhotoGraphiQML has no autodiff or parameter-shift gradient, and the physical path is experimental.
 - **Figure E:** no cost-driven pattern optimizer exists, and LC and ZX rewrites are analysis-only.
-- **Figure C:** CUDA-Q is a probe only.
+- **Figure C:** CUDA-Q is an adapter module, not a backend; its CUDA-Q path is unverified.
 
 ## 32. Benchmarks
 
-Every benchmark script lives under `benchmarks/`. The methodology, caveats and output layout are documented in `benchmarks/README.md`, `benchmarks/gpu/README.md` and `benchmarks/graphix/README.md`. This section quotes no timing numbers: final runs on an idle machine are pending, and the `results/superseded/` files must not be cited. Each script compares only implementations that compute the same task on identical inputs and records agreement before timing (`bench_fock.py` has done so since the 2026-11-11 fix). Results are JSON (plus SVG/PDF figures for some scripts) under the script's `results/` directory unless `--output`/`--out` is given.
+Every benchmark script lives under `benchmarks/`. The methodology, caveats and output layout are documented in `benchmarks/README.md`, `benchmarks/gpu/README.md` and `benchmarks/graphix/README.md`. This section quotes no timing numbers. The reference run is the 2026-11-12 reproduction bundle `benchmarks/results_20261112/` (last entry of this section), made with `scripts/reproduce_manuscript.py --mode full` on a nearly idle machine; cite timings from there, not from this document, and never from `results/superseded/`. Each script compares only implementations that compute the same task on identical inputs and records agreement before timing (`bench_fock.py` has done so since the 2026-11-11 fix). Results are JSON (plus SVG/PDF figures for some scripts) under the script's `results/` directory unless `--output`/`--out` is given.
 
 ### Shared benchmark helpers (`bench_common.py`)
 
@@ -5906,6 +6078,34 @@ python benchmarks/gaussian_boson_sampling/threshold_mp_reference.py 8,4,0.9 --ou
 # estimated_relerr_photographiq_native 2.05e-11.
 ```
 
+### Threshold-probability accuracy matrix (`gaussian_boson_sampling/threshold_reference_matrix.py`)
+
+| Field | Value |
+|---|---|
+| Description | Accuracy matrix of GBS threshold probabilities against an independent 40-digit mpmath implementation. Grid: modes {4, 8, 12, 16, 20, 24}, clicks 1 to min(modes, 16), all five squeezings {0.05, 0.2, 0.5, 1.0, 1.5} per (modes, clicks), each with a seeded random transmissivity in {1.0, 0.9, 0.5}, displacement on or off, a seeded Haar interferometer and a random click pattern (360 cases), plus 22 zero-probability cases (a vacuum mode untouched by the interferometer clicks). Per case it records `threshold_probability` on the native and Python backends (value, relative bound, absolute bound B, warning), `precision="auto"` (path, digits, value) and Piquasso `get_threshold_detection_probability` on the identical program. |
+| Python API | `python benchmarks/gaussian_boson_sampling/threshold_reference_matrix.py [--smoke] [--procs N] [--output PATH]` |
+| Implementation | `benchmarks/gaussian_boson_sampling/threshold_reference_matrix.py` (reference: dark-mode Schur complement in mpmath, then a depth-first walk over the 2^k subsets that extends one Cholesky factor per added mode; shares no code with PhotoGraphiQ's `precision=` path) |
+| Backends | PhotoGraphiQ sampling module (native, Python, `auto`), Piquasso 8.0.1, mpmath (extra `precision`), Python multiprocessing |
+| CPU / GPU | CPU only |
+| Assumptions | The reference is evaluated from each library's own stored double-precision covariance and mean, taken exactly; its own uncertainty `10^(3 - 40) sum abs(terms) / abs(P)` is recorded per case (below 1e-10 in 356 of 360 random cases). The bound "holds" when `abs(double - ref) <= B + reference uncertainty`. The full run used 12 processes; the run time is recorded in the result file, not here. Results of the 2026-11-11 run (`results/threshold_reference_matrix_20261111-233720.json`) are summarised in Section 20 and [GBS threshold accuracy](validation/gbs-threshold-accuracy.md). Output defaults to `results/threshold_reference_matrix_<stamp>.json` next to the script. |
+| Tests | None for the script; it is itself a reference computation. The smoke run below checks that it executes. |
+| Status | **Implemented but experimental** (no automated test; the numbers it produces are the evidence for Section 20) |
+
+```bash
+python benchmarks/gaussian_boson_sampling/threshold_reference_matrix.py --smoke --output <scratch>/trm.json
+# [1/42 <elapsed>] m=4 k=1 r=0.05 eta=0.5 disp=0 random: P=6.366e-04 native=1.0218594154096595e-15 held=True/True
+# ... (42 smoke cases; nothing written under benchmarks/)
+```
+
+```python
+import json, sys
+R = json.load(open(sys.argv[1]))["results"]          # the smoke JSON written above
+print(len(R), all(c[b]["bound_held"] for c in R for b in ("native", "python")))
+print(sorted({c["auto"]["path"] for c in R}))
+# 42 True
+# ['double', 'mpmath']
+```
+
 ### Native Gaussian engine (`gaussian/bench_native_gaussian.py`)
 
 | Field | Value |
@@ -5962,12 +6162,42 @@ python benchmarks/gpu/bench_gpu_gaussian.py --smoke --output <scratch>/gpu_smoke
 # gpu_h2d, gpu_d2h; environment includes gpu.device_name and CUDA versions (timings not quoted).
 ```
 
+### GPU batched Fock gates (`gpu/bench_gpu_fock.py`)
+
+| Field | Value |
+|---|---|
+| Description | One local gate on B Fock states in the total-photon basis: `displace` (1-mode matrix from the native `gaussian_unitary`), `cz` (2-mode matrix) and `kerr` (diagonal phase; pure states only), on pure batches `(B, D)` and density-matrix batches `(B, D, D)`. Compared: `native_loop` (the native `apply_pure` / `apply_mixed` / `phase_*` state by state on a fresh copy), `numpy` (`photographiq.gpu.fock` with `device="cpu"`, scipy CSR), `gpu_end_to_end` (NumPy in and out), `gpu_kernel` (device-resident, `on_device=True`, synchronised), `gpu_h2d`, `gpu_d2h`. |
+| Python API | `python benchmarks/gpu/bench_gpu_fock.py [--batches ...] [--mixed-batches ...] [--dtypes complex128 complex64] [--budget S] [--max-bytes B] [--smoke] [--output PATH]` |
+| Implementation | `benchmarks/gpu/bench_gpu_fock.py`; measures `src/photographiq/gpu/fock.py` against `photographiq._native.fock` |
+| Backends | `photographiq.gpu.fock` (CuPy/cuSPARSE and scipy), native Fock kernels |
+| CPU / GPU | GPU via CuPy and CPU (scipy, C++) |
+| Assumptions | Before timing, every implementation's output is compared with the complex128 `native_loop` result (relative to the largest entry) and the run stops above 1e-12 (complex128) or 1e-5 (complex64). Timing uses `bench_common.time_call`; the first call, which builds the cached index maps and the cuSPARSE handle, is reported separately and is never a sample. `peak_device_pool_bytes` is the CuPy memory-pool footprint of one `gpu_kernel` call. The 2026-11-11 run (`benchmarks/gpu/results/gpu_fock_20261111-232613.json`) was on a shared machine, so factors below about 2 are noise; the 2026-11-12 run is in the bundle (`bench-gpu-fock.json`). `--smoke` timings are meaningless. |
+| Tests | None for the script; the kernels are tested in `tests/gpu/test_gpu_fock.py` (Section 15) |
+| Status | **Implemented but experimental** |
+
+```bash
+python benchmarks/gpu/bench_gpu_fock.py --smoke --output <scratch>/gpufock.json
+# Executed here (RTX 4050, CuPy installed, exit 0): one line per row, e.g.
+# mixed m=2 c= 5 D=    15 B=   2 complex64  cz       gpu_kernel      median ... ms   (timings not quoted)
+```
+
+```python
+import json, sys
+d = json.load(open(sys.argv[1]))                       # the smoke JSON written above
+rows = d["results"]
+print(d["smoke"], len(rows), sorted({r["implementation"] for r in rows}))
+dev = [r.get("max_rel_deviation_vs_native_complex128") for r in rows if r["dtype"] == "complex128"]
+print(max(x for x in dev if x is not None) < 1e-12)
+# True 88 ['gpu_d2h', 'gpu_end_to_end', 'gpu_h2d', 'gpu_kernel', 'native_loop', 'numpy']
+# True
+```
+
 ### Qubit MBQC against Graphix (`graphix/bench_graphix_mbqc.py`)
 
 | Field | Value |
 |---|---|
 | Description | Qubit MBQC only: causal-flow, gflow and Pauli-flow finding, standardization, signal shifting, and fixed-branch statevector simulation. Compared: PhotoGraphiQ `photographiq.flows` and `photographiq.calculus.qubit` against Graphix 0.4. |
-| Python API | `python benchmarks/graphix/bench_graphix_mbqc.py [--full] [--seed N] [--repeats N] [--warmup N] [--cap SECONDS] [--no-plots]` |
+| Python API | `python benchmarks/graphix/bench_graphix_mbqc.py [--full] [--seed N] [--repeats N] [--warmup N] [--cap SECONDS] [--no-plots] [--out-dir DIR]` (`--out-dir`, added 2026-11-12, keeps a reproduction run from writing into the repository) |
 | Implementation | `benchmarks/graphix/bench_graphix_mbqc.py` |
 | Backends | No CV backend. Qubit tooling against Graphix (extra `validation`). |
 | CPU / GPU | CPU only |
@@ -5998,9 +6228,79 @@ python benchmarks/plot_results.py
 # wrote benchmarks/gaussian/results/figures_native_gaussian_default_<stamp>/gaussian_runtime_vs_modes.svg (and .pdf), ...
 ```
 
+### Manuscript reproduction driver (`scripts/reproduce_manuscript.py`)
+
+| Field | Value |
+|---|---|
+| Description | Reproduces the evidence behind the manuscript as a list of named steps (test suites, figure check, benchmark smoke and full runs, the threshold mpmath reference, the manuscript experiment suites and their comparison with the recorded results). Each step runs in a subprocess with a fixed seed where it takes one; its log goes to `<output>/logs/`, its artifacts to `<output>/artifacts/`, and `<output>/summary.json` records the environment, the git revision and dirty flag, each command, its exit code, run time and status. |
+| Python API | `python scripts/reproduce_manuscript.py [--mode fast\|full] [--output DIR] [--only STEP ...] [--list]` |
+| Implementation | `scripts/reproduce_manuscript.py` |
+| Backends | Whatever each step uses; optional dependencies are checked per step |
+| CPU / GPU | CPU; the GPU benchmark steps need CuPy and a CUDA device |
+| Assumptions | `fast` (default, minutes) runs the validation test suites and benchmark smoke runs; `full` (hours) adds the full benchmarks and the experiment suites. A step whose optional dependency is missing is recorded as `skipped` with the reason, never as passed; the exit code is non-zero if any executed step failed. Nothing is written into the repository: outputs go to `--output` (default `build/reproduction/<timestamp>`, git-ignored), and the experiment suites run unchanged from copies. |
+| Tests | None (the driver's own runs are its check; the 2026-11-12 full run is the bundle below) |
+| Status | **Implemented but experimental** |
+
+```bash
+python scripts/reproduce_manuscript.py --list
+# tests-validation                 needs=pytest                 independent Gaussian/Fock validation matrix
+# tests-native                     needs=pytest                 native engines agree with references
+# ... (14 steps in fast mode, ending with)
+# bench-gpu-fock-smoke             needs=cupy                   benchmark runs
+```
+
+### Recorded-result comparison (`scripts/compare_recorded_results.py`)
+
+| Field | Value |
+|---|---|
+| Description | Compares re-run experiment JSON with the recorded results value by value. Timing, timestamp, environment and provenance fields are excluded; every other number, string and boolean is compared (numbers with `rtol`/`atol`, NaN equals NaN). Keys or list lengths present in only one file are counted per side, so schema drift between script versions is reported, not hidden. |
+| Python API | `python scripts/compare_recorded_results.py RERUN_DIR RECORDED_DIR [--since EPOCH_SECONDS] [--rtol 1e-9] [--atol A] [--output report.json]` |
+| Implementation | `scripts/compare_recorded_results.py` |
+| Backends | Not applicable (JSON comparison) |
+| CPU / GPU | CPU |
+| Assumptions | Only files modified after `--since` are compared (default: the `.copied_at` marker written by `reproduce_manuscript.py`), so a file that was copied but never regenerated is not counted as reproduced. Exit code 0 only if every compared value agrees. |
+| Tests | `tests/unit/test_compare_recorded_results.py::test_compare_counts_only_regenerated_files_and_detects_differences` |
+| Status | **Implemented but experimental** (behavioural test only) |
+
+```bash
+python scripts/compare_recorded_results.py paper_experiments_ml/results/json paper_experiments_ml/results/json --since 0 --output <scratch>/cmp.json
+# OK   R10_trainability_audit.json: {'compared': 93, 'identical': 93, 'close': 0, 'different': 0, 'only_in_rerun': 0, 'only_in_recorded': 0, 'length_mismatch': 0}
+# ... (one OK line per file; a self-comparison, so every file agrees)
+# 60/60 regenerated result files agree with the recorded values
+```
+
+### Reproduction bundle of 2026-11-12 (`benchmarks/results_20261112/`)
+
+| Field | Value |
+|---|---|
+| Description | The reference benchmark and reproduction run, made with `scripts/reproduce_manuscript.py --mode full` on 2026-11-12 (run `full-20261112-041139`). It holds `summary.json`, the JSON (and figures) of every benchmark (`bench-boson-sampling`, `bench-gbs`, `bench-native-gaussian`, `bench-fock`, `bench-gpu-gaussian`, `bench-gpu-fock`, `graphix/`, `threshold_mp_reference.json`) and the experiment comparisons `paper_experiments*-comparison*.json`. |
+| Python API | Files only; see `benchmarks/results_20261112/README.md` |
+| Implementation | `benchmarks/results_20261112/` |
+| Backends | All benchmarked implementations (native, NumPy, Piquasso 8.0.1, Graphix 0.4, CuPy 14.2.0) |
+| CPU / GPU | Intel Core i5-12450HX (12 logical CPUs) and NVIDIA RTX 4050 Laptop GPU, Windows 11, Python 3.12.14, MSVC 19.50 with OpenMP |
+| Assumptions | Working tree on branch `upgraded` (HEAD `f30321f` plus the uncommitted 2026-11-12 changes, so `git_dirty: true`). Timings vary by roughly 30 % between runs for small cases on this laptop; accuracy fields are deterministic. The earlier result files under each `benchmarks/*/results/` (2026-11-10/11) are kept as previous runs. Of 27 steps, 25 passed and 2 failed: `paper_experiments_ml-safe` failed because 9 MentPy-dependent experiments cannot import MentPy in the project venv, and `paper_experiments-compare` reported differences. In the core comparison 14 of 25 files agree at rtol 1e-9 (15 with atol 1e-12); the others differ mainly by schema drift (keys or rows present in only one file, because the experiment scripts changed after the recorded run), plus changed error messages in R13 (validation messages fixed on 2026-11-11), a different shot count in R1 and 1e-16-level covariance errors in R15. All 28 compared PhotoGraphiQML files agree. This document quotes no timing numbers; cite them from the bundle. |
+| Tests | The bundle is evidence, not code; its `tests-*` steps ran the test suites (all passed) |
+| Status | **Implemented but experimental** (a single run on one machine; two steps failed as stated) |
+
+```python
+import collections, json, pathlib
+root = pathlib.Path("benchmarks/results_20261112")
+summary = json.loads((root / "summary.json").read_text())
+print(summary["mode"], collections.Counter(s["status"] for s in summary["steps"]))
+print([s["name"] for s in summary["steps"] if s["status"] != "passed"])
+for name in ("paper_experiments-comparison", "paper_experiments-comparison-atol", "paper_experiments_ml-comparison"):
+    files = json.loads((root / f"{name}.json").read_text())["files"]
+    print(name, dict(collections.Counter(f["status"] for f in files.values())))
+# full Counter({'passed': 25, 'failed': 2})
+# ['paper_experiments-compare', 'paper_experiments_ml-safe']
+# paper_experiments-comparison {'agrees': 14, 'differs': 11}
+# paper_experiments-comparison-atol {'agrees': 15, 'differs': 10}
+# paper_experiments_ml-comparison {'agrees': 28}
+```
+
 ## 33. Examples
 
-Runnable examples are spread over several directories. Unless noted, they need only the core dependencies (`numpy`, `scipy`, `networkx`) plus `matplotlib` (extra `visualization`) for figures. Fock examples need the `piquasso` extra (`piquasso-fock` / `piquasso-mixed-fock`). Graphix examples need `validation`, JAX examples need `autodiff`, MentPy cross-checks need `ml-validation`, and the ML experiment suites use `ml-experiments`. Examples are documentation, not validation evidence. Where a test or checker executes them, it checks only that they run and that their own assertions hold.
+Runnable examples are spread over several directories. Unless noted, they need only the core dependencies (`numpy`, `scipy`, `networkx`) plus `matplotlib` (extra `visualization`) for figures. Since 2026-11-12 the Fock tutorials, projects and notebooks run on the native engines (`native-fock` / `native-mixed-fock`), which need only the compiled extension; only tutorial 24 (through `photographiq.autodiff`) and the two top-level Fock scripts still need the `piquasso` extra. The migration was made because Numba 0.68 crashed when reloading Piquasso's cached kernels in fresh processes (Section 35); every printed or asserted quantity was compared, and the results are equal to roundoff except three examples whose squeezing/CZ truncation differs by at most 3.3e-9. Graphix examples need `validation`, JAX examples need `autodiff`, MentPy cross-checks need `ml-validation`, and the ML experiment suites use `ml-experiments`. Examples are documentation, not validation evidence. Where a test or checker executes them, it checks only that they run and that their own assertions hold.
 
 ### Top-level example scripts (`examples/*.py`)
 
@@ -6029,10 +6329,10 @@ Example: see `examples/first_cluster.py`.
 | Description | 37 tutorials. Each documentation page in `docs/tutorials/` has a matching script in `examples/tutorials/`, and `examples/tutorials/tutorials.ipynb` combines them in one notebook. Index: [tutorials](tutorials/index.md); GKP index: [GKP logical tutorials](tutorials/gkp-logical-index.md). |
 | Python API | `python examples/tutorials/<NN>-<name>.py` |
 | Implementation | `examples/tutorials/`, `docs/tutorials/` |
-| Backends | `gaussian`; `piquasso-fock` / `piquasso-mixed-fock` where marked |
+| Backends | `gaussian`; `native-fock` / `native-mixed-fock` where marked; tutorial 24 needs `autodiff` (JAX plus Piquasso) |
 | CPU / GPU | CPU |
-| Assumptions | `scripts/check_docs_examples.py` executes every script in a temporary directory with a 180 s timeout (`--skip-autodiff` skips 24). The CI docs workflow runs it with `--projects --notebooks`. |
-| Tests | `scripts/check_docs_examples.py` (not pytest). Executed here: `examples/tutorials/23-gkp.py` (ran; printed captured weight, stabilizers and a decoded cell). |
+| Assumptions | `scripts/check_docs_examples.py` executes every script in a temporary directory with a 180 s timeout (`--skip-autodiff` skips 24). The CI docs workflow runs it with `--projects --notebooks`. With Piquasso made unimportable, every tutorial except 24 passes (Phase 1 audit). |
+| Tests | `scripts/check_docs_examples.py` (not pytest; all tutorials, 10 projects and 5 notebooks passed in the 2026-11-12 local gate run); `tests/piquasso_reference/test_tutorial_backends.py` (optional, needs Piquasso: tutorials 09, 13, 14, 21, 38, 44 and the cat-Wigner example on the native and Piquasso backends, equal to roundoff or to truncation level); `tests/unit/test_native_only_smoke.py::test_core_and_native_paths_run_without_optional_packages` (native Gaussian, Fock and mixed-Fock paths in a subprocess with Piquasso, Graphix, JAX, mpmath, CuPy, MentPy and CUDA-Q blocked). Executed here: `examples/tutorials/23-gkp.py` (ran; printed captured weight, stabilizers and a decoded cell). |
 | Status | **Implemented but experimental** |
 
 - 01 first-cluster: first CV cluster state.
@@ -6043,35 +6343,35 @@ Example: see `examples/first_cluster.py`.
 - 06 finite-squeezing: finite squeezing and noise.
 - 07 gaussian-compilation: Gaussian gate compilation.
 - 08 two-mode-entangling: two-mode entangling computation.
-- 09 photon-number: photon-number measurement (`piquasso`).
-- 10 kerr: Kerr nonlinearity (`piquasso`).
-- 11 cubic-phase: cubic-phase gate (`piquasso`).
-- 12 cat-resource: cat-state resource (`piquasso`).
-- 13 photon-subtraction: heralded photon subtraction (`piquasso`).
-- 14 cubic-injection: cubic resource injection (`piquasso`).
-- 15 cutoff-convergence: cutoff convergence (`piquasso`, through `cutoff_convergence`).
-- 16 wigner-analysis: Wigner-function analysis (`piquasso`).
+- 09 photon-number: photon-number measurement (`native-fock`).
+- 10 kerr: Kerr nonlinearity (`native-fock`).
+- 11 cubic-phase: cubic-phase gate (`native-fock`).
+- 12 cat-resource: cat-state resource (`native-fock`).
+- 13 photon-subtraction: heralded photon subtraction (`native-fock`).
+- 14 cubic-injection: cubic resource injection (`native-fock`).
+- 15 cutoff-convergence: cutoff convergence (`native-fock`, through `cutoff_convergence(..., backend="native-fock")`).
+- 16 wigner-analysis: Wigner-function analysis (`native-fock`).
 - 17 graphix-validation: Graphix structural validation (`validation` extra, `graphix==0.4`).
 - 18 custom-topology: custom CV graph topology.
 - 19 reusable-pattern: building a reusable Pattern.
 - 20 compilation-visualization: circuit-to-MBQC compilation and visualization.
-- 21 mixed-fock: mixed Fock evolution (`piquasso`, `piquasso-mixed-fock`).
-- 22 universal-compilation: compiling a nonlinear resource injection (`piquasso`).
-- 23 gkp: finite-energy GKP resources (`piquasso`).
+- 21 mixed-fock: mixed Fock evolution (`native-mixed-fock`).
+- 22 universal-compilation: compiling a nonlinear resource injection (`native-fock`).
+- 23 gkp: finite-energy GKP resources (`native-fock`).
 - 24 automatic-differentiation: JAX gradients (`autodiff` extra; `photographiq.autodiff` also needs `piquasso` to prepare inputs).
 - 37 gkp-finite-codewords: finite-energy logical zero and one.
-- 38 gkp-z-readout: logical Z from q homodyne (`piquasso`).
-- 39 gkp-x-readout: logical X from p homodyne (`piquasso`).
+- 38 gkp-z-readout: logical Z from q homodyne (`native-fock`).
+- 39 gkp-x-readout: logical X from p homodyne (`native-fock`).
 - 40 gkp-soft-decoding: soft GKP decoding.
-- 41 gkp-displacements: logical X and Z displacements (`piquasso`).
-- 42 gkp-hadamard: GKP Hadamard (`piquasso`).
-- 43 gkp-phase: GKP phase gate (`piquasso`).
-- 44 gkp-cz: two-mode logical CZ (`piquasso`).
-- 45 gkp-frames: logical Pauli frames (`piquasso`).
+- 41 gkp-displacements: logical X and Z displacements (`native-fock`).
+- 42 gkp-hadamard: GKP Hadamard (`native-fock`).
+- 43 gkp-phase: GKP phase gate (`native-fock`).
+- 44 gkp-cz: two-mode logical CZ (`native-fock`).
+- 45 gkp-frames: logical Pauli frames (`native-fock`).
 - 46 gkp-instrument: encoded finite measurement instrument.
 - 47 gkp-magic-boundary: the pi/4 measurement boundary (shows the `NotImplementedError`).
-- 48 gkp-convergence: independent GKP convergence axes (`measurement_convergence` uses `piquasso-fock`).
-- 49 gkp-downstream-step: preparing a downstream physical measurement step (`piquasso`).
+- 48 gkp-convergence: independent GKP convergence axes (`measurement_convergence(..., backend="native-fock")`).
+- 49 gkp-downstream-step: preparing a downstream physical measurement step (`native-fock`).
 
 Example: see `examples/tutorials/23-gkp.py`.
 
@@ -6082,19 +6382,19 @@ Example: see `examples/tutorials/23-gkp.py`.
 | Description | Ten self-contained projects, each with a README and a `main.py` that accepts `--output` to keep results outside the source tree. |
 | Python API | `python examples/projects/<name>/main.py [--output DIR]` |
 | Implementation | `examples/projects/` |
-| Backends | `gaussian`; `piquasso-fock` for three projects |
+| Backends | `gaussian`; `native-fock` for three projects |
 | CPU / GPU | CPU |
-| Assumptions | All use `matplotlib`. `cubic-convergence` reaches Piquasso through `cutoff_convergence` (default backend `piquasso-fock`). |
+| Assumptions | All use `matplotlib`. `cubic-convergence` calls `cutoff_convergence(..., backend="native-fock")`. No project needs Piquasso since 2026-11-12. |
 | Tests | `scripts/check_docs_examples.py --projects` (not pytest; runs each `main.py --output <tmp>` with a 180 s timeout and checks that a two-column `data.csv` and `figure.svg` were written) |
 | Status | **Implemented but experimental** |
 
 - `adaptive-calculator`: binds an adaptive parameter and extracts repeated-trajectory means.
-- `cat-wigner`: compares finite-grid Wigner negativity over cat amplitudes (`piquasso`).
-- `cubic-convergence`: tracks fourth momentum moments over increasing Fock cutoffs (`piquasso`).
+- `cat-wigner`: compares finite-grid Wigner negativity over cat amplitudes (`native-fock`).
+- `cubic-convergence`: tracks fourth momentum moments over increasing Fock cutoffs (`native-fock`).
 - `finite-squeezing-wire`: measures accumulated channel noise at fixed resource squeezing.
 - `gaussian-compiler`: inspects finite-resource noise for a family of compiled rotations.
 - `graph-experiment`: varies a CZ edge weight and inspects resource correlations.
-- `heralded-subtraction`: sweeps a vacuum tap and keeps its one-photon herald probability (`piquasso`).
+- `heralded-subtraction`: sweeps a vacuum tap and keeps its one-photon herald probability (`native-fock`).
 - `reservoir-features`: maps coherent input amplitudes to a small observable feature table, without ML dependencies.
 - `teleportation-fidelity`: sweeps the exact unconditional teleportation channel against a coherent target.
 - `topology-comparison`: compares the total photon occupation of equal-squeezing resource families.
@@ -6126,7 +6426,7 @@ Example: see `tests/visualization/test_interactive_notebook.py`.
 | Description | Short three-cell notebooks mirroring selected tutorials. |
 | Python API | Open in Jupyter |
 | Implementation | `notebooks/`, `notebooks/ml/` |
-| Backends | `gaussian`; `piquasso-fock` for 04 and 05 |
+| Backends | `gaussian`; `native-fock` for 04 and 05 (since 2026-11-12) |
 | CPU / GPU | CPU |
 | Assumptions | Requires `matplotlib`. |
 | Tests | `scripts/check_docs_examples.py --notebooks` (executes `notebooks/*.ipynb`); `scripts/ml/execute_tutorials.py` (executes `notebooks/ml/*.ipynb`). Neither is pytest. |
@@ -6135,8 +6435,8 @@ Example: see `tests/visualization/test_interactive_notebook.py`.
 - `notebooks/01_quickstart.ipynb`: your first CV cluster state.
 - `notebooks/02_teleportation.ipynb`: CV quantum teleportation.
 - `notebooks/03_gaussian_compilation.ipynb`: Gaussian gate compilation.
-- `notebooks/04_non_gaussian.ipynb`: heralded photon subtraction (`piquasso`).
-- `notebooks/05_cutoff_convergence.ipynb`: cutoff convergence (`piquasso`, through `cutoff_convergence`).
+- `notebooks/04_non_gaussian.ipynb`: heralded photon subtraction (`native-fock`).
+- `notebooks/05_cutoff_convergence.ipynb`: cutoff convergence (`native-fock`, through `cutoff_convergence(..., backend="native-fock")`).
 - `notebooks/ml/01_quickstart.ipynb`: first MuTA model.
 - `notebooks/ml/02_muta.ipynb`: triangle neuron anatomy.
 - `notebooks/ml/03_gate_learning.ipynb`: gate learning.
@@ -6216,7 +6516,7 @@ Example: see `paper_experiments_ml/README.md`.
 
 ## 34. Scientific validation
 
-PhotoGraphiQ is validated in layers. Each layer compares the code with a reference that does not share the code path under test: closed forms, brute-force definitions, external libraries (Piquasso, Graphix, mpmath, MentPy) or a second implementation. The project's own statement of this policy is in [validation philosophy](validation/index.md), [numerical policy](validation/numerical-policy.md) and the [feature matrix](validation/feature-matrix.md). The policy says that a same-backend round trip checks API integrity but is not evidence of physical correctness, that Graphix is never a continuous-variable numerical oracle, and that "a configured CI workflow is not a passing run". The test runs quoted below were made on the development machine (Windows 11, Python venv, native extension built, Piquasso, Graphix, JAX, mpmath and CuPy installed, CUDA-Q and MentPy absent). The GitHub workflow `.github/workflows/ci.yml` runs on `ubuntu-latest` only, and this document does not claim a passing remote run.
+PhotoGraphiQ is validated in layers. Each layer compares the code with a reference that does not share the code path under test: closed forms, brute-force definitions, external libraries (Piquasso, Graphix, mpmath, MentPy) or a second implementation. The project's own statement of this policy is in [validation philosophy](validation/index.md), [numerical policy](validation/numerical-policy.md) and the [feature matrix](validation/feature-matrix.md). The policy says that a same-backend round trip checks API integrity but is not evidence of physical correctness, that Graphix is never a continuous-variable numerical oracle, and that "a configured CI workflow is not a passing run". The test runs quoted below were made on the development machine (Windows 11, Python venv, native extension built, Piquasso, Graphix, JAX, mpmath and CuPy installed, CUDA-Q and MentPy absent; the MentPy comparison was run in a separate isolated venv). The GitHub workflow `.github/workflows/ci.yml` runs on `ubuntu-latest` only, and this document does not claim a passing remote run: the 2026-11-12 CI fixes (notebook lint, the `numba<0.68` constraint, installed-package test imports) were reproduced locally on Windows but not pushed. The 2026-11-12 audit added the layers listed after the existing ones in this section: a first-principles validation matrix for the Gaussian and Fock engines, a 60-digit reference for the native one-mode Gaussian unitary, a 382-case reference matrix for threshold probabilities (in the mpmath entry), exact rational CV-flow checks, a real-browser check of the interactive pages, the MentPy comparison, and the release gates. Audit reports: [Phase 1](validation/PHASE1_RELEASE_AUDIT.md), [Phase 2](validation/PHASE2_SCIENTIFIC_AUDIT.md), [Phase 3](validation/PHASE3_FEATURE_COMPLETION.md).
 
 ### Tolerance policy
 
@@ -6236,26 +6536,28 @@ PhotoGraphiQ is validated in layers. Each layer compares the code with a referen
 |---|---|
 | `analytical/` | Closed forms: Schur-complement homodyne conditioning, detector efficiency and generaldyne moments, wire and Braunstein-Kimble noise channels, nullifiers, CV-flow channels; the Banchi-Braunstein-Pirandola fidelity formula (`test_gaussian_diagnostics.py`, module skips without Piquasso) |
 | `autodiff/` | Closed-form gate gradients, refined finite differences, Piquasso backends at low energy, five-standard-error estimator checks |
-| `calculus/` | Exact statevectors and Kraus maps, ZX tensor semantics, Graphix 0.4 statevector (`test_calculus_graphix.py`) |
+| `calculus/` | Exact statevectors and Kraus maps, ZX tensor semantics, Graphix 0.4 statevector (`test_calculus_graphix.py`); direct Gaussian covariance algebra and `GaussianBackend` conditioning for `GaussianGraph` (`test_gaussian_graph.py`) |
 | `compilation/` | Direct target exponentials, commutator and Weyl identities, refinement of slice counts and cutoffs |
+| `cudaq_adapter/` | `native-fock` / `native-mixed-fock` gates and loss through the NumPy/SciPy reference path (no CUDA-Q call) |
 | `cross_backend/` | NumPy `gaussian` backend converted to a Fock density matrix through Piquasso's Gaussian-state `density_matrix`; cat-counting and homodyne-density closed forms; registry behaviour |
 | `cutoff/` | Cutoff refinement (fidelity to the previous cutoff, not only unit norm) |
-| `flow/` | Graphix 0.4 flow finders (`to_causalflow_or_none`, `to_gflow_or_none`, `to_pauliflow_or_none`), independent statevector determinism, CV teleportation channels |
+| `flow/` | Graphix 0.4 flow finders (`to_causalflow_or_none`, `to_gflow_or_none`, `to_pauliflow_or_none`), independent statevector determinism, CV teleportation channels, exact rational witnesses and the exact ideal-limit check (`test_flows_cv_robustness.py`) |
 | `fock/` | `tests/fock/reference.py`, a dense test-only oracle built with `scipy.linalg.expm` ("never imported by the production package"); closed forms |
 | `gkp/` | Closed Gaussian overlap integrals, independent Hermite projection, independent continuous comb density, independent SUM wavefunction kernel, explicit Kraus sums |
-| `gpu/` | NumPy `GaussianBackend` / `GaussianState`, native C++ batch kernels |
+| `gpu/` | NumPy `GaussianBackend` / `GaussianState`, native C++ batch kernels, native C++ Fock kernels and backends (`test_gpu_fock.py`) |
 | `graphix_reference/` | Graphix 0.4 structure only: labels, edges, measurement order, correction domains |
 | `integration/` | End-to-end behaviour (no independent numerical reference) |
 | `ml/` | Closed-form logical unitaries (`muta/test_logical.py::test_triangle_and_table_one`), `piquasso-fock` against `native-fock`, contract checks; MentPy (`mentpy_reference/`, skipped here) |
 | `mixed_fock/` | Independent matrix exponential, Gaussian backend, binomial and coherent closed forms, thermal-environment dilation, pure-state limit, physicality (trace, Hermiticity, positivity) |
-| `native/` | NumPy backends, Piquasso, exact Gaussian moments, `expm` of exact generators, direct numerical integration |
+| `native/` | NumPy backends, Piquasso, exact Gaussian moments, `expm` of exact generators, direct numerical integration, 60-digit mpmath matrix elements (`test_native_fock_gaussian_unitary_stability.py`) |
 | `non_gaussian/` | Finite-squeezing Kraus oracle, closed forms, heralding limits |
 | `piquasso_reference/` | Raw Piquasso 8.0.1 programs |
 | `protocols/` | Closed-form channels and postselection densities, mixed-Fock and Fock postselection |
-| `regression/` | Frozen behaviour and error messages (`test_validation_messages.py`: self-CZ, repeated modes, pair outcomes without `component=`, backend names in the missing-cutoff error, non-finite expressions); regression only, no independent reference |
+| `regression/` | Frozen behaviour and error messages (`test_validation_messages.py`: self-CZ, repeated modes, pair outcomes without `component=`, backend names in the missing-cutoff error, non-finite expressions; `test_measure_angle.py`: a direct `measure` uses the `Homodyne` angle); regression only, no independent reference |
 | `sampling/` | By-definition permutation and matching sums, closed forms, Piquasso, chi-square tests, mpmath |
-| `unit/` | Round trips and rejection checks (no independent reference) |
-| `visualization/` | Rendering and data plumbing (no independent reference) |
+| `unit/` | Round trips and rejection checks (no independent reference); `test_native_only_smoke.py` runs the native paths with every optional package blocked |
+| `validation/` | References computed from first principles inside the test (closed forms, `scipy.linalg.expm` on enlarged spaces, mpmath amplitudes, physical dilations, precision-matrix conditioning); no PhotoGraphiQ function builds a reference |
+| `visualization/` | Rendering and data plumbing (no independent reference); `test_interactive_browser_playwright.py` compares drawn elements with flows, patterns and simulator traces in a real browser (skips without Playwright) |
 
 ### Analytical and closed-form references
 
@@ -6362,12 +6664,12 @@ print(find_gflow(og).certified, theirs is not None)
 | Field | Value |
 |---|---|
 | Description | The threshold (torontonian-type) inclusion-exclusion sum loses digits as clicks increase and probabilities shrink. mpmath evaluates the same sum with a chosen number of decimal digits, both as a user option and as a test and benchmark reference. |
-| Python API | `photographiq.sampling.threshold_probability(state, clicks, *, precision=<digits>)`; `benchmarks/gaussian_boson_sampling/threshold_mp_reference.py` (50 digits) |
+| Python API | `photographiq.sampling.threshold_probability(state, clicks, *, precision=<digits> \| "auto")`; `benchmarks/gaussian_boson_sampling/threshold_mp_reference.py` (50 digits); `benchmarks/gaussian_boson_sampling/threshold_reference_matrix.py` (independent 40-digit implementation, 382 cases) |
 | Implementation | `src/photographiq/sampling/gbs.py` (`_vacuum_sum_mp`) |
 | Backends | Standalone sampling module. The mpmath evaluation does not use the native or NumPy kernels, but `backend=` is still validated (`ValueError("Unknown backend ...")`; `backend="native"` raises `ImportError` without the native extension). Before the fix `precision=20, backend="bogus"` returned a value. |
 | CPU / GPU | CPU only (pure Python) |
 | Assumptions | Requires the `precision` extra (`mpmath>=1.3`). The covariance is used exactly as stored in double precision, so the reference is exact for the stored state, not for the ideal one. The double-precision rounding bound is checked against `precision=30` on 12 cases (small and large squeezing, displaced, lossless, no dark modes, three zero-probability patterns, 1 to 3 clicks at tiny squeezing) on both backends, plus the 16-mode / 8-click case. The alternating-sum part of that bound was calibrated against mpmath (4140 random states), so these references are also its calibration data. Its own error estimate `P_Z mp.eps sum_T abs(1 + w_T)` does not strictly include rounding in the conditioning step, which is negligible at 30 or more digits. |
-| Tests | `tests/sampling/test_sampling_gbs.py::test_threshold_multiprecision_matches_closed_forms` (`rel=1e-15`), `::test_threshold_rounding_bound_holds_against_multiprecision` (12 cases x 2 backends), `::test_threshold_error_estimate_bounds_multiprecision_reference` (16 modes, 8 clicks; `1e-6 < error < 3e-5`), `::test_threshold_precision_validates_backend` |
+| Tests | `tests/sampling/test_sampling_gbs.py::test_threshold_multiprecision_matches_closed_forms` (`rel=1e-15`), `::test_threshold_rounding_bound_holds_against_multiprecision` (12 cases x 2 backends), `::test_threshold_error_estimate_bounds_multiprecision_reference` (16 modes, 8 clicks; `1e-6 < error < 3e-5`), `::test_threshold_precision_validates_backend`, `::test_threshold_auto_precision_switches_to_mpmath`. Reference matrix (2026-11-12, separate code from `precision=`): over 382 cases the double-precision bound was never violated on either backend, no warning was missed, double precision failed only at r <= 0.5 with many clicks (as did Piquasso), and `precision="auto"` stayed below `rtol = 1e-6` everywhere (Section 20). |
 | Status | **Implemented and validated** |
 
 ```python
@@ -6390,9 +6692,9 @@ print(abs(S.threshold_probability(tmsv, [1, 1], precision=30) / exact - 1) < 1e-
 | Implementation | `src/photographiqml/validation.py`; `tests/ml/mentpy_reference/`; workflow `.github/workflows/ml-reference.yml` |
 | Backends | MentPy `numpy-sv` against `MuTA.run` (logical, ideal qubit) |
 | CPU / GPU | CPU only |
-| Assumptions | MentPy is not installed here, so `tests/ml/mentpy_reference/` was skipped in this environment and the comparison was not executed. The workflow installs MentPy from git commit `63c3d83e495696b4491c9d376dab7e3e6cf6c863` (`tests/ml/mentpy_reference/requirements.txt`), while the `ml-validation` extra pins `mentpy==0.1.0a15`. The numerical test asserts a discrepancy below 1e-10. |
+| Assumptions | MentPy is not installed in the project venv, so `tests/ml/mentpy_reference/` skips there. On 2026-11-11/12 it was run in an isolated Windows venv (Python 3.12.14, non-editable install, MentPy 0.1.0a15 from the workflow's git commit `63c3d83e495696b4491c9d376dab7e3e6cf6c863`, `numba` 0.67.0): 34/34 reference tests and 154/154 of `tests/ml` passed, and all 24 scratch-copy experiments, including the MentPy-dependent ones, passed with every non-timing value bit-identical to the recorded JSON. In physical MuTA, `native-fock` and `piquasso-fock` probabilities differ by at most 1.5e-4 at cutoff 24 and 9e-5 at cutoff 32 (truncation scale) with identical decoded bits. The numerical test asserts a discrepancy below 1e-10. Evidence: [PhotoGraphiQML MentPy validation](validation/photographiqml-mentpy-validation.md). |
 | Tests | `tests/ml/mentpy_reference/test_reference.py` (`test_exact_semantic_reference`, `test_numerical_reference`), `tests/ml/mentpy_reference/test_derived_outputs.py` (`test_kernel_against_reference`, `test_instrument_marginals_against_reference`); in this environment only `tests/ml/muta/test_core_dependency.py` (missing-dependency path) runs |
-| Status | **Implemented but experimental** (reference tests exist but were not run here; no passing CI run is claimed) |
+| Status | **Implemented and validated** (run in an isolated venv against MentPy; not run in the project venv, and no passing CI run is claimed) |
 
 Example: see `tests/ml/mentpy_reference/test_reference.py` (requires MentPy).
 
@@ -6403,7 +6705,7 @@ Example: see `tests/ml/mentpy_reference/test_reference.py` (requires MentPy).
 | Description | The same pattern is run on every available registered backend whose capabilities cover it. Gaussian-representation backends must agree with the NumPy `gaussian` backend to float roundoff. Fock and mixed-Fock backends are compared with the Gaussian result converted to a Fock density matrix by an independent code path, with tolerances derived from observed cutoff convergence. |
 | Python API | `photographiq.simulate(pattern, backend=<name>, ...)` for every name in `photographiq.available_backends()` |
 | Implementation | `tests/cross_backend/test_cross_backend_agreement.py`, `tests/mixed_fock/test_cross_backend.py`, `tests/protocols/test_covariance_symmetry.py`, `tests/protocols/test_gaussian_postselection.py` |
-| Backends | `gaussian`, `piquasso`, `native-gaussian`, `piquasso-fock`, `native-fock`, `piquasso-mixed-fock`, `native-mixed-fock`; `cudaq-dynamics` is skipped (`cudaq` not installed) |
+| Backends | `gaussian`, `piquasso`, `native-gaussian`, `piquasso-fock`, `native-fock`, `piquasso-mixed-fock`, `native-mixed-fock` |
 | CPU / GPU | CPU only |
 | Assumptions | `docs/validation/index.md`: Gaussian backends share a measurement adapter, so agreement among them alone does not validate detector statistics; analytical moments and densities supply that evidence. Backends lacking a feature are skipped with the missing feature named; `test_expected_coverage` pins which backends must run each case. |
 | Tests | `tests/cross_backend/test_cross_backend_agreement.py` (`test_gaussian_pattern_agreement` (Gaussian backends `atol=1e-10`; Fock tolerances from the docstring table), `test_wire_cutoff_convergence_justifies_tolerance`, `test_cat_photon_counting_closed_form`, `test_homodyne_postselection_density_closed_form`, `test_expected_coverage`); `tests/protocols/test_gaussian_postselection.py::test_lossy_inefficient_noisy_homodyne_matches_mixed_fock`; `tests/mixed_fock/test_cross_backend.py::test_overlapping_gaussian_regime_across_backends` |
@@ -6434,7 +6736,7 @@ for name in ("native-gaussian", "piquasso"):
 | CPU / GPU | CPU (C++/OpenMP) against CPU (NumPy) |
 | Assumptions | Equal seeds give equal trajectories up to floating-point summation order (`src/photographiq/backends/native_gaussian.py` docstring reports about 1e-13). Thread-count independence is asserted bitwise for `permanent`, `hafnian` and `torontonian` only. `cpp/tests/test_sampling.cpp` is built only with `PGQ_BUILD_CPP_TESTS=ON`. |
 | Tests | `tests/native/test_native_gaussian_backend.py` (`test_random_patterns_match_numpy_backend`, `test_postselection_matches_numpy_backend`, `test_errors_match_numpy_backend`, `test_near_singular_conditioning_large_squeezing`, `test_tiny_variance_homodyne_closed_form`); `tests/sampling/test_sampling_native.py` (`test_native_agrees_with_python_at_larger_sizes` (1e-10 relative), `test_results_do_not_depend_on_thread_count`); `tests/sampling/test_sampling_gbs.py::test_python_vacuum_sum_raises_like_native_for_non_positive_blocks` (both threshold kernels raise the same `ValueError` for a non-positive-definite block; the NumPy path used to return NaN); `tests/native/test_native_fock_kernels.py`, `tests/native/test_native_mixed_fock_backend.py` (including `test_multi_kraus_instrument_matches_explicit_partial_trace`, against an explicit partial trace) |
-| Status | **Implemented and validated** (the Fock engines themselves keep the experimental label, Section 13) |
+| Status | **Implemented and validated** (the native Fock engines are now also validated against first-principles references, Section 13) |
 
 ```python
 import numpy as np
@@ -6449,14 +6751,14 @@ print(abs(h_native - h_python) / abs(h_python) < 1e-12)
 
 | Field | Value |
 |---|---|
-| Description | Every numerical GPU test runs for `device="cpu"` and `device="gpu"`. The results are compared with the NumPy `GaussianBackend` / `GaussianState` state by state, and with the native C++ batch kernels. |
+| Description | Every numerical GPU test runs for `device="cpu"` and `device="gpu"`. Gaussian results are compared with the NumPy `GaussianBackend` / `GaussianState` state by state and with the native C++ batch kernels; Fock results (`photographiq.gpu.fock`) with the native C++ Fock kernels and whole native backend gate sequences. |
 | Python API | `photographiq.gpu.apply_symplectic(...)`, `condition_homodyne(...)`, `purity(...)`, `symplectic_eigenvalues(...)`, `fidelity(...)` with `device="gpu"` or `"cpu"` |
 | Implementation | `src/photographiq/gpu/`; `tests/gpu/` |
 | Backends | Not a `simulate` backend; batched Gaussian arrays only |
 | CPU / GPU | GPU via photographiq.gpu (CuPy) compared with CPU (NumPy) |
 | Assumptions | float64 by default; float32 is checked only against float64 within rtol 1e-4 (conditioning) and 1e-5 (symplectic update), and is experimental (Section 15). GPU cases skip when CuPy or a device is missing. The result's `execution.device` is read from the output buffer. |
-| Tests | `tests/gpu/test_gpu_gaussian.py` (`test_apply_symplectic_matches_reference_backend`, `test_condition_homodyne_matches_reference_backend`, `test_diagnostics_match_gaussian_state`, `test_gpu_and_cpu_paths_agree` (rtol 1e-12), `test_matches_native_batch_kernels`, `test_float32_is_explicit_and_close`); `tests/gpu/test_gpu_device.py::test_gpu_results_report_and_live_on_the_gpu` |
-| Status | **Implemented and validated** (float64; float32 experimental) |
+| Tests | `tests/gpu/test_gpu_gaussian.py` (`test_apply_symplectic_matches_reference_backend`, `test_condition_homodyne_matches_reference_backend`, `test_diagnostics_match_gaussian_state`, `test_gpu_and_cpu_paths_agree` (rtol 1e-12), `test_matches_native_batch_kernels`, `test_float32_is_explicit_and_close`); `tests/gpu/test_gpu_device.py::test_gpu_results_report_and_live_on_the_gpu`; `tests/gpu/test_gpu_fock.py` (29 tests; 7.2e-16 complex128, 2.4e-7 complex64) |
+| Status | **Implemented and validated** (float64 / complex128; float32 and complex64 experimental) |
 
 ```python
 import numpy as np
@@ -6476,7 +6778,7 @@ print(g.execution.device, c.execution.device, np.abs(g.covariances - c.covarianc
 | Field | Value |
 |---|---|
 | Description | Finite representations are refined one control at a time: the total-photon Fock cutoff, quadrature grids, GKP peak counts, product-formula slice counts and resource squeezing. Tests require the error against an independent reference to decrease, not only the norm to be close to one. |
-| Python API | `photographiq.cutoff_convergence(pattern, cutoffs, ...)`; backend `diagnostics` (retained norm, boundary population); `norm_tolerance`, `boundary_warning`, `max_dimension` backend options |
+| Python API | `photographiq.cutoff_convergence(pattern, cutoffs, *, seed=0, high_order_moments=False, backend="piquasso-fock", **kwargs)` (any of `piquasso-fock`, `piquasso-mixed-fock`, `native-fock`, `native-mixed-fock` since 2026-11-12; the default is kept for reproducibility); `photographiq.measurement_convergence(..., backend="piquasso-fock" \| "native-fock")`; backend `diagnostics` (retained norm, boundary population); `norm_tolerance`, `boundary_warning`, `max_dimension` backend options |
 | Implementation | `src/photographiq/backends/fock.py` (`_check`), `src/photographiq/backends/mixed_fock.py`, `src/photographiq/convergence.py`; tests in `tests/cutoff/`, `tests/gkp/`, `tests/compilation/` |
 | Backends | `piquasso-fock`, `native-fock`, `piquasso-mixed-fock`, `native-mixed-fock`; GKP resources; synthesis |
 | CPU / GPU | CPU only |
@@ -6538,16 +6840,108 @@ print(stats.chisquare(obs, exp * obs.sum() / exp.sum()).pvalue > 1e-3)
 
 | Field | Value |
 |---|---|
-| Description | Each benchmark computes a correctness value in an untimed call before timing, so that a fast but wrong implementation cannot appear in the results. Boson-sampling and GBS rows carry `rel_error` against the defining sum (small sizes), the PhotoGraphiQ Python implementation or Piquasso. `bench_native_gaussian.py` aborts if any output differs from native by more than 1e-12 (scaled). `bench_fock.py` runs every gate and pattern case once on the native engine and on its Piquasso counterpart and raises `RuntimeError` if the trace distance (and, for patterns, the relative difference of each outcome statistic) exceeds the row's `agreement_tol`; thread rows compare checksums across thread counts. `bench_gpu_gaussian.py` records `max_rel_deviation_vs_numpy_float64`. The Graphix benchmark checks every certificate with both verifiers and checks map equivalence by exact branch simulation. `threshold_mp_reference.py` gives each implementation's actual threshold error against 50-digit mpmath. |
+| Description | Each benchmark computes a correctness value in an untimed call before timing, so that a fast but wrong implementation cannot appear in the results. Boson-sampling and GBS rows carry `rel_error` against the defining sum (small sizes), the PhotoGraphiQ Python implementation or Piquasso. `bench_native_gaussian.py` aborts if any output differs from native by more than 1e-12 (scaled). `bench_fock.py` runs every gate and pattern case once on the native engine and on its Piquasso counterpart and raises `RuntimeError` if the trace distance (and, for patterns, the relative difference of each outcome statistic) exceeds the row's `agreement_tol`; thread rows compare checksums across thread counts. `bench_gpu_gaussian.py` records `max_rel_deviation_vs_numpy_float64`; `bench_gpu_fock.py` stops if any output deviates from the complex128 native loop by more than 1e-12 (complex64: 1e-5). The Graphix benchmark checks every certificate with both verifiers and checks map equivalence by exact branch simulation. `threshold_mp_reference.py` gives each implementation's actual threshold error against 50-digit mpmath, and `threshold_reference_matrix.py` the actual error, the bound and the warning of every case against an independent 40-digit implementation. `scripts/compare_recorded_results.py` compares regenerated experiment values with the recorded ones. |
 | Python API | `benchmarks/boson_sampling/bench_boson_sampling.py`, `benchmarks/gaussian_boson_sampling/bench_gbs.py`, `benchmarks/gaussian_boson_sampling/threshold_mp_reference.py`, `benchmarks/gaussian/bench_native_gaussian.py`, `benchmarks/fock/bench_fock.py`, `benchmarks/gpu/bench_gpu_gaussian.py`, `benchmarks/graphix/bench_graphix_mbqc.py` (scripts, not package API) |
 | Implementation | `benchmarks/` (methodology in `benchmarks/README.md`) |
 | Backends | Native and NumPy implementations, Piquasso 8, Graphix 0.4, CuPy |
 | CPU / GPU | CPU; `bench_gpu_gaussian.py` also GPU via CuPy |
-| Assumptions | `bench_fock.py` uses `ROUNDING_TOL = 1e-12` where both engines apply the same truncated operator, and `max(1e-12, sqrt(p_boundary))` for the CZ and whole patterns, where the truncation schemes differ. The second tolerance is an empirical scale, not a proven bound: it held with a ratio of at most 0.098 on 598 test inputs at the default norm guard, but reached 1.39 at `norm_tolerance=0.9` (Section 32). The GBS `rel_error_vs_piquasso` for threshold rows mixes the errors of both libraries. The threshold rows' `estimated_rel_error` is the new, larger rounding bound, so it is not comparable with result files written before 2026-11-11; the figures quoted in `benchmarks/README.md` (2.1e-5, 2.9e-3, 0.52) are the old estimate from such a file. No timing numbers are quoted in this document, because the final runs on an idle machine are pending; see `benchmarks/README.md`. |
-| Tests | `tests/sampling/test_sampling_benchmark_smoke.py::test_benchmark_smoke` (every recorded relative error below 1e-8 in the smoke configuration), `::test_time_call_excludes_cold_first_call`; `tests/native/test_native_gaussian_benchmark_smoke.py` (`test_native_gaussian_benchmark_smoke`, `test_agreement_check_rejects_wrong_output`, `test_chain_state_matches_dense_reference`); `tests/native/test_fock_benchmark_smoke.py` (`test_fock_benchmark_smoke`, `test_agreement_check_rejects_wrong_output`, `test_memory_fields_are_none_without_psutil`, and `test_threshold_mp_reference_output_option` for the argument parsing of `threshold_mp_reference.py`); `tests/flow/test_flows_graphix_benchmark_smoke.py::test_graphix_benchmark_tiny_run`. No test covers `bench_gpu_gaussian.py` or the numbers of `threshold_mp_reference.py`. |
+| Assumptions | `bench_fock.py` uses `ROUNDING_TOL = 1e-12` where both engines apply the same truncated operator, and `max(1e-12, sqrt(p_boundary))` for the CZ and whole patterns, where the truncation schemes differ. The second tolerance is an empirical scale, not a proven bound: it held with a ratio of at most 0.098 on 598 test inputs at the default norm guard, but reached 1.39 at `norm_tolerance=0.9` (Section 32). The GBS `rel_error_vs_piquasso` for threshold rows mixes the errors of both libraries. The threshold rows' `estimated_rel_error` is the new, larger rounding bound, so it is not comparable with result files written before 2026-11-11; the figures quoted in `benchmarks/README.md` (2.1e-5, 2.9e-3, 0.52) are the old estimate from such a file. No timing numbers are quoted in this document; the reference run is the 2026-11-12 bundle `benchmarks/results_20261112/` (Section 32). |
+| Tests | `tests/sampling/test_sampling_benchmark_smoke.py::test_benchmark_smoke` (every recorded relative error below 1e-8 in the smoke configuration), `::test_time_call_excludes_cold_first_call`; `tests/native/test_native_gaussian_benchmark_smoke.py` (`test_native_gaussian_benchmark_smoke`, `test_agreement_check_rejects_wrong_output`, `test_chain_state_matches_dense_reference`); `tests/native/test_fock_benchmark_smoke.py` (`test_fock_benchmark_smoke`, `test_agreement_check_rejects_wrong_output`, `test_memory_fields_are_none_without_psutil`, and `test_threshold_mp_reference_output_option` for the argument parsing of `threshold_mp_reference.py`); `tests/flow/test_flows_graphix_benchmark_smoke.py::test_graphix_benchmark_tiny_run`. No test covers `bench_gpu_gaussian.py`, `bench_gpu_fock.py`, `threshold_reference_matrix.py` or the numbers of `threshold_mp_reference.py`; `tests/unit/test_compare_recorded_results.py` covers the comparison script. |
 | Status | **Implemented and validated** (boson-sampling, GBS, native Gaussian and Graphix scripts; the Fock, GPU and mpmath-reference scripts are experimental, Section 32) |
 
 Example: see `tests/sampling/test_sampling_benchmark_smoke.py` and `tests/native/test_native_gaussian_benchmark_smoke.py`.
+
+### Independent validation matrix for the Gaussian and Fock engines (`tests/validation/`)
+
+| Field | Value |
+|---|---|
+| Description | Peer-review audit (2026-11-12) of the NumPy `gaussian`, C++ `native-gaussian`, `native-fock` and `native-mixed-fock` engines, with the Piquasso backends as a secondary check. Every reference value is computed inside the test from first principles with NumPy, SciPy or mpmath; no PhotoGraphiQ function builds a reference, and the engines' own outputs and diagnostics are only read back. It also checks every convention against the source (hbar = 2, interleaved ordering, vacuum I, coherent mean, squeezing, CZ, beam splitter, rotation, homodyne angle, detector inefficiency, heterodyne, loss, total-photon truncation) and found them consistent on all seven backends. |
+| Python API | Not an API: `pytest -q -p no:cacheprovider tests/validation` |
+| Implementation | `tests/validation/test_val_gaussian.py`, `tests/validation/test_val_fock.py`; table in [independent validation matrix](validation/independent-validation-matrix.md) |
+| Backends | `gaussian`, `native-gaussian`, `piquasso` (Gaussian); `native-fock`, `native-mixed-fock`, with `piquasso-fock` and `piquasso-mixed-fock` as a secondary check (looser tolerances: 1e-10, and 1e-4 for their truncated CZ) |
+| CPU / GPU | CPU |
+| Assumptions | Gaussian: states, gate symplectics built as `expm(2 Omega M)` from each generator, loss against analytic X, Y and a beam-splitter dilation, homodyne (with efficiency and noise) and heterodyne conditioning against a physical dilation conditioned through the precision matrix, heterodyne density against the Husimi function, feed-forward against T(k), physicality of random 5-mode circuits, TMSV log-negativity; largest error 6.5e-13 (tolerance 1e-11). Fock: states against mpmath and the regularised incomplete gamma function, all gates against `expm` on 40/56 (one mode) and 26/32 (two modes) levels per mode with the reference checked between sizes (below 4e-16), truncation handled exactly as P U psi / norm(P U psi), counting, partial traces, homodyne densities, loss as a dilation, unitarity of number-conserving gates and physicality after 21 gates; largest gate error 5e-16 (tolerance 1e-12). Caveat: the `piquasso` Gaussian backend reuses NumPy code for input preparation, measurements and diagnostics, so those rows re-test NumPy. The audit found one API defect (a direct `measure` ignored `Homodyne.angle`, fixed, Section 10) and one misleading comment (mixed-Fock noise is convolved in calibrated units). |
+| Tests | The suite itself: 130 collected, 128 pass and 2 skip (Piquasso Fock has no cross-Kerr) |
+| Status | **Implemented and validated** |
+
+```bash
+python -m pytest -q -p no:cacheprovider -rs tests/validation
+# SKIPPED [2] tests\validation\test_val_fock.py:308: Piquasso Fock backends have no cross-Kerr method
+# 128 passed, 2 skipped in <elapsed>
+```
+
+### High-precision reference for the native one-mode Gaussian unitary
+
+| Field | Value |
+|---|---|
+| Description | Matrix elements <m\|U\|n> of the native one-mode Gaussian unitary are compared with a Bargmann recurrence evaluated in mpmath at 60 digits, with S built exactly symplectic in mpmath. The reference is itself checked against the Heisenberg relation a U = U (T a + R a^dag + delta) on every interior element (residual at most 6e-26), and 60- and 90-digit references agree to the last double bit. |
+| Python API | Not an API: `pytest tests/native/test_native_fock_gaussian_unitary_stability.py`; C++ check `cpp/tests/test_fock.cpp::test_single_mode_stability` (built with `-DPGQ_BUILD_CPP_TESTS=ON`) |
+| Implementation | `tests/native/test_native_fock_gaussian_unitary_stability.py`; study in [native Fock Gaussian unitary](validation/native-fock-gaussian-unitary.md) |
+| Backends | `photographiq._native.fock.gaussian_unitary`, used by `native-fock` and `native-mixed-fock` |
+| CPU / GPU | CPU (mpmath) |
+| Assumptions | Grid of the study: abs(alpha) in {0.5, ..., 6}, r in {0.1, 0.3, 0.6, 1.0}, random phases (seed 2026), cutoff 20 to 100: at most 1.9e-14 after the fix, against up to 1.4e2 before. Squeezing alone was checked up to size 800. Multi-mode displaced unitaries are not covered (Section 13). |
+| Tests | The file itself (6 tests; 5 fail on the build before the fix) |
+| Status | **Implemented and validated** |
+
+```bash
+python -m pytest -q -p no:cacheprovider tests/native/test_native_fock_gaussian_unitary_stability.py
+# 6 passed in <elapsed>
+```
+
+### Exact rational CV-flow checks
+
+| Field | Value |
+|---|---|
+| Description | CV-flow decisions are checked in exact rational arithmetic: impossibility through rational witnesses that the tests verify independently with `fractions.Fraction`, and the ideal limit through `exact_ideal_limit`, which is compared with the closed-form wire map and rejects every scaled correction vector. Qubit flows remain checked against Graphix 0.4 on 150 random graphs per notion (causal 31 positive / 119 negative, gflow 27 / 123, Pauli 42 / 108). |
+| Python API | `photographiq.flows.find_cv_flow(og, exact=True)`, `photographiq.flows.exact_ideal_limit` (Section 26) |
+| Implementation | `tests/flow/test_flows_cv_robustness.py`; study in [CV-flow robustness](validation/cv-flow-robustness.md) |
+| Backends | Backend-independent |
+| CPU / GPU | CPU |
+| Assumptions | Covers the adversarial graph set of the study (near-singular and rounding-level determinants, weights from 1e-4 to 1e4, long wires and grids, large squeezing, slow decay, dynamic range) and 600 random adversarial graphs. The exact check covers the ideal limit only; `finite_squeezing` stays a float64 statement. |
+| Tests | The file itself (25 tests) plus `tests/flow/test_flows_cv.py` and `tests/flow/test_flows_qubit.py::test_existence_agrees_with_graphix` |
+| Status | **Implemented and validated** |
+
+```bash
+python -m pytest -q -p no:cacheprovider tests/flow/test_flows_cv_robustness.py
+# 25 passed in <elapsed>
+```
+
+### Real-browser check of the interactive pages
+
+| Field | Value |
+|---|---|
+| Description | Drives the interactive HTML pages with real mouse, wheel and keyboard input in Edge or Chrome through Playwright and compares what is drawn with the Python model, the flow result, the `Pattern` commands and a real `simulate` trace (Section 30). |
+| Python API | `python scripts/check_interactive_browser.py OUT_DIR [--channel msedge\|chrome]` |
+| Implementation | `scripts/check_interactive_browser.py`, `tests/visualization/test_interactive_browser_playwright.py`; report in [interactive visualization browser check](validation/interactive-visualization-browser.md) with screenshots in `docs/validation/assets/interactive/` |
+| Backends | Independent of backends (the CV wire uses `simulate(..., backend="gaussian", seed=7)`) |
+| CPU / GPU | CPU; the viewer's browser |
+| Assumptions | Needs Playwright (not a declared extra) and network access to the pinned Cytoscape.js CDN or `PHOTOGRAPHIQ_CYTOSCAPE_JS`. Run once on 2026-11-12 with Playwright 1.65.1 and Edge 157 in an isolated venv: all 9 checks passed after four fixes. Layout quality and readability are judged by inspection, not by an independent reference. |
+| Tests | `tests/visualization/test_interactive_browser_playwright.py` (skips here: Playwright is not installed in the project venv) |
+| Status | **Implemented but experimental** (a single recorded run outside the project venv; visual checks are by inspection) |
+
+```bash
+python -m pytest -q -p no:cacheprovider -rs tests/visualization/test_interactive_browser_playwright.py
+# SKIPPED [1] tests\visualization\test_interactive_browser_playwright.py:12: could not import 'playwright.sync_api': No module named 'playwright'
+# 1 skipped in <elapsed>
+```
+
+### Release gates, Python-version matrix and native-only smoke test
+
+| Field | Value |
+|---|---|
+| Description | Release engineering checks of 2026-11-12. `experiments/validate_release.py` runs pytest with coverage, ruff check, ruff format, mypy, the package build and the physics-evidence checks; `scripts/check_public_api.py` checks the public exports; `scripts/check_docs_examples.py --projects --notebooks` runs every tutorial, project and notebook. A native-only smoke test runs the native Gaussian, Fock and mixed-Fock paths in a subprocess with Piquasso, Graphix, JAX, mpmath, CuPy, MentPy and CUDA-Q blocked, and checks the "install the extra" errors. Tests now import the installed package (`pythonpath = ["src"]` was removed), so native tests also run against a non-editable wheel. |
+| Python API | `python experiments/validate_release.py`; `python scripts/check_public_api.py`; `python scripts/check_docs_examples.py --projects --notebooks`; `pytest tests/unit/test_native_only_smoke.py` |
+| Implementation | `experiments/validate_release.py`, `scripts/`, `tests/unit/test_native_only_smoke.py`, `tests/regression/test_measure_angle.py`, `pyproject.toml`; report in [Phase 1 release audit](validation/PHASE1_RELEASE_AUDIT.md) |
+| Backends | All registered backends |
+| CPU / GPU | CPU |
+| Assumptions | Local Windows runs only. Gate run (Python 3.12): 1273 passed, 14 skipped, coverage 93.90 % (floor 90 %); 85 public exports checked; all tutorials, 10 projects and 5 notebooks passed. Fresh non-editable installs on Python 3.11, 3.13 and 3.14: 1645 passed and 61 skipped each after the `numba<0.68` constraint (one Numba 0.68 crash before it). The remote CI was not re-run, because the fixes are not pushed, and no Linux environment was available. |
+| Tests | `tests/unit/test_native_only_smoke.py::test_core_and_native_paths_run_without_optional_packages`; `tests/regression/test_measure_angle.py` (6 tests) |
+| Status | **Implemented but experimental** (software gates, not an independent physics reference; remote CI not re-run) |
+
+```bash
+python -m pytest -q -p no:cacheprovider tests/unit/test_native_only_smoke.py tests/regression/test_measure_angle.py
+# 7 passed in <elapsed>
+```
 
 ## 35. Known limitations
 
@@ -6557,8 +6951,9 @@ This section collects limitations stated in Sections 1 to 33, in the code and in
 
 | Limitation | Affected feature | Consequence | Workaround |
 |---|---|---|---|
-| No CUDA-Q execution | `cudaq-dynamics` backend (Section 16) | Without `cudaq`: `ImportError` naming the Linux-only wheels; with `cudaq` importable: `NotImplementedError("CUDA-Q Dynamics execution of PhotoGraphiQ patterns is not implemented: ...")`. `select_backend` never chooses it. `cudaq_capabilities()` is documentation only (`verified: False`). | Use the CPU Fock backends; `cudaq_probe()` reports availability only |
-| No GPU trajectory, sampling or Fock execution | `simulate`, `run_shots`, all registered backends, Fock kernels (Section 15) | `simulate(..., backend="gpu")` raises `ValueError: Unknown backend: 'gpu'`; all pattern execution runs on the CPU | `native-gaussian` (C++/OpenMP) for single trajectories; `photographiq.gpu` batched kernels for many Gaussian states with given outcomes |
+| No CUDA-Q pattern execution | `photographiq.cudaq_dynamics` (Section 16) | CUDA-Q is not a backend; `simulate(backend="cudaq-dynamics")` raises `ValueError` naming the adapter. The adapter evolves Hamiltonians only; without `cudaq`, `to_cudaq`/`evolve` raise `ImportError` naming the Linux-only wheels. Its CUDA-Q path is unverified. | Use the CPU Fock backends for patterns; `reference_evolve` for Hamiltonian dynamics |
+| No GPU trajectory or sampling execution | `simulate`, `run_shots`, all registered backends, `photographiq.sampling` (Section 15) | `simulate(..., backend="gpu")` raises `ValueError: Unknown backend: 'gpu'`; all pattern execution, conditioning and sampling run on the CPU. GPU permanents, hafnians and torontonians were measured and not shipped (single matrices slower than native; batched gains only for many small same-size matrices, which no workload uses) | `native-gaussian` (C++/OpenMP) for single trajectories; `photographiq.gpu` batched Gaussian kernels for many states with given outcomes and `photographiq.gpu.fock` for batched Fock gates |
+| GPU Fock kernels help only batched workloads | `photographiq.gpu.apply_operator`, `apply_phase` (Section 15) | A single small state is slower on the GPU than the native kernel; phase gates gain nothing end to end over NumPy; host-device transfers dominate end-to-end time for large batches; no renormalisation or diagnostics; the kernels do not accelerate `simulate` | Keep batches on the device (`on_device=True`); use the native engine for single states |
 | Photon counting on Gaussian backends | `PhotonNumber` with `gaussian`, `piquasso`, `native-gaussian` | Rejected by the capability check; a direct `measure` call raises `NotImplementedError("Photon counting has non-Gaussian conditional states; use ...")`, naming `native-fock`, `native-mixed-fock`, `piquasso-fock` and `piquasso-mixed-fock` | A Fock or mixed-Fock backend; GBS probabilities via `photographiq.sampling` |
 | Noisy or inefficient homodyne on pure Fock backends | `piquasso-fock`, `native-fock` | `NotImplementedError("Noisy Fock homodyne requires mixed-state conditioning")` | `piquasso-mixed-fock` or `native-mixed-fock` |
 | Heterodyne and generaldyne on Fock backends | All four Fock backends | `NotImplementedError` ("Fock backend supports ideal Homodyne and PhotonNumber measurements only" / "Mixed Fock supports PhotonNumber and Homodyne") | Gaussian backends |
@@ -6591,14 +6986,16 @@ This section collects limitations stated in Sections 1 to 33, in the code and in
 | Total-photon truncation sum n < cutoff | All Fock and mixed-Fock backends, `pnr_distribution`, GKP resources | States are renormalised after each operation; the retained norm and the boundary population (weight at total photon number >= cutoff - 2) are recorded in `diagnostics`. Norm loss above `norm_tolerance` (default 1e-3) raises `ValueError("Fock truncation norm ...; increase cutoff")`; boundary population above `boundary_warning` (0.02) warns. Renormalising a truncated tail does not turn it into physical loss. | Repeat at increasing cutoffs (`cutoff_convergence`) and inspect `diagnostics`; norm monitoring is not a rigorous error certificate |
 | Engines truncate differently | `native-fock` / `native-mixed-fock` vs `piquasso-fock` / `piquasso-mixed-fock` | Native uses exact projected Gaussian matrix elements; Piquasso truncates after each Euler factor. Results differ at truncation level, and near the norm guard one engine can raise while the other continues. | Compare engines only at converged cutoffs |
 | Two cubic-phase definitions | `CubicPhase` on native Fock backends | `"truncated_generator"` (default, as Piquasso) never reports leakage; `"projected"` reports leakage and may trip the norm guard. Both converge with the cutoff. | Choose the definition explicitly and check convergence |
-| Combined squeezing-displacement accuracy | Native Gaussian Fock matrix elements | A single Gaussian unitary combining squeezing and displacement loses accuracy at large \|alpha\| and cutoff (8e-5 for \|alpha\| = 4, r = 0.3, cutoff 80, reported in the module docstring, not asserted by a test); the vacuum column stays at 1e-16 | Keep displacements moderate or verify with a larger cutoff |
+| Multi-mode displaced Gaussian unitaries have no error bound | `photographiq._native.fock.gaussian_unitary` with k >= 2 modes and d != 0 (Section 13) | The one-mode case was fixed on 2026-11-12 (at most 1.9e-14 against 60-digit mpmath for abs(alpha) <= 6, abs(r) <= 1, cutoff <= 100; rounding outside that range not measured). Multi-mode unitaries still use the Bargmann recurrence, whose rounding error is not bounded in general and grows with cutoff and squeezing (3e-12 measured at abs(delta) <= 4, r <= 0.6, cutoff <= 40 on two modes). The backends never request such a unitary (CZ, beam splitter and Gaussian transforms have d = 0); only a direct kernel call can. Hot mixed `GaussianInput`s (size up to 4096) now cost O(size^2 L) and can take minutes | Apply the displacement as a separate one-mode gate; compare with a larger cutoff |
 | Memory guards | Fock and mixed-Fock backends | `max_dimension` (default 1,000,000) raises `MemoryError` before allocation; mixed-Fock `max_matrix_bytes` (default 256,000,000, counts 16 D^2 bytes, not gate workspaces) raises `MemoryError`; native mixed thermal inputs needing more than 4096 Fock terms raise `NotImplementedError` | Fewer live modes (lazy `Prepare`), lower cutoff after a convergence check, or a Gaussian backend |
 | Finite squeezing | Cluster resources, teleportation gadgets, CV flow and determinism (Sections 8, 11, 26) | Finite-squeezing gates add Gaussian noise (for one wire step N = diag(0, e^{-2r})). CV determinism verification uses postselected runs as a numerical certificate only; they are not deterministic execution, and the conditional output remains noisy at finite r | Report the channel (S, N) from `ideal_limit_check` or the compiled pattern; increase r to approach the ideal limit |
-| CV determinism undecided at large squeezing | `verify_cv_determinism`, `find_cv_flow`, `analyze(..., "cv")` (Section 26) | The false "unknown" results at r of about 3.1 to 3.5 are fixed: the law-of-total-covariance check now has a rounding allowance that scales with the largest covariance entry. For r above about 3.5 (on the wire; from about 2.9 on some random graphs) the raised levels r + 3 and r + 6 still fail `GaussianState.validate`, whose absolute -1e-7 eigenvalue bound does not scale with the covariance. The result is then `unknown` ("could not run"), never a false certification, and near the threshold it can flip between "could not run" and certified with tiny changes of r (4.0 against 4.000000000000002). A few adversarial graphs (7 of 600) give `unknown` from a slow decay exponent (about 0.65) although the flow is certified. The allowance itself is a first-order estimate, not a rigorous bound. | Call `verify_cv_determinism(flow_pattern(...), shift=1.5)` directly (on the wire this certified r = 4.0 and 4.5, which give "could not run" at the default `shift=3.0`; `find_cv_flow` and `analyze` do not expose `shift`), or treat `unknown` as undecided; `unknown` is never a proof of nondeterminism |
+| CV determinism undecided at large squeezing | `verify_cv_determinism`, `find_cv_flow`, `analyze(..., "cv")` (Section 26) | The false "unknown" results at r of about 3.1 to 3.5 are fixed: the law-of-total-covariance check now has a rounding allowance that scales with the largest covariance entry. For r above about 3.5 (on the wire; from about 2.9 on some random graphs) the raised levels r + 3 and r + 6 still fail `GaussianState.validate`, whose absolute -1e-7 eigenvalue bound does not scale with the covariance. The result is then `unknown` ("could not run"), never a false certification, and near the threshold it can flip between "could not run" and certified with tiny changes of r (4.0 against 4.000000000000002). A few adversarial graphs (7 of 600) give `unknown` from a slow decay exponent (about 0.65) although the flow is certified. The allowance itself is a first-order estimate, not a rigorous bound. | Pass `shift=1.5` to `find_cv_flow` or `analyze` (exposed since 2026-11-12; certifies the unit wire up to r = 4.5 in the tests), or `exact=True` for the exact ideal-limit check, which does not depend on r; otherwise treat `unknown` as undecided; `unknown` is never a proof of nondeterminism |
+| CV-flow certification limits | `find_cv_flow`, `analyze(..., "cv")`, `exact_ideal_limit` (Section 26) | An uncertain float64 rank decision gives `unknown` (it gave `not_certified` before 2026-11-12). The automatic exact re-check runs only on graphs of at most 40 nodes; above that, or with `exact=False`, an "impossible" result is a float64 backward-error statement, not a proof, and badly scaled systems stay uncertain. The exact path costs about O(n^4) rational operations and is not meant for hundreds of nodes. The exact ideal-limit conditions are sufficient, not necessary. `finite_squeezing` certificates are float64 statements only (no exact finite-squeezing check), and with correction gains above 1/sqrt(eps) only the ideal-limit statement is meaningful. Unit-efficiency detection and lossless resources are assumed. The 600-graph adversarial run was not repeated after the last rule change | Use `exact=True` on small graphs; read `diagnostics['decision']`, `diagnostics['proof']` and `certificate['regimes']` |
 | Postselected results are single branches | `measurement_outcomes=`, `mode="physical-conditional"` | The result is one conditional branch, reported with its probability or density in `measurement_statistics`; it is not a deterministic outcome | Sample with `run_shots` or physical shots |
 | Finite-energy GKP | `GKPResource`, `GKPCode`, decoders | Codewords overlap (`encode` is not isometric); leakage cannot be inferred from one analog outcome (`None`); `captured_weight` diagnoses only the Fock projection, and peaks and grid need separate refinement | Refine cutoff, `grid_points` and `peaks` separately (`measurement_convergence`, `validate_physical_model`) |
 | Product-formula synthesis is approximate | Cubic/Kerr/quartic synthesis (`src/photographiq/synthesis.py`) | Finite-energy injection, Fock projection and product-formula error are separate limits; no returned step count is an a-priori operator-norm guarantee | Refine slice counts and cutoffs; compare with direct targets |
-| Double-precision threshold probabilities | `threshold_probability`, `threshold_distribution`, `sample_threshold` | The alternating inclusion-exclusion sum loses digits as clicks grow and P shrinks (native backend against 50-digit references: relative error 1.7e-7 at 24 modes / 12 clicks and 7.5e-3 at 32 modes / 16 clicks, r = 0.5, eta = 0.9). The `return_error=True` value is `B / abs(P)` for an absolute bound `B` whose conditioning part is derived (Cholesky backward error) and whose alternating-sum part is first order and calibrated against mpmath, including the few-click factor `max(1, 16 / sqrt(2^k - 1))`; it is not proven. It held in every mpmath comparison so far, but it is conservative: 180x to 6e4x the actual error on realistic states by the orchestrator's measurements, 20x to 1.1e4x on 37 random states checked for this document, and 480x to 1260x on the 24/28/32-mode benchmark cases. So `ThresholdPrecisionWarning` (relative bound above 1e-6) can fire for small but accurate probabilities, especially of strongly squeezed states. Negative results and results within `B` of zero always warn ("negative beyond its absolute rounding bound", "consistent with zero"); `precision=` cannot resolve a value that is exactly zero, and a value negative beyond `B` means the stored covariance is unphysical at this accuracy. The bound does not include rounding of the stored covariance itself. The native kernel refuses more than 40 clicked modes. | `precision=<digits>` (extra `precision`), which is exact for the stored double-precision covariance |
+| Double-precision threshold probabilities | `threshold_probability`, `threshold_distribution`, `sample_threshold` | The alternating inclusion-exclusion sum loses digits as clicks grow and P shrinks. On the 382-case reference matrix double precision failed (relative error above 1e-6) in 80 of 360 random cases (native) and 72 (Python), all at r <= 0.5 with many clicks; Piquasso fails in the same regime and can return 0.0 for nonzero probabilities without a warning. The `return_error=True` value is `B / abs(P)` for an absolute bound `B` whose conditioning part is derived and whose alternating-sum part is first order and calibrated against mpmath (factor `max(1, 16 / sqrt(2^k - 1))`), not proven; it held in every comparison so far. Negative results and results within `B` of zero always warn; `precision=` cannot resolve a value that is exactly zero, and a value negative beyond `B` means the stored covariance is unphysical at this accuracy. The bound does not include rounding of the stored covariance itself. The native kernel refuses more than 40 clicked modes. `threshold_distribution` and `sample_threshold` do not take `precision`, and mpmath is pure Python (16 clicks take minutes per probability) | `precision="auto"` (recomputes in mpmath only when needed; below `rtol` on every reference-matrix case) or `precision=<digits>`, both exact for the stored double-precision covariance (extra `precision`) |
+| Threshold rounding bound is loose | `threshold_probability(..., return_error=True)`, `ThresholdPrecisionWarning` | On the reference matrix `B / actual` has median 620 (native) and 1100 (Python) and reaches 8.7e6 / 1.3e7, loosest at large squeezing. The warning (relative bound above 1e-6) therefore raised 37 native and 45 Python false alarms whose actual errors were 3.5e-11 to 8.2e-7; no real failure went unwarned | Treat a warning as "not certified", not as "wrong"; use `precision="auto"` to settle it |
 | Exact GBS samplers enumerate | `sample_pnr`, `sample_threshold` | Cost grows with the number of output patterns; no chain-rule or approximate large-scale sampler exists; PNR samples beyond the cutoff appear as `-1` rows (`overflow`). Both samplers clip negative probabilities no larger than 1e-12 of the total mass (rounding) and raise `ValueError("... negative beyond rounding ...")` for larger ones; `sample_threshold` used to clip every negative silently. Observed threshold negatives grow with the mode count (-2.4e-14 at 14 modes), so the raise is expected only near 18 to 20 modes, where enumeration is already too slow. | Keep modes and cutoff small; read `truncated_mass` |
 | Exponential matrix functions | Permanent, hafnian, torontonian | Exponential cost; by-definition oracles limited to n <= 8 (permanent) and 2n <= 12 (hafnian) | Native kernels (`backend="native"`) for larger sizes |
 | float32 GPU option | `photographiq.gpu` with `dtype="float32"` | Validated only against float64 on moderate states (rtol 1e-4 / 1e-5); error grows with squeezing | Use float64 |
@@ -6610,12 +7007,14 @@ This section collects limitations stated in Sections 1 to 33, in the code and in
 |---|---|---|---|
 | Graphix checks only MBQC structure for CV | `tests/graphix_reference/` and the `validation` extra | Agreement covers labels, edges, measurement order and correction domains; Graphix is never a CV numerical oracle (for qubit MBQC it also checks flows and branch statevectors) | Use the analytical, Piquasso and cross-backend layers for CV numerics |
 | Shared measurement adapter | Gaussian backends | Agreement among `gaussian`, `piquasso` and `native-gaussian` alone does not validate detector statistics | Analytical moments and densities (`tests/analytical/`) |
-| Experimental labels | Pure and mixed Fock execution, non-Gaussian gates, synthesis, GKP, JAX differentiation, PhotoGraphiQML physical path | These paths are tested against independent references in stated regimes, but the code and `docs/validation/feature-matrix.md` call them experimental | Treat results as research-grade; repeat convergence studies for new regimes |
-| MentPy comparison not run here | PhotoGraphiQML logical models | MentPy is absent, so the reference tests skip; the workflow installs a git commit while the extra pins `mentpy==0.1.0a15` | Install MentPy (`ml-validation` extra or the commit in `tests/ml/mentpy_reference/requirements.txt`) and run `tests/ml/mentpy_reference` |
+| Experimental labels | Piquasso Fock execution, non-Gaussian gates in patterns, synthesis, GKP, JAX differentiation, PhotoGraphiQML physical path | The code and `docs/validation/feature-matrix.md` call all Fock execution experimental. Since 2026-11-12 this document lists the native Fock engines and their gates, states, counting, homodyne, loss and instruments as validated because `tests/validation/` gives them first-principles references; the feature matrix has not been changed to match | Treat other Fock results as research-grade; repeat convergence studies for new regimes |
+| MentPy comparison only in an isolated venv | PhotoGraphiQML logical models | MentPy is absent from the project venv, so the reference tests skip there and 9 MentPy-dependent manuscript experiments fail in the reproduction bundle. The comparison passed (34/34) in an isolated venv on 2026-11-11/12; the workflow installs a git commit while the extra pins `mentpy==0.1.0a15` | Install MentPy (`ml-validation` extra or the commit in `tests/ml/mentpy_reference/requirements.txt`) and run `tests/ml/mentpy_reference` |
 | Behavioural tests only | `OpenGraph`, registry and planner, layouts, static exports, plot rendering, lazy imports, memory guard | Checked for round trips, rejections and file validity, with no independent reference | None needed for correctness of physics; read statuses in Sections 2, 5, 14 and 30 |
 | Fock benchmark agreement tolerance is empirical | `benchmarks/fock/bench_fock.py` | The script now checks native against Piquasso before timing. For the CZ and whole patterns the tolerance `max(1e-12, sqrt(p_boundary))` is an empirical scale, not a bound; it failed (ratio 1.39) on a heavily truncated state at `norm_tolerance=0.9`, so it holds only for states the default norm guard (1e-3) admits | Keep the default `norm_tolerance`; rely also on `tests/native/` for engine agreement |
 | Some native mixed-Fock paths lack a direct comparison | `native-mixed-fock` | Multi-Kraus instruments are now tested against an explicit partial trace, but rank-one instruments and physical GKP readout are compared with Piquasso only on the pure engines (`native-fock` vs `piquasso-fock`); `native-mixed-fock` shares the Python measurement code but has no dedicated test for them | Cross-check against `piquasso-mixed-fock` for new cases |
-| No passing remote CI claimed | `.github/workflows/ci.yml`, `ml-reference.yml` | Workflows are configured for `ubuntu-latest` only; this document reports local runs on Windows | Run `experiments/validate_release.py` locally |
+| No passing remote CI claimed | `.github/workflows/ci.yml`, `ml-reference.yml` | Workflows are configured for `ubuntu-latest` only; this document reports local runs on Windows. The 2026-11-12 fixes for the failing `tests` and `documentation` workflows (notebook lint and format, the Numba 0.68 crash, installed-package imports) were reproduced locally but not pushed, so the remote CI has not been re-run, and no Linux environment was available | Run `experiments/validate_release.py` locally; a push by the maintainer is needed to confirm CI |
+| CUDA-Q execution unverified | `photographiq.cudaq_dynamics.to_cudaq`, `evolve` (Section 16) | No CUDA-Q call has ever run (Linux-only wheels; no WSL or Docker here). The documented signatures, degree ordering, NumPy input on the `dynamics` target, integrator accuracy and reported device are unchecked; `test_real_cudaq_evolve_matches_reference` skips. Only the conventions are validated, through the NumPy/SciPy reference path | Run `tests/cudaq_adapter` on Linux with CUDA-Q >= 0.16 before relying on `evolve` |
+| Interactive layout limits | `photographiq.interactive` pages and static exports (Section 30) | Straight edges and fixed-bend arcs can pass under other nodes, so a dependency can read like a chain through an intermediate node, and an edge between collinear nodes is hidden; three-line outcome labels overflow the node; the flow panel can push the execution controls below the fold; labels on a 6 x 6 cluster are 8.8 px at default zoom; static `#k` labels touch correction arcs; overlays are not recomputed after an edit; touch, Firefox/WebKit, high-DPI and the Plotly pages were not checked in a real browser | Hover arrows to read the true dependency, move nodes, zoom in; re-run the analysis in Python after edits |
 
 ### Optional dependencies
 
@@ -6624,13 +7023,14 @@ This section collects limitations stated in Sections 1 to 33, in the code and in
 | Piquasso is optional and pinned | `piquasso`, `piquasso-fock`, `piquasso-mixed-fock`; raw-Piquasso tests; `photographiq.autodiff` input preparation; `PhysicalMuTA` default backend | Requesting these without Piquasso raises `ImportError` with the install command; reference tests skip | `pip install 'photographiq[piquasso]'` (`piquasso==8.0.1`); native Fock backends do not import Piquasso |
 | Native extension may be absent | `native-gaussian`, `native-fock`, `native-mixed-fock`, `backend="native"` in `photographiq.sampling` | Native backends raise `ImportError` with build instructions; `backend="auto"` silently falls back to NumPy | Build from source with a C++20 compiler and CMake >= 3.24 ([native build](development/native-build.md)) |
 | Other optional extras | Graphix (`validation`), JAX plus Piquasso (`autodiff`; Piquasso was added on 2026-11-11 because it prepares every input), mpmath (`precision`), CuPy (`gpu-cuda12`: `cupy-cuda12x`; `gpu-cuda13`: `cupy-cuda13x[ctk]`, which also pulls the CUDA 13 toolkit), matplotlib (`visualization`), MentPy (`ml-validation`), scikit-learn (`ml-experiments`) | Lazy imports raise `ImportError` naming the extra; the dependent tests skip | Install the named extra; `dev` installs Graphix, Piquasso and mpmath but not JAX, CuPy or MentPy |
-| CUDA-Q is not an extra | `cudaq-dynamics` | No install path is declared; CUDA-Q publishes Linux wheels only | WSL2 or Linux; even then execution is not implemented |
+| CUDA-Q is not an extra | `photographiq.cudaq_dynamics` | No install path is declared; CUDA-Q publishes Linux wheels only | WSL2 or Linux (Hamiltonian evolution only, unverified) |
+| Numba < 0.68 constraint | Extras that install Piquasso (`piquasso`, `ml-experiments`, `autodiff`, `dev`) | With `numba` 0.68.1 / `llvmlite` 0.50.0, Piquasso's cached hafnian kernels compile in the first process and every later process aborts while loading the cache (`LLVM ERROR: Symbol not found: .numba.unresolved...`). The extras therefore pin `numba<0.68` (0.67.0 / 0.49.0 pass); no upstream issue was found | Keep the constraint until a fixed Numba release is verified (reproduction in the `pyproject.toml` comment); the native backends do not use Numba |
 
 ### Platform notes
 
 | Limitation | Affected feature | Consequence | Workaround |
 |---|---|---|---|
-| CUDA-Q is Linux-only | `cudaq-dynamics` probe | Not installable on native Windows; the probe reports `ModuleNotFoundError` here | WSL2 or Linux (probe only) |
+| CUDA-Q is Linux-only | `photographiq.cudaq_dynamics` | Not installable on native Windows; the probe reports `ModuleNotFoundError` here | WSL2 or Linux |
 | GPU module needs an NVIDIA GPU and a matching CuPy wheel | `photographiq.gpu` | `device="gpu"` raises `ImportError` (CuPy missing; the message names `cupy-cuda12x`, `'cupy-cuda13x[ctk]'` and the matching extras) or `RuntimeError` (no device) and never falls back to the CPU; GeForce-class GPUs run FP64 at a small fraction of their FP32 rate | `device="cpu"`; pick `gpu-cuda12` or `gpu-cuda13` to match the driver |
 | No custom CUDA kernels | `photographiq.gpu` | Kernels are compositions of cuBLAS/cuSOLVER batched calls and CuPy element-wise operations | None needed for correctness |
 | OpenMP is optional | Native kernels | Without compiler OpenMP support the kernels run serially; native Fock gates use OpenMP only above a 2^22 work threshold | Check `photographiq.native.build_info()["openmp"]` |
@@ -6640,7 +7040,7 @@ This section collects limitations stated in Sections 1 to 33, in the code and in
 
 ## 36. Future development
 
-The items below come only from the project's roadmaps (`ROADMAP.md`, identical to `docs/roadmap.md`; [PhotoGraphiQML roadmap](ml/ROADMAP.md)), from code that raises `NotImplementedError` with a message or docstring that states the missing work, and from the **Planned** entries in Sections 27 and 28. No `TODO` or `FIXME` comment exists in `src/` or `cpp/`. The roadmaps state: "These are research directions without promised dates" and "None of these items imply quantum advantage or an error-correction threshold." No item below has a date or a commitment. Defects fixed on 2026-11-11 (sampler clipping, the threshold rounding bound and its warnings, pattern validation messages, CV determinism false negatives at r of about 3.1 to 3.5, `analyze(qubit_graph, "cv", ...)`, the Fock benchmark correctness gate, the `autodiff` extra and the GPU install hint) are not listed. The open problems those fixes left are in Section 35, because no roadmap item covers them.
+The items below come only from the project's roadmaps (`ROADMAP.md`, identical to `docs/roadmap.md`; [PhotoGraphiQML roadmap](ml/ROADMAP.md)), from code that raises `NotImplementedError` with a message or docstring that states the missing work, from the **Planned** entries in Sections 27 and 28, and from the 2026-11-12 audit reports and comments that name the remaining work ([Phase 1](validation/PHASE1_RELEASE_AUDIT.md), [Phase 3](validation/PHASE3_FEATURE_COMPLETION.md), the validation pages they link, and `pyproject.toml`). No `TODO` or `FIXME` comment exists in `src/` or `cpp/`. The roadmaps state: "These are research directions without promised dates" and "None of these items imply quantum advantage or an error-correction threshold." No item below has a date or a commitment. Defects fixed on 2026-11-11 (sampler clipping, the threshold rounding bound and its warnings, pattern validation messages, CV determinism false negatives at r of about 3.1 to 3.5, `analyze(qubit_graph, "cv", ...)`, the Fock benchmark correctness gate, the `autodiff` extra and the GPU install hint) and on 2026-11-12 (the ignored `Homodyne` angle in direct `measure` calls, the one-mode native Gaussian-unitary instability, the CI lint and Numba failures, the four interactive-page defects, uncertain CV rank decisions reported as `not_certified`) are not listed, and neither are the 2026-11-12 completions (`precision="auto"`, `photographiq.gpu.fock`, `GaussianGraph`, the CV-flow `shift=`/`exact=` options, native backends for the convergence helpers). The open problems those fixes left are in Section 35, because no roadmap item covers them.
 
 | Item | Source | Current behaviour | Status |
 |---|---|---|---|
@@ -6656,4 +7056,10 @@ The items below come only from the project's roadmaps (`ROADMAP.md`, identical t
 | Magic-state injection or arbitrary logical Rz protocol behind the `LogicalMeasurementSynthesis` extension point | `src/photographiq/encoded.py` (`lower` raises "No validated magic-state injection or arbitrary logical Rz protocol") | Always raises | **Planned** |
 | Physical quantum-output instrument model with a separately validated post-measurement map | `src/photographiqml/models.py` (`QuantumInstrumentModel` raises "a physical quantum-output instrument needs a separately validated post-measurement map") | Logical only | **Planned** |
 | A sound CV analogue of local complementation, verified by covariance/nullifier comparison | `src/photographiq/calculus/clifford.py` (`cv_local_complementation` docstring: "a sound CV analogue must be derived and verified ..., which this package has not done") | Always raises `NotImplementedError` | **Planned** |
-| CUDA-Q Dynamics translation of patterns (gate-to-Hamiltonian translation and measurement conditioning) | `src/photographiq/backends/cudaq_dynamics.py` (docstring gives "Convention warnings for any future translation"; error says no translation "has been validated") | Probe only; no roadmap entry | **Planned** |
+| CUDA-Q execution of patterns (measurement conditioning on CUDA-Q) and a verified CUDA-Q run of the adapter | `src/photographiq/cudaq_dynamics.py` (the gate-to-Hamiltonian translation exists and is validated against native-fock through the NumPy reference) | Adapter only; CUDA-Q path not run | **Planned** |
+| Lift the `numba<0.68` constraint once a Numba release that reloads cached Piquasso kernels is verified | `pyproject.toml` comment ("Remove once a fixed numba is verified"); [Phase 1 audit](validation/PHASE1_RELEASE_AUDIT.md), unresolved blockers | The extras that install Piquasso pin `numba<0.68` | **Planned** |
+| Confirm the 2026-11-12 CI fixes on the hosted Linux runners | [Phase 1 audit](validation/PHASE1_RELEASE_AUDIT.md) ("A push, made by the maintainer, is required to confirm green CI on ubuntu") | Fixes reproduced on Windows only; remote CI not re-run | **Planned** |
+| A general error bound (or a stable algorithm) for displaced multi-mode Gaussian unitaries | [native Fock Gaussian unitary](validation/native-fock-gaussian-unitary.md), remaining limits; [Phase 3](validation/PHASE3_FEATURE_COMPLETION.md), "Still unsupported" | Bargmann recurrence without a general bound; never requested by the backends | **Planned** |
+| Exact certification of the finite-squeezing CV channel | [CV-flow robustness](validation/cv-flow-robustness.md), remaining limits ("No exact finite-squeezing channel check exists"); [Phase 3](validation/PHASE3_FEATURE_COMPLETION.md), "Still unsupported" | `finite_squeezing` certificates are float64 statements; the exact check covers the ideal limit only | **Planned** |
+| A native batched kernel for permanents, hafnians and torontonians, before any GPU sampling kernel is reconsidered | [Phase 3](validation/PHASE3_FEATURE_COMPLETION.md), section 3.3 ("a native batched kernel should come first"); [GPU acceleration](gpu.md) | GPU sampling measured and not shipped; native kernels evaluate one matrix per call | **Planned** |
+| Layout-aware edge routing for the interactive pages | [interactive visualization browser check](validation/interactive-visualization-browser.md), remaining limits ("Fixing this needs layout-aware edge routing, which was not attempted") | Straight edges and fixed-bend arcs can pass under other nodes | **Planned** |

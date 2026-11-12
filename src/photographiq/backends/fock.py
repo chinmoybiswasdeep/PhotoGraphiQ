@@ -16,7 +16,7 @@ from .._optional import piquasso as pq
 from ..measurements import Homodyne, PhotonNumber
 from ..resources import CatResource, CubicPhaseResource
 from ..states import FockInput, FockSuperposition, GaussianInput
-from .base import BaseBackend
+from .base import BaseBackend, resolve_angle
 
 
 @dataclass
@@ -562,7 +562,7 @@ class PiquassoFockBackend(BaseBackend):
             }
         )
 
-    def measure(self, node, measurement, angle=0.0, *, outcome=None):
+    def measure(self, node, measurement, angle=None, *, outcome=None):
         """Execute a destructive ideal homodyne or photon-number measurement.
 
         Args:
@@ -580,6 +580,7 @@ class PiquassoFockBackend(BaseBackend):
             ValueError: Photon-count postselection has zero probability.
             NotImplementedError: Noisy Fock homodyne requires mixed-state conditioning.
         """
+        angle = resolve_angle(measurement, angle)
         from ..encoded import PhysicalGKPReadout
         from ..instruments import MeasurementInstrument, destructive_instrument
 

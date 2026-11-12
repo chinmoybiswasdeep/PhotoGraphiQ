@@ -1,4 +1,4 @@
-"""Backend registry, name resolution, planner and CUDA-Q probe."""
+"""Backend registry, name resolution, planner and the CUDA-Q probe (adapter, not backend)."""
 
 from __future__ import annotations
 
@@ -10,11 +10,7 @@ import pytest
 
 import photographiq as pg
 from photographiq import registry
-from photographiq.backends.cudaq_dynamics import (
-    CudaqDynamicsBackend,
-    cudaq_capabilities,
-    cudaq_probe,
-)
+from photographiq.backends.cudaq_dynamics import cudaq_capabilities, cudaq_probe
 from photographiq.backends.fock import PiquassoFockBackend
 from photographiq.backends.gaussian import GaussianBackend
 from photographiq.backends.mixed_fock import MixedFockBackend
@@ -257,19 +253,17 @@ def test_cudaq_reported_without_claiming_execution():
     assert {"bosonic_operators", "truncation", "open_system_dynamics"} <= set(
         capabilities["documented"]
     )
-    assert CudaqDynamicsBackend.capabilities == frozenset()
-    assert registry.select_backend(_gaussian_pattern()).name != "cudaq-dynamics"
+    assert "pattern execution" in capabilities["not_provided"]
 
 
-def test_cudaq_absent_raises_import_error():
-    probe = cudaq_probe()
-    if probe["available"]:
-        with pytest.raises(NotImplementedError):
-            CudaqDynamicsBackend()
-        return
-    assert "cudaq" in probe["error"]
-    assert not registry.BACKENDS["cudaq-dynamics"].available()
-    with pytest.raises(ImportError, match="CUDA-Q"):
-        CudaqDynamicsBackend()
-    with pytest.raises(ImportError, match="CUDA-Q"):
+def test_cudaq_is_an_adapter_not_a_backend():
+    assert "cudaq-dynamics" not in registry.BACKENDS
+    assert all(info.implementation != "cudaq" for info in registry.BACKENDS.values())
+    assert all(info.device == "cpu" for info in registry.BACKENDS.values())
+    with pytest.raises(ValueError, match="photographiq.cudaq_dynamics"):
         pg.simulate(pg.Pattern(inputs=(0,)), backend="cudaq-dynamics", cutoff=4)
+    with pytest.raises(ValueError, match="adapter"):
+        registry.describe_backend("cudaq-dynamics")
+    probe = cudaq_probe()
+    if not probe["available"]:
+        assert "cudaq" in probe["error"]

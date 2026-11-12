@@ -79,11 +79,13 @@ nav:
       - Automatic differentiation: user-guide/automatic-differentiation.md
       - Flow: user-guide/flow.md
       - MBQC calculus: user-guide/mbqc-calculus.md
+      - Gaussian graphical calculus: user-guide/gaussian-graphical-calculus.md
       - Convergence: user-guide/convergence.md
       - Visualization: user-guide/visualization.md
       - Interactive visualization: user-guide/interactive.md
       - Performance: performance.md
       - GPU acceleration: gpu.md
+      - CUDA-Q adapter: cudaq.md
   - Learn:
       - Tutorials:
           - Overview: tutorials/index.md
@@ -134,6 +136,7 @@ nav:
           - Gradient estimators: theory/gradient-estimators.md
       - Validation: validation/index.md
       - Feature matrix: validation/feature-matrix.md
+      - Validation status (2026-11-12): validation/MASTER_VALIDATION_STATUS.md
       - Complete functionality: COMPLETE_FUNCTIONALITY.md
       - Numerical policy: validation/numerical-policy.md
       - v0.2 evidence: release-hardening-report.md

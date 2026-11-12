@@ -70,7 +70,10 @@ eigensolver's error ~ u ||E_T|| shows up to 3.9x the model at k <= 2); the exces
 roughly as ``1/sqrt(2^k - 1)`` as per-term errors partly cancel (k = 8: 0.36x). With it,
 the sum error stayed below 0.52 of the sum bound in 4140 random states on both backends
 (k = 1..9, squeezing 5e-5..2, transmissivity 0.5..1, displaced and not), and the total
-error below 0.43 of ``B`` in 2000 further ones. For ``k >= 9`` the factor is 1.
+error below 0.43 of ``B`` in 2000 further ones. For ``k >= 9`` the factor is 1. The
+382-case reference matrix (4..24 modes, k = 1..16, 40-digit reference;
+docs/validation/gbs-threshold-accuracy.md) found no violation: ``B`` was 5.2x (native) and
+12x (Python) the error at its tightest, ~600-1100x at the median.
 
 ``C`` and ``eps_Z`` cover the dark-mode conditioning. It uses one Cholesky factor
 ``M_ZZ = L L^T`` with backward error ``|dM| <= gamma_{3n+1} |L| |L^T|`` (Higham, *Accuracy
@@ -86,7 +89,18 @@ Hoelder and ``<dA^4> = 3 <dA^2>^2``. A mean change ``de`` changes it by ``i [G, 
 
 A result with ``|P| <= B`` is consistent with zero. Negative results always raise a
 ``ThresholdPrecisionWarning``, and so does ``B / |P| > 1e-6``. ``precision=<digits>``
-evaluates the sum with mpmath instead.
+evaluates the sum with mpmath instead: the Schur complement ``C = 2 (I + E)``, shift ``e`` and
+``P_Z`` in ``digits``-digit arithmetic, then ``sum_T (-1)^{|T|} 2^{|T|} exp(-e_T^T C_T^{-1}
+e_T / 2) / sqrt(det C_T)`` over a depth-first walk of the subsets that extends the parent's
+Cholesky factor by one mode (``O(k^2)`` per term; 12 clicks ~1-7 s, 16 clicks ~1-4 min).
+
+``precision="auto"`` (opt-in) evaluates in double precision and recomputes in mpmath only when
+``B > rtol |P|`` (default ``rtol = 1e-6``), with ``ceil(log10(X / max(|P|, B)) + log10(1/rtol))
++ 10`` digits (20..400), where ``X = P_Z (2^k + sum_T |w_T|)`` bounds the mpmath sum's
+``P_Z sum_T (1 + w_T)``, i.e. ``X / |P|`` is its cancellation; a second pass adds digits if
+mpmath's own estimate still exceeds ``rtol``. ``return_info=True`` reports the path
+(:class:`ThresholdInfo`). See docs/validation/gbs-threshold-accuracy.md for the measured
+accuracy of each path.
 
 Loss: ``V -> eta V + (1 - eta) I`` and ``d -> sqrt(eta) d`` per mode (pure-loss channel).
 """
@@ -380,16 +394,28 @@ def _vacuum_sum(excess: np.ndarray, shift: np.ndarray) -> tuple[float, float]:
     return float(k == 0) + math.fsum(terms), float(k == 0) + math.fsum(map(abs, terms))
 
 
-def _vacuum_sum_mp(g: GBSMatrices, clicks: np.ndarray, digits: int) -> tuple[float, float]:
-    """``P(S)`` and its absolute rounding estimate in ``digits``-digit mpmath arithmetic."""
+def _mpmath():
     try:
-        import mpmath as mp
+        import mpmath
     except ImportError as exc:
         raise ImportError(
-            "threshold_probability(precision=...) needs mpmath: "
+            "threshold_probability(precision=...) needs mpmath, the 'precision' extra: "
             "pip install 'photographiq[precision]'"
         ) from exc
+    return mpmath
 
+
+def _vacuum_sum_mp(g: GBSMatrices, clicks: np.ndarray, digits: int) -> tuple[float, float]:
+    """``P(S)`` and its absolute rounding estimate in ``digits``-digit mpmath arithmetic.
+
+    The ``2^k`` terms ``2^|T| exp(-e_T^T C_T^{-1} e_T / 2) / sqrt(det C_T)`` are visited
+    depth first, each subset extending its parent's Cholesky factor of ``C_T`` (and
+    ``L^{-1} e_T``) by one mode: ``O(k^2)`` per term instead of an ``O(k^3)`` determinant.
+
+    Raises:
+        ValueError: A block ``C_T`` is not positive definite.
+    """
+    mp = _mpmath()
     with mp.workdps(digits):
         m = g.modes
         s, z = np.flatnonzero(clicks), np.flatnonzero(clicks == 0)
@@ -416,25 +442,42 @@ def _vacuum_sum_mp(g: GBSMatrices, clicks: np.ndarray, digits: int) -> tuple[flo
             pz = mp.mpf(2) ** len(z) * mp.exp(-quad / 2) / mp.sqrt(mp.det(sub(qz, qz)))
         else:
             schur, shift, pz = sub(qs, qs), vec(qs), mp.mpf(1)
-        terms = []
-        for mask in range(1 << len(s)):
-            t = [i for i in range(len(s)) if mask >> i & 1]
-            idx = [q for i in t for q in (2 * i, 2 * i + 1)]
-            if not idx:
-                terms.append(mp.mpf(1))
-                continue
-            c = mp.matrix([[schur[a, b] for b in idx] for a in idx])
-            e = mp.matrix([shift[a] for a in idx])
-            quad = (e.T * mp.inverse(c) * e)[0]
-            value = mp.mpf(2) ** len(t) * mp.exp(-quad / 2) / mp.sqrt(mp.det(c))
-            terms.append(-value if len(t) % 2 else value)
-        total = pz * mp.fsum(terms)
-        spread = pz * mp.fsum(abs(t) for t in terms) * mp.eps
+        k = len(s)
+        c = [[schur[a, b] for b in range(2 * k)] for a in range(2 * k)]
+        e = [shift[a] for a in range(2 * k)]
+        signed, absolute = [], []
+
+        def visit(idx, rows, y, root, start):
+            # rows: Cholesky factor of C_T by rows; y = rows^{-1} e_T; root = sqrt(det C_T).
+            size = len(idx) // 2
+            term = mp.mpf(2) ** size * mp.exp(-mp.fdot(y, y) / 2) / root
+            signed.append(-term if size % 2 else term)
+            absolute.append(term)
+            for mode in range(start, k):
+                idx2, rows2, y2, root2 = list(idx), list(rows), list(y), root
+                for j in (2 * mode, 2 * mode + 1):
+                    col: list = []
+                    for a, row in enumerate(rows2):
+                        col.append((c[idx2[a]][j] - mp.fdot(row[:a], col)) / row[a])
+                    pivot = c[j][j] - mp.fdot(col, col)
+                    if pivot <= 0:
+                        raise ValueError("Conditioned covariance block is not positive definite")
+                    diag = mp.sqrt(pivot)
+                    y2.append((e[j] - mp.fdot(col, y2)) / diag)
+                    rows2.append([*col, diag])
+                    idx2.append(j)
+                    root2 *= diag
+                visit(idx2, rows2, y2, root2, mode + 1)
+
+        visit([], [], [], mp.mpf(1), 0)
+        total = pz * mp.fsum(signed)
+        spread = pz * mp.fsum(absolute) * mp.eps
         return float(total), float(spread)
 
 
-def _threshold_double(g: GBSMatrices, clicks: np.ndarray, kernels) -> tuple[float, float]:
-    """Double-precision ``P(S)`` and its absolute rounding bound ``B`` (module doc)."""
+def _threshold_double(g: GBSMatrices, clicks: np.ndarray, kernels) -> tuple[float, float, float]:
+    """Double-precision ``P(S)``, its absolute rounding bound ``B`` (module doc) and
+    ``P_Z (2^k + sum_T |w_T|) >= P_Z sum_T (1 + w_T)``, the term scale of the mpmath sum."""
     pz, excess, shift, eps_z, dvc, de = _dark_conditioned(g, clicks)
     if kernels is not None:
         total, magnitude = kernels.threshold_vacuum_sum(excess, shift)
@@ -443,7 +486,41 @@ def _threshold_double(g: GBSMatrices, clicks: np.ndarray, kernels) -> tuple[floa
     value = pz * total
     summed, vc_norm = _sum_bound(excess, shift, magnitude)
     conditioning = (1 + math.sqrt(3)) / 8 * vc_norm * dvc + 0.5 * math.sqrt(vc_norm) * de
-    return value, pz * (summed + conditioning) + abs(value) * (eps_z + _U)
+    bound = pz * (summed + conditioning) + abs(value) * (eps_z + _U)
+    return value, bound, pz * (2.0 ** (len(shift) // 2) + magnitude)
+
+
+_AUTO_MAX_DIGITS = 400
+
+
+def _auto_digits(scale: float, value: float, bound: float, rtol: float) -> int:
+    """Digits for ``precision="auto"``: ``log10(scale / |P|) + log10(1 / rtol) + 10``.
+
+    ``scale / |P|`` is the cancellation of the mpmath sum, ``|P|`` floored at the double
+    bound ``B`` (the double value is noise when ``|P| <= B``).
+    """
+    cancellation = scale / max(abs(value), bound, 1e-300)
+    digits = math.ceil(math.log10(max(cancellation, 1.0)) - math.log10(rtol)) + 10
+    return min(max(digits, 20), _AUTO_MAX_DIGITS)
+
+
+@dataclass(frozen=True)
+class ThresholdInfo:
+    """How :func:`threshold_probability` evaluated a click probability (``return_info``).
+
+    Attributes:
+        path: ``"double"`` or ``"mpmath"``: the evaluation that produced the value.
+        digits: mpmath decimal digits (``None`` on the double path).
+        error: Estimated relative rounding error of the returned value (what
+            ``return_error=True`` returns).
+        double_error: The double-precision relative bound ``B / |P|`` (that
+            ``precision="auto"`` compared with ``rtol``; ``None`` for ``precision=<digits>``).
+    """
+
+    path: Literal["double", "mpmath"]
+    digits: int | None
+    error: float
+    double_error: float | None
 
 
 def threshold_probability(
@@ -451,27 +528,42 @@ def threshold_probability(
     clicks: Sequence[int],
     *,
     backend: Backend = "auto",
-    precision: int | None = None,
+    precision: int | Literal["auto"] | None = None,
+    rtol: float = _THRESHOLD_WARN,
     return_error: bool = False,
-) -> float | tuple[float, float]:
+    return_info: bool = False,
+) -> float | tuple[float, float] | tuple[float, ThresholdInfo]:
     """Probability of the threshold-detector pattern ``clicks`` (0 = no click, 1 = click).
 
     Args:
         state: Gaussian state or its precomputed :class:`GBSMatrices`.
         clicks: One 0/1 entry per mode.
         backend: ``"native"``, ``"python"`` or ``"auto"`` for the double-precision sum.
-        precision: Decimal digits (>= 16) of an mpmath evaluation instead of double
-            precision (pure Python and slow: ``2^clicks`` multiprecision determinants).
-            The covariance and mean are taken exactly as stored in double precision.
+        precision: ``None`` (double precision); decimal digits (>= 16) of an mpmath
+            evaluation instead (pure Python and slow: ``2^clicks`` terms of ``O(clicks^2)``
+            multiprecision operations each); or ``"auto"``: double precision, recomputed in
+            mpmath when the double bound ``B / |P|`` exceeds ``rtol``, with
+            ``log10(cancellation) + log10(1 / rtol) + 10`` digits (at most 400; one more pass
+            with more digits if mpmath's own estimate still exceeds ``rtol``). mpmath paths
+            take the covariance and mean exactly as stored in double precision.
+        rtol: Relative tolerance of ``precision="auto"`` (default ``1e-6``), which is also
+            its warning threshold; ignored otherwise.
         return_error: Also return the estimated relative rounding error: the absolute
             bound ``B`` of the module doc divided by ``|value|`` (``inf`` for ``value = 0``).
             In double precision ``B`` covers the alternating sum and the dark-mode
-            conditioning. With ``precision`` it is ``P_Z mp.eps sum_T |1 + w_T|``
-            (``mp.eps`` about ``10^-precision``).
+            conditioning. With mpmath it is ``P_Z mp.eps sum_T |1 + w_T|``
+            (``mp.eps`` about ``10^-digits``).
+        return_info: Return ``(value, ThresholdInfo)`` instead: which path ran, its digits
+            and errors. Not combinable with ``return_error`` (``info.error`` holds it).
+
+    Raises:
+        ImportError: ``precision`` is set (including ``"auto"``, checked on every call)
+            and mpmath, the ``photographiq[precision]`` extra, is not installed.
 
     Warns:
         ThresholdPrecisionWarning: The value is negative, is consistent with zero
-            (``|value| <= B``), or has estimated relative rounding error above ``1e-6``.
+            (``|value| <= B``), or has estimated relative rounding error above ``1e-6``
+            (``rtol`` for ``precision="auto"``).
             A value that is negative beyond ``B`` means that the stored covariance and mean
             are not a physical state to working accuracy (e.g. a covariance that rounding
             pushed below the vacuum).
@@ -480,16 +572,38 @@ def threshold_probability(
     c = _pattern(clicks, g.modes)
     if (c > 1).any():
         raise ValueError("Threshold patterns contain only 0 and 1")
+    if return_error and return_info:
+        raise ValueError("Pass return_error or return_info, not both (info.error is the error)")
     kernels = _kernels(backend)  # validates backend on every path
-    if precision is not None:
+    tolerance = _THRESHOLD_WARN
+    digits: int | None = None
+    double_error: float | None = None
+    if precision == "auto":
+        if not 0 < rtol < 1:
+            raise ValueError("rtol must lie in (0, 1)")
+        _mpmath()  # fail the same way whether or not this call needs mpmath
+        tolerance = rtol
+        value, spread, scale = _threshold_double(g, c, kernels)
+        error = double_error = spread / abs(value) if value else math.inf
+        if spread > rtol * abs(value):  # B = 0 = P is exact
+            digits = _auto_digits(scale, value, spread, rtol)
+            value, spread = _vacuum_sum_mp(g, c, digits)
+            error = spread / abs(value) if value else math.inf
+            if rtol < error < math.inf and digits < _AUTO_MAX_DIGITS:
+                digits = min(digits + math.ceil(math.log10(error / rtol)) + 10, _AUTO_MAX_DIGITS)
+                value, spread = _vacuum_sum_mp(g, c, digits)
+                error = spread / abs(value) if value else math.inf
+    elif precision is not None:
         if isinstance(precision, bool) or not isinstance(precision, int) or precision < 16:
-            raise ValueError("precision is a number of decimal digits >= 16")
+            raise ValueError("precision is 'auto' or a number of decimal digits >= 16")
+        digits = precision
         value, spread = _vacuum_sum_mp(g, c, precision)
+        error = spread / abs(value) if value else math.inf
     else:
-        value, spread = _threshold_double(g, c, kernels)
-    error = spread / abs(value) if value else math.inf
+        value, spread, _ = _threshold_double(g, c, kernels)
+        error = double_error = spread / abs(value) if value else math.inf
     where = f"alternating inclusion-exclusion sum over {int(c.sum())} clicked modes"
-    hint = "pass precision=<digits> for a multiprecision evaluation"
+    hint = "pass precision='auto' or precision=<digits> for a multiprecision evaluation"
     message = None
     if value < 0 and -value > spread:
         message = (
@@ -502,13 +616,16 @@ def threshold_probability(
             f"Threshold probability {value:.3e} is consistent with zero within its absolute "
             f"rounding bound {spread:.1e} ({where}); {hint}"
         )
-    elif error > _THRESHOLD_WARN:
+    elif error > tolerance:
         message = (
             f"Threshold probability {value:.3e} has estimated relative rounding error "
             f"{error:.1e} ({where}); {hint}"
         )
     if message is not None:
         warnings.warn(message, ThresholdPrecisionWarning, stacklevel=2)
+    if return_info:
+        path: Literal["double", "mpmath"] = "double" if digits is None else "mpmath"
+        return value, ThresholdInfo(path, digits, error, double_error)
     return (value, error) if return_error else value
 
 

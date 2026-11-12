@@ -830,12 +830,15 @@ def main() -> None:
         "--cap", type=float, help="stop growing a family once a median exceeds this"
     )
     parser.add_argument("--no-plots", action="store_true")
+    parser.add_argument(
+        "--out-dir", type=Path, default=RESULTS, help="directory for JSON and plots"
+    )
     args = parser.parse_args()
     cfg = FULL if args.full else FAST
     for key, val in (("repeats", args.repeats), ("warmup", args.warmup), ("cap_s", args.cap)):
         if val is not None:
             cfg[key] = val
-    run(cfg, seed=args.seed, plots=not args.no_plots)
+    run(cfg, seed=args.seed, out_dir=args.out_dir, plots=not args.no_plots)
 
 
 if __name__ == "__main__":

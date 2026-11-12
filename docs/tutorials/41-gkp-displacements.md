@@ -24,7 +24,7 @@ for gate in ("X", "Z"):
     source = code.zero() if gate == "X" else code.plus()
     target = code.one() if gate == "X" else code.minus()
     p = pg.Pattern(inputs=(0,)).append(code.logical_gate(0, gate))
-    r = pg.simulate(p, inputs={0: source}, backend="piquasso-fock", cutoff=code.cutoff)
+    r = pg.simulate(p, inputs={0: source}, backend="native-fock", cutoff=code.cutoff)
     fidelity = abs(np.vdot(target.amplitudes, r.state.state_vector)) ** 2
     print(gate, "target fidelity:", fidelity, "leakage:", code.leakage(r.state.state_vector))
     assert 0 < fidelity < 1

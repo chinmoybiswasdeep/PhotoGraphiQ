@@ -15,8 +15,11 @@ backend module itself (not its optional dependencies, which are lazy).
 cover :func:`photographiq.capabilities.required_features` of a pattern and that
 passes the same allocation-free ``preflight`` used by ``simulate``. It never picks a
 backend lacking a required feature; if none qualifies it raises with the reasons.
-Cost order: representation (gaussian < pure-fock < mixed-fock < bosonic-dynamics),
-then the ``prefer`` order of implementations, then registration order.
+Cost order: representation (gaussian < pure-fock < mixed-fock), then the ``prefer``
+order of implementations, then registration order.
+
+CUDA-Q is not a registered backend: it cannot execute patterns. It is available as the
+optional Hamiltonian-level adapter module :mod:`photographiq.cudaq_dynamics`.
 """
 
 from __future__ import annotations
@@ -29,7 +32,7 @@ from typing import Any
 
 from .capabilities import CORRELATED_GAUSSIAN_STATE, MIXED_GAUSSIAN_INPUT, required_features
 
-REPRESENTATIONS = ("gaussian", "pure-fock", "mixed-fock", "bosonic-dynamics")
+REPRESENTATIONS = ("gaussian", "pure-fock", "mixed-fock")
 
 _TOTAL_TRUNCATION = "Fock truncation by total photon number sum(n) < cutoff"
 _RENORMALISATION = (
@@ -44,9 +47,9 @@ class BackendInfo:
     Args:
         name: Registry name accepted by ``simulate(backend=...)``.
         import_path: ``"module:Class"`` of the backend class.
-        representation: 'gaussian', 'pure-fock', 'mixed-fock' or 'bosonic-dynamics'.
+        representation: 'gaussian', 'pure-fock' or 'mixed-fock'.
         implementation: Engine family used by the ``prefer`` ordering
-            ('numpy', 'piquasso', 'native', 'cudaq').
+            ('numpy', 'piquasso', 'native').
         device: 'cpu' or 'gpu'.
         precision: Declared floating-point type of the state data.
         differentiable: Whether gradients flow through the backend itself. All
@@ -183,20 +186,6 @@ _REGISTRY: dict[str, BackendInfo] = dict(
             approximations=(_TOTAL_TRUNCATION,),
             native_components=("fock",),
         ),
-        _info(
-            "cudaq-dynamics",
-            "photographiq.backends.cudaq_dynamics:CudaqDynamicsBackend",
-            "bosonic-dynamics",
-            "cudaq",
-            device="gpu",
-            precision="complex128",
-            uses_cutoff=True,
-            approximations=(
-                "per-mode Fock truncation (local dimension per mode, not total photon number)",
-                "time-discretised ODE integration of the Schrodinger/Lindblad equation",
-            ),
-            python_packages=("cudaq",),
-        ),
     ]
 )
 
@@ -205,6 +194,11 @@ BACKENDS = MappingProxyType(_REGISTRY)
 
 
 def _get(name) -> BackendInfo:
+    if name == "cudaq-dynamics":
+        raise ValueError(
+            "Unknown backend: 'cudaq-dynamics'. CUDA-Q cannot execute patterns; it is "
+            "available as the Hamiltonian-level adapter module photographiq.cudaq_dynamics"
+        )
     if not isinstance(name, str) or name not in _REGISTRY:
         raise ValueError(f"Unknown backend: {name!r}")
     return _REGISTRY[name]
@@ -256,7 +250,6 @@ def create_backend(name: str, cutoff: int | None = None):
 
 _INSTALL_HINTS = {
     "piquasso": "requires the optional dependency 'piquasso': pip install 'photographiq[piquasso]'",
-    "cudaq": "requires the optional package 'cudaq' (CUDA-Q publishes Linux wheels only)",
 }
 
 

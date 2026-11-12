@@ -13,7 +13,7 @@ p.append(pg.Signal("bit", pg.CallableExpression(lambda r: r["m"].bit, frozenset(
 r = pg.simulate(
     p,
     inputs={0: code.zero()},
-    backend="piquasso-fock",
+    backend="native-fock",
     cutoff=code.cutoff,
     measurement_outcomes={"m": 0.1},
 )

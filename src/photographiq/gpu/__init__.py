@@ -1,4 +1,4 @@
-"""Optional CUDA acceleration of batched Gaussian workloads through CuPy.
+"""Optional CUDA acceleration of batched Gaussian and Fock workloads through CuPy.
 
 Importing this package does not import CuPy. Kernels default to ``device="gpu"`` and raise if
 CuPy or a CUDA device is unavailable; ``device="cpu"`` runs the same algorithm in NumPy.
@@ -7,6 +7,7 @@ See ``docs/gpu.md``.
 """
 
 from .device import INSTALL_HINT, Execution, available, device_info, require
+from .fock import FockBatch, apply_operator, apply_phase
 from .gaussian import (
     BatchValues,
     GaussianBatch,
@@ -25,9 +26,12 @@ __all__ = [
     "INSTALL_HINT",
     "BatchValues",
     "Execution",
+    "FockBatch",
     "GaussianBatch",
     "HomodyneConditioning",
     "HomodyneMoments",
+    "apply_operator",
+    "apply_phase",
     "apply_symplectic",
     "available",
     "condition_homodyne",

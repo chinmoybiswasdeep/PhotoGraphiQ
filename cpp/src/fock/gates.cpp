@@ -1,6 +1,8 @@
 #include "photographiq/fock/gates.hpp"
 
+#include <algorithm>
 #include <cmath>
+#include <limits>
 #include <numbers>
 #include <stdexcept>
 #include <string>
@@ -8,6 +10,7 @@
 
 #include <Eigen/Eigenvalues>
 #include <Eigen/LU>
+#include <Eigen/SVD>
 
 #include "photographiq/core/symplectic.hpp"
 #include "photographiq/fock/basis.hpp"
@@ -32,28 +35,29 @@ std::vector<Index> lowered_table(const FockBasis& basis) {
   return table;
 }
 
-// <m|D(alpha)|n> along each diagonal m - n = j from the normalised Laguerre recurrence
-// in the degree, e_n = <n + j|D|n> = sqrt(n!/(n + j)!) alpha^j e^{-x/2} L_n^(j)(x),
-// x = |alpha|^2:  e_{n+1} = ((2n + 1 + j - x) e_n - sqrt(n (n + j)) e_{n-1}) /
-// sqrt((n + 1)(n + j + 1)), and <n|D|n + j> = (-1)^j conj(e_n). Unlike the Bargmann
-// recurrence (1e-5 error at |alpha| = 4, cutoff 80 even with the stable pivot), this
-// stays at 1e-15 for |alpha| <= 7, cutoff <= 120, measured against 60-digit mpmath
-// arithmetic (regression tests: cpp/tests/test_fock.cpp, tests/native expm references).
-ComplexMatrix displacement_matrix(Complex alpha, int cutoff) {
+// <m|D(alpha)|n>, m < rows, n < cols, along each diagonal m - n = j from the normalised
+// Laguerre recurrence in the degree, e_n = <n + j|D|n> = sqrt(n!/(n + j)!) alpha^j
+// e^{-x/2} L_n^(j)(x), x = |alpha|^2:  e_{n+1} = ((2n + 1 + j - x) e_n -
+// sqrt(n (n + j)) e_{n-1}) / sqrt((n + 1)(n + j + 1)), and <n|D|n + j> = (-1)^j conj(e_n).
+// The polynomial is never the minimal solution of its recurrence, so rounding does not
+// grow: 4e-14 for |beta| <= 9.4 at size 541 (docs/validation/native-fock-gaussian-unitary.md).
+ComplexMatrix displacement_matrix(Complex alpha, int rows, int cols) {
   const Real x = std::norm(alpha);
   const Real log_abs = x > 0.0 ? 0.5 * std::log(x) : 0.0;
   const Real phase = std::arg(alpha);
-  ComplexMatrix d = ComplexMatrix::Zero(cutoff, cutoff);
-  for (int j = 0; j < cutoff; ++j) {
+  const int size = std::max(rows, cols);
+  const int small = std::min(rows, cols);  // every stored element has min(m, n) < small
+  ComplexMatrix d = ComplexMatrix::Zero(rows, cols);
+  for (int j = 0; j < size; ++j) {
     if (x == 0.0 && j > 0) break;
     const Real log_e0 = j * log_abs - 0.5 * x - 0.5 * std::lgamma(j + 1.0);
     Complex previous = std::polar(std::exp(log_e0), j * phase);
     Complex current = (1.0 + j - x) * previous / std::sqrt(j + 1.0);
     const Real sign = j % 2 == 0 ? 1.0 : -1.0;
-    for (int n = 0; n + j < cutoff; ++n) {
+    for (int n = 0; n < small && n + j < size; ++n) {
       const Complex value = n == 0 ? previous : current;
-      d(n + j, n) = value;
-      if (j > 0) d(n, n + j) = sign * std::conj(value);
+      if (n + j < rows) d(n + j, n) = value;
+      if (j > 0 && n + j < cols) d(n, n + j) = sign * std::conj(value);
       if (n >= 1) {
         const Complex next = ((2.0 * n + 1 + j - x) * current - std::sqrt(Real(n) * (n + j)) * previous) /
                              std::sqrt((n + 1.0) * (n + j + 1.0));
@@ -63,6 +67,143 @@ ComplexMatrix displacement_matrix(Complex alpha, int cutoff) {
     }
   }
   return d;
+}
+
+// <m|S_r|n>, m < rows, n < cols, for the Gaussian unitary of diag(e^-r, e^r) (any real r),
+// with the Bargmann phase convention (<0|S_r|0> = sech(r)^(1/2) > 0). With t = tanh r,
+// parity p, beta = p - 1/2, m = 2(nu + j) + p >= n = 2 nu + p, the Bargmann sum is a
+// Jacobi polynomial (SU(1,1) analogue of the Laguerre form of D):
+//   e_nu = <m|S_r|n> = sech(r)^(p + 1/2) (-t)^j sqrt(nu! G(nu + j + beta + 1) /
+//          ((nu + j)! G(nu + beta + 1))) P_nu^(j, beta)(1 - 2 t^2),   <n|S_r|m> = (-1)^j e_nu,
+// computed by the three-term recurrence of P in nu, rescaled to avoid under/overflow.
+// The argument lies in (-1, 1] and the polynomial is never the minimal solution, so
+// rounding stays at 2e-14 for |r| = 1 at size 600 (rows < 100), where the Bargmann
+// recurrence loses 7e-5 (docs/validation/native-fock-gaussian-unitary.md).
+RealMatrix squeezing_matrix(Real r, int rows, int cols) {
+  const int size = std::max(rows, cols);
+  const int small = std::min(rows, cols);
+  RealMatrix out = RealMatrix::Zero(rows, cols);
+  const Real t = std::tanh(r);
+  const Real y = 1.0 - 2.0 * t * t;
+  const Real log_sech = -std::log(std::cosh(r));
+  const Real log_t = t != 0.0 ? std::log(std::abs(t)) : 0.0;
+  constexpr Real kHuge = 1e150;
+  for (int p = 0; p < 2; ++p) {
+    const Real b = p - 0.5;
+    for (int j = 0; 2 * j + p < size; ++j) {
+      if (t == 0.0 && j > 0) break;
+      const Real a = j;
+      // N_{nu+1} / N_nu
+      auto ratio = [&](int nu) {
+        return std::sqrt((nu + 1.0) * (nu + a + b + 1.0) / ((nu + a + 1.0) * (nu + b + 1.0)));
+      };
+      Real log_scale = (p + 0.5) * log_sech + j * log_t +
+                       0.5 * (std::lgamma(a + b + 1.0) - std::lgamma(a + 1.0) - std::lgamma(b + 1.0));
+      const Real sign0 = (t > 0.0 && j % 2 == 1) ? -1.0 : 1.0;  // sign of (-t)^j
+      Real previous = 1.0;                                        // e_0 / exp(log_scale)
+      Real current = ratio(0) * ((a + 1.0) + (a + b + 2.0) * (y - 1.0) / 2.0);
+      for (int nu = 0; 2 * nu + p < small && 2 * (nu + j) + p < size; ++nu) {
+        const Real value = sign0 * (nu == 0 ? previous : current) * std::exp(log_scale);
+        const int m = 2 * (nu + j) + p;
+        const int n = 2 * nu + p;
+        if (m < rows) out(m, n) = value;
+        if (j > 0 && m < cols) out(n, m) = j % 2 == 0 ? value : -value;
+        if (nu >= 1) {
+          const Real c = 2.0 * nu + a + b;
+          const Real denominator = 2.0 * (nu + 1.0) * (nu + a + b + 1.0) * c;
+          const Real forward = (c + 1.0) * ((c + 2.0) * c * y + a * a - b * b) / denominator;
+          const Real back = 2.0 * (nu + a) * (nu + b) * (c + 2.0) / denominator;
+          const Real next = ratio(nu) * (forward * current - ratio(nu - 1) * back * previous);
+          previous = current;
+          current = next;
+          if (std::abs(current) > kHuge) {
+            previous /= kHuge;
+            current /= kHuge;
+            log_scale += std::log(kHuge);
+          }
+        }
+      }
+    }
+  }
+  return out;
+}
+
+// Smallest L >= cutoff such that sum_{l >= L} |<l|D(beta)|n>|^2 <= tol^2 for every n < cutoff.
+// Majorant: |<l|D|n>| <= M_ln = e^{-x/2} sqrt(l! n!) sum_k |beta|^(l+n-2k) / (k!(l-k)!(n-k)!)
+// (absolute values in the Bargmann sum), which obeys the positive recurrence
+// M_{l+1,n} = (|beta| M_ln + sqrt(n) M_{l,n-1}) / sqrt(l + 1). Termwise, M_{l+1,n} <= q_l M_ln
+// with q_l = |beta| sqrt(l + 1) / (l + 1 - n), decreasing in l, so once q_L < 1 the tail is
+// at most M_Ln / sqrt(1 - q_L^2). Rows are rescaled (log scale) against over/underflow.
+int displacement_tail_cutoff(Real beta, int cutoff, Real tol) {
+  if (beta == 0.0) return cutoff;
+  std::vector<Real> row(static_cast<std::size_t>(cutoff));
+  std::vector<Real> next(row.size());
+  Real log_scale = -std::numeric_limits<Real>::infinity();
+  for (int n = 0; n < cutoff; ++n) {
+    row[n] = -0.5 * beta * beta + n * std::log(beta) - 0.5 * std::lgamma(n + 1.0);
+    log_scale = std::max(log_scale, row[n]);
+  }
+  for (Real& v : row) v = std::exp(v - log_scale);
+  const Real log_tol = std::log(tol);
+  for (int l = 0;; ++l) {
+    if (l >= cutoff) {
+      const Real q = beta * std::sqrt(l + 1.0) / (l + 2.0 - cutoff);
+      const Real largest = *std::max_element(row.begin(), row.end());
+      if (q < 1.0 && std::log(largest) + log_scale - 0.5 * std::log1p(-q * q) <= log_tol) return l;
+    }
+    Real largest = 0.0;
+    for (int n = 0; n < cutoff; ++n) {
+      next[n] = (beta * row[n] + (n > 0 ? std::sqrt(Real(n)) * row[n - 1] : 0.0)) / std::sqrt(l + 1.0);
+      largest = std::max(largest, next[n]);
+    }
+    for (int n = 0; n < cutoff; ++n) row[n] = next[n] / largest;
+    log_scale += std::log(largest);
+  }
+}
+
+// Single-mode U with U^dag x U = S x + d as U = R(phi1) S_r R(phi2) D(beta), from the
+// decomposition S = rotation(phi1) diag(e^-r, e^r) rotation(phi2) (SVD) and d_beta = S^-1 d.
+// Rotations are exact phases exp(i phi n); D(beta) is needed on L > cutoff rows, with L
+// chosen by displacement_tail_cutoff so that the discarded sum
+// sum_{l >= L} <m|R S_r R|l><l|D|n> is at most ||P_{>=L} D|n>|| <= 1e-16 (Cauchy-Schwarz,
+// rows of the unitary R S_r R have norm <= 1). Same operator and global phase as the
+// Bargmann form: D(delta) U_S = U_S D(beta) exactly, and both have <0|U_S|0> > 0.
+ComplexMatrix single_mode_unitary(const RealMatrix& symplectic, const RealVector& displacement,
+                                  int cutoff) {
+  if (displacement.isZero(0.0) && symplectic == RealMatrix::Identity(2, 2)) {
+    return ComplexMatrix::Identity(cutoff, cutoff);
+  }
+  if (symplectic == RealMatrix::Identity(2, 2)) {
+    return displacement_matrix(Complex(displacement(0), displacement(1)) / 2.0, cutoff, cutoff);
+  }
+  const Eigen::JacobiSVD<RealMatrix> svd(symplectic, Eigen::ComputeFullU | Eigen::ComputeFullV);
+  RealMatrix u = svd.matrixU();
+  RealMatrix v = svd.matrixV();
+  if (u.determinant() < 0.0) {  // S = U Sigma V^T is unchanged by flipping a column of both
+    u.col(1) *= -1.0;
+    v.col(1) *= -1.0;
+  }
+  const RealVector sigma = svd.singularValues();  // sigma_0 >= sigma_1, sigma_0 sigma_1 = 1
+  const Real r = 0.5 * (std::log(sigma(1)) - std::log(sigma(0)));  // diag(e^-r, e^r), r <= 0
+  const Real phi1 = std::atan2(u(1, 0), u(0, 0));
+  const Real phi2 = std::atan2(v(0, 1), v(0, 0));  // V^T = rotation(phi2)
+  Complex beta(0.0, 0.0);
+  if (!displacement.isZero(0.0)) {
+    const RealVector shift = symplectic.partialPivLu().solve(displacement);
+    beta = Complex(shift(0), shift(1)) / 2.0;
+  }
+  const int inner = r == 0.0 ? cutoff : displacement_tail_cutoff(std::abs(beta), cutoff, 1e-16);
+  const RealMatrix sq = squeezing_matrix(r, cutoff, inner);
+  ComplexVector left(cutoff);
+  ComplexVector right(inner);
+  for (int m = 0; m < cutoff; ++m) left(m) = std::polar(1.0, phi1 * m);
+  for (int l = 0; l < inner; ++l) right(l) = std::polar(1.0, phi2 * l);
+  if (beta == Complex(0.0, 0.0)) return left.asDiagonal() * sq.cast<Complex>() * right.asDiagonal();
+  const ComplexMatrix shifted = right.asDiagonal() * displacement_matrix(beta, inner, cutoff);
+  ComplexMatrix product(cutoff, cutoff);  // real S_r times complex: two real products
+  product.real() = sq * shifted.real();
+  product.imag() = sq * shifted.imag();
+  return left.asDiagonal() * product;
 }
 
 }  // namespace
@@ -82,9 +223,7 @@ ComplexMatrix gaussian_unitary(const RealMatrix& symplectic, const RealVector& d
   }
   const Index k = symplectic.rows() / 2;
   if (cutoff < 1) throw PhysicsError("Fock cutoff must be at least one");
-  if (k == 1 && symplectic == RealMatrix::Identity(2, 2)) {
-    return displacement_matrix(Complex(displacement(0), displacement(1)) / 2.0, cutoff);
-  }
+  if (k == 1) return single_mode_unitary(symplectic, displacement, cutoff);
   const Complex i1(0.0, 1.0);
   // x = L (a; a^dag) with q = a + a^dag, p = -i (a - a^dag); L^-1 recovers (a; a^dag).
   ComplexMatrix to_quad = ComplexMatrix::Zero(2 * k, 2 * k);

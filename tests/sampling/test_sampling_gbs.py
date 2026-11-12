@@ -426,6 +426,64 @@ def test_threshold_multiprecision_matches_closed_forms():
         threshold_probability(coherent, [1, 1], precision=8)
 
 
+def _auto(*args, **kwargs):
+    from photographiq.sampling.gbs import ThresholdInfo
+
+    return cast(
+        tuple[float, ThresholdInfo],
+        threshold_probability(*args, precision="auto", return_info=True, **kwargs),
+    )
+
+
+def test_threshold_auto_precision_stays_in_double_when_accurate(backend):
+    state = squeezed_interferometer_state([0.5] * 6, haar_unitary(6, rng=1), 0.8)
+    clicks = [1, 0, 1, 1, 0, 0]
+    with warnings.catch_warnings():
+        warnings.simplefilter("error", ThresholdPrecisionWarning)
+        value, info = _auto(state, clicks, backend=backend)
+    double, error = _with_error(state, clicks, backend=backend)
+    assert (info.path, info.digits) == ("double", None)
+    assert value == double and info.error == info.double_error == error < 1e-6
+    # An exact zero (B = 0, vacuum mode clicking alone) needs no mpmath either.
+    vac = squeezed_interferometer_state([0.5, 0.0], np.eye(2))
+    with pytest.warns(ThresholdPrecisionWarning, match="consistent with zero"):
+        value, info = _auto(vac, [0, 1], backend=backend)
+    assert value == 0.0 and info.path == "double"
+
+
+def test_threshold_auto_precision_switches_to_mpmath(backend):
+    """16 modes, 8 clicks, r = 0.2: the double bound (2e-5) exceeds rtol, so auto recomputes."""
+    state = squeezed_interferometer_state(np.full(16, 0.2), haar_unitary(16, rng=3), 0.9)
+    clicks = [1] * 8 + [0] * 8
+    ref = cast(float, threshold_probability(state, clicks, precision=30))
+    with warnings.catch_warnings():
+        warnings.simplefilter("error", ThresholdPrecisionWarning)
+        value, info = _auto(state, clicks, backend=backend)
+    assert info.path == "mpmath" and info.digits is not None and info.digits >= 20
+    assert info.double_error is not None and info.double_error > 1e-6 > info.error
+    assert abs(value - ref) <= 1e-6 * ref
+    # A looser tolerance keeps the double result (and warns only above rtol).
+    with warnings.catch_warnings():
+        warnings.simplefilter("error", ThresholdPrecisionWarning)
+        value, info = _auto(state, clicks, backend=backend, rtol=1e-4)
+    assert info.path == "double" and abs(value - ref) <= info.error * ref
+    with pytest.raises(ValueError, match="rtol"):
+        _auto(state, clicks, rtol=0.0)
+    with pytest.raises(ValueError, match="not both"):
+        threshold_probability(state, clicks, return_error=True, return_info=True)
+
+
+def test_threshold_precision_without_mpmath_names_the_extra(monkeypatch):
+    import sys
+
+    monkeypatch.setitem(sys.modules, "mpmath", None)  # import mpmath raises ImportError
+    state = squeezed_interferometer_state([0.5] * 2, _BS)
+    for precision in ("auto", 30):
+        with pytest.raises(ImportError, match=r"photographiq\[precision\]"):
+            threshold_probability(state, [1, 1], precision=precision)
+    assert threshold_probability(state, [1, 1]) > 0  # double precision needs no mpmath
+
+
 # ------------------------------------------- threshold rounding bound, sampler clipping
 
 
@@ -516,7 +574,7 @@ def test_threshold_rounding_bound_holds_against_multiprecision(backend, name):
         warnings.simplefilter("ignore", ThresholdPrecisionWarning)
         ref = cast(float, threshold_probability(g, clicks, precision=30))
         value, error = _with_error(g, clicks, backend=backend)
-    same, bound = _threshold_double(g, np.asarray(clicks), _kernels_for(backend))
+    same, bound, _ = _threshold_double(g, np.asarray(clicks), _kernels_for(backend))
     assert same == value
     assert error == (bound / abs(value) if value else math.inf)  # relative = B / |value|
     assert abs(value - ref) <= bound

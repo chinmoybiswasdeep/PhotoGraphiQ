@@ -31,6 +31,17 @@ authoritative.
 | Gaussian compilation | S | S | E | E | E | channel and structural tests |
 | Cubic injection/Kerr synthesis | — | — | — | E | E | finite-resource and synthesis refinement |
 
+**2026-11-12 update.** The native engines now have first-principles references in
+`tests/validation/` ([independent validation matrix](independent-validation-matrix.md)):
+`native-gaussian` states, gates, channels and homodyne/heterodyne conditioning against
+analytic formulas; `native-fock` and `native-mixed-fock` states, gates, photon counting,
+homodyne, loss and multi-Kraus instruments against `expm` on enlarged spaces, mpmath and
+explicit dilations. One-mode native Gaussian unitaries are checked against 60-digit
+references. These native paths are therefore validated (see
+[COMPLETE_FUNCTIONALITY.md](../COMPLETE_FUNCTIONALITY.md)). The E entries above remain
+accurate for the Piquasso-backed Fock engines and for features without such a reference
+(cat resources, photon subtraction, GKP resources, synthesis).
+
 Native Gaussian is checked against the NumPy Gaussian backend trajectory by
 trajectory (tests/native/test_native_gaussian_backend.py). The native Fock
 engines are checked against Piquasso and exact Gaussian moments
@@ -53,7 +64,7 @@ remain unsupported.
 | `photographiq.flows` non-Gaussian CV and GKP logical models | — | `analyze` returns `unsupported` | — |
 | `photographiq.calculus` | E | qubit measurement calculus, local Cliffords, ZX rewrites, exact on small models; CV view is command-level only (no CV graphical calculus) | exact tensor semantics, Graphix cross-check (tests/calculus) |
 | `photographiq.gpu` (CuPy) | E | batched Gaussian kernels only (symplectic update, homodyne conditioning, densities, purity, fidelity); never falls back to CPU silently | GPU and CPU paths against the NumPy Gaussian backend (tests/gpu; GPU tests skip without CuPy or a CUDA device) |
-| `cudaq-dynamics` backend | — | availability probe only; no pattern execution, no declared capabilities | registry planner tests; `cudaq` is not installable on native Windows |
+| `photographiq.cudaq_dynamics` adapter | E | Hamiltonian-level adapter, not a backend: gate generators, `to_matrix`, total-photon/per-mode mapping, `reference_evolve` (unitary, Lindblad), `to_cudaq`, `evolve`; the CUDA-Q execution path is unverified | generators and Lindblad loss vs native-fock / native-mixed-fock through the NumPy reference, translation wiring with a fake `cudaq` (tests/cudaq_adapter); real-CUDA-Q tests skip (`cudaq` is not installable on native Windows) |
 
 ## v0.3 scientific acceptance matrix
 

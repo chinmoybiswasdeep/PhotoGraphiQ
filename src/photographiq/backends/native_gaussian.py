@@ -29,6 +29,7 @@ import numpy as np
 from .. import native
 from ..measurements import Generaldyne, Heterodyne, Homodyne
 from ..states import GaussianInput, GaussianState
+from .base import resolve_angle
 from .gaussian import GaussianBackend
 
 _kernels = native.require("gaussian")
@@ -116,8 +117,9 @@ class NativeGaussianBackend(GaussianBackend):
         )
 
     # ----- measurements ----------------------------------------------------------------
-    def measure(self, node, measurement, angle=0.0, *, outcome=None):
+    def measure(self, node, measurement, angle=None, *, outcome=None):
         """Destructive measurement with the contract of :meth:`GaussianBackend.measure`."""
+        angle = resolve_angle(measurement, angle)
         postselected = outcome is not None
         mode = self._mode(node)
         if isinstance(measurement, Homodyne):

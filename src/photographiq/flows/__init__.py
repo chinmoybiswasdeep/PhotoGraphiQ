@@ -16,7 +16,13 @@ from __future__ import annotations
 
 from ..ir import Model, OpenGraph, QubitMeasurement
 from .causal import find_causal_flow, verify_causal_flow
-from .cv import find_cv_flow, resource_graph, search_cv_order, verify_cv_determinism
+from .cv import (
+    exact_ideal_limit,
+    find_cv_flow,
+    resource_graph,
+    search_cv_order,
+    verify_cv_determinism,
+)
 from .gflow import find_gflow, verify_gflow
 from .pauli import find_pauli_flow, pauli_label, verify_pauli_flow
 from .result import FlowAnalysisResult, unsupported
@@ -34,7 +40,7 @@ def analyze(open_graph: OpenGraph, algorithm: str = "auto", **options) -> FlowAn
         algorithm: ``auto`` (qubit: causal, then gflow, then Pauli flow when Pauli
             labels are present; CV Gaussian: ``cv``), or one of causal/gflow/pauli/cv.
         **options: Forwarded to :func:`find_cv_flow` (tolerance, verify, seed,
-            verify_tolerance); rejected for qubit algorithms.
+            verify_tolerance, shift, exact); rejected for qubit algorithms.
 
     Returns:
         The first certified result in ``auto`` mode, otherwise the last attempt with the
@@ -83,6 +89,7 @@ __all__ = [
     "ALGORITHMS",
     "FlowAnalysisResult",
     "analyze",
+    "exact_ideal_limit",
     "find_causal_flow",
     "find_cv_flow",
     "find_gflow",

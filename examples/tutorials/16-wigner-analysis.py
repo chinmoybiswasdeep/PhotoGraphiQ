@@ -9,7 +9,7 @@ import numpy as np
 import photographiq as pg
 
 result = pg.simulate(
-    pg.Pattern(inputs=(0,)), inputs={0: pg.FockInput.number(1)}, backend="piquasso-fock", cutoff=8
+    pg.Pattern(inputs=(0,)), inputs={0: pg.FockInput.number(1)}, backend="native-fock", cutoff=8
 )
 grid = result.state.wigner(np.linspace(-6, 6, 101), np.linspace(-6, 6, 101))
 print("Captured mass:", grid.captured_mass)

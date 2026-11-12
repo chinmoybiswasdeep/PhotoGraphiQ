@@ -79,14 +79,16 @@ const STYLE = [
     "text-background-padding": 2, "curve-style": "straight" } },
   { selector: "edge.flow", style: { width: 2, "line-color": "#2563eb", "line-style": "dashed",
     "target-arrow-shape": "triangle", "target-arrow-color": "#2563eb", "curve-style": "unbundled-bezier",
-    "control-point-distances": "data(bend)", "control-point-weights": [0.5], "arrow-scale": 1.2 } },
+    "control-point-distances": "data(bend)", "control-point-weights": [0.5], "arrow-scale": 1.2,
+    "z-index": "data(z)" } },
   { selector: "edge.correction", style: { width: 2, "line-color": "#c2410c", "line-style": "dotted",
     "target-arrow-shape": "triangle-tee", "target-arrow-color": "#c2410c", "curve-style": "unbundled-bezier",
     "control-point-distances": "data(bend)", "control-point-weights": [0.5], label: "data(label)",
-    "font-size": 9, color: "#c2410c", "text-background-color": "#fff", "text-background-opacity": 0.8 } },
+    "font-size": 9, color: "#c2410c", "text-background-color": "#fff", "text-background-opacity": 1,
+    "text-background-padding": 1, "z-index": "data(z)" } },
   { selector: ".active", style: { "border-width": 5, "border-color": "#dc2626", "line-color": "#dc2626" } },
   { selector: "node.source", style: { "border-width": 4, "border-color": "#2563eb" } },
-  { selector: "node.done", style: { opacity: 0.5 } },
+  { selector: "node.done", style: { "background-opacity": 0.45, "border-opacity": 0.45 } },  // text stays legible
   { selector: ":selected", style: { "overlay-color": "#7c3aed", "overlay-opacity": 0.25 } },
 ];
 
@@ -137,6 +139,7 @@ function describe(ele) {
   $("info").textContent = lines.join("\n");
 }
 cy.on("tap mouseover", "node, edge", (event) => describe(event.target));
+cy.on("data", "node, edge", (event) => { if (event.target.selected()) describe(event.target); });
 
 if (DATA.flow) {
   const f = DATA.flow;

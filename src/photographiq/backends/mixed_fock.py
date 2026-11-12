@@ -8,6 +8,7 @@ from .._optional import piquasso as pq
 from ..fock_measurements import wavefunctions
 from ..measurements import Homodyne, PhotonNumber
 from ..states import FockDensityMatrix, GaussianInput
+from .base import resolve_angle
 from .fock import PiquassoFockBackend
 
 
@@ -242,7 +243,7 @@ class MixedFockBackend(PiquassoFockBackend):
             }
         )
 
-    def measure(self, node, measurement, angle=0.0, *, outcome=None):
+    def measure(self, node, measurement, angle=None, *, outcome=None):
         """Execute a destructive measurement on the density matrix.
 
         Args:
@@ -261,6 +262,7 @@ class MixedFockBackend(PiquassoFockBackend):
             ArithmeticError: Noisy homodyne convolution did not converge.
             ValueError: Photon count must be an integer within cutoff.
         """
+        angle = resolve_angle(measurement, angle)
         from ..encoded import PhysicalGKPReadout
         from ..instruments import MeasurementInstrument, destructive_instrument
 
@@ -298,7 +300,8 @@ class MixedFockBackend(PiquassoFockBackend):
         def conditioned(value):
             if not isinstance(measurement, Homodyne) or measurement.noise == 0:
                 return project(value)
-            # Electronics noise is a classical convolution in detected units.
+            # Electronics noise is a classical convolution in calibrated (incident-quadrature)
+            # units, matching the Gaussian backends (added variance noise on the calibrated record).
             from scipy.integrate import quad_vec
 
             sigma = np.sqrt(measurement.noise)

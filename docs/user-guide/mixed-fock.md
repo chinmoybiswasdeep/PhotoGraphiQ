@@ -16,7 +16,7 @@ homodyne and finite-outcome instruments with general Kraus operators.
 import photographiq as pg
 pattern = pg.Pattern(inputs=(0,)).append(pg.Loss(0, transmissivity=0.6))
 result = pg.simulate(pattern, inputs={0: pg.FockInput.number(2)},
-                     backend="piquasso-mixed-fock", cutoff=5)
+                     backend="native-mixed-fock", cutoff=5)
 print(result.state.probabilities)
 ```
 

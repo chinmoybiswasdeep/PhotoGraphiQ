@@ -1,0 +1,230 @@
+{
+  "rtol": 1e-09,
+  "since": 1794477160.775,
+  "files": {
+    "R14_parameter_contracts.json": {
+      "status": "agrees",
+      "compared": 38,
+      "identical": 38,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R15_persistence_roundtrip.json": {
+      "status": "agrees",
+      "compared": 36,
+      "identical": 36,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R16_invalid_input_matrix.json": {
+      "status": "agrees",
+      "compared": 128,
+      "identical": 128,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R18_parameter_shift_vs_fd.json": {
+      "status": "agrees",
+      "compared": 237,
+      "identical": 237,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R19_optimizer_convergence.json": {
+      "status": "agrees",
+      "compared": 59,
+      "identical": 59,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R1_triangle_anatomy.json": {
+      "status": "agrees",
+      "compared": 973,
+      "identical": 973,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R23_classifier_verification.json": {
+      "status": "agrees",
+      "compared": 56,
+      "identical": 56,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R24_regressor_verification.json": {
+      "status": "agrees",
+      "compared": 47,
+      "identical": 47,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R25_kernel_feature_state.json": {
+      "status": "agrees",
+      "compared": 52,
+      "identical": 52,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R26_kernel_properties.json": {
+      "status": "agrees",
+      "compared": 50,
+      "identical": 50,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R29_instrument_diagnostics.json": {
+      "status": "agrees",
+      "compared": 126,
+      "identical": 126,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R2_table_one_identities.json": {
+      "status": "agrees",
+      "compared": 413,
+      "identical": 413,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R30_concurrence.json": {
+      "status": "agrees",
+      "compared": 182,
+      "identical": 182,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R31_qfi.json": {
+      "status": "agrees",
+      "compared": 162,
+      "identical": 162,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R32_lie_closure.json": {
+      "status": "agrees",
+      "compared": 46,
+      "identical": 46,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R33_fisher_spectra.json": {
+      "status": "agrees",
+      "compared": 88,
+      "identical": 88,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R34_gkp_codeword_projection.json": {
+      "status": "agrees",
+      "compared": 60,
+      "identical": 60,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R35_capability_map.json": {
+      "status": "agrees",
+      "compared": 102,
+      "identical": 102,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R36_lowering_preservation.json": {
+      "status": "agrees",
+      "compared": 49,
+      "identical": 49,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R37_pauli_frame_validation.json": {
+      "status": "agrees",
+      "compared": 22,
+      "identical": 22,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R39_raw_piquasso_state_prep.json": {
+      "status": "agrees",
+      "compared": 21,
+      "identical": 21,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R3_entangling_identity.json": {
+      "status": "agrees",
+      "compared": 318,
+      "identical": 318,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R46_hard_vs_soft_decoding.json": {
+      "status": "agrees",
+      "compared": 46,
+      "identical": 46,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R4_adaptive_branches.json": {
+      "status": "agrees",
+      "compared": 56,
+      "identical": 56,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R50_canonical_reproduction.json": {
+      "status": "agrees",
+      "compared": 123,
+      "identical": 123,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R5_brute_force_agreement.json": {
+      "status": "agrees",
+      "compared": 205,
+      "identical": 205,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R6_batch_consistency.json": {
+      "status": "agrees",
+      "compared": 59,
+      "identical": 59,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R_PERF_aggregate_performance.json": {
+      "status": "agrees",
+      "compared": 12,
+      "identical": 12,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    }
+  }
+}

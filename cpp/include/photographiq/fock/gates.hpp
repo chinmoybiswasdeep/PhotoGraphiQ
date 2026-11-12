@@ -19,15 +19,23 @@ namespace photographiq::fock {
 //   C = |det T|^(-1/2) exp(-|delta|^2/2 + conj(delta).A_zz conj(delta)/2),
 // and the matrix elements obey G_{k+e_i} = (b_i G_k + sum_j A_ij sqrt(k_j) G_{k-e_j}) /
 // sqrt(k_i + 1) over the joint index (m, n), pivoting on the most occupied mode of the
-// side (bra or ket) with more photons, which keeps rounding at the 1e-12 level at
-// cutoffs ~100 (always lowering the bra amplified it to O(1)). A pure single-mode
-// displacement (S = 1) instead uses the Laguerre recurrence along each diagonal, stable
-// at 1e-15 for |alpha| <= 7, cutoff <= 120; the Bargmann recurrence with displacement and
-// squeezing combined still loses accuracy for large |alpha| and cutoff (7.5e-5 at
-// |alpha| = 4, r = 0.3, cutoff 80), column 0 (Gaussian inputs) excepted (1e-16).
-// Only finitely many terms are involved, so
-// every returned element is exact up to rounding: truncation enters solely through the
-// projector P (the returned matrix is P U P, not unitary when U leaks above the cutoff).
+// side (bra or ket) with more photons. This recurrence is used for k >= 2 modes only:
+// rounding there grows with cutoff and displacement (measured 3e-12 for two modes,
+// |delta| <= 4, r <= 0.6, cutoff <= 40; not bounded in general).
+// ONE MODE (k = 1) never uses it: the recurrence amplifies rounding exponentially when it
+// combines displacement with squeezing (1.4e2 at |alpha| = 6, r = 0.3, cutoff 100) and
+// for squeezing alone at large size (7e-5 at r = 1, size 400). Instead
+// U = R(phi1) S_r R(phi2) D(beta), from S = rotation(phi1) diag(e^-r, e^r) rotation(phi2)
+// and S beta = delta (quadratures), with rotations as exact phases, S_r from a Jacobi and
+// D from a Laguerre three-term recurrence along diagonals (both stable), multiplied
+// through an internal Fock size L > cutoff chosen from a rigorous majorant of the
+// displacement tail, so the truncation adds at most 1e-16 per element. Against 60-digit
+// references: <= 2e-14 for |alpha| <= 6, r <= 1, cutoff <= 100, random phases
+// (docs/validation/native-fock-gaussian-unitary.md). Cost O(cutoff^2 L), L ~
+// (sqrt(cutoff) + |beta|)^2 plus a margin, |beta| <= e^|r| |alpha|.
+// Every returned element is exact up to rounding (plus the <= 1e-16 internal tail for
+// k = 1): truncation enters solely through the projector P (the returned matrix is
+// P U P, not unitary when U leaks above the cutoff).
 // Global phase: <0|U|0> has the phase of exp(conj(delta).A_zz conj(delta)/2) times a
 // positive real number, i.e. the displacement-free part fixes the vacuum amplitude to be
 // real positive (passive gates act as exp(i a^dag H a)). Physical predictions never
