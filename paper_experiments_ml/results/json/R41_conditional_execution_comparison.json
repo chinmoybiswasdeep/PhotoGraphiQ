@@ -1,0 +1,72 @@
+{
+  "rows": [
+    {
+      "case": "zero_angles_zero_outcomes",
+      "label": "(0,)",
+      "photographiqml": 0.8271510787751981,
+      "independent_pattern": 0.8271510787751981,
+      "error": 0.0
+    },
+    {
+      "case": "zero_angles_zero_outcomes",
+      "label": "(1,)",
+      "photographiqml": 0.17284892122480164,
+      "independent_pattern": 0.17284892122480164,
+      "error": 0.0
+    },
+    {
+      "case": "zero_angles_uniform_outcomes",
+      "label": "(0,)",
+      "photographiqml": 0.8263488451092271,
+      "independent_pattern": 0.8263488451092271,
+      "error": 0.0
+    },
+    {
+      "case": "zero_angles_uniform_outcomes",
+      "label": "(1,)",
+      "photographiqml": 0.17365115489077249,
+      "independent_pattern": 0.17365115489077249,
+      "error": 0.0
+    },
+    {
+      "case": "zero_angles_mixed_outcomes",
+      "label": "(0,)",
+      "photographiqml": 0.8244806089947071,
+      "independent_pattern": 0.8244806089947071,
+      "error": 0.0
+    },
+    {
+      "case": "zero_angles_mixed_outcomes",
+      "label": "(1,)",
+      "photographiqml": 0.17551939100529299,
+      "independent_pattern": 0.17551939100529299,
+      "error": 0.0
+    },
+    {
+      "case": "pi_first_angle",
+      "label": "(0,)",
+      "photographiqml": 0.8271510787751981,
+      "independent_pattern": 0.8271510787751981,
+      "error": 0.0
+    },
+    {
+      "case": "pi_first_angle",
+      "label": "(1,)",
+      "photographiqml": 0.17284892122480164,
+      "independent_pattern": 0.17284892122480164,
+      "error": 0.0
+    }
+  ],
+  "protocol": "PhysicalMuTA(1) physical-conditional vs. independently assembled Pattern, several conditioning vectors/angles",
+  "oracle_class": "C",
+  "status_category": "exact",
+  "tolerance": 2.220446049250313e-10,
+  "acceptance_condition": "max joint-probability difference < 2.220e-10",
+  "max_error": 0.0,
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

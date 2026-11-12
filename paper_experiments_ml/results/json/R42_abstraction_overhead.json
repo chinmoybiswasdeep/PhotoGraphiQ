@@ -1,0 +1,47 @@
+{
+  "rows": [
+    {
+      "pipeline": "photographiqml_full_run",
+      "median_seconds": 0.5626573000336066,
+      "iqr_seconds": 0.06295000005047768,
+      "min_seconds": 0.5097948999609798,
+      "max_seconds": 0.6031663999892771
+    },
+    {
+      "pipeline": "photographiqml_lowering_only",
+      "median_seconds": 0.10950140003114939,
+      "iqr_seconds": 0.022669700090773404,
+      "min_seconds": 0.09709099994506687,
+      "max_seconds": 0.15614119998645037
+    },
+    {
+      "pipeline": "photographiq_direct_simulate",
+      "median_seconds": 0.23162669991143048,
+      "iqr_seconds": 0.018742899992503226,
+      "min_seconds": 0.20377340004779398,
+      "max_seconds": 0.25788130005821586
+    },
+    {
+      "pipeline": "raw_piquasso_independent_construct_and_simulate",
+      "median_seconds": 0.3355333999497816,
+      "iqr_seconds": 0.008034400059841573,
+      "min_seconds": 0.31189570005517453,
+      "max_seconds": 0.39766819996293634
+    }
+  ],
+  "protocol": "Matched one-wire physical-conditional workload timed across PhotoGraphiQML/direct PhotoGraphiQ/raw Piquasso",
+  "oracle_class": "N/A",
+  "status_category": "statistical",
+  "wrapper_overhead_seconds": 0.22152920009102672,
+  "internal_diagnostics_breakdown": {
+    "reported_simulation_seconds": 0.3761347000254318,
+    "reported_readout_seconds": 0.2226286999648437
+  },
+  "acceptance_condition": "N/A (descriptive performance measurement); all timings finite and positive",
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "descriptive",
+  "claim_supported": "structural contract only",
+  "claim_not_supported": "no scientific performance conclusion"
+}

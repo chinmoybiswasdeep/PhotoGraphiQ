@@ -1,0 +1,17 @@
+$ D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQML\.venv\Scripts\python.exe D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQML\paper_experiments\generate_tables.py
+
+--- stdout ---
+Generating tables from saved results...
+  wrote logical_mentpy_agreement.csv / logical_mentpy_agreement.md (5 rows)
+  wrote piquasso_physical_agreement.csv / piquasso_physical_agreement.md (4 rows)
+  wrote kernel_and_learning.csv / kernel_and_learning.md (6 rows)
+  wrote gradient_and_training.csv / gradient_and_training.md (3 rows)
+  wrote gkp_convergence.csv / gkp_convergence.md (15 rows)
+  wrote capability_matrix.csv / capability_matrix.md (15 rows)
+  wrote performance_summary.csv / performance_summary.md (7 rows)
+  wrote feature_status.csv / feature_status.md (10 rows)
+Done. See tables/.
+
+
+--- stderr ---
+

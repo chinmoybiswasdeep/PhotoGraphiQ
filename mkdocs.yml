@@ -21,6 +21,10 @@ plugins:
             show_source: true
             show_signature_annotations: true
             members_order: source
+            # A few src docstrings document untyped parameters (e.g. **options); griffe
+            # would warn and fail --strict. Types still render wherever annotated.
+            docstring_options:
+              warn_missing_types: false
 markdown_extensions:
   - admonition
   - attr_list
@@ -65,6 +69,7 @@ nav:
       - Compilation: user-guide/compilation.md
       - Universal gate-set compilation: user-guide/universal-compilation.md
       - Mixed Fock: user-guide/mixed-fock.md
+      - Boson sampling and GBS: user-guide/sampling.md
       - GKP: user-guide/gkp.md
       - GKP code: user-guide/gkp-code.md
       - GKP measurements: user-guide/gkp-measurements.md
@@ -73,9 +78,12 @@ nav:
       - Encoded GKP tutorials: tutorials/gkp-logical-index.md
       - Automatic differentiation: user-guide/automatic-differentiation.md
       - Flow: user-guide/flow.md
+      - MBQC calculus: user-guide/mbqc-calculus.md
       - Convergence: user-guide/convergence.md
       - Visualization: user-guide/visualization.md
+      - Interactive visualization: user-guide/interactive.md
       - Performance: performance.md
+      - GPU acceleration: gpu.md
   - Learn:
       - Tutorials:
           - Overview: tutorials/index.md
@@ -126,6 +134,7 @@ nav:
           - Gradient estimators: theory/gradient-estimators.md
       - Validation: validation/index.md
       - Feature matrix: validation/feature-matrix.md
+      - Complete functionality: COMPLETE_FUNCTIONALITY.md
       - Numerical policy: validation/numerical-policy.md
       - v0.2 evidence: release-hardening-report.md
       - References: references.md
@@ -150,16 +159,42 @@ nav:
       - States: api/states.md
       - Synthesis: api/synthesis.md
       - Visualization: api/visualization.md
+      - Open-graph IR: api/ir.md
+      - Backend registry: api/registry.md
+      - Flows: api/flows.md
+      - Measurement calculus: api/calculus.md
+      - Sampling: api/sampling.md
+      - Interactive: api/interactive.md
+      - GPU: api/gpu.md
+      - Native engines: api/native.md
+  - PhotoGraphiQML:
+      - Overview: ml/index.md
+      - Input/output contract: ml/api.md
+      - Tutorials: ml/tutorials/index.md
+      - Physical architecture: ml/physical/architecture.md
+      - Supported measurements: ml/physical/supported-measurements.md
+      - Execution modes: ml/physical/execution-modes.md
+      - Lowering: ml/physical/lowering.md
+      - Decoding: ml/physical/decoding.md
+      - Pauli frames: ml/physical/pauli-frames.md
+      - Convergence: ml/physical/convergence.md
+      - Physical training: ml/physical/physical-training.md
+      - Release report: ml/release-report.md
   - Contribute:
       - Development: development/index.md
       - Architecture: development/architecture.md
+      - Unified repository integration: development/merged-integration-report.md
+      - PhotoGraphiQML contract: development/photographiqml-contract.md
       - Backends: development/backends.md
+      - Building native engines: development/native-build.md
+      - Architecture figures: architecture/README.md
       - Compiler: development/compiler.md
       - Testing: development/testing.md
       - Documentation: development/documentation.md
       - Releasing: development/releasing.md
       - v0.3 release report: development/v0.3-release-report.md
       - v0.3 scientific hardening: development/v0.3-scientific-hardening.md
+      - Upgrade implementation plan: development/UPGRADE_IMPLEMENTATION_PLAN.md
       - Branding: development/branding.md
       - Roadmap: roadmap.md
       - Citation: citing.md

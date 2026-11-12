@@ -1,0 +1,68 @@
+{
+  "rows": [
+    {
+      "check": "measured_nodes_sorted_block_wire_col",
+      "passed": true
+    },
+    {
+      "check": "parameters_dict_order_matches_measured_nodes",
+      "passed": true
+    },
+    {
+      "check": "partial_dict_binding_updates_only_given_names",
+      "passed": true
+    },
+    {
+      "check": "exact_vector_binding_matches_trainable_order",
+      "passed": true
+    },
+    {
+      "check": "wrong_length_vector_rejected",
+      "passed": true
+    },
+    {
+      "check": "freeze_removes_from_trainable",
+      "passed": true
+    },
+    {
+      "check": "freeze_reduces_n_parameters",
+      "passed": true
+    },
+    {
+      "check": "frozen_override_rejected",
+      "passed": true
+    },
+    {
+      "check": "unfreeze_restores_trainable",
+      "passed": true
+    },
+    {
+      "check": "unfreeze_restores_n_parameters",
+      "passed": true
+    },
+    {
+      "check": "unknown_name_rejected",
+      "passed": true
+    },
+    {
+      "check": "same_seed_reproducible",
+      "passed": true
+    },
+    {
+      "check": "different_seed_differs",
+      "passed": true
+    }
+  ],
+  "protocol": "ParameterStore/MuTA public parameter-contract checklist",
+  "oracle_class": "E",
+  "status_category": "exact",
+  "acceptance_condition": "0 failed sub-checks",
+  "n_checks": 13,
+  "n_failed": 0,
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

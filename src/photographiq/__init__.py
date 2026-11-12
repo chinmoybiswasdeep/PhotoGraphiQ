@@ -1,6 +1,6 @@
 """PhotoGraphiQ: continuous-variable photonic measurement-based computation."""
 
-from . import gkp, non_gaussian, protocols, synthesis
+from . import cvflow, gkp, non_gaussian, protocols, synthesis
 from .analysis import GaussianChannel, gaussian_channel
 from .commands import (
     BeamSplitter,
@@ -47,6 +47,10 @@ from .simulator import Result, ShotResult, run_shots, sample, simulate
 from .states import FockDensityMatrix, FockInput, FockSuperposition, GaussianInput, GaussianState
 
 __version__ = "0.3.1"
+# Upgrade subsystems (imported after the core modules they depend on).
+from . import calculus, flows, interactive, ir, registry, sampling
+from .ir import Model, OpenGraph
+from .registry import available_backends, describe_backend, select_backend
 from .visualization import visualize_compilation
 
 __all__ = [
@@ -123,4 +127,16 @@ __all__ = [
     "Result",
     "ShotResult",
     "protocols",
+    "cvflow",
+    "calculus",
+    "flows",
+    "interactive",
+    "ir",
+    "registry",
+    "sampling",
+    "Model",
+    "OpenGraph",
+    "available_backends",
+    "describe_backend",
+    "select_backend",
 ]

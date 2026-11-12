@@ -1,0 +1,1 @@
+"""Logical open-graph ansatzes."""

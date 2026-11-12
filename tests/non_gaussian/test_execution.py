@@ -1,10 +1,11 @@
 import numpy as np
-import piquasso as pq
 import pytest
 
 import photographiq as pg
 from photographiq.backends.fock import PiquassoFockBackend
 from tests.fock.reference import cubic, displacement, operators, squeeze
+
+pq = pytest.importorskip("piquasso")  # reference simulator: optional extra
 
 
 def run(commands, cutoff=24, **kwargs):

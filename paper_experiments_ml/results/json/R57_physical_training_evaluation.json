@@ -1,0 +1,104 @@
+{
+  "rows": [
+    {
+      "seed": 7,
+      "training_shot_seed": 7,
+      "validation_shot_seed": 1007,
+      "test_shot_seed": 2007,
+      "selected_configuration": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "training_accuracy": 1.0,
+      "validation_accuracy": 0.0,
+      "fresh_test_accuracy": 0.5,
+      "generalization_gap": 0.5,
+      "unstable": true,
+      "runtime_seconds": 189.49408960004803
+    },
+    {
+      "seed": 23,
+      "training_shot_seed": 23,
+      "validation_shot_seed": 1023,
+      "test_shot_seed": 2023,
+      "selected_configuration": [
+        0.0,
+        3.141592653589793,
+        0.0,
+        0.0
+      ],
+      "training_accuracy": 1.0,
+      "validation_accuracy": 0.75,
+      "fresh_test_accuracy": 1.0,
+      "generalization_gap": 0.0,
+      "unstable": true,
+      "runtime_seconds": 176.28640290000476
+    },
+    {
+      "seed": 47,
+      "training_shot_seed": 47,
+      "validation_shot_seed": 1047,
+      "test_shot_seed": 2047,
+      "selected_configuration": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "training_accuracy": 1.0,
+      "validation_accuracy": 0.5,
+      "fresh_test_accuracy": 0.5,
+      "generalization_gap": 0.5,
+      "unstable": false,
+      "runtime_seconds": 175.33281039993744
+    },
+    {
+      "seed": 89,
+      "training_shot_seed": 89,
+      "validation_shot_seed": 1089,
+      "test_shot_seed": 2089,
+      "selected_configuration": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "training_accuracy": 1.0,
+      "validation_accuracy": 1.0,
+      "fresh_test_accuracy": 0.5,
+      "generalization_gap": 0.5,
+      "unstable": true,
+      "runtime_seconds": 181.4459628999466
+    }
+  ],
+  "protocol": "Four selection seeds; 1 training, 2 validation and 4 fresh-test shots per input with disjoint RNG seeds.",
+  "oracle_class": "N/A",
+  "status_category": "statistical",
+  "seeds": [
+    7,
+    23,
+    47,
+    89
+  ],
+  "n_repetitions": 4,
+  "uncertainty_method": "percentile bootstrap, 2000 resamples",
+  "acceptance_condition": "structural: exact categorical selections, disjoint shot seeds and finite metrics; scientific robustness requires instability=0 and fresh-test CI lower bound >=0.75",
+  "structural_status": "pass",
+  "scientific_outcome": "negative",
+  "claim_supported": "Categorical configurations are selected and evaluated on disjoint training, validation and fresh-test shot streams.",
+  "claim_not_supported": "Robust physical classifier performance is not supported when fresh-shot instability or a low CI is observed.",
+  "status": "pass",
+  "fresh_test_accuracy_mean_ci": {
+    "point": 0.625,
+    "low": 0.5,
+    "high": 0.875,
+    "n_boot": 2000,
+    "alpha": 0.05,
+    "n": 4,
+    "statistic": "mean"
+  },
+  "instability_rate": 0.75,
+  "execution_status": "completed"
+}

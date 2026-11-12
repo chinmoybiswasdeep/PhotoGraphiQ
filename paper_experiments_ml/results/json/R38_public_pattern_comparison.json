@@ -1,0 +1,39 @@
+{
+  "rows": [
+    {
+      "label": "(0,)",
+      "photographiqml": 0.8271510787751981,
+      "independent_pattern": 0.8271510787751981,
+      "error": 0.0
+    },
+    {
+      "label": "(1,)",
+      "photographiqml": 0.17284892122480164,
+      "independent_pattern": 0.17284892122480164,
+      "error": 0.0
+    }
+  ],
+  "protocol": "PhysicalMuTA(1) physical-conditional vs. independently assembled public Pattern",
+  "oracle_class": "C",
+  "status_category": "exact",
+  "resource_config": {
+    "cutoff": 24,
+    "peak_width": 0.9,
+    "envelope": 0.9,
+    "peaks": 4,
+    "grid_points": 1025,
+    "decoder": "nearest",
+    "backend": "piquasso-fock",
+    "max_dimension": 100000,
+    "max_matrix_bytes": 256000000
+  },
+  "tolerance": 2.220446049250313e-10,
+  "acceptance_condition": "max joint-probability difference < 2.220e-10",
+  "max_error": 0.0,
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

@@ -1,9 +1,10 @@
 import numpy as np
-import piquasso as pq
 import pytest
 
 import photographiq as pg
 from tests.v03_reference import basis, gate, physical, vector
+
+pq = pytest.importorskip("piquasso")  # reference simulator: optional extra
 
 
 @pytest.mark.parametrize(

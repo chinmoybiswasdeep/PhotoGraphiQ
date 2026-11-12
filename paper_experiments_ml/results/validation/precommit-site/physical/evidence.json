@@ -1,0 +1,5507 @@
+{
+  "resource_config": {
+    "cutoff": 24,
+    "peak_width": 0.9,
+    "envelope": 0.9,
+    "peaks": 4,
+    "grid_points": 1025,
+    "decoder": "nearest",
+    "backend": "piquasso-fock",
+    "max_dimension": 100000,
+    "max_matrix_bytes": 256000000
+  },
+  "benchmarks": [
+    {
+      "wires": 1,
+      "paper_layers": 1,
+      "mode": "physical-conditional",
+      "shots": 1,
+      "wall_seconds": 0.5831984999822453,
+      "probabilities": {
+        "(0,)": 0.8271510787751981,
+        "(1,)": 0.17284892122480164
+      },
+      "comparison": {
+        "total_variation_distance": 0.17284892122480144,
+        "observable_differences": [
+          -0.3456978424496029
+        ],
+        "comparison_mode": "physical-conditional",
+        "finite_state_fidelity": null,
+        "marginal_code_subspace_leakage": [
+          {
+            "(0, 4)": 0.00021750138882559167
+          }
+        ],
+        "convergence": {
+          "certified": false,
+          "reason": "A single resource setting is not a convergence study"
+        }
+      },
+      "diagnostics": {
+        "codeword_gram": [
+          [
+            {
+              "real": 0.9999999999999999,
+              "imag": 0.0
+            },
+            {
+              "real": 0.5339586741671603,
+              "imag": 0.0
+            }
+          ],
+          [
+            {
+              "real": 0.5339586741671603,
+              "imag": 0.0
+            },
+            {
+              "real": 1.0000000000000002,
+              "imag": 0.0
+            }
+          ]
+        ],
+        "basis_projection_weights": [
+          1.0,
+          0.999999999991365
+        ],
+        "input_code_subspace_leakage": [
+          0.0
+        ],
+        "marginal_code_subspace_leakage": [
+          {
+            "(0, 4)": 0.00021750138882559167
+          }
+        ],
+        "joint_code_subspace_leakage": null,
+        "backend_diagnostics": [
+          [
+            {
+              "operation": "preparation",
+              "retained_norm": 1.0000000000000002,
+              "boundary_population": 9.476735094715832e-14,
+              "cutoff": 24,
+              "dimension": 24
+            },
+            {
+              "operation": "preparation",
+              "retained_norm": 0.9999999999969826,
+              "boundary_population": 5.076967608784821e-11,
+              "cutoff": 24,
+              "dimension": 300
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.9999827693485409,
+              "boundary_population": 2.9525805579984633e-05,
+              "cutoff": 24,
+              "dimension": 300
+            },
+            {
+              "operation": "preparation",
+              "retained_norm": 0.9999999999894684,
+              "boundary_population": 1.223441641144141e-10,
+              "cutoff": 24,
+              "dimension": 300
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.9999814752633127,
+              "boundary_population": 2.5603912376915008e-05,
+              "cutoff": 24,
+              "dimension": 300
+            },
+            {
+              "operation": "preparation",
+              "retained_norm": 0.9999999999952642,
+              "boundary_population": 9.47894876448966e-11,
+              "cutoff": 24,
+              "dimension": 300
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.9999854714877513,
+              "boundary_population": 2.6329397152673515e-05,
+              "cutoff": 24,
+              "dimension": 300
+            },
+            {
+              "operation": "preparation",
+              "retained_norm": 0.9999999999955758,
+              "boundary_population": 7.843507570669022e-11,
+              "cutoff": 24,
+              "dimension": 300
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.9999865448903199,
+              "boundary_population": 2.3348719046120145e-05,
+              "cutoff": 24,
+              "dimension": 300
+            }
+          ]
+        ],
+        "output_basis": "Z",
+        "decoder": "nearest-cell",
+        "decoder_confidence": null,
+        "simulation_seconds": 0.38719169999239966,
+        "readout_seconds": 0.19567559999995865,
+        "resource_accounting": {
+          "supported": true,
+          "angle_audit": [
+            {
+              "node": [
+                0,
+                0
+              ],
+              "parameter": "alpha.w0.c0",
+              "angle": 0.0,
+              "supported": true,
+              "basis": "X",
+              "flip": 0
+            },
+            {
+              "node": [
+                0,
+                1
+              ],
+              "parameter": "alpha.w0.c1",
+              "angle": 0.0,
+              "supported": true,
+              "basis": "X",
+              "flip": 0
+            },
+            {
+              "node": [
+                0,
+                2
+              ],
+              "parameter": "alpha.w0.c2",
+              "angle": 0.0,
+              "supported": true,
+              "basis": "X",
+              "flip": 0
+            },
+            {
+              "node": [
+                0,
+                3
+              ],
+              "parameter": "alpha.w0.c3",
+              "angle": 0.0,
+              "supported": true,
+              "basis": "X",
+              "flip": 0
+            }
+          ],
+          "unsupported_nodes": [],
+          "reasons": [],
+          "decoder": "nearest",
+          "backend": "piquasso-fock",
+          "required_operations": [
+            "finite GKP plus",
+            "unit CZ",
+            "physical X",
+            "logical frame",
+            "joint X/Z output POVM"
+          ],
+          "resource_nodes": 5,
+          "measurements": 4,
+          "cz_operations": 4,
+          "peak_live_modes": 2,
+          "hilbert_dimension": 300,
+          "output_dimension": 24,
+          "vector_bytes": 4800,
+          "mixed_matrix_bytes": 0,
+          "joint_readout_workspace_bytes_estimate": 36864,
+          "frame_updates": 7
+        },
+        "estimator": "conditional joint POVM",
+        "pair_correlations": {}
+      },
+      "memory_measurement": "Analytic allocation estimates only; peak process memory not measured"
+    },
+    {
+      "wires": 2,
+      "paper_layers": 2,
+      "mode": "physical-conditional",
+      "shots": 1,
+      "wall_seconds": 14.319382099987706,
+      "probabilities": {
+        "(0, 0)": 0.6578184991070793,
+        "(0, 1)": 0.15903906568906884,
+        "(1, 0)": 0.14565397323522333,
+        "(1, 1)": 0.03748846196862815
+      },
+      "comparison": {
+        "total_variation_distance": 0.3421815008929193,
+        "observable_differences": [
+          -0.36628487040770086,
+          -0.39305505531539187
+        ],
+        "comparison_mode": "physical-conditional",
+        "finite_state_fidelity": null,
+        "marginal_code_subspace_leakage": [
+          {
+            "(0, 8)": 0.004511654025304734,
+            "(1, 8)": 0.004815317856983969
+          }
+        ],
+        "convergence": {
+          "certified": false,
+          "reason": "A single resource setting is not a convergence study"
+        }
+      },
+      "diagnostics": {
+        "codeword_gram": [
+          [
+            {
+              "real": 0.9999999999999999,
+              "imag": 0.0
+            },
+            {
+              "real": 0.5339586741671603,
+              "imag": 0.0
+            }
+          ],
+          [
+            {
+              "real": 0.5339586741671603,
+              "imag": 0.0
+            },
+            {
+              "real": 1.0000000000000002,
+              "imag": 0.0
+            }
+          ]
+        ],
+        "basis_projection_weights": [
+          1.0,
+          0.999999999991365
+        ],
+        "input_code_subspace_leakage": [
+          0.0,
+          0.0
+        ],
+        "marginal_code_subspace_leakage": [
+          {
+            "(0, 8)": 0.004511654025304734,
+            "(1, 8)": 0.004815317856983969
+          }
+        ],
+        "joint_code_subspace_leakage": null,
+        "backend_diagnostics": [
+          [
+            {
+              "operation": "preparation",
+              "retained_norm": 1.0000000000000002,
+              "boundary_population": 9.476735094715832e-14,
+              "cutoff": 24,
+              "dimension": 24
+            },
+            {
+              "operation": "preparation",
+              "retained_norm": 0.9999999999938983,
+              "boundary_population": 2.8388289113716935e-11,
+              "cutoff": 24,
+              "dimension": 300
+            },
+            {
+              "operation": "preparation",
+              "retained_norm": 0.9999999999843429,
+              "boundary_population": 1.5181998803897703e-10,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.9999825622339831,
+              "boundary_population": 2.990219879982145e-05,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.9999964238061111,
+              "boundary_population": 2.8432398636675873e-06,
+              "cutoff": 24,
+              "dimension": 300
+            },
+            {
+              "operation": "preparation",
+              "retained_norm": 0.9999993148678563,
+              "boundary_population": 3.3266112114496463e-06,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.9998517967776349,
+              "boundary_population": 0.00017760054021347682,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "preparation",
+              "retained_norm": 0.9999999801011132,
+              "boundary_population": 1.3880440359075782e-07,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.9999534594838972,
+              "boundary_population": 6.577010951695268e-05,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "preparation",
+              "retained_norm": 0.9999999844805977,
+              "boundary_population": 1.0210850207330652e-07,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.999937686294283,
+              "boundary_population": 8.877697590293551e-05,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.9999002408504298,
+              "boundary_population": 2.593600520445059e-05,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "preparation",
+              "retained_norm": 0.9999999991163452,
+              "boundary_population": 5.621128096663334e-09,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.9999866224928697,
+              "boundary_population": 2.3343059155818224e-05,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "preparation",
+              "retained_norm": 0.9999999996841409,
+              "boundary_population": 2.684295343311481e-09,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.999983107343508,
+              "boundary_population": 2.937672328843956e-05,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "preparation",
+              "retained_norm": 0.9999999999455045,
+              "boundary_population": 4.846528738151971e-10,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.9999832575644186,
+              "boundary_population": 2.936556201582675e-05,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "preparation",
+              "retained_norm": 0.9999999999734118,
+              "boundary_population": 2.295905350252026e-10,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.9999866860919872,
+              "boundary_population": 2.3376977799683304e-05,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "preparation",
+              "retained_norm": 0.9999999999669931,
+              "boundary_population": 3.35104956880413e-10,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.9999846689142692,
+              "boundary_population": 2.7144022787774085e-05,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "preparation",
+              "retained_norm": 0.9999999999697361,
+              "boundary_population": 2.60376286761018e-10,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.99998682456212,
+              "boundary_population": 2.3102890257282583e-05,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.999858763390861,
+              "boundary_population": 8.33857161867175e-05,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "preparation",
+              "retained_norm": 0.9999999927580803,
+              "boundary_population": 5.6617508168898283e-08,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.9999557256153985,
+              "boundary_population": 6.595253755547632e-05,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.9999988505790632,
+              "boundary_population": 1.8296730541192961e-07,
+              "cutoff": 24,
+              "dimension": 300
+            },
+            {
+              "operation": "preparation",
+              "retained_norm": 0.9999999619241963,
+              "boundary_population": 1.762646012426679e-07,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.9999786899736715,
+              "boundary_population": 3.554254016339834e-05,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "preparation",
+              "retained_norm": 0.9999999995011258,
+              "boundary_population": 3.0641221432391173e-09,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.9999833138840662,
+              "boundary_population": 2.7891394799084407e-05,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "preparation",
+              "retained_norm": 0.9999999999674356,
+              "boundary_population": 3.2109266764641476e-10,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.9999869801843332,
+              "boundary_population": 2.3052156480842192e-05,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "preparation",
+              "retained_norm": 0.999999999949586,
+              "boundary_population": 5.740439219781892e-10,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.9999850662445929,
+              "boundary_population": 2.6603430146689717e-05,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "preparation",
+              "retained_norm": 0.9999999999426225,
+              "boundary_population": 5.39815701453164e-10,
+              "cutoff": 24,
+              "dimension": 2600
+            },
+            {
+              "operation": "GaussianTransform",
+              "retained_norm": 0.9999831478717875,
+              "boundary_population": 2.9747542525670806e-05,
+              "cutoff": 24,
+              "dimension": 2600
+            }
+          ]
+        ],
+        "output_basis": "Z",
+        "decoder": "nearest-cell",
+        "decoder_confidence": null,
+        "simulation_seconds": 14.033128700015368,
+        "readout_seconds": 0.2856927999819163,
+        "resource_accounting": {
+          "supported": true,
+          "angle_audit": [
+            {
+              "node": [
+                0,
+                0
+              ],
+              "parameter": "alpha.w0.c0",
+              "angle": 0.0,
+              "supported": true,
+              "basis": "X",
+              "flip": 0
+            },
+            {
+              "node": [
+                1,
+                0
+              ],
+              "parameter": "alpha.w1.c0",
+              "angle": 0.0,
+              "supported": true,
+              "basis": "X",
+              "flip": 0
+            },
+            {
+              "node": [
+                1,
+                1
+              ],
+              "parameter": "alpha.w1.c1",
+              "angle": 0.0,
+              "supported": true,
+              "basis": "X",
+              "flip": 0
+            },
+            {
+              "node": [
+                0,
+                1
+              ],
+              "parameter": "alpha.w0.c1",
+              "angle": 0.0,
+              "supported": true,
+              "basis": "X",
+              "flip": 0
+            },
+            {
+              "node": [
+                0,
+                2
+              ],
+              "parameter": "alpha.w0.c2",
+              "angle": 0.0,
+              "supported": true,
+              "basis": "X",
+              "flip": 0
+            },
+            {
+              "node": [
+                1,
+                2
+              ],
+              "parameter": "alpha.w1.c2",
+              "angle": 0.0,
+              "supported": true,
+              "basis": "X",
+              "flip": 0
+            },
+            {
+              "node": [
+                0,
+                3
+              ],
+              "parameter": "alpha.w0.c3",
+              "angle": 0.0,
+              "supported": true,
+              "basis": "X",
+              "flip": 0
+            },
+            {
+              "node": [
+                1,
+                3
+              ],
+              "parameter": "alpha.w1.c3",
+              "angle": 0.0,
+              "supported": true,
+              "basis": "X",
+              "flip": 0
+            },
+            {
+              "node": [
+                1,
+                4
+              ],
+              "parameter": "alpha.w1.c4",
+              "angle": 0.0,
+              "supported": true,
+              "basis": "X",
+              "flip": 0
+            },
+            {
+              "node": [
+                0,
+                4
+              ],
+              "parameter": "alpha.w0.c4",
+              "angle": 0.0,
+              "supported": true,
+              "basis": "X",
+              "flip": 0
+            },
+            {
+              "node": [
+                0,
+                5
+              ],
+              "parameter": "alpha.w0.c5",
+              "angle": 0.0,
+              "supported": true,
+              "basis": "X",
+              "flip": 0
+            },
+            {
+              "node": [
+                1,
+                5
+              ],
+              "parameter": "alpha.w1.c5",
+              "angle": 0.0,
+              "supported": true,
+              "basis": "X",
+              "flip": 0
+            },
+            {
+              "node": [
+                0,
+                6
+              ],
+              "parameter": "alpha.w0.c6",
+              "angle": 0.0,
+              "supported": true,
+              "basis": "X",
+              "flip": 0
+            },
+            {
+              "node": [
+                1,
+                6
+              ],
+              "parameter": "alpha.w1.c6",
+              "angle": 0.0,
+              "supported": true,
+              "basis": "X",
+              "flip": 0
+            },
+            {
+              "node": [
+                0,
+                7
+              ],
+              "parameter": "alpha.w0.c7",
+              "angle": 0.0,
+              "supported": true,
+              "basis": "X",
+              "flip": 0
+            },
+            {
+              "node": [
+                1,
+                7
+              ],
+              "parameter": "alpha.w1.c7",
+              "angle": 0.0,
+              "supported": true,
+              "basis": "X",
+              "flip": 0
+            }
+          ],
+          "unsupported_nodes": [],
+          "reasons": [],
+          "decoder": "nearest",
+          "backend": "piquasso-fock",
+          "required_operations": [
+            "finite GKP plus",
+            "unit CZ",
+            "physical X",
+            "logical frame",
+            "joint X/Z output POVM"
+          ],
+          "resource_nodes": 18,
+          "measurements": 16,
+          "cz_operations": 20,
+          "peak_live_modes": 3,
+          "hilbert_dimension": 2600,
+          "output_dimension": 300,
+          "vector_bytes": 41600,
+          "mixed_matrix_bytes": 0,
+          "joint_readout_workspace_bytes_estimate": 5760000,
+          "frame_updates": 37
+        },
+        "estimator": "conditional joint POVM",
+        "pair_correlations": {
+          "(0, 1)": 0.3906139221514153
+        }
+      },
+      "memory_measurement": "Analytic allocation estimates only; peak process memory not measured"
+    }
+  ],
+  "convergence": {
+    "cutoff": {
+      "axis": "cutoff",
+      "axis_type": "numerical refinement",
+      "rows": [
+        {
+          "value": 20,
+          "probabilities": [
+            0.8269615867801332,
+            0.1730384132198668
+          ],
+          "max_probability_delta": null,
+          "comparison": {
+            "total_variation_distance": 0.17303841321986646,
+            "observable_differences": [
+              -0.3460768264397329
+            ],
+            "comparison_mode": "physical-conditional",
+            "finite_state_fidelity": null,
+            "marginal_code_subspace_leakage": [
+              {
+                "(0, 4)": 0.00020332722195515185
+              }
+            ],
+            "convergence": {
+              "certified": false,
+              "reason": "A single resource setting is not a convergence study"
+            }
+          },
+          "standard_errors": null,
+          "prediction": 0,
+          "backend_diagnostics": [
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999999,
+                "boundary_population": 5.687407506018607e-10,
+                "cutoff": 20,
+                "dimension": 20
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999992407722,
+                "boundary_population": 1.0203050715660286e-08,
+                "cutoff": 20,
+                "dimension": 210
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9998800964574989,
+                "boundary_population": 0.00022081322427601168,
+                "cutoff": 20,
+                "dimension": 210
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999996735275,
+                "boundary_population": 8.253638860667328e-09,
+                "cutoff": 20,
+                "dimension": 210
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9998936857007977,
+                "boundary_population": 0.00018974384546662502,
+                "cutoff": 20,
+                "dimension": 210
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999994348685,
+                "boundary_population": 1.87665185981717e-08,
+                "cutoff": 20,
+                "dimension": 210
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9998913723996748,
+                "boundary_population": 0.00020924126087676248,
+                "cutoff": 20,
+                "dimension": 210
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999996634411,
+                "boundary_population": 1.0903438498587385e-08,
+                "cutoff": 20,
+                "dimension": 210
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999031661428996,
+                "boundary_population": 0.0001887847467055262,
+                "cutoff": 20,
+                "dimension": 210
+              }
+            ]
+          ]
+        },
+        {
+          "value": 24,
+          "probabilities": [
+            0.8271510787751981,
+            0.17284892122480164
+          ],
+          "max_probability_delta": 0.00018949199506515524,
+          "comparison": {
+            "total_variation_distance": 0.17284892122480144,
+            "observable_differences": [
+              -0.3456978424496029
+            ],
+            "comparison_mode": "physical-conditional",
+            "finite_state_fidelity": null,
+            "marginal_code_subspace_leakage": [
+              {
+                "(0, 4)": 0.00021750138882559167
+              }
+            ],
+            "convergence": {
+              "certified": false,
+              "reason": "A single resource setting is not a convergence study"
+            }
+          },
+          "standard_errors": null,
+          "prediction": 0,
+          "backend_diagnostics": [
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000002,
+                "boundary_population": 9.476735094715832e-14,
+                "cutoff": 24,
+                "dimension": 24
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999969826,
+                "boundary_population": 5.076967608784821e-11,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999827693485409,
+                "boundary_population": 2.9525805579984633e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999894684,
+                "boundary_population": 1.223441641144141e-10,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999814752633127,
+                "boundary_population": 2.5603912376915008e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999952642,
+                "boundary_population": 9.47894876448966e-11,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999854714877513,
+                "boundary_population": 2.6329397152673515e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999955758,
+                "boundary_population": 7.843507570669022e-11,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999865448903199,
+                "boundary_population": 2.3348719046120145e-05,
+                "cutoff": 24,
+                "dimension": 300
+              }
+            ]
+          ]
+        },
+        {
+          "value": 28,
+          "probabilities": [
+            0.8272326548090871,
+            0.1727673451909127
+          ],
+          "max_probability_delta": 8.157603388903034e-05,
+          "comparison": {
+            "total_variation_distance": 0.17276734519091244,
+            "observable_differences": [
+              -0.3455346903818248
+            ],
+            "comparison_mode": "physical-conditional",
+            "finite_state_fidelity": null,
+            "marginal_code_subspace_leakage": [
+              {
+                "(0, 4)": 0.00022507887275480254
+              }
+            ],
+            "convergence": {
+              "certified": false,
+              "reason": "A single resource setting is not a convergence study"
+            }
+          },
+          "standard_errors": null,
+          "prediction": 0,
+          "backend_diagnostics": [
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000002,
+                "boundary_population": 3.745178801100871e-18,
+                "cutoff": 28,
+                "dimension": 28
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999609,
+                "boundary_population": 7.572265792324043e-13,
+                "cutoff": 28,
+                "dimension": 406
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999970960079422,
+                "boundary_population": 4.310984453723002e-06,
+                "cutoff": 28,
+                "dimension": 406
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999996598,
+                "boundary_population": 9.203228589910955e-12,
+                "cutoff": 28,
+                "dimension": 406
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999958216198981,
+                "boundary_population": 4.462530043201936e-06,
+                "cutoff": 28,
+                "dimension": 406
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999998588,
+                "boundary_population": 1.8596100428319045e-12,
+                "cutoff": 28,
+                "dimension": 406
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999974850437913,
+                "boundary_population": 3.611033235778829e-06,
+                "cutoff": 28,
+                "dimension": 406
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999998775,
+                "boundary_population": 2.1396387485540964e-12,
+                "cutoff": 28,
+                "dimension": 406
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999976777504246,
+                "boundary_population": 3.2572217535104233e-06,
+                "cutoff": 28,
+                "dimension": 406
+              }
+            ]
+          ]
+        }
+      ],
+      "certified": false,
+      "interpretation": "Fixed analog branch deltas are conditional; shot deltas also include sampling error. No automatic convergence certification."
+    },
+    "grid_points": {
+      "axis": "grid_points",
+      "axis_type": "numerical refinement",
+      "rows": [
+        {
+          "value": 513,
+          "probabilities": [
+            0.8271510787751983,
+            0.17284892122480172
+          ],
+          "max_probability_delta": null,
+          "comparison": {
+            "total_variation_distance": 0.17284892122480136,
+            "observable_differences": [
+              -0.34569784244960267
+            ],
+            "comparison_mode": "physical-conditional",
+            "finite_state_fidelity": null,
+            "marginal_code_subspace_leakage": [
+              {
+                "(0, 4)": 0.0002175013888252586
+              }
+            ],
+            "convergence": {
+              "certified": false,
+              "reason": "A single resource setting is not a convergence study"
+            }
+          },
+          "standard_errors": null,
+          "prediction": 0,
+          "backend_diagnostics": [
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000002,
+                "boundary_population": 9.476735093936395e-14,
+                "cutoff": 24,
+                "dimension": 24
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999969826,
+                "boundary_population": 5.076967608756811e-11,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999827693485409,
+                "boundary_population": 2.9525805579984667e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.999999999989469,
+                "boundary_population": 1.223441641141881e-10,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999814752633132,
+                "boundary_population": 2.560391237691507e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999952646,
+                "boundary_population": 9.478948764464421e-11,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999854714877514,
+                "boundary_population": 2.6329397152673542e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999955758,
+                "boundary_population": 7.843507570643992e-11,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999865448903198,
+                "boundary_population": 2.334871904612019e-05,
+                "cutoff": 24,
+                "dimension": 300
+              }
+            ]
+          ]
+        },
+        {
+          "value": 1025,
+          "probabilities": [
+            0.8271510787751981,
+            0.17284892122480164
+          ],
+          "max_probability_delta": 2.220446049250313e-16,
+          "comparison": {
+            "total_variation_distance": 0.17284892122480144,
+            "observable_differences": [
+              -0.3456978424496029
+            ],
+            "comparison_mode": "physical-conditional",
+            "finite_state_fidelity": null,
+            "marginal_code_subspace_leakage": [
+              {
+                "(0, 4)": 0.00021750138882559167
+              }
+            ],
+            "convergence": {
+              "certified": false,
+              "reason": "A single resource setting is not a convergence study"
+            }
+          },
+          "standard_errors": null,
+          "prediction": 0,
+          "backend_diagnostics": [
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000002,
+                "boundary_population": 9.476735094715832e-14,
+                "cutoff": 24,
+                "dimension": 24
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999969826,
+                "boundary_population": 5.076967608784821e-11,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999827693485409,
+                "boundary_population": 2.9525805579984633e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999894684,
+                "boundary_population": 1.223441641144141e-10,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999814752633127,
+                "boundary_population": 2.5603912376915008e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999952642,
+                "boundary_population": 9.47894876448966e-11,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999854714877513,
+                "boundary_population": 2.6329397152673515e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999955758,
+                "boundary_population": 7.843507570669022e-11,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999865448903199,
+                "boundary_population": 2.3348719046120145e-05,
+                "cutoff": 24,
+                "dimension": 300
+              }
+            ]
+          ]
+        }
+      ],
+      "certified": false,
+      "interpretation": "Fixed analog branch deltas are conditional; shot deltas also include sampling error. No automatic convergence certification."
+    },
+    "peaks": {
+      "axis": "peaks",
+      "axis_type": "numerical refinement",
+      "rows": [
+        {
+          "value": 3,
+          "probabilities": [
+            0.8271510787751981,
+            0.17284892122480175
+          ],
+          "max_probability_delta": null,
+          "comparison": {
+            "total_variation_distance": 0.1728489212248015,
+            "observable_differences": [
+              -0.345697842449603
+            ],
+            "comparison_mode": "physical-conditional",
+            "finite_state_fidelity": null,
+            "marginal_code_subspace_leakage": [
+              {
+                "(0, 4)": 0.00021750138882559167
+              }
+            ],
+            "convergence": {
+              "certified": false,
+              "reason": "A single resource setting is not a convergence study"
+            }
+          },
+          "standard_errors": null,
+          "prediction": 0,
+          "backend_diagnostics": [
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000002,
+                "boundary_population": 9.476735097827528e-14,
+                "cutoff": 24,
+                "dimension": 24
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.999999999996983,
+                "boundary_population": 5.076967608804539e-11,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999827693485409,
+                "boundary_population": 2.952580557998452e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999894688,
+                "boundary_population": 1.2234416411437996e-10,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999814752633132,
+                "boundary_population": 2.5603912376914893e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999952646,
+                "boundary_population": 9.47894876449756e-11,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999854714877516,
+                "boundary_population": 2.6329397152673407e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999955762,
+                "boundary_population": 7.84350757067476e-11,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999865448903201,
+                "boundary_population": 2.3348719046120037e-05,
+                "cutoff": 24,
+                "dimension": 300
+              }
+            ]
+          ]
+        },
+        {
+          "value": 4,
+          "probabilities": [
+            0.8271510787751981,
+            0.17284892122480164
+          ],
+          "max_probability_delta": 1.1102230246251565e-16,
+          "comparison": {
+            "total_variation_distance": 0.17284892122480144,
+            "observable_differences": [
+              -0.3456978424496029
+            ],
+            "comparison_mode": "physical-conditional",
+            "finite_state_fidelity": null,
+            "marginal_code_subspace_leakage": [
+              {
+                "(0, 4)": 0.00021750138882559167
+              }
+            ],
+            "convergence": {
+              "certified": false,
+              "reason": "A single resource setting is not a convergence study"
+            }
+          },
+          "standard_errors": null,
+          "prediction": 0,
+          "backend_diagnostics": [
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000002,
+                "boundary_population": 9.476735094715832e-14,
+                "cutoff": 24,
+                "dimension": 24
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999969826,
+                "boundary_population": 5.076967608784821e-11,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999827693485409,
+                "boundary_population": 2.9525805579984633e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999894684,
+                "boundary_population": 1.223441641144141e-10,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999814752633127,
+                "boundary_population": 2.5603912376915008e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999952642,
+                "boundary_population": 9.47894876448966e-11,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999854714877513,
+                "boundary_population": 2.6329397152673515e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999955758,
+                "boundary_population": 7.843507570669022e-11,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999865448903199,
+                "boundary_population": 2.3348719046120145e-05,
+                "cutoff": 24,
+                "dimension": 300
+              }
+            ]
+          ]
+        }
+      ],
+      "certified": false,
+      "interpretation": "Fixed analog branch deltas are conditional; shot deltas also include sampling error. No automatic convergence certification."
+    },
+    "peak_width": {
+      "axis": "peak_width",
+      "axis_type": "physical resource change",
+      "rows": [
+        {
+          "value": 0.85,
+          "probabilities": [
+            0.8401873006880234,
+            0.15981269931197672
+          ],
+          "max_probability_delta": null,
+          "comparison": {
+            "total_variation_distance": 0.15981269931197634,
+            "observable_differences": [
+              -0.3196253986239527
+            ],
+            "comparison_mode": "physical-conditional",
+            "finite_state_fidelity": null,
+            "marginal_code_subspace_leakage": [
+              {
+                "(0, 4)": 0.0004044459316435711
+              }
+            ],
+            "convergence": {
+              "certified": false,
+              "reason": "A single resource setting is not a convergence study"
+            }
+          },
+          "standard_errors": null,
+          "prediction": 0,
+          "backend_diagnostics": [
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0,
+                "boundary_population": 1.3644214534414638e-14,
+                "cutoff": 24,
+                "dimension": 24
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999988941,
+                "boundary_population": 1.3287900962401659e-11,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999857273225642,
+                "boundary_population": 2.5323838694726608e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999890419,
+                "boundary_population": 1.6737856849390571e-10,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999795945323542,
+                "boundary_population": 2.1600463701469417e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999863082,
+                "boundary_population": 3.639700788876895e-10,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999847816999818,
+                "boundary_population": 2.331319832375981e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999942851,
+                "boundary_population": 1.5284418296726792e-10,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999866003277105,
+                "boundary_population": 1.8153146773101933e-05,
+                "cutoff": 24,
+                "dimension": 300
+              }
+            ]
+          ]
+        },
+        {
+          "value": 0.9,
+          "probabilities": [
+            0.8271510787751981,
+            0.17284892122480164
+          ],
+          "max_probability_delta": 0.013036221912825274,
+          "comparison": {
+            "total_variation_distance": 0.17284892122480144,
+            "observable_differences": [
+              -0.3456978424496029
+            ],
+            "comparison_mode": "physical-conditional",
+            "finite_state_fidelity": null,
+            "marginal_code_subspace_leakage": [
+              {
+                "(0, 4)": 0.00021750138882559167
+              }
+            ],
+            "convergence": {
+              "certified": false,
+              "reason": "A single resource setting is not a convergence study"
+            }
+          },
+          "standard_errors": null,
+          "prediction": 0,
+          "backend_diagnostics": [
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000002,
+                "boundary_population": 9.476735094715832e-14,
+                "cutoff": 24,
+                "dimension": 24
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999969826,
+                "boundary_population": 5.076967608784821e-11,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999827693485409,
+                "boundary_population": 2.9525805579984633e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999894684,
+                "boundary_population": 1.223441641144141e-10,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999814752633127,
+                "boundary_population": 2.5603912376915008e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999952642,
+                "boundary_population": 9.47894876448966e-11,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999854714877513,
+                "boundary_population": 2.6329397152673515e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999955758,
+                "boundary_population": 7.843507570669022e-11,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999865448903199,
+                "boundary_population": 2.3348719046120145e-05,
+                "cutoff": 24,
+                "dimension": 300
+              }
+            ]
+          ]
+        }
+      ],
+      "certified": false,
+      "interpretation": "Fixed analog branch deltas are conditional; shot deltas also include sampling error. No automatic convergence certification."
+    },
+    "envelope": {
+      "axis": "envelope",
+      "axis_type": "physical resource change",
+      "rows": [
+        {
+          "value": 0.85,
+          "probabilities": [
+            0.8269355811100263,
+            0.17306441888997373
+          ],
+          "max_probability_delta": null,
+          "comparison": {
+            "total_variation_distance": 0.17306441888997337,
+            "observable_differences": [
+              -0.34612883777994674
+            ],
+            "comparison_mode": "physical-conditional",
+            "finite_state_fidelity": null,
+            "marginal_code_subspace_leakage": [
+              {
+                "(0, 4)": 0.0003731012293751723
+              }
+            ],
+            "convergence": {
+              "certified": false,
+              "reason": "A single resource setting is not a convergence study"
+            }
+          },
+          "standard_errors": null,
+          "prediction": 0,
+          "backend_diagnostics": [
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000002,
+                "boundary_population": 2.9046952782741845e-13,
+                "cutoff": 24,
+                "dimension": 24
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999770088,
+                "boundary_population": 2.692201736052833e-10,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.999970223201804,
+                "boundary_population": 4.104052928403932e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999530056,
+                "boundary_population": 4.5768341123400366e-10,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.999971465991813,
+                "boundary_population": 3.35610221066319e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999858146,
+                "boundary_population": 2.246485037447727e-10,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999817512530231,
+                "boundary_population": 3.100143056306952e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999859304,
+                "boundary_population": 2.199764728714272e-10,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999826642502787,
+                "boundary_population": 2.810482877113393e-05,
+                "cutoff": 24,
+                "dimension": 300
+              }
+            ]
+          ]
+        },
+        {
+          "value": 0.9,
+          "probabilities": [
+            0.8271510787751981,
+            0.17284892122480164
+          ],
+          "max_probability_delta": 0.000215497665172093,
+          "comparison": {
+            "total_variation_distance": 0.17284892122480144,
+            "observable_differences": [
+              -0.3456978424496029
+            ],
+            "comparison_mode": "physical-conditional",
+            "finite_state_fidelity": null,
+            "marginal_code_subspace_leakage": [
+              {
+                "(0, 4)": 0.00021750138882559167
+              }
+            ],
+            "convergence": {
+              "certified": false,
+              "reason": "A single resource setting is not a convergence study"
+            }
+          },
+          "standard_errors": null,
+          "prediction": 0,
+          "backend_diagnostics": [
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000002,
+                "boundary_population": 9.476735094715832e-14,
+                "cutoff": 24,
+                "dimension": 24
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999969826,
+                "boundary_population": 5.076967608784821e-11,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999827693485409,
+                "boundary_population": 2.9525805579984633e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999894684,
+                "boundary_population": 1.223441641144141e-10,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999814752633127,
+                "boundary_population": 2.5603912376915008e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999952642,
+                "boundary_population": 9.47894876448966e-11,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999854714877513,
+                "boundary_population": 2.6329397152673515e-05,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999955758,
+                "boundary_population": 7.843507570669022e-11,
+                "cutoff": 24,
+                "dimension": 300
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999865448903199,
+                "boundary_population": 2.3348719046120145e-05,
+                "cutoff": 24,
+                "dimension": 300
+              }
+            ]
+          ]
+        }
+      ],
+      "certified": false,
+      "interpretation": "Fixed analog branch deltas are conditional; shot deltas also include sampling error. No automatic convergence certification."
+    }
+  },
+  "classification": [
+    {
+      "training_seed": 7,
+      "validation_seed": 1007,
+      "shots_per_input": 2,
+      "resource_config": {
+        "cutoff": 40,
+        "peak_width": 0.9,
+        "envelope": 0.9,
+        "peaks": 4,
+        "grid_points": 1025,
+        "decoder": "nearest",
+        "backend": "piquasso-fock",
+        "max_dimension": 100000,
+        "max_matrix_bytes": 256000000
+      },
+      "inputs": [
+        [
+          0.0
+        ],
+        [
+          0.2
+        ],
+        [
+          2.9
+        ],
+        [
+          3.141592653589793
+        ]
+      ],
+      "labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "predictions": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "training_input_accuracy_new_trajectories": 0.0,
+      "search": {
+        "parameters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "loss": 0.0150866073092045,
+        "evaluations": [
+          {
+            "parameters": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "loss": 0.0150866073092045
+          },
+          {
+            "parameters": [
+              3.141592653589793,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "loss": 0.0150866073092045
+          },
+          {
+            "parameters": [
+              0.0,
+              3.141592653589793,
+              0.0,
+              0.0
+            ],
+            "loss": 0.015086617751323184
+          },
+          {
+            "parameters": [
+              0.0,
+              0.0,
+              3.141592653589793,
+              0.0
+            ],
+            "loss": 0.0150866073092045
+          },
+          {
+            "parameters": [
+              0.0,
+              0.0,
+              0.0,
+              3.141592653589793
+            ],
+            "loss": 0.015086617751323184
+          }
+        ],
+        "seed": 7
+      },
+      "convergence": [
+        {
+          "certified": false,
+          "reason": "A single resource setting is not a convergence study"
+        },
+        {
+          "certified": false,
+          "reason": "A single resource setting is not a convergence study"
+        },
+        {
+          "certified": false,
+          "reason": "A single resource setting is not a convergence study"
+        },
+        {
+          "certified": false,
+          "reason": "A single resource setting is not a convergence study"
+        }
+      ],
+      "physical_diagnostics": [
+        {
+          "codeword_gram": [
+            [
+              {
+                "real": 1.0,
+                "imag": 0.0
+              },
+              {
+                "real": 0.5339586741648643,
+                "imag": 0.0
+              }
+            ],
+            [
+              {
+                "real": 0.5339586741648643,
+                "imag": 0.0
+              },
+              {
+                "real": 1.0000000000000002,
+                "imag": 0.0
+              }
+            ]
+          ],
+          "basis_projection_weights": [
+            0.9999999999999999,
+            1.0000000000000002
+          ],
+          "input_code_subspace_leakage": [
+            0.0
+          ],
+          "marginal_code_subspace_leakage": [
+            {
+              "(0, 4)": 0.33878667258633965
+            },
+            {
+              "(0, 4)": 0.6442008515752621
+            }
+          ],
+          "joint_code_subspace_leakage": null,
+          "backend_diagnostics": [
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0,
+                "boundary_population": 1.6540458764527408e-20,
+                "cutoff": 40,
+                "dimension": 40
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999999,
+                "boundary_population": 2.337994286060936e-18,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999999720998574,
+                "boundary_population": 3.277692972846686e-08,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999992,
+                "boundary_population": 3.1432272863582143e-15,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999990421262267,
+                "boundary_population": 8.524297539590276e-07,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999953,
+                "boundary_population": 3.073496086490246e-14,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999858705375522,
+                "boundary_population": 6.136190616251247e-06,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999997,
+                "boundary_population": 5.968548251216252e-16,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999994297538262,
+                "boundary_population": 3.949581261613458e-07,
+                "cutoff": 40,
+                "dimension": 820
+              }
+            ],
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0,
+                "boundary_population": 1.6540458764527408e-20,
+                "cutoff": 40,
+                "dimension": 40
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999999,
+                "boundary_population": 2.337994286060936e-18,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999999720998574,
+                "boundary_population": 3.277692972846686e-08,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999991,
+                "boundary_population": 3.4247064271717473e-15,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999995854056705,
+                "boundary_population": 4.105282295838222e-07,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999979,
+                "boundary_population": 1.3158865532076324e-14,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999868946120969,
+                "boundary_population": 1.4026381771746202e-05,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999988,
+                "boundary_population": 6.931884720881907e-15,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999983865827229,
+                "boundary_population": 1.084444120817339e-06,
+                "cutoff": 40,
+                "dimension": 820
+              }
+            ]
+          ],
+          "output_basis": "Z",
+          "decoder": "nearest-cell",
+          "decoder_confidence": null,
+          "simulation_seconds": 4.796425800013822,
+          "readout_seconds": 0.5252142999961507,
+          "resource_accounting": {
+            "supported": true,
+            "angle_audit": [
+              {
+                "node": [
+                  0,
+                  0
+                ],
+                "parameter": "alpha.w0.c0",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              },
+              {
+                "node": [
+                  0,
+                  1
+                ],
+                "parameter": "alpha.w0.c1",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              },
+              {
+                "node": [
+                  0,
+                  2
+                ],
+                "parameter": "alpha.w0.c2",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              },
+              {
+                "node": [
+                  0,
+                  3
+                ],
+                "parameter": "alpha.w0.c3",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              }
+            ],
+            "unsupported_nodes": [],
+            "reasons": [],
+            "decoder": "nearest",
+            "backend": "piquasso-fock",
+            "required_operations": [
+              "finite GKP plus",
+              "unit CZ",
+              "physical X",
+              "logical frame",
+              "joint X/Z output POVM"
+            ],
+            "resource_nodes": 5,
+            "measurements": 4,
+            "cz_operations": 4,
+            "peak_live_modes": 2,
+            "hilbert_dimension": 820,
+            "output_dimension": 40,
+            "vector_bytes": 13120,
+            "mixed_matrix_bytes": 0,
+            "joint_readout_workspace_bytes_estimate": 102400,
+            "frame_updates": 7
+          },
+          "estimator": "mean conditional joint POVM (Rao-Blackwell estimator)",
+          "pair_correlations": {}
+        },
+        {
+          "codeword_gram": [
+            [
+              {
+                "real": 1.0,
+                "imag": 0.0
+              },
+              {
+                "real": 0.5339586741648643,
+                "imag": 0.0
+              }
+            ],
+            [
+              {
+                "real": 0.5339586741648643,
+                "imag": 0.0
+              },
+              {
+                "real": 1.0000000000000002,
+                "imag": 0.0
+              }
+            ]
+          ],
+          "basis_projection_weights": [
+            0.9999999999999999,
+            1.0000000000000002
+          ],
+          "input_code_subspace_leakage": [
+            0.0
+          ],
+          "marginal_code_subspace_leakage": [
+            {
+              "(0, 4)": 0.333342075733569
+            },
+            {
+              "(0, 4)": 0.6262891295181632
+            }
+          ],
+          "joint_code_subspace_leakage": null,
+          "backend_diagnostics": [
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000002,
+                "boundary_population": 3.881885883409342e-20,
+                "cutoff": 40,
+                "dimension": 40
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000002,
+                "boundary_population": 2.4788266201049256e-18,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999999760627414,
+                "boundary_population": 2.8260452935158495e-08,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999989,
+                "boundary_population": 5.4159250695750924e-15,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999977767145485,
+                "boundary_population": 1.673637422278361e-06,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999962,
+                "boundary_population": 2.2529175401483547e-14,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999850941506992,
+                "boundary_population": 6.490939646553609e-06,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999998,
+                "boundary_population": 7.623745771022404e-16,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.999999423588517,
+                "boundary_population": 4.0471644833998475e-07,
+                "cutoff": 40,
+                "dimension": 820
+              }
+            ],
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000002,
+                "boundary_population": 3.881885883409342e-20,
+                "cutoff": 40,
+                "dimension": 40
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000002,
+                "boundary_population": 2.4788266201049256e-18,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999999760627414,
+                "boundary_population": 2.8260452935158495e-08,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999983,
+                "boundary_population": 5.829320254664675e-15,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999990789769593,
+                "boundary_population": 7.572925029860032e-07,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999988,
+                "boundary_population": 9.649749388779343e-15,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999871294236521,
+                "boundary_population": 1.3926464433554312e-05,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.999999999999999,
+                "boundary_population": 8.507074736691443e-15,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999984573426111,
+                "boundary_population": 1.0679876536966437e-06,
+                "cutoff": 40,
+                "dimension": 820
+              }
+            ]
+          ],
+          "output_basis": "Z",
+          "decoder": "nearest-cell",
+          "decoder_confidence": null,
+          "simulation_seconds": 4.74971479998203,
+          "readout_seconds": 0.7394627000030596,
+          "resource_accounting": {
+            "supported": true,
+            "angle_audit": [
+              {
+                "node": [
+                  0,
+                  0
+                ],
+                "parameter": "alpha.w0.c0",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              },
+              {
+                "node": [
+                  0,
+                  1
+                ],
+                "parameter": "alpha.w0.c1",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              },
+              {
+                "node": [
+                  0,
+                  2
+                ],
+                "parameter": "alpha.w0.c2",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              },
+              {
+                "node": [
+                  0,
+                  3
+                ],
+                "parameter": "alpha.w0.c3",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              }
+            ],
+            "unsupported_nodes": [],
+            "reasons": [],
+            "decoder": "nearest",
+            "backend": "piquasso-fock",
+            "required_operations": [
+              "finite GKP plus",
+              "unit CZ",
+              "physical X",
+              "logical frame",
+              "joint X/Z output POVM"
+            ],
+            "resource_nodes": 5,
+            "measurements": 4,
+            "cz_operations": 4,
+            "peak_live_modes": 2,
+            "hilbert_dimension": 820,
+            "output_dimension": 40,
+            "vector_bytes": 13120,
+            "mixed_matrix_bytes": 0,
+            "joint_readout_workspace_bytes_estimate": 102400,
+            "frame_updates": 7
+          },
+          "estimator": "mean conditional joint POVM (Rao-Blackwell estimator)",
+          "pair_correlations": {}
+        },
+        {
+          "codeword_gram": [
+            [
+              {
+                "real": 1.0,
+                "imag": 0.0
+              },
+              {
+                "real": 0.5339586741648643,
+                "imag": 0.0
+              }
+            ],
+            [
+              {
+                "real": 0.5339586741648643,
+                "imag": 0.0
+              },
+              {
+                "real": 1.0000000000000002,
+                "imag": 0.0
+              }
+            ]
+          ],
+          "basis_projection_weights": [
+            0.9999999999999999,
+            1.0000000000000002
+          ],
+          "input_code_subspace_leakage": [
+            0.0
+          ],
+          "marginal_code_subspace_leakage": [
+            {
+              "(0, 4)": 0.2769410773225045
+            },
+            {
+              "(0, 4)": 0.6204150945694786
+            }
+          ],
+          "joint_code_subspace_leakage": null,
+          "backend_diagnostics": [
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000002,
+                "boundary_population": 5.724554940652415e-19,
+                "cutoff": 40,
+                "dimension": 40
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999999,
+                "boundary_population": 2.3643169953350353e-17,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999999014402136,
+                "boundary_population": 1.8840551745957895e-07,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.999999999999991,
+                "boundary_population": 7.273995059573955e-14,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.999963463143653,
+                "boundary_population": 2.237454288706729e-05,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999981,
+                "boundary_population": 1.0315447338595712e-14,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999834974128894,
+                "boundary_population": 6.794929970352056e-06,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999983,
+                "boundary_population": 9.078646673402221e-15,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999995346259022,
+                "boundary_population": 3.330309843458503e-07,
+                "cutoff": 40,
+                "dimension": 820
+              }
+            ],
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000002,
+                "boundary_population": 5.724554940652415e-19,
+                "cutoff": 40,
+                "dimension": 40
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999999,
+                "boundary_population": 2.3643169953350353e-17,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999999014402136,
+                "boundary_population": 1.8840551745957895e-07,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999912,
+                "boundary_population": 5.1361147201172086e-14,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999834751735397,
+                "boundary_population": 1.0643340674969634e-05,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999991,
+                "boundary_population": 3.2846931964406666e-15,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999929683450706,
+                "boundary_population": 8.036659203927026e-06,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.999999999999998,
+                "boundary_population": 1.3236134382584412e-14,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999991678080311,
+                "boundary_population": 5.026306482809368e-07,
+                "cutoff": 40,
+                "dimension": 820
+              }
+            ]
+          ],
+          "output_basis": "Z",
+          "decoder": "nearest-cell",
+          "decoder_confidence": null,
+          "simulation_seconds": 5.069442299980437,
+          "readout_seconds": 0.5778912999958266,
+          "resource_accounting": {
+            "supported": true,
+            "angle_audit": [
+              {
+                "node": [
+                  0,
+                  0
+                ],
+                "parameter": "alpha.w0.c0",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              },
+              {
+                "node": [
+                  0,
+                  1
+                ],
+                "parameter": "alpha.w0.c1",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              },
+              {
+                "node": [
+                  0,
+                  2
+                ],
+                "parameter": "alpha.w0.c2",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              },
+              {
+                "node": [
+                  0,
+                  3
+                ],
+                "parameter": "alpha.w0.c3",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              }
+            ],
+            "unsupported_nodes": [],
+            "reasons": [],
+            "decoder": "nearest",
+            "backend": "piquasso-fock",
+            "required_operations": [
+              "finite GKP plus",
+              "unit CZ",
+              "physical X",
+              "logical frame",
+              "joint X/Z output POVM"
+            ],
+            "resource_nodes": 5,
+            "measurements": 4,
+            "cz_operations": 4,
+            "peak_live_modes": 2,
+            "hilbert_dimension": 820,
+            "output_dimension": 40,
+            "vector_bytes": 13120,
+            "mixed_matrix_bytes": 0,
+            "joint_readout_workspace_bytes_estimate": 102400,
+            "frame_updates": 7
+          },
+          "estimator": "mean conditional joint POVM (Rao-Blackwell estimator)",
+          "pair_correlations": {}
+        },
+        {
+          "codeword_gram": [
+            [
+              {
+                "real": 1.0,
+                "imag": 0.0
+              },
+              {
+                "real": 0.5339586741648643,
+                "imag": 0.0
+              }
+            ],
+            [
+              {
+                "real": 0.5339586741648643,
+                "imag": 0.0
+              },
+              {
+                "real": 1.0000000000000002,
+                "imag": 0.0
+              }
+            ]
+          ],
+          "basis_projection_weights": [
+            0.9999999999999999,
+            1.0000000000000002
+          ],
+          "input_code_subspace_leakage": [
+            0.0
+          ],
+          "marginal_code_subspace_leakage": [
+            {
+              "(0, 4)": 0.3008254855558061
+            },
+            {
+              "(0, 4)": 0.6266306770364707
+            }
+          ],
+          "joint_code_subspace_leakage": null,
+          "backend_diagnostics": [
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000004,
+                "boundary_population": 6.300711441013073e-19,
+                "cutoff": 40,
+                "dimension": 40
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999996,
+                "boundary_population": 2.6826828029556268e-17,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999998848199402,
+                "boundary_population": 2.1924881325079543e-07,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999909,
+                "boundary_population": 7.316762660206698e-14,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999560331085536,
+                "boundary_population": 2.656173091155064e-05,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999978,
+                "boundary_population": 1.2295009895997086e-14,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999846466685116,
+                "boundary_population": 5.985286117390159e-06,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999982,
+                "boundary_population": 8.817835615616141e-15,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999994292017885,
+                "boundary_population": 3.496767188671662e-07,
+                "cutoff": 40,
+                "dimension": 820
+              }
+            ],
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000004,
+                "boundary_population": 6.300711441013073e-19,
+                "cutoff": 40,
+                "dimension": 40
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999996,
+                "boundary_population": 2.6826828029556268e-17,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999998848199402,
+                "boundary_population": 2.1924881325079543e-07,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999897,
+                "boundary_population": 6.257612546265373e-14,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999800855130421,
+                "boundary_population": 1.2687608915116375e-05,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999992,
+                "boundary_population": 4.416352534335739e-15,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999930043269301,
+                "boundary_population": 7.861195153842933e-06,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999979,
+                "boundary_population": 9.860232135638621e-15,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.999999207201069,
+                "boundary_population": 4.822381479615509e-07,
+                "cutoff": 40,
+                "dimension": 820
+              }
+            ]
+          ],
+          "output_basis": "Z",
+          "decoder": "nearest-cell",
+          "decoder_confidence": null,
+          "simulation_seconds": 4.327760000014678,
+          "readout_seconds": 0.5130424999806564,
+          "resource_accounting": {
+            "supported": true,
+            "angle_audit": [
+              {
+                "node": [
+                  0,
+                  0
+                ],
+                "parameter": "alpha.w0.c0",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              },
+              {
+                "node": [
+                  0,
+                  1
+                ],
+                "parameter": "alpha.w0.c1",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              },
+              {
+                "node": [
+                  0,
+                  2
+                ],
+                "parameter": "alpha.w0.c2",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              },
+              {
+                "node": [
+                  0,
+                  3
+                ],
+                "parameter": "alpha.w0.c3",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              }
+            ],
+            "unsupported_nodes": [],
+            "reasons": [],
+            "decoder": "nearest",
+            "backend": "piquasso-fock",
+            "required_operations": [
+              "finite GKP plus",
+              "unit CZ",
+              "physical X",
+              "logical frame",
+              "joint X/Z output POVM"
+            ],
+            "resource_nodes": 5,
+            "measurements": 4,
+            "cz_operations": 4,
+            "peak_live_modes": 2,
+            "hilbert_dimension": 820,
+            "output_dimension": 40,
+            "vector_bytes": 13120,
+            "mixed_matrix_bytes": 0,
+            "joint_readout_workspace_bytes_estimate": 102400,
+            "frame_updates": 7
+          },
+          "estimator": "mean conditional joint POVM (Rao-Blackwell estimator)",
+          "pair_correlations": {}
+        }
+      ]
+    },
+    {
+      "training_seed": 19,
+      "validation_seed": 1019,
+      "shots_per_input": 2,
+      "resource_config": {
+        "cutoff": 40,
+        "peak_width": 0.9,
+        "envelope": 0.9,
+        "peaks": 4,
+        "grid_points": 1025,
+        "decoder": "nearest",
+        "backend": "piquasso-fock",
+        "max_dimension": 100000,
+        "max_matrix_bytes": 256000000
+      },
+      "inputs": [
+        [
+          0.0
+        ],
+        [
+          0.2
+        ],
+        [
+          2.9
+        ],
+        [
+          3.141592653589793
+        ]
+      ],
+      "labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "predictions": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "training_input_accuracy_new_trajectories": 1.0,
+      "search": {
+        "parameters": [
+          0.0,
+          3.141592653589793,
+          0.0,
+          0.0
+        ],
+        "loss": 0.13259421564443435,
+        "evaluations": [
+          {
+            "parameters": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "loss": 0.13259421566682436
+          },
+          {
+            "parameters": [
+              3.141592653589793,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "loss": 0.13259421566682436
+          },
+          {
+            "parameters": [
+              0.0,
+              3.141592653589793,
+              0.0,
+              0.0
+            ],
+            "loss": 0.13259421564443435
+          },
+          {
+            "parameters": [
+              0.0,
+              3.141592653589793,
+              3.141592653589793,
+              0.0
+            ],
+            "loss": 0.13259421564443435
+          },
+          {
+            "parameters": [
+              0.0,
+              3.141592653589793,
+              0.0,
+              3.141592653589793
+            ],
+            "loss": 0.13259421566682436
+          }
+        ],
+        "seed": 19
+      },
+      "convergence": [
+        {
+          "certified": false,
+          "reason": "A single resource setting is not a convergence study"
+        },
+        {
+          "certified": false,
+          "reason": "A single resource setting is not a convergence study"
+        },
+        {
+          "certified": false,
+          "reason": "A single resource setting is not a convergence study"
+        },
+        {
+          "certified": false,
+          "reason": "A single resource setting is not a convergence study"
+        }
+      ],
+      "physical_diagnostics": [
+        {
+          "codeword_gram": [
+            [
+              {
+                "real": 1.0,
+                "imag": 0.0
+              },
+              {
+                "real": 0.5339586741648643,
+                "imag": 0.0
+              }
+            ],
+            [
+              {
+                "real": 0.5339586741648643,
+                "imag": 0.0
+              },
+              {
+                "real": 1.0000000000000002,
+                "imag": 0.0
+              }
+            ]
+          ],
+          "basis_projection_weights": [
+            0.9999999999999999,
+            1.0000000000000002
+          ],
+          "input_code_subspace_leakage": [
+            0.0
+          ],
+          "marginal_code_subspace_leakage": [
+            {
+              "(0, 4)": 0.30085529432295344
+            },
+            {
+              "(0, 4)": 0.09688308447076721
+            }
+          ],
+          "joint_code_subspace_leakage": null,
+          "backend_diagnostics": [
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0,
+                "boundary_population": 1.6540458764527408e-20,
+                "cutoff": 40,
+                "dimension": 40
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999999,
+                "boundary_population": 2.337994286060936e-18,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999999720998574,
+                "boundary_population": 3.277692972846686e-08,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999997,
+                "boundary_population": 1.3988524126155884e-15,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999999703082558,
+                "boundary_population": 2.6291973089443638e-08,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0,
+                "boundary_population": 7.799615565959112e-17,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999998598914691,
+                "boundary_population": 1.4476697334358756e-07,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999998,
+                "boundary_population": 8.288475712229798e-17,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999998767508337,
+                "boundary_population": 1.1232274975923013e-07,
+                "cutoff": 40,
+                "dimension": 820
+              }
+            ],
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0,
+                "boundary_population": 1.6540458764527408e-20,
+                "cutoff": 40,
+                "dimension": 40
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999999,
+                "boundary_population": 2.337994286060936e-18,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999999720998574,
+                "boundary_population": 3.277692972846686e-08,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999992,
+                "boundary_population": 1.521092804909363e-15,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999999528772572,
+                "boundary_population": 5.1561868424030483e-08,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0,
+                "boundary_population": 3.0517831946297184e-17,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.99999994295245,
+                "boundary_population": 5.7911723509187785e-08,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0,
+                "boundary_population": 5.596933876128574e-17,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999998640516989,
+                "boundary_population": 1.1785947857188635e-07,
+                "cutoff": 40,
+                "dimension": 820
+              }
+            ]
+          ],
+          "output_basis": "Z",
+          "decoder": "nearest-cell",
+          "decoder_confidence": null,
+          "simulation_seconds": 5.451571200013859,
+          "readout_seconds": 0.9221468000032473,
+          "resource_accounting": {
+            "supported": true,
+            "angle_audit": [
+              {
+                "node": [
+                  0,
+                  0
+                ],
+                "parameter": "alpha.w0.c0",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              },
+              {
+                "node": [
+                  0,
+                  1
+                ],
+                "parameter": "alpha.w0.c1",
+                "angle": 3.141592653589793,
+                "supported": true,
+                "basis": "X",
+                "flip": 1
+              },
+              {
+                "node": [
+                  0,
+                  2
+                ],
+                "parameter": "alpha.w0.c2",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              },
+              {
+                "node": [
+                  0,
+                  3
+                ],
+                "parameter": "alpha.w0.c3",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              }
+            ],
+            "unsupported_nodes": [],
+            "reasons": [],
+            "decoder": "nearest",
+            "backend": "piquasso-fock",
+            "required_operations": [
+              "finite GKP plus",
+              "unit CZ",
+              "physical X",
+              "logical frame",
+              "joint X/Z output POVM"
+            ],
+            "resource_nodes": 5,
+            "measurements": 4,
+            "cz_operations": 4,
+            "peak_live_modes": 2,
+            "hilbert_dimension": 820,
+            "output_dimension": 40,
+            "vector_bytes": 13120,
+            "mixed_matrix_bytes": 0,
+            "joint_readout_workspace_bytes_estimate": 102400,
+            "frame_updates": 7
+          },
+          "estimator": "mean conditional joint POVM (Rao-Blackwell estimator)",
+          "pair_correlations": {}
+        },
+        {
+          "codeword_gram": [
+            [
+              {
+                "real": 1.0,
+                "imag": 0.0
+              },
+              {
+                "real": 0.5339586741648643,
+                "imag": 0.0
+              }
+            ],
+            [
+              {
+                "real": 0.5339586741648643,
+                "imag": 0.0
+              },
+              {
+                "real": 1.0000000000000002,
+                "imag": 0.0
+              }
+            ]
+          ],
+          "basis_projection_weights": [
+            0.9999999999999999,
+            1.0000000000000002
+          ],
+          "input_code_subspace_leakage": [
+            0.0
+          ],
+          "marginal_code_subspace_leakage": [
+            {
+              "(0, 4)": 0.31017562081585703
+            },
+            {
+              "(0, 4)": 0.09730140790403008
+            }
+          ],
+          "joint_code_subspace_leakage": null,
+          "backend_diagnostics": [
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000002,
+                "boundary_population": 3.881885883409342e-20,
+                "cutoff": 40,
+                "dimension": 40
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000002,
+                "boundary_population": 2.4788266201049256e-18,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999999760627414,
+                "boundary_population": 2.8260452935158495e-08,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999993,
+                "boundary_population": 2.3349151190245725e-15,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999999777871035,
+                "boundary_population": 2.0991034811554397e-08,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0,
+                "boundary_population": 6.625363996040245e-17,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999998853230251,
+                "boundary_population": 1.2457568522739943e-07,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999998,
+                "boundary_population": 9.145541420976566e-17,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999998541642443,
+                "boundary_population": 1.232771890632638e-07,
+                "cutoff": 40,
+                "dimension": 820
+              }
+            ],
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000002,
+                "boundary_population": 3.881885883409342e-20,
+                "cutoff": 40,
+                "dimension": 40
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000002,
+                "boundary_population": 2.4788266201049256e-18,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999999760627414,
+                "boundary_population": 2.8260452935158495e-08,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999994,
+                "boundary_population": 2.4435809378076818e-15,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999999261019797,
+                "boundary_population": 8.096401850041455e-08,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0,
+                "boundary_population": 4.22202565400657e-17,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999999580987846,
+                "boundary_population": 4.552675719000329e-08,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0,
+                "boundary_population": 1.0578373443737418e-16,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999998580656565,
+                "boundary_population": 1.2393207886294657e-07,
+                "cutoff": 40,
+                "dimension": 820
+              }
+            ]
+          ],
+          "output_basis": "Z",
+          "decoder": "nearest-cell",
+          "decoder_confidence": null,
+          "simulation_seconds": 5.386560200015083,
+          "readout_seconds": 0.942048099997919,
+          "resource_accounting": {
+            "supported": true,
+            "angle_audit": [
+              {
+                "node": [
+                  0,
+                  0
+                ],
+                "parameter": "alpha.w0.c0",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              },
+              {
+                "node": [
+                  0,
+                  1
+                ],
+                "parameter": "alpha.w0.c1",
+                "angle": 3.141592653589793,
+                "supported": true,
+                "basis": "X",
+                "flip": 1
+              },
+              {
+                "node": [
+                  0,
+                  2
+                ],
+                "parameter": "alpha.w0.c2",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              },
+              {
+                "node": [
+                  0,
+                  3
+                ],
+                "parameter": "alpha.w0.c3",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              }
+            ],
+            "unsupported_nodes": [],
+            "reasons": [],
+            "decoder": "nearest",
+            "backend": "piquasso-fock",
+            "required_operations": [
+              "finite GKP plus",
+              "unit CZ",
+              "physical X",
+              "logical frame",
+              "joint X/Z output POVM"
+            ],
+            "resource_nodes": 5,
+            "measurements": 4,
+            "cz_operations": 4,
+            "peak_live_modes": 2,
+            "hilbert_dimension": 820,
+            "output_dimension": 40,
+            "vector_bytes": 13120,
+            "mixed_matrix_bytes": 0,
+            "joint_readout_workspace_bytes_estimate": 102400,
+            "frame_updates": 7
+          },
+          "estimator": "mean conditional joint POVM (Rao-Blackwell estimator)",
+          "pair_correlations": {}
+        },
+        {
+          "codeword_gram": [
+            [
+              {
+                "real": 1.0,
+                "imag": 0.0
+              },
+              {
+                "real": 0.5339586741648643,
+                "imag": 0.0
+              }
+            ],
+            [
+              {
+                "real": 0.5339586741648643,
+                "imag": 0.0
+              },
+              {
+                "real": 1.0000000000000002,
+                "imag": 0.0
+              }
+            ]
+          ],
+          "basis_projection_weights": [
+            0.9999999999999999,
+            1.0000000000000002
+          ],
+          "input_code_subspace_leakage": [
+            0.0
+          ],
+          "marginal_code_subspace_leakage": [
+            {
+              "(0, 4)": 0.47315941536983885
+            },
+            {
+              "(0, 4)": 0.07694345883989984
+            }
+          ],
+          "joint_code_subspace_leakage": null,
+          "backend_diagnostics": [
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000002,
+                "boundary_population": 5.724554940652415e-19,
+                "cutoff": 40,
+                "dimension": 40
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999999,
+                "boundary_population": 2.3643169953350353e-17,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999999014402136,
+                "boundary_population": 1.8840551745957895e-07,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.999999999999997,
+                "boundary_population": 2.419453221418427e-14,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.999997440458815,
+                "boundary_population": 1.913846991755363e-06,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999996,
+                "boundary_population": 3.3635001130742477e-16,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999994457949293,
+                "boundary_population": 6.254616246879063e-07,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999997,
+                "boundary_population": 2.601291684702539e-15,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999988309236839,
+                "boundary_population": 6.768496627237435e-07,
+                "cutoff": 40,
+                "dimension": 820
+              }
+            ],
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000002,
+                "boundary_population": 5.724554940652415e-19,
+                "cutoff": 40,
+                "dimension": 40
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999999,
+                "boundary_population": 2.3643169953350353e-17,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999999014402136,
+                "boundary_population": 1.8840551745957895e-07,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.999999999999997,
+                "boundary_population": 2.0798971002217986e-14,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999988916009586,
+                "boundary_population": 1.0216944608385392e-06,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999998,
+                "boundary_population": 5.609556731492023e-16,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999998521316199,
+                "boundary_population": 1.491341617857792e-07,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999982,
+                "boundary_population": 7.863796830483113e-15,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999995977956097,
+                "boundary_population": 3.054198060962287e-07,
+                "cutoff": 40,
+                "dimension": 820
+              }
+            ]
+          ],
+          "output_basis": "Z",
+          "decoder": "nearest-cell",
+          "decoder_confidence": null,
+          "simulation_seconds": 6.246180200017989,
+          "readout_seconds": 0.9764833999797702,
+          "resource_accounting": {
+            "supported": true,
+            "angle_audit": [
+              {
+                "node": [
+                  0,
+                  0
+                ],
+                "parameter": "alpha.w0.c0",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              },
+              {
+                "node": [
+                  0,
+                  1
+                ],
+                "parameter": "alpha.w0.c1",
+                "angle": 3.141592653589793,
+                "supported": true,
+                "basis": "X",
+                "flip": 1
+              },
+              {
+                "node": [
+                  0,
+                  2
+                ],
+                "parameter": "alpha.w0.c2",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              },
+              {
+                "node": [
+                  0,
+                  3
+                ],
+                "parameter": "alpha.w0.c3",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              }
+            ],
+            "unsupported_nodes": [],
+            "reasons": [],
+            "decoder": "nearest",
+            "backend": "piquasso-fock",
+            "required_operations": [
+              "finite GKP plus",
+              "unit CZ",
+              "physical X",
+              "logical frame",
+              "joint X/Z output POVM"
+            ],
+            "resource_nodes": 5,
+            "measurements": 4,
+            "cz_operations": 4,
+            "peak_live_modes": 2,
+            "hilbert_dimension": 820,
+            "output_dimension": 40,
+            "vector_bytes": 13120,
+            "mixed_matrix_bytes": 0,
+            "joint_readout_workspace_bytes_estimate": 102400,
+            "frame_updates": 7
+          },
+          "estimator": "mean conditional joint POVM (Rao-Blackwell estimator)",
+          "pair_correlations": {}
+        },
+        {
+          "codeword_gram": [
+            [
+              {
+                "real": 1.0,
+                "imag": 0.0
+              },
+              {
+                "real": 0.5339586741648643,
+                "imag": 0.0
+              }
+            ],
+            [
+              {
+                "real": 0.5339586741648643,
+                "imag": 0.0
+              },
+              {
+                "real": 1.0000000000000002,
+                "imag": 0.0
+              }
+            ]
+          ],
+          "basis_projection_weights": [
+            0.9999999999999999,
+            1.0000000000000002
+          ],
+          "input_code_subspace_leakage": [
+            0.0
+          ],
+          "marginal_code_subspace_leakage": [
+            {
+              "(0, 4)": 0.3924298979378099
+            },
+            {
+              "(0, 4)": 0.07707736335170023
+            }
+          ],
+          "joint_code_subspace_leakage": null,
+          "backend_diagnostics": [
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000004,
+                "boundary_population": 6.300711441013073e-19,
+                "cutoff": 40,
+                "dimension": 40
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999996,
+                "boundary_population": 2.6826828029556268e-17,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999998848199402,
+                "boundary_population": 2.1924881325079543e-07,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999966,
+                "boundary_population": 2.5725647298242837e-14,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999968552337786,
+                "boundary_population": 2.3319583353216896e-06,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999998,
+                "boundary_population": 4.1133301635111024e-16,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999992726933757,
+                "boundary_population": 8.10606628228646e-07,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999996,
+                "boundary_population": 3.77023632900919e-15,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999984937141845,
+                "boundary_population": 8.392459198409841e-07,
+                "cutoff": 40,
+                "dimension": 820
+              }
+            ],
+            [
+              {
+                "operation": "preparation",
+                "retained_norm": 1.0000000000000004,
+                "boundary_population": 6.300711441013073e-19,
+                "cutoff": 40,
+                "dimension": 40
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999996,
+                "boundary_population": 2.6826828029556268e-17,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999998848199402,
+                "boundary_population": 2.1924881325079543e-07,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999964,
+                "boundary_population": 2.2656948620010276e-14,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999987355578482,
+                "boundary_population": 1.1560845308977362e-06,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999999,
+                "boundary_population": 6.016871474455889e-16,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999997952275891,
+                "boundary_population": 1.9504663124130338e-07,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "preparation",
+                "retained_norm": 0.9999999999999983,
+                "boundary_population": 1.0183949758181838e-14,
+                "cutoff": 40,
+                "dimension": 820
+              },
+              {
+                "operation": "GaussianTransform",
+                "retained_norm": 0.9999995834401465,
+                "boundary_population": 3.1080608477132143e-07,
+                "cutoff": 40,
+                "dimension": 820
+              }
+            ]
+          ],
+          "output_basis": "Z",
+          "decoder": "nearest-cell",
+          "decoder_confidence": null,
+          "simulation_seconds": 6.009843000007095,
+          "readout_seconds": 0.9946975999919232,
+          "resource_accounting": {
+            "supported": true,
+            "angle_audit": [
+              {
+                "node": [
+                  0,
+                  0
+                ],
+                "parameter": "alpha.w0.c0",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              },
+              {
+                "node": [
+                  0,
+                  1
+                ],
+                "parameter": "alpha.w0.c1",
+                "angle": 3.141592653589793,
+                "supported": true,
+                "basis": "X",
+                "flip": 1
+              },
+              {
+                "node": [
+                  0,
+                  2
+                ],
+                "parameter": "alpha.w0.c2",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              },
+              {
+                "node": [
+                  0,
+                  3
+                ],
+                "parameter": "alpha.w0.c3",
+                "angle": 0.0,
+                "supported": true,
+                "basis": "X",
+                "flip": 0
+              }
+            ],
+            "unsupported_nodes": [],
+            "reasons": [],
+            "decoder": "nearest",
+            "backend": "piquasso-fock",
+            "required_operations": [
+              "finite GKP plus",
+              "unit CZ",
+              "physical X",
+              "logical frame",
+              "joint X/Z output POVM"
+            ],
+            "resource_nodes": 5,
+            "measurements": 4,
+            "cz_operations": 4,
+            "peak_live_modes": 2,
+            "hilbert_dimension": 820,
+            "output_dimension": 40,
+            "vector_bytes": 13120,
+            "mixed_matrix_bytes": 0,
+            "joint_readout_workspace_bytes_estimate": 102400,
+            "frame_updates": 7
+          },
+          "estimator": "mean conditional joint POVM (Rao-Blackwell estimator)",
+          "pair_correlations": {}
+        }
+      ]
+    }
+  ],
+  "claims": "Restricted signed-X execution only; broad, overlapping finite codewords. No universality, convergence certification or advantage claim.",
+  "rejected_resolution": {
+    "cutoff": 24,
+    "shots": 16,
+    "seed": 2026,
+    "error": "Fock truncation norm 0.99869564; increase cutoff=24"
+  },
+  "shot_study": {
+    "shots": 16,
+    "seed": 2026,
+    "resource_config": {
+      "cutoff": 40,
+      "peak_width": 0.9,
+      "envelope": 0.9,
+      "peaks": 4,
+      "grid_points": 1025,
+      "decoder": "nearest",
+      "backend": "piquasso-fock",
+      "max_dimension": 100000,
+      "max_matrix_bytes": 256000000
+    },
+    "probabilities": {
+      "(0,)": 0.5785589515752416,
+      "(1,)": 0.4214410484247582
+    },
+    "standard_errors": {
+      "(0,)": 0.06075199202917634,
+      "(1,)": 0.060751992029176305
+    },
+    "empirical_probabilities": {
+      "(0,)": 0.5625,
+      "(1,)": 0.4375
+    },
+    "empirical_standard_errors": {
+      "(0,)": 0.12401959270615269,
+      "(1,)": 0.12401959270615269
+    },
+    "samples": [
+      [
+        1
+      ],
+      [
+        1
+      ],
+      [
+        1
+      ],
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        1
+      ],
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        1
+      ],
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        1
+      ],
+      [
+        1
+      ]
+    ],
+    "comparison": {
+      "total_variation_distance": 0.42144104842475794,
+      "observable_differences": [
+        -0.8428820968495159
+      ],
+      "comparison_mode": "physical-shots",
+      "finite_state_fidelity": null,
+      "marginal_code_subspace_leakage": [
+        {
+          "(0, 4)": 0.5316920544983049
+        },
+        {
+          "(0, 4)": 0.7711049257544256
+        },
+        {
+          "(0, 4)": 0.5040947267105793
+        },
+        {
+          "(0, 4)": 0.48952098855983706
+        },
+        {
+          "(0, 4)": 0.6578139800042855
+        },
+        {
+          "(0, 4)": 0.4637611640484576
+        },
+        {
+          "(0, 4)": 0.6190279490651649
+        },
+        {
+          "(0, 4)": 0.7440756590580792
+        },
+        {
+          "(0, 4)": 0.5676994706104287
+        },
+        {
+          "(0, 4)": 0.4944057944250655
+        },
+        {
+          "(0, 4)": 0.5186389078270413
+        },
+        {
+          "(0, 4)": 0.1486258950456537
+        },
+        {
+          "(0, 4)": 0.669104691384721
+        },
+        {
+          "(0, 4)": 0.5281712610153093
+        },
+        {
+          "(0, 4)": 0.2629236574205267
+        },
+        {
+          "(0, 4)": 0.3081981407914184
+        }
+      ],
+      "convergence": {
+        "certified": false,
+        "reason": "A single resource setting is not a convergence study"
+      }
+    },
+    "diagnostics": {
+      "codeword_gram": [
+        [
+          {
+            "real": 1.0,
+            "imag": 0.0
+          },
+          {
+            "real": 0.5339586741648643,
+            "imag": 0.0
+          }
+        ],
+        [
+          {
+            "real": 0.5339586741648643,
+            "imag": 0.0
+          },
+          {
+            "real": 1.0000000000000002,
+            "imag": 0.0
+          }
+        ]
+      ],
+      "basis_projection_weights": [
+        0.9999999999999999,
+        1.0000000000000002
+      ],
+      "input_code_subspace_leakage": [
+        0.0
+      ],
+      "marginal_code_subspace_leakage": [
+        {
+          "(0, 4)": 0.5316920544983049
+        },
+        {
+          "(0, 4)": 0.7711049257544256
+        },
+        {
+          "(0, 4)": 0.5040947267105793
+        },
+        {
+          "(0, 4)": 0.48952098855983706
+        },
+        {
+          "(0, 4)": 0.6578139800042855
+        },
+        {
+          "(0, 4)": 0.4637611640484576
+        },
+        {
+          "(0, 4)": 0.6190279490651649
+        },
+        {
+          "(0, 4)": 0.7440756590580792
+        },
+        {
+          "(0, 4)": 0.5676994706104287
+        },
+        {
+          "(0, 4)": 0.4944057944250655
+        },
+        {
+          "(0, 4)": 0.5186389078270413
+        },
+        {
+          "(0, 4)": 0.1486258950456537
+        },
+        {
+          "(0, 4)": 0.669104691384721
+        },
+        {
+          "(0, 4)": 0.5281712610153093
+        },
+        {
+          "(0, 4)": 0.2629236574205267
+        },
+        {
+          "(0, 4)": 0.3081981407914184
+        }
+      ],
+      "joint_code_subspace_leakage": null,
+      "backend_diagnostics": [
+        [
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0,
+            "boundary_population": 1.6540458764527408e-20,
+            "cutoff": 40,
+            "dimension": 40
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999999,
+            "boundary_population": 2.337994286060936e-18,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999720998574,
+            "boundary_population": 3.277692972846686e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0000000000000002,
+            "boundary_population": 1.4585736115663509e-15,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999630426504,
+            "boundary_population": 3.706487896314917e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999998,
+            "boundary_population": 3.05491732057258e-16,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999979939063245,
+            "boundary_population": 1.7324781270922661e-06,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.999999999999985,
+            "boundary_population": 1.0841675102040561e-13,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999652844427226,
+            "boundary_population": 3.406701152064824e-05,
+            "cutoff": 40,
+            "dimension": 820
+          }
+        ],
+        [
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0,
+            "boundary_population": 1.6540458764527408e-20,
+            "cutoff": 40,
+            "dimension": 40
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999999,
+            "boundary_population": 2.337994286060936e-18,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999720998574,
+            "boundary_population": 3.277692972846686e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999998,
+            "boundary_population": 2.525323922224152e-15,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999671266983,
+            "boundary_population": 2.897170517941317e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0,
+            "boundary_population": 5.884851068194975e-17,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999997479668942,
+            "boundary_population": 3.098647703974333e-07,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999997,
+            "boundary_population": 1.2958016677984805e-15,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999957703647918,
+            "boundary_population": 4.960530825248157e-06,
+            "cutoff": 40,
+            "dimension": 820
+          }
+        ],
+        [
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0,
+            "boundary_population": 1.6540458764527408e-20,
+            "cutoff": 40,
+            "dimension": 40
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999999,
+            "boundary_population": 2.337994286060936e-18,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999720998574,
+            "boundary_population": 3.277692972846686e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999992,
+            "boundary_population": 1.7154246239346472e-15,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999508065719,
+            "boundary_population": 5.3928151195250984e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0000000000000002,
+            "boundary_population": 2.5556156540900688e-17,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999458825634,
+            "boundary_population": 6.48616328073749e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999998,
+            "boundary_population": 7.861380975500422e-17,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999998473181982,
+            "boundary_population": 1.612233925545621e-07,
+            "cutoff": 40,
+            "dimension": 820
+          }
+        ],
+        [
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0,
+            "boundary_population": 1.6540458764527408e-20,
+            "cutoff": 40,
+            "dimension": 40
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999999,
+            "boundary_population": 2.337994286060936e-18,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999720998574,
+            "boundary_population": 3.277692972846686e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999996,
+            "boundary_population": 1.4758824109704405e-15,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999715575537,
+            "boundary_population": 2.4224945598332244e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999997,
+            "boundary_population": 1.4355260366455844e-16,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999995971875371,
+            "boundary_population": 4.712299353529112e-07,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0,
+            "boundary_population": 2.2887957492127253e-16,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999995464611842,
+            "boundary_population": 4.929570239924155e-07,
+            "cutoff": 40,
+            "dimension": 820
+          }
+        ],
+        [
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0,
+            "boundary_population": 1.6540458764527408e-20,
+            "cutoff": 40,
+            "dimension": 40
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999999,
+            "boundary_population": 2.337994286060936e-18,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999720998574,
+            "boundary_population": 3.277692972846686e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999997,
+            "boundary_population": 2.5011121806751073e-15,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999689465812,
+            "boundary_population": 2.6538849952048488e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0,
+            "boundary_population": 4.456857996809292e-17,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999328717921,
+            "boundary_population": 6.452322123056366e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999997,
+            "boundary_population": 3.9599352315029884e-17,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999996947675804,
+            "boundary_population": 3.475603314243049e-07,
+            "cutoff": 40,
+            "dimension": 820
+          }
+        ],
+        [
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0,
+            "boundary_population": 1.6540458764527408e-20,
+            "cutoff": 40,
+            "dimension": 40
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999999,
+            "boundary_population": 2.337994286060936e-18,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999720998574,
+            "boundary_population": 3.277692972846686e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999996,
+            "boundary_population": 1.2460684510329741e-15,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999614888229,
+            "boundary_population": 3.990672992232802e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0000000000000002,
+            "boundary_population": 3.715214556915219e-17,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999998972406028,
+            "boundary_population": 9.426193384540458e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0000000000000002,
+            "boundary_population": 2.516128922741383e-16,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999991266610462,
+            "boundary_population": 1.0380744766788895e-06,
+            "cutoff": 40,
+            "dimension": 820
+          }
+        ],
+        [
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0,
+            "boundary_population": 1.6540458764527408e-20,
+            "cutoff": 40,
+            "dimension": 40
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999999,
+            "boundary_population": 2.337994286060936e-18,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999720998574,
+            "boundary_population": 3.277692972846686e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999993,
+            "boundary_population": 2.6239326555580737e-15,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999177763481,
+            "boundary_population": 9.626652528362198e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999994,
+            "boundary_population": 3.315884483684936e-16,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999995595518851,
+            "boundary_population": 3.1747142702179197e-07,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999998,
+            "boundary_population": 5.730844001943192e-17,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999992825528812,
+            "boundary_population": 6.513590385533273e-07,
+            "cutoff": 40,
+            "dimension": 820
+          }
+        ],
+        [
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0,
+            "boundary_population": 1.6540458764527408e-20,
+            "cutoff": 40,
+            "dimension": 40
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999999,
+            "boundary_population": 2.337994286060936e-18,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999720998574,
+            "boundary_population": 3.277692972846686e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999994,
+            "boundary_population": 2.5767857694343427e-15,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999500312007,
+            "boundary_population": 5.6619186914304746e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999996,
+            "boundary_population": 4.624560510294266e-16,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999989304859919,
+            "boundary_population": 1.225487206513218e-06,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999989,
+            "boundary_population": 7.626325404652748e-15,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999828996132318,
+            "boundary_population": 9.155908702520062e-06,
+            "cutoff": 40,
+            "dimension": 820
+          }
+        ],
+        [
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0,
+            "boundary_population": 1.6540458764527408e-20,
+            "cutoff": 40,
+            "dimension": 40
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999999,
+            "boundary_population": 2.337994286060936e-18,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999720998574,
+            "boundary_population": 3.277692972846686e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999996,
+            "boundary_population": 2.2671653509141898e-15,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999656370975,
+            "boundary_population": 3.148922891028309e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0,
+            "boundary_population": 2.5213284761077424e-17,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999408556114,
+            "boundary_population": 5.382645764412669e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999998,
+            "boundary_population": 6.14905837464907e-17,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999995645292017,
+            "boundary_population": 3.9292879007132035e-07,
+            "cutoff": 40,
+            "dimension": 820
+          }
+        ],
+        [
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0,
+            "boundary_population": 1.6540458764527408e-20,
+            "cutoff": 40,
+            "dimension": 40
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999999,
+            "boundary_population": 2.337994286060936e-18,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999720998574,
+            "boundary_population": 3.277692972846686e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999987,
+            "boundary_population": 6.3550683758007085e-15,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999985552751347,
+            "boundary_population": 1.3635181371555858e-06,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999843,
+            "boundary_population": 1.0886175983615392e-13,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999674226371922,
+            "boundary_population": 1.240059266334317e-05,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999994,
+            "boundary_population": 1.3814065823095592e-15,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999980732373722,
+            "boundary_population": 1.0792400207939489e-06,
+            "cutoff": 40,
+            "dimension": 820
+          }
+        ],
+        [
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0,
+            "boundary_population": 1.6540458764527408e-20,
+            "cutoff": 40,
+            "dimension": 40
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999999,
+            "boundary_population": 2.337994286060936e-18,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999720998574,
+            "boundary_population": 3.277692972846686e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999997,
+            "boundary_population": 2.0073202965575128e-15,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999648542504,
+            "boundary_population": 3.31326558000994e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999997,
+            "boundary_population": 4.875060706701234e-17,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999997763378641,
+            "boundary_population": 2.807047794426995e-07,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999999,
+            "boundary_population": 4.366577247313475e-16,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999993106015491,
+            "boundary_population": 4.5545789769917813e-07,
+            "cutoff": 40,
+            "dimension": 820
+          }
+        ],
+        [
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0,
+            "boundary_population": 1.6540458764527408e-20,
+            "cutoff": 40,
+            "dimension": 40
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999999,
+            "boundary_population": 2.337994286060936e-18,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999720998574,
+            "boundary_population": 3.277692972846686e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999992,
+            "boundary_population": 3.514993671953539e-15,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999994656797605,
+            "boundary_population": 5.083858053494526e-07,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999996,
+            "boundary_population": 4.08521692589147e-15,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.999998778198474,
+            "boundary_population": 9.444558731892594e-07,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999999,
+            "boundary_population": 7.132607857090017e-17,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999535513235,
+            "boundary_population": 4.930352658530878e-08,
+            "cutoff": 40,
+            "dimension": 820
+          }
+        ],
+        [
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0,
+            "boundary_population": 1.6540458764527408e-20,
+            "cutoff": 40,
+            "dimension": 40
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999999,
+            "boundary_population": 2.337994286060936e-18,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999720998574,
+            "boundary_population": 3.277692972846686e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999993,
+            "boundary_population": 2.472701925693255e-15,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999441015255,
+            "boundary_population": 6.105918665036028e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999996,
+            "boundary_population": 9.01047473688297e-18,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999747282201,
+            "boundary_population": 2.9068903683099292e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999999,
+            "boundary_population": 9.419967101770521e-17,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999995135636859,
+            "boundary_population": 6.398198232115808e-07,
+            "cutoff": 40,
+            "dimension": 820
+          }
+        ],
+        [
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0,
+            "boundary_population": 1.6540458764527408e-20,
+            "cutoff": 40,
+            "dimension": 40
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999999,
+            "boundary_population": 2.337994286060936e-18,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999720998574,
+            "boundary_population": 3.277692972846686e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.999999999999999,
+            "boundary_population": 2.206561253492971e-15,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999708009839,
+            "boundary_population": 2.4387105091020227e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999999,
+            "boundary_population": 4.4521551353912824e-17,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999998712228633,
+            "boundary_population": 1.0275308888192011e-07,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0000000000000002,
+            "boundary_population": 4.553028439336318e-17,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999997268712835,
+            "boundary_population": 2.2616875898684163e-07,
+            "cutoff": 40,
+            "dimension": 820
+          }
+        ],
+        [
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0,
+            "boundary_population": 1.6540458764527408e-20,
+            "cutoff": 40,
+            "dimension": 40
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999999,
+            "boundary_population": 2.337994286060936e-18,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999720998574,
+            "boundary_population": 3.277692972846686e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.999999999999999,
+            "boundary_population": 2.2315255346137995e-15,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999655156057,
+            "boundary_population": 3.1729584781680286e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999994,
+            "boundary_population": 2.3729848653504354e-17,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999275883688,
+            "boundary_population": 6.293167944576017e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999997,
+            "boundary_population": 3.664859828296736e-17,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999156861137,
+            "boundary_population": 7.442681842275605e-08,
+            "cutoff": 40,
+            "dimension": 820
+          }
+        ],
+        [
+          {
+            "operation": "preparation",
+            "retained_norm": 1.0,
+            "boundary_population": 1.6540458764527408e-20,
+            "cutoff": 40,
+            "dimension": 40
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999999,
+            "boundary_population": 2.337994286060936e-18,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999999720998574,
+            "boundary_population": 3.277692972846686e-08,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999992,
+            "boundary_population": 3.1523583085116318e-15,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999993309185714,
+            "boundary_population": 6.170257127783558e-07,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999974,
+            "boundary_population": 1.634533096380799e-14,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999884164821888,
+            "boundary_population": 5.25466165301121e-06,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "preparation",
+            "retained_norm": 0.9999999999999997,
+            "boundary_population": 1.7091062917583183e-15,
+            "cutoff": 40,
+            "dimension": 820
+          },
+          {
+            "operation": "GaussianTransform",
+            "retained_norm": 0.9999988763803821,
+            "boundary_population": 1.1758018449999844e-06,
+            "cutoff": 40,
+            "dimension": 820
+          }
+        ]
+      ],
+      "output_basis": "Z",
+      "decoder": "nearest-cell",
+      "decoder_confidence": null,
+      "simulation_seconds": 28.65295319998404,
+      "readout_seconds": 3.0160652000049595,
+      "resource_accounting": {
+        "supported": true,
+        "angle_audit": [
+          {
+            "node": [
+              0,
+              0
+            ],
+            "parameter": "alpha.w0.c0",
+            "angle": 0.0,
+            "supported": true,
+            "basis": "X",
+            "flip": 0
+          },
+          {
+            "node": [
+              0,
+              1
+            ],
+            "parameter": "alpha.w0.c1",
+            "angle": 0.0,
+            "supported": true,
+            "basis": "X",
+            "flip": 0
+          },
+          {
+            "node": [
+              0,
+              2
+            ],
+            "parameter": "alpha.w0.c2",
+            "angle": 0.0,
+            "supported": true,
+            "basis": "X",
+            "flip": 0
+          },
+          {
+            "node": [
+              0,
+              3
+            ],
+            "parameter": "alpha.w0.c3",
+            "angle": 0.0,
+            "supported": true,
+            "basis": "X",
+            "flip": 0
+          }
+        ],
+        "unsupported_nodes": [],
+        "reasons": [],
+        "decoder": "nearest",
+        "backend": "piquasso-fock",
+        "required_operations": [
+          "finite GKP plus",
+          "unit CZ",
+          "physical X",
+          "logical frame",
+          "joint X/Z output POVM"
+        ],
+        "resource_nodes": 5,
+        "measurements": 4,
+        "cz_operations": 4,
+        "peak_live_modes": 2,
+        "hilbert_dimension": 820,
+        "output_dimension": 40,
+        "vector_bytes": 13120,
+        "mixed_matrix_bytes": 0,
+        "joint_readout_workspace_bytes_estimate": 102400,
+        "frame_updates": 7
+      },
+      "estimator": "mean conditional joint POVM (Rao-Blackwell estimator)",
+      "pair_correlations": {}
+    }
+  },
+  "resource_convergence": {
+    "axis": "cutoff",
+    "rows": [
+      {
+        "cutoff": 20,
+        "probabilities": [
+          0.8359375610985389,
+          0.16406243890146135
+        ],
+        "residual_mean": 1.4316811023078945e-19,
+        "residual_second_moment": 0.4736316380356796,
+        "code_subspace_leakage": 0.0,
+        "fidelity_to_previous": null,
+        "stabilizers": {
+          "q_translation": [
+            0.03298833098327595,
+            0.0
+          ],
+          "p_translation": [
+            0.07849733508998921,
+            1.3266929304983136e-18
+          ]
+        }
+      },
+      {
+        "cutoff": 24,
+        "probabilities": [
+          0.8359373326376653,
+          0.1640626673623348
+        ],
+        "residual_mean": 1.294403232970074e-19,
+        "residual_second_moment": 0.47363183465159037,
+        "code_subspace_leakage": 0.0,
+        "fidelity_to_previous": 0.9999999999877827,
+        "stabilizers": {
+          "q_translation": [
+            0.03298834342400804,
+            0.0
+          ],
+          "p_translation": [
+            0.07849737850219624,
+            1.26716875232144e-18
+          ]
+        }
+      },
+      {
+        "cutoff": 28,
+        "probabilities": [
+          0.8359373325508153,
+          0.1640626674491845
+        ],
+        "residual_mean": 9.336522768716351e-20,
+        "residual_second_moment": 0.47363183516745017,
+        "code_subspace_leakage": 0.0,
+        "fidelity_to_previous": 1.0000000000000004,
+        "stabilizers": {
+          "q_translation": [
+            0.03298834343258638,
+            0.0
+          ],
+          "p_translation": [
+            0.07849737851938338,
+            1.2741838156896782e-18
+          ]
+        }
+      }
+    ]
+  }
+}

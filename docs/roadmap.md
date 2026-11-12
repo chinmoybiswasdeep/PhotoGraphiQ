@@ -7,8 +7,8 @@
   and temporal representations.
 - GKP development needs broader syndrome/decoder studies and independent
   finite-energy correction evidence before fault-tolerance claims.
-- PhotoGraphiQML remains a separate downstream project; feature extraction here
-  introduces no ML framework dependency.
+- PhotoGraphiQML now lives in this repository as the `photographiqml` package; the
+  core still introduces no ML framework dependency.
 
 These are research directions without promised dates. Feature status is in the
 [matrix](validation/feature-matrix.md), not inferred from the roadmap.

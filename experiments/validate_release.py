@@ -50,6 +50,7 @@ def main():
         "pytest": [
             "pytest",
             "--cov=photographiq",
+            "--cov=photographiqml",
             f"--cov-report=json:{output / 'coverage.json'}",
             f"--cov-report=xml:{output / 'coverage.xml'}",
             f"--junitxml={output / 'tests.xml'}",
@@ -66,7 +67,7 @@ def main():
             "experiments",
             "scripts",
         ],
-        "mypy": ["mypy", "src/photographiq"],
+        "mypy": ["mypy", "src/photographiq", "src/photographiqml"],
         "build": ["build", "--outdir", str(output / "dist")],
         "physics-evidence": [
             "experiments.hardening_evidence",

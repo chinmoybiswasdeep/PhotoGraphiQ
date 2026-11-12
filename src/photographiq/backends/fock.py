@@ -11,8 +11,8 @@ from math import comb
 from typing import Any
 
 import numpy as np
-import piquasso as pq
 
+from .._optional import piquasso as pq
 from ..measurements import Homodyne, PhotonNumber
 from ..resources import CatResource, CubicPhaseResource
 from ..states import FockInput, FockSuperposition, GaussianInput
@@ -186,6 +186,7 @@ class FockResultState:
 
 
 class PiquassoFockBackend(BaseBackend):
+    _registry_name = "piquasso-fock"  # used in error messages
     capabilities = frozenset(
         {
             "gaussian",
@@ -210,7 +211,7 @@ class PiquassoFockBackend(BaseBackend):
         self, cutoff=None, *, norm_tolerance=1e-3, max_dimension=1_000_000, boundary_warning=0.02
     ):
         if not isinstance(cutoff, int) or isinstance(cutoff, bool) or cutoff < 2:
-            raise ValueError("piquasso-fock requires an explicit total-photon cutoff >= 2")
+            raise ValueError(f"{self._registry_name} requires an explicit total-photon cutoff >= 2")
         if not 0 < norm_tolerance < 1:
             raise ValueError("Invalid norm tolerance")
         self.cutoff, self.norm_tolerance = cutoff, norm_tolerance
@@ -273,20 +274,14 @@ class PiquassoFockBackend(BaseBackend):
                 stacklevel=3,
             )
         state.normalize()
-        boundary = float(
-            sum(
-                p
-                for b, p in state.fock_probabilities_map.items()
-                if sum(b) >= max(1, self.cutoff - 2)
-            )
-        )
+        boundary, dimension = self._boundary_population(state)
         self.diagnostics.append(
             {
                 "operation": operation,
                 "retained_norm": norm,
                 "boundary_population": boundary,
                 "cutoff": self.cutoff,
-                "dimension": len(state.fock_probabilities_map),
+                "dimension": dimension,
             }
         )
         if boundary > self.boundary_warning:
@@ -297,6 +292,14 @@ class PiquassoFockBackend(BaseBackend):
                 stacklevel=3,
             )
         return state
+
+    def _boundary_population(self, state):
+        """Probability with total photons >= max(1, cutoff - 2), and the basis dimension."""
+        probabilities = state.fock_probabilities_map
+        boundary = float(
+            sum(p for b, p in probabilities.items() if sum(b) >= max(1, self.cutoff - 2))
+        )
+        return boundary, len(probabilities)
 
     def _vector(self, amplitudes, modes):
         self._guard(modes)
@@ -395,22 +398,7 @@ class PiquassoFockBackend(BaseBackend):
         else:
             if state is not None and not isinstance(state, GaussianInput):
                 raise NotImplementedError("Unsupported Fock input")
-            with pq.Program() as program:
-                pq.Q() | pq.Vacuum()
-                if state is None:
-                    pq.Q(0) | pq.Squeezing(r=-squeezing)
-                else:
-                    cov = np.array(state.covariance)
-                    values, vectors = np.linalg.eigh(cov)
-                    r = -0.5 * np.log(values[0])
-                    phi = np.arctan2(vectors[1, 0], vectors[0, 0])
-                    pq.Q(0) | pq.Squeezing(r=r)
-                    pq.Q(0) | pq.Phaseshifter(phi=phi)
-                    alpha = complex(*state.mean) / 2
-                    pq.Q(0) | pq.Displacement(r=abs(alpha), phi=np.angle(alpha))
-            local_state = self._check(
-                pq.PureFockSimulator(d=1, config=self._config()).execute(program).state
-            )
+            local_state = self._check(self._gaussian_vector(squeezing, state))
             local = local_state.fock_amplitudes_map
         old = {(): 1.0} if self.native is None else self.native.fock_amplitudes_map
         tensor = {
@@ -421,6 +409,23 @@ class PiquassoFockBackend(BaseBackend):
         }
         self.native = self._check(self._vector(tensor, len(self.nodes) + 1))
         self.nodes += (node,)
+
+    def _gaussian_vector(self, squeezing, state):
+        """Unchecked single-mode pure Gaussian input: resource squeezing or GaussianInput."""
+        with pq.Program() as program:
+            pq.Q() | pq.Vacuum()
+            if state is None:
+                pq.Q(0) | pq.Squeezing(r=-squeezing)
+            else:
+                cov = np.array(state.covariance)
+                values, vectors = np.linalg.eigh(cov)
+                r = -0.5 * np.log(values[0])
+                phi = np.arctan2(vectors[1, 0], vectors[0, 0])
+                pq.Q(0) | pq.Squeezing(r=r)
+                pq.Q(0) | pq.Phaseshifter(phi=phi)
+                alpha = complex(*state.mean) / 2
+                pq.Q(0) | pq.Displacement(r=abs(alpha), phi=np.angle(alpha))
+        return pq.PureFockSimulator(d=1, config=self._config()).execute(program).state
 
     def prepare_resource(self, nodes, state):
         nodes = tuple(nodes)

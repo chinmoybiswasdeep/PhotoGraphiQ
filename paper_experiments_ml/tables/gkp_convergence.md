@@ -1,0 +1,17 @@
+| axis | axis_type | value | max_probability_delta |
+|---|---|---|---|
+| cutoff | numerical refinement | 20 | None |
+| cutoff | numerical refinement | 24 | 0.00018949199506515524 |
+| cutoff | numerical refinement | 28 | 8.157603388903034e-05 |
+| grid_points | numerical refinement | 513 | None |
+| grid_points | numerical refinement | 1025 | 2.220446049250313e-16 |
+| grid_points | numerical refinement | 2049 | 1.6653345369377348e-16 |
+| peaks | numerical refinement | 3 | None |
+| peaks | numerical refinement | 4 | 1.1102230246251565e-16 |
+| peaks | numerical refinement | 5 | 8.326672684688674e-17 |
+| peak_width | physical resource change | 0.85 | None |
+| peak_width | physical resource change | 0.9 | 0.013036221912825274 |
+| peak_width | physical resource change | 0.95 | 0.011579751219358614 |
+| envelope | physical resource change | 0.85 | None |
+| envelope | physical resource change | 0.9 | 0.000215497665172093 |
+| envelope | physical resource change | 0.95 | 0.00012839756825580584 |

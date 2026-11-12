@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{amsmath,hyperref}
+\title{PhotoGraphiQML: Logical MuTA and a Controlled Photonic Research Interface}
+\author{PhotoGraphiQML contributors}
+\date{Research software draft; not submitted or accepted}
+\begin{document}
+\maketitle
+\begin{abstract}
+PhotoGraphiQML separates a faithful logical multiple-triangle ansatz from
+finite-energy Gottesman--Kitaev--Preskill resources and a proposed native
+continuous-variable extension. This draft describes implemented logical
+models and explicitly incomplete physical lowering.
+\end{abstract}
+\section{Motivation and architecture}
+Piquasso supplies optical simulation through PhotoGraphiQ. PhotoGraphiQML
+adds trainable logical models, supervised wrappers, instruments and kernels.
+The existing PhotoGraphiQ symbolic expression system is reused.
+\section{Logical MuTA}
+Following Mantilla Calder\'on et al., PRA 113, 042421 (2026),
+\href{https://doi.org/10.1103/2snk-m8c6}{doi:10.1103/2snk-m8c6},
+a paper layer consists of length-five wires with a common triangle-tip wire.
+Open-graph flow supplies corrections and a causal ordering. Each measured
+vertex translates to $H\exp(i\alpha Z/2)$, with junction CZs inserted in
+frontier order. This realizes the logical map with memory $O(2^n)$.
+\section{Reference validation}
+Semantic wire/column coordinates avoid isomorphism-only comparisons.
+Tests compare the pinned MentPy reference and independently contract all
+small corrected graph-state branches. Upstream trainability restrictions
+are lost on edge insertion or composition; our fixed measurements persist.
+Identity layer insertion tests weak ideal logical expressivity inclusion.
+\section{GKP boundary and CV proposal}
+At $[q,p]=2i$, square-lattice spacing is $\sqrt{2\pi}$.
+Finite projected codewords are nonorthogonal; resource projection mass alone
+does not certify logical execution. Arbitrary logical XY measurement,
+injection and decoding protocols remain required. Physical MuTA execution
+is therefore unsupported rather than replaced by homodyne angles.
+A native CV proposal uses teleportation steps
+$T(k)=\left(\begin{smallmatrix}-k&-1\\1&0\end{smallmatrix}\right)$
+with finite-resource added noise. It is not claimed equivalent to qubit MuTA.
+\section{Experiments and documentation}
+Reproducible scripts record logical gate-learning curves, independent
+reference checkpoint errors, resource diagnostics and timing measurements.
+The repository report is authoritative for executed test counts and metrics.
+Tutorials and notebooks distinguish supported operations from research gates.
+No numerical values are invented or claimed as hardware demonstrations.
+\section{Limitations}
+General finite GKP MuTA, native CVMuTA, physical noisy training, the full
+paper instrument experiment and automatic differentiation remain incomplete.
+The software is a research foundation, not a completed physical v0.1 release.
+\end{document}

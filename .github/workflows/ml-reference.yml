@@ -1,0 +1,17 @@
+name: ml-reference
+# Optional PhotoGraphiQML cross-check against the pinned MentPy source. The main `tests`
+# workflow already runs all of tests/ (these tests skip there because MentPy is absent).
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  mentpy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the package and the exact MentPy commit used by the evidence
+        run: python -m pip install -e '.[dev]' -r tests/ml/mentpy_reference/requirements.txt
+      - name: Fail instead of skipping when MentPy is missing
+        run: python -c "import mentpy"
+      - run: python -m pytest -v tests/ml/mentpy_reference

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import numpy as np
 from scipy.linalg import block_diag
+from scipy.stats import multivariate_normal, norm
 
 from .. import gaussian as gm
 from ..measurements import Generaldyne, Heterodyne, Homodyne
@@ -21,6 +22,7 @@ class GaussianBackend(BaseBackend):
             "generaldyne",
             "loss",
             "quadratic_phase",
+            "postselection",
         }
     )
 
@@ -33,6 +35,13 @@ class GaussianBackend(BaseBackend):
     def reset(self, seed=None):
         self.rng = np.random.default_rng(seed)
         self.state = GaussianState(np.zeros(0), np.zeros((0, 0)), ())
+        self.last_measurement: dict = {}
+
+    def _store(self, mean, cov, nodes=None):
+        # Re-symmetrise: S V S^T leaves O(eps |V|) asymmetry, which exceeds the absolute
+        # tolerance of GaussianState.validate once anti-squeezed variances are ~1e5.
+        nodes = self.state.nodes if nodes is None else nodes
+        self.state = GaussianState(mean, (cov + cov.T) / 2, nodes)
 
     def prepare(self, node, squeezing=1.0, state=None):
         if node in self.state.nodes:
@@ -70,9 +79,7 @@ class GaussianBackend(BaseBackend):
         ):
             raise ValueError("Transformation must be symplectic")
         full = gm.embed(matrix, indices, len(self.state.mean))
-        self.state = GaussianState(
-            full @ self.state.mean, full @ self.state.covariance @ full.T, self.state.nodes
-        )
+        self._store(full @ self.state.mean, full @ self.state.covariance @ full.T)
 
     def entangle(self, u, v, weight=1.0):
         self.transform((u, v), gm.cz(weight))
@@ -92,7 +99,29 @@ class GaussianBackend(BaseBackend):
         i = self.state.nodes.index(node)
         self.state.mean[2 * i : 2 * i + 2] += [q, p]
 
-    def measure(self, node, measurement, angle=0.0):
+    def measure(self, node, measurement, angle=0.0, *, outcome=None):
+        """Destructively measure one mode and condition the rest exactly (Schur complement).
+
+        Homodyne records q cos(angle) + p sin(angle) calibrated to the incident quadrature,
+        with variance Var + (1-eta)/eta + noise. Heterodyne/Generaldyne record (q, p) with
+        covariance V + I or V + seed covariance. ``outcome`` fixes the record (postselection)
+        instead of sampling it; the update is the same in both cases. ``last_measurement``
+        holds the exact Gaussian density of the record given the pre-measurement state.
+
+        Args:
+            node (object): Hashable mode label.
+            measurement (object): Homodyne, Heterodyne or Generaldyne description.
+            angle (float): Homodyne angle in radians.
+            outcome (object): Fixed real scalar (Homodyne) or real pair, or None to sample.
+
+        Returns:
+            result (float or tuple): Sampled or postselected calibrated outcome.
+
+        Raises:
+            NotImplementedError: Photon counting has non-Gaussian conditional states.
+            ValueError: Outcome must be finite and real, with the measurement's shape.
+        """
+        postselected = outcome is not None
         i = self.state.nodes.index(node)
         measured = [2 * i, 2 * i + 1]
         remaining = [j for j in range(len(self.state.mean)) if j not in measured]
@@ -100,7 +129,6 @@ class GaussianBackend(BaseBackend):
         b = self.state.covariance[np.ix_(measured, measured)]
         c = self.state.covariance[np.ix_(remaining, measured)]
         mu = self.state.mean[measured]
-        outcome: float | tuple[float, ...]
         if isinstance(measurement, Homodyne):
             vector = np.array([np.cos(angle), np.sin(angle)])
             # Outcome is calibrated to the incident quadrature. Inefficiency adds vacuum noise.
@@ -112,7 +140,12 @@ class GaussianBackend(BaseBackend):
             if variance <= 0 or not np.isfinite(variance):
                 raise ValueError("Singular homodyne variance")
             expected = float(vector @ mu)
-            outcome = float(self.rng.normal(expected, np.sqrt(variance)))
+            if outcome is None:
+                outcome = self.rng.normal(expected, np.sqrt(variance))
+            elif not np.isscalar(outcome) or not np.isreal(outcome) or not np.isfinite(outcome):
+                raise ValueError("Homodyne outcome must be a finite real scalar")
+            outcome = float(outcome)
+            density = norm.pdf(outcome, expected, np.sqrt(variance))
             cross = c @ vector
             mean = self.state.mean[remaining] + cross * ((outcome - expected) / variance)
             cov = a - np.outer(cross, cross) / variance
@@ -123,18 +156,31 @@ class GaussianBackend(BaseBackend):
                 else np.asarray(measurement.covariance)
             )
             total = b + detector
-            vector_outcome = self.rng.multivariate_normal(mu, total)
+            if outcome is None:
+                vector_outcome = self.rng.multivariate_normal(mu, total)
+            else:
+                vector_outcome = np.asarray(outcome)
+                if (
+                    vector_outcome.shape != (2,)
+                    or not np.isrealobj(vector_outcome)
+                    or not np.isfinite(vector_outcome).all()
+                ):
+                    raise ValueError("Phase-space outcome must be a finite real pair (q, p)")
+                vector_outcome = vector_outcome.astype(float)
+            density = multivariate_normal.pdf(vector_outcome, mu, total)
             gain = np.linalg.solve(total, c.T).T
             mean = self.state.mean[remaining] + gain @ (vector_outcome - mu)
             cov = a - gain @ c.T
             outcome = tuple(map(float, vector_outcome))
         else:
             raise NotImplementedError(
-                "Photon counting has non-Gaussian conditional states; use piquasso-fock"
+                "Photon counting has non-Gaussian conditional states; use a Fock backend "
+                "(native-fock, native-mixed-fock, piquasso-fock or piquasso-mixed-fock)"
             )
-        self.state = GaussianState(
-            mean, (cov + cov.T) / 2, tuple(n for n in self.state.nodes if n != node)
-        )
+        if postselected and not density > 0:  # same contract as the Fock backends
+            raise ValueError("Postselected outcome has zero numerical density")
+        self._store(mean, cov, tuple(n for n in self.state.nodes if n != node))
+        self.last_measurement = {"kind": "density", "value": float(density)}
         return outcome
 
     def loss(self, node, transmissivity, thermal_photons=0.0):
@@ -147,9 +193,7 @@ class GaussianBackend(BaseBackend):
         noise[2 * i, 2 * i] = noise[2 * i + 1, 2 * i + 1] = (1 - transmissivity) * (
             2 * thermal_photons + 1
         )
-        self.state = GaussianState(
-            x @ self.state.mean, x @ self.state.covariance @ x.T + noise, self.state.nodes
-        )
+        self._store(x @ self.state.mean, x @ self.state.covariance @ x.T + noise)
 
     def get_state(self, nodes=None):
         return self.state.copy() if nodes is None else self.state.reduced(nodes)

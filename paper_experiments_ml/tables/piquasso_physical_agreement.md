@@ -1,0 +1,6 @@
+| experiment | oracle_class | max_error | status |
+|---|---|---|---|
+| R38_public_pattern_comparison | C | None | pass |
+| R39_raw_piquasso_state_prep | C | 4.440892098500626e-16 | pass |
+| R40_raw_piquasso_cz | C | 4.918754554516266e-16 | pass |
+| R41_conditional_execution_comparison | C | None | pass |

@@ -1,0 +1,21 @@
+configuration,depth,seed,frobenius_error,mapping
+Euler,1,3,5.495323605393213e-16,paper triangle count = MuTA.paper_depth
+Euler,1,11,9.646809571707696e-16,paper triangle count = MuTA.paper_depth
+Euler,1,29,7.195067539997724e-16,paper triangle count = MuTA.paper_depth
+Euler,1,47,1.121270291988505e-15,paper triangle count = MuTA.paper_depth
+Euler,2,3,6.055551679337975e-16,paper triangle count = MuTA.paper_depth
+Euler,2,11,1.0800628534096285e-15,paper triangle count = MuTA.paper_depth
+Euler,2,29,1.0103182026100664e-15,paper triangle count = MuTA.paper_depth
+Euler,2,47,1.0681389886409907e-15,paper triangle count = MuTA.paper_depth
+Euler,3,3,9.650801630464006e-16,paper triangle count = MuTA.paper_depth
+Euler,3,11,1.860503665421592e-15,paper triangle count = MuTA.paper_depth
+Euler,3,29,2.2596516254855392e-15,paper triangle count = MuTA.paper_depth
+Euler,3,47,2.47787502967896e-15,paper triangle count = MuTA.paper_depth
+Ising-XX,1,3,1.5076417656047574e-15,coupling angle = alpha.w1.c(4*b+1)
+Ising-XX,1,11,1.1456882215098013e-15,coupling angle = alpha.w1.c(4*b+1)
+Ising-XX,1,29,1.4917870882853497e-15,coupling angle = alpha.w1.c(4*b+1)
+Ising-XX,1,47,1.4233984484073937e-15,coupling angle = alpha.w1.c(4*b+1)
+Ising-XX,2,3,2.733885887217533e-15,coupling angle = alpha.w1.c(4*b+1)
+Ising-XX,2,11,3.138146881405261e-15,coupling angle = alpha.w1.c(4*b+1)
+Ising-XX,2,29,3.205653010666545e-15,coupling angle = alpha.w1.c(4*b+1)
+Ising-XX,2,47,3.009415471502951e-15,coupling angle = alpha.w1.c(4*b+1)

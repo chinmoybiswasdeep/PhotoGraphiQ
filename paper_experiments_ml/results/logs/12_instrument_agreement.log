@@ -1,0 +1,14 @@
+$ D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQML\.venv\Scripts\python.exe D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQML\paper_experiments\02_mentpy_validation\12_instrument_agreement.py
+
+--- stdout ---
+
+=== R12 instrument agreement ===
+  n_cases: 12
+  tol: 2.220446049250313e-13
+  max_probability_error: 1.6653345369377348e-15
+  max_conditional_state_error: 1.3313344677723352e-15
+  status: pass
+
+
+--- stderr ---
+

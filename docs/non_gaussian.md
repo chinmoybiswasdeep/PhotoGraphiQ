@@ -168,7 +168,8 @@ tuples across cutoffs and require matching ordered output labels.
 `state.wigner(q_axis,p_axis,node=...)` computes a single-mode marginal using
 analytic displacement matrix elements. Its `values` have shape `(len(p),len(q))`
 and normalize over dq dp. `captured_mass` and `negative_volume` use trapezoidal
-integration; negative volume is the finite-grid integral of max(-W,0).
+integration; negative volume is the finite-grid integral of max(-W,0), i.e. one half
+of the Kenfack-Zyczkowski delta = integral |W| - 1 for a normalized W.
 It is not automatically corrected for omitted tails. Check both grid refinement
 and window expansion before quoting negativity. `grid.plot()` requires Matplotlib.
 

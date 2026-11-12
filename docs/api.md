@@ -48,14 +48,16 @@ Use statistical V and quadrature translations at the interface even if the nativ
 simulator uses other units. Unsupported operations must raise NotImplementedError.
 Use the provided analytic tests as a model, then add direct native references.
 
-## Future PhotoGraphiQML boundary
+## PhotoGraphiQML boundary
 
 Patterns can be reused with new bindings and shot results expose features and
 observables. Backend isolation permits future differentiation-aware engines.
 The current engine converts scalar parameters to Python floats and performs
 stochastic control flow; its execution is not end-to-end differentiable. Batching
 means independent trajectories, not a vectorized accelerator implementation.
-PhotoGraphiQ deliberately introduces no ML runtime dependencies.
+PhotoGraphiQ deliberately introduces no ML runtime dependencies. The
+`photographiqml` package in this repository consumes only public `photographiq`
+names; see the [contract](development/photographiqml-contract.md).
 
 
 ## v0.2 non-Gaussian API

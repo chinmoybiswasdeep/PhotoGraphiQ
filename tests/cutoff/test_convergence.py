@@ -43,6 +43,7 @@ def test_cat_factory_convergence_and_branch_comparability():
 
 
 def test_truncation_warnings_and_rejection():
+    pytest.importorskip("piquasso")  # exercises the Piquasso Fock backend directly
     p = pg.Pattern().append(pg.Prepare(0, 0.4))
     with pytest.warns(RuntimeWarning, match="retained Fock norm"):
         pg.simulate(p, backend="piquasso-fock", cutoff=10)

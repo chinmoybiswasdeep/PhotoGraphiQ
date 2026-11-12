@@ -1,5 +1,59 @@
 # Changelog
 
+### Unreleased: scientific software upgrade
+
+- **Breaking:** Piquasso is no longer a runtime dependency. Install
+  `photographiq[piquasso]` for the `piquasso`, `piquasso-fock` and
+  `piquasso-mixed-fock` reference backends and for the default physical
+  PhotoGraphiQML backend. A missing optional package raises `ImportError` with the
+  install command.
+- **Breaking:** `simulate` defaults to `backend="gaussian"` instead of `"piquasso"`.
+  Both are exact Gaussian simulators that consume random numbers identically, so
+  seeded trajectories agree to rounding.
+- Add native C++20 engines (Eigen, pybind11, OpenMP; built by scikit-build-core):
+  `native-gaussian`, `native-fock` and `native-mixed-fock`. They are cross-checked
+  against the NumPy backends, Piquasso and closed forms.
+- Add a backend capability registry: `available_backends`, `describe_backend` and
+  `select_backend`.
+- Add a unified typed IR (`photographiq.ir`).
+- Add `photographiq.sampling` for boson sampling and GBS. It provides permanents,
+  hafnians, loop hafnians, torontonians, loop torontonians, exact distributions
+  and samplers, with native kernels.
+- Threshold probabilities are evaluated in a dark-mode-conditioned form, report
+  an error estimate and raise `ThresholdPrecisionWarning` above 1e-6. Add a
+  `precision=` multiprecision path (extra `precision`).
+- Add `photographiq.flows` (causal flow, gflow, Pauli flow, CV determinism,
+  `FlowAnalysisResult`).
+- Add `photographiq.calculus` (qubit and CV measurement calculus, local
+  Cliffords, a ZX subset).
+- Add `photographiq.interactive`: a graph editor, flow and correction overlays,
+  execution traces and scientific plots.
+- Add optional CuPy GPU kernels (`photographiq.gpu`; extras `gpu-cuda12` and
+  `gpu-cuda13`) with explicit device reporting and no silent CPU fallback. Add a
+  Linux-only CUDA-Q probe backend.
+- Add benchmarks with environment metadata and equivalent-task comparisons
+  (`benchmarks/`), manuscript architecture figures (`docs/architecture`) and
+  `docs/COMPLETE_FUNCTIONALITY.md`.
+- PhotoGraphiQML physical execution accepts `backend="native-fock"`, validated
+  against `piquasso-fock`, which remains the default.
+
+### Unreleased: unified repository
+
+- Ship PhotoGraphiQML as the `photographiqml` package from this distribution
+  (`pip install -e ".[dev]"` installs both); add `ml-validation` and
+  `ml-experiments` extras. Its tests, docs, examples and manuscript suite live
+  under `tests/ml`, `docs/ml`, `examples/ml` and `paper_experiments_ml`.
+- Gaussian backends support postselection (`measurement_outcomes`) and record
+  exact outcome densities, so `Result.log_likelihood` works on `gaussian` and
+  `piquasso`.
+- Fix spurious `Covariance must be symmetric` failures in deep or strongly
+  squeezed Gaussian circuits by re-symmetrising after every gate.
+- Add `GaussianState.fidelity` (mixed-state Uhlmann), `purity`,
+  `symplectic_eigenvalues`, `entropy` and `log_negativity`; support
+  `QuadraticPhase` in `gaussian_channel`; export `pg.cvflow`.
+- Document that `WignerGrid.negative_volume` equals half the Kenfack-Zyczkowski
+  indicator. See `docs/development/merged-integration-report.md`.
+
 ### v0.3 scientific hardening
 
 - Correct JAX beamsplitter boundary ordering and package phase convention.

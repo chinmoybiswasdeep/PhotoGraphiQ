@@ -135,7 +135,13 @@ class WignerGrid:
 
     @property
     def negative_volume(self):
-        """Finite-window integral of max(-W,0); grid/tail convergence is separate."""
+        """Trapezoidal integral of max(-W, 0) dq dp over the finite grid window.
+
+        For a normalized W this is one half of the Kenfack-Zyczkowski negativity
+        delta_KZ = int |W| dq dp - 1, so delta_KZ = 2 * negative_volume (|1>: 2/sqrt(e) - 1
+        here, versus delta_KZ = 4/sqrt(e) - 2). The kinked integrand converges only as
+        O(grid spacing^2); check grid resolution and window (captured_mass) separately.
+        """
         return self._integral(np.maximum(-self.values, 0))
 
     def plot(self, ax=None):

@@ -6,8 +6,8 @@ No private Piquasso APIs are used. Statistical covariance V = sigma_Piquasso/2.
 from __future__ import annotations
 
 import numpy as np
-import piquasso as pq
 
+from .._optional import piquasso as pq
 from ..states import GaussianInput, GaussianState
 from .gaussian import GaussianBackend
 
@@ -32,9 +32,7 @@ class PiquassoBackend(GaussianBackend):
             .execute(program, initial_state=self._native())
             .state
         )
-        self.state = GaussianState(
-            native.xpxp_mean_vector, native.xpxp_covariance_matrix / 2, self.state.nodes
-        )
+        self._store(native.xpxp_mean_vector, native.xpxp_covariance_matrix / 2)
 
     def prepare(self, node, squeezing=1.0, state=None):
         """Prepare a fresh labelled mode; resource squeezing is momentum squeezing.

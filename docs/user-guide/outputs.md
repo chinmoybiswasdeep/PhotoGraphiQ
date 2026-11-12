@@ -10,12 +10,16 @@ classical records that produced it. The state is an independent snapshot.
 | `state` | Surviving Gaussian or Fock state, with ordered node labels |
 | `backend` | Execution backend class name |
 | `seed` | Seed supplied to this trajectory |
-| `measurement_statistics` | Reported conditional probability/density entries; available on Fock paths |
+| `measurement_statistics` | Per-key conditional probability (discrete) or density (homodyne/heterodyne/generaldyne) entries, each tagged `postselected` |
 | `log_likelihood` | Sum of log conditional probabilities/densities; raises if required statistics are absent |
 | `physical_displacements` | Count of executed displacement commands, including frame flushes |
 
-Gaussian backends currently do not populate measurement likelihood diagnostics.
-An empty dictionary is not evidence of unit probability for a measured pattern.
+All backends populate these entries. Gaussian backends report the exact Gaussian
+density of each calibrated record given the pre-measurement state, so
+`log_likelihood` is a joint *density* (not a probability) in calibrated outcome
+units. A postselected result (`measurement_outcomes=`) is one conditional branch,
+not a deterministic operation. An empty dictionary is not evidence of unit
+probability for a measured pattern.
 
 ## Read a deterministic example
 
@@ -83,7 +87,17 @@ support raw moments through order four.
 half the trace norm. Different cutoffs are aligned by occupations, not by array
 index. States must have matching node order. `wigner(q,p,node)` returns a
 `WignerGrid` with `.plot()`, `.captured_mass` and `.negative_volume`. Window and
-grid resolution must both converge.
+grid resolution must both converge. `negative_volume` is the integral of max(-W, 0),
+which is **one half** of the Kenfack-Zyczkowski indicator delta = integral |W| - 1
+for a normalized W.
+
+Gaussian states (`result.state` on Gaussian backends) expose
+`fidelity(other)` (squared Uhlmann fidelity, valid for mixed states; `overlap`
+is Tr(rho sigma) and equals fidelity only if one state is pure),
+`purity()`, `symplectic_eigenvalues()`, `entropy()` (von Neumann, nats) and
+`log_negativity(nodes)` (base 2). In float64 these are reliable up to roughly
+r ~ 3 of squeezing on rotated quadratures; beyond that the covariance itself
+cannot resolve purity.
 
 `retained_norms` and `diagnostics` expose preparation/gate truncation checks and
 boundary populations. Norm conservation alone does not certify converged high

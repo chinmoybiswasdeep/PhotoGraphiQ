@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>PhotoGraphiQML 0.2.0 release assessment - PhotoGraphiQML</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">PhotoGraphiQML</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">PhotoGraphiQML</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../api/" class="nav-link">Input/output contract</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../release-report-v0.1/" class="nav-link">Release report v0.1</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">PhotoGraphiQML 0.2.0 release assessment</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Physical</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../physical/architecture/" class="dropdown-item">Physical GKP architecture</a>
+</li>
+                                    
+<li>
+    <a href="../physical/convergence/" class="dropdown-item">Finite-resource convergence studies</a>
+</li>
+                                    
+<li>
+    <a href="../physical/decoding/" class="dropdown-item">Decoding and physical features</a>
+</li>
+                                    
+<li>
+    <a href="../physical/execution-modes/" class="dropdown-item">Execution modes and results</a>
+</li>
+                                    
+<li>
+    <a href="../physical/lowering/" class="dropdown-item">Inspectable lowering</a>
+</li>
+                                    
+<li>
+    <a href="../physical/pauli-frames/" class="dropdown-item">Logical Pauli-frame propagation</a>
+</li>
+                                    
+<li>
+    <a href="../physical/physical-training/" class="dropdown-item">Discrete physical training</a>
+</li>
+                                    
+<li>
+    <a href="../physical/supported-measurements/" class="dropdown-item">Supported measurements</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Research</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../research/implementation-plan/" class="dropdown-item">Architecture, validation and delivery plan</a>
+</li>
+                                    
+<li>
+    <a href="../research/mentpy-audit/" class="dropdown-item">MentPy audit</a>
+</li>
+                                    
+<li>
+    <a href="../research/muta-mapping/" class="dropdown-item">Mathematical and implementation mapping</a>
+</li>
+                                    
+<li>
+    <a href="../research/muta-paper-notes/" class="dropdown-item">MuTA paper analysis</a>
+</li>
+                                    
+<li>
+    <a href="../research/photographiq-audit/" class="dropdown-item">PhotoGraphiQ capability audit</a>
+</li>
+                                    
+<li>
+    <a href="../research/physical-gkp-design/" class="dropdown-item">PhotoGraphiQ 0.3.1 downstream design</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Tutorials</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../tutorials/" class="dropdown-item">Tutorials</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/01/" class="dropdown-item">01 What is MB-QML?</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/02/" class="dropdown-item">02 MuTA from the paper</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/03/" class="dropdown-item">03 First MuTA model</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/04/" class="dropdown-item">04 Triangle neuron anatomy</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/05/" class="dropdown-item">05 Multi-wire MuTA</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/06/" class="dropdown-item">06 Multi-layer MuTA</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/07/" class="dropdown-item">07 Trainable measurement angles</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/08/" class="dropdown-item">08 Classical feature encoding</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/09/" class="dropdown-item">09 Quantum state inputs</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/10/" class="dropdown-item">10 Gate learning</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/11/" class="dropdown-item">11 State classification</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/12/" class="dropdown-item">12 Classical classification</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/13/" class="dropdown-item">13 Quantum instrument learning</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/14/" class="dropdown-item">14 MuTA quantum kernel</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/15/" class="dropdown-item">15 Training with Adam</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/16/" class="dropdown-item">16 Finite-difference validation</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/17/" class="dropdown-item">17 Autodiff training</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/18/" class="dropdown-item">18 Noise and finite squeezing</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/19/" class="dropdown-item">19 GKP logical MuTA</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/20/" class="dropdown-item">20 MentPy cross-validation</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/21/" class="dropdown-item">21 Expressivity vs depth</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/22/" class="dropdown-item">22 Tunable entanglement</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/23/" class="dropdown-item">23 Bias engineering</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/24/" class="dropdown-item">24 Fisher information</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/25/" class="dropdown-item">25 Model serialization</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/26/" class="dropdown-item">26 Custom observable readout</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/27/" class="dropdown-item">27 Custom loss</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/28/" class="dropdown-item">28 Training callbacks</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/29/" class="dropdown-item">29 CV-native MuTA</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/30/" class="dropdown-item">30 Comparing qubit, GKP and CV MuTA</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/31_photographiq_031_encoded_interface/" class="dropdown-item">31. PhotoGraphiQ 0.3.1 encoded interface</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/32_physical_gkp_x_measurement/" class="dropdown-item">32. Physical GKP X measurement</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/33_physical_gkp_z_measurement/" class="dropdown-item">33. Physical GKP Z measurement</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/34_restricted_physical_muta/" class="dropdown-item">34. Restricted physical MuTA</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/35_zero-angle_physical_muta/" class="dropdown-item">35. Zero-angle physical MuTA</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/36_pauli-frame_propagation/" class="dropdown-item">36. Pauli-frame propagation</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/37_hard_vs_soft_decoding/" class="dropdown-item">37. Hard vs soft decoding</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/38_multi-mode_joint_readout/" class="dropdown-item">38. Multi-mode joint readout</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/39_physical_shots_and_statistical_error/" class="dropdown-item">39. Physical shots and statistical error</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/40_logical_vs_physical_comparison/" class="dropdown-item">40. Logical vs physical comparison</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/41_physical_convergence/" class="dropdown-item">41. Physical convergence</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/42_unsupported_arbitrary_xy_why_it_fails/" class="dropdown-item">42. Unsupported arbitrary XY why it fails</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/43_logical_training_to_physical_validation/" class="dropdown-item">43. Logical training to physical validation</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/44_discrete_physical-angle_search/" class="dropdown-item">44. Discrete physical-angle search</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../release-report-v0.1/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../physical/architecture/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#photographiqml-020-release-assessment" class="nav-link">PhotoGraphiQML 0.2.0 release assessment</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#changed-files" class="nav-link">Changed files</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#architecture-and-dependency" class="nav-link">Architecture and dependency</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#representations-and-capability-boundary" class="nav-link">Representations and capability boundary</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#executed-physical-cases-and-errors" class="nav-link">Executed physical cases and errors</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#convergence-and-shot-statistics" class="nav-link">Convergence and shot statistics</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#training-evidence" class="nav-link">Training evidence</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#validation-and-documentation" class="nav-link">Validation and documentation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#release-recommendation-and-next-blocker" class="nav-link">Release recommendation and next blocker</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="photographiqml-020-release-assessment">PhotoGraphiQML 0.2.0 release assessment</h1>
+<p>This release adds capability-aware physical execution of the signed-X MuTA subset.
+Unsupported logical XY angles still fail before finite GKP projection or Fock
+simulation. Logical MuTA remains the independently validated reference model;
+CVMuTA remains a separate derivation proposal. This is an experimental restricted
+physical capability, not full arbitrary-angle physical MuTA. The
+<a href="../release-report-v0.1/">v0.1 assessment</a> is retained as history.</p>
+<h2 id="changed-files">Changed files</h2>
+<p>The <a href="../physical/changed-files.json">exact changed-file manifest</a> lists every modified
+and added file. Production additions are <code>lowering.py</code>, <code>physical.py</code> and
+<code>physical_training.py</code>. Integration changes are in <code>gkp.py</code>, <code>ansatz/muta.py</code>,
+<code>models.py</code>, public exports and parameter imports. The logical execution,
+continuous trainer, Eq. 5 kernel and MentPy reference test files are unchanged.
+Other changes cover dependency/CI metadata, release validation, cross-layer tests,
+documentation, tutorials, physical evidence and version 0.2.0 metadata.</p>
+<h2 id="architecture-and-dependency">Architecture and dependency</h2>
+<p>The implementation binds and audits all logical angles, validates the resource,
+decoder, backend and allocation policy, and lowers supported graphs to public
+PhotoGraphiQ <code>Pattern</code> commands. Just-in-time preparation limits the live Fock
+frontier. Signed-X homodyne decoding feeds classical flow signals and virtual
+<code>LogicalPauliFrame</code> metadata. Final statistics come from the full multimode POVM.</p>
+<p>The dependency is <code>photographiq&gt;=0.3.1,&lt;0.4</code>; both CI jobs pin
+<code>db07f9f9bf47da841bfa6b206562c5a3ffb121d3</code>. Local execution uses the clean sibling
+checkout at that commit. All new physical primitives and <code>Parameter</code> are imported
+through the public package API. See <a href="../physical/architecture/">architecture</a>,
+<a href="../physical/lowering/">lowering</a> and the <a href="../research/physical-gkp-design/">preimplementation design</a>.</p>
+<h2 id="representations-and-capability-boundary">Representations and capability boundary</h2>
+<table>
+<thead>
+<tr>
+<th>Representation</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>logical</code></td>
+<td>Ideal qubit MuTA, including continuous logical XY</td>
+</tr>
+<tr>
+<td><code>gkp</code></td>
+<td>Deprecated legacy resource-only intent; execution still raises</td>
+</tr>
+<tr>
+<td><code>gkp-resource</code></td>
+<td>Explicit finite-resource/ideal-target workflow</td>
+</tr>
+<tr>
+<td><code>gkp-physical</code> via <code>PhysicalMuTA</code></td>
+<td>Audited finite GKP execution of signed-X patterns</td>
+</tr>
+</tbody>
+</table>
+<p>Supported intermediate angles are 0/pi modulo 2pi at upstream absolute tolerance
+1e-14. Final readout supports X or Z. Y, pi/4, arbitrary XY, entangled input
+encoding, adaptive soft-ensemble decoding, physical Eq. 5 kernels and physical
+quantum-output instruments remain unsupported. Invalid seeds/modes/shots,
+infeasible allocation estimates and unsupported backends fail before projection.
+Numerically inadequate cutoffs can also fail later at the strict backend norm guard.
+No trained angle is snapped; no logical angle is substituted for a homodyne angle.
+Schema-1 resource models never become physical models implicitly.</p>
+<h2 id="executed-physical-cases-and-errors">Executed physical cases and errors</h2>
+<p>The reproducible <a href="../physical/evidence.json">evidence JSON</a> was generated by
+<code>experiments/restricted_physical.py</code>. The baseline uses width/envelope 0.9, four
+lattice peaks, grid 1025 and cutoff 24. These broad, overlapping finite codewords
+are intentionally small execution examples, not high-fidelity encoded qubits.</p>
+<table>
+<thead>
+<tr>
+<th>Conditional case</th>
+<th>Paper layers</th>
+<th>Peak modes / dimension</th>
+<th>Wall seconds</th>
+<th>Readout seconds</th>
+<th>Decoded TV from ideal</th>
+<th>Marginal leakage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>One wire, zero angles</td>
+<td>1</td>
+<td>2 / 300</td>
+<td>0.583</td>
+<td>0.196</td>
+<td>0.172849</td>
+<td>0.000218</td>
+</tr>
+<tr>
+<td>Two wires, zero angles</td>
+<td>2</td>
+<td>3 / 2600</td>
+<td>14.319</td>
+<td>0.286</td>
+<td>0.342182</td>
+<td>0.004512, 0.004815</td>
+</tr>
+</tbody>
+</table>
+<p>Both cases condition every quadrature on analog zero. The two-wire result retains
+four joint probabilities and connected correlations. A default two-wire requested
+layer contains two paper layers, following MentPy's convention. Runtimes are
+observations on this Windows host, not comparisons to the logical simulator.
+Memory fields are analytic allocation estimates, not measured peak process memory.
+Gate/preparation diagnostics are saved per stage.</p>
+<p>Additional tests execute pi measurements, independently construct a public upstream
+one-wire Pattern and check shot repeatability. Mixed Fock execution is rejected
+before allocation: profiling the attempted parity study found quadratic upstream
+instruction validation over a dense preparation list, making this path impractical
+at the tested resource size. It is not advertised as validated physical support.
+No qubit/Fock vector overlap is used as fidelity. Joint code-subspace leakage and
+hard-decoder confidence remain unknown. Marginal leakage uses the code projector.</p>
+<h2 id="convergence-and-shot-statistics">Convergence and shot statistics</h2>
+<p>At fixed width/envelope 0.9, the whole one-wire conditional cutoff study gives:</p>
+<table>
+<thead>
+<tr>
+<th>Cutoff</th>
+<th>Decoded TV from ideal</th>
+<th>Maximum probability change from previous point</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20</td>
+<td>0.173038</td>
+<td>—</td>
+</tr>
+<tr>
+<td>24</td>
+<td>0.172849</td>
+<td>1.895e-4</td>
+</tr>
+<tr>
+<td>28</td>
+<td>0.172767</td>
+<td>8.158e-5</td>
+</tr>
+</tbody>
+</table>
+<p>Separate grid 513→1025 and peaks 3→4 sweeps changed probabilities by about
+2.2e-16 and 1.1e-16. Width .85→.9 changed them by 0.013036; envelope .85→.9 by
+0.0002155. Those last axes change the physical resource. All studies remain
+<strong>uncertified</strong>. Numerical grid stability does not remove finite-resource error.
+An upstream single-resource cutoff study is saved separately from whole-pattern studies.</p>
+<p>The 16-shot seed-2026 study at cutoff 24 failed with retained norm 0.99869564;
+the guard remained enabled. At cutoff 40 it completed, giving mean conditional
+decoded probabilities (0.578559, 0.421441), each with standard error 0.060752.
+Sampled final-bit frequencies were (0.5625, 0.4375), with plug-in binomial errors
+0.124020. These are different estimators and neither certifies resource accuracy.
+No failed trajectory was silently discarded from an average.</p>
+<h2 id="training-evidence">Training evidence</h2>
+<p>The classifier/regressor extract decoded Z probabilities, then fit a classical
+head. Physical angles use bounded categorical 0/pi coordinate search. Logical
+continuous optimizers and the Eq. 5 logical kernel are unchanged.</p>
+<p>The classifier demonstration used seeds 7 and 19, two shots per input, cutoff 40
+and one coordinate sweep. Independent validation trajectories on the same four
+training inputs scored 0/4 and 4/4 respectively. This variability does not support
+a robust learning or generalization claim. The example demonstrates execution and
+preserves uncertainty, configurations and search evaluations. See
+<a href="../physical/physical-training/">physical training</a> for the family's relabeling limit.</p>
+<h2 id="validation-and-documentation">Validation and documentation</h2>
+<p>The final full suite passed 127 tests at 97.58% statement coverage on Python 3.14.
+Python 3.11–3.13 each passed 93 core tests at 94.64% coverage; their two optional
+MentPy test modules were skipped because MentPy was not installed. Python 3.14
+executed all 34 pinned MentPy comparisons. Final checks include mixed-backend
+rejection and allocation-free visualization. Logical validation also
+independently contracts all 256 signed-X branches of a two-wire paper layer with
+virtual frames. MentPy remains an ideal logical oracle, never a finite-GKP oracle.</p>
+<table>
+<thead>
+<tr>
+<th>Local Python</th>
+<th>Tests passed</th>
+<th>Optional modules skipped</th>
+<th>Coverage</th>
+<th>CI-equivalent checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3.11.16</td>
+<td>93</td>
+<td>2 MentPy modules</td>
+<td>94.64%</td>
+<td>All 7 passed</td>
+</tr>
+<tr>
+<td>3.12.14</td>
+<td>93</td>
+<td>2 MentPy modules</td>
+<td>94.64%</td>
+<td>All 7 passed</td>
+</tr>
+<tr>
+<td>3.13.15</td>
+<td>93</td>
+<td>2 MentPy modules</td>
+<td>94.64%</td>
+<td>All 7 passed</td>
+</tr>
+<tr>
+<td>3.14.4</td>
+<td>127</td>
+<td>0</td>
+<td>97.58%</td>
+<td>All 7 passed</td>
+</tr>
+</tbody>
+</table>
+<p>The <a href="../physical/validation-matrix.json">machine-readable matrix</a> records dependency
+versions, coverage totals and every command's return status. Checks comprise
+pytest/coverage, Ruff lint, Ruff formatting, mypy, wheel/sdist build, strict MkDocs
+build and execution of all tutorials/notebooks. Coverage-tool versions differ
+between environments; every environment independently clears the 90% requirement.</p>
+<p>There are eight physical guide pages, 44 executable tutorial scripts/pages with
+14 new physical tutorials, five existing executable notebooks, a lowering SVG,
+and a reproducible physical experiment. Tutorials include captured stdout,
+assertions, physical interpretation and limitations.</p>
+<p>The last observed hosted baseline passed at pre-change SHA
+<code>b3b26078d5cc30fb1fad5a1f71bb714169d44639</code>:
+<a href="https://github.com/chinmoybiswasdeep/PhotoGraphiQML/actions/runs/34558868151">Tests run 34558868151</a>.
+The <a href="../physical/hosted-ci.json">saved observation</a> is historical evidence, not a
+claim that these unpushed v0.2 changes passed hosted CI.</p>
+<h2 id="release-recommendation-and-next-blocker">Release recommendation and next blocker</h2>
+<p>Local checks pass. This is ready for review as an experimental signed-X execution
+release; hosted CI must still run on the new commit. Do not label it arbitrary physical MuTA,
+validated high-fidelity computation or demonstrated quantum advantage.</p>
+<p>The exact next blocker is a public, validated logical equatorial measurement
+synthesis/injection instrument with its resource state, adaptive feed-forward,
+finite-energy channel/error model and convergence evidence. General homodyne
+rotation is insufficient. CVMuTA needs its own explicit cell/channel derivation;
+it does not follow by replacing qubits with modes.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

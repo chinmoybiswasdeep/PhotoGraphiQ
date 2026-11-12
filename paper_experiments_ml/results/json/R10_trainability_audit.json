@@ -1,0 +1,113 @@
+{
+  "rows": [
+    {
+      "n_wires": 1,
+      "n_layers": 1,
+      "one_column": true,
+      "n_column3_nodes": 1,
+      "mentpy_list_restricted": 1,
+      "mentpy_angle_actually_fixed": 0,
+      "mentpy_restriction_effective": false,
+      "photographiqml_leaked_into_trainable": 0,
+      "photographiqml_override_rejected": 1,
+      "photographiqml_robust": true
+    },
+    {
+      "n_wires": 1,
+      "n_layers": 2,
+      "one_column": true,
+      "n_column3_nodes": 2,
+      "mentpy_list_restricted": 0,
+      "mentpy_angle_actually_fixed": 0,
+      "mentpy_restriction_effective": false,
+      "photographiqml_leaked_into_trainable": 0,
+      "photographiqml_override_rejected": 2,
+      "photographiqml_robust": true
+    },
+    {
+      "n_wires": 2,
+      "n_layers": 1,
+      "one_column": true,
+      "n_column3_nodes": 2,
+      "mentpy_list_restricted": 0,
+      "mentpy_angle_actually_fixed": 0,
+      "mentpy_restriction_effective": false,
+      "photographiqml_leaked_into_trainable": 0,
+      "photographiqml_override_rejected": 2,
+      "photographiqml_robust": true
+    },
+    {
+      "n_wires": 2,
+      "n_layers": 1,
+      "one_column": false,
+      "n_column3_nodes": 4,
+      "mentpy_list_restricted": 0,
+      "mentpy_angle_actually_fixed": 0,
+      "mentpy_restriction_effective": false,
+      "photographiqml_leaked_into_trainable": 0,
+      "photographiqml_override_rejected": 4,
+      "photographiqml_robust": true
+    },
+    {
+      "n_wires": 2,
+      "n_layers": 2,
+      "one_column": true,
+      "n_column3_nodes": 4,
+      "mentpy_list_restricted": 0,
+      "mentpy_angle_actually_fixed": 0,
+      "mentpy_restriction_effective": false,
+      "photographiqml_leaked_into_trainable": 0,
+      "photographiqml_override_rejected": 4,
+      "photographiqml_robust": true
+    },
+    {
+      "n_wires": 3,
+      "n_layers": 1,
+      "one_column": true,
+      "n_column3_nodes": 3,
+      "mentpy_list_restricted": 0,
+      "mentpy_angle_actually_fixed": 0,
+      "mentpy_restriction_effective": false,
+      "photographiqml_leaked_into_trainable": 0,
+      "photographiqml_override_rejected": 3,
+      "photographiqml_robust": true
+    },
+    {
+      "n_wires": 1,
+      "n_layers": 1,
+      "one_column": false,
+      "n_column3_nodes": 1,
+      "mentpy_list_restricted": 1,
+      "mentpy_angle_actually_fixed": 0,
+      "mentpy_restriction_effective": false,
+      "photographiqml_leaked_into_trainable": 0,
+      "photographiqml_override_rejected": 1,
+      "photographiqml_robust": true
+    },
+    {
+      "n_wires": 3,
+      "n_layers": 2,
+      "one_column": true,
+      "n_column3_nodes": 6,
+      "mentpy_list_restricted": 0,
+      "mentpy_angle_actually_fixed": 0,
+      "mentpy_restriction_effective": false,
+      "photographiqml_leaked_into_trainable": 0,
+      "photographiqml_override_rejected": 6,
+      "photographiqml_robust": true
+    }
+  ],
+  "protocol": "MentPy raw restrict_trainable list/Ment audit vs. PhotoGraphiQML ParameterStore freeze robustness",
+  "oracle_class": "B/E",
+  "status_category": "exact",
+  "acceptance_condition": "photographiqml_robust True for every configuration (MentPy's own pattern is descriptive, not a pass/fail criterion)",
+  "n_configs_mentpy_restriction_actually_effective": 0,
+  "n_configs_total": 8,
+  "status": "pass",
+  "finding": "MentPy's restrict_trainable only ever fixes the Ment angle (not just the list) when neither add_edge nor hstack runs afterward, i.e. n_wires==1 and n_layers==1; PhotoGraphiQML never relies on MentPy's list convention and freezes column-3 parameters directly and robustly in every configuration.",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

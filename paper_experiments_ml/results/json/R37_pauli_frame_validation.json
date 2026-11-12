@@ -1,0 +1,30 @@
+{
+  "rows": [
+    {
+      "n_branches": 256,
+      "max_error": 1.4748069831526271e-15,
+      "worst_branch": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "protocol": "Exhaustive raw-branch contraction + node_frame correction vs. MuTA.run target, 2-wire signed-X",
+  "oracle_class": "D",
+  "status_category": "exact",
+  "tolerance": 2.220446049250313e-14,
+  "acceptance_condition": "max error over all 256 branches < 2.220e-14",
+  "max_error": 1.4748069831526271e-15,
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

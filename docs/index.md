@@ -21,14 +21,15 @@ algebra is required to begin.
 ```mermaid
 flowchart LR
   P[Piquasso: photonic state evolution] --> Q[PhotoGraphiQ: CV resources, patterns and compilation]
-  Q --> M[PhotoGraphiQML: separate downstream direction]
+  Q --> M[photographiqml: measurement-based learning layer, same repository]
 ```
 
 Use raw Piquasso when an optical instruction sequence is your natural model.
 Use PhotoGraphiQ when the computation is a labelled resource graph with adaptive
 measurement dependencies, reusable parameters and MBQC corrections. The package
 adds scheduling, compilation provenance, conventions and validation around the
-simulator. PhotoGraphiQML is a downstream direction, not a required dependency.
+simulator. The [PhotoGraphiQML](ml/index.md) learning layer ships in the same
+distribution as the separate `photographiqml` package; the core never imports it.
 
 In CV-MBQC, continuous quadratures of optical modes carry information. Entangled
 resource states supply connections; measurements and outcome-dependent corrections

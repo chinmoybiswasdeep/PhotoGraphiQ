@@ -17,10 +17,21 @@ from .commands import (
     expressions,
     quantum_nodes,
 )
-from .expressions import CallableExpression
+from .expressions import CallableExpression, Expr
 from .flow import dependency_graph, topological_schedule
 from .graph import CVGraph
-from .measurements import Homodyne, MeasurementProtocol
+from .measurements import Generaldyne, Heterodyne, Homodyne, MeasurementProtocol
+
+
+def _outcomes_without_component(value):
+    """Record keys read by ``Outcome(key)`` without ``component=`` anywhere in an Expr tree."""
+    if isinstance(value, Expr):
+        if value.op == "outcome":
+            if len(value.args) == 1:
+                yield value.args[0]
+        else:
+            for arg in value.args:
+                yield from _outcomes_without_component(arg)
 
 
 class Pattern:
@@ -172,18 +183,35 @@ class Pattern:
             ValueError: Output must be the final command.
             ValueError: Empty, duplicate or previously prepared resource nodes.
             ValueError: Self CZ is invalid.
+            ValueError: A command repeats a mode label.
+            ValueError: A two-component outcome is read without component=.
         """
         if len(set(self.inputs)) != len(self.inputs):
             raise ValueError("Duplicate inputs")
+        # Before dependency_graph: a repeated mode would add a self-loop there and be
+        # reported as a cyclic dependency.
+        for i, c in enumerate(self.commands):
+            nodes = quantum_nodes(c)
+            if isinstance(c, Entangle) and c.u == c.v:
+                raise ValueError(f"Self CZ is invalid: command {i} entangles {c.u!r} with itself")
+            if len(set(nodes)) != len(nodes):
+                raise ValueError(f"Command {i} ({type(c).__name__}) repeats a mode: {nodes!r}")
         dependency_graph(self.commands)
         active, ever = set(self.inputs), set(self.inputs)
         records: set = set()
+        pairs: dict = {}  # Heterodyne/Generaldyne keys, whose records are (q, p) tuples
         output_seen = False
         for i, c in enumerate(self.commands):
             if output_seen:
                 raise ValueError("Output must be the final command")
             if not command_dependencies(c) <= records:
                 raise ValueError(f"Command {i} depends on a future outcome")
+            for key in (k for e in expressions(c) for k in _outcomes_without_component(e)):
+                if key in pairs:
+                    raise ValueError(
+                        f"Command {i} reads the {pairs[key]} outcome {key!r}, a (q, p) pair, "
+                        f"without component=; use Outcome({key!r}, component=0) for q or 1 for p"
+                    )
             if isinstance(c, (Prepare, PrepareResource)):
                 nodes = quantum_nodes(c)
                 if not nodes or len(set(nodes)) != len(nodes) or set(nodes) & ever:
@@ -193,19 +221,17 @@ class Pattern:
             else:
                 if not set(quantum_nodes(c)) <= active:
                     raise ValueError(f"Command {i} uses a missing or measured node")
-                if isinstance(c, Entangle) and c.u == c.v:
-                    raise ValueError("Self CZ is invalid")
             if isinstance(c, Measure):
                 if not isinstance(c.measurement, MeasurementProtocol):
                     raise NotImplementedError("Unsupported measurement description")
                 c.measurement.validate()
                 active.remove(c.node)
                 records.add(c.result_key)
+                if isinstance(c.measurement, (Heterodyne, Generaldyne)):
+                    pairs[c.result_key] = type(c.measurement).__name__
             elif isinstance(c, Signal):
                 records.add(c.key)
             elif isinstance(c, Output):
-                if len(set(c.nodes)) != len(c.nodes):
-                    raise ValueError("Duplicate outputs")
                 output_seen = True
         if self.resource and self.resource.outputs and self.outputs != self.resource.outputs:
             raise ValueError(

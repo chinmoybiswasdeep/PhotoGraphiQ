@@ -3,25 +3,57 @@
 S = supported core path; E = experimental implementation; — = unsupported.
 Validation refers to tested regimes, not a proof for every input or parameter.
 
-| Feature | NumPy Gaussian | Piquasso Gaussian | Pure Fock | Mixed Fock | Evidence |
-|---|---|---|---|---|---|
-| Homodyne | S | S | E | E | analytical conditioning, pure/mixed comparison |
-| Noisy homodyne | S | S | — | E | Gaussian moments, convolution density |
-| Heterodyne/general-dyne | S | S | — | — | Gaussian analytical references |
-| PNR | — | — | E | E | Born probabilities and conditional states |
-| CZ, rotation, squeezing | S | S | E | E | matrices, raw native references |
-| Cubic/Kerr execution | — | — | E | E | independent Fock references |
-| Cat resources | — | — | E | E | parity and Wigner checks |
-| Photon subtraction | — | — | E | E | ladder factors; physical tap probabilities |
-| Loss/thermal noise | S | S | — | E | analytical moments/binomial loss |
-| GKP resources | — | — | E | E | projection/grid checks; no threshold claim |
-| Gaussian compilation | S | S | E | E | channel and structural tests |
-| Cubic injection/Kerr synthesis | — | — | E | E | finite-resource and synthesis refinement |
+"Native Gaussian" is `native-gaussian`. "Pure Fock" covers `piquasso-fock` and
+`native-fock`; "Mixed Fock" covers `piquasso-mixed-fock` and `native-mixed-fock`.
+The native engines (compiled `photographiq._native`) declare the same
+capabilities as their Python/Piquasso counterparts, plus `cross_kerr` on the
+native Fock engines. `photographiq.registry.describe_backend(name)` returns the
+capabilities a backend class declares; that class attribute, not this page, is
+authoritative.
+
+| Feature | NumPy Gaussian | Piquasso Gaussian | Native Gaussian | Pure Fock | Mixed Fock | Evidence |
+|---|---|---|---|---|---|---|
+| Homodyne | S | S | E | E | E | analytical conditioning, pure/mixed comparison |
+| Noisy homodyne | S | S | E | — | E | Gaussian moments, convolution density |
+| Heterodyne/general-dyne | S | S | E | — | — | Gaussian analytical references |
+| Postselection with likelihoods | S | S | E | E | E | closed-form Gaussian conditioning; converged Fock postselection |
+| PNR | — | — | — | E | E | Born probabilities and conditional states |
+| Rank-one finite instruments | — | — | — | E | E | complex rank-one conditioning; `native-fock` vs `piquasso-fock` |
+| Multi-Kraus instruments / finite-outcome POVMs | — | — | — | — | E | multi-Kraus retained updates (tested on `piquasso-mixed-fock`; on `native-mixed-fock` against an explicit partial trace in `tests/native/test_native_mixed_fock_backend.py`); pure backends reject before allocation |
+| Physical GKP X/Z readout | — | — | — | E | E | independent comb integrals; `native-fock` vs `piquasso-fock` |
+| CZ, rotation, squeezing | S | S | E | E | E | matrices, raw native references |
+| Cubic/Kerr execution | — | — | — | E | E | independent Fock references |
+| Cross-Kerr (backend method, no Pattern command) | — | — | — | E (native only) | E (native only) | Piquasso cross-Kerr gate |
+| Cat resources | — | — | — | E | E | parity and Wigner checks |
+| Photon subtraction | — | — | — | E | E | ladder factors; physical tap probabilities |
+| Loss/thermal noise | S | S | E | — | E | analytical moments/binomial loss |
+| GKP resources | — | — | — | E | E | projection/grid checks; no threshold claim |
+| Gaussian compilation | S | S | E | E | E | channel and structural tests |
+| Cubic injection/Kerr synthesis | — | — | — | E | E | finite-resource and synthesis refinement |
+
+Native Gaussian is checked against the NumPy Gaussian backend trajectory by
+trajectory (tests/native/test_native_gaussian_backend.py). The native Fock
+engines are checked against Piquasso and exact Gaussian moments
+(tests/native). They differ from Piquasso at truncation level for some gates;
+see the `photographiq.backends.native_fock` module docstring.
 
 JAX is a separate experimental execution API for dense Fock generators, ideal
 fixed-outcome homodyne/PNR and vacuum loss. It is not an automatically selected
-backend for `simulate`. Arbitrary-order flow search, general POVMs, physical
-hardware execution and a fault-tolerant GKP architecture remain unsupported.
+backend for `simulate`. Infinite-outcome or continuous POVMs beyond the listed
+measurements, physical hardware execution and a fault-tolerant GKP architecture
+remain unsupported.
+
+## Modules outside `simulate`
+
+| Module | Status | Scope | Evidence |
+|---|---|---|---|
+| `photographiq.sampling` (boson sampling, GBS) | E | exact probabilities (permanents, hafnians, loop hafnians, torontonians) and exact sampling (PNR GBS within a photon cutoff, the omitted mass returned as an explicit overflow outcome); CPU only (NumPy or compiled kernels) | independent Fock-space construction, closed forms, Piquasso (tests/sampling) |
+| `photographiq.flows` qubit causal flow, gflow, Pauli flow | E | complete layered finders returning maximally delayed layers, plus independent verifiers | statevector determinism of every branch, Graphix cross-check (tests/flow) |
+| `photographiq.flows` CV flow (`Model.CV_GAUSSIAN`) | E | real-linear order search (`search_cv_order`) and numerical determinism check by Gaussian postselection | tests/flow/test_flows_cv.py |
+| `photographiq.flows` non-Gaussian CV and GKP logical models | — | `analyze` returns `unsupported` | — |
+| `photographiq.calculus` | E | qubit measurement calculus, local Cliffords, ZX rewrites, exact on small models; CV view is command-level only (no CV graphical calculus) | exact tensor semantics, Graphix cross-check (tests/calculus) |
+| `photographiq.gpu` (CuPy) | E | batched Gaussian kernels only (symplectic update, homodyne conditioning, densities, purity, fidelity); never falls back to CPU silently | GPU and CPU paths against the NumPy Gaussian backend (tests/gpu; GPU tests skip without CuPy or a CUDA device) |
+| `cudaq-dynamics` backend | — | availability probe only; no pattern execution, no declared capabilities | registry planner tests; `cudaq` is not installable on native Windows |
 
 ## v0.3 scientific acceptance matrix
 
