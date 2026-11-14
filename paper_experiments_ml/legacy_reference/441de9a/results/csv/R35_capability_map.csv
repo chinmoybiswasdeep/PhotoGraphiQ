@@ -1,0 +1,16 @@
+center,offset,angle,expected_supported,actual_supported,correct
+zero,-1e-13,-1e-13,False,False,True
+zero,-1e-15,-1e-15,True,True,True
+zero,0.0,0.0,True,True,True
+zero,1e-15,1e-15,True,True,True
+zero,1e-13,1e-13,False,False,True
+pi,-1e-13,3.141592653589693,False,False,True
+pi,-1e-15,3.1415926535897922,True,True,True
+pi,0.0,3.141592653589793,True,True,True
+pi,1e-15,3.141592653589794,True,True,True
+pi,1e-13,3.141592653589893,False,False,True
+Y_pi_over_2,,1.5707963267948966,False,False,True
+pi_over_4,,0.7853981633974483,False,False,True
+irrational_multiple,,1.23456789,False,False,True
+nan,,nan,False,False,True
+inf,,inf,False,False,True

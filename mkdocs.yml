@@ -129,10 +129,18 @@ nav:
   - Research:
       - Theory:
           - Overview: theory/index.md
-          - Gaussian conventions: theory/gaussian.md
-          - Nonlinear synthesis: theory/nonlinear-synthesis.md
+          - Gaussian states and channels: theory/gaussian.md
+          - CV cluster states: theory/cluster-states.md
+          - Compilation: theory/compilation.md
+          - Fock and non-Gaussian: theory/non-gaussian.md
           - Mixed conditioning: theory/mixed-state-conditioning.md
+          - Nonlinear synthesis: theory/nonlinear-synthesis.md
           - GKP: theory/gkp.md
+          - GKP measurement: theory/gkp-measurement.md
+          - GKP decoding: theory/gkp-decoding.md
+          - Flow and determinism: theory/flow.md
+          - Calculus: theory/calculus.md
+          - Boson sampling and GBS: theory/sampling.md
           - Gradient estimators: theory/gradient-estimators.md
       - Validation: validation/index.md
       - Feature matrix: validation/feature-matrix.md
@@ -172,6 +180,7 @@ nav:
       - Native engines: api/native.md
   - PhotoGraphiQML:
       - Overview: ml/index.md
+      - Guide (models, backends, validation): ml/guide.md
       - Input/output contract: ml/api.md
       - Tutorials: ml/tutorials/index.md
       - Physical architecture: ml/physical/architecture.md

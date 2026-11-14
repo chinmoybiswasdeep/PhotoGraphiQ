@@ -1,0 +1,105 @@
+{
+  "rows": [
+    {
+      "seed": 7,
+      "selected_parameters": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact_categorical": true,
+      "training_trajectory_accuracy": 1.0,
+      "fresh_trajectory_accuracy": 0.0,
+      "accuracy_changed": true
+    },
+    {
+      "seed": 19,
+      "selected_parameters": [
+        0.0,
+        3.141593,
+        0.0,
+        0.0
+      ],
+      "exact_categorical": true,
+      "training_trajectory_accuracy": 1.0,
+      "fresh_trajectory_accuracy": 1.0,
+      "accuracy_changed": false
+    },
+    {
+      "seed": 23,
+      "selected_parameters": [
+        0.0,
+        3.141593,
+        0.0,
+        0.0
+      ],
+      "exact_categorical": true,
+      "training_trajectory_accuracy": 1.0,
+      "fresh_trajectory_accuracy": 0.75,
+      "accuracy_changed": true
+    },
+    {
+      "seed": 31,
+      "selected_parameters": [
+        0.0,
+        3.141593,
+        0.0,
+        0.0
+      ],
+      "exact_categorical": true,
+      "training_trajectory_accuracy": 1.0,
+      "fresh_trajectory_accuracy": 1.0,
+      "accuracy_changed": false
+    },
+    {
+      "seed": 42,
+      "selected_parameters": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "exact_categorical": true,
+      "training_trajectory_accuracy": 1.0,
+      "fresh_trajectory_accuracy": 1.0,
+      "accuracy_changed": false
+    },
+    {
+      "seed": 101,
+      "selected_parameters": [
+        0.0,
+        3.141593,
+        0.0,
+        0.0
+      ],
+      "exact_categorical": true,
+      "training_trajectory_accuracy": 1.0,
+      "fresh_trajectory_accuracy": 1.0,
+      "accuracy_changed": false
+    }
+  ],
+  "protocol": "DiscreteSearch classifier stability across training seeds, fresh-trajectory re-evaluation",
+  "oracle_class": "N/A",
+  "status_category": "statistical",
+  "n_seeds": 6,
+  "instability_rate": 0.3333333333333333,
+  "distinct_selected_configurations": 2,
+  "acceptance_condition": "all accuracies finite and in [0,1]; every selected configuration exactly categorical {0,pi}",
+  "finding": "Selected configurations and their fresh-trajectory accuracy vary across training seeds; this documents instability, not a robust classifier-performance claim (per docs/physical/physical-training.md).",
+  "structural_status": "pass",
+  "scientific_outcome": "negative",
+  "claim_supported": "Fresh-trajectory physical-training instability was observed under the declared six-seed protocol.",
+  "claim_not_supported": "Robust physical classifier performance is not demonstrated.",
+  "seeds": [
+    7,
+    19,
+    23,
+    31,
+    42,
+    101
+  ],
+  "uncertainty_method": "six-seed empirical instability rate (small-n; no population CI claim)",
+  "status": "pass",
+  "execution_status": "completed"
+}

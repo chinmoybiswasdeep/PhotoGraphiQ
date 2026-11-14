@@ -1,0 +1,66 @@
+{
+  "rows": [
+    {
+      "n_samples": 2,
+      "symmetry_error": 0.0,
+      "diagonal_error": 2.220446049250313e-15,
+      "minimum_eigenvalue": 0.1334808072500257,
+      "maximum_eigenvalue": 1.8665191927499718,
+      "condition_number": 13.98342751444225
+    },
+    {
+      "n_samples": 4,
+      "symmetry_error": 0.0,
+      "diagonal_error": 3.552713678800501e-15,
+      "minimum_eigenvalue": 0.0001401137831491383,
+      "maximum_eigenvalue": 3.886102195738823,
+      "condition_number": 27735.33130286278
+    },
+    {
+      "n_samples": 8,
+      "symmetry_error": 2.220446049250313e-16,
+      "diagonal_error": 3.9968028886505635e-15,
+      "minimum_eigenvalue": -2.493161743530866e-15,
+      "maximum_eigenvalue": 7.558978460664632,
+      "condition_number": 3.4042612578750844e+16
+    },
+    {
+      "n_samples": 16,
+      "symmetry_error": 4.440892098500626e-16,
+      "diagonal_error": 4.440892098500626e-15,
+      "minimum_eigenvalue": -1.8129824788842052e-15,
+      "maximum_eigenvalue": 15.100251078601463,
+      "condition_number": 6.800548513079048e+16
+    },
+    {
+      "n_samples": 32,
+      "symmetry_error": 4.440892098500626e-16,
+      "diagonal_error": 4.440892098500626e-15,
+      "minimum_eigenvalue": -3.658182572448428e-15,
+      "maximum_eigenvalue": 29.1018355366341,
+      "condition_number": 1.3106301567858278e+17
+    },
+    {
+      "n_samples": 64,
+      "symmetry_error": 4.440892098500626e-16,
+      "diagonal_error": 4.440892098500626e-15,
+      "minimum_eigenvalue": -1.2198544144939099e-14,
+      "maximum_eigenvalue": 58.604606220279706,
+      "condition_number": 2.6393168273584634e+17
+    }
+  ],
+  "protocol": "MuTAKernel Gram-matrix symmetry/diagonal/PSD/conditioning vs. sample size",
+  "oracle_class": "A",
+  "status_category": "exact",
+  "tolerance": 2.220446049250313e-14,
+  "acceptance_condition": "max symmetry/diagonal error < 2.220e-14; minimum eigenvalue > -2.220e-14",
+  "max_symmetry_error": 4.440892098500626e-16,
+  "max_diagonal_error": 4.440892098500626e-15,
+  "min_eigenvalue_overall": -1.2198544144939099e-14,
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

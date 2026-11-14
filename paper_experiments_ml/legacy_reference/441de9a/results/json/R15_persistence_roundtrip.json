@@ -1,0 +1,48 @@
+{
+  "rows": [
+    {
+      "schema": 1,
+      "config": "n2L11cf",
+      "execution_error": 0.0,
+      "values_match": true,
+      "frozen_match": true,
+      "config_match": true
+    },
+    {
+      "schema": 1,
+      "config": "n1L21cr",
+      "execution_error": 0.0,
+      "values_match": true,
+      "frozen_match": true,
+      "config_match": true
+    },
+    {
+      "schema": 1,
+      "config": "n3L1ncf",
+      "execution_error": 0.0,
+      "values_match": true,
+      "frozen_match": true,
+      "config_match": true
+    },
+    {
+      "schema": 2,
+      "config": "physical_1wire",
+      "execution_error": 0.0,
+      "values_match": true,
+      "frozen_match": true,
+      "config_match": true
+    }
+  ],
+  "protocol": "MuTA/PhysicalMuTA save/load round trip and unsupported-schema rejection",
+  "oracle_class": "E",
+  "status_category": "exact",
+  "acceptance_condition": "max_execution_error == 0; all config/values/frozen match; unsupported schema raises ValueError",
+  "max_execution_error": 0.0,
+  "unsupported_schema_rejected": true,
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

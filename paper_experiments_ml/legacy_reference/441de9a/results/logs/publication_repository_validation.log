@@ -1,0 +1,468 @@
+$ D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQML\.venv\Scripts\python.exe scripts/validate_release.py --output-dir D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQML\paper_experiments\results\validation\ea56bf364c71-20260924T235941Z
+
+--- stdout ---
+============================= test session starts =============================
+platform win32 -- Python 3.14.4, pytest-9.1.1, pluggy-1.6.0
+rootdir: D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQML
+configfile: pyproject.toml
+testpaths: tests
+plugins: cov-7.1.0
+collected 142 items
+
+tests\cross_layer\test_contract.py ..                                    [  1%]
+tests\cross_layer\test_discrete.py ....                                  [  4%]
+tests\cross_layer\test_frames.py .                                       [  4%]
+tests\cross_layer\test_physical_execution.py ........                    [ 10%]
+tests\gkp\test_bridge.py ...                                             [ 12%]
+tests\lowering\test_preflight.py ........................                [ 29%]
+tests\mentpy_reference\test_derived_outputs.py ..                        [ 30%]
+tests\mentpy_reference\test_reference.py ............................... [ 52%]
+.                                                                        [ 53%]
+tests\muta\test_core_dependency.py .                                     [ 54%]
+tests\muta\test_logical.py ...................................           [ 78%]
+tests\muta\test_parameters.py ..                                         [ 80%]
+tests\muta\test_visualization.py .                                       [ 80%]
+tests\paper_experiments\test_experiment_consistency.py ...............   [ 91%]
+tests\training\test_contracts.py ...                                     [ 93%]
+tests\training\test_diagnostics.py ..                                    [ 95%]
+tests\training\test_learning.py .......                                  [100%]
+
+============================== warnings summary ===============================
+tests/cross_layer/test_discrete.py::test_physical_supervised_head_real_shots[MuTAClassifier-labels0]
+tests/cross_layer/test_discrete.py::test_physical_supervised_head_real_shots[MuTARegressor-labels1]
+tests/cross_layer/test_physical_execution.py::test_conditional_against_independent_public_pattern
+tests/cross_layer/test_physical_execution.py::test_physical_shots_repeatability_and_error_estimates
+tests/cross_layer/test_physical_execution.py::test_independent_whole_model_study
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998277; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_discrete.py::test_physical_supervised_head_real_shots[MuTAClassifier-labels0]
+tests/cross_layer/test_discrete.py::test_physical_supervised_head_real_shots[MuTARegressor-labels1]
+tests/cross_layer/test_physical_execution.py::test_physical_shots_repeatability_and_error_estimates
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99997429; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_discrete.py::test_physical_supervised_head_real_shots[MuTAClassifier-labels0]
+tests/cross_layer/test_discrete.py::test_physical_supervised_head_real_shots[MuTARegressor-labels1]
+tests/cross_layer/test_physical_execution.py::test_physical_shots_repeatability_and_error_estimates
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99961145; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_discrete.py::test_physical_supervised_head_real_shots[MuTAClassifier-labels0]
+tests/cross_layer/test_discrete.py::test_physical_supervised_head_real_shots[MuTARegressor-labels1]
+tests/cross_layer/test_physical_execution.py::test_physical_shots_repeatability_and_error_estimates
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99969209; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_discrete.py::test_physical_supervised_head_real_shots[MuTAClassifier-labels0]
+tests/cross_layer/test_discrete.py::test_physical_supervised_head_real_shots[MuTARegressor-labels1]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99965666; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_discrete.py::test_physical_supervised_head_real_shots[MuTAClassifier-labels0]
+tests/cross_layer/test_discrete.py::test_physical_supervised_head_real_shots[MuTARegressor-labels1]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99901946; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_discrete.py::test_physical_supervised_head_real_shots[MuTAClassifier-labels0]
+tests/cross_layer/test_discrete.py::test_physical_supervised_head_real_shots[MuTARegressor-labels1]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99985578; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_discrete.py::test_physical_supervised_head_real_shots[MuTAClassifier-labels0]
+tests/cross_layer/test_discrete.py::test_physical_supervised_head_real_shots[MuTARegressor-labels1]
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99986089; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_conditional_against_independent_public_pattern
+tests/cross_layer/test_physical_execution.py::test_independent_whole_model_study
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998148; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_conditional_against_independent_public_pattern
+tests/cross_layer/test_physical_execution.py::test_independent_whole_model_study
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998547; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_conditional_against_independent_public_pattern
+tests/cross_layer/test_physical_execution.py::test_independent_whole_model_study
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998654; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_physical_shots_repeatability_and_error_estimates
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998112; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_physical_shots_repeatability_and_error_estimates
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.9999605; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_physical_shots_repeatability_and_error_estimates
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99996385; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_physical_shots_repeatability_and_error_estimates
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99996415; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_physical_shots_repeatability_and_error_estimates
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99991331; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_physical_shots_repeatability_and_error_estimates
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99996912; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_two_wire_joint_readout_retains_correlations
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998256; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_two_wire_joint_readout_retains_correlations
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999642; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_two_wire_joint_readout_retains_correlations
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\simulator.py:238: RuntimeWarning: preparation: retained Fock norm 0.99999931; test a larger cutoff
+    engine.prepare(c.node, value(c.squeezing), c.state)
+
+tests/cross_layer/test_physical_execution.py::test_two_wire_joint_readout_retains_correlations
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.9998518; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_two_wire_joint_readout_retains_correlations
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\simulator.py:238: RuntimeWarning: preparation: retained Fock norm 0.99999998; test a larger cutoff
+    engine.prepare(c.node, value(c.squeezing), c.state)
+
+tests/cross_layer/test_physical_execution.py::test_two_wire_joint_readout_retains_correlations
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99995346; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_two_wire_joint_readout_retains_correlations
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99993769; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_two_wire_joint_readout_retains_correlations
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99990024; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_two_wire_joint_readout_retains_correlations
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998662; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_two_wire_joint_readout_retains_correlations
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998311; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_two_wire_joint_readout_retains_correlations
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998326; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_two_wire_joint_readout_retains_correlations
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998669; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_two_wire_joint_readout_retains_correlations
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998467; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_two_wire_joint_readout_retains_correlations
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998682; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_two_wire_joint_readout_retains_correlations
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99985876; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_two_wire_joint_readout_retains_correlations
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99995573; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_two_wire_joint_readout_retains_correlations
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999885; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_two_wire_joint_readout_retains_correlations
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\simulator.py:238: RuntimeWarning: preparation: retained Fock norm 0.99999996; test a larger cutoff
+    engine.prepare(c.node, value(c.squeezing), c.state)
+
+tests/cross_layer/test_physical_execution.py::test_two_wire_joint_readout_retains_correlations
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99997869; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_two_wire_joint_readout_retains_correlations
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998331; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_two_wire_joint_readout_retains_correlations
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998698; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_two_wire_joint_readout_retains_correlations
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998507; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/cross_layer/test_physical_execution.py::test_two_wire_joint_readout_retains_correlations
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998315; test a larger cutoff
+    self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+
+tests/gkp/test_bridge.py::test_representation_boundary
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQML\tests\gkp\test_bridge.py:30: DeprecationWarning: Legacy 'gkp' remains resource-only. Use 'gkp-resource' or explicitly construct PhysicalMuTA for the supported physical subset.
+    model = MuTA(1, representation="gkp")
+
+tests/training/test_contracts.py::test_supervised_contract_does_not_broadcast_or_train_gkp
+  D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQML\tests\training\test_contracts.py:38: DeprecationWarning: Legacy 'gkp' remains resource-only. Use 'gkp-resource' or explicitly construct PhysicalMuTA for the supported physical subset.
+    MuTAClassifier(MuTA(1, representation="gkp"))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=============================== tests coverage ================================
+_______________ coverage: platform win32, python 3.14.4-final-0 _______________
+
+Name                                      Stmts   Miss  Cover   Missing
+-----------------------------------------------------------------------
+src\photographiqml\__init__.py               12      0   100%
+src\photographiqml\ansatz\__init__.py         0      0   100%
+src\photographiqml\ansatz\muta.py           124      2    98%   139, 187
+src\photographiqml\ansatz\triangle.py        41      0   100%
+src\photographiqml\diagnostics.py            15      2    87%   18, 26
+src\photographiqml\expressivity.py           37      1    97%   47
+src\photographiqml\gkp.py                    42      0   100%
+src\photographiqml\kernels.py                24      2    92%   15, 40
+src\photographiqml\logical.py                52      1    98%   70
+src\photographiqml\lowering.py              159      1    99%   110
+src\photographiqml\models.py                129      4    97%   16, 140, 168, 202
+src\photographiqml\parameters.py             45      1    98%   44
+src\photographiqml\physical.py              143      1    99%   164
+src\photographiqml\physical_training.py      34      0   100%
+src\photographiqml\training.py               64      3    95%   40, 42, 44
+src\photographiqml\validation.py             72      6    92%   18, 22, 59-60, 62, 77
+-----------------------------------------------------------------------
+TOTAL                                       993     24    98%
+Coverage JSON written to file D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQML\paper_experiments\results\validation\ea56bf364c71-20260924T235941Z\coverage.json
+Required test coverage of 90% reached. Total coverage: 97.58%
+================= 142 passed, 59 warnings in 66.63s (0:01:06) =================
+All checks passed!
+171 files already formatted
+Success: no issues found in 16 source files
+Successfully built photographiqml-0.2.0.tar.gz and photographiqml-0.2.0-py3-none-any.whl
+examples\tutorials\01.py
+[1. 0.]
+examples\tutorials\02.py
+[0.5 0.  0.  0.5]
+examples\tutorials\03.py
+MuTA (logical)
+Wires: 2
+Requested layers: 1
+Paper layers: 1
+Trainable parameters: 8
+Resource nodes: 10
+Measurements: 8
+CZ edges: 10
+Causal dependencies: 17
+examples\tutorials\04.py
+[((0, 0), (0, 1)), ((0, 1), (0, 2)), ((0, 1), (1, 0)), ((0, 1), (1, 2)), ((0, 2), (0, 3)), ((0, 3), (0, 4)), ((1, 0), (1, 1)), ((1, 1), (1, 2)), ((1, 2), (1, 3)), ((1, 3), (1, 4))]
+examples\tutorials\05.py
+MuTA (logical)
+Wires: 3
+Requested layers: 1
+Paper layers: 3
+Trainable parameters: 36
+Resource nodes: 39
+Measurements: 36
+CZ edges: 48
+Causal dependencies: 91
+examples\tutorials\06.py
+((0, 8), (1, 8))
+examples\tutorials\07.py
+['alpha.w0.c0', 'alpha.w0.c1', 'alpha.w0.c2']
+examples\tutorials\08.py
+[0. 1. 0. 0.]
+examples\tutorials\09.py
+[0.5 0.  0.  0.5]
+examples\tutorials\10.py
+2e-06
+examples\tutorials\11.py
+3.999999999999999
+examples\tutorials\12.py
+[1 0]
+examples\tutorials\13.py
+[(0, 0.5), (1, 0.5)]
+examples\tutorials\14.py
+[[1.     0.8486 0.8486]
+ [0.8486 1.     1.    ]
+ [0.8486 1.     1.    ]]
+examples\tutorials\15.py
+[0.3 0.3]
+examples\tutorials\16.py
+[ 0.6 -0.4]
+examples\tutorials\17.py
+[0. 0.]
+examples\tutorials\18.py
+[[0.270671 0.      ]
+ [0.       0.270671]]
+examples\tutorials\19.py
+Legacy resource-only execution is unsupported; ideal target remains logical
+examples\tutorials\20.py
+Logical density agreement: True
+examples\tutorials\21.py
+Identity extension verified
+examples\tutorials\22.py
+0.644218
+examples\tutorials\23.py
+Topology and angle constraints are explicit
+examples\tutorials\24.py
+Local rank: 2
+examples\tutorials\25.py
+Logical model round trip verified
+examples\tutorials\26.py
+0.9999999999999993
+examples\tutorials\27.py
+0.0
+examples\tutorials\28.py
+[0, 1, 2, 3]
+examples\tutorials\29.py
+CV cell ingredient verified; CVMuTA is a proposal
+examples\tutorials\30.py
+GKP captured weights: [0.99911 0.99983]
+examples\tutorials\31_photographiq_031_encoded_interface.py
+{'version': '0.3.1', 'audited_commit': 'db07f9f9bf47da841bfa6b206562c5a3ffb121d3'}
+{'cutoff': 24, 'captured_weights': [1.0, 0.999999999991365], 'codeword_overlap': 0.5339586741671603, 'gram_eigenvalues': [0.46604132583283975, 1.5339586741671603], 'physical_muta_validated': False}
+examples\tutorials\32_physical_gkp_x_measurement.py
+LogicalDecodeResult(bit=0, raw_outcome=0.2, cell=0, residual=0.2, decoder='nearest-cell', confidence=None, probabilities=None, code_subspace_leakage=None, frame_correction=0)
+examples\tutorials\33_physical_gkp_z_measurement.py
+LogicalDecodeResult(bit=0, raw_outcome=0.2, cell=0, residual=0.2, decoder='nearest-cell', confidence=None, probabilities=None, code_subspace_leakage=None, frame_correction=0)
+examples\tutorials\34_restricted_physical_muta.py
+{'alpha.w0.c0': np.float64(3.141592653589793), 'alpha.w0.c1': np.float64(3.141592653589793), 'alpha.w0.c2': np.float64(3.141592653589793), 'alpha.w0.c3': np.float64(3.141592653589793)}
+{'peak_live_modes': 2, 'hilbert_dimension': 300, 'cz_operations': 4}
+examples\tutorials\35_zero-angle_physical_muta.py
+{(0,): 0.8271510787751981, (1,): 0.17284892122480164}
+[{(0, 4): 0.00021750138882559167}]
+examples\tutorials\36_pauli-frame_propagation.py
+LogicalPauliFrame(x_bit=1, z_bit=0)
+examples\tutorials\37_hard_vs_soft_decoding.py
+hard confidence: None
+preparation posterior: (np.float64(0.9573438096254954), np.float64(0.042656190374504646))
+examples\tutorials\38_multi-mode_joint_readout.py
+{(0, 0): 0.6578184991070793, (0, 1): 0.15903906568906884, (1, 0): 0.14565397323522333, (1, 1): 0.03748846196862815}
+connected probability: 0.0014959319688053752
+examples\tutorials\39_physical_shots_and_statistical_error.py
+mean conditional POVM: {(0,): 0.7130826296347751, (1,): 0.2869173703652246}
+standard errors: {(0,): 0.060778554260392, (1,): 0.06077855426039197}
+sampled bit frequencies: {(0,): 0.3333333333333333, (1,): 0.6666666666666666}
+examples\tutorials\40_logical_vs_physical_comparison.py
+{'total_variation_distance': 0.17284892122480144, 'observable_differences': [-0.3456978424496029], 'comparison_mode': 'physical-conditional', 'finite_state_fidelity': None, 'marginal_code_subspace_leakage': [{(0, 4): 0.00021750138882559167}], 'convergence': {'certified': False, 'reason': 'A single resource setting is not a convergence study'}}
+examples\tutorials\41_physical_convergence.py
+numerical refinement
+[None, 2.220446049250313e-16]
+examples\tutorials\42_unsupported_arbitrary_xy_why_it_fails.py
+Physical GKP MuTA cannot lower alpha.w0.c1=0.37 rad: PhotoGraphiQ 0.3.1 supports physical XY only at 0 and pi modulo 2pi (absolute tolerance 1e-14). Use representation='logical' or an explicit discrete X family; other angles require a validated LogicalMeasurementSynthesis protocol.
+examples\tutorials\43_logical_training_to_physical_validation.py
+Physical GKP MuTA cannot lower alpha.w0.c0=0.49995317302484121 rad: PhotoGraphiQ 0.3.1 supports physical XY only at 0 and pi modulo 2pi (absolute tolerance 1e-14). Use representation='logical' or an explicit discrete X family; other angles require a validated LogicalMeasurementSynthesis protocol.
+examples\tutorials\44_discrete_physical-angle_search.py
+selected: [0. 0. 0. 0.]
+estimated error: 0.18161338187027842
+notebooks\01_quickstart.ipynb
+notebooks\02_muta.ipynb
+notebooks\03_gate_learning.ipynb
+notebooks\04_quantum_kernel.ipynb
+notebooks\05_gkp_resources.ipynb
+
+
+--- stderr ---
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - hatchling>=1.25
+* Getting build dependencies for sdist...
+* Installed build dependency versions:
+  - hatchling==1.32.4
+* Building sdist...
+* Building wheel from sdist
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - hatchling>=1.25
+* Getting build dependencies for wheel...
+* Installed build dependency versions:
+  - hatchling==1.32.4
+* Building wheel...
+INFO    -  Cleaning site directory
+INFO    -  Building documentation to directory: D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQML\paper_experiments\results\validation\ea56bf364c71-20260924T235941Z\site
+INFO    -  Documentation built in 0.43 seconds
+examples\tutorials\19.py:3: DeprecationWarning: Legacy 'gkp' remains resource-only. Use 'gkp-resource' or explicitly construct PhysicalMuTA for the supported physical subset.
+  m = pqml.MuTA(1, representation="gkp")
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998277; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998148; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998547; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998654; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998256; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999642; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\simulator.py:238: RuntimeWarning: preparation: retained Fock norm 0.99999931; test a larger cutoff
+  engine.prepare(c.node, value(c.squeezing), c.state)
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.9998518; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\simulator.py:238: RuntimeWarning: preparation: retained Fock norm 0.99999998; test a larger cutoff
+  engine.prepare(c.node, value(c.squeezing), c.state)
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99995346; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99993769; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99990024; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998662; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998311; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998326; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998669; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998467; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998682; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99985876; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99995573; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999885; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\simulator.py:238: RuntimeWarning: preparation: retained Fock norm 0.99999996; test a larger cutoff
+  engine.prepare(c.node, value(c.squeezing), c.state)
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99997869; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998331; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998698; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998507; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998315; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99997429; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99961145; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99969209; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998112; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.9999605; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99996385; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99996415; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99991331; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99996912; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+

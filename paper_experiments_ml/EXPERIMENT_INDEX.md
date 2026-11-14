@@ -71,6 +71,12 @@ Output files follow `<ID>_<name>.{csv,json,metadata.json}` in
 | R58 | `13_extended/58_physical_resource_boundary.py` | Where is the signed-X physical path usable under a predeclared resource criterion? | `physical_capabilities`, `PhysicalMuTA.run` | Capability audit/retained norm | E | retained norm; resource dimension | supported and retained norm >=0.90 | statistical | heavy | Appendix/Fig.21 | Pass |
 | R59 | `13_extended/59_end_to_end_scaling.py` | What runtime/memory scaling is observed across end-to-end pipelines? | logical/kernel/training/physical APIs | `perf_counter`, `tracemalloc` | N/A | median seconds; IQR; peak bytes | finite measured values and bounded-range fits | statistical | moderate | Appendix/Fig.22 | Pass |
 
+Backend note: every physical experiment above runs on `piquasso-fock`. The second
+validated Fock engine, `native-fock`, is compared with it on this suite's physical path in
+core experiment PGQ-R59 (`paper_experiments/20_photographiqml/59_photographiqml_physical.py`),
+which is unrelated to PGML-R59 above. MentPy-dependent rows (R7-R13, R20, R21) need MentPy installed.
+Without it they stop with `ModuleNotFoundError`, which counts as "unavailable", not as a failure.
+
 See `STATUS.md` for measured runtimes/pass-fail from the latest execution,
 `ISSUES_FOUND.md` for genuine findings, and `MANUSCRIPT_MAP.md` for the
 proposed figure/table/claim mapping.

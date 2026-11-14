@@ -1,6 +1,71 @@
 {
   "rows": [
     {
+      "backend": "native-fock",
+      "gamma": 0.15,
+      "resource_squeezing": 0.1,
+      "cutoff": 24,
+      "ok": true,
+      "fidelity_to_ideal_cubic_phase": 0.9469313312462367,
+      "trace_distance_estimate": 0.23036637939109791,
+      "outcome_density": 0.25820074571125373,
+      "outcome_kind": "density",
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.999999002080497,
+      "native_vs_piquasso_fidelity": 0.9999999871573497
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.15,
+      "resource_squeezing": 0.3,
+      "cutoff": 24,
+      "ok": true,
+      "fidelity_to_ideal_cubic_phase": 0.9706011792358804,
+      "trace_distance_estimate": 0.17146084323868116,
+      "outcome_density": 0.23085345045163802,
+      "outcome_kind": "density",
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999741843987144,
+      "native_vs_piquasso_fidelity": 0.9999994628668532
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.15,
+      "resource_squeezing": 0.6,
+      "cutoff": 24,
+      "ok": false,
+      "error": "Fock truncation norm 0.99882411; increase cutoff=24",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.15,
+      "resource_squeezing": 1.0,
+      "cutoff": 24,
+      "ok": false,
+      "error": "Fock truncation norm 0.97942754; increase cutoff=24",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.15,
+      "resource_squeezing": 1.5,
+      "cutoff": 24,
+      "ok": false,
+      "error": "Fock truncation norm 0.9696007; increase cutoff=24",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.15,
+      "resource_squeezing": 2.0,
+      "cutoff": 24,
+      "ok": false,
+      "error": "Fock truncation norm 0.81062528; increase cutoff=24",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "piquasso-fock",
       "gamma": 0.15,
       "resource_squeezing": 0.1,
       "cutoff": 24,
@@ -9,9 +74,12 @@
       "trace_distance_estimate": 0.23037037288305862,
       "outcome_density": 0.25819985949489505,
       "outcome_kind": "density",
-      "retained_norm": 1.0000000000000004
+      "retained_norm": 1.0000000000000004,
+      "min_retained_norm": 0.9999986460967449,
+      "native_vs_piquasso_fidelity": 0.9999999871573497
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.15,
       "resource_squeezing": 0.3,
       "cutoff": 24,
@@ -20,37 +88,117 @@
       "trace_distance_estimate": 0.17146304085777794,
       "outcome_density": 0.23084832241999104,
       "outcome_kind": "density",
-      "retained_norm": 1.0
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.9999630334180396,
+      "native_vs_piquasso_fidelity": 0.9999994628668532
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.15,
       "resource_squeezing": 0.6,
       "cutoff": 24,
       "ok": false,
-      "error": "Fock truncation norm 0.99836644; increase cutoff=24"
+      "error": "Fock truncation norm 0.99836644; increase cutoff=24",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.15,
       "resource_squeezing": 1.0,
       "cutoff": 24,
       "ok": false,
-      "error": "Fock truncation norm 0.97312438; increase cutoff=24"
+      "error": "Fock truncation norm 0.97312438; increase cutoff=24",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.15,
       "resource_squeezing": 1.5,
       "cutoff": 24,
       "ok": false,
-      "error": "Fock truncation norm 0.9696007; increase cutoff=24"
+      "error": "Fock truncation norm 0.9696007; increase cutoff=24",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.15,
       "resource_squeezing": 2.0,
       "cutoff": 24,
       "ok": false,
-      "error": "Fock truncation norm 0.81062528; increase cutoff=24"
+      "error": "Fock truncation norm 0.81062528; increase cutoff=24",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "native-fock",
+      "gamma": 0.15,
+      "resource_squeezing": 0.1,
+      "cutoff": 32,
+      "ok": true,
+      "fidelity_to_ideal_cubic_phase": 0.9469297078458014,
+      "trace_distance_estimate": 0.23036990288273024,
+      "outcome_density": 0.2581999246705616,
+      "outcome_kind": "density",
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999999479088113,
+      "native_vs_piquasso_fidelity": 0.9999999991307094
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.15,
+      "resource_squeezing": 0.3,
+      "cutoff": 32,
+      "ok": true,
+      "fidelity_to_ideal_cubic_phase": 0.9706013780173363,
+      "trace_distance_estimate": 0.17146026356757924,
+      "outcome_density": 0.2308425892524833,
+      "outcome_kind": "density",
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999965348760617,
+      "native_vs_piquasso_fidelity": 0.9999999241383685
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.15,
+      "resource_squeezing": 0.6,
+      "cutoff": 32,
+      "ok": true,
+      "fidelity_to_ideal_cubic_phase": 0.9889648975795846,
+      "trace_distance_estimate": 0.10504809574863977,
+      "outcome_density": 0.1885002065124549,
+      "outcome_kind": "density",
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9996026534638205,
+      "native_vs_piquasso_fidelity": 0.9999915348457875
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.15,
+      "resource_squeezing": 1.0,
+      "cutoff": 32,
+      "ok": false,
+      "error": "Fock truncation norm 0.98634933; increase cutoff=32",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.15,
+      "resource_squeezing": 1.5,
+      "cutoff": 32,
+      "ok": false,
+      "error": "Fock truncation norm 0.98779474; increase cutoff=32",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.15,
+      "resource_squeezing": 2.0,
+      "cutoff": 32,
+      "ok": false,
+      "error": "Fock truncation norm 0.87133538; increase cutoff=32",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "piquasso-fock",
       "gamma": 0.15,
       "resource_squeezing": 0.1,
       "cutoff": 32,
@@ -59,9 +207,12 @@
       "trace_distance_estimate": 0.2303697282885198,
       "outcome_density": 0.2581998480377396,
       "outcome_kind": "density",
-      "retained_norm": 1.0000000000000002
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999999218173518,
+      "native_vs_piquasso_fidelity": 0.9999999991307094
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.15,
       "resource_squeezing": 0.3,
       "cutoff": 32,
@@ -70,9 +221,12 @@
       "trace_distance_estimate": 0.17145472380574864,
       "outcome_density": 0.2308427912442595,
       "outcome_kind": "density",
-      "retained_norm": 1.0000000000000002
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999947093380677,
+      "native_vs_piquasso_fidelity": 0.9999999241383685
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.15,
       "resource_squeezing": 0.6,
       "cutoff": 32,
@@ -81,30 +235,108 @@
       "trace_distance_estimate": 0.10499688242271214,
       "outcome_density": 0.18853033570005756,
       "outcome_kind": "density",
-      "retained_norm": 1.0
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.9994477791056355,
+      "native_vs_piquasso_fidelity": 0.9999915348457875
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.15,
       "resource_squeezing": 1.0,
       "cutoff": 32,
       "ok": false,
-      "error": "Fock truncation norm 0.98298367; increase cutoff=32"
+      "error": "Fock truncation norm 0.98298367; increase cutoff=32",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.15,
       "resource_squeezing": 1.5,
       "cutoff": 32,
       "ok": false,
-      "error": "Fock truncation norm 0.98779474; increase cutoff=32"
+      "error": "Fock truncation norm 0.98779474; increase cutoff=32",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.15,
       "resource_squeezing": 2.0,
       "cutoff": 32,
       "ok": false,
-      "error": "Fock truncation norm 0.87133538; increase cutoff=32"
+      "error": "Fock truncation norm 0.87133538; increase cutoff=32",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "native-fock",
+      "gamma": 0.15,
+      "resource_squeezing": 0.1,
+      "cutoff": 48,
+      "ok": true,
+      "fidelity_to_ideal_cubic_phase": 0.9469296013256653,
+      "trace_distance_estimate": 0.23037013407630494,
+      "outcome_density": 0.2581998832797809,
+      "outcome_kind": "density",
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999999996309147,
+      "native_vs_piquasso_fidelity": 0.9999999999930274
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.15,
+      "resource_squeezing": 0.3,
+      "cutoff": 48,
+      "ok": true,
+      "fidelity_to_ideal_cubic_phase": 0.9706009885087891,
+      "trace_distance_estimate": 0.1714613994204262,
+      "outcome_density": 0.23084014286870744,
+      "outcome_kind": "density",
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.9999998810995006,
+      "native_vs_piquasso_fidelity": 0.9999999975529266
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.15,
+      "resource_squeezing": 0.6,
+      "cutoff": 48,
+      "ok": true,
+      "fidelity_to_ideal_cubic_phase": 0.9889988344187609,
+      "trace_distance_estimate": 0.10488644136035453,
+      "outcome_density": 0.18843551118131247,
+      "outcome_kind": "density",
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999381671336085,
+      "native_vs_piquasso_fidelity": 0.9999989464421656
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.15,
+      "resource_squeezing": 1.0,
+      "cutoff": 48,
+      "ok": false,
+      "error": "Fock truncation norm 0.99379423; increase cutoff=48",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.15,
+      "resource_squeezing": 1.5,
+      "cutoff": 48,
+      "ok": false,
+      "error": "Fock truncation norm 0.99791089; increase cutoff=48",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.15,
+      "resource_squeezing": 2.0,
+      "cutoff": 48,
+      "ok": false,
+      "error": "Fock truncation norm 0.93791442; increase cutoff=48",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "piquasso-fock",
       "gamma": 0.15,
       "resource_squeezing": 0.1,
       "cutoff": 48,
@@ -113,9 +345,12 @@
       "trace_distance_estimate": 0.2303701172580606,
       "outcome_density": 0.25819988346212447,
       "outcome_kind": "density",
-      "retained_norm": 1.0000000000000002
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999999993436625,
+      "native_vs_piquasso_fidelity": 0.9999999999930274
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.15,
       "resource_squeezing": 0.3,
       "cutoff": 48,
@@ -124,9 +359,12 @@
       "trace_distance_estimate": 0.17146144668460672,
       "outcome_density": 0.23084020461007027,
       "outcome_kind": "density",
-      "retained_norm": 1.0
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.9999997969994467,
+      "native_vs_piquasso_fidelity": 0.9999999975529266
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.15,
       "resource_squeezing": 0.6,
       "cutoff": 48,
@@ -135,28 +373,36 @@
       "trace_distance_estimate": 0.10489985384064653,
       "outcome_density": 0.1884398749341573,
       "outcome_kind": "density",
-      "retained_norm": 1.0000000000000002
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999110221552509,
+      "native_vs_piquasso_fidelity": 0.9999989464421656
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.15,
       "resource_squeezing": 1.0,
       "cutoff": 48,
       "ok": false,
-      "error": "Fock truncation norm 0.99239828; increase cutoff=48"
+      "error": "Fock truncation norm 0.99239828; increase cutoff=48",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.15,
       "resource_squeezing": 1.5,
       "cutoff": 48,
       "ok": false,
-      "error": "Fock truncation norm 0.99791089; increase cutoff=48"
+      "error": "Fock truncation norm 0.99791089; increase cutoff=48",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.15,
       "resource_squeezing": 2.0,
       "cutoff": 48,
       "ok": false,
-      "error": "Fock truncation norm 0.93791442; increase cutoff=48"
+      "error": "Fock truncation norm 0.93791442; increase cutoff=48",
+      "native_vs_piquasso_fidelity": null
     }
   ],
   "gamma": 0.15,
@@ -164,5 +410,16 @@
     0.2,
     0.0
   ],
-  "fixed_outcome": 0.0
+  "fixed_outcome": 0.0,
+  "engines": [
+    "native-fock",
+    "piquasso-fock"
+  ],
+  "main_backend": "native-fock",
+  "monotone_slack": 1e-06,
+  "engine_fidelity_floor": 0.999,
+  "norm_guard_failures": {
+    "native-fock": 10,
+    "piquasso-fock": 10
+  }
 }

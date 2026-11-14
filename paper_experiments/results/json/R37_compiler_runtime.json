@@ -2,90 +2,138 @@
   "rows": [
     {
       "n_gates": 1,
-      "median_compile_seconds": 0.003206399967893958,
-      "std_compile_seconds": 0.0009998185862293615,
-      "iqr_compile_seconds": 0.0003117000451311469,
+      "median_compile_seconds": 0.0011909000168088824,
+      "std_compile_seconds": 4.285502544427158e-05,
+      "iqr_compile_seconds": 6.920003215782344e-05,
       "repeats": 9,
       "warmup": 2,
       "resource_nodes": 4,
       "commands": 17,
-      "measurements": 4
+      "measurements": 4,
+      "median_channel_seconds": 0.0007381000032182783,
+      "median_gaussian_execution_seconds": 0.0027814000204671174,
+      "median_native_gaussian_execution_seconds": 0.0011699000024236739,
+      "relative_map_error": 5.622217108246132e-16,
+      "native_vs_gaussian_record_difference": 0.0
     },
     {
       "n_gates": 2,
-      "median_compile_seconds": 0.008521299983840436,
-      "std_compile_seconds": 0.0008429471808645909,
-      "iqr_compile_seconds": 0.0013052999856881797,
+      "median_compile_seconds": 0.0030537999991793185,
+      "std_compile_seconds": 0.00018243363855674358,
+      "iqr_compile_seconds": 0.00012680000509135425,
       "repeats": 9,
       "warmup": 2,
       "resource_nodes": 12,
       "commands": 50,
-      "measurements": 12
+      "measurements": 12,
+      "median_channel_seconds": 0.0023809999984223396,
+      "median_gaussian_execution_seconds": 0.00725400002556853,
+      "median_native_gaussian_execution_seconds": 0.0023496999929193407,
+      "relative_map_error": 5.263388760031805e-16,
+      "native_vs_gaussian_record_difference": 0.0
     },
     {
       "n_gates": 5,
-      "median_compile_seconds": 0.01918059994932264,
-      "std_compile_seconds": 0.003954957413729948,
-      "iqr_compile_seconds": 0.002869199961423874,
+      "median_compile_seconds": 0.0074647000001277775,
+      "std_compile_seconds": 0.008851366928491658,
+      "iqr_compile_seconds": 0.0007845999789424241,
       "repeats": 9,
       "warmup": 2,
       "resource_nodes": 28,
       "commands": 115,
-      "measurements": 28
+      "measurements": 28,
+      "median_channel_seconds": 0.005375399981858209,
+      "median_gaussian_execution_seconds": 0.01632749999407679,
+      "median_native_gaussian_execution_seconds": 0.005575500021222979,
+      "relative_map_error": 4.690798533165298e-16,
+      "native_vs_gaussian_record_difference": 0.0
     },
     {
       "n_gates": 10,
-      "median_compile_seconds": 0.04539499996462837,
-      "std_compile_seconds": 0.0029257317243966178,
-      "iqr_compile_seconds": 0.0029930000309832394,
+      "median_compile_seconds": 0.015206200012471527,
+      "std_compile_seconds": 0.0010185169717305273,
+      "iqr_compile_seconds": 0.0012166999804321676,
       "repeats": 9,
       "warmup": 2,
       "resource_nodes": 60,
       "commands": 246,
-      "measurements": 60
+      "measurements": 60,
+      "median_channel_seconds": 0.032560699997702613,
+      "median_gaussian_execution_seconds": 0.0347100000071805,
+      "median_native_gaussian_execution_seconds": 0.010907400021096691,
+      "relative_map_error": 5.062304058785843e-16,
+      "native_vs_gaussian_record_difference": 8.881784197001252e-16
     },
     {
       "n_gates": 20,
-      "median_compile_seconds": 0.07443369994871318,
-      "std_compile_seconds": 0.0036254565972521483,
-      "iqr_compile_seconds": 0.005615500034764409,
+      "median_compile_seconds": 0.03111390001140535,
+      "std_compile_seconds": 0.014374420763142728,
+      "iqr_compile_seconds": 0.0018831999914254993,
       "repeats": 9,
       "warmup": 2,
       "resource_nodes": 120,
       "commands": 491,
-      "measurements": 120
+      "measurements": 120,
+      "median_channel_seconds": 0.16914009998436086,
+      "median_gaussian_execution_seconds": 0.07625130002270453,
+      "median_native_gaussian_execution_seconds": 0.021729600004618987,
+      "relative_map_error": 8.266998596966378e-16,
+      "native_vs_gaussian_record_difference": 1.7763568394002505e-15
     },
     {
       "n_gates": 50,
-      "median_compile_seconds": 0.19462449999991804,
-      "std_compile_seconds": 0.1281019058800526,
-      "iqr_compile_seconds": 0.007488099974580109,
+      "median_compile_seconds": 0.08754919999046251,
+      "std_compile_seconds": 0.018278007108019,
+      "iqr_compile_seconds": 0.03237890001037158,
       "repeats": 5,
       "warmup": 1,
       "resource_nodes": 300,
       "commands": 1226,
-      "measurements": 300
+      "measurements": 300,
+      "median_channel_seconds": 0.8835853000055067,
+      "median_gaussian_execution_seconds": 0.183848599990597,
+      "median_native_gaussian_execution_seconds": 0.053184199990937486,
+      "relative_map_error": 6.828798814847552e-15,
+      "native_vs_gaussian_record_difference": 7.105427357601002e-15
     },
     {
       "n_gates": 100,
-      "median_compile_seconds": 0.40340609999839216,
-      "std_compile_seconds": 0.15460472353859062,
-      "iqr_compile_seconds": 0.274524099950213,
+      "median_compile_seconds": 0.19248279999010265,
+      "std_compile_seconds": 0.02231228962247597,
+      "iqr_compile_seconds": 0.0056570000015199184,
       "repeats": 5,
       "warmup": 1,
       "resource_nodes": 600,
       "commands": 2451,
-      "measurements": 600
+      "measurements": 600,
+      "median_channel_seconds": 4.469412500009639,
+      "median_gaussian_execution_seconds": 0.3945402999815997,
+      "median_native_gaussian_execution_seconds": 0.11752339999657124,
+      "relative_map_error": 3.356423753137145e-14,
+      "native_vs_gaussian_record_difference": 5.684341886080802e-14
     }
   ],
   "environment": {
-    "timestamp_utc": "2026-09-15T02:16:56.070829+00:00",
-    "git_commit": "930408142cfd2dbc380976c28aa009d23c44babe",
-    "git_branch": "manuscript-experiments",
+    "timestamp_utc": "2026-11-14T01:22:45.038887+00:00",
+    "git_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+    "git_branch": "upgraded",
     "git_dirty": true,
+    "git_note": "uncommitted working-tree changes on top of git_commit; see source_sha256",
+    "source_sha256": "b7fc8d1a44051f1f07e9fdd64409c88998ab982718e9847af065f4ce55061aa6",
     "python_version": "3.12.14",
     "platform": "Windows-11-10.0.26200-SP0",
     "cpu_model": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+    "cpu_count": 12,
+    "omp_num_threads": null,
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU, 581.86",
+    "native": {
+      "available": true,
+      "components": [
+        "gaussian",
+        "fock",
+        "sampling"
+      ]
+    },
     "packages": {
       "numpy": "2.5.3",
       "scipy": "1.18.1",
@@ -94,7 +142,32 @@
       "piquasso": "8.0.1",
       "photographiq": "0.3.1",
       "graphix": "0.4",
-      "jax": "0.11.1"
+      "jax": "0.11.1",
+      "mpmath": "1.3.0",
+      "numba": "0.67.0",
+      "cupy": null,
+      "mentpy": null
     }
-  }
+  },
+  "timing_environment": {
+    "configuration": "full",
+    "timing_status": "final (idle machine declared via PGQ_IDLE_MACHINE=1)",
+    "os_cpu_count": 12,
+    "OMP_NUM_THREADS": null,
+    "native_build_info": {
+      "compiler": "MSVC 19.50.35729.0",
+      "build_type": "Release",
+      "cxx_standard": 202002,
+      "openmp": true,
+      "eigen": "3.4.0",
+      "hbar": 2.0
+    },
+    "native_components": [
+      "gaussian",
+      "fock",
+      "sampling"
+    ]
+  },
+  "map_tolerance": 1e-09,
+  "native_tolerance": 1e-08
 }

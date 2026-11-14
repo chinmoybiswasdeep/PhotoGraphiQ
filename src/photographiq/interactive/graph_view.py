@@ -39,6 +39,7 @@ from ..commands import (
     Rotate,
     Signal,
     Squeeze,
+    command_dependencies,
     quantum_nodes,
 )
 from ..expressions import resolve
@@ -49,7 +50,7 @@ from ..pattern import Pattern
 from ..states import GaussianInput, GaussianState
 from . import _html
 from ._template import GRAPH_TEMPLATE
-from .layouts import Layout, compute_layout, keyed
+from .layouts import _BEND_STEP, _BEND_TRIES, CLEARANCE, Layout, compute_layout, keyed, route
 from .overlays import Correction, FlowOverlay, normalize_corrections, pattern_corrections
 from .trace import ExecutionTrace
 
@@ -169,9 +170,15 @@ def _pattern_graph(pattern: Pattern, parameters: Mapping) -> tuple[OpenGraph, di
             notes.append(f"BeamSplitter({command.u}, {command.v}) is not a CZ edge; not drawn")
             note(command.u, "beamsplitter (not drawn)")
             note(command.v, "beamsplitter (not drawn)")
-        elif not isinstance(command, (Displace, Signal, Output)):
+        elif isinstance(command, Displace):
+            if not command_dependencies(command):  # feed-forward is drawn as corrections
+                q, p = (resolve(v, {}, parameters) for v in (command.q, command.p))
+                note(command.node, f"constant displacement q={_fmt(q)}, p={_fmt(p)}")
+        elif not isinstance(command, (Signal, Output)):
+            keys = sorted(map(str, command_dependencies(command)))
+            adaptive = f" (adaptive: depends on outcomes {keys})" if keys else ""
             for node in quantum_nodes(command):
-                note(node, f"local {type(command).__name__}")
+                note(node, f"local {type(command).__name__}{adaptive}")
     model = Model.CV_GAUSSIAN if gaussian else Model.CV_NONGAUSSIAN
     graph = OpenGraph(model, network, pattern.inputs, pattern.outputs, measurements, squeezing)
     return graph, {n: "; ".join(t) for n, t in annotations.items()}, notes
@@ -362,6 +369,7 @@ class GraphView:
                         "target": ids[v],
                         "weight": weight,
                         "label": _fmt(weight) if g.model.continuous else "",
+                        "bend": _bend(self.layout, u, v, "physical"),
                     },
                     "classes": "physical",
                 }
@@ -384,10 +392,29 @@ class GraphView:
                         "bend": bend,
                         "z": 1000 - min(round(abs(bend)), 999),  # short arcs (labels) on top
                     },
-                    "classes": kind,
+                    "classes": kind + (" uncertified" if self._uncertified(kind) else ""),
                 }
             )
         return out
+
+    def _uncertified(self, kind: str) -> bool:
+        """Flow arrows of a result that is not ``certified`` are styled as uncertified."""
+        return kind == "flow" and self.flow is not None and self.flow.status != "certified"
+
+    def layouts(self) -> dict[str, Layout]:
+        """Layouts offered by the page: the view's own, then every applicable named one."""
+        options: dict[str, Layout] = {"view": self.layout}  # type: ignore[dict-item]
+        for name in ("publication", "layered", "hierarchical", "grid", "circular", "force"):
+            if name == "layered":
+                if self.flow is None or not (self.flow.layers or self.flow.order):
+                    continue
+                kwargs = (
+                    {"layers": self.flow.layers} if self.flow.layers else {"order": self.flow.order}
+                )
+                options[name] = compute_layout(self.graph, name, **kwargs)
+            else:
+                options[name] = compute_layout(self.graph, name)
+        return options
 
     def _notes(self, level: int) -> list[str]:
         notes = list(self.notes)
@@ -409,9 +436,8 @@ class GraphView:
                 )
         return notes
 
-    def payload(self, stage: str | None = None, *, editable: bool = True) -> dict:
-        """Everything the HTML page needs, as JSON-compatible data."""
-        level = self._stage(stage)
+    def _stage_payload(self, level: int) -> dict:
+        """Stage-dependent part of the page data (elements, flow panel, trace, notes)."""
         ids = {n: str(n) for n in self.graph.nodes}
         flow = None
         if level >= 1 and self.flow is not None:
@@ -442,18 +468,53 @@ class GraphView:
                 ],
             }
         return {
-            "title": self.title,
-            "model": self.graph.model.value,
-            "continuous": self.graph.model.continuous,
             "stage": STAGES[level],
-            "editable": bool(editable),
-            "scale": SCALE,
             "elements": self.elements(STAGES[level]),
-            "inputs": [ids[n] for n in self.graph.inputs],
-            "outputs": [ids[n] for n in self.graph.outputs],
             "flow": flow,
             "trace": trace,
             "notes": self._notes(level),
+        }
+
+    def available_stages(self) -> tuple[str, ...]:
+        """Stages whose overlay exists (always ``construct``)."""
+        present = (
+            True,
+            self.flow is not None,
+            self.corrections is not None,
+            self.trace is not None,
+        )
+        return tuple(s for s, ok in zip(STAGES, present) if ok)
+
+    def payload(self, stage: str | None = None, *, editable: bool = True) -> dict:
+        """Everything the HTML page needs, as JSON-compatible data.
+
+        The top level describes ``stage``; ``stages`` holds the same stage-dependent
+        data for every available stage (the page's stage selector) and ``layouts``
+        the positions of :meth:`layouts` in pixels (the layout selector).
+        """
+        level = self._stage(stage)
+        ids = {n: str(n) for n in self.graph.nodes}
+        layouts = {
+            name: {ids[n]: [x * SCALE, -y * SCALE] for n, (x, y) in layout.positions.items()}
+            for name, layout in self.layouts().items()
+        }
+        return {
+            "title": self.title,
+            "model": self.graph.model.value,
+            "continuous": self.graph.model.continuous,
+            "editable": bool(editable),
+            "scale": SCALE,
+            "inputs": [ids[n] for n in self.graph.inputs],
+            "outputs": [ids[n] for n in self.graph.outputs],
+            **self._stage_payload(level),
+            "stages": {s: self._stage_payload(STAGES.index(s)) for s in self.available_stages()},
+            "layouts": layouts,
+            "routing": {
+                "clearance": CLEARANCE,
+                "arc": ARC,
+                "step": _BEND_STEP,
+                "tries": _BEND_TRIES,
+            },
         }
 
     # ---- HTML -------------------------------------------------------------------
@@ -497,7 +558,12 @@ def _short(value: Any, limit: int = 400) -> str:
 __all__ = ["GraphView", "STAGES", "Correction", "measurement_text"]
 
 
+ARC = 0.3  # default overlay arc: control offset = ARC * chord length (flow +, corrections -)
+
+
 def _bend(layout: Layout, source: Hashable, target: Hashable, kind: str) -> float:
-    """Arc offset in pixels proportional to the arrow length (flow above, corrections below)."""
+    """Control-point offset in pixels: the default arc (or straight CZ edge), routed by
+    :func:`~photographiq.interactive.layouts.route` around nodes that are not endpoints."""
     (x1, y1), (x2, y2) = layout[source], layout[target]
-    return (0.22 if kind == "flow" else -0.22) * math.hypot(x2 - x1, y2 - y1) * SCALE
+    base = {"flow": ARC, "correction": -ARC}.get(kind, 0.0) * math.hypot(x2 - x1, y2 - y1)
+    return route(layout, source, target, base) * SCALE

@@ -1,136 +1,494 @@
 {
   "rows": [
     {
+      "backend": "native-fock",
+      "gamma": 0.02,
+      "cutoff": 16,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 7.74350405912105e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 1.0000000000000013,
+      "min_retained_norm": 1.0
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.05,
+      "cutoff": 16,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 7.349703872437768e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 1.000000000000001,
+      "min_retained_norm": 1.0
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.1,
+      "cutoff": 16,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 7.633123892904341e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 1.000000000000001,
+      "min_retained_norm": 1.0
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.2,
+      "cutoff": 16,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 8.964630925310594e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 1.000000000000001,
+      "min_retained_norm": 1.0
+    },
+    {
+      "backend": "piquasso-fock",
       "gamma": 0.02,
       "cutoff": 16,
       "fidelity_to_independent_reference": 1.0,
       "state_vector_norm_error_phase_aligned": 1.633432227107705e-16,
       "trace_distance_estimate": 0.0,
-      "retained_norm": 1.0000000000000002
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999999999999999
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.05,
       "cutoff": 16,
       "fidelity_to_independent_reference": 1.0,
       "state_vector_norm_error_phase_aligned": 1.1343066892162426e-16,
       "trace_distance_estimate": 0.0,
-      "retained_norm": 0.9999999999999999
+      "retained_norm": 0.9999999999999999,
+      "min_retained_norm": 0.9999999999999999
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.1,
       "cutoff": 16,
       "fidelity_to_independent_reference": 1.0,
       "state_vector_norm_error_phase_aligned": 1.282880033660991e-16,
       "trace_distance_estimate": 0.0,
-      "retained_norm": 0.9999999999999993
+      "retained_norm": 0.9999999999999993,
+      "min_retained_norm": 0.9999999999999993
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.2,
       "cutoff": 16,
       "fidelity_to_independent_reference": 1.0,
       "state_vector_norm_error_phase_aligned": 3.796101321978962e-17,
       "trace_distance_estimate": 0.0,
-      "retained_norm": 0.9999999999999984
+      "retained_norm": 0.9999999999999984,
+      "min_retained_norm": 0.9999999999999984
     },
     {
+      "backend": "native-fock-projected",
+      "gamma": 0.02,
+      "cutoff": 16,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 9.640549811331038e-09,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 0.9999999999999981,
+      "min_retained_norm": 0.9999999999999981
+    },
+    {
+      "backend": "native-fock-projected",
+      "gamma": 0.05,
+      "cutoff": 16,
+      "fidelity_to_independent_reference": 0.9999999999990283,
+      "state_vector_norm_error_phase_aligned": 9.859144729366934e-07,
+      "trace_distance_estimate": 9.85731804879977e-07,
+      "retained_norm": 0.9999999999958795,
+      "min_retained_norm": 0.9999999999958795
+    },
+    {
+      "backend": "native-fock-projected",
+      "gamma": 0.1,
+      "cutoff": 16,
+      "fidelity_to_independent_reference": 0.999999998605666,
+      "state_vector_norm_error_phase_aligned": 3.734078693544799e-05,
+      "trace_distance_estimate": 3.73407817487535e-05,
+      "retained_norm": 0.9999999961475674,
+      "min_retained_norm": 0.9999999961475674
+    },
+    {
+      "backend": "native-fock-projected",
+      "gamma": 0.2,
+      "cutoff": 16,
+      "fidelity_to_independent_reference": 0.999998668563896,
+      "state_vector_norm_error_phase_aligned": 0.001153879127762176,
+      "trace_distance_estimate": 0.0011538787215453266,
+      "retained_norm": 0.9999977899375478,
+      "min_retained_norm": 0.9999977899375478
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.02,
+      "cutoff": 24,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 6.681329346147731e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 1.0
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.05,
+      "cutoff": 24,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 6.128406521875247e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 1.0000000000000004,
+      "min_retained_norm": 1.0
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.1,
+      "cutoff": 24,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 6.311421817875403e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 1.0000000000000007,
+      "min_retained_norm": 1.0
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.2,
+      "cutoff": 24,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 6.969556935334691e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 1.0000000000000007,
+      "min_retained_norm": 1.0
+    },
+    {
+      "backend": "piquasso-fock",
       "gamma": 0.02,
       "cutoff": 24,
       "fidelity_to_independent_reference": 1.0,
       "state_vector_norm_error_phase_aligned": 1.6683561354673546e-16,
       "trace_distance_estimate": 0.0,
-      "retained_norm": 1.0000000000000002
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999999999999999
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.05,
       "cutoff": 24,
       "fidelity_to_independent_reference": 1.0,
       "state_vector_norm_error_phase_aligned": 5.93405468720258e-17,
       "trace_distance_estimate": 0.0,
-      "retained_norm": 0.9999999999999999
+      "retained_norm": 0.9999999999999999,
+      "min_retained_norm": 0.9999999999999999
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.1,
       "cutoff": 24,
       "fidelity_to_independent_reference": 1.0,
       "state_vector_norm_error_phase_aligned": 6.678102027419543e-17,
       "trace_distance_estimate": 0.0,
-      "retained_norm": 1.0000000000000002
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999999999999999
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.2,
       "cutoff": 24,
       "fidelity_to_independent_reference": 1.0,
       "state_vector_norm_error_phase_aligned": 1.541949404818322e-16,
       "trace_distance_estimate": 0.0,
-      "retained_norm": 1.0000000000000004
+      "retained_norm": 1.0000000000000004,
+      "min_retained_norm": 0.9999999999999999
     },
     {
+      "backend": "native-fock-projected",
+      "gamma": 0.02,
+      "cutoff": 24,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 5.4843178015759274e-12,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 1.0
+    },
+    {
+      "backend": "native-fock-projected",
+      "gamma": 0.05,
+      "cutoff": 24,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 6.5982203842654925e-09,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 0.9999999999999998,
+      "min_retained_norm": 0.9999999999999998
+    },
+    {
+      "backend": "native-fock-projected",
+      "gamma": 0.1,
+      "cutoff": 24,
+      "fidelity_to_independent_reference": 0.9999999999978786,
+      "state_vector_norm_error_phase_aligned": 1.4564268330191933e-06,
+      "trace_distance_estimate": 1.4565075198754551e-06,
+      "retained_norm": 0.9999999999950729,
+      "min_retained_norm": 0.9999999999950729
+    },
+    {
+      "backend": "native-fock-projected",
+      "gamma": 0.2,
+      "cutoff": 24,
+      "fidelity_to_independent_reference": 0.9999999696380688,
+      "state_vector_norm_error_phase_aligned": 0.00017424675530292917,
+      "trace_distance_estimate": 0.00017424675374719622,
+      "retained_norm": 0.9999999515670357,
+      "min_retained_norm": 0.9999999515670357
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.02,
+      "cutoff": 32,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 4.583898704995496e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 1.0000000000000016,
+      "min_retained_norm": 1.0
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.05,
+      "cutoff": 32,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 4.059038899260925e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 1.000000000000001,
+      "min_retained_norm": 1.0
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.1,
+      "cutoff": 32,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 4.850885653651116e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 1.0000000000000016,
+      "min_retained_norm": 1.0
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.2,
+      "cutoff": 32,
+      "fidelity_to_independent_reference": 0.9999999999999998,
+      "state_vector_norm_error_phase_aligned": 8.86909491783299e-16,
+      "trace_distance_estimate": 1.4901161193847656e-08,
+      "retained_norm": 1.0000000000000009,
+      "min_retained_norm": 1.0
+    },
+    {
+      "backend": "piquasso-fock",
       "gamma": 0.02,
       "cutoff": 32,
       "fidelity_to_independent_reference": 1.0,
       "state_vector_norm_error_phase_aligned": 1.6683561350787324e-16,
       "trace_distance_estimate": 0.0,
-      "retained_norm": 1.0000000000000002
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999999999999999
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.05,
       "cutoff": 32,
       "fidelity_to_independent_reference": 1.0,
       "state_vector_norm_error_phase_aligned": 2.5430884604436674e-16,
       "trace_distance_estimate": 0.0,
-      "retained_norm": 0.9999999999999999
+      "retained_norm": 0.9999999999999999,
+      "min_retained_norm": 0.9999999999999999
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.1,
       "cutoff": 32,
       "fidelity_to_independent_reference": 1.0,
       "state_vector_norm_error_phase_aligned": 1.424592738776401e-16,
       "trace_distance_estimate": 0.0,
-      "retained_norm": 1.0000000000000002
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999999999999999
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.2,
       "cutoff": 32,
       "fidelity_to_independent_reference": 1.0,
       "state_vector_norm_error_phase_aligned": 2.3554328919545297e-16,
       "trace_distance_estimate": 0.0,
-      "retained_norm": 0.9999999999999999
+      "retained_norm": 0.9999999999999999,
+      "min_retained_norm": 0.9999999999999999
     },
     {
+      "backend": "native-fock-projected",
+      "gamma": 0.02,
+      "cutoff": 32,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 5.727596626130441e-15,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 1.000000000000001,
+      "min_retained_norm": 1.0
+    },
+    {
+      "backend": "native-fock-projected",
+      "gamma": 0.05,
+      "cutoff": 32,
+      "fidelity_to_independent_reference": 0.9999999999999998,
+      "state_vector_norm_error_phase_aligned": 6.448124600243357e-11,
+      "trace_distance_estimate": 1.4901161193847656e-08,
+      "retained_norm": 1.0000000000000009,
+      "min_retained_norm": 1.0
+    },
+    {
+      "backend": "native-fock-projected",
+      "gamma": 0.1,
+      "cutoff": 32,
+      "fidelity_to_independent_reference": 0.9999999999999942,
+      "state_vector_norm_error_phase_aligned": 7.890881916876793e-08,
+      "trace_distance_estimate": 7.598131170262075e-08,
+      "retained_norm": 0.9999999999999881,
+      "min_retained_norm": 0.9999999999999881
+    },
+    {
+      "backend": "native-fock-projected",
+      "gamma": 0.2,
+      "cutoff": 32,
+      "fidelity_to_independent_reference": 0.9999999987906865,
+      "state_vector_norm_error_phase_aligned": 3.4775193967043834e-05,
+      "trace_distance_estimate": 3.477518566733211e-05,
+      "retained_norm": 0.9999999982113031,
+      "min_retained_norm": 0.9999999982113031
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.02,
+      "cutoff": 48,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 5.988515369139427e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 0.9999999999999984,
+      "min_retained_norm": 0.9999999999999984
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.05,
+      "cutoff": 48,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 6.741923592146812e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 0.9999999999999984,
+      "min_retained_norm": 0.9999999999999984
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.1,
+      "cutoff": 48,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 1.1017944157290578e-15,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 0.9999999999999984,
+      "min_retained_norm": 0.9999999999999984
+    },
+    {
+      "backend": "native-fock",
+      "gamma": 0.2,
+      "cutoff": 48,
+      "fidelity_to_independent_reference": 0.9999999999999998,
+      "state_vector_norm_error_phase_aligned": 2.1397332173512634e-15,
+      "trace_distance_estimate": 1.4901161193847656e-08,
+      "retained_norm": 0.9999999999999984,
+      "min_retained_norm": 0.9999999999999984
+    },
+    {
+      "backend": "piquasso-fock",
       "gamma": 0.02,
       "cutoff": 48,
       "fidelity_to_independent_reference": 1.0,
       "state_vector_norm_error_phase_aligned": 1.2533442100174626e-16,
       "trace_distance_estimate": 0.0,
-      "retained_norm": 0.9999999999999999
+      "retained_norm": 0.9999999999999999,
+      "min_retained_norm": 0.9999999999999999
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.05,
       "cutoff": 48,
       "fidelity_to_independent_reference": 1.0,
       "state_vector_norm_error_phase_aligned": 6.425877680248937e-17,
       "trace_distance_estimate": 0.0,
-      "retained_norm": 0.9999999999999982
+      "retained_norm": 0.9999999999999982,
+      "min_retained_norm": 0.9999999999999982
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.1,
       "cutoff": 48,
       "fidelity_to_independent_reference": 1.0,
       "state_vector_norm_error_phase_aligned": 1.2719075127093567e-16,
       "trace_distance_estimate": 0.0,
-      "retained_norm": 0.999999999999997
+      "retained_norm": 0.999999999999997,
+      "min_retained_norm": 0.999999999999997
     },
     {
+      "backend": "piquasso-fock",
       "gamma": 0.2,
       "cutoff": 48,
       "fidelity_to_independent_reference": 1.0,
       "state_vector_norm_error_phase_aligned": 2.3556224548742307e-16,
       "trace_distance_estimate": 0.0,
-      "retained_norm": 0.9999999999999941
+      "retained_norm": 0.9999999999999941,
+      "min_retained_norm": 0.9999999999999941
+    },
+    {
+      "backend": "native-fock-projected",
+      "gamma": 0.02,
+      "cutoff": 48,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 3.3984782338483095e-15,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 0.9999999999999993,
+      "min_retained_norm": 0.9999999999999993
+    },
+    {
+      "backend": "native-fock-projected",
+      "gamma": 0.05,
+      "cutoff": 48,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 1.4408099164323785e-14,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 0.9999999999999998,
+      "min_retained_norm": 0.9999999999999998
+    },
+    {
+      "backend": "native-fock-projected",
+      "gamma": 0.1,
+      "cutoff": 48,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 4.5436010113928863e-10,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 0.9999999999999997,
+      "min_retained_norm": 0.9999999999999997
+    },
+    {
+      "backend": "native-fock-projected",
+      "gamma": 0.2,
+      "cutoff": 48,
+      "fidelity_to_independent_reference": 0.999999999995614,
+      "state_vector_norm_error_phase_aligned": 2.0942785202963243e-06,
+      "trace_distance_estimate": 2.0942891588995404e-06,
+      "retained_norm": 0.9999999999939495,
+      "min_retained_norm": 0.9999999999939495
     }
   ],
   "alpha": [
     0.3,
     0.1
-  ]
+  ],
+  "asserted_engines": [
+    "native-fock",
+    "piquasso-fock"
+  ],
+  "fidelity_tolerance": 1e-12,
+  "reported_only": "native-fock-projected (different finite-cutoff operator)"
 }

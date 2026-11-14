@@ -1,5 +1,20 @@
 # Changelog
 
+### Unreleased: CI repair, documentation and manuscript experiments R43-R60 (2026-11-13)
+
+- **CI.**
+  - mypy failed with mypy 2.4 and NumPy 2.5.4 stubs (`np.isscalar` narrowing). The five scalar checks now share `photographiq._checks.is_finite_real_scalar` (same semantics).
+  - The headless-browser test passes `--no-sandbox` on Linux, where GitHub's runners have Chrome but no usable sandbox.
+- **Native engines.** Built with `EIGEN_DONT_PARALLELIZE`: the kernels parallelise themselves, and Eigen's own threads made small mixed-state gates up to 8.6 times slower on an idle machine.
+- **Registry.** `native-fock` and `native-mixed-fock` now list renormalisation among their approximations, as they renormalise after every operation.
+- **Interactive views.** Routed edges and arrows that avoid nodes, stage and layout selectors, order stepping, SVG/PNG/HTML downloads, a colour-blind-safe visual language and labels that fit their nodes. `from_pattern` annotates constant displacements and adaptive gates instead of dropping them. Fourteen demonstration figures in `docs/figures/demos/`.
+- **Documentation.** New README, installation guide with real backend checks, backend comparison, theory pages (Gaussian, compilation, cluster states, flow, calculus, non-Gaussian, sampling), PhotoGraphiQML guide; historical pages labelled as such.
+- **Manuscript experiments.**
+  - R1-R42 migrated to the native engines and `photographiq.flows`; historical outputs kept in `paper_experiments/legacy_reference/441de9a/`.
+  - New R43-R60: native Gaussian, Fock and mixed-Fock validation and performance, boson sampling, GBS, threshold GBS, CV flow finding and determinism, qubit flows against Graphix, measurement calculus, local Clifford, ZX, interactive visualization, GPU Gaussian, PhotoGraphiQML physical execution and an end-to-end showcase.
+  - Provenance records the source SHA-256 and dirty state; `run_all_safe.py` has smoke, safe and heavy tiers; the notebook runs the scripts unchanged.
+- **Validation tooling.** `scripts/audit_manuscript_consistency.py` (12 documentation/experiment consistency checks), `reproduce_manuscript.py --mode smoke|scientific|full`, and the `manuscript` workflow.
+
 ### Unreleased: validation, hardening and publication readiness (2026-11-12)
 
 - **CI.**

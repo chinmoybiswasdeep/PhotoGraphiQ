@@ -40,7 +40,7 @@ result = pg.simulate(pattern, initial_state=state, backend="gaussian")
 Mean has shape `(2*modes,)`, covariance `(2*modes,2*modes)`, and `nodes` must
 match ordered pattern inputs. Off-diagonal covariance blocks describe correlations.
 This direct correlated-Gaussian injection path is supported by Gaussian backends.
-For external Piquasso Gaussian states, use `PiquassoBackend.import_state(native,
+For external Piquasso Gaussian states (optional `piquasso` extra), use `PiquassoBackend.import_state(native,
 nodes, source_hbar=...)`, then supply its `.get_state()` snapshot. Declare source
 hbar explicitly; native covariance cannot simply be copied into V.
 

@@ -482,3 +482,74 @@ def test_hierarchical_layout_accepts_mixed_label_types():
     graph.add_edge(0, 1)
     layout = compute_layout(graph, "hierarchical")
     assert set(layout.positions) == {"a", 0, 1}
+
+
+# ---- routing, page data and SVG ids ---------------------------------------------------
+def test_routed_curves_avoid_nodes_and_svg_ids_match_model(tmp_path):
+    from photographiq.interactive.layouts import CLEARANCE, _clearance, route
+
+    graph = OpenGraph(
+        Model.QUBIT,
+        nx.path_graph(4),
+        (0,),
+        (3,),
+        {n: QubitMeasurement("XY", 0.0) for n in range(3)},
+    )
+    layout = Layout({n: (float(n), 0.0) for n in range(4)})  # collinear: chords pass through nodes
+    others = [layout[1]]
+    assert _clearance(layout[0], layout[2], 0.0, others) < CLEARANCE
+    for base in (0.0, 0.6, -0.6):
+        offset = route(layout, 0, 2, base)
+        assert _clearance(layout[0], layout[2], offset, others) >= CLEARANCE
+    view = GraphView(graph, layout=layout).with_flow(QUBIT_FLOW_4)
+    root = ET.parse(view.save(tmp_path / "f.svg", stage="flow")).getroot()
+    ids = [g.get("id") for g in root.iter("{http://www.w3.org/2000/svg}g") if g.get("id")]
+    assert sorted(i for i in ids if i.startswith("node:")) == [f"node:{n}" for n in range(4)]
+    assert len([i for i in ids if i.startswith("edge:")]) == 3
+    assert {i for i in ids if i.startswith("flow:")} == {
+        f"flow:{s}->{t}" for s, t in view.flow_arrows()
+    }
+
+
+QUBIT_FLOW_4 = SimpleNamespace(
+    status="certified",
+    model=Model.QUBIT,
+    algorithm="causal-flow",
+    measurement_order=(0, 1, 2),
+    layers=((0,), (1,), (2,)),
+    correction_map={0: {"x": {1}, "z": {2}}, 1: {"x": {2}, "z": {3}}, 2: {"x": {3}, "z": set()}},
+    certificate=None,
+    assumptions=(),
+    diagnostics=None,
+)
+
+
+def test_page_data_offers_every_stage_and_layout(cv_case):
+    _, pattern, result = cv_case
+    view = (
+        GraphView.from_pattern(pattern)
+        .with_corrections(pattern)
+        .with_execution(execution_trace(pattern, result))
+    )
+    data = view.payload()
+    assert (
+        set(data["stages"])
+        == {"construct", "corrections", "execution"}
+        == set(view.available_stages())
+    )
+    assert data["stages"]["corrections"]["elements"] == view.elements("corrections")
+    assert "view" in data["layouts"] and "layered" not in data["layouts"]  # no flow, no layers
+    assert data["layouts"]["view"]["1"] == [view.layout[1][0] * 110, -view.layout[1][1] * 110]
+    uncertified = GraphView(qubit_graph()).with_flow({**vars(QUBIT_FLOW), "status": "unknown"})
+    assert all(
+        "uncertified" in e["classes"]
+        for e in uncertified.elements()
+        if e["classes"].startswith("flow")
+    )
+
+
+def test_from_pattern_annotates_constant_and_adaptive_commands():
+    view = GraphView.from_pattern(pg.protocols.displacement(0.5, -0.3))
+    assert "constant displacement q=0.5, p=-0.3" in " ".join(view.annotations.values())
+    injection = GraphView.from_pattern(pg.non_gaussian.cubic_injection(0.25, squeezing=0.5))
+    assert "adaptive: depends on outcomes ['m']" in injection.annotations["in"]

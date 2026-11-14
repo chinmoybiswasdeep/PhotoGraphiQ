@@ -26,9 +26,10 @@ RAW_DIR = RESULTS / "raw"
 LOG_DIR = RESULTS / "logs"
 FIG_PDF = ROOT / "figures" / "pdf"
 FIG_PNG = ROOT / "figures" / "png"
+FIG_SVG = ROOT / "figures" / "svg"
 TABLES = ROOT / "tables"
 
-for _d in (CSV_DIR, JSON_DIR, RAW_DIR, LOG_DIR, FIG_PDF, FIG_PNG, TABLES):
+for _d in (CSV_DIR, JSON_DIR, RAW_DIR, LOG_DIR, FIG_PDF, FIG_PNG, FIG_SVG, TABLES):
     _d.mkdir(parents=True, exist_ok=True)
 
 
@@ -138,15 +139,29 @@ def setup_style():
     return plt
 
 
-def save_figure(fig, name: str, *, tight: bool = True) -> tuple[Path, Path]:
-    """Save a figure as both vector PDF and high-resolution PNG; return paths."""
+def save_figure(fig, name: str, *, tight: bool = True, svg: bool = True) -> tuple[Path, Path]:
+    """Save a figure as vector PDF (and SVG) plus high-resolution PNG.
+
+    Returns ``(pdf_path, png_path)``; the SVG, when written, sits in
+    ``figures/svg/``. PDF/SVG are the primary manuscript formats.
+    """
     if tight:
         fig.tight_layout()
     pdf_path = FIG_PDF / f"{name}.pdf"
     png_path = FIG_PNG / f"{name}.png"
     fig.savefig(pdf_path, bbox_inches="tight")
     fig.savefig(png_path, bbox_inches="tight", dpi=300)
+    if svg:
+        fig.savefig(FIG_SVG / f"{name}.svg", bbox_inches="tight")
     return pdf_path, png_path
+
+
+def save_caption(name: str, text: str) -> Path:
+    """Write ``figures/captions/<name>.caption.md`` next to the figure files."""
+    path = ROOT / "figures" / "captions" / f"{name}.caption.md"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text.strip() + "\n", encoding="utf-8")
+    return path
 
 
 # --------------------------------------------------------------------------- #
@@ -300,3 +315,22 @@ def print_summary(title: str, **fields):
     print(f"\n=== {title} ===")
     for key, value in fields.items():
         print(f"  {key}: {value}")
+
+
+# --------------------------------------------------------------------------- #
+# Timing status
+# --------------------------------------------------------------------------- #
+
+
+def timing_final() -> bool:
+    """True when the run was declared to be on an otherwise idle machine (PGQ_IDLE_MACHINE=1)."""
+    import os
+
+    return os.environ.get("PGQ_IDLE_MACHINE") == "1"
+
+
+def timing_label() -> str:
+    """Status string for timing results: final only on a declared idle machine."""
+    if timing_final():
+        return "final (idle machine declared via PGQ_IDLE_MACHINE=1)"
+    return "PROVISIONAL (machine not declared idle; rerun with PGQ_IDLE_MACHINE=1)"

@@ -38,4 +38,4 @@ def test_pages_with_real_input_events(tmp_path):
         pytest.skip("Cytoscape.js could not be loaded (offline); set PHOTOGRAPHIQ_CYTOSCAPE_JS")
     failed = {r["check"]: r["error"] for r in results if not r["ok"]}
     assert not failed, failed
-    assert len(results) == 9 and (tmp_path / "report.json").exists()
+    assert len(results) == 12 and (tmp_path / "report.json").exists()

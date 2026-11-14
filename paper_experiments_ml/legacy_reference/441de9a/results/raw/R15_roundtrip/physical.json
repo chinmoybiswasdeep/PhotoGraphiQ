@@ -1,0 +1,30 @@
+{
+  "schema": 2,
+  "config": {
+    "n_wires": 1,
+    "n_layers": 1,
+    "one_column": false,
+    "restrict_trainable": false,
+    "representation": "gkp-physical",
+    "connections": null
+  },
+  "values": {
+    "alpha.w0.c0": 0.0,
+    "alpha.w0.c1": 0.0,
+    "alpha.w0.c2": 0.0,
+    "alpha.w0.c3": 0.0
+  },
+  "frozen": [],
+  "physical_config": {
+    "cutoff": 16,
+    "peak_width": 0.9,
+    "envelope": 0.9,
+    "peaks": 3,
+    "grid_points": 513,
+    "decoder": "nearest",
+    "backend": "piquasso-fock",
+    "max_dimension": 100000,
+    "max_matrix_bytes": 256000000
+  },
+  "measurement_family": "X"
+}

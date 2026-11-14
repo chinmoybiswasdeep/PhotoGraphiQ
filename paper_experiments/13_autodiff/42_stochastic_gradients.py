@@ -12,6 +12,16 @@ Tests the two generic Monte Carlo gradient-estimator primitives in
 Both are Monte Carlo estimators: agreement is statistical (bias and standard
 error over repeated seeds), not exact-precision agreement. This is
 explicitly experimental functionality (docs/validation/feature-matrix.md).
+
+Upgrade migration (2026-11): a third case applies the score-function
+estimator to REAL homodyne records sampled by the C++ ``native-gaussian``
+engine (``run_shots``): a coherent input displaced by Displace(q = theta) is
+q-homodyned, f(m) = m^2, and the likelihood log p(m | theta) is the analytic
+Gaussian density with mean 2 Re(alpha) + theta and unit variance (vacuum
+noise, hbar = 2). Exact gradient: d/dtheta E[m^2] = 2 (2 Re(alpha) + theta).
+The native engine supplies samples only; the gradient is taken by JAX on the
+surrogate (automatic differentiation of the estimator, not of the simulator --
+native engines have no autodiff). Same 5-standard-error criterion.
 """
 
 from __future__ import annotations
@@ -38,8 +48,38 @@ N_SAMPLES = 20000
 N_REPEATS = 10
 THETA0 = 0.3
 F_ONE, F_ZERO = 2.0, -1.0  # values attached to the two Bernoulli branches
+NATIVE_SAMPLES = 3000
+NATIVE_ALPHA = 0.3
 
 
+def native_homodyne_score_case():
+    import photographiq as pg
+
+    mean0 = 2 * NATIVE_ALPHA + THETA0
+    exact_gradient = 2 * mean0
+    pattern = pg.Pattern(inputs=(0,)).append(pg.Displace(0, q=THETA0)).append(pg.Measure(0, pg.Homodyne.q(), key="m"))
+    estimates = []
+    for repeat in range(N_REPEATS):
+        samples = np.asarray(pg.run_shots(pattern, NATIVE_SAMPLES, backend="native-gaussian",
+                                          inputs={0: pg.GaussianInput.coherent(NATIVE_ALPHA)}, seed=3000 + repeat).values("m"))
+        values = jnp.asarray(samples**2)
+
+        def loss(theta, samples=samples, values=values):
+            log_probs = -0.5 * (jnp.asarray(samples) - (2 * NATIVE_ALPHA + theta)) ** 2
+            return score_function_surrogate(values, log_probs)
+
+        estimates.append(float(jax.grad(loss)(jnp.asarray(THETA0))))
+    estimates = np.array(estimates)
+    return {
+        "estimator": "score_function_surrogate on native-gaussian homodyne samples",
+        "exact_gradient": float(exact_gradient),
+        "mean_estimate": float(estimates.mean()),
+        "bias": float(estimates.mean() - exact_gradient),
+        "standard_error": float(estimates.std(ddof=1) / np.sqrt(N_REPEATS)),
+        "n_samples_per_repeat": NATIVE_SAMPLES,
+        "n_repeats": N_REPEATS,
+        "sampling_backend": "native-gaussian",
+    }
 def score_function_case():
     def analytic_gradient(theta):
         p = jax.nn.sigmoid(theta)
@@ -110,7 +150,7 @@ def pathwise_case():
 
 def main():
     plt = common.setup_style()
-    results = [score_function_case(), pathwise_case()]
+    results = [score_function_case(), pathwise_case(), native_homodyne_score_case()]
 
     # A statistically consistent unbiased estimator should have |bias| within
     # a few standard errors of zero; this is not an exact-precision check.

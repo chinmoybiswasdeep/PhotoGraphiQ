@@ -1,89 +1,310 @@
 {
   "rows": [
     {
+      "backend": "native-fock",
       "kappa": -2.0,
       "fidelity_to_exact_phase_rule": 1.0,
       "state_vector_error": 2.0062885096040707e-16
     },
     {
+      "backend": "piquasso-fock",
+      "kappa": -2.0,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 2.0062885096040707e-16
+    },
+    {
+      "backend": "native-mixed-fock",
+      "kappa": -2.0,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 2.0514302400177387e-16
+    },
+    {
+      "backend": "native-fock",
       "kappa": -1.75,
       "fidelity_to_exact_phase_rule": 1.0,
       "state_vector_error": 0.0
     },
     {
+      "backend": "piquasso-fock",
+      "kappa": -1.75,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 0.0
+    },
+    {
+      "backend": "native-mixed-fock",
+      "kappa": -1.75,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 1.5331340314122356e-16
+    },
+    {
+      "backend": "native-fock",
       "kappa": -1.5,
       "fidelity_to_exact_phase_rule": 1.0,
       "state_vector_error": 1.944128986425528e-16
     },
     {
+      "backend": "piquasso-fock",
+      "kappa": -1.5,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 1.944128986425528e-16
+    },
+    {
+      "backend": "native-mixed-fock",
+      "kappa": -1.5,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 2.561369895922725e-16
+    },
+    {
+      "backend": "native-fock",
+      "kappa": -1.25,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 1.962615573354719e-16
+    },
+    {
+      "backend": "piquasso-fock",
       "kappa": -1.25,
       "fidelity_to_exact_phase_rule": 1.0,
       "state_vector_error": 0.0
     },
     {
+      "backend": "native-mixed-fock",
+      "kappa": -1.25,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 2.0955664290040465e-16
+    },
+    {
+      "backend": "native-fock",
       "kappa": -1.0,
       "fidelity_to_exact_phase_rule": 1.0,
       "state_vector_error": 0.0
     },
     {
+      "backend": "piquasso-fock",
+      "kappa": -1.0,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 0.0
+    },
+    {
+      "backend": "native-mixed-fock",
+      "kappa": -1.0,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 1.588750574298895e-16
+    },
+    {
+      "backend": "native-fock",
       "kappa": -0.75,
       "fidelity_to_exact_phase_rule": 1.0,
       "state_vector_error": 0.0
     },
     {
+      "backend": "piquasso-fock",
+      "kappa": -0.75,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 0.0
+    },
+    {
+      "backend": "native-mixed-fock",
+      "kappa": -0.75,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 1.431787716897133e-16
+    },
+    {
+      "backend": "native-fock",
       "kappa": -0.5,
       "fidelity_to_exact_phase_rule": 1.0,
       "state_vector_error": 0.0
     },
     {
+      "backend": "piquasso-fock",
+      "kappa": -0.5,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 0.0
+    },
+    {
+      "backend": "native-mixed-fock",
+      "kappa": -0.5,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 1.7310019951945624e-16
+    },
+    {
+      "backend": "native-fock",
+      "kappa": -0.25,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 2.0206364052201326e-16
+    },
+    {
+      "backend": "piquasso-fock",
       "kappa": -0.25,
       "fidelity_to_exact_phase_rule": 1.0,
       "state_vector_error": 0.0
     },
     {
+      "backend": "native-mixed-fock",
+      "kappa": -0.25,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 1.7692783532535278e-16
+    },
+    {
+      "backend": "native-fock",
       "kappa": 0.0,
       "fidelity_to_exact_phase_rule": 1.0,
       "state_vector_error": 0.0
     },
     {
+      "backend": "piquasso-fock",
+      "kappa": 0.0,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 0.0
+    },
+    {
+      "backend": "native-mixed-fock",
+      "kappa": 0.0,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 1.6653345369377348e-16
+    },
+    {
+      "backend": "native-fock",
+      "kappa": 0.25,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 2.0206364052201326e-16
+    },
+    {
+      "backend": "piquasso-fock",
       "kappa": 0.25,
       "fidelity_to_exact_phase_rule": 1.0,
       "state_vector_error": 0.0
     },
     {
+      "backend": "native-mixed-fock",
+      "kappa": 0.25,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 1.7692783532535278e-16
+    },
+    {
+      "backend": "native-fock",
       "kappa": 0.5,
       "fidelity_to_exact_phase_rule": 1.0,
       "state_vector_error": 0.0
     },
     {
+      "backend": "piquasso-fock",
+      "kappa": 0.5,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 0.0
+    },
+    {
+      "backend": "native-mixed-fock",
+      "kappa": 0.5,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 1.7310019951945624e-16
+    },
+    {
+      "backend": "native-fock",
       "kappa": 0.75,
       "fidelity_to_exact_phase_rule": 1.0,
       "state_vector_error": 0.0
     },
     {
+      "backend": "piquasso-fock",
+      "kappa": 0.75,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 0.0
+    },
+    {
+      "backend": "native-mixed-fock",
+      "kappa": 0.75,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 1.431787716897133e-16
+    },
+    {
+      "backend": "native-fock",
       "kappa": 1.0,
       "fidelity_to_exact_phase_rule": 1.0,
       "state_vector_error": 0.0
     },
     {
+      "backend": "piquasso-fock",
+      "kappa": 1.0,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 0.0
+    },
+    {
+      "backend": "native-mixed-fock",
+      "kappa": 1.0,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 1.588750574298895e-16
+    },
+    {
+      "backend": "native-fock",
+      "kappa": 1.25,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 1.962615573354719e-16
+    },
+    {
+      "backend": "piquasso-fock",
       "kappa": 1.25,
       "fidelity_to_exact_phase_rule": 1.0,
       "state_vector_error": 0.0
     },
     {
+      "backend": "native-mixed-fock",
+      "kappa": 1.25,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 2.0955664290040465e-16
+    },
+    {
+      "backend": "native-fock",
       "kappa": 1.5,
       "fidelity_to_exact_phase_rule": 1.0,
       "state_vector_error": 1.944128986425528e-16
     },
     {
+      "backend": "piquasso-fock",
+      "kappa": 1.5,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 1.944128986425528e-16
+    },
+    {
+      "backend": "native-mixed-fock",
+      "kappa": 1.5,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 2.561369895922725e-16
+    },
+    {
+      "backend": "native-fock",
       "kappa": 1.75,
       "fidelity_to_exact_phase_rule": 1.0,
       "state_vector_error": 0.0
     },
     {
+      "backend": "piquasso-fock",
+      "kappa": 1.75,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 0.0
+    },
+    {
+      "backend": "native-mixed-fock",
+      "kappa": 1.75,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 1.5331340314122356e-16
+    },
+    {
+      "backend": "native-fock",
       "kappa": 2.0,
       "fidelity_to_exact_phase_rule": 1.0,
       "state_vector_error": 2.0062885096040707e-16
+    },
+    {
+      "backend": "piquasso-fock",
+      "kappa": 2.0,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 2.0062885096040707e-16
+    },
+    {
+      "backend": "native-mixed-fock",
+      "kappa": 2.0,
+      "fidelity_to_exact_phase_rule": 1.0,
+      "state_vector_error": 2.0514302400177387e-16
     }
   ],
   "input_amplitudes": [
@@ -100,5 +321,11 @@
       0.0
     ]
   ],
-  "cutoff": 8
+  "cutoff": 8,
+  "engines": [
+    "native-fock",
+    "piquasso-fock",
+    "native-mixed-fock"
+  ],
+  "main_backend": "native-fock"
 }

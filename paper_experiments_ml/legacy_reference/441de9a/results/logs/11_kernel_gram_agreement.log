@@ -1,0 +1,14 @@
+$ D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQML\.venv\Scripts\python.exe D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQML\paper_experiments\02_mentpy_validation\11_kernel_gram_agreement.py
+
+--- stdout ---
+
+=== R11 kernel/Gram agreement ===
+  n_samples: 8
+  tol: 2.220446049250313e-13
+  max_state_error: 1.6988416146101648e-15
+  gram_matrix_error: 1.9060624982125012e-14
+  status: pass
+
+
+--- stderr ---
+

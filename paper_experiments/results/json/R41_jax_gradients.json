@@ -245,5 +245,106 @@
   "alpha": [
     0.3,
     0.2
-  ]
+  ],
+  "native_crosscheck": [
+    {
+      "gate": "rotation",
+      "observable": "q",
+      "t0": 0.4,
+      "native_backend": "native-fock",
+      "jax_forward_value": 0.3968692594782709,
+      "native_forward_value": 0.39686925947827073,
+      "cross_check_cutoff": 40,
+      "forward_difference": 1.6653345369377348e-16,
+      "forward_difference_at_main_cutoff": 5.551115123125783e-17,
+      "jax_autodiff_gradient": -0.6020754029863443,
+      "native_finite_difference_gradient": -0.6020754019828156,
+      "finite_difference_step": 0.0001,
+      "relative_difference_autodiff_vs_native_fd": 1.666782432236811e-09
+    },
+    {
+      "gate": "displacement",
+      "observable": "q",
+      "t0": 0.4,
+      "native_backend": "native-fock",
+      "jax_forward_value": 1.0,
+      "native_forward_value": 1.0000000000000002,
+      "cross_check_cutoff": 40,
+      "forward_difference": 2.220446049250313e-16,
+      "forward_difference_at_main_cutoff": 8.326672684688674e-15,
+      "jax_autodiff_gradient": 0.9999999999999998,
+      "native_finite_difference_gradient": 0.9999999999960041,
+      "finite_difference_step": 0.0001,
+      "relative_difference_autodiff_vs_native_fd": 3.995692665625939e-12
+    },
+    {
+      "gate": "squeezing",
+      "observable": "photon_number",
+      "t0": 0.4,
+      "native_backend": "native-fock",
+      "jax_forward_value": 0.298178717062671,
+      "native_forward_value": 0.29817871706266985,
+      "cross_check_cutoff": 40,
+      "forward_difference": 1.1657341758564144e-15,
+      "forward_difference_at_main_cutoff": 6.102886809894459e-05,
+      "jax_autodiff_gradient": 0.9852700429259164,
+      "native_finite_difference_gradient": 0.985270049493614,
+      "finite_difference_step": 0.0001,
+      "relative_difference_autodiff_vs_native_fd": 6.6658858199732056e-09
+    },
+    {
+      "gate": "cubic_phase",
+      "observable": "p",
+      "t0": 0.4,
+      "native_backend": "native-fock",
+      "jax_forward_value": 0.9439537626689105,
+      "native_forward_value": 0.9439537626689142,
+      "cross_check_cutoff": 40,
+      "forward_difference": 3.6637359812630166e-15,
+      "forward_difference_at_main_cutoff": 6.661338147750939e-16,
+      "jax_autodiff_gradient": 1.3587042796787838,
+      "native_finite_difference_gradient": 1.358704278620615,
+      "finite_difference_step": 0.0001,
+      "relative_difference_autodiff_vs_native_fd": 7.788073546792258e-10
+    },
+    {
+      "gate": "kerr",
+      "observable": "q",
+      "t0": 0.4,
+      "native_backend": "native-fock",
+      "jax_forward_value": 0.3259696940589545,
+      "native_forward_value": 0.32596969405895826,
+      "cross_check_cutoff": 40,
+      "forward_difference": 3.774758283725532e-15,
+      "forward_difference_at_main_cutoff": 1.1102230246251565e-16,
+      "jax_autodiff_gradient": -0.7834350480373741,
+      "native_finite_difference_gradient": -0.783435042992775,
+      "finite_difference_step": 0.0001,
+      "relative_difference_autodiff_vs_native_fd": 6.439077603739162e-09
+    },
+    {
+      "gate": "loss",
+      "observable": "photon_number",
+      "t0": 0.5,
+      "native_backend": "native-mixed-fock",
+      "jax_forward_value": 0.065,
+      "native_forward_value": 0.06500000000000003,
+      "cross_check_cutoff": 40,
+      "forward_difference": 2.7755575615628914e-17,
+      "forward_difference_at_main_cutoff": 2.7755575615628914e-17,
+      "jax_autodiff_gradient": 0.13,
+      "native_finite_difference_gradient": 0.13000000000006062,
+      "finite_difference_step": 0.0001,
+      "relative_difference_autodiff_vs_native_fd": 4.662936703425657e-13
+    }
+  ],
+  "supported_combinations": {
+    "jax.grad(autodiff.expectation)": "automatic differentiation (JAX dense generators; Piquasso-prepared inputs)",
+    "native-fock / native-mixed-fock": "values only; finite differences possible, no autodiff",
+    "native-gaussian": "values only; no autodiff",
+    "piquasso-fock": "values only through simulate(); differentiable path is photographiq.autodiff"
+  },
+  "forward_tolerance": 1e-09,
+  "native_fd_tolerance": 1e-05,
+  "note": "finite differences are reported as finite differences; native engines provide no autodiff"
 }

@@ -6,7 +6,9 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 0.0,
       "piquasso_mean_error": 3.554447978966673e-16,
-      "piquasso_covariance_error": 0.0
+      "piquasso_covariance_error": 0.0,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 0.0
     },
     {
       "eta": 0.2,
@@ -14,7 +16,9 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 0.0,
       "piquasso_mean_error": 3.554447978966673e-16,
-      "piquasso_covariance_error": 0.0
+      "piquasso_covariance_error": 0.0,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 0.0
     },
     {
       "eta": 0.2,
@@ -22,7 +26,9 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 0.0,
       "piquasso_mean_error": 3.554447978966673e-16,
-      "piquasso_covariance_error": 0.0
+      "piquasso_covariance_error": 0.0,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 0.0
     },
     {
       "eta": 0.2,
@@ -30,7 +36,9 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 0.0,
       "piquasso_mean_error": 3.554447978966673e-16,
-      "piquasso_covariance_error": 6.280369834735101e-16
+      "piquasso_covariance_error": 6.280369834735101e-16,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 0.0
     },
     {
       "eta": 0.2,
@@ -38,7 +46,9 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 0.0,
       "piquasso_mean_error": 3.554447978966673e-16,
-      "piquasso_covariance_error": 1.2560739669470201e-15
+      "piquasso_covariance_error": 1.2560739669470201e-15,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 0.0
     },
     {
       "eta": 0.4,
@@ -46,7 +56,19 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 0.0,
       "piquasso_mean_error": 2.7755575615628914e-16,
-      "piquasso_covariance_error": 0.0
+      "piquasso_covariance_error": 0.0,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 0.0,
+      "native-mixed-fock_ok": true,
+      "native-mixed-fock_photon_number_error": 0.0,
+      "native-mixed-fock_q_variance_error": 2.220446049250313e-16,
+      "native-mixed-fock_min_retained_norm": 0.9999999999999999,
+      "native-mixed-fock_seconds": 0.0029873000166844577,
+      "piquasso-mixed-fock_ok": true,
+      "piquasso-mixed-fock_photon_number_error": 5.551115123125783e-17,
+      "piquasso-mixed-fock_q_variance_error": 2.220446049250313e-16,
+      "piquasso-mixed-fock_min_retained_norm": 0.9999999999999999,
+      "piquasso-mixed-fock_seconds": 0.25262230000225827
     },
     {
       "eta": 0.4,
@@ -54,7 +76,19 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 0.0,
       "piquasso_mean_error": 2.7755575615628914e-16,
-      "piquasso_covariance_error": 6.280369834735101e-16
+      "piquasso_covariance_error": 6.280369834735101e-16,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 0.0,
+      "native-mixed-fock_ok": true,
+      "native-mixed-fock_photon_number_error": 0.0,
+      "native-mixed-fock_q_variance_error": 2.220446049250313e-16,
+      "native-mixed-fock_min_retained_norm": 1.0,
+      "native-mixed-fock_seconds": 0.0009663999953772873,
+      "piquasso-mixed-fock_ok": true,
+      "piquasso-mixed-fock_photon_number_error": 0.0,
+      "piquasso-mixed-fock_q_variance_error": 4.440892098500626e-16,
+      "piquasso-mixed-fock_min_retained_norm": 0.9999999999999999,
+      "piquasso-mixed-fock_seconds": 0.1879495000175666
     },
     {
       "eta": 0.4,
@@ -62,7 +96,19 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 0.0,
       "piquasso_mean_error": 2.7755575615628914e-16,
-      "piquasso_covariance_error": 6.280369834735101e-16
+      "piquasso_covariance_error": 6.280369834735101e-16,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 0.0,
+      "native-mixed-fock_ok": true,
+      "native-mixed-fock_photon_number_error": 1.2881917754725691e-12,
+      "native-mixed-fock_q_variance_error": 4.027000954920368e-12,
+      "native-mixed-fock_min_retained_norm": 0.9999999999999567,
+      "native-mixed-fock_seconds": 0.0007803999760653824,
+      "piquasso-mixed-fock_ok": true,
+      "piquasso-mixed-fock_photon_number_error": 1.2880807531701066e-12,
+      "piquasso-mixed-fock_q_variance_error": 4.027445044130218e-12,
+      "piquasso-mixed-fock_min_retained_norm": 0.9999999999999567,
+      "piquasso-mixed-fock_seconds": 0.18944980000378564
     },
     {
       "eta": 0.4,
@@ -70,7 +116,19 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 0.0,
       "piquasso_mean_error": 2.7755575615628914e-16,
-      "piquasso_covariance_error": 6.280369834735101e-16
+      "piquasso_covariance_error": 6.280369834735101e-16,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 0.0,
+      "native-mixed-fock_ok": true,
+      "native-mixed-fock_photon_number_error": 2.7444856831593256e-08,
+      "native-mixed-fock_q_variance_error": 6.786760753385579e-08,
+      "native-mixed-fock_min_retained_norm": 0.9999999990832652,
+      "native-mixed-fock_seconds": 0.000740100018447265,
+      "piquasso-mixed-fock_ok": true,
+      "piquasso-mixed-fock_photon_number_error": 2.7444857275682466e-08,
+      "piquasso-mixed-fock_q_variance_error": 6.7867607977945e-08,
+      "piquasso-mixed-fock_min_retained_norm": 0.9999999990832651,
+      "piquasso-mixed-fock_seconds": 0.18580089998431504
     },
     {
       "eta": 0.4,
@@ -78,7 +136,19 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 0.0,
       "piquasso_mean_error": 2.7755575615628914e-16,
-      "piquasso_covariance_error": 1.2560739669470201e-15
+      "piquasso_covariance_error": 1.2560739669470201e-15,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 0.0,
+      "native-mixed-fock_ok": true,
+      "native-mixed-fock_photon_number_error": 0.00010271308084974784,
+      "native-mixed-fock_q_variance_error": 0.0002150338216360126,
+      "native-mixed-fock_min_retained_norm": 0.9999965722421508,
+      "native-mixed-fock_seconds": 0.001309399987803772,
+      "piquasso-mixed-fock_ok": true,
+      "piquasso-mixed-fock_photon_number_error": 0.00010271308084996988,
+      "piquasso-mixed-fock_q_variance_error": 0.0002150338216360126,
+      "piquasso-mixed-fock_min_retained_norm": 0.9999965722421508,
+      "piquasso-mixed-fock_seconds": 0.19778560000122525
     },
     {
       "eta": 0.6,
@@ -86,7 +156,9 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 0.0,
       "piquasso_mean_error": 3.7238012298709097e-16,
-      "piquasso_covariance_error": 0.0
+      "piquasso_covariance_error": 0.0,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 0.0
     },
     {
       "eta": 0.6,
@@ -94,7 +166,9 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 0.0,
       "piquasso_mean_error": 3.7238012298709097e-16,
-      "piquasso_covariance_error": 6.280369834735101e-16
+      "piquasso_covariance_error": 6.280369834735101e-16,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 0.0
     },
     {
       "eta": 0.6,
@@ -102,7 +176,9 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 0.0,
       "piquasso_mean_error": 3.7238012298709097e-16,
-      "piquasso_covariance_error": 6.280369834735101e-16
+      "piquasso_covariance_error": 6.280369834735101e-16,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 0.0
     },
     {
       "eta": 0.6,
@@ -110,7 +186,9 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 0.0,
       "piquasso_mean_error": 3.7238012298709097e-16,
-      "piquasso_covariance_error": 1.2560739669470201e-15
+      "piquasso_covariance_error": 1.2560739669470201e-15,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 0.0
     },
     {
       "eta": 0.6,
@@ -118,7 +196,9 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 0.0,
       "piquasso_mean_error": 3.7238012298709097e-16,
-      "piquasso_covariance_error": 1.88411095042053e-15
+      "piquasso_covariance_error": 1.88411095042053e-15,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 0.0
     },
     {
       "eta": 0.8,
@@ -126,7 +206,19 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 1.5700924586837752e-16,
       "piquasso_mean_error": 4.577566798522237e-16,
-      "piquasso_covariance_error": 0.0
+      "piquasso_covariance_error": 0.0,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 1.5700924586837752e-16,
+      "native-mixed-fock_ok": true,
+      "native-mixed-fock_photon_number_error": 5.551115123125783e-17,
+      "native-mixed-fock_q_variance_error": 0.0,
+      "native-mixed-fock_min_retained_norm": 0.9999999999999999,
+      "native-mixed-fock_seconds": 0.0032270999799948186,
+      "piquasso-mixed-fock_ok": true,
+      "piquasso-mixed-fock_photon_number_error": 0.0,
+      "piquasso-mixed-fock_q_variance_error": 3.3306690738754696e-16,
+      "piquasso-mixed-fock_min_retained_norm": 0.9999999999999997,
+      "piquasso-mixed-fock_seconds": 0.18387649999931455
     },
     {
       "eta": 0.8,
@@ -134,7 +226,19 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 3.1401849173675503e-16,
       "piquasso_mean_error": 4.577566798522237e-16,
-      "piquasso_covariance_error": 0.0
+      "piquasso_covariance_error": 0.0,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 3.1401849173675503e-16,
+      "native-mixed-fock_ok": true,
+      "native-mixed-fock_photon_number_error": 0.0,
+      "native-mixed-fock_q_variance_error": 0.0,
+      "native-mixed-fock_min_retained_norm": 0.9999999999999998,
+      "native-mixed-fock_seconds": 0.0010093000018969178,
+      "piquasso-mixed-fock_ok": true,
+      "piquasso-mixed-fock_photon_number_error": 5.551115123125783e-17,
+      "piquasso-mixed-fock_q_variance_error": 0.0,
+      "piquasso-mixed-fock_min_retained_norm": 0.9999999999999998,
+      "piquasso-mixed-fock_seconds": 0.19706949999090284
     },
     {
       "eta": 0.8,
@@ -142,7 +246,19 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 0.0,
       "piquasso_mean_error": 4.577566798522237e-16,
-      "piquasso_covariance_error": 3.1401849173675503e-16
+      "piquasso_covariance_error": 3.1401849173675503e-16,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 0.0,
+      "native-mixed-fock_ok": true,
+      "native-mixed-fock_photon_number_error": 5.551115123125783e-17,
+      "native-mixed-fock_q_variance_error": 4.440892098500626e-16,
+      "native-mixed-fock_min_retained_norm": 1.0,
+      "native-mixed-fock_seconds": 0.0007007000094745308,
+      "piquasso-mixed-fock_ok": true,
+      "piquasso-mixed-fock_photon_number_error": 1.1102230246251565e-16,
+      "piquasso-mixed-fock_q_variance_error": 4.440892098500626e-16,
+      "piquasso-mixed-fock_min_retained_norm": 1.0,
+      "piquasso-mixed-fock_seconds": 0.1932385999825783
     },
     {
       "eta": 0.8,
@@ -150,7 +266,19 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 3.1401849173675503e-16,
       "piquasso_mean_error": 4.577566798522237e-16,
-      "piquasso_covariance_error": 3.1401849173675503e-16
+      "piquasso_covariance_error": 3.1401849173675503e-16,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 3.1401849173675503e-16,
+      "native-mixed-fock_ok": true,
+      "native-mixed-fock_photon_number_error": 2.1094237467877974e-15,
+      "native-mixed-fock_q_variance_error": 7.549516567451064e-15,
+      "native-mixed-fock_min_retained_norm": 1.0,
+      "native-mixed-fock_seconds": 0.0009188000112771988,
+      "piquasso-mixed-fock_ok": true,
+      "piquasso-mixed-fock_photon_number_error": 2.3314683517128287e-15,
+      "piquasso-mixed-fock_q_variance_error": 7.327471962526033e-15,
+      "piquasso-mixed-fock_min_retained_norm": 1.0000000000000002,
+      "piquasso-mixed-fock_seconds": 0.18340229999739677
     },
     {
       "eta": 0.8,
@@ -158,7 +286,19 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 0.0,
       "piquasso_mean_error": 4.577566798522237e-16,
-      "piquasso_covariance_error": 6.280369834735101e-16
+      "piquasso_covariance_error": 6.280369834735101e-16,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 0.0,
+      "native-mixed-fock_ok": true,
+      "native-mixed-fock_photon_number_error": 2.3164403728515026e-10,
+      "native-mixed-fock_q_variance_error": 6.571720945203197e-10,
+      "native-mixed-fock_min_retained_norm": 0.9999999999922315,
+      "native-mixed-fock_seconds": 0.0007208000170066953,
+      "piquasso-mixed-fock_ok": true,
+      "piquasso-mixed-fock_photon_number_error": 2.316439262628478e-10,
+      "piquasso-mixed-fock_q_variance_error": 6.571725386095295e-10,
+      "piquasso-mixed-fock_min_retained_norm": 0.9999999999922314,
+      "piquasso-mixed-fock_seconds": 0.19670359999872744
     },
     {
       "eta": 1.0,
@@ -166,7 +306,9 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 0.0,
       "piquasso_mean_error": 3.1401849173675503e-16,
-      "piquasso_covariance_error": 0.0
+      "piquasso_covariance_error": 0.0,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 0.0
     },
     {
       "eta": 1.0,
@@ -174,7 +316,9 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 0.0,
       "piquasso_mean_error": 3.1401849173675503e-16,
-      "piquasso_covariance_error": 0.0
+      "piquasso_covariance_error": 0.0,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 0.0
     },
     {
       "eta": 1.0,
@@ -182,7 +326,9 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 0.0,
       "piquasso_mean_error": 3.1401849173675503e-16,
-      "piquasso_covariance_error": 0.0
+      "piquasso_covariance_error": 0.0,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 0.0
     },
     {
       "eta": 1.0,
@@ -190,7 +336,9 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 0.0,
       "piquasso_mean_error": 3.1401849173675503e-16,
-      "piquasso_covariance_error": 0.0
+      "piquasso_covariance_error": 0.0,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 0.0
     },
     {
       "eta": 1.0,
@@ -198,11 +346,29 @@
       "gaussian_mean_error": 0.0,
       "gaussian_covariance_error": 0.0,
       "piquasso_mean_error": 3.1401849173675503e-16,
-      "piquasso_covariance_error": 0.0
+      "piquasso_covariance_error": 0.0,
+      "native-gaussian_mean_error": 0.0,
+      "native-gaussian_covariance_error": 0.0
     }
   ],
   "alpha": [
     0.5,
     -0.3
-  ]
+  ],
+  "gaussian_backends": [
+    "gaussian",
+    "piquasso",
+    "native-gaussian"
+  ],
+  "mixed_backends": [
+    "native-mixed-fock",
+    "piquasso-mixed-fock"
+  ],
+  "mixed_etas": [
+    0.4,
+    0.8
+  ],
+  "mixed_cutoff": 30,
+  "mixed_tolerance": 1e-06,
+  "timing_note": "provisional (shared machine)"
 }

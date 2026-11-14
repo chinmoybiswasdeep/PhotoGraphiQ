@@ -17,7 +17,6 @@
     0.0,
     0.0
   ],
-  "valid_certificate_max_residual": 0.0,
   "invalid_order": [
     1,
     0
@@ -28,12 +27,11 @@
     0.0
   ],
   "flow_pattern_commands": 9,
-  "shots": 500,
-  "single_trajectory_mean": [
+  "flow_pattern_output_mean": [
     -0.9194938223603941,
     -0.31931562463520635
   ],
-  "single_trajectory_covariance": [
+  "flow_pattern_output_covariance": [
     [
       0.9841237600235324,
       1.843963343648459e-32
@@ -41,22 +39,6 @@
     [
       1.843963343648459e-32,
       1.0161323612144946
-    ]
-  ],
-  "single_trajectory_mean_error": 0.34104621506262833,
-  "single_trajectory_covariance_error": 0.1925467770985304,
-  "ensemble_mean": [
-    -0.607995830019842,
-    -0.20367404433841457
-  ],
-  "ensemble_covariance": [
-    [
-      1.126693539576995,
-      0.008377088515808874
-    ],
-    [
-      0.008377088515808874,
-      1.1324721372595015
     ]
   ],
   "affine_channel_mean": [
@@ -73,6 +55,162 @@
       1.1353352832366128
     ]
   ],
-  "flow_vs_channel_mean_error": 0.0087995397326703,
-  "flow_vs_channel_covariance_error": 0.014940835397265673
+  "flows_study": {
+    "line_status": "certified",
+    "line_decision": "certified",
+    "line_regimes": [
+      "finite_squeezing",
+      "ideal_limit"
+    ],
+    "line_measurement_order": [
+      0,
+      1
+    ],
+    "line_layers": [
+      [
+        0
+      ],
+      [
+        1
+      ]
+    ],
+    "line_correction_map": {
+      "0": {
+        "1": {
+          "q": -1.0,
+          "p": -0.0
+        },
+        "2": {
+          "q": -0.0,
+          "p": -1.0
+        }
+      },
+      "1": {
+        "2": {
+          "q": -1.0,
+          "p": -0.0
+        }
+      }
+    },
+    "line_finite_squeezing_gain": 0.18946068135810834,
+    "line_decay_exponents": {
+      "gain": 0.9999368062575981,
+      "conditional_map_error": 0.9999364748190619
+    },
+    "supplied_order_certificate_corrections": {
+      "0": {
+        "1": 1.0,
+        "2": 0.0
+      },
+      "1": {
+        "2": 1.0
+      }
+    },
+    "finder_layer_corrections": {
+      "1": {
+        "2": 1.0
+      },
+      "0": {
+        "1": 1.0,
+        "2": 0.0
+      }
+    },
+    "gaussian_max_z": 0.6909954983152331,
+    "native-gaussian_max_z": 0.6909954983152331,
+    "native_vs_gaussian_max_record_difference": 0.0,
+    "corrected_channel_matrix": [
+      [
+        -1.0,
+        6.123233995736766e-17
+      ],
+      [
+        -6.123233995736766e-17,
+        -1.0
+      ]
+    ],
+    "corrected_channel_noise": [
+      [
+        0.1353352832366127,
+        0.0
+      ],
+      [
+        0.0,
+        0.1353352832366127
+      ]
+    ],
+    "wrong_corrections_ideal_limit_deterministic": false,
+    "declines_and_rejections": [
+      {
+        "case": "singular bridge",
+        "status": "not_certified",
+        "decision": "impossible",
+        "regimes": [],
+        "witnesses": "{'u': {'u': Fraction(-1, 2), 'v': Fraction(1, 2)}, 'v': {'u': Fraction(-1, 2), 'v': Fraction(1, 2)}}",
+        "expected": "impossible with witnesses",
+        "ok": true
+      },
+      {
+        "case": "near-singular bridge det=1e-10, exact=None",
+        "status": "unknown",
+        "decision": "numerically_uncertain",
+        "regimes": [],
+        "witnesses": null,
+        "correction_gain_max": 9999999173.59636,
+        "expected": "unknown (declines)",
+        "ok": true
+      },
+      {
+        "case": "near-singular bridge det=1e-10, exact=True",
+        "status": "certified",
+        "decision": "certified",
+        "regimes": [
+          "ideal_limit"
+        ],
+        "witnesses": null,
+        "correction_gain_max": 9999999173.59636,
+        "expected": "certified ideal_limit only",
+        "ok": true
+      },
+      {
+        "case": "unit wire r=4, shift=3.0",
+        "status": "unknown",
+        "decision": "numerically_uncertain",
+        "regimes": [],
+        "witnesses": null,
+        "expected": "unknown (float64 check cannot run)",
+        "ok": true
+      },
+      {
+        "case": "unit wire r=4, shift=1.5",
+        "status": "certified",
+        "decision": "certified",
+        "regimes": [
+          "finite_squeezing",
+          "ideal_limit"
+        ],
+        "witnesses": null,
+        "expected": "certified both regimes",
+        "ok": true
+      },
+      {
+        "case": "qubit gflow on CV graph",
+        "status": "unsupported",
+        "decision": null,
+        "regimes": [],
+        "witnesses": null,
+        "expected": "unsupported",
+        "ok": true
+      },
+      {
+        "case": "CV_NONGAUSSIAN model",
+        "status": "unsupported",
+        "decision": null,
+        "regimes": [],
+        "witnesses": null,
+        "expected": "unsupported",
+        "ok": true
+      }
+    ],
+    "failures": []
+  }
 }

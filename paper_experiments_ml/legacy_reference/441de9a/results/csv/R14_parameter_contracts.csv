@@ -1,0 +1,14 @@
+check,passed
+measured_nodes_sorted_block_wire_col,True
+parameters_dict_order_matches_measured_nodes,True
+partial_dict_binding_updates_only_given_names,True
+exact_vector_binding_matches_trainable_order,True
+wrong_length_vector_rejected,True
+freeze_removes_from_trainable,True
+freeze_reduces_n_parameters,True
+frozen_override_rejected,True
+unfreeze_restores_trainable,True
+unfreeze_restores_n_parameters,True
+unknown_name_rejected,True
+same_seed_reproducible,True
+different_seed_differs,True

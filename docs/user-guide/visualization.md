@@ -26,3 +26,9 @@ Connectivity aggregates repeated CZ edges and cannot describe the complete
 temporal semantics of a pattern containing interleaved gates and injections.
 Use the command sequence and `draw_dependencies(pattern)` alongside it. SVG and
 PDF preserve vector geometry; PNG is useful for slide previews.
+
+For staged MBQC figures (graph, flow, corrections, execution) with routed edges, a
+colour-blind-safe role encoding and checkable SVG ids, use `photographiq.interactive`
+(`GraphView.save` / `draw_static`); see [Interactive visualization](interactive.md).
+`scripts/generate_demo_figures.py` regenerates the demonstration figures in
+`docs/figures/demos/` from library calls.

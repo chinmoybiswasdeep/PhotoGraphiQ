@@ -17,6 +17,16 @@
       "standard_error": 0.003075018088609748,
       "n_samples_per_repeat": 20000,
       "n_repeats": 10
+    },
+    {
+      "estimator": "score_function_surrogate on native-gaussian homodyne samples",
+      "exact_gradient": 1.7999999999999998,
+      "mean_estimate": 1.8371635775579083,
+      "bias": 0.037163577557908445,
+      "standard_error": 0.026149534189981505,
+      "n_samples_per_repeat": 3000,
+      "n_repeats": 10,
+      "sampling_backend": "native-gaussian"
     }
   ]
 }

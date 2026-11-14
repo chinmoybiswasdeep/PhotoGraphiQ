@@ -216,6 +216,65 @@ def manual(graph: OpenGraph | nx.Graph, positions: Mapping) -> Layout:
     return Layout(dict(positions)).require(_network(graph))
 
 
+CLEARANCE = 0.34  # layout units an edge keeps from non-endpoint node centres
+_BEND_STEP = 0.16
+_BEND_TRIES = 10
+
+
+def _clearance(a, b, offset: float, others) -> float:
+    """Smallest distance of the quadratic curve a -> b (control offset ``offset``) to ``others``."""
+    (x1, y1), (x2, y2) = a, b
+    dx, dy = x2 - x1, y2 - y1
+    length = math.hypot(dx, dy) or 1.0
+    cx, cy = (x1 + x2) / 2 + offset * dy / length, (y1 + y2) / 2 - offset * dx / length
+    best = math.inf
+    for i in range(1, 40):
+        t = i / 40
+        u = 1 - t
+        x = u * u * x1 + 2 * t * u * cx + t * t * x2
+        y = u * u * y1 + 2 * t * u * cy + t * t * y2
+        for ox, oy in others:
+            best = min(best, math.hypot(x - ox, y - oy))
+    return best
+
+
+def route(
+    layout: Layout, source: Hashable, target: Hashable, base: float = 0.0, *, clearance=CLEARANCE
+) -> float:
+    """Control-point offset of a quadratic edge ``source -> target`` that avoids other nodes.
+
+    The control point is the chord midpoint plus ``offset`` times the unit normal
+    ``(dy, -dx) / |d|`` (y up); this is Matplotlib's ``arc3`` convention (``rad =
+    offset / |d|``) and Cytoscape's ``control-point-distances`` (pixels, y down). The
+    curve peaks at ``offset / 2``. Starting from ``base`` (0 for straight CZ edges, the
+    signed default arc of overlay arrows) the offset grows away from the chord, on
+    both sides when ``base`` is 0 (arrows try their own side first, then the mirrored
+    side, then flatter arcs), until the curve stays ``clearance`` away from every other node; if no tried
+    offset is clear, the clearest one is returned.
+    """
+    pos = layout.positions
+    a, b = pos[source], pos[target]
+    others = [xy for n, xy in pos.items() if n not in (source, target)]
+    if not others:
+        return base
+    length = math.hypot(b[0] - a[0], b[1] - a[1])
+    if length == 0:
+        return base
+    signs = (1.0, -1.0) if base == 0 else (math.copysign(1.0, base),)
+    candidates = [base] + [
+        base + s * j * _BEND_STEP * 2 for j in range(1, _BEND_TRIES) for s in signs
+    ]
+    if base != 0:  # the preferred side is blocked: mirror the arc to the other side
+        candidates += [-c for c in candidates] + [base / 2, -base / 2, base / 4, -base / 4]
+    scored = []
+    for offset in candidates:
+        gap = _clearance(a, b, offset, others)
+        if gap >= clearance:
+            return offset
+        scored.append((gap, -abs(offset), offset))
+    return max(scored)[2]
+
+
 LAYOUTS: dict[str, Callable[..., Layout]] = {
     "grid": grid,
     "circular": circular,

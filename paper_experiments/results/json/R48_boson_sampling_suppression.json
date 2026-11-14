@@ -1,0 +1,181 @@
+{
+  "rows": [
+    {
+      "modes": 3,
+      "photons": 3,
+      "patterns": 10,
+      "suppressed_patterns": 6,
+      "suppressed_mass": 3.4098106888338314e-31,
+      "allowed_mass": 1.000000000000002
+    },
+    {
+      "modes": 4,
+      "photons": 4,
+      "patterns": 35,
+      "suppressed_patterns": 25,
+      "suppressed_mass": 6.676660106222474e-31,
+      "allowed_mass": 0.9999999999999998
+    },
+    {
+      "modes": 5,
+      "photons": 5,
+      "patterns": 126,
+      "suppressed_patterns": 100,
+      "suppressed_mass": 7.168570953072714e-29,
+      "allowed_mass": 1.000000000000003
+    },
+    {
+      "modes": 6,
+      "photons": 6,
+      "patterns": 462,
+      "suppressed_patterns": 382,
+      "suppressed_mass": 5.732981848887489e-28,
+      "allowed_mass": 1.0000000000000056
+    },
+    {
+      "modes": 7,
+      "photons": 7,
+      "patterns": 1716,
+      "suppressed_patterns": 1470,
+      "suppressed_mass": 6.68775422774293e-27,
+      "allowed_mass": 1.00000000000001
+    }
+  ],
+  "backend": "photographiq.sampling (native Gray-code Ryser 'native', NumPy multiplicity Ryser 'python')",
+  "reference": "permutation-sum definition, Glynn formula (this script), native Fock-space evolution of the passive unitary, Piquasso 8.0.1 PureFockSimulator, DFT suppression law",
+  "precision": "complex128",
+  "cutoff": "photons + 1 for the Fock-space references",
+  "seed": 20261148,
+  "full": true,
+  "timing_status": "PROVISIONAL (shared machine)",
+  "parameters": {
+    "permanent_sizes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      16,
+      18,
+      20
+    ],
+    "distribution_cases": [
+      [
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "sampler_shots": 20000,
+    "haar_source": "scipy.stats.unitary_group"
+  },
+  "native_threads": 12,
+  "acceptance": {
+    "TOL_PERM_SCALED": 1e-13,
+    "TOL_NORMALISATION": 1e-12,
+    "TOL_FOCK_REFERENCE": 1e-12,
+    "TOL_PIQUASSO": 1e-12,
+    "TOL_SUPPRESSION": 1e-14,
+    "MIN_CHI2_PVALUE": 0.0001
+  }
+}

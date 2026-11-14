@@ -27,8 +27,9 @@ https://piquasso.readthedocs.io/en/stable/index.html and
 https://graphix.readthedocs.io/en/latest/index.html.
 Exact upstream commits and inspected modules are listed in [design.md](design.md).
 Source checkouts are local research aids under ignored `.research/`, not copied
-into the distributed package. Original code is MIT; the supplied PDFs and
-`paper/quantumarticle.cls` retain their upstream licensing.
+into the distributed package. Original code is MIT; the supplied PDFs retain their upstream licensing. (The Quantum
+class file `paper/quantumarticle.cls` mentioned in earlier versions is no longer in the
+repository.)
 
 The official class was downloaded from
 https://github.com/quantum-journal/quantum-journal/blob/master/quantumarticle.cls.

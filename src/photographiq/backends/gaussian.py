@@ -7,6 +7,7 @@ from scipy.linalg import block_diag
 from scipy.stats import multivariate_normal, norm
 
 from .. import gaussian as gm
+from .._checks import is_finite_real_scalar
 from ..measurements import Generaldyne, Heterodyne, Homodyne
 from ..states import GaussianInput, GaussianState
 from .base import BaseBackend, resolve_angle
@@ -143,7 +144,7 @@ class GaussianBackend(BaseBackend):
             expected = float(vector @ mu)
             if outcome is None:
                 outcome = self.rng.normal(expected, np.sqrt(variance))
-            elif not np.isscalar(outcome) or not np.isreal(outcome) or not np.isfinite(outcome):
+            elif not is_finite_real_scalar(outcome):
                 raise ValueError("Homodyne outcome must be a finite real scalar")
             outcome = float(outcome)
             density = norm.pdf(outcome, expected, np.sqrt(variance))

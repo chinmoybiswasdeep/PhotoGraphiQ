@@ -1,0 +1,190 @@
+{
+  "rows": [
+    {
+      "case": "non_normalized_state",
+      "expected": "ValueError",
+      "raised": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "wrong_shape_state",
+      "expected": "ValueError",
+      "raised": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "nonfinite_state",
+      "expected": "ValueError",
+      "raised": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "nonfinite_parameter",
+      "expected": "ValueError",
+      "raised": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "unknown_parameter_name",
+      "expected": "ValueError",
+      "raised": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "wrong_length_vector_parameters",
+      "expected": "ValueError",
+      "raised": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "unsupported_representation",
+      "expected": "ValueError",
+      "raised": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "bad_n_wires_zero",
+      "expected": "ValueError",
+      "raised": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "bad_n_wires_bool",
+      "expected": "ValueError",
+      "raised": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "custom_connections_without_one_column",
+      "expected": "ValueError",
+      "raised": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "legacy_gkp_execution_rejected",
+      "expected": "NotImplementedError",
+      "raised": "NotImplementedError",
+      "passed": true
+    },
+    {
+      "case": "unsupported_physical_angle",
+      "expected": "NotImplementedError",
+      "raised": "UnsupportedPhysicalMeasurement",
+      "passed": true
+    },
+    {
+      "case": "unsupported_output_basis",
+      "expected": "NotImplementedError",
+      "raised": "NotImplementedError",
+      "passed": true
+    },
+    {
+      "case": "bad_shots_zero",
+      "expected": "ValueError",
+      "raised": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "bad_seed_negative",
+      "expected": "ValueError",
+      "raised": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "bad_mode",
+      "expected": "ValueError",
+      "raised": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "conditional_requires_all_outcomes",
+      "expected": "ValueError",
+      "raised": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "conditional_requires_shots_one",
+      "expected": "ValueError",
+      "raised": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "unsupported_backend",
+      "expected": "ValueError",
+      "raised": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "unsupported_decoder",
+      "expected": "ValueError",
+      "raised": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "infeasible_dimension_budget",
+      "expected": "(<class 'ValueError'>, <class 'Exception'>)",
+      "raised": "TypeError",
+      "passed": true
+    },
+    {
+      "case": "physical_measurement_family_unsupported",
+      "expected": "ValueError",
+      "raised": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "physical_continuous_init_rejected",
+      "expected": "ValueError",
+      "raised": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "physical_run_batch_unsupported",
+      "expected": "NotImplementedError",
+      "raised": "NotImplementedError",
+      "passed": true
+    },
+    {
+      "case": "physical_unitary_unsupported",
+      "expected": "NotImplementedError",
+      "raised": "NotImplementedError",
+      "passed": true
+    },
+    {
+      "case": "dense_unitary_too_many_wires",
+      "expected": "ValueError",
+      "raised": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "initialize_bad_scale",
+      "expected": "ValueError",
+      "raised": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "freeze_unknown_name",
+      "expected": "ValueError",
+      "raised": "ValueError",
+      "passed": true
+    },
+    {
+      "case": "freeze_nonfinite_value",
+      "expected": "ValueError",
+      "raised": "ValueError",
+      "passed": true
+    }
+  ],
+  "protocol": "Fail-fast matrix across public API validation paths",
+  "oracle_class": "E",
+  "status_category": "exact",
+  "acceptance_condition": "0 cases where the expected exception was not raised",
+  "n_cases": 29,
+  "n_failed": 0,
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

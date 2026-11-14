@@ -27,6 +27,7 @@ from collections.abc import Hashable, Iterable, Sequence
 import numpy as np
 
 from .. import native
+from .._checks import is_finite_real_scalar
 from ..measurements import Generaldyne, Heterodyne, Homodyne
 from ..states import GaussianInput, GaussianState
 from .base import resolve_angle
@@ -129,7 +130,7 @@ class NativeGaussianBackend(GaussianBackend):
             )
             if outcome is None:
                 outcome = self.rng.normal(expected, np.sqrt(variance))
-            elif not np.isscalar(outcome) or not np.isreal(outcome) or not np.isfinite(outcome):
+            elif not is_finite_real_scalar(outcome):
                 raise ValueError("Homodyne outcome must be a finite real scalar")
             outcome = float(outcome)
             mean, cov, density = _kernels.condition_homodyne(

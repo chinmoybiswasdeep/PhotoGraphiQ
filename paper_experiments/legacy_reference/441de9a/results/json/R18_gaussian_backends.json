@@ -1,0 +1,172 @@
+{
+  "rows": [
+    {
+      "sample": 0,
+      "n_gates": 4,
+      "gaussian_vs_piquasso_mean_error": 1.4686870114880517e-16,
+      "gaussian_vs_piquasso_covariance_error": 1.1249767632177947e-16,
+      "gaussian_vs_piquasso_photon_number_error": 0.0,
+      "mixed_fock_photon_number_error": 1.4210854715202004e-14,
+      "mixed_fock_q_error": 2.051414593751133e-13,
+      "mixed_fock_cutoff": 14,
+      "mixed_fock_ok": true
+    },
+    {
+      "sample": 1,
+      "n_gates": 4,
+      "gaussian_vs_piquasso_mean_error": 2.0206364052201326e-16,
+      "gaussian_vs_piquasso_covariance_error": 7.506179160044328e-16,
+      "gaussian_vs_piquasso_photon_number_error": 1.1102230246251565e-16,
+      "mixed_fock_photon_number_error": 8.333611578592581e-15,
+      "mixed_fock_q_error": 1.4654943925052066e-14,
+      "mixed_fock_cutoff": 14,
+      "mixed_fock_ok": true
+    },
+    {
+      "sample": 2,
+      "n_gates": 4,
+      "gaussian_vs_piquasso_mean_error": 5.147892387644517e-16,
+      "gaussian_vs_piquasso_covariance_error": 1.5727839873962653e-16,
+      "gaussian_vs_piquasso_photon_number_error": 1.1102230246251565e-16,
+      "mixed_fock_photon_number_error": 4.794709074218417e-11,
+      "mixed_fock_q_error": 6.762657100978231e-11,
+      "mixed_fock_cutoff": 14,
+      "mixed_fock_ok": true
+    },
+    {
+      "sample": 3,
+      "n_gates": 4,
+      "gaussian_vs_piquasso_mean_error": 4.451720917549152e-16,
+      "gaussian_vs_piquasso_covariance_error": 2.4883457901194043e-16,
+      "gaussian_vs_piquasso_photon_number_error": 3.3306690738754696e-16,
+      "mixed_fock_photon_number_error": 5.468453987689248e-07,
+      "mixed_fock_q_error": 5.170926847819501e-07,
+      "mixed_fock_cutoff": 14,
+      "mixed_fock_ok": true
+    },
+    {
+      "sample": 4,
+      "n_gates": 4,
+      "gaussian_vs_piquasso_mean_error": 2.6766507790745728e-16,
+      "gaussian_vs_piquasso_covariance_error": 5.652618001501286e-16,
+      "gaussian_vs_piquasso_photon_number_error": 1.1102230246251565e-16,
+      "mixed_fock_photon_number_error": 3.79033339525936e-06,
+      "mixed_fock_q_error": 6.866440491193337e-08,
+      "mixed_fock_cutoff": 14,
+      "mixed_fock_ok": true
+    },
+    {
+      "sample": 5,
+      "n_gates": 4,
+      "gaussian_vs_piquasso_mean_error": 3.3103687685155823e-16,
+      "gaussian_vs_piquasso_covariance_error": 4.443601777255714e-16,
+      "gaussian_vs_piquasso_photon_number_error": 0.0,
+      "mixed_fock_photon_number_error": null,
+      "mixed_fock_q_error": null,
+      "mixed_fock_cutoff": 14,
+      "mixed_fock_ok": false,
+      "mixed_fock_error": "Fock truncation norm 0.99871849; increase cutoff=14"
+    },
+    {
+      "sample": 6,
+      "n_gates": 4,
+      "gaussian_vs_piquasso_mean_error": 3.212940164695817e-16,
+      "gaussian_vs_piquasso_covariance_error": 1.1106042336421726e-16,
+      "gaussian_vs_piquasso_photon_number_error": 0.0,
+      "mixed_fock_photon_number_error": 1.8620472913566388e-08,
+      "mixed_fock_q_error": 1.871330312930297e-09,
+      "mixed_fock_cutoff": 14,
+      "mixed_fock_ok": true
+    },
+    {
+      "sample": 7,
+      "n_gates": 4,
+      "gaussian_vs_piquasso_mean_error": 3.8665270196011714e-16,
+      "gaussian_vs_piquasso_covariance_error": 2.9899331023129757e-16,
+      "gaussian_vs_piquasso_photon_number_error": 1.1102230246251565e-16,
+      "mixed_fock_photon_number_error": 6.346898319409267e-08,
+      "mixed_fock_q_error": 6.452062428774497e-08,
+      "mixed_fock_cutoff": 14,
+      "mixed_fock_ok": true
+    },
+    {
+      "sample": 8,
+      "n_gates": 4,
+      "gaussian_vs_piquasso_mean_error": 3.840914392954655e-16,
+      "gaussian_vs_piquasso_covariance_error": 6.336230365925374e-16,
+      "gaussian_vs_piquasso_photon_number_error": 1.1102230246251565e-16,
+      "mixed_fock_photon_number_error": 1.920155491988429e-05,
+      "mixed_fock_q_error": 4.099049009276268e-06,
+      "mixed_fock_cutoff": 14,
+      "mixed_fock_ok": true
+    },
+    {
+      "sample": 9,
+      "n_gates": 4,
+      "gaussian_vs_piquasso_mean_error": 4.714875012456817e-16,
+      "gaussian_vs_piquasso_covariance_error": 2.248777054624332e-16,
+      "gaussian_vs_piquasso_photon_number_error": 0.0,
+      "mixed_fock_photon_number_error": 2.6904700689556194e-11,
+      "mixed_fock_q_error": 4.7561510285731856e-11,
+      "mixed_fock_cutoff": 14,
+      "mixed_fock_ok": true
+    },
+    {
+      "sample": 10,
+      "n_gates": 4,
+      "gaussian_vs_piquasso_mean_error": 2.897767167584095e-16,
+      "gaussian_vs_piquasso_covariance_error": 1.961826455783375e-17,
+      "gaussian_vs_piquasso_photon_number_error": 0.0,
+      "mixed_fock_photon_number_error": 8.856036638749121e-08,
+      "mixed_fock_q_error": 7.43912460521301e-08,
+      "mixed_fock_cutoff": 14,
+      "mixed_fock_ok": true
+    },
+    {
+      "sample": 11,
+      "n_gates": 4,
+      "gaussian_vs_piquasso_mean_error": 2.0816681711721685e-16,
+      "gaussian_vs_piquasso_covariance_error": 1.728988590255679e-16,
+      "gaussian_vs_piquasso_photon_number_error": 1.1102230246251565e-16,
+      "mixed_fock_photon_number_error": 8.679253382615822e-06,
+      "mixed_fock_q_error": 3.603835869003813e-06,
+      "mixed_fock_cutoff": 14,
+      "mixed_fock_ok": true
+    },
+    {
+      "sample": 12,
+      "n_gates": 4,
+      "gaussian_vs_piquasso_mean_error": 3.744431865468923e-16,
+      "gaussian_vs_piquasso_covariance_error": 4.098720543879116e-18,
+      "gaussian_vs_piquasso_photon_number_error": 1.1102230246251565e-16,
+      "mixed_fock_photon_number_error": 5.898059818321144e-17,
+      "mixed_fock_q_error": 3.3306690738754696e-16,
+      "mixed_fock_cutoff": 14,
+      "mixed_fock_ok": true
+    },
+    {
+      "sample": 13,
+      "n_gates": 4,
+      "gaussian_vs_piquasso_mean_error": 4.742874840267547e-16,
+      "gaussian_vs_piquasso_covariance_error": 5.347257588974309e-17,
+      "gaussian_vs_piquasso_photon_number_error": 1.1102230246251565e-16,
+      "mixed_fock_photon_number_error": 1.8041124150158794e-16,
+      "mixed_fock_q_error": 4.996003610813204e-16,
+      "mixed_fock_cutoff": 14,
+      "mixed_fock_ok": true
+    },
+    {
+      "sample": 14,
+      "n_gates": 4,
+      "gaussian_vs_piquasso_mean_error": 3.458500926826531e-16,
+      "gaussian_vs_piquasso_covariance_error": 2.23470062416078e-16,
+      "gaussian_vs_piquasso_photon_number_error": 0.0,
+      "mixed_fock_photon_number_error": 0.0001508795574578503,
+      "mixed_fock_q_error": 0.00010332304192972597,
+      "mixed_fock_cutoff": 14,
+      "mixed_fock_ok": true
+    }
+  ],
+  "seed": 20260913,
+  "fock_cutoff": 14
+}

@@ -66,6 +66,13 @@ angles, random product inputs and analog outcomes, seeds 0 to 2:
 | 1 | 1.2e-6 to 7.9e-5 | ≤ 1.3e-7 | 3.4e-6 to 6.5e-5 |
 | 2 | 1.4e-5 to 9.0e-5 | ≤ 1.5e-7 | 4.9e-5 to 1.0e-4 |
 
+These numbers are for the wide resource (0.9) only. At the `GKPPhysicalConfig()` default
+resource (peak width and envelope 0.6, six peaks) core experiment R59 measured larger
+differences for 1 wire: max |ΔP| of 4.6e-4, 3.3e-4 and 9.0e-5, and 1 − F of 1.3e-5, 1.5e-6
+and 1.8e-7, at cutoffs 32, 40 and 48. Piquasso's own error against native at cutoff 64
+(2.7e-4 at cutoff 32) dominates there; native's own error was 6.7e-5. See the
+[models, backends and validation](../guide.md) page.
+
 The engine difference is of the same order as the engines' truncation errors and, in
 every case measured, no larger than their sum. It can exceed either one alone: with 1
 wire, cutoff 30, peak width and envelope 0.8, three peaks, seed 4 and X readout, the

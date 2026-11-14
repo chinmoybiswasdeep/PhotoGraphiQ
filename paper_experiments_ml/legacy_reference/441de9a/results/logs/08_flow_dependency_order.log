@@ -1,0 +1,13 @@
+$ D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQML\.venv\Scripts\python.exe D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQML\paper_experiments\02_mentpy_validation\08_flow_dependency_order.py
+
+--- stdout ---
+
+=== R8 flow/dependency order ===
+  n_configs: 12
+  max_order_violations: 0
+  max_correction_mismatches: 0
+  status: pass
+
+
+--- stderr ---
+

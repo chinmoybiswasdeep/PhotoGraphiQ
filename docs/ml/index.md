@@ -2,7 +2,10 @@
 
 PhotoGraphiQML provides ideal logical MuTA models and restricted signed-X physical
 GKP execution built on PhotoGraphiQ 0.3.1. Begin with the [tutorials](tutorials/index.md)
-and [input/output contract](api.md).
+and [input/output contract](api.md). [Models, backends and validation](guide.md)
+summarises the logical and physical layers, backend selection (`piquasso-fock` or the
+compiled `native-fock` engine), measurement outcomes, statistical uncertainty, how each
+layer is validated, and the limitations.
 
 The [physical architecture](physical/architecture.md), [measurement boundary](physical/supported-measurements.md),
 [execution modes](physical/execution-modes.md), [lowering](physical/lowering.md),

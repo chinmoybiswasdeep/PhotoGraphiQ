@@ -7,6 +7,7 @@ from time import perf_counter
 import numpy as np
 
 import photographiq as pg
+from photographiq._checks import is_finite_real_scalar
 
 from .ansatz.muta import MuTA
 from .logical import H, execute, local_gate
@@ -64,9 +65,7 @@ def _check_execution(model, input_state, mode, shots, analog_outcomes, output_ba
             raise ValueError(
                 "physical-conditional requires shots=1 and one explicit analog outcome per measured logical node"
             )
-        if not all(
-            np.isscalar(v) and np.isreal(v) and np.isfinite(v) for v in analog_outcomes.values()
-        ):
+        if not all(is_finite_real_scalar(v) for v in analog_outcomes.values()):
             raise ValueError(
                 "Analog outcomes must be finite real scalars, not requested logical bits"
             )

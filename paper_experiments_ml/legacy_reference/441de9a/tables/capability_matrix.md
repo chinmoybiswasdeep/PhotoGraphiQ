@@ -1,0 +1,17 @@
+| case | angle | supported | correct |
+|---|---|---|---|
+| zero | -1e-13 | False | True |
+| zero | -1e-15 | True | True |
+| zero | 0.0 | True | True |
+| zero | 1e-15 | True | True |
+| zero | 1e-13 | False | True |
+| pi | 3.141592653589693 | False | True |
+| pi | 3.1415926535897922 | True | True |
+| pi | 3.141592653589793 | True | True |
+| pi | 3.141592653589794 | True | True |
+| pi | 3.141592653589893 | False | True |
+| Y_pi_over_2 | 1.5707963267948966 | False | True |
+| pi_over_4 | 0.7853981633974483 | False | True |
+| irrational_multiple | 1.23456789 | False | True |
+| nan | nan | False | True |
+| inf | inf | False | True |

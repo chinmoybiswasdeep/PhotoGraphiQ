@@ -12,6 +12,7 @@ import os
 import re
 import shutil
 import subprocess
+import sys
 from pathlib import Path
 
 import pytest
@@ -84,6 +85,11 @@ def run_page(page: str, tmp_path: Path) -> str:
         "--dump-dom",
         path.as_uri(),
     ]
+    if sys.platform.startswith("linux"):
+        # Ubuntu 24.04+ (GitHub ubuntu-latest) restricts unprivileged user namespaces via
+        # AppArmor, so headless Chrome cannot start its sandbox. The page is our own
+        # generated file, so running it unsandboxed is safe.
+        command.insert(1, "--no-sandbox")
     done = subprocess.run(command, capture_output=True, text=True, timeout=120, encoding="utf-8")
     match = re.search(r'<pre id="harness">(.*?)</pre>', done.stdout, flags=re.S)
     assert match, f"harness did not run: {done.stderr[-2000:]}"

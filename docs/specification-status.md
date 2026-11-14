@@ -1,6 +1,6 @@
 # Specification coverage for v0.2
 
-> Historical v0.2 reference. For the v0.3 additions and current backend support, see the [documentation home](index.md) and [feature matrix](validation/feature-matrix.md).
+> **Historical v0.2 reference**, kept unchanged as a provenance record. Since 0.3.1 Piquasso is an optional extra, the default engines are NumPy (`gaussian`) and native C++ (`native-gaussian`, `native-fock`, `native-mixed-fock`), and several features this page calls unavailable now exist (noisy Fock homodyne, Fock loss and mixed inputs on mixed-Fock backends; finite-energy GKP; Gaussian-plus-cubic compilation; Gaussian likelihood diagnostics). Current behaviour: [backends](user-guide/backends.md), [theory](theory/index.md), [feature matrix](validation/feature-matrix.md).
 
 This audit distinguishes implemented release behavior from the longer-term vision
 in the supplied specification. See `design.md` for the pre-implementation choices,
@@ -24,7 +24,7 @@ in the supplied specification. See `design.md` for the pre-implementation choice
 | 20–22: parameters, shots, observables | Reusable real parameters; independent seeded shots; Gaussian moments, photon number, parity, overlap; Fock probabilities and parity | General circuit matrix decomposition is numeric; no differentiable stochastic runtime; overlap is not general mixed-state fidelity |
 | 24–25: visualization and serialization | Resource/pattern/DAG matplotlib exports; versioned allowlisted JSON with label and expression preservation | No pickle/eval; runtime callables explicitly rejected |
 | 26–30: API and validation | Public API, analytical tests, raw Piquasso tests, GraphiX structural/causal-flow tests, pytest suites and error cases | Tests establish the stated examples and invariants, not a proof for every possible computation |
-| 31–34: documentation, engineering and ML boundary | Tutorials, API guide, derivations, modular src layout, Ruff, mypy, CI, pre-commit, build metadata | Per-version Python 3.11?3.14 evidence is recorded in the hardening report; no ML runtime dependencies |
+| 31–34: documentation, engineering and ML boundary | Tutorials, API guide, derivations, modular src layout, Ruff, mypy, CI, pre-commit, build metadata | Per-version Python 3.11–3.14 evidence is recorded in the hardening report; no ML runtime dependencies |
 | 38–40: development and release | Design-first incremental tests, v0.2 API, source/wheel builds, reproducibility artifacts | Research extensions above remain explicit future work; no remote release or commit is implied |
 | Additional request: paper | Updated Quantum-class manuscript, compiled PDF, equations, source audit, data, plots, bibliography and AI-use disclosure | Collective author metadata must be finalized by the actual authors; not peer-reviewed or submitted |
 

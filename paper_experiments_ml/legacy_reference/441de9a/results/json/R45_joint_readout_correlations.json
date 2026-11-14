@@ -1,0 +1,43 @@
+{
+  "rows": [
+    {
+      "label": "(0, 0)",
+      "joint_probability": 0.6578184991070793,
+      "product_of_marginals": 0.656322567138274,
+      "difference": 0.0014959319688053752
+    },
+    {
+      "label": "(0, 1)",
+      "joint_probability": 0.15903906568906884,
+      "product_of_marginals": 0.16053499765787405,
+      "difference": -0.0014959319688052086
+    },
+    {
+      "label": "(1, 0)",
+      "joint_probability": 0.14565397323522333,
+      "product_of_marginals": 0.1471499052040285,
+      "difference": -0.0014959319688051809
+    },
+    {
+      "label": "(1, 1)",
+      "joint_probability": 0.03748846196862815,
+      "product_of_marginals": 0.0359925299998229,
+      "difference": 0.0014959319688052503
+    }
+  ],
+  "protocol": "Independent connected-correlation recomputation + joint-vs-product-of-marginals check, 2-wire",
+  "oracle_class": "A/E",
+  "status_category": "exact",
+  "tolerance": 2.220446049250313e-14,
+  "independent_pair_correlation": 0.3906139221514153,
+  "reported_pair_correlation": 0.3906139221514153,
+  "correlation_error": 0.0,
+  "tv_distance_joint_vs_product_of_marginals": 0.0029918639376105075,
+  "acceptance_condition": "correlation error < 2.220e-14; product-of-marginals TV distance > 0",
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

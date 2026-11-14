@@ -23,6 +23,7 @@ import shutil
 import subprocess
 import sys
 import traceback
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 import networkx as nx
@@ -32,7 +33,15 @@ import photographiq as pg
 from photographiq.commands import Displace
 from photographiq.cvflow import flow_pattern
 from photographiq.flows import analyze
-from photographiq.interactive import GraphView, apply_edits, execution_trace, pattern_corrections
+from photographiq.interactive import (
+    GraphView,
+    apply_edits,
+    compute_layout,
+    execution_trace,
+    pattern_corrections,
+)
+from photographiq.interactive.graph_view import ARC
+from photographiq.interactive.layouts import CLEARANCE, _clearance, route
 from photographiq.ir import Model, OpenGraph, QubitMeasurement
 
 CYTOSCAPE_JS = os.environ.get("PHOTOGRAPHIQ_CYTOSCAPE_JS")
@@ -303,7 +312,7 @@ def run_checks(out: Path, channel: str = "msedge") -> list[dict]:
             arrows = drawn(page, ".flow")
             physical = drawn(page, ".physical")
             assert {(int(s), int(t)) for s, t, *_ in arrows} == flow_view.flow_arrows()
-            assert all(tuple(a[3:]) == ("dashed", "rgb(37,99,235)", "triangle") for a in arrows), (
+            assert all(tuple(a[3:]) == ("solid", "rgb(0,114,178)", "triangle") for a in arrows), (
                 arrows
             )
             assert all(tuple(e[3:]) == ("solid", "rgb(100,116,139)", "none") for e in physical)
@@ -352,7 +361,7 @@ def run_checks(out: Path, channel: str = "msedge") -> list[dict]:
                 for s2, t2, z2 in z:
                     if abs(int(t1) - int(s1)) < abs(int(t2) - int(s2)):
                         assert z1 > z2, z
-            assert all(tuple(a[3:]) == ("dotted", "rgb(194,65,12)", "triangle-tee") for a in arrows)
+            assert all(tuple(a[3:]) == ("dashed", "rgb(213,94,0)", "triangle-tee") for a in arrows)
             # The flow analysis predicts the same feed-forward as the pattern executes.
             from_flow = view.with_flow(flow).with_corrections().correction_arrows()
             assert set(from_flow) == set(got)
@@ -427,7 +436,7 @@ def run_checks(out: Path, channel: str = "msedge") -> list[dict]:
             for name, case in cases.items():
                 page = c.page(case, name)
                 clash = overlaps(page)
-                font = page.evaluate("cy.zoom() * 11")
+                font = page.evaluate("cy.zoom() * 11 * pgq.state.labelScale")
                 evidence[name] = {
                     "overlaps": clash,
                     "font_px": round(font, 1),
@@ -477,6 +486,138 @@ def run_checks(out: Path, channel: str = "msedge") -> list[dict]:
                     assert "sans-serif" in text, "SVG fonts have no generic fallback"
             return {"files": [f.name for f in files], "screenshots": shots}
 
+        def stage_switch():
+            exec_view = view.with_flow(flow).with_corrections(pattern).with_execution(trace)
+            page = c.page(exec_view, "stage_switch", "construct")
+            assert page.evaluate("cy.edges().not('.physical').length") == 0
+            drag(page, node_xy(page, "1"), (0, 80))  # a real drag before switching stages
+            dragged = model_positions(page)["1"]
+            page.select_option("#stage-select", "flow")  # real <select> input
+            arrows = drawn(page, ".flow")
+            assert {(int(a), int(b)) for a, b, *_ in arrows} == exec_view.flow_arrows(), arrows
+            assert model_positions(page)["1"] == dragged, "stage switch moved a node"
+            assert "status: certified" in page.inner_text("#flow")
+            page.select_option("#stage-select", "corrections")
+            got = {(int(a), int(b)): lab for a, b, lab, *_ in drawn(page, ".correction")}
+            assert got == exec_view.correction_arrows(), (got, exec_view.correction_arrows())
+            # measurement-order stepping with real clicks; targets equal the drawn arrows
+            labels = []
+            for k, node in enumerate(flow.measurement_order):
+                page.click("#order-next")
+                text = page.inner_text("#order-label")
+                targets = sorted({str(t) for s_, t in got if s_ == node})
+                head = f"Measurement {k + 1}/{len(flow.measurement_order)}: node {node}"
+                assert text.startswith(head), text
+                assert ("corrects " + ", ".join(targets)) in text, (text, targets)
+                assert page.evaluate("(id) => cy.getElementById(id).hasClass('active')", str(node))
+                labels.append(text)
+            shots = [c.shot(page, "15_stage_switch_order")]
+            page.select_option("#stage-select", "execution")
+            assert page.inner_text("#step-label") == f"Ready: {len(trace.steps)} steps"
+            page.click("#step")
+            assert page.inner_text("#step-label").startswith(f"Step 1/{len(trace.steps)}")
+            graph, layout = apply_edits(export(page))
+            assert graph.to_dict() == open_graph.to_dict(), "stage switch changed the semantics"
+            assert math.isclose(layout[1][1], -dragged[1] / SCALE, abs_tol=1e-9)
+            assert page.errors == [], page.errors
+            return {
+                "screenshots": shots,
+                "order_labels": labels,
+                "corrections": sorted(map(str, got)),
+            }
+
+        def layout_switch_and_reset():
+            q6 = qubit_six()
+            q6_view = GraphView(q6, title="Qubit 6, flow").with_flow(analyze(q6))
+            page = c.page(q6_view, "layout_switch", "flow")
+            original = model_positions(page)
+            evidence = {}
+            for name in ("circular", "grid", "layered", "force"):
+                page.select_option("#layout-select", name)
+                options = {"layers": q6_view.flow.layers} if name == "layered" else {}
+                want = compute_layout(q6, name, **options)
+                got = model_positions(page)
+                for node, (x, y) in want.positions.items():
+                    assert math.isclose(got[str(node)][0], x * SCALE, abs_tol=1e-6)
+                    assert math.isclose(got[str(node)][1], -y * SCALE, abs_tol=1e-6)
+                bends = page.evaluate(
+                    "cy.edges().map((e) => [e.source().id(), e.target().id(),"
+                    " e.classes().join(' '), e.data('bend')])"
+                )
+                for s_, t, classes, bend in bends:
+                    a, b = want[int(s_)], want[int(t)]
+                    base = ARC * math.dist(a, b) if "flow" in classes else 0.0
+                    expected = route(want, int(s_), int(t), base) * SCALE
+                    assert math.isclose(bend, expected, abs_tol=1e-9), (s_, t, bend, expected)
+                evidence[name] = c.shot(page, f"16_layout_{name}")
+            page.select_option("#layout-select", "view")
+            drag(page, node_xy(page, "2"), (60, -70))
+            assert model_positions(page) != original
+            page.click("#reset-view")
+            assert model_positions(page) == original, "reset did not restore the view layout"
+            graph, _ = apply_edits(export(page))
+            assert graph.to_dict() == q6.to_dict(), "layout switch changed the semantics"
+            assert page.errors == [], page.errors
+            return {"screenshots": evidence}
+
+        def routing_and_browser_exports():
+            q6 = qubit_six()
+            q6_view = GraphView(q6, title="Qubit 6, flow").with_flow(analyze(q6))
+            page = c.page(q6_view, "routing_exports", "flow")
+            layout = q6_view.layout
+            gaps, deviation = {}, 0.0
+            for s_, t, classes, bend, cps in page.evaluate(
+                "cy.edges().map((e) => [e.source().id(), e.target().id(),"
+                " e.classes().join(' '), e.data('bend'), e.controlPoints()])"
+            ):
+                a, b = layout[int(s_)], layout[int(t)]
+                offset, d = bend / SCALE, math.dist(a, b)
+                # the rendered control point is the documented one: midpoint + offset * normal
+                cx = (a[0] + b[0]) / 2 + offset * (b[1] - a[1]) / d
+                cy_ = (a[1] + b[1]) / 2 - offset * (b[0] - a[0]) / d
+                assert cps, (s_, t)  # also for straight edges (control point on the chord)
+                shift = math.hypot(cps[0]["x"] - cx * SCALE, cps[0]["y"] + cy_ * SCALE)
+                deviation = max(deviation, shift)
+                assert shift < 1e-6, (s_, t, cps, cx, cy_)
+                others = [xy for n, xy in layout.positions.items() if n not in (int(s_), int(t))]
+                gaps[f"{classes}:{s_}->{t}"] = round(_clearance(a, b, offset, others), 3)
+            assert min(gaps.values()) >= CLEARANCE, gaps  # nothing passes under a node
+            with page.expect_download() as info:
+                page.click("#export-svg")
+            root = ET.fromstring(Path(info.value.path()).read_text(encoding="utf-8"))
+            ids = [g.get("id") for g in root.iter("{http://www.w3.org/2000/svg}g")]
+            assert sorted(i[5:] for i in ids if i.startswith("node:")) == sorted(map(str, q6.nodes))
+            assert len([i for i in ids if i.startswith("edge:")]) == q6.graph.number_of_edges()
+            flows = {tuple(map(int, i[5:].split("->"))) for i in ids if i.startswith("flow:")}
+            assert flows == q6_view.flow_arrows(), flows
+            with page.expect_download() as info:
+                page.click("#export-png")
+            assert Path(info.value.path()).read_bytes()[:8] == b"\x89PNG\r\n\x1a\n"
+            drag(page, node_xy(page, "3"), (40, 60))
+            moved = model_positions(page)
+            with page.expect_download() as info:
+                page.click("#export-html")
+            saved = c.out / "exported_page.html"
+            saved.write_text(Path(info.value.path()).read_text(encoding="utf-8"), encoding="utf-8")
+            again = c.browser.new_page(viewport=VIEWPORT)
+            again.errors = []
+            again.on("pageerror", lambda error: again.errors.append(str(error)))
+            again.goto(saved.as_uri())
+            reopened = model_positions(again)
+            assert all(
+                math.isclose(reopened[n][k], moved[n][k], abs_tol=1e-9)
+                for n in moved
+                for k in (0, 1)
+            ), "exported HTML lost the positions"
+            assert again.evaluate("pgq.state.stage") == "flow"
+            assert again.errors == [] and page.errors == [], (again.errors, page.errors)
+            return {
+                "clearances": gaps,
+                "max_control_point_deviation_px": deviation,
+                "svg_groups": len(ids),
+                "screenshot": c.shot(page, "17_routing"),
+            }
+
         for name, check in (
             ("1 node dragging", dragging),
             ("2 panning and zooming", pan_zoom),
@@ -487,6 +628,9 @@ def run_checks(out: Path, channel: str = "msedge") -> list[dict]:
             ("5 execution animation", execution_stage),
             ("6 layout scale", layout_scale),
             ("7 static exports", static_exports),
+            ("8 stage switch and order stepping", stage_switch),
+            ("9 layout switch and reset", layout_switch_and_reset),
+            ("10 edge routing and browser exports", routing_and_browser_exports),
         ):
             c.run(name, check)
         version = browser.version

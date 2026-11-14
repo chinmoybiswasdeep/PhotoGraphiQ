@@ -2,6 +2,7 @@
 
 
 ```python
+import photographiq as pg
 pattern = pg.protocols.identity(squeezing=0.8)
 shots = pg.run_shots(pattern, 1000, backend="gaussian", seed=123)
 ensemble = shots.ensemble_state()

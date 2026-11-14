@@ -1,6 +1,6 @@
 """Aggregate individual experiment results into manuscript-ready summary tables.
 
-Reads the JSON results already written by the R1-R42 scripts under
+Reads the JSON results already written by the R1-R60 scripts under
 results/json/ and writes summary CSV + Markdown tables under tables/.
 Run this AFTER running the experiments you want summarized; missing source
 files are reported and skipped rather than silently producing an empty row.
@@ -242,6 +242,55 @@ def feature_status():
     write_table("feature_status", list(rows[0]), rows)
 
 
+def native_feature_status():
+    """Upgraded engines (2026-11-13): validated (V), experimental (E), unsupported (-).
+
+    Transcribed from docs/COMPLETE_FUNCTIONALITY.md and docs/validation/MASTER_VALIDATION_STATUS.md,
+    cross-referenced with the experiments that exercise each feature.
+    """
+    rows = [
+        {"feature": "Gaussian states, gates, loss", "native_gaussian": "V", "native_fock": "V", "native_mixed_fock": "V", "gpu_cupy": "V (batched)", "suite_evidence": "R43,R45,R47,R58"},
+        {"feature": "Homodyne / heterodyne conditioning", "native_gaussian": "V", "native_fock": "V (homodyne)", "native_mixed_fock": "V (homodyne)", "gpu_cupy": "V (homodyne, batched)", "suite_evidence": "R43,R45,R47,R58"},
+        {"feature": "Adaptive feed-forward patterns", "native_gaussian": "V", "native_fock": "V", "native_mixed_fock": "V", "gpu_cupy": "-", "suite_evidence": "R1-R14,R43,R52,R60"},
+        {"feature": "Non-Gaussian gates (Kerr, cubic)", "native_gaussian": "-", "native_fock": "V", "native_mixed_fock": "V", "gpu_cupy": "E (Fock P U P)", "suite_evidence": "R22-R25,R45,R46"},
+        {"feature": "Photon counting", "native_gaussian": "-", "native_fock": "V", "native_mixed_fock": "V", "gpu_cupy": "-", "suite_evidence": "R19,R20,R45,R47"},
+        {"feature": "GKP resources", "native_gaussian": "-", "native_fock": "E", "native_mixed_fock": "E", "gpu_cupy": "-", "suite_evidence": "R26-R28,R59"},
+        {"feature": "Boson sampling / GBS kernels", "native_gaussian": "n/a", "native_fock": "n/a", "native_mixed_fock": "n/a", "gpu_cupy": "- (measured, not justified)", "suite_evidence": "R48-R50"},
+        {"feature": "CUDA-Q execution", "native_gaussian": "-", "native_fock": "-", "native_mixed_fock": "-", "gpu_cupy": "-", "suite_evidence": "none (adapter translation only; execution unverified)"},
+    ]
+    write_table("native_feature_status", list(rows[0]), rows)
+
+
+def experiment_provenance():
+    """One row per experiment: where its main result came from (commit, dirty flag, source hash)."""
+    import re
+
+    rows = []
+    metas = sorted(JSON_DIR.glob("R*.metadata.json"), key=lambda p: (int(re.match(r"R(\d+)_", p.name).group(1)), p.name))
+    seen = set()
+    for path in metas:
+        rid = path.name.split("_", 1)[0]
+        if rid in seen:
+            continue
+        seen.add(rid)
+        meta = json.loads(path.read_text(encoding="utf-8"))
+        figures = sorted({p.stem for p in (ROOT / "figures" / "png").glob(f"{rid}_*.png")})
+        rows.append(
+            {
+                "id": rid,
+                "result": path.name.replace(".metadata.json", ""),
+                "timestamp_utc": (meta.get("timestamp_utc") or "")[:19],
+                "git_commit": (meta.get("git_commit") or "")[:7],
+                "git_dirty": meta.get("git_dirty"),
+                "source_sha256": (meta.get("source_sha256") or "not recorded")[:12],
+                "python": meta.get("python_version"),
+                "native": ",".join((meta.get("native") or {}).get("components", [])) or "not recorded",
+                "figures": len(figures),
+            }
+        )
+    write_table("experiment_provenance", list(rows[0]), rows)
+
+
 def main():
     print("Generating manuscript summary tables...")
     compiler_accuracy()
@@ -252,6 +301,8 @@ def main():
     convergence_summary()
     performance_summary()
     feature_status()
+    native_feature_status()
+    experiment_provenance()
     print(f"Done. See {TABLES_DIR}")
 
 

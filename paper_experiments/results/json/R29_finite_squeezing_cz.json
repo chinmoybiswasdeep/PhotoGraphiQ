@@ -5,141 +5,242 @@
       "map_frobenius_error": 2.6606138716777313e-16,
       "noise_trace": 6.549846024623855,
       "noise_spectral_norm": 1.6374615061559636,
-      "noise_max_eigenvalue": 1.6374615061559636
+      "noise_max_eigenvalue": 1.6374615061559636,
+      "noise_oracle_error": 3.467182737932974e-33
     },
     {
       "resource_squeezing": 0.11960331691041298,
       "map_frobenius_error": 2.6606138716777313e-16,
       "noise_trace": 6.298017541089183,
       "noise_spectral_norm": 1.5745043852722957,
-      "noise_max_eigenvalue": 1.5745043852722957
+      "noise_max_eigenvalue": 1.5745043852722957,
+      "noise_oracle_error": 3.78670401001236e-33
     },
     {
       "resource_squeezing": 0.14304953415972682,
       "map_frobenius_error": 2.6606138716777313e-16,
       "noise_trace": 6.009505546468636,
       "noise_spectral_norm": 1.502376386617159,
-      "noise_max_eigenvalue": 1.502376386617159
+      "noise_max_eigenvalue": 1.502376386617159,
+      "noise_oracle_error": 6.632281374453675e-34
     },
     {
       "resource_squeezing": 0.1710919876799276,
       "map_frobenius_error": 2.6606138716777313e-16,
       "noise_trace": 5.681740241307282,
       "noise_spectral_norm": 1.4204350603268205,
-      "noise_max_eigenvalue": 1.4204350603268205
+      "noise_max_eigenvalue": 1.4204350603268205,
+      "noise_oracle_error": 1.8378766566299493e-33
     },
     {
       "resource_squeezing": 0.2046316922331485,
       "map_frobenius_error": 2.6606138716777313e-16,
       "noise_trace": 5.313114282502855,
       "noise_spectral_norm": 1.3282785706257136,
-      "noise_max_eigenvalue": 1.3282785706257136
+      "noise_max_eigenvalue": 1.3282785706257136,
+      "noise_oracle_error": 2.5061330705959567e-33
     },
     {
       "resource_squeezing": 0.24474629136075363,
       "map_frobenius_error": 2.6606138716777313e-16,
       "noise_trace": 4.903498642260711,
       "noise_spectral_norm": 1.2258746605651778,
-      "noise_max_eigenvalue": 1.2258746605651778
+      "noise_max_eigenvalue": 1.2258746605651778,
+      "noise_oracle_error": 8.091829461518061e-34
     },
     {
       "resource_squeezing": 0.2927246824826849,
       "map_frobenius_error": 2.6606138716777313e-16,
       "noise_trace": 4.454844593562625,
       "noise_spectral_norm": 1.1137111483906563,
-      "noise_max_eigenvalue": 1.1137111483906563
+      "noise_max_eigenvalue": 1.1137111483906563,
+      "noise_oracle_error": 2.033318548089698e-33
     },
     {
       "resource_squeezing": 0.3501084296647658,
       "map_frobenius_error": 2.6606138716777313e-16,
       "noise_trace": 3.9718210104898333,
       "noise_spectral_norm": 0.9929552526224583,
-      "noise_max_eigenvalue": 0.9929552526224583
+      "noise_max_eigenvalue": 0.9929552526224583,
+      "noise_oracle_error": 2.6311774624908252e-33
     },
     {
       "resource_squeezing": 0.41874129466202015,
       "map_frobenius_error": 2.6606138716777313e-16,
       "noise_trace": 3.4623894816804333,
       "noise_spectral_norm": 0.8655973704201083,
-      "noise_max_eigenvalue": 0.8655973704201083
+      "noise_max_eigenvalue": 0.8655973704201083,
+      "noise_oracle_error": 1.1783171886080997e-33
     },
     {
       "resource_squeezing": 0.5008284776893822,
       "map_frobenius_error": 2.6606138716777313e-16,
       "noise_trace": 2.938163088644461,
       "noise_spectral_norm": 0.7345407721611152,
-      "noise_max_eigenvalue": 0.7345407721611152
+      "noise_max_eigenvalue": 0.7345407721611152,
+      "noise_oracle_error": 1.1488576326074841e-33
     },
     {
       "resource_squeezing": 0.5990074713484289,
       "map_frobenius_error": 2.6606138716777313e-16,
       "noise_trace": 2.4143415479665418,
       "noise_spectral_norm": 0.6035853869916354,
-      "noise_max_eigenvalue": 0.6035853869916354
+      "noise_max_eigenvalue": 0.6035853869916354,
+      "noise_oracle_error": 1.4955498507376006e-33
     },
     {
       "resource_squeezing": 0.7164328042739126,
       "map_frobenius_error": 2.6606138716777313e-16,
       "noise_trace": 1.908993105445906,
       "noise_spectral_norm": 0.4772482763614765,
-      "noise_max_eigenvalue": 0.4772482763614765
+      "noise_max_eigenvalue": 0.4772482763614765,
+      "noise_oracle_error": 2.164816341867915e-33
     },
     {
       "resource_squeezing": 0.8568773973458867,
       "map_frobenius_error": 2.6606138716777313e-16,
       "noise_trace": 1.4415036165719837,
       "noise_spectral_norm": 0.3603759041429959,
-      "noise_max_eigenvalue": 0.3603759041429959
+      "noise_max_eigenvalue": 0.3603759041429959,
+      "noise_oracle_error": 2.037721086957609e-35
     },
     {
       "resource_squeezing": 1.0248537890812994,
       "map_frobenius_error": 2.6606138716777313e-16,
       "noise_trace": 1.0301804319158443,
       "noise_spectral_norm": 0.2575451079789611,
-      "noise_max_eigenvalue": 0.2575451079789611
+      "noise_max_eigenvalue": 0.2575451079789611,
+      "noise_oracle_error": 6.04391849127313e-34
     },
     {
       "resource_squeezing": 1.2257591252232825,
       "map_frobenius_error": 2.6606138716777313e-16,
       "noise_trace": 0.6893013650385483,
       "noise_spectral_norm": 0.17232534125963708,
-      "noise_max_eigenvalue": 0.17232534125963708
+      "noise_max_eigenvalue": 0.17232534125963708,
+      "noise_oracle_error": 3.856116697273255e-34
     },
     {
       "resource_squeezing": 1.466048571099108,
       "map_frobenius_error": 2.6606138716777313e-16,
       "noise_trace": 0.4262813944114784,
       "noise_spectral_norm": 0.1065703486028696,
-      "noise_max_eigenvalue": 0.1065703486028696
+      "noise_max_eigenvalue": 0.1065703486028696,
+      "noise_oracle_error": 5.151854826837511e-35
     },
     {
       "resource_squeezing": 1.753442718552248,
       "map_frobenius_error": 2.6606138716777313e-16,
       "noise_trace": 0.23992140332418832,
       "noise_spectral_norm": 0.05998035083104708,
-      "noise_max_eigenvalue": 0.05998035083104708
+      "noise_max_eigenvalue": 0.05998035083104708,
+      "noise_oracle_error": 1.8041433869391942e-35
     },
     {
       "resource_squeezing": 2.0971756515126065,
       "map_frobenius_error": 2.6606138716777313e-16,
       "noise_trace": 0.1206441758300844,
       "noise_spectral_norm": 0.0301610439575211,
-      "noise_max_eigenvalue": 0.0301610439575211
+      "noise_max_eigenvalue": 0.0301610439575211,
+      "noise_oracle_error": 9.495228356748026e-36
     },
     {
       "resource_squeezing": 2.5082916406466405,
       "map_frobenius_error": 2.6606138716777313e-16,
       "noise_trace": 0.053017048909816025,
       "noise_spectral_norm": 0.013254262227454006,
-      "noise_max_eigenvalue": 0.013254262227454006
+      "noise_max_eigenvalue": 0.013254262227454006,
+      "noise_oracle_error": 1.0934798769480806e-35
     },
     {
       "resource_squeezing": 3.0,
       "map_frobenius_error": 2.6606138716777313e-16,
       "noise_trace": 0.019830017413330868,
       "noise_spectral_norm": 0.004957504353332717,
-      "noise_max_eigenvalue": 0.004957504353332717
+      "noise_max_eigenvalue": 0.004957504353332717,
+      "noise_oracle_error": 9.080081707812402e-36
     }
   ],
-  "weight": 0.6
+  "weight": 0.6,
+  "noise_oracle": "4 identity-wire steps per output mode (gaussian.wire_channel)",
+  "noise_oracle_tolerance": 1e-09,
+  "execution": [
+    {
+      "circuit": "rotate+squeeze",
+      "resource_squeezing": 0.3,
+      "gaussian_max_z_mean": 0.7030357342725949,
+      "gaussian_max_z_covariance": 2.2884064483018824,
+      "native-gaussian_max_z_mean": 0.7030357342725934,
+      "native-gaussian_max_z_covariance": 2.2884064483018838,
+      "native_vs_gaussian_max_record_difference": 1.1102230246251565e-15,
+      "planner_backend": "native-gaussian",
+      "shots": 600,
+      "measurements": 9
+    },
+    {
+      "circuit": "cz",
+      "resource_squeezing": 0.3,
+      "gaussian_max_z_mean": 0.5885508904071037,
+      "gaussian_max_z_covariance": 1.7571764632088565,
+      "native-gaussian_max_z_mean": 0.5885508904071037,
+      "native-gaussian_max_z_covariance": 1.7571764632088565,
+      "native_vs_gaussian_max_record_difference": 0.0,
+      "planner_backend": "native-gaussian",
+      "shots": 600,
+      "measurements": 8
+    },
+    {
+      "circuit": "rotate+squeeze",
+      "resource_squeezing": 1.0,
+      "gaussian_max_z_mean": 0.6680253828546104,
+      "gaussian_max_z_covariance": 2.333794733531839,
+      "native-gaussian_max_z_mean": 0.6680253828546104,
+      "native-gaussian_max_z_covariance": 2.3337947335318368,
+      "native_vs_gaussian_max_record_difference": 8.881784197001252e-16,
+      "planner_backend": "native-gaussian",
+      "shots": 600,
+      "measurements": 9
+    },
+    {
+      "circuit": "cz",
+      "resource_squeezing": 1.0,
+      "gaussian_max_z_mean": 0.6626887875517504,
+      "gaussian_max_z_covariance": 1.590785793894093,
+      "native-gaussian_max_z_mean": 0.6626887875517504,
+      "native-gaussian_max_z_covariance": 1.590785793894093,
+      "native_vs_gaussian_max_record_difference": 0.0,
+      "planner_backend": "native-gaussian",
+      "shots": 600,
+      "measurements": 8
+    },
+    {
+      "circuit": "rotate+squeeze",
+      "resource_squeezing": 2.0,
+      "gaussian_max_z_mean": 0.6778648210507682,
+      "gaussian_max_z_covariance": 2.2930562868990068,
+      "native-gaussian_max_z_mean": 0.6778648210507682,
+      "native-gaussian_max_z_covariance": 2.2930562868990076,
+      "native_vs_gaussian_max_record_difference": 8.881784197001252e-16,
+      "planner_backend": "native-gaussian",
+      "shots": 600,
+      "measurements": 9
+    },
+    {
+      "circuit": "cz",
+      "resource_squeezing": 2.0,
+      "gaussian_max_z_mean": 0.7032627847695043,
+      "gaussian_max_z_covariance": 1.6326256558391943,
+      "native-gaussian_max_z_mean": 0.7032627847695043,
+      "native-gaussian_max_z_covariance": 1.6326256558391943,
+      "native_vs_gaussian_max_record_difference": 0.0,
+      "planner_backend": "native-gaussian",
+      "shots": 600,
+      "measurements": 8
+    }
+  ],
+  "execution_backends": [
+    "gaussian",
+    "native-gaussian"
+  ],
+  "sem_factor": 5.0
 }

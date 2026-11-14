@@ -1,0 +1,59 @@
+{
+  "rows": [
+    {
+      "modes": 5,
+      "gates": 14,
+      "raw_piquasso_median_seconds": 0.005092500010505319,
+      "raw_piquasso_iqr_seconds": 0.0010222999844700098,
+      "photographiq_median_seconds": 0.04493989999173209,
+      "photographiq_iqr_seconds": 0.009218200051691383,
+      "overhead_ratio": 8.824722611492502
+    },
+    {
+      "modes": 10,
+      "gates": 29,
+      "raw_piquasso_median_seconds": 0.010639699990861118,
+      "raw_piquasso_iqr_seconds": 0.0013103000237606466,
+      "photographiq_median_seconds": 0.09798940003383905,
+      "photographiq_iqr_seconds": 0.007115200045518577,
+      "overhead_ratio": 9.209789760802112
+    },
+    {
+      "modes": 20,
+      "gates": 59,
+      "raw_piquasso_median_seconds": 0.01834809995489195,
+      "raw_piquasso_iqr_seconds": 0.001280799973756075,
+      "photographiq_median_seconds": 0.2476676000514999,
+      "photographiq_iqr_seconds": 0.011037299933377653,
+      "overhead_ratio": 13.49826961158815
+    },
+    {
+      "modes": 40,
+      "gates": 119,
+      "raw_piquasso_median_seconds": 0.03744749998440966,
+      "raw_piquasso_iqr_seconds": 0.007213099976070225,
+      "photographiq_median_seconds": 0.8204843000276014,
+      "photographiq_iqr_seconds": 0.012126600020565093,
+      "overhead_ratio": 21.91025570116002
+    }
+  ],
+  "environment": {
+    "timestamp_utc": "2026-09-15T02:17:07.468301+00:00",
+    "git_commit": "930408142cfd2dbc380976c28aa009d23c44babe",
+    "git_branch": "manuscript-experiments",
+    "git_dirty": true,
+    "python_version": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "cpu_model": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+    "packages": {
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "networkx": "3.6.1",
+      "matplotlib": "3.11.1",
+      "piquasso": "8.0.1",
+      "photographiq": "0.3.1",
+      "graphix": "0.4",
+      "jax": "0.11.1"
+    }
+  }
+}

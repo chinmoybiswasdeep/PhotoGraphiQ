@@ -1,6 +1,6 @@
 # Experimental non-Gaussian MBQC
 
-> Historical v0.2 reference. For the v0.3 additions and current backend support, see the [documentation home](index.md) and [feature matrix](validation/feature-matrix.md).
+> **Historical v0.2 reference**, kept unchanged as a provenance record. Since 0.3.1 Piquasso is an optional extra, the default engines are NumPy (`gaussian`) and native C++ (`native-gaussian`, `native-fock`, `native-mixed-fock`), and several features this page calls unavailable now exist (noisy Fock homodyne, Fock loss and mixed inputs on mixed-Fock backends; finite-energy GKP; Gaussian-plus-cubic compilation; Gaussian likelihood diagnostics). Current behaviour: [backends](user-guide/backends.md), [theory](theory/index.md), [feature matrix](validation/feature-matrix.md).
 
 PhotoGraphiQ 0.2 extends the existing pattern, dependency and backend model.
 Piquasso 8.0.1 executes physical Fock gates. PhotoGraphiQ supplies labelled
@@ -125,7 +125,7 @@ outcomes raise errors. It does not simulate the number of trials until success.
 `value`, and `postselected`. `exp(result.log_likelihood)` is a probability only
 when every measurement is discrete. Exact homodyne outcomes have zero event
 probability; their reported densities must be integrated over detector bins.
-Gaussian backends currently do not supply these likelihood diagnostics.
+Gaussian backends currently do not supply these likelihood diagnostics. *(v0.2 only: Gaussian backends now report the exact Gaussian density of every record; see [outputs](user-guide/outputs.md).)*
 Seeded runs are reproducible, and `run_shots` spawns independent child seeds.
 
 ## Cat and cubic resource injection
@@ -195,7 +195,7 @@ homodyne, nonlinear signals, finite cat/cubic injection, physical subtraction,
 mathematical addition/subtraction, metrics and cutoff studies.
 Unsupported: mixed input injection, Fock loss channels, noisy Fock homodyne,
 Fock heterodyne/general-dyne, dynamic representation switching, GKP preparation
-and decoding, fault tolerance and universal non-Gaussian compilation.
+and decoding, fault tolerance and universal non-Gaussian compilation. *(Since added: mixed inputs, Fock loss and noisy Fock homodyne on mixed-Fock backends; finite-energy GKP preparation and decoding; Gaussian-plus-cubic compilation. Still unsupported: Fock heterodyne/general-dyne, dynamic representation switching, fault tolerance.)*
 Future resources should be explicit preparation descriptions with capabilities
 and independent tests; no apparently functional GKP placeholder is exported.
 

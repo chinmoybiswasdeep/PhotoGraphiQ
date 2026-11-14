@@ -1,0 +1,249 @@
+{
+  "rows": [
+    {
+      "gate": "rotation",
+      "observable": "q",
+      "t0": 0.4,
+      "step_size": 0.01,
+      "jax_gradient": -0.6020754029863444,
+      "finite_difference_gradient": -0.6020653684464694,
+      "absolute_error": 1.0034539875025672e-05,
+      "relative_error": 1.666658333034951e-05
+    },
+    {
+      "gate": "rotation",
+      "observable": "q",
+      "t0": 0.4,
+      "step_size": 0.001,
+      "jax_gradient": -0.6020754029863444,
+      "finite_difference_gradient": -0.6020753026404757,
+      "absolute_error": 1.0034586872542661e-07,
+      "relative_error": 1.6666661389537374e-07
+    },
+    {
+      "gate": "rotation",
+      "observable": "q",
+      "t0": 0.4,
+      "step_size": 0.0001,
+      "jax_gradient": -0.6020754029863444,
+      "finite_difference_gradient": -0.6020754019822605,
+      "absolute_error": 1.0040839271141522e-09,
+      "relative_error": 1.667704613298952e-09
+    },
+    {
+      "gate": "rotation",
+      "observable": "q",
+      "t0": 0.4,
+      "step_size": 1e-05,
+      "jax_gradient": -0.6020754029863444,
+      "finite_difference_gradient": -0.6020754029723019,
+      "absolute_error": 1.404254490466883e-11,
+      "relative_error": 2.332356517973767e-11
+    },
+    {
+      "gate": "displacement",
+      "observable": "q",
+      "t0": 0.4,
+      "step_size": 0.01,
+      "jax_gradient": 0.9999999999997167,
+      "finite_difference_gradient": 0.9999999999997011,
+      "absolute_error": 1.554312234475219e-14,
+      "relative_error": 1.5543122344756597e-14
+    },
+    {
+      "gate": "displacement",
+      "observable": "q",
+      "t0": 0.4,
+      "step_size": 0.001,
+      "jax_gradient": 0.9999999999997167,
+      "finite_difference_gradient": 0.9999999999999454,
+      "absolute_error": 2.2870594307278225e-13,
+      "relative_error": 2.28705943072847e-13
+    },
+    {
+      "gate": "displacement",
+      "observable": "q",
+      "t0": 0.4,
+      "step_size": 0.0001,
+      "jax_gradient": 0.9999999999997167,
+      "finite_difference_gradient": 1.0000000000015552,
+      "absolute_error": 1.8385293287792592e-12,
+      "relative_error": 1.8385293287797803e-12
+    },
+    {
+      "gate": "displacement",
+      "observable": "q",
+      "t0": 0.4,
+      "step_size": 1e-05,
+      "jax_gradient": 0.9999999999997167,
+      "finite_difference_gradient": 1.000000000001,
+      "absolute_error": 1.283417816466681e-12,
+      "relative_error": 1.2834178164670447e-12
+    },
+    {
+      "gate": "squeezing",
+      "observable": "photon_number",
+      "t0": 0.4,
+      "step_size": 0.01,
+      "jax_gradient": 0.9850381465387592,
+      "finite_difference_gradient": 0.9851018919736082,
+      "absolute_error": 6.374543484899409e-05,
+      "relative_error": 6.471367131616546e-05
+    },
+    {
+      "gate": "squeezing",
+      "observable": "photon_number",
+      "t0": 0.4,
+      "step_size": 0.001,
+      "jax_gradient": 0.9850381465387592,
+      "finite_difference_gradient": 0.9850387840083519,
+      "absolute_error": 6.374695926680829e-07,
+      "relative_error": 6.47152188885306e-07
+    },
+    {
+      "gate": "squeezing",
+      "observable": "photon_number",
+      "t0": 0.4,
+      "step_size": 0.0001,
+      "jax_gradient": 0.9850381465387592,
+      "finite_difference_gradient": 0.9850381529125096,
+      "absolute_error": 6.373750416344137e-09,
+      "relative_error": 6.470562017055188e-09
+    },
+    {
+      "gate": "squeezing",
+      "observable": "photon_number",
+      "t0": 0.4,
+      "step_size": 1e-05,
+      "jax_gradient": 0.9850381465387592,
+      "finite_difference_gradient": 0.9850381466169899,
+      "absolute_error": 7.823064418488457e-11,
+      "relative_error": 7.941889810031469e-11
+    },
+    {
+      "gate": "cubic_phase",
+      "observable": "p",
+      "t0": 0.4,
+      "step_size": 0.01,
+      "jax_gradient": 1.1884044900939512,
+      "finite_difference_gradient": 1.188245398622062,
+      "absolute_error": 0.00015909147188919448,
+      "relative_error": 0.00013386980040492547
+    },
+    {
+      "gate": "cubic_phase",
+      "observable": "p",
+      "t0": 0.4,
+      "step_size": 0.001,
+      "jax_gradient": 1.1884044900939512,
+      "finite_difference_gradient": 1.1884028991009932,
+      "absolute_error": 1.590992958044879e-06,
+      "relative_error": 1.3387638395064465e-06
+    },
+    {
+      "gate": "cubic_phase",
+      "observable": "p",
+      "t0": 0.4,
+      "step_size": 0.0001,
+      "jax_gradient": 1.1884044900939512,
+      "finite_difference_gradient": 1.1884044741816702,
+      "absolute_error": 1.5912281048358068e-08,
+      "relative_error": 1.3389617071456957e-08
+    },
+    {
+      "gate": "cubic_phase",
+      "observable": "p",
+      "t0": 0.4,
+      "step_size": 1e-05,
+      "jax_gradient": 1.1884044900939512,
+      "finite_difference_gradient": 1.1884044899490576,
+      "absolute_error": 1.448936526315947e-10,
+      "relative_error": 1.2192284179281408e-10
+    },
+    {
+      "gate": "kerr",
+      "observable": "q",
+      "t0": 0.4,
+      "step_size": 0.01,
+      "jax_gradient": -0.7834350480373821,
+      "finite_difference_gradient": -0.7833846132948075,
+      "absolute_error": 5.043474257460101e-05,
+      "relative_error": 6.437641856966615e-05
+    },
+    {
+      "gate": "kerr",
+      "observable": "q",
+      "t0": 0.4,
+      "step_size": 0.001,
+      "jax_gradient": -0.7834350480373821,
+      "finite_difference_gradient": -0.7834345436671664,
+      "absolute_error": 5.043702157037089e-07,
+      "relative_error": 6.437932754824144e-07
+    },
+    {
+      "gate": "kerr",
+      "observable": "q",
+      "t0": 0.4,
+      "step_size": 0.0001,
+      "jax_gradient": -0.7834350480373821,
+      "finite_difference_gradient": -0.7834350429894443,
+      "absolute_error": 5.0479377344814225e-09,
+      "relative_error": 6.443339172950247e-09
+    },
+    {
+      "gate": "kerr",
+      "observable": "q",
+      "t0": 0.4,
+      "step_size": 1e-05,
+      "jax_gradient": -0.7834350480373821,
+      "finite_difference_gradient": -0.783435047974068,
+      "absolute_error": 6.331402069292835e-11,
+      "relative_error": 8.081591556509901e-11
+    },
+    {
+      "gate": "loss",
+      "observable": "photon_number",
+      "t0": 0.5,
+      "step_size": 0.01,
+      "jax_gradient": 0.13,
+      "finite_difference_gradient": 0.12999999999999887,
+      "absolute_error": 1.1379786002407855e-15,
+      "relative_error": 8.753681540313734e-15
+    },
+    {
+      "gate": "loss",
+      "observable": "photon_number",
+      "t0": 0.5,
+      "step_size": 0.001,
+      "jax_gradient": 0.13,
+      "finite_difference_gradient": 0.12999999999999817,
+      "absolute_error": 1.8318679906315083e-15,
+      "relative_error": 1.4091292235626986e-14
+    },
+    {
+      "gate": "loss",
+      "observable": "photon_number",
+      "t0": 0.5,
+      "step_size": 0.0001,
+      "jax_gradient": 0.13,
+      "finite_difference_gradient": 0.13000000000006062,
+      "absolute_error": 6.061817714453355e-14,
+      "relative_error": 4.662936703425657e-13
+    },
+    {
+      "gate": "loss",
+      "observable": "photon_number",
+      "t0": 0.5,
+      "step_size": 1e-05,
+      "jax_gradient": 0.13,
+      "finite_difference_gradient": 0.13000000000096268,
+      "absolute_error": 9.626743846524732e-13,
+      "relative_error": 7.405187574249794e-12
+    }
+  ],
+  "cutoff": 12,
+  "alpha": [
+    0.3,
+    0.2
+  ]
+}

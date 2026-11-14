@@ -1,6 +1,6 @@
 # User guide
 
-> Historical v0.2 reference. For the v0.3 additions and current backend support, see the [documentation home](index.md) and [feature matrix](validation/feature-matrix.md).
+> **Historical v0.2 reference**, kept unchanged as a provenance record. Since 0.3.1 Piquasso is an optional extra, the default engines are NumPy (`gaussian`) and native C++ (`native-gaussian`, `native-fock`, `native-mixed-fock`), and several features this page calls unavailable now exist (noisy Fock homodyne, Fock loss and mixed inputs on mixed-Fock backends; finite-energy GKP; Gaussian-plus-cubic compilation; Gaussian likelihood diagnostics). Current behaviour: [backends](user-guide/backends.md), [theory](theory/index.md), [feature matrix](validation/feature-matrix.md).
 
 Install with `pip install -e '.[dev]'` in a Python environment. `visualization`
 and `validation` extras install matplotlib and GraphiX separately. The package
@@ -125,7 +125,7 @@ print(result.state.photon_number("a"), result.state.retained_norms)
 Photon-number measurement is supported via `PhotonNumber()`. Use a cutoff scan
 to check observables. A low retained norm raises an exception. Gaussian MBQC uses
 no Fock cutoff. Noisy Fock homodyne, mixed Fock inputs, GKP resources and universal
-non-Gaussian compilation are explicitly unavailable in this release.
+non-Gaussian compilation are explicitly unavailable in this release. *(v0.2 statement; see [non-Gaussian simulation](user-guide/non-gaussian.md) for the current scope.)*
 
 ## Saving, inspecting and plotting
 

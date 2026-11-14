@@ -1,0 +1,290 @@
+{
+  "schema": "photographiq",
+  "version": 1,
+  "inputs": {
+    "tuple": [
+      0
+    ]
+  },
+  "commands": [
+    {
+      "type": "Prepare",
+      "fields": {
+        "node": 1,
+        "squeezing": 1.0,
+        "state": null
+      }
+    },
+    {
+      "type": "Prepare",
+      "fields": {
+        "node": 2,
+        "squeezing": 1.0,
+        "state": null
+      }
+    },
+    {
+      "type": "Entangle",
+      "fields": {
+        "u": 0,
+        "v": 1,
+        "weight": 1.0
+      }
+    },
+    {
+      "type": "Entangle",
+      "fields": {
+        "u": 1,
+        "v": 2,
+        "weight": 1.0
+      }
+    },
+    {
+      "type": "Measure",
+      "fields": {
+        "node": 0,
+        "measurement": {
+          "type": "Homodyne",
+          "fields": {
+            "angle": 0.0,
+            "efficiency": 1.0,
+            "noise": 0.0
+          }
+        },
+        "key": "m0"
+      }
+    },
+    {
+      "type": "Displace",
+      "fields": {
+        "node": 1,
+        "q": {
+          "type": "Expr",
+          "fields": {
+            "op": "neg",
+            "args": {
+              "tuple": [
+                {
+                  "type": "Expr",
+                  "fields": {
+                    "op": "outcome",
+                    "args": {
+                      "tuple": [
+                        "m0"
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "p": 0.0
+      }
+    },
+    {
+      "type": "Measure",
+      "fields": {
+        "node": 1,
+        "measurement": {
+          "type": "Homodyne",
+          "fields": {
+            "angle": {
+              "type": "Expr",
+              "fields": {
+                "op": "add",
+                "args": {
+                  "tuple": [
+                    {
+                      "type": "Expr",
+                      "fields": {
+                        "op": "mul",
+                        "args": {
+                          "tuple": [
+                            {
+                              "type": "Expr",
+                              "fields": {
+                                "op": "constant",
+                                "args": {
+                                  "tuple": [
+                                    0.05
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "type": "Expr",
+                              "fields": {
+                                "op": "outcome",
+                                "args": {
+                                  "tuple": [
+                                    "m0"
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "type": "Expr",
+                      "fields": {
+                        "op": "parameter",
+                        "args": {
+                          "tuple": [
+                            "theta"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "efficiency": 1.0,
+            "noise": 0.0
+          }
+        },
+        "key": "m1"
+      }
+    },
+    {
+      "type": "Displace",
+      "fields": {
+        "node": 2,
+        "q": {
+          "type": "Expr",
+          "fields": {
+            "op": "neg",
+            "args": {
+              "tuple": [
+                {
+                  "type": "Expr",
+                  "fields": {
+                    "op": "outcome",
+                    "args": {
+                      "tuple": [
+                        "m1"
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "p": 0.0
+      }
+    },
+    {
+      "type": "Output",
+      "fields": {
+        "nodes": {
+          "tuple": [
+            2
+          ]
+        }
+      }
+    }
+  ],
+  "resource": {
+    "mapping": [
+      [
+        "nodes",
+        [
+          {
+            "tuple": [
+              0,
+              {
+                "mapping": [
+                  [
+                    "squeezing",
+                    1.0
+                  ]
+                ]
+              }
+            ]
+          },
+          {
+            "tuple": [
+              1,
+              {
+                "mapping": [
+                  [
+                    "squeezing",
+                    1.0
+                  ]
+                ]
+              }
+            ]
+          },
+          {
+            "tuple": [
+              2,
+              {
+                "mapping": [
+                  [
+                    "squeezing",
+                    1.0
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      ],
+      [
+        "edges",
+        [
+          {
+            "tuple": [
+              0,
+              1,
+              {
+                "mapping": [
+                  [
+                    "weight",
+                    1.0
+                  ]
+                ]
+              }
+            ]
+          },
+          {
+            "tuple": [
+              1,
+              2,
+              {
+                "mapping": [
+                  [
+                    "weight",
+                    1.0
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      ],
+      [
+        "inputs",
+        {
+          "tuple": [
+            0
+          ]
+        }
+      ],
+      [
+        "outputs",
+        {
+          "tuple": []
+        }
+      ],
+      [
+        "ideal",
+        false
+      ]
+    ]
+  }
+}

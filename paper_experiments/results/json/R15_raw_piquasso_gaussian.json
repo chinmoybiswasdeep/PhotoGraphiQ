@@ -12,7 +12,11 @@
       },
       "mean_vector_norm_error": 2.220446049250313e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 1.6653345369377348e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 1.6653345369377348e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "displacement",
@@ -26,7 +30,11 @@
       },
       "mean_vector_norm_error": 1.6653345369377348e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 1.8875832159447664e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 1.8875832159447664e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "displacement",
@@ -40,7 +48,11 @@
       },
       "mean_vector_norm_error": 4.440892098500626e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 4.440892098500626e-16
+      "photon_number_error": 4.440892098500626e-16,
+      "gaussian_mean_vector_norm_error": 2.220446049250313e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 2.220446049250313e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "displacement",
@@ -54,7 +66,11 @@
       },
       "mean_vector_norm_error": 1.1102230246251565e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 2.2887833992611187e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 2.2887833992611187e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "displacement",
@@ -68,7 +84,11 @@
       },
       "mean_vector_norm_error": 5.551115123125783e-17,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 1.2412670766236366e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 1.2412670766236366e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "displacement",
@@ -82,7 +102,11 @@
       },
       "mean_vector_norm_error": 0.0,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 2.482534153247273e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 2.482534153247273e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "displacement",
@@ -96,7 +120,11 @@
       },
       "mean_vector_norm_error": 8.326672684688674e-17,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 1.7772239894833365e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 1.7772239894833365e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "displacement",
@@ -110,7 +138,11 @@
       },
       "mean_vector_norm_error": 2.220446049250313e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 4.577566798522237e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 4.577566798522237e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "displacement",
@@ -124,7 +156,11 @@
       },
       "mean_vector_norm_error": 0.0,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 2.482534153247273e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 2.482534153247273e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "displacement",
@@ -138,7 +174,11 @@
       },
       "mean_vector_norm_error": 0.0,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 3.1401849173675503e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 3.1401849173675503e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "displacement",
@@ -152,7 +192,11 @@
       },
       "mean_vector_norm_error": 2.220446049250313e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 4.90457592513324e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 4.90457592513324e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "displacement",
@@ -166,7 +210,11 @@
       },
       "mean_vector_norm_error": 0.0,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 2.220446049250313e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 2.220446049250313e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "displacement",
@@ -180,7 +228,11 @@
       },
       "mean_vector_norm_error": 2.220446049250313e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 2.220446049250313e-16
+      "photon_number_error": 2.220446049250313e-16,
+      "gaussian_mean_vector_norm_error": 3.1401849173675503e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 3.1401849173675503e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "displacement",
@@ -194,7 +246,11 @@
       },
       "mean_vector_norm_error": 0.0,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 2.2247786310271853e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 2.2247786310271853e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "displacement",
@@ -208,7 +264,11 @@
       },
       "mean_vector_norm_error": 1.4752290795525882e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 2.2887833992611187e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 2.2887833992611187e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "displacement",
@@ -222,7 +282,11 @@
       },
       "mean_vector_norm_error": 0.0,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 4.965068306494546e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 4.965068306494546e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "displacement",
@@ -236,7 +300,11 @@
       },
       "mean_vector_norm_error": 0.0,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 2.482534153247273e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 2.482534153247273e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "displacement",
@@ -250,7 +318,11 @@
       },
       "mean_vector_norm_error": 4.965068306494546e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 4.440892098500626e-16
+      "photon_number_error": 4.440892098500626e-16,
+      "gaussian_mean_vector_norm_error": 9.930136612989092e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 9.930136612989092e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "displacement",
@@ -264,7 +336,11 @@
       },
       "mean_vector_norm_error": 0.0,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 4.965068306494546e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 4.965068306494546e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "displacement",
@@ -278,7 +354,11 @@
       },
       "mean_vector_norm_error": 1.1102230246251565e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 1.1102230246251565e-16
+      "photon_number_error": 1.1102230246251565e-16,
+      "gaussian_mean_vector_norm_error": 1.1102230246251565e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 1.1102230246251565e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "rotation",
@@ -291,7 +371,11 @@
       },
       "mean_vector_norm_error": 1.1102230246251565e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 1.5700924586837752e-16,
+      "gaussian_covariance_frobenius_error": 3.736468740670016e-17,
+      "native-gaussian_mean_vector_norm_error": 1.5700924586837752e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "rotation",
@@ -304,7 +388,11 @@
       },
       "mean_vector_norm_error": 2.7755575615628914e-17,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 2.7755575615628914e-17,
+      "gaussian_covariance_frobenius_error": 1.1109304782670178e-16,
+      "native-gaussian_mean_vector_norm_error": 5.551115123125783e-17,
+      "native-gaussian_covariance_frobenius_error": 1.5700924586837752e-16
     },
     {
       "gate": "rotation",
@@ -317,7 +405,11 @@
       },
       "mean_vector_norm_error": 4.440892098500626e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 2.220446049250313e-16
+      "photon_number_error": 2.220446049250313e-16,
+      "gaussian_mean_vector_norm_error": 3.1401849173675503e-16,
+      "gaussian_covariance_frobenius_error": 2.220943133614115e-16,
+      "native-gaussian_mean_vector_norm_error": 3.1401849173675503e-16,
+      "native-gaussian_covariance_frobenius_error": 3.1401849173675503e-16
     },
     {
       "gate": "rotation",
@@ -330,7 +422,11 @@
       },
       "mean_vector_norm_error": 0.0,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 2.482534153247273e-16,
+      "gaussian_covariance_frobenius_error": 2.6459472444826702e-18,
+      "native-gaussian_mean_vector_norm_error": 1.1102230246251565e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "rotation",
@@ -343,7 +439,11 @@
       },
       "mean_vector_norm_error": 1.1102230246251565e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 0.0,
+      "gaussian_covariance_frobenius_error": 1.13480113923245e-16,
+      "native-gaussian_mean_vector_norm_error": 2.220446049250313e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "rotation",
@@ -356,7 +456,11 @@
       },
       "mean_vector_norm_error": 4.002966042486721e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 3.3306690738754696e-16,
+      "gaussian_covariance_frobenius_error": 4.531676094303504e-18,
+      "native-gaussian_mean_vector_norm_error": 4.440892098500626e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "rotation",
@@ -369,7 +473,11 @@
       },
       "mean_vector_norm_error": 2.0014830212433605e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 1.1102230246251565e-16
+      "photon_number_error": 1.1102230246251565e-16,
+      "gaussian_mean_vector_norm_error": 3.1401849173675503e-16,
+      "gaussian_covariance_frobenius_error": 1.5791756923622446e-16,
+      "native-gaussian_mean_vector_norm_error": 3.1401849173675503e-16,
+      "native-gaussian_covariance_frobenius_error": 1.5700924586837752e-16
     },
     {
       "gate": "rotation",
@@ -382,7 +490,11 @@
       },
       "mean_vector_norm_error": 4.577566798522237e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 2.220446049250313e-16
+      "photon_number_error": 2.220446049250313e-16,
+      "gaussian_mean_vector_norm_error": 4.440892098500626e-16,
+      "gaussian_covariance_frobenius_error": 2.239065084607958e-16,
+      "native-gaussian_mean_vector_norm_error": 6.661338147750939e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "rotation",
@@ -395,7 +507,11 @@
       },
       "mean_vector_norm_error": 0.0,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 7.850462293418876e-17,
+      "gaussian_covariance_frobenius_error": 5.886355967318732e-19,
+      "native-gaussian_mean_vector_norm_error": 7.850462293418876e-17,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "rotation",
@@ -408,7 +524,11 @@
       },
       "mean_vector_norm_error": 0.0,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 2.220446049250313e-16,
+      "gaussian_covariance_frobenius_error": 9.911460800269807e-18,
+      "native-gaussian_mean_vector_norm_error": 2.482534153247273e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "rotation",
@@ -421,7 +541,11 @@
       },
       "mean_vector_norm_error": 2.220446049250313e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 1.1102230246251565e-16
+      "photon_number_error": 1.1102230246251565e-16,
+      "gaussian_mean_vector_norm_error": 1.1102230246251565e-16,
+      "gaussian_covariance_frobenius_error": 2.4118859664217228e-18,
+      "native-gaussian_mean_vector_norm_error": 1.1102230246251565e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "rotation",
@@ -434,7 +558,11 @@
       },
       "mean_vector_norm_error": 1.2412670766236366e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 1.1102230246251565e-16
+      "photon_number_error": 1.1102230246251565e-16,
+      "gaussian_mean_vector_norm_error": 1.2412670766236366e-16,
+      "gaussian_covariance_frobenius_error": 1.1103760005709404e-16,
+      "native-gaussian_mean_vector_norm_error": 0.0,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "rotation",
@@ -447,7 +575,11 @@
       },
       "mean_vector_norm_error": 3.885780586188048e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 6.280369834735101e-16,
+      "gaussian_covariance_frobenius_error": 1.5216525895576086e-17,
+      "native-gaussian_mean_vector_norm_error": 4.002966042486721e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "rotation",
@@ -460,7 +592,11 @@
       },
       "mean_vector_norm_error": 2.220446049250313e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 4.440892098500626e-16
+      "photon_number_error": 4.440892098500626e-16,
+      "gaussian_mean_vector_norm_error": 2.220446049250313e-16,
+      "gaussian_covariance_frobenius_error": 1.1102734081691195e-16,
+      "native-gaussian_mean_vector_norm_error": 2.220446049250313e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "rotation",
@@ -473,7 +609,11 @@
       },
       "mean_vector_norm_error": 2.0014830212433605e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 5.551115123125783e-17,
+      "gaussian_covariance_frobenius_error": 1.1123402524277493e-16,
+      "native-gaussian_mean_vector_norm_error": 1.1102230246251565e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "rotation",
@@ -486,7 +626,11 @@
       },
       "mean_vector_norm_error": 4.440892098500626e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 4.440892098500626e-16
+      "photon_number_error": 4.440892098500626e-16,
+      "gaussian_mean_vector_norm_error": 4.440892098500626e-16,
+      "gaussian_covariance_frobenius_error": 1.5955341654469245e-16,
+      "native-gaussian_mean_vector_norm_error": 4.440892098500626e-16,
+      "native-gaussian_covariance_frobenius_error": 1.5700924586837752e-16
     },
     {
       "gate": "rotation",
@@ -499,7 +643,11 @@
       },
       "mean_vector_norm_error": 0.0,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 3.1401849173675503e-16,
+      "gaussian_covariance_frobenius_error": 3.467101083828544e-17,
+      "native-gaussian_mean_vector_norm_error": 3.1401849173675503e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "rotation",
@@ -512,7 +660,11 @@
       },
       "mean_vector_norm_error": 1.5700924586837752e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 2.2887833992611187e-16,
+      "gaussian_covariance_frobenius_error": 3.821644247282126e-17,
+      "native-gaussian_mean_vector_norm_error": 2.2887833992611187e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "rotation",
@@ -525,7 +677,11 @@
       },
       "mean_vector_norm_error": 2.220446049250313e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 5.551115123125783e-16,
+      "gaussian_covariance_frobenius_error": 1.0871176641724412e-17,
+      "native-gaussian_mean_vector_norm_error": 5.551115123125783e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "rotation",
@@ -538,7 +694,11 @@
       },
       "mean_vector_norm_error": 0.0,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 1.2412670766236366e-16,
+      "gaussian_covariance_frobenius_error": 4.0488409092293555e-19,
+      "native-gaussian_mean_vector_norm_error": 1.2412670766236366e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "squeezing",
@@ -551,7 +711,11 @@
       },
       "mean_vector_norm_error": 2.220446049250313e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 3.510833468576701e-16,
+      "gaussian_covariance_frobenius_error": 1.8452761694870047e-15,
+      "native-gaussian_mean_vector_norm_error": 3.510833468576701e-16,
+      "native-gaussian_covariance_frobenius_error": 1.8452761694870047e-15
     },
     {
       "gate": "squeezing",
@@ -564,7 +728,11 @@
       },
       "mean_vector_norm_error": 4.163336342344337e-17,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 4.163336342344337e-17,
+      "gaussian_covariance_frobenius_error": 2.7755575615628914e-17,
+      "native-gaussian_mean_vector_norm_error": 4.163336342344337e-17,
+      "native-gaussian_covariance_frobenius_error": 2.7755575615628914e-17
     },
     {
       "gate": "squeezing",
@@ -577,7 +745,11 @@
       },
       "mean_vector_norm_error": 5.551115123125783e-17,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 0.0,
+      "gaussian_covariance_frobenius_error": 2.220446049250313e-16,
+      "native-gaussian_mean_vector_norm_error": 0.0,
+      "native-gaussian_covariance_frobenius_error": 2.220446049250313e-16
     },
     {
       "gate": "squeezing",
@@ -590,7 +762,11 @@
       },
       "mean_vector_norm_error": 1.942890293094024e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 1.3877787807814457e-16,
+      "gaussian_covariance_frobenius_error": 4.577566798522237e-16,
+      "native-gaussian_mean_vector_norm_error": 1.3877787807814457e-16,
+      "native-gaussian_covariance_frobenius_error": 4.577566798522237e-16
     },
     {
       "gate": "squeezing",
@@ -603,7 +779,11 @@
       },
       "mean_vector_norm_error": 4.965068306494546e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 4.440892098500626e-16
+      "photon_number_error": 4.440892098500626e-16,
+      "gaussian_mean_vector_norm_error": 9.485749680535094e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 9.485749680535094e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "squeezing",
@@ -616,7 +796,11 @@
       },
       "mean_vector_norm_error": 1.1102230246251565e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 2.220446049250313e-16,
+      "gaussian_covariance_frobenius_error": 1.0190492755571723e-15,
+      "native-gaussian_mean_vector_norm_error": 2.220446049250313e-16,
+      "native-gaussian_covariance_frobenius_error": 1.0190492755571723e-15
     },
     {
       "gate": "squeezing",
@@ -629,7 +813,11 @@
       },
       "mean_vector_norm_error": 0.0,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 1.0007415106216802e-16,
+      "gaussian_covariance_frobenius_error": 8.881784197001252e-16,
+      "native-gaussian_mean_vector_norm_error": 1.0007415106216802e-16,
+      "native-gaussian_covariance_frobenius_error": 8.881784197001252e-16
     },
     {
       "gate": "squeezing",
@@ -642,7 +830,11 @@
       },
       "mean_vector_norm_error": 1.1102230246251565e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 2.7755575615628914e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 2.7755575615628914e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "squeezing",
@@ -655,7 +847,11 @@
       },
       "mean_vector_norm_error": 0.0,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 8.882868333007365e-16,
+      "gaussian_covariance_frobenius_error": 4.718447854656915e-16,
+      "native-gaussian_mean_vector_norm_error": 8.882868333007365e-16,
+      "native-gaussian_covariance_frobenius_error": 4.718447854656915e-16
     },
     {
       "gate": "squeezing",
@@ -668,7 +864,11 @@
       },
       "mean_vector_norm_error": 4.440892098500626e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 1.3506446028928519e-15,
+      "gaussian_covariance_frobenius_error": 1.6653345369377348e-16,
+      "native-gaussian_mean_vector_norm_error": 1.3506446028928519e-15,
+      "native-gaussian_covariance_frobenius_error": 1.6653345369377348e-16
     },
     {
       "gate": "squeezing",
@@ -681,7 +881,11 @@
       },
       "mean_vector_norm_error": 7.021666937153402e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 4.440892098500626e-16
+      "photon_number_error": 4.440892098500626e-16,
+      "gaussian_mean_vector_norm_error": 8.95090418262362e-16,
+      "gaussian_covariance_frobenius_error": 9.036560719766055e-16,
+      "native-gaussian_mean_vector_norm_error": 8.95090418262362e-16,
+      "native-gaussian_covariance_frobenius_error": 9.036560719766055e-16
     },
     {
       "gate": "squeezing",
@@ -694,7 +898,11 @@
       },
       "mean_vector_norm_error": 4.440892098500626e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 8.881784197001252e-16
+      "photon_number_error": 8.881784197001252e-16,
+      "gaussian_mean_vector_norm_error": 1.3506446028928519e-15,
+      "gaussian_covariance_frobenius_error": 1.0190492755571723e-15,
+      "native-gaussian_mean_vector_norm_error": 1.3506446028928519e-15,
+      "native-gaussian_covariance_frobenius_error": 1.0190492755571723e-15
     },
     {
       "gate": "squeezing",
@@ -707,7 +915,11 @@
       },
       "mean_vector_norm_error": 2.220446049250313e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 1.1102230246251565e-16
+      "photon_number_error": 1.1102230246251565e-16,
+      "gaussian_mean_vector_norm_error": 2.482534153247273e-16,
+      "gaussian_covariance_frobenius_error": 2.482534153247273e-16,
+      "native-gaussian_mean_vector_norm_error": 2.482534153247273e-16,
+      "native-gaussian_covariance_frobenius_error": 2.482534153247273e-16
     },
     {
       "gate": "squeezing",
@@ -720,7 +932,11 @@
       },
       "mean_vector_norm_error": 4.440892098500626e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 4.440892098500626e-16
+      "photon_number_error": 4.440892098500626e-16,
+      "gaussian_mean_vector_norm_error": 5.551115123125783e-17,
+      "gaussian_covariance_frobenius_error": 1.1102230246251565e-16,
+      "native-gaussian_mean_vector_norm_error": 5.551115123125783e-17,
+      "native-gaussian_covariance_frobenius_error": 1.1102230246251565e-16
     },
     {
       "gate": "squeezing",
@@ -733,7 +949,11 @@
       },
       "mean_vector_norm_error": 0.0,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 3.3306690738754696e-16,
+      "gaussian_covariance_frobenius_error": 9.586729210015212e-16,
+      "native-gaussian_mean_vector_norm_error": 3.3306690738754696e-16,
+      "native-gaussian_covariance_frobenius_error": 9.586729210015212e-16
     },
     {
       "gate": "squeezing",
@@ -746,7 +966,11 @@
       },
       "mean_vector_norm_error": 4.440892098500626e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 4.440892098500626e-16,
+      "gaussian_covariance_frobenius_error": 2.220446049250313e-16,
+      "native-gaussian_mean_vector_norm_error": 4.440892098500626e-16,
+      "native-gaussian_covariance_frobenius_error": 2.220446049250313e-16
     },
     {
       "gate": "squeezing",
@@ -759,7 +983,11 @@
       },
       "mean_vector_norm_error": 1.1102230246251565e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 4.965068306494546e-16,
+      "gaussian_covariance_frobenius_error": 1.1102230246251565e-16,
+      "native-gaussian_mean_vector_norm_error": 4.965068306494546e-16,
+      "native-gaussian_covariance_frobenius_error": 1.1102230246251565e-16
     },
     {
       "gate": "squeezing",
@@ -772,7 +1000,11 @@
       },
       "mean_vector_norm_error": 0.0,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 3.1401849173675503e-16,
+      "gaussian_covariance_frobenius_error": 2.482534153247273e-16,
+      "native-gaussian_mean_vector_norm_error": 3.1401849173675503e-16,
+      "native-gaussian_covariance_frobenius_error": 2.482534153247273e-16
     },
     {
       "gate": "squeezing",
@@ -785,7 +1017,11 @@
       },
       "mean_vector_norm_error": 4.652682298944613e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 4.440892098500626e-16
+      "photon_number_error": 4.440892098500626e-16,
+      "gaussian_mean_vector_norm_error": 8.989550626504553e-16,
+      "gaussian_covariance_frobenius_error": 9.485749680535094e-16,
+      "native-gaussian_mean_vector_norm_error": 8.989550626504553e-16,
+      "native-gaussian_covariance_frobenius_error": 9.485749680535094e-16
     },
     {
       "gate": "squeezing",
@@ -798,7 +1034,11 @@
       },
       "mean_vector_norm_error": 2.220446049250313e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": 0.0
+      "photon_number_error": 0.0,
+      "gaussian_mean_vector_norm_error": 6.661338147750939e-16,
+      "gaussian_covariance_frobenius_error": 1.897149936107019e-15,
+      "native-gaussian_mean_vector_norm_error": 6.661338147750939e-16,
+      "native-gaussian_covariance_frobenius_error": 1.897149936107019e-15
     },
     {
       "gate": "beamsplitter",
@@ -815,7 +1055,11 @@
       },
       "mean_vector_norm_error": 2.482534153247273e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 5.20740757162067e-16,
+      "gaussian_covariance_frobenius_error": 6.345086192183008e-18,
+      "native-gaussian_mean_vector_norm_error": 5.20740757162067e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "beamsplitter",
@@ -832,7 +1076,11 @@
       },
       "mean_vector_norm_error": 5.087681048627601e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 5.551115123125783e-16,
+      "gaussian_covariance_frobenius_error": 6.5064265947063644e-18,
+      "native-gaussian_mean_vector_norm_error": 5.551115123125783e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "beamsplitter",
@@ -849,7 +1097,11 @@
       },
       "mean_vector_norm_error": 6.753223014464259e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 7.364386412590295e-16,
+      "gaussian_covariance_frobenius_error": 1.128096060045004e-17,
+      "native-gaussian_mean_vector_norm_error": 7.364386412590295e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "beamsplitter",
@@ -866,7 +1118,11 @@
       },
       "mean_vector_norm_error": 3.3306690738754696e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 4.041272810440265e-16,
+      "gaussian_covariance_frobenius_error": 3.140196931478803e-16,
+      "native-gaussian_mean_vector_norm_error": 4.041272810440265e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "beamsplitter",
@@ -883,7 +1139,11 @@
       },
       "mean_vector_norm_error": 2.220446049250313e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 6.753223014464259e-16,
+      "gaussian_covariance_frobenius_error": 3.8305295600143914e-19,
+      "native-gaussian_mean_vector_norm_error": 6.753223014464259e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "beamsplitter",
@@ -900,7 +1160,11 @@
       },
       "mean_vector_norm_error": 4.440892098500626e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 3.1401849173675503e-16,
+      "gaussian_covariance_frobenius_error": 5.154862146286236e-19,
+      "native-gaussian_mean_vector_norm_error": 3.1401849173675503e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "beamsplitter",
@@ -917,7 +1181,11 @@
       },
       "mean_vector_norm_error": 6.304854800243424e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 4.552252871008668e-16,
+      "gaussian_covariance_frobenius_error": 4.44347536041243e-16,
+      "native-gaussian_mean_vector_norm_error": 4.552252871008668e-16,
+      "native-gaussian_covariance_frobenius_error": 4.440892098500626e-16
     },
     {
       "gate": "beamsplitter",
@@ -934,7 +1202,11 @@
       },
       "mean_vector_norm_error": 3.1401849173675503e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 5.026748538604307e-16,
+      "gaussian_covariance_frobenius_error": 5.1576152447653243e-17,
+      "native-gaussian_mean_vector_norm_error": 5.026748538604307e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "beamsplitter",
@@ -951,7 +1223,11 @@
       },
       "mean_vector_norm_error": 7.108895957933346e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 7.108895957933346e-16,
+      "gaussian_covariance_frobenius_error": 8.117709906162471e-18,
+      "native-gaussian_mean_vector_norm_error": 7.108895957933346e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "beamsplitter",
@@ -968,7 +1244,11 @@
       },
       "mean_vector_norm_error": 2.482534153247273e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 6.662783593823664e-16,
+      "gaussian_covariance_frobenius_error": 2.0500375033790753e-17,
+      "native-gaussian_mean_vector_norm_error": 6.662783593823664e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "beamsplitter",
@@ -985,7 +1265,11 @@
       },
       "mean_vector_norm_error": 2.7894008272968645e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 3.3422138886441676e-16,
+      "gaussian_covariance_frobenius_error": 2.289588620179345e-17,
+      "native-gaussian_mean_vector_norm_error": 3.3422138886441676e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "beamsplitter",
@@ -1002,7 +1286,11 @@
       },
       "mean_vector_norm_error": 2.9893669801409083e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 5.087681048627601e-16,
+      "gaussian_covariance_frobenius_error": 1.9492401748713978e-17,
+      "native-gaussian_mean_vector_norm_error": 5.087681048627601e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "beamsplitter",
@@ -1019,7 +1307,11 @@
       },
       "mean_vector_norm_error": 2.220446049250313e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 5.4672143489065705e-16,
+      "gaussian_covariance_frobenius_error": 1.0596793905946165e-18,
+      "native-gaussian_mean_vector_norm_error": 5.4672143489065705e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "beamsplitter",
@@ -1036,7 +1328,11 @@
       },
       "mean_vector_norm_error": 2.7194522477443605e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 4.652666129890195e-16,
+      "gaussian_covariance_frobenius_error": 2.2248981819106767e-16,
+      "native-gaussian_mean_vector_norm_error": 4.652666129890195e-16,
+      "native-gaussian_covariance_frobenius_error": 2.220446049250313e-16
     },
     {
       "gate": "beamsplitter",
@@ -1053,7 +1349,11 @@
       },
       "mean_vector_norm_error": 2.3714374201337736e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 4.518280359883027e-16,
+      "gaussian_covariance_frobenius_error": 2.2851640335585094e-16,
+      "native-gaussian_mean_vector_norm_error": 4.518280359883027e-16,
+      "native-gaussian_covariance_frobenius_error": 2.220446049250313e-16
     },
     {
       "gate": "beamsplitter",
@@ -1070,7 +1370,11 @@
       },
       "mean_vector_norm_error": 1.6939998869943826e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 3.532708032038494e-16,
+      "gaussian_covariance_frobenius_error": 5.3684737381926716e-17,
+      "native-gaussian_mean_vector_norm_error": 3.532708032038494e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "beamsplitter",
@@ -1087,7 +1391,11 @@
       },
       "mean_vector_norm_error": 6.661338147750939e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 9.42055475210265e-16,
+      "gaussian_covariance_frobenius_error": 1.1284753292557103e-18,
+      "native-gaussian_mean_vector_norm_error": 9.42055475210265e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "beamsplitter",
@@ -1104,7 +1412,11 @@
       },
       "mean_vector_norm_error": 3.1401849173675503e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 5.985173094038516e-16,
+      "gaussian_covariance_frobenius_error": 5.580100146165341e-18,
+      "native-gaussian_mean_vector_norm_error": 5.985173094038516e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "beamsplitter",
@@ -1121,7 +1433,11 @@
       },
       "mean_vector_norm_error": 6.661338147750939e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 8.15843973306311e-16,
+      "gaussian_covariance_frobenius_error": 3.1457159363576235e-16,
+      "native-gaussian_mean_vector_norm_error": 8.15843973306311e-16,
+      "native-gaussian_covariance_frobenius_error": 4.440892098500626e-16
     },
     {
       "gate": "beamsplitter",
@@ -1138,7 +1454,11 @@
       },
       "mean_vector_norm_error": 2.0206364052201326e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 3.2487068343022356e-16,
+      "gaussian_covariance_frobenius_error": 1.3314632856154692e-17,
+      "native-gaussian_mean_vector_norm_error": 3.2487068343022356e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "cz",
@@ -1155,7 +1475,11 @@
       },
       "mean_vector_norm_error": 2.220446049250313e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 7.021666937153402e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 7.021666937153402e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "cz",
@@ -1172,7 +1496,11 @@
       },
       "mean_vector_norm_error": 3.2487068343022356e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 8.675560052622147e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 8.675560052622147e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "cz",
@@ -1189,7 +1517,11 @@
       },
       "mean_vector_norm_error": 4.965068306494546e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 4.611102534756203e-16,
+      "gaussian_covariance_frobenius_error": 2.220446049250313e-16,
+      "native-gaussian_mean_vector_norm_error": 4.611102534756203e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "cz",
@@ -1206,7 +1538,11 @@
       },
       "mean_vector_norm_error": 0.0,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 6.280369834735101e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 6.280369834735101e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "cz",
@@ -1223,7 +1559,11 @@
       },
       "mean_vector_norm_error": 8.95090418262362e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 6.708873437495278e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 6.708873437495278e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "cz",
@@ -1240,7 +1580,11 @@
       },
       "mean_vector_norm_error": 2.220446049250313e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 5.095246377785861e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 5.095246377785861e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "cz",
@@ -1257,7 +1601,11 @@
       },
       "mean_vector_norm_error": 3.1401849173675503e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 4.577566798522237e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 4.577566798522237e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "cz",
@@ -1274,7 +1622,11 @@
       },
       "mean_vector_norm_error": 4.652682298944613e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 5.273559366969494e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 5.273559366969494e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "cz",
@@ -1291,7 +1643,11 @@
       },
       "mean_vector_norm_error": 3.2487068343022356e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 3.433175098891678e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 3.433175098891678e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "cz",
@@ -1308,7 +1664,11 @@
       },
       "mean_vector_norm_error": 3.1401849173675503e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 4.710277376051325e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 4.710277376051325e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "cz",
@@ -1325,7 +1685,11 @@
       },
       "mean_vector_norm_error": 1.047382306668854e-15,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 1.9100999153570945e-15,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 1.9100999153570945e-15,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "cz",
@@ -1342,7 +1706,11 @@
       },
       "mean_vector_norm_error": 8.005932084973442e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 9.945640348601413e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 9.945640348601413e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "cz",
@@ -1359,7 +1727,11 @@
       },
       "mean_vector_norm_error": 1.1102230246251565e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 2.7894008272968645e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 2.7894008272968645e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "cz",
@@ -1376,7 +1748,11 @@
       },
       "mean_vector_norm_error": 5.874748045952207e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 4.3709524189038457e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 4.3709524189038457e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "cz",
@@ -1393,7 +1769,11 @@
       },
       "mean_vector_norm_error": 2.482534153247273e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 5.23691153334427e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 5.23691153334427e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "cz",
@@ -1410,7 +1790,11 @@
       },
       "mean_vector_norm_error": 0.0,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 6.661338147750939e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 6.661338147750939e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "cz",
@@ -1427,7 +1811,11 @@
       },
       "mean_vector_norm_error": 2.220446049250313e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 4.1540741810552243e-16,
+      "gaussian_covariance_frobenius_error": 4.440892098500626e-16,
+      "native-gaussian_mean_vector_norm_error": 4.1540741810552243e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "cz",
@@ -1444,7 +1832,11 @@
       },
       "mean_vector_norm_error": 4.965068306494546e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 3.188872858294072e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 3.188872858294072e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "cz",
@@ -1461,7 +1853,11 @@
       },
       "mean_vector_norm_error": 0.0,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 3.188872858294072e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 3.188872858294072e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "cz",
@@ -1478,7 +1874,11 @@
       },
       "mean_vector_norm_error": 3.1401849173675503e-16,
       "covariance_frobenius_error": 0.0,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 5.467654667382613e-16,
+      "gaussian_covariance_frobenius_error": 0.0,
+      "native-gaussian_mean_vector_norm_error": 5.467654667382613e-16,
+      "native-gaussian_covariance_frobenius_error": 0.0
     },
     {
       "gate": "compound(squeeze+rotate+cz+displace)",
@@ -1490,8 +1890,12 @@
         "p": 0.8551890266219846
       },
       "mean_vector_norm_error": 1.1970346188077032e-15,
-      "covariance_frobenius_error": 2.8373208998997885e-16,
-      "photon_number_error": null
+      "covariance_frobenius_error": 2.4902805348788315e-16,
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 1.0892074392614738e-15,
+      "gaussian_covariance_frobenius_error": 1.177570499557588e-16,
+      "native-gaussian_mean_vector_norm_error": 1.0892074392614738e-15,
+      "native-gaussian_covariance_frobenius_error": 1.177570499557588e-16
     },
     {
       "gate": "compound(squeeze+rotate+cz+displace)",
@@ -1503,8 +1907,12 @@
         "p": -0.21400380837990873
       },
       "mean_vector_norm_error": 2.1784148785229476e-15,
-      "covariance_frobenius_error": 6.329245045284193e-16,
-      "photon_number_error": null
+      "covariance_frobenius_error": 6.753223014464259e-16,
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 5.438959822042073e-16,
+      "gaussian_covariance_frobenius_error": 5.20740757162067e-16,
+      "native-gaussian_mean_vector_norm_error": 5.438959822042073e-16,
+      "native-gaussian_covariance_frobenius_error": 5.20740757162067e-16
     },
     {
       "gate": "compound(squeeze+rotate+cz+displace)",
@@ -1516,8 +1924,12 @@
         "p": 0.4881645986612704
       },
       "mean_vector_norm_error": 1.4392811567525336e-15,
-      "covariance_frobenius_error": 3.885780586188048e-16,
-      "photon_number_error": null
+      "covariance_frobenius_error": 2.7755575615628914e-16,
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 5.446037196307369e-16,
+      "gaussian_covariance_frobenius_error": 2.9373740229761033e-16,
+      "native-gaussian_mean_vector_norm_error": 5.446037196307369e-16,
+      "native-gaussian_covariance_frobenius_error": 3.510833468576701e-16
     },
     {
       "gate": "compound(squeeze+rotate+cz+displace)",
@@ -1530,7 +1942,11 @@
       },
       "mean_vector_norm_error": 1.0532500405730103e-15,
       "covariance_frobenius_error": 2.7194799110210365e-16,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 5.551115123125783e-16,
+      "gaussian_covariance_frobenius_error": 5.438959822042073e-16,
+      "native-gaussian_mean_vector_norm_error": 5.551115123125783e-16,
+      "native-gaussian_covariance_frobenius_error": 5.438959822042073e-16
     },
     {
       "gate": "compound(squeeze+rotate+cz+displace)",
@@ -1542,8 +1958,12 @@
         "p": -0.6068789705055888
       },
       "mean_vector_norm_error": 1.2028928328068675e-15,
-      "covariance_frobenius_error": 2.5739461938222585e-16,
-      "photon_number_error": null
+      "covariance_frobenius_error": 2.3795449221434073e-16,
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 6.866350197783356e-16,
+      "gaussian_covariance_frobenius_error": 4.564927381489205e-16,
+      "native-gaussian_mean_vector_norm_error": 6.866350197783356e-16,
+      "native-gaussian_covariance_frobenius_error": 4.564927381489205e-16
     },
     {
       "gate": "compound(squeeze+rotate+cz+displace)",
@@ -1556,7 +1976,11 @@
       },
       "mean_vector_norm_error": 4.710277376051325e-16,
       "covariance_frobenius_error": 5.978733960281817e-16,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 1.237537672871711e-15,
+      "gaussian_covariance_frobenius_error": 3.1401849173675503e-16,
+      "native-gaussian_mean_vector_norm_error": 1.237537672871711e-15,
+      "native-gaussian_covariance_frobenius_error": 7.691850745534255e-16
     },
     {
       "gate": "compound(squeeze+rotate+cz+displace)",
@@ -1569,7 +1993,11 @@
       },
       "mean_vector_norm_error": 8.960581419835649e-16,
       "covariance_frobenius_error": 5.324442579404919e-16,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 2.4835037038225095e-16,
+      "gaussian_covariance_frobenius_error": 5.20740757162067e-16,
+      "native-gaussian_mean_vector_norm_error": 2.4835037038225095e-16,
+      "native-gaussian_covariance_frobenius_error": 5.20740757162067e-16
     },
     {
       "gate": "compound(squeeze+rotate+cz+displace)",
@@ -1582,7 +2010,11 @@
       },
       "mean_vector_norm_error": 1.1322097734007351e-15,
       "covariance_frobenius_error": 9.813077866773595e-18,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 9.742167503148516e-16,
+      "gaussian_covariance_frobenius_error": 4.04253848852838e-16,
+      "native-gaussian_mean_vector_norm_error": 9.742167503148516e-16,
+      "native-gaussian_covariance_frobenius_error": 4.04253848852838e-16
     },
     {
       "gate": "compound(squeeze+rotate+cz+displace)",
@@ -1594,8 +2026,12 @@
         "p": 0.7775815114273414
       },
       "mean_vector_norm_error": 9.992007221626409e-16,
-      "covariance_frobenius_error": 2.8576114088871287e-16,
-      "photon_number_error": null
+      "covariance_frobenius_error": 2.387624894196368e-16,
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 4.742874840267547e-16,
+      "gaussian_covariance_frobenius_error": 2.482534153247273e-16,
+      "native-gaussian_mean_vector_norm_error": 4.742874840267547e-16,
+      "native-gaussian_covariance_frobenius_error": 2.482534153247273e-16
     },
     {
       "gate": "compound(squeeze+rotate+cz+displace)",
@@ -1608,7 +2044,11 @@
       },
       "mean_vector_norm_error": 1.0477500027681815e-15,
       "covariance_frobenius_error": 2.3180121734069292e-17,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 3.188872858294072e-16,
+      "gaussian_covariance_frobenius_error": 2.3180121734069292e-17,
+      "native-gaussian_mean_vector_norm_error": 3.188872858294072e-16,
+      "native-gaussian_covariance_frobenius_error": 2.3180121734069292e-17
     },
     {
       "gate": "compound(squeeze+rotate+cz+displace)",
@@ -1621,7 +2061,11 @@
       },
       "mean_vector_norm_error": 5.133374763649967e-16,
       "covariance_frobenius_error": 2.5210253502251575e-16,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 4.611102534756203e-16,
+      "gaussian_covariance_frobenius_error": 5.177735492072797e-16,
+      "native-gaussian_mean_vector_norm_error": 4.611102534756203e-16,
+      "native-gaussian_covariance_frobenius_error": 4.999857065771613e-16
     },
     {
       "gate": "compound(squeeze+rotate+cz+displace)",
@@ -1634,7 +2078,11 @@
       },
       "mean_vector_norm_error": 1.137640067256873e-15,
       "covariance_frobenius_error": 6.938893903907228e-18,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 3.1401849173675503e-16,
+      "gaussian_covariance_frobenius_error": 3.2375721956934847e-16,
+      "native-gaussian_mean_vector_norm_error": 3.1401849173675503e-16,
+      "native-gaussian_covariance_frobenius_error": 2.356671482648078e-16
     },
     {
       "gate": "compound(squeeze+rotate+cz+displace)",
@@ -1647,7 +2095,11 @@
       },
       "mean_vector_norm_error": 2.1868857395626282e-15,
       "covariance_frobenius_error": 1.5700924586837752e-16,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 6.661338147750939e-16,
+      "gaussian_covariance_frobenius_error": 3.510833468576701e-16,
+      "native-gaussian_mean_vector_norm_error": 6.661338147750939e-16,
+      "native-gaussian_covariance_frobenius_error": 3.510833468576701e-16
     },
     {
       "gate": "compound(squeeze+rotate+cz+displace)",
@@ -1660,7 +2112,11 @@
       },
       "mean_vector_norm_error": 1.5270651635494201e-15,
       "covariance_frobenius_error": 7.85261819125922e-17,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 9.155396550919762e-16,
+      "gaussian_covariance_frobenius_error": 4.9065389333867974e-18,
+      "native-gaussian_mean_vector_norm_error": 9.155396550919762e-16,
+      "native-gaussian_covariance_frobenius_error": 4.9065389333867974e-18
     },
     {
       "gate": "compound(squeeze+rotate+cz+displace)",
@@ -1672,8 +2128,12 @@
         "p": 0.8666667739888332
       },
       "mean_vector_norm_error": 1.2758510841771824e-15,
-      "covariance_frobenius_error": 4.999857065771613e-16,
-      "photon_number_error": null
+      "covariance_frobenius_error": 4.980559976921029e-16,
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 1.3394761424494089e-15,
+      "gaussian_covariance_frobenius_error": 2.2633986948989007e-16,
+      "native-gaussian_mean_vector_norm_error": 1.3394761424494089e-15,
+      "native-gaussian_covariance_frobenius_error": 2.2633986948989007e-16
     },
     {
       "gate": "compound(squeeze+rotate+cz+displace)",
@@ -1686,7 +2146,11 @@
       },
       "mean_vector_norm_error": 6.871957671317179e-16,
       "covariance_frobenius_error": 2.220446049250313e-16,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 2.280617143682994e-16,
+      "gaussian_covariance_frobenius_error": 4.697995015182298e-16,
+      "native-gaussian_mean_vector_norm_error": 2.280617143682994e-16,
+      "native-gaussian_covariance_frobenius_error": 4.697995015182298e-16
     },
     {
       "gate": "compound(squeeze+rotate+cz+displace)",
@@ -1698,8 +2162,12 @@
         "p": -0.09773953562946369
       },
       "mean_vector_norm_error": 2.7303643765501543e-15,
-      "covariance_frobenius_error": 4.578749955049992e-16,
-      "photon_number_error": null
+      "covariance_frobenius_error": 4.577566798522237e-16,
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 5.095246377785861e-16,
+      "gaussian_covariance_frobenius_error": 1.1113066979184075e-16,
+      "native-gaussian_mean_vector_norm_error": 5.095246377785861e-16,
+      "native-gaussian_covariance_frobenius_error": 1.1113066979184075e-16
     },
     {
       "gate": "compound(squeeze+rotate+cz+displace)",
@@ -1711,8 +2179,12 @@
         "p": 0.8955681653346625
       },
       "mean_vector_norm_error": 7.736788912175082e-16,
-      "covariance_frobenius_error": 1.1292628106320432e-16,
-      "photon_number_error": null
+      "covariance_frobenius_error": 8.117492921294519e-17,
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 6.713178136967714e-16,
+      "gaussian_covariance_frobenius_error": 1.3759013221563222e-16,
+      "native-gaussian_mean_vector_norm_error": 6.713178136967714e-16,
+      "native-gaussian_covariance_frobenius_error": 1.415493632314861e-16
     },
     {
       "gate": "compound(squeeze+rotate+cz+displace)",
@@ -1725,7 +2197,11 @@
       },
       "mean_vector_norm_error": 2.068861210522879e-15,
       "covariance_frobenius_error": 1.1102230246251565e-16,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 4.611102534756203e-16,
+      "gaussian_covariance_frobenius_error": 1.1274368112207335e-16,
+      "native-gaussian_mean_vector_norm_error": 4.611102534756203e-16,
+      "native-gaussian_covariance_frobenius_error": 1.1274368112207335e-16
     },
     {
       "gate": "compound(squeeze+rotate+cz+displace)",
@@ -1738,7 +2214,11 @@
       },
       "mean_vector_norm_error": 1.5934698110350668e-15,
       "covariance_frobenius_error": 4.509747244882934e-16,
-      "photon_number_error": null
+      "photon_number_error": null,
+      "gaussian_mean_vector_norm_error": 5.20740757162067e-16,
+      "gaussian_covariance_frobenius_error": 1.9229626863835638e-16,
+      "native-gaussian_mean_vector_norm_error": 5.20740757162067e-16,
+      "native-gaussian_covariance_frobenius_error": 1.9229626863835638e-16
     }
   ],
   "n_random_per_gate": 20,

@@ -3,9 +3,40 @@
   "tap_theta": 0.15,
   "cutoff": 24,
   "before_parity": 1.0,
-  "after_parity": -0.9999999999999993,
-  "before_mean_photon_number": 0.4053262639658054,
+  "after_parity": -0.9999999999999996,
+  "before_mean_photon_number": 0.40532626396580546,
   "after_mean_photon_number": 2.1417887314792203,
   "herald_probability": 0.008617103407052951,
-  "parity_flipped_even_to_odd": true
+  "parity_flipped_even_to_odd": true,
+  "main_backend": "native-fock",
+  "engine_comparison": [
+    {
+      "backend": "native-fock",
+      "herald_probability": 0.008617103407052951,
+      "parity": -0.9999999999999996,
+      "mean_photon_number": 2.1417887314792203,
+      "tvd_vs_main": 0.0,
+      "min_retained_norm": 0.9999999376262554
+    },
+    {
+      "backend": "piquasso-fock",
+      "herald_probability": 0.008617103407052951,
+      "parity": -0.9999999999999993,
+      "mean_photon_number": 2.1417887314792203,
+      "tvd_vs_main": 1.896295010665565e-16,
+      "min_retained_norm": 0.9999999376262554
+    },
+    {
+      "backend": "native-mixed-fock",
+      "herald_probability": 0.008617103407052946,
+      "parity": -1.0,
+      "mean_photon_number": 2.141788731479221,
+      "tvd_vs_main": 2.4988191922007026e-16,
+      "min_retained_norm": 0.9999999376262554
+    }
+  ],
+  "reference_tolerance": 1e-06,
+  "after_min_retained_norm": 0.9999999376262554,
+  "after_wigner_minimum": -0.15915494309189526,
+  "before_wigner_minimum": -1.7484080345619488e-05
 }

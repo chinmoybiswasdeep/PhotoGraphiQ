@@ -1,0 +1,19 @@
+gamma,resource_squeezing,cutoff,ok,fidelity_to_ideal_cubic_phase,trace_distance_estimate,outcome_density,outcome_kind,retained_norm,error
+0.15,0.1,24,True,0.9469294912977205,0.23037037288305862,0.25819985949489505,density,1.0000000000000004,
+0.15,0.3,24,True,0.970600425619804,0.17146304085777794,0.23084832241999104,density,1.0,
+0.15,0.6,24,False,,,,,,Fock truncation norm 0.99836644; increase cutoff=24
+0.15,1.0,24,False,,,,,,Fock truncation norm 0.97312438; increase cutoff=24
+0.15,1.5,24,False,,,,,,Fock truncation norm 0.9696007; increase cutoff=24
+0.15,2.0,24,False,,,,,,Fock truncation norm 0.81062528; increase cutoff=24
+0.15,0.1,32,True,0.9469297882882736,0.2303697282885198,0.2581998480377396,density,1.0000000000000002,
+0.15,0.3,32,True,0.9706032776846945,0.17145472380574864,0.2308427912442595,density,1.0000000000000002,
+0.15,0.6,32,True,0.9889756546815112,0.10499688242271214,0.18853033570005756,density,1.0,
+0.15,1.0,32,False,,,,,,Fock truncation norm 0.98298367; increase cutoff=32
+0.15,1.5,32,False,,,,,,Fock truncation norm 0.98779474; increase cutoff=32
+0.15,2.0,32,False,,,,,,Fock truncation norm 0.87133538; increase cutoff=32
+0.15,0.1,48,True,0.9469296090745074,0.2303701172580606,0.25819988346212447,density,1.0000000000000002,
+0.15,0.3,48,True,0.9706009723008218,0.17146144668460672,0.23084020461007027,density,1.0,
+0.15,0.6,48,True,0.988996020664211,0.10489985384064653,0.1884398749341573,density,1.0000000000000002,
+0.15,1.0,48,False,,,,,,Fock truncation norm 0.99239828; increase cutoff=48
+0.15,1.5,48,False,,,,,,Fock truncation norm 0.99791089; increase cutoff=48
+0.15,2.0,48,False,,,,,,Fock truncation norm 0.93791442; increase cutoff=48

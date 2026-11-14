@@ -1,38 +1,56 @@
 {
-  "timestamp_utc": "2026-09-24T23:52:42.715150+00:00",
-  "git_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-  "git_branch": "manuscript-experiments",
-  "git_dirty": false,
+  "timestamp_utc": "2026-11-13T23:45:49.448544+00:00",
+  "git_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+  "git_branch": "upgraded",
+  "git_dirty": true,
   "worktree_dirty": true,
-  "source_dirty": false,
-  "source_dirty_paths": [],
-  "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+  "source_dirty": true,
+  "source_dirty_paths": [
+    "docs/ml/index.md",
+    "paper_experiments_ml/EXPERIMENT_INDEX.md",
+    "paper_experiments_ml/MANUSCRIPT_MAP.md",
+    "paper_experiments_ml/README.md",
+    "src/photographiq/backends/gaussian.py",
+    "src/photographiq/backends/mixed_fock.py",
+    "src/photographiq/backends/native_gaussian.py",
+    "src/photographiq/encoded.py",
+    "src/photographiq/interactive/_template.py",
+    "src/photographiq/interactive/graph_view.py",
+    "src/photographiq/interactive/layouts.py",
+    "src/photographiq/interactive/static.py",
+    "src/photographiq/registry.py",
+    "src/photographiqml/physical.py",
+    "docs/ml/guide.md",
+    "paper_experiments_ml/legacy_reference/",
+    "src/photographiq/_checks.py"
+  ],
+  "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
   "provenance_schema_version": 3,
-  "python_version": "3.14.4",
+  "python_version": "3.12.14",
   "platform": "Windows-11-10.0.26200-SP0",
   "cpu_model": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
   "packages": {
-    "photographiqml": "0.2.0",
+    "photographiqml": null,
     "photographiq": "0.3.1",
     "mentpy": "0.1.0a15",
     "piquasso": "8.0.1",
-    "numpy": "2.5.3",
+    "numpy": "2.5.4",
     "scipy": "1.18.1",
-    "networkx": "3.6.1",
-    "matplotlib": "3.11.1",
+    "networkx": "3.7",
+    "matplotlib": "3.11.2",
     "scikit-learn": "1.9.1"
   },
   "package_import_origins": {
-    "photographiqml": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\src\\photographiqml\\__init__.py",
+    "photographiqml": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\src\\photographiqml\\__init__.py",
     "photographiq": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\src\\photographiq\\__init__.py",
-    "mentpy": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\.references\\mentpy\\mentpy\\__init__.py",
-    "piquasso": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\.venv\\Lib\\site-packages\\piquasso\\__init__.py"
+    "mentpy": "C:\\Users\\TONMOY~1\\AppData\\Local\\Temp\\claude\\f18d56051efec063\\352a5be9-b5b4-41b3-8357-f1a37d46aad2\\scratchpad\\p2\\mentpy\\venv\\Lib\\site-packages\\mentpy\\__init__.py",
+    "piquasso": "C:\\Users\\TONMOY~1\\AppData\\Local\\Temp\\claude\\f18d56051efec063\\352a5be9-b5b4-41b3-8357-f1a37d46aad2\\scratchpad\\p2\\mentpy\\venv\\Lib\\site-packages\\piquasso\\__init__.py"
   },
   "upstream_repositories": {
     "PhotoGraphiQ": {
       "path": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ",
-      "commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-      "dirty": false
+      "commit": "441de9a8811cefd676271efa0b65985d041666a8",
+      "dirty": true
     }
   },
   "experiment_id": "R57",

@@ -166,6 +166,51 @@ print(import_layout(text, open_graph) == view.layout)
 True
 ```
 
+## Page controls
+
+Every control below is visual only: it never changes the graph, the flow, the corrections or
+the recorded trajectory.
+
+| Control | Effect |
+|---|---|
+| **stage** selector | switches between the stages whose overlays exist (`view.available_stages()`); dragged positions are kept |
+| **layout** selector | `view` (the layout the page was built with), `publication`, `layered` (when a flow with layers or an order exists), `hierarchical`, `grid`, `circular` and `force`, all computed in Python (`view.layouts()`) |
+| **Fit** / **Reset view** | fit the drawing to the window; restore the `view` layout and fit |
+| **Measurement order** (flow and corrections stages) | **Prev** / **Next** step through the flow's measurement order: the current node is highlighted, earlier ones are faded, and the page lists the nodes its outcome corrects |
+| **Play**, **Pause**, **Step**, **Reset** (execution stage) | animate the recorded trajectory |
+| hover | a tooltip with roles, squeezing r (and dB), measurement, order, layer, correction formula and recorded outcome; CZ edges show `CZ(g): p_u += g q_v, p_v += g q_u` |
+| **SVG**, **PNG**, **HTML** | download the current drawing as vector SVG (each element has an `id`, see below), as a 3x PNG, or as a self-contained page that reopens with the current positions and stage |
+| drag, wheel, background drag | move nodes, zoom, pan |
+
+Dense graphs: when the fitted zoom is below 1, node labels and edge labels are enlarged (up
+to 1.6x) so that they render at about 11 px. Nodes grow with their label (id, `#k` order,
+`m=` outcome), so text never overflows a node.
+
+After a semantic edit (next section) the stage selector and the HTML export are disabled:
+the overlays no longer describe the edited graph.
+
+## Visual language and edge routing
+
+The HTML page and the static export share one visual language, with colour-blind-safe
+Okabe-Ito hues and a white background:
+
+- CZ (quantum) edges: neutral solid grey, with weight labels on CV graphs;
+- flow dependencies: solid blue arrows; when the flow result is not `certified` they are
+  grey and dashed, and the legend says so;
+- classical corrections: dashed vermillion-orange arrows with coefficient (CV) or X/Z
+  (qubit) labels;
+- inputs: blue squares; outputs: green diamonds; other nodes (ancillas): neutral circles;
+  measured nodes (every non-output) have a thick dark outline, so roles never depend on
+  colour alone.
+
+Edges and arrows are quadratic curves. `photographiq.interactive.layouts.route` chooses
+the control point: CZ edges start straight and arrows start from a fixed arc (flow on one
+side, corrections on the other). The curve then bends further, or flips to the other side,
+until it stays `CLEARANCE` (0.34 layout units) away from every node that is not an endpoint.
+The page re-runs the same routing in JavaScript after a drag and after a layout change.
+`scripts/check_interactive_browser.py` checks that the browser's bends equal the Python
+values. Routing does not minimise crossings between edges.
+
 ## Edit in the browser, validate in Python
 
 With `editable=True` (the default), the page side panel can do the following:
@@ -206,12 +251,28 @@ Edge (0, 1) needs a finite nonzero weight
 `view.save(path, stage=None)` and `draw_static(view, path=None, stage=None, *, ax=None,
 figsize=None, dpi=300, formulas=True, title=None)` render any stage with Matplotlib.
 The suffix of `path` selects SVG, PDF or PNG. SVG keeps text as text and PDF embeds
-Type 42 fonts. The styling matches the page:
+Type 42 fonts. The styling matches the page (see the visual language above).
 
-- CZ edges: solid grey, with weight labels;
-- flow dependencies: dashed blue;
-- corrections: dotted orange, with coefficients;
-- node shapes: square inputs, diamond outputs, circular measured nodes.
+More keyword arguments are available for narrow journal columns and dense figures:
+
+- `legend=True`;
+- `node_size=560` (points^2; line widths and arrow heads scale with it);
+- `fontsize=9`;
+- `weights=True` (CZ weight labels);
+- `arrow_labels=True` (correction coefficients);
+- `order_label="order"`: `"order"` (`#k`), `"layer"` (`Lk`) or `"both"`.
+
+Annotations (`#k`, `Lk`, `r=`, `m=`) sit below the node. The axis limits include every
+routed arc.
+
+Each element of an exported SVG has a stable `id`, so a figure can be checked against the
+model:
+
+- `node:<id>`, `label:<id>` (nodes and their labels);
+- `edge:<u>--<v>` (CZ edges);
+- `flow:<s>-><t>`, `correction:<s>-><t>` (arrows).
+
+`paper_experiments/18_visualization/57_interactive_visualization.py` parses these ids.
 
 ```python
 import pathlib, tempfile
@@ -286,12 +347,36 @@ recorded `samples` includes whatever detector noise the measurement had.
   check a flow it was not given.
 - The page itself runs no simulation. Edits in the browser change only the exported
   graph, and you must re-run the analysis in Python.
-- Layout quality (edge crossings) and rendered appearance are not checked by tests.
-  Tests check determinism, file validity, the displayed data, and the generated
-  JavaScript, which is parsed with Node.js and run in headless Edge or Chrome when one is
-  installed.
+- Routing keeps edges away from nodes, but it does not minimise edge crossings, and
+  very dense graphs still need zooming. Tests check determinism, file validity, the
+  displayed data and the generated JavaScript (parsed with Node.js, and run in headless
+  Edge or Chrome when one is installed). `scripts/check_interactive_browser.py` adds
+  real-input checks: drag, pan and zoom, edits, every stage, stage and layout switching,
+  reset, order stepping, routing clearance and the SVG, PNG and HTML downloads.
+- `GraphView.from_pattern` lists things it does not draw as notes or annotations:
+  constant displacements, adaptive gates (with the outcomes they depend on) and
+  non-wire-step homodyne angles. Feed-forward that is not affine in the outcomes, such as
+  cubic injection or GKP decoding, has no correction arrows.
 
 ## Further examples
+
+- `scripts/generate_demo_figures.py` writes 14 demonstration figures to
+  `docs/figures/demos/`. Each figure comes as SVG, PDF and PNG with a caption, and the graph
+  figures also come as an interactive page. The demonstrations cover:
+  - teleportation;
+  - two-mode and multimode clusters;
+  - compilation;
+  - adaptive feed-forward;
+  - flow layering;
+  - correction maps;
+  - cubic-phase injection;
+  - GKP syndrome extraction;
+  - native execution;
+  - boson sampling and GBS;
+  - PhotoGraphiQML training;
+  - an end-to-end run.
+
+  Each number comes from a library call.
 
 - `examples/notebooks/interactive_graph_visualization.ipynb` goes through all four
   stages, static export, the edit round trip and three plots. It is executed by

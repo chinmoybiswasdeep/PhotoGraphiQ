@@ -150,11 +150,19 @@ test tolerances are rtol 1e-11 (fidelity 1e-8), at least 100 times the observed 
 
 `benchmarks/gpu/bench_gpu_gaussian.py` compares NumPy, native C++/OpenMP and GPU on identical
 batched tasks. It times kernel and transfer separately; methodology is in
-`benchmarks/gpu/README.md`. **No performance numbers are quoted here yet.** The development
-machine was shared during implementation, so only the `--smoke` configuration was run, to
-check that the script works. In that configuration, very small batches were dominated by a
-fixed per-call GPU overhead (kernel launches, plus one synchronisation per validity check).
-The GPU only pays off for large `B * n^2`.
+`benchmarks/gpu/README.md`. Measured in the 2026-11-12 reproduction run
+(`benchmarks/results_20261112/bench-gpu-gaussian.json`, n = 64 modes, B = 256 states,
+float64, median times):
+
+| Task | NumPy | Native C++ | GPU kernel | GPU end to end |
+|---|---|---|---|---|
+| dense symplectic | 433 ms | 214 ms | 31 ms | 46 ms |
+| homodyne conditioning | 113 ms | 4.9 ms | 4.0 ms | 15.9 ms |
+| local beam splitter | 10.3 ms | 10.4 ms | 1.6 ms | 13.9 ms |
+
+On homodyne conditioning the GPU kernel only ties the native engine and is slower end to
+end. Very small batches are dominated by a fixed per-call GPU overhead (kernel launches, plus
+one synchronisation per validity check); the GPU only pays off for large `B * n^2`.
 
 ## Fock kernels (`photographiq.gpu.fock`)
 

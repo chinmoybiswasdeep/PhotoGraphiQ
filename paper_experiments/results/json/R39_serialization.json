@@ -6,5 +6,13 @@
   "dependency_graph_edges_preserved": true,
   "identical_seeded_outcomes": true,
   "identical_seeded_output_mean": true,
-  "identical_seeded_output_covariance": true
+  "identical_seeded_output_covariance": true,
+  "graph_edges_and_weights_preserved": true,
+  "node_squeezing_preserved": true,
+  "measurement_metadata_preserved": true,
+  "correction_functions_preserved": true,
+  "open_graph_json_round_trip": true,
+  "identical_on_all_gaussian_engines": true,
+  "nonlinear_feedforward_pattern_round_trip": true,
+  "nonlinear_feedforward_identical_native_fock_state": true
 }

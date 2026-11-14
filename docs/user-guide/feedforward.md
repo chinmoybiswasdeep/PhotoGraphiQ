@@ -2,6 +2,7 @@
 
 
 ```python
+import photographiq as pg
 pattern = pg.protocols.adaptive(squeezing=0.8)
 result = pg.simulate(pattern, parameters={"k": 0.3}, seed=10, frame=True)
 print(result.outcomes)

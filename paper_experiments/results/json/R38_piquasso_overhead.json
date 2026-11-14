@@ -3,48 +3,77 @@
     {
       "modes": 5,
       "gates": 14,
-      "raw_piquasso_median_seconds": 0.005092500010505319,
-      "raw_piquasso_iqr_seconds": 0.0010222999844700098,
-      "photographiq_median_seconds": 0.04493989999173209,
-      "photographiq_iqr_seconds": 0.009218200051691383,
-      "overhead_ratio": 8.824722611492502
+      "raw_piquasso_median_seconds": 0.0012298000219743699,
+      "raw_piquasso_iqr_seconds": 0.0001618000096641481,
+      "photographiq_median_seconds": 0.01148240000475198,
+      "photographiq_iqr_seconds": 0.00018579998868517578,
+      "overhead_ratio": 9.336802569183304,
+      "gaussian_median_seconds": 0.002746299986029044,
+      "native-gaussian_median_seconds": 0.0007767000060994178,
+      "gaussian_ratio_to_raw_piquasso": 2.233127286516083,
+      "native-gaussian_ratio_to_raw_piquasso": 0.6315661019849981
     },
     {
       "modes": 10,
       "gates": 29,
-      "raw_piquasso_median_seconds": 0.010639699990861118,
-      "raw_piquasso_iqr_seconds": 0.0013103000237606466,
-      "photographiq_median_seconds": 0.09798940003383905,
-      "photographiq_iqr_seconds": 0.007115200045518577,
-      "overhead_ratio": 9.209789760802112
+      "raw_piquasso_median_seconds": 0.0023045999987516552,
+      "raw_piquasso_iqr_seconds": 8.379999781027436e-05,
+      "photographiq_median_seconds": 0.026452899997821078,
+      "photographiq_iqr_seconds": 0.0037468000082299113,
+      "overhead_ratio": 11.478304266315178,
+      "gaussian_median_seconds": 0.006430800014641136,
+      "native-gaussian_median_seconds": 0.00142090002191253,
+      "gaussian_ratio_to_raw_piquasso": 2.790419169541153,
+      "native-gaussian_ratio_to_raw_piquasso": 0.6165495195184398
     },
     {
       "modes": 20,
       "gates": 59,
-      "raw_piquasso_median_seconds": 0.01834809995489195,
-      "raw_piquasso_iqr_seconds": 0.001280799973756075,
-      "photographiq_median_seconds": 0.2476676000514999,
-      "photographiq_iqr_seconds": 0.011037299933377653,
-      "overhead_ratio": 13.49826961158815
+      "raw_piquasso_median_seconds": 0.004579500004183501,
+      "raw_piquasso_iqr_seconds": 0.0002969999623019248,
+      "photographiq_median_seconds": 0.07010760001139715,
+      "photographiq_iqr_seconds": 0.0006427000334952027,
+      "overhead_ratio": 15.309007522077062,
+      "gaussian_median_seconds": 0.017603499989490956,
+      "native-gaussian_median_seconds": 0.0026353999855928123,
+      "gaussian_ratio_to_raw_piquasso": 3.8439785944774907,
+      "native-gaussian_ratio_to_raw_piquasso": 0.5754776685632276
     },
     {
       "modes": 40,
       "gates": 119,
-      "raw_piquasso_median_seconds": 0.03744749998440966,
-      "raw_piquasso_iqr_seconds": 0.007213099976070225,
-      "photographiq_median_seconds": 0.8204843000276014,
-      "photographiq_iqr_seconds": 0.012126600020565093,
-      "overhead_ratio": 21.91025570116002
+      "raw_piquasso_median_seconds": 0.009497499995632097,
+      "raw_piquasso_iqr_seconds": 0.00018500001169741154,
+      "photographiq_median_seconds": 0.25176790001569316,
+      "photographiq_iqr_seconds": 0.009468000003835186,
+      "overhead_ratio": 26.50886024021914,
+      "gaussian_median_seconds": 0.08487520000198856,
+      "native-gaussian_median_seconds": 0.0058108000084757805,
+      "gaussian_ratio_to_raw_piquasso": 8.936583315717051,
+      "native-gaussian_ratio_to_raw_piquasso": 0.6118241654275514
     }
   ],
   "environment": {
-    "timestamp_utc": "2026-09-15T02:17:07.468301+00:00",
-    "git_commit": "930408142cfd2dbc380976c28aa009d23c44babe",
-    "git_branch": "manuscript-experiments",
+    "timestamp_utc": "2026-11-14T01:22:53.930594+00:00",
+    "git_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+    "git_branch": "upgraded",
     "git_dirty": true,
+    "git_note": "uncommitted working-tree changes on top of git_commit; see source_sha256",
+    "source_sha256": "b7fc8d1a44051f1f07e9fdd64409c88998ab982718e9847af065f4ce55061aa6",
     "python_version": "3.12.14",
     "platform": "Windows-11-10.0.26200-SP0",
     "cpu_model": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+    "cpu_count": 12,
+    "omp_num_threads": null,
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU, 581.86",
+    "native": {
+      "available": true,
+      "components": [
+        "gaussian",
+        "fock",
+        "sampling"
+      ]
+    },
     "packages": {
       "numpy": "2.5.3",
       "scipy": "1.18.1",
@@ -53,7 +82,31 @@
       "piquasso": "8.0.1",
       "photographiq": "0.3.1",
       "graphix": "0.4",
-      "jax": "0.11.1"
+      "jax": "0.11.1",
+      "mpmath": "1.3.0",
+      "numba": "0.67.0",
+      "cupy": null,
+      "mentpy": null
     }
-  }
+  },
+  "timing_environment": {
+    "configuration": "full",
+    "timing_status": "final (idle machine declared via PGQ_IDLE_MACHINE=1)",
+    "os_cpu_count": 12,
+    "OMP_NUM_THREADS": null,
+    "native_build_info": {
+      "compiler": "MSVC 19.50.35729.0",
+      "build_type": "Release",
+      "cxx_standard": 202002,
+      "openmp": true,
+      "eigen": "3.4.0",
+      "hbar": 2.0
+    },
+    "native_components": [
+      "gaussian",
+      "fock",
+      "sampling"
+    ]
+  },
+  "correctness_tolerance": 1e-09
 }

@@ -1,0 +1,55 @@
+{
+  "rows": [
+    {
+      "n_wires": 1,
+      "total_variation_distance": 0.17284892122480144,
+      "observable_differences": [
+        -0.3456978424496029
+      ],
+      "marginal_leakage": [
+        0.00021750138882559167
+      ],
+      "finite_state_fidelity_is_none": true,
+      "min_retained_norm": 0.9999814752633127,
+      "max_retained_norm": 1.0000000000000002,
+      "certified": false
+    },
+    {
+      "n_wires": 2,
+      "total_variation_distance": 0.3421815008929193,
+      "observable_differences": [
+        -0.36628487040770086,
+        -0.39305505531539187
+      ],
+      "marginal_leakage": [
+        0.004511654025304734,
+        0.004815317856983969
+      ],
+      "finite_state_fidelity_is_none": true,
+      "min_retained_norm": 0.9998517967776349,
+      "max_retained_norm": 1.0000000000000002,
+      "certified": false
+    }
+  ],
+  "protocol": "compare_logical_physical contract check, 1- and 2-wire zero-angle physical-conditional cases",
+  "oracle_class": "E",
+  "status_category": "exact",
+  "resource_config": {
+    "cutoff": 24,
+    "peak_width": 0.9,
+    "envelope": 0.9,
+    "peaks": 4,
+    "grid_points": 1025,
+    "decoder": "nearest",
+    "backend": "piquasso-fock",
+    "max_dimension": 100000,
+    "max_matrix_bytes": 256000000
+  },
+  "acceptance_condition": "TV distance and leakage in [0,1]; finite_state_fidelity always None; convergence never silently certified",
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

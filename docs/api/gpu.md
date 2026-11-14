@@ -11,3 +11,7 @@
 ::: photographiq.gpu.gaussian
     options:
       filters: ["!^_"]
+
+::: photographiq.gpu.fock
+    options:
+      filters: ["!^_"]

@@ -1,0 +1,132 @@
+{
+  "rows": [
+    {
+      "axis": "cutoff",
+      "axis_type": "numerical refinement",
+      "value": 20,
+      "max_probability_delta": null,
+      "prediction": 0
+    },
+    {
+      "axis": "cutoff",
+      "axis_type": "numerical refinement",
+      "value": 24,
+      "max_probability_delta": 0.00018949199506515524,
+      "prediction": 0
+    },
+    {
+      "axis": "cutoff",
+      "axis_type": "numerical refinement",
+      "value": 28,
+      "max_probability_delta": 8.157603388903034e-05,
+      "prediction": 0
+    },
+    {
+      "axis": "grid_points",
+      "axis_type": "numerical refinement",
+      "value": 513,
+      "max_probability_delta": null,
+      "prediction": 0
+    },
+    {
+      "axis": "grid_points",
+      "axis_type": "numerical refinement",
+      "value": 1025,
+      "max_probability_delta": 2.220446049250313e-16,
+      "prediction": 0
+    },
+    {
+      "axis": "grid_points",
+      "axis_type": "numerical refinement",
+      "value": 2049,
+      "max_probability_delta": 1.6653345369377348e-16,
+      "prediction": 0
+    },
+    {
+      "axis": "peaks",
+      "axis_type": "numerical refinement",
+      "value": 3,
+      "max_probability_delta": null,
+      "prediction": 0
+    },
+    {
+      "axis": "peaks",
+      "axis_type": "numerical refinement",
+      "value": 4,
+      "max_probability_delta": 1.1102230246251565e-16,
+      "prediction": 0
+    },
+    {
+      "axis": "peaks",
+      "axis_type": "numerical refinement",
+      "value": 5,
+      "max_probability_delta": 8.326672684688674e-17,
+      "prediction": 0
+    },
+    {
+      "axis": "peak_width",
+      "axis_type": "physical resource change",
+      "value": 0.85,
+      "max_probability_delta": null,
+      "prediction": 0
+    },
+    {
+      "axis": "peak_width",
+      "axis_type": "physical resource change",
+      "value": 0.9,
+      "max_probability_delta": 0.013036221912825274,
+      "prediction": 0
+    },
+    {
+      "axis": "peak_width",
+      "axis_type": "physical resource change",
+      "value": 0.95,
+      "max_probability_delta": 0.011579751219358614,
+      "prediction": 0
+    },
+    {
+      "axis": "envelope",
+      "axis_type": "physical resource change",
+      "value": 0.85,
+      "max_probability_delta": null,
+      "prediction": 0
+    },
+    {
+      "axis": "envelope",
+      "axis_type": "physical resource change",
+      "value": 0.9,
+      "max_probability_delta": 0.000215497665172093,
+      "prediction": 0
+    },
+    {
+      "axis": "envelope",
+      "axis_type": "physical resource change",
+      "value": 0.95,
+      "max_probability_delta": 0.00012839756825580584,
+      "prediction": 0
+    }
+  ],
+  "protocol": "One-axis-at-a-time physical_convergence study, 5 axes, one-wire zero-angle baseline",
+  "oracle_class": "E",
+  "status_category": "statistical",
+  "baseline_config": {
+    "cutoff": 24,
+    "peak_width": 0.9,
+    "envelope": 0.9,
+    "peaks": 4,
+    "grid_points": 1025,
+    "decoder": "nearest",
+    "backend": "piquasso-fock",
+    "max_dimension": 100000,
+    "max_matrix_bytes": 256000000
+  },
+  "acceptance_condition": "certified False for every axis; numerical axes (cutoff, grid_points) show decreasing successive-point delta",
+  "all_uncertified": true,
+  "numerical_axes_ok": true,
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

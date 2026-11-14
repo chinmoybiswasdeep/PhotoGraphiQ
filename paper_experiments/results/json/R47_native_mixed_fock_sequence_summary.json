@@ -1,0 +1,90 @@
+{
+  "rows": [
+    {
+      "cutoff": 6,
+      "steps": 21,
+      "mixed_vs_pure_consistency": 2.618455766672135e-16,
+      "native_vs_piquasso_mixed": 0.0010016162782682185,
+      "worst_hermiticity": 1.5700924586837752e-16,
+      "worst_trace_error": 4.440892098500626e-16,
+      "worst_min_eigenvalue": -5.215070466097395e-16,
+      "min_retained_norm_step": 0.987446624874273
+    },
+    {
+      "cutoff": 8,
+      "steps": 21,
+      "mixed_vs_pure_consistency": 5.025622712509666e-16,
+      "native_vs_piquasso_mixed": 0.0005471379662406743,
+      "worst_hermiticity": 1.6883057536160649e-16,
+      "worst_trace_error": 8.882134799121738e-16,
+      "worst_min_eigenvalue": -8.162518774658252e-16,
+      "min_retained_norm_step": 0.9935679854724911
+    },
+    {
+      "cutoff": 10,
+      "steps": 21,
+      "mixed_vs_pure_consistency": 2.410141558430158e-16,
+      "native_vs_piquasso_mixed": "not run (cutoff above PIQUASSO_MAX_CUTOFF)",
+      "worst_hermiticity": 1.893949450598201e-16,
+      "worst_trace_error": 1.1105311193907997e-15,
+      "worst_min_eigenvalue": -6.698104886558477e-16,
+      "min_retained_norm_step": 0.9959184452227039
+    },
+    {
+      "cutoff": 12,
+      "steps": 21,
+      "mixed_vs_pure_consistency": 1.944128986425528e-16,
+      "native_vs_piquasso_mixed": "not run (cutoff above PIQUASSO_MAX_CUTOFF)",
+      "worst_hermiticity": 1.7554167342883506e-16,
+      "worst_trace_error": 1.3322676295501878e-15,
+      "worst_min_eigenvalue": -8.753506592237931e-16,
+      "min_retained_norm_step": 0.9972321349973216
+    }
+  ],
+  "backend": "native-mixed-fock (compiled) with piquasso-mixed-fock 8.0.1 secondary; NumPy gaussian backend for Gaussian moments",
+  "reference": "closed forms, dense expm (90 levels), channel invariants, Gaussian conditioning",
+  "precision": "complex128",
+  "cutoff": [
+    8,
+    12,
+    16,
+    24,
+    32,
+    48
+  ],
+  "sequence_cutoffs": [
+    6,
+    8,
+    10,
+    12
+  ],
+  "seed": 20261147,
+  "full": true,
+  "parameters": {
+    "piquasso_max_cutoff": 8,
+    "openmp_threads": 1,
+    "nbars": [
+      0.3,
+      1.0
+    ],
+    "alpha": 1.5,
+    "etas": [
+      0.3,
+      0.7
+    ],
+    "n_th": 0.4,
+    "tmsv_r": 0.6,
+    "tmsv_eta": 0.8,
+    "homodyne_outcome": 0.7,
+    "norm_tolerance": "1 - 1e-12 (truncation studied, never rejected)"
+  },
+  "acceptance": {
+    "TOL_EXACT": 1e-12,
+    "TOL_HERMITIAN": 1e-13,
+    "TOL_TRACE": 1e-12,
+    "TOL_MIN_EIG": -1e-12,
+    "TOL_CONSISTENCY": 1e-12,
+    "K_TRUNC": 10,
+    "TOL_GAUSSIAN_TOP": 1e-06
+  }
+}

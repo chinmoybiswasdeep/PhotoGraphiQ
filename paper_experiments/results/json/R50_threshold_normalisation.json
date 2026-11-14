@@ -1,0 +1,107 @@
+{
+  "rows": [
+    {
+      "modes": 2,
+      "squeezing": 0.5,
+      "displaced": false,
+      "patterns": 4,
+      "normalisation_error": 2.220446049250313e-16,
+      "most_negative": 0.0
+    },
+    {
+      "modes": 2,
+      "squeezing": 1.0,
+      "displaced": true,
+      "patterns": 4,
+      "normalisation_error": 2.220446049250313e-16,
+      "most_negative": 0.0
+    },
+    {
+      "modes": 4,
+      "squeezing": 0.5,
+      "displaced": false,
+      "patterns": 16,
+      "normalisation_error": 6.661338147750939e-16,
+      "most_negative": 0.0
+    },
+    {
+      "modes": 4,
+      "squeezing": 1.0,
+      "displaced": true,
+      "patterns": 16,
+      "normalisation_error": 8.881784197001252e-16,
+      "most_negative": 0.0
+    },
+    {
+      "modes": 6,
+      "squeezing": 0.5,
+      "displaced": false,
+      "patterns": 64,
+      "normalisation_error": 2.220446049250313e-15,
+      "most_negative": 0.0
+    },
+    {
+      "modes": 6,
+      "squeezing": 1.0,
+      "displaced": true,
+      "patterns": 64,
+      "normalisation_error": 1.5543122344752192e-15,
+      "most_negative": 0.0
+    },
+    {
+      "modes": 8,
+      "squeezing": 0.5,
+      "displaced": false,
+      "patterns": 256,
+      "normalisation_error": 2.220446049250313e-16,
+      "most_negative": 0.0
+    },
+    {
+      "modes": 8,
+      "squeezing": 1.0,
+      "displaced": true,
+      "patterns": 256,
+      "normalisation_error": 1.2212453270876722e-15,
+      "most_negative": 0.0
+    }
+  ],
+  "backend": "photographiq.sampling.threshold_probability: native C++ and Python double sums, mpmath precision=50, precision='auto'; Piquasso 8.0.1 get_threshold_detection_probability",
+  "reference": "40-digit mpmath reference of benchmarks/gaussian_boson_sampling/threshold_reference_matrix.py (rerun here)",
+  "precision": "float64 / mpmath",
+  "cutoff": null,
+  "seed": 20261150,
+  "full": true,
+  "reference_dps": 40,
+  "parameters": {
+    "cases": 185,
+    "squeezing": [
+      0.05,
+      0.2,
+      0.5,
+      1.0,
+      1.5
+    ],
+    "transmissivity": [
+      1.0,
+      0.9,
+      0.5
+    ],
+    "displacement": "alpha_j = 0.4 u e^{2 pi i v} on half the cases"
+  },
+  "double_rel_error_above_1e-6": {
+    "native": 20,
+    "python": 20,
+    "piquasso": 21
+  },
+  "cited_previous_record": "docs/validation/gbs-threshold-accuracy.md (382 cases, 2026-11-11), not reused as data",
+  "acceptance": {
+    "AUTO_RTOL": 1e-06,
+    "MP_DIGITS": 50,
+    "MP_AGREEMENT_FACTOR": 10,
+    "WARN_THRESHOLD": 1e-06,
+    "TOL_NORMALISATION": 1e-10,
+    "RELIABLE_REFERENCE": 1e-08,
+    "ZERO_SCALE": 1e-14,
+    "bound": "|double - ref| <= B + ref uncertainty for every case"
+  }
+}

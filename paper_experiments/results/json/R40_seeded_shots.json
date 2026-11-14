@@ -10,10 +10,23 @@
   "theoretical_mean": 0.6,
   "mean_error_seed42": 0.02370193980190105,
   "mean_error_seed43": 0.007508663923359138,
+  "max_sample_difference_vs_gaussian_seed42": {
+    "native-gaussian": 0.0,
+    "piquasso": 0.0
+  },
+  "fock_photon_counting_equal_fraction_native_vs_piquasso": 1.0,
+  "fock_photon_counting_mean": {
+    "native-fock": 0.5975,
+    "piquasso-fock": 0.5975
+  },
+  "fock_photon_counting_theory_mean": 0.64,
+  "fock_contract_note": "observed only; no documented cross-engine RNG contract for Fock engines",
   "checks": {
     "same_seed_is_bit_identical": true,
     "different_seeds_are_not_identical": true,
     "different_seeds_pass_ks_same_distribution": true,
-    "sample_means_close_to_theory": true
+    "sample_means_close_to_theory": true,
+    "native_gaussian_follows_documented_rng_contract": true,
+    "piquasso_follows_documented_rng_contract": true
   }
 }

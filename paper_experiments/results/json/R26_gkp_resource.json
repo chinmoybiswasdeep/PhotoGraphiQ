@@ -10,7 +10,9 @@
       "q_translation_stabilizer_abs": 0.7521525523569628,
       "p_translation_stabilizer_abs": 0.7528190305711678,
       "target_vs_fock_probability_l1": 0.007313266178444822,
-      "mean_photon_number": 5.05483352704031
+      "mean_photon_number": 5.0548335270403095,
+      "native_vs_piquasso_max_difference": 8.881784197001252e-16,
+      "min_retained_norm": 0.9999999999999999
     },
     {
       "label": "sharp",
@@ -22,7 +24,9 @@
       "q_translation_stabilizer_abs": 0.7532157029214002,
       "p_translation_stabilizer_abs": 0.7524809346899611,
       "target_vs_fock_probability_l1": 0.010122432668094428,
-      "mean_photon_number": 5.084754551877369
+      "mean_photon_number": 5.08475455187737,
+      "native_vs_piquasso_max_difference": 8.881784197001252e-16,
+      "min_retained_norm": 0.9999999999999999
     },
     {
       "label": "sharp",
@@ -35,6 +39,8 @@
       "p_translation_stabilizer_abs": null,
       "target_vs_fock_probability_l1": null,
       "mean_photon_number": null,
+      "native_vs_piquasso_max_difference": null,
+      "min_retained_norm": null,
       "logical_overlap_abs": 0.00031882895778511224
     },
     {
@@ -47,7 +53,9 @@
       "q_translation_stabilizer_abs": 0.5873157085271759,
       "p_translation_stabilizer_abs": 0.6049179120039478,
       "target_vs_fock_probability_l1": 0.0002601973037168998,
-      "mean_photon_number": 2.4418172998010372
+      "mean_photon_number": 2.441817299801037,
+      "native_vs_piquasso_max_difference": 4.440892098500626e-16,
+      "min_retained_norm": 1.0
     },
     {
       "label": "default",
@@ -59,7 +67,9 @@
       "q_translation_stabilizer_abs": 0.6230441005388638,
       "p_translation_stabilizer_abs": 0.6049123787180621,
       "target_vs_fock_probability_l1": 0.0004465596680593055,
-      "mean_photon_number": 2.894849402441101
+      "mean_photon_number": 2.894849402441101,
+      "native_vs_piquasso_max_difference": 0.0,
+      "min_retained_norm": 1.0
     },
     {
       "label": "default",
@@ -72,6 +82,8 @@
       "p_translation_stabilizer_abs": null,
       "target_vs_fock_probability_l1": null,
       "mean_photon_number": null,
+      "native_vs_piquasso_max_difference": null,
+      "min_retained_norm": null,
       "logical_overlap_abs": 0.013021654549314705
     },
     {
@@ -84,7 +96,9 @@
       "q_translation_stabilizer_abs": 0.20404684291687994,
       "p_translation_stabilizer_abs": 0.32271898326523873,
       "target_vs_fock_probability_l1": 0.00010343368804263598,
-      "mean_photon_number": 0.417148301295546
+      "mean_photon_number": 0.41714830129554586,
+      "native_vs_piquasso_max_difference": 1.1102230246251565e-16,
+      "min_retained_norm": 0.9999999999999999
     },
     {
       "label": "fuzzy",
@@ -96,7 +110,9 @@
       "q_translation_stabilizer_abs": 0.51086594147356,
       "p_translation_stabilizer_abs": 0.3227189832233656,
       "target_vs_fock_probability_l1": 0.000141122040610976,
-      "mean_photon_number": 1.8544725911832387
+      "mean_photon_number": 1.8544725911832385,
+      "native_vs_piquasso_max_difference": 2.220446049250313e-16,
+      "min_retained_norm": 1.0
     },
     {
       "label": "fuzzy",
@@ -109,7 +125,14 @@
       "p_translation_stabilizer_abs": null,
       "target_vs_fock_probability_l1": null,
       "mean_photon_number": null,
+      "native_vs_piquasso_max_difference": null,
+      "min_retained_norm": null,
       "logical_overlap_abs": 0.17448855260726479
     }
-  ]
+  ],
+  "main_backend": "native-fock",
+  "reference_backend": "piquasso-fock",
+  "default_cutoff": 48,
+  "engine_tolerance": 1e-09,
+  "no_fault_tolerance_claim": true
 }

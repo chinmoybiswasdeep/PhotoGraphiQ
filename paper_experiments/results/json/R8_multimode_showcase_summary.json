@@ -5,5 +5,36 @@
   "measurements": 133,
   "entanglement_edges": 141,
   "corrections": 134,
-  "commands": 542
+  "commands": 542,
+  "map_frobenius_error": 3.04560656826983e-15,
+  "displacement_error": 3.471592384390912e-16,
+  "noise_trace": 21.03945863473613,
+  "noise_spectral_norm": 5.701775805284348,
+  "graph_metadata_checks": {
+    "edges_match_entangle_commands": true,
+    "squeezing_matches_prepare_commands": true,
+    "each_non_output_measured_once": true,
+    "outputs_never_measured": true,
+    "feedforward_respects_measurement_order": true,
+    "open_graph_round_trip": true
+  },
+  "gaussian_max_z_mean": 1.909488105480261,
+  "gaussian_max_z_covariance": 3.05085750149835,
+  "native-gaussian_max_z_mean": 1.909488105480261,
+  "native-gaussian_max_z_covariance": 3.05085750149835,
+  "native_vs_gaussian_max_record_difference": 4.440892098500626e-15,
+  "planner_backend": "native-gaussian",
+  "execution": {
+    "backends": [
+      "gaussian",
+      "native-gaussian"
+    ],
+    "shots": 200,
+    "seed": 20261113
+  },
+  "acceptance": {
+    "map_tolerance": 1e-09,
+    "sem_factor": 5.0,
+    "native_trajectory_tolerance": 1e-09
+  }
 }

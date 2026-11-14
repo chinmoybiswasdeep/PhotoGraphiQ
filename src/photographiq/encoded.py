@@ -7,6 +7,7 @@ from functools import cached_property
 import numpy as np
 from scipy.integrate import quad_vec
 
+from ._checks import is_finite_real_scalar
 from .gkp import SPACING, GKPResource, decode_shift, logical_displacement, stabilizers
 from .instruments import MeasurementInstrument, density_matrix
 from .measurements import Homodyne
@@ -226,12 +227,7 @@ class GKPCode:
 
     def logical_measurement(self, basis="Z", *, alpha=None, **kwargs):
         if basis == "XY":
-            if (
-                alpha is None
-                or not np.isscalar(alpha)
-                or not np.isreal(alpha)
-                or not np.isfinite(alpha)
-            ):
+            if alpha is None or not is_finite_real_scalar(alpha):
                 raise ValueError("XY requires a finite numerical logical angle")
             # Absolute tolerance only; a nearby trainable angle is never rounded to X.
             reduced = float(np.remainder(alpha, 2 * np.pi))

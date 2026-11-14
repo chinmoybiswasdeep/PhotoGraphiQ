@@ -1,8 +1,21 @@
 """Reproduce the evidence behind the PhotoGraphiQ manuscript.
 
-    python scripts/reproduce_manuscript.py                 # fast validation (minutes)
-    python scripts/reproduce_manuscript.py --mode full     # benchmarks + experiment suites (hours)
-    python scripts/reproduce_manuscript.py --list          # show the steps, run nothing
+    python scripts/reproduce_manuscript.py                     # smoke: correctness checks (minutes)
+    python scripts/reproduce_manuscript.py --mode scientific   # + full test suite and light experiments
+    python scripts/reproduce_manuscript.py --mode full         # + benchmarks, every experiment (hours)
+    python scripts/reproduce_manuscript.py --list              # show the steps, run nothing
+
+Modes (``fast`` is accepted as an alias of ``smoke``):
+
+* ``smoke``: test subsets, figure and documentation consistency audits, benchmark smoke runs and
+  the quick manuscript experiments (``run_all_safe.py --smoke``). Suitable for pull requests.
+* ``scientific``: smoke plus the complete test suite and every light experiment of both suites
+  (``run_all_safe.py``), compared with the recorded results.
+* ``full``: scientific plus performance benchmarks, the Graphix comparison, the multiprecision
+  threshold reference and every experiment at its publication configuration
+  (``run_all_safe.py --all``, ``paper_experiments_ml/run_all_full.py``).
+
+Wall-clock times are recorded but never used as pass/fail criteria.
 
 Every step runs in a subprocess with a fixed seed where the step takes one. Its log goes to
 ``<output>/logs/``, its artifacts to ``<output>/artifacts/``, and ``<output>/summary.json``
@@ -40,7 +53,7 @@ class Step:
     command: list[str]
     needs: tuple[str, ...] = ()  # importable modules the step requires
     claim: str = ""  # manuscript claim the step supports
-    modes: tuple[str, ...] = ("fast", "full")
+    modes: tuple[str, ...] = ("smoke", "scientific", "full")
     timeout: int = 3600
     cwd: Path | None = None
     setup: object = field(default=None, repr=False)  # callable(out) run before the step
@@ -89,7 +102,7 @@ def steps(out: Path) -> list[Step]:
             _py("-m", "pytest", "-q", "-p", "no:cacheprovider", "tests"),
             needs=("pytest",),
             claim="complete regression suite",
-            modes=("full",),
+            modes=("scientific", "full"),
             timeout=7200,
         )
     )
@@ -99,6 +112,23 @@ def steps(out: Path) -> list[Step]:
             _py("scripts/generate_architecture_figures.py", "--check"),
             needs=("matplotlib",),
             claim="architecture figures cite existing code",
+        )
+    )
+    result.append(
+        Step(
+            "audit-consistency",
+            _py("scripts/audit_manuscript_consistency.py", "--json", str(art / "audit.json")),
+            claim="docs, experiment catalogues, results and figures agree",
+        )
+    )
+    result.append(
+        Step(
+            "paper_experiments-smoke",
+            _py("run_all_safe.py", "--smoke"),
+            claim="quick manuscript experiments pass their acceptance criteria",
+            modes=("smoke",),
+            cwd=out / "suites" / "paper_experiments",
+            setup=_copy_suite("paper_experiments"),
         )
     )
     bench = [
@@ -165,7 +195,7 @@ def steps(out: Path) -> list[Step]:
                 f"{suite}-safe",
                 _py("run_all_safe.py"),
                 claim=f"{suite} light experiments",
-                modes=("full",),
+                modes=("scientific", "full"),
                 timeout=7200,
                 cwd=out / "suites" / suite,
                 setup=_copy_suite(suite),
@@ -184,9 +214,31 @@ def steps(out: Path) -> list[Step]:
                     str(art / f"{suite}-comparison.json"),
                 ),
                 claim=f"{suite}: regenerated values equal the recorded ones",
-                modes=("full",),
+                modes=("scientific", "full"),
             )
         )
+    result.append(
+        Step(
+            "paper_experiments-all",
+            _py("run_all_safe.py", "--all"),
+            claim="every core experiment at its publication configuration",
+            modes=("full",),
+            timeout=6 * 3600,
+            cwd=out / "suites" / "paper_experiments",
+            setup=_copy_suite("paper_experiments"),
+        )
+    )
+    result.append(
+        Step(
+            "paper_experiments_ml-full",
+            _py("run_all_full.py"),
+            claim="every PhotoGraphiQML experiment",
+            modes=("full",),
+            timeout=6 * 3600,
+            cwd=out / "suites" / "paper_experiments_ml",
+            setup=_copy_suite("paper_experiments_ml"),
+        )
+    )
     return result
 
 
@@ -256,11 +308,13 @@ def missing(modules) -> list[str]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--mode", choices=("fast", "full"), default="fast")
+    parser.add_argument("--mode", choices=("smoke", "fast", "scientific", "full"), default="smoke")
     parser.add_argument("--output", type=Path)
     parser.add_argument("--only", nargs="+", help="run only these step names")
     parser.add_argument("--list", action="store_true", help="list steps and exit")
     args = parser.parse_args()
+    if args.mode == "fast":
+        args.mode = "smoke"
     stamp = dt.datetime.now().strftime("%Y%m%d-%H%M%S")
     out = (args.output or ROOT / "build" / "reproduction" / f"{args.mode}-{stamp}").resolve()
     plan = [s for s in steps(out) if args.mode in s.modes]

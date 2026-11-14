@@ -1,5 +1,7 @@
 # Unified repository integration report
 
+> **Historical record.** Branch names, versions and source paths below refer to the time of writing (the `merged` branch; source repositories on `manuscript-experiments`). Current development is on the `upgraded` branch (version 0.3.1); see the [master validation status](../validation/MASTER_VALIDATION_STATUS.md) for the current state.
+
 This page records how PhotoGraphiQML and selected CV-MBQC material from
 photonic-qrc-eoc were integrated into PhotoGraphiQ on the local `merged` branch
 (working-tree changes; nothing committed). It is the single reference for what

@@ -4,6 +4,12 @@ The browser only displays and edits: every number shown was computed in Python a
 embedded as JSON. Edits are exported as ``{graph: OpenGraph.to_dict(), layout}`` and
 must be re-validated with :func:`photographiq.interactive.apply_edits`.
 Placeholders: ``__TITLE__`` (escaped text), ``__CYTOSCAPE__`` (script tag), ``__DATA__``.
+
+Visual-only controls (stage and layout selectors, measurement-order stepping, reset,
+fit, SVG/PNG/HTML export) never change the graph; semantic edits remove every
+analysis overlay and disable the stage selector until Python re-runs the analysis.
+Edge routing after a drag uses the same algorithm and constants as
+:func:`photographiq.interactive.layouts.route` (``DATA.routing``).
 """
 
 GRAPH_TEMPLATE = r"""<!doctype html>
@@ -11,34 +17,45 @@ GRAPH_TEMPLATE = r"""<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>__TITLE__</title>
 <style>
-:root { --ink:#0f172a; --muted:#475569; --line:#cbd5e1; --panel:#f8fafc; --accent:#2563eb; }
+:root { --ink:#0f172a; --muted:#475569; --line:#cbd5e1; --panel:#f8fafc; --accent:#0072b2; }
 * { box-sizing:border-box; }
 body { margin:0; font:13px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--ink); background:#fff; }
-header { padding:8px 12px; border-bottom:1px solid var(--line); display:flex; gap:12px; flex-wrap:wrap; align-items:baseline; }
+header { padding:6px 12px; border-bottom:1px solid var(--line); display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
 header h1 { font-size:15px; margin:0; }
 .badge { font-size:11px; padding:1px 7px; border-radius:9px; background:#e2e8f0; }
-.badge.ok { background:#dcfce7; color:#166534; } .badge.warn { background:#fef3c7; color:#92400e; }
-main { display:grid; grid-template-columns:300px 1fr; height:calc(100vh - 42px); min-height:420px; }
+.badge.ok { background:#d8f0e6; color:#00563f; } .badge.warn { background:#fde7d6; color:#8a3b00; }
+main { display:grid; grid-template-columns:310px 1fr; height:calc(100vh - 44px); min-height:420px; }
 aside { overflow:auto; padding:8px 10px; border-right:1px solid var(--line); background:var(--panel); }
-#cy { width:100%; height:100%; min-height:360px; }
+#cy { width:100%; height:100%; min-height:360px; background:#fff; }
 section { margin-bottom:10px; } h2 { font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); margin:6px 0; }
 button, select, input { font:inherit; margin:1px 0; } button { cursor:pointer; padding:2px 7px; }
 input[type=number] { width:76px; }
 pre, #info { white-space:pre-wrap; margin:0; font:12px/1.35 ui-monospace,Consolas,monospace; }
+#flow { max-height:170px; overflow:auto; }
 #steps { padding-left:20px; margin:4px 0; max-height:220px; overflow:auto; font-size:12px; }
-#steps li.current { font-weight:600; color:#b91c1c; } #steps li { cursor:pointer; }
+#steps li.current { font-weight:600; color:#9f1d6b; } #steps li { cursor:pointer; }
 textarea { width:100%; height:90px; font:11px ui-monospace,Consolas,monospace; }
-.legend span { display:inline-block; margin-right:8px; } .hidden { display:none; }
-#status { color:#92400e; min-height:1em; }
+.legend span { display:inline-block; margin-right:8px; white-space:nowrap; } .hidden { display:none; }
+#status { color:#8a3b00; min-height:1em; }
+#tip { position:fixed; pointer-events:none; z-index:10; max-width:360px; padding:4px 7px; background:#fff;
+  border:1px solid #94a3b8; border-radius:4px; box-shadow:0 2px 6px rgba(15,23,42,.18);
+  font:12px/1.35 ui-monospace,Consolas,monospace; white-space:pre-wrap; }
 @media (max-width:700px) { main { grid-template-columns:1fr; height:auto; } #cy { height:70vh; } }
 </style></head>
 <body>
-<header><h1 id="title"></h1><span class="badge" id="stage"></span><span class="badge" id="model"></span></header>
+<header><h1 id="title"></h1><span class="badge" id="stage"></span><span class="badge" id="model"></span>
+<label>stage <select id="stage-select"></select></label>
+<label>layout <select id="layout-select"></select></label>
+<button id="fit">Fit</button> <button id="reset-view">Reset view</button>
+<button id="export-svg">SVG</button> <button id="export-png">PNG</button> <button id="export-html">HTML</button></header>
 <main>
 <aside>
-<section class="legend"><span>&#9632; input</span><span>&#9670; output</span><span>&#9679; measured</span><br>
-<span>&#9472; CZ edge</span><span style="color:#2563eb">- - &#9654; dependency</span><span style="color:#c2410c">&middot;&middot; &#9654; correction</span></section>
+<section class="legend"><span><span style="color:#0072b2">&#9632;</span> input</span><span><span style="color:#009e73">&#9670;</span> output</span><span>&#9675; ancilla</span><span>thick outline = measured</span><br>
+<span>&#9472; CZ edge</span><span style="color:#0072b2">&#9472;&#9654; flow dependency</span><span style="color:#d55e00">- - &#9654; correction</span></section>
 <section id="flow-panel" class="hidden"><h2>Flow analysis</h2><pre id="flow"></pre></section>
+<section id="order-panel" class="hidden"><h2>Measurement order</h2>
+<button id="order-prev">&#9664; Prev</button> <button id="order-next">Next &#9654;</button> <button id="order-clear">Clear</button>
+<div id="order-label"></div></section>
 <section id="trace-panel" class="hidden"><h2>Execution</h2>
 <button id="play">Play</button> <button id="pause">Pause</button> <button id="step">Step</button> <button id="reset">Reset</button>
 <div id="step-label"></div><ol id="steps"></ol></section>
@@ -57,6 +74,7 @@ pauli <select id="pauli"><option value="">none</option><option>X</option><option
 </aside>
 <div id="cy"></div>
 </main>
+<div id="tip" class="hidden"></div>
 __CYTOSCAPE__
 <script>
 "use strict";
@@ -65,53 +83,121 @@ const $ = (id) => document.getElementById(id);
 const fmt = (x) => (typeof x === "number" ? Number(x.toPrecision(4)).toString() : String(x));
 function say(message) { $("status").textContent = message; }
 $("title").textContent = DATA.title;
-$("stage").textContent = "stage: " + DATA.stage;
 $("model").textContent = DATA.model;
 
+const COLORS = { input: "#9ccbee", inputEdge: "#0072b2", output: "#a6dcc6", outputEdge: "#00795a",
+  ancilla: "#eef0f3", ancillaEdge: "#475569", measuredEdge: "#1f2937", edge: "#64748b",
+  flow: "#0072b2", uncertified: "#6b7280", correction: "#d55e00", active: "#9f1d6b" };
 const STYLE = [
   { selector: "node", style: { label: "data(display)", "text-wrap": "wrap", "text-valign": "center",
-    "text-halign": "center", "font-size": 11, width: 42, height: 42, "background-color": "#a8c7e0",
-    "border-width": 1.5, "border-color": "#334155", color: "#0f172a", shape: "ellipse" } },
-  { selector: "node.input", style: { shape: "round-rectangle", "background-color": "#7fd1d6" } },
-  { selector: "node.output", style: { shape: "diamond", "background-color": "#f3c766", width: 48, height: 48 } },
-  { selector: "edge.physical", style: { width: 2.5, "line-color": "#64748b", label: "data(label)",
-    "font-size": 10, "text-background-color": "#fff", "text-background-opacity": 0.85,
-    "text-background-padding": 2, "curve-style": "straight" } },
-  { selector: "edge.flow", style: { width: 2, "line-color": "#2563eb", "line-style": "dashed",
-    "target-arrow-shape": "triangle", "target-arrow-color": "#2563eb", "curve-style": "unbundled-bezier",
-    "control-point-distances": "data(bend)", "control-point-weights": [0.5], "arrow-scale": 1.2,
+    "text-halign": "center", "font-size": "data(fs)", width: "data(w)", height: "data(h)",
+    "background-color": COLORS.ancilla, "border-width": 1, "border-color": COLORS.ancillaEdge,
+    color: "#0f172a", shape: "ellipse" } },
+  { selector: "node.input", style: { shape: "round-rectangle", "background-color": COLORS.input, "border-color": COLORS.inputEdge } },
+  { selector: "node.output", style: { shape: "diamond", "background-color": COLORS.output, "border-color": COLORS.outputEdge } },
+  { selector: "node.measured", style: { "border-width": 3, "border-color": COLORS.measuredEdge } },
+  { selector: "edge.physical", style: { width: 2.5, "line-color": COLORS.edge, label: "data(label)",
+    "font-size": 10, "text-background-color": "#fff", "text-background-opacity": 0.9,
+    "text-background-padding": 2, "curve-style": "unbundled-bezier",
+    "control-point-distances": "data(bend)", "control-point-weights": [0.5], "edge-distances": "node-position" } },
+  { selector: "edge.flow", style: { width: 2, "line-color": COLORS.flow, "line-style": "solid",
+    "target-arrow-shape": "triangle", "target-arrow-color": COLORS.flow, "curve-style": "unbundled-bezier",
+    "control-point-distances": "data(bend)", "control-point-weights": [0.5], "edge-distances": "node-position", "arrow-scale": 1.2,
     "z-index": "data(z)" } },
-  { selector: "edge.correction", style: { width: 2, "line-color": "#c2410c", "line-style": "dotted",
-    "target-arrow-shape": "triangle-tee", "target-arrow-color": "#c2410c", "curve-style": "unbundled-bezier",
-    "control-point-distances": "data(bend)", "control-point-weights": [0.5], label: "data(label)",
-    "font-size": 9, color: "#c2410c", "text-background-color": "#fff", "text-background-opacity": 1,
-    "text-background-padding": 1, "z-index": "data(z)" } },
-  { selector: ".active", style: { "border-width": 5, "border-color": "#dc2626", "line-color": "#dc2626" } },
-  { selector: "node.source", style: { "border-width": 4, "border-color": "#2563eb" } },
+  { selector: "edge.flow.uncertified", style: { "line-color": COLORS.uncertified, "line-style": "dashed",
+    "target-arrow-color": COLORS.uncertified } },
+  { selector: "edge.correction", style: { width: 2, "line-color": COLORS.correction, "line-style": "dashed",
+    "line-dash-pattern": [7, 4], "target-arrow-shape": "triangle-tee", "target-arrow-color": COLORS.correction,
+    "curve-style": "unbundled-bezier", "control-point-distances": "data(bend)", "control-point-weights": [0.5], "edge-distances": "node-position",
+    label: "data(label)", "font-size": 9, color: COLORS.correction, "text-background-color": "#fff",
+    "text-background-opacity": 1, "text-background-padding": 1, "z-index": "data(z)" } },
+  { selector: ".active", style: { "border-width": 5, "border-color": COLORS.active, "line-color": COLORS.active,
+    "target-arrow-color": COLORS.active } },
+  { selector: "node.source", style: { "border-width": 4, "border-color": COLORS.flow, "border-style": "double" } },
   { selector: "node.done", style: { "background-opacity": 0.45, "border-opacity": 0.45 } },  // text stays legible
   { selector: ":selected", style: { "overlay-color": "#7c3aed", "overlay-opacity": 0.25 } },
 ];
 
+const state = { inputs: DATA.inputs.slice(), outputs: DATA.outputs.slice(), outcomes: {}, overlays: true,
+  stage: DATA.stage, layout: "view", labelScale: 1, order: -1, page: DATA };
 const cy = cytoscape({ container: $("cy"), elements: DATA.elements, layout: { name: "preset" },
   style: STYLE, wheelSensitivity: 0.25 });
-const state = { inputs: DATA.inputs.slice(), outputs: DATA.outputs.slice(), outcomes: {}, overlays: true };
 
 function roleClasses(node) {
   const isInput = state.inputs.includes(node.id()), isOutput = state.outputs.includes(node.id());
   node.toggleClass("input", isInput).toggleClass("output", isOutput)
     .toggleClass("measured", !isOutput).toggleClass("ancilla", !isInput);
 }
+// Node boxes grow with their label (id, #order, m=outcome), so text never overflows the shape.
 function refresh(node) {
   roleClasses(node);
   let text = node.data("label");
   if (node.data("order") !== null && node.data("order") !== undefined) text += "\n#" + node.data("order");
   if (state.outcomes[node.id()] !== undefined) text += "\nm=" + fmt(state.outcomes[node.id()]);
-  node.data("display", text);
+  const lines = text.split("\n"), fs = 11 * state.labelScale;
+  const longest = Math.max(...lines.map((l) => l.length));
+  let w = Math.max(42 * state.labelScale, 0.62 * fs * longest + 14), h = Math.max(42 * state.labelScale, 1.3 * fs * lines.length + 12);
+  if (node.hasClass("output")) { w *= 1.45; h *= 1.45; }
+  node.data({ display: text, fs: fs, w: w, h: h });
 }
 function refreshAll() { cy.nodes().forEach(refresh); }
-refreshAll();
-cy.fit(undefined, 30);
-if (cy.zoom() > 1.3) { cy.zoom(1.3); cy.center(); }
+
+// ---- routing: the same algorithm as photographiq.interactive.layouts.route ------------
+function clearance(a, b, offset, others) {
+  const dx = b[0] - a[0], dy = b[1] - a[1], len = Math.hypot(dx, dy) || 1;
+  const cx = (a[0] + b[0]) / 2 + offset * dy / len, cyy = (a[1] + b[1]) / 2 - offset * dx / len;
+  let best = Infinity;
+  for (let i = 1; i < 40; i++) {
+    const t = i / 40, u = 1 - t;
+    const x = u * u * a[0] + 2 * t * u * cx + t * t * b[0], y = u * u * a[1] + 2 * t * u * cyy + t * t * b[1];
+    for (const o of others) best = Math.min(best, Math.hypot(x - o[0], y - o[1]));
+  }
+  return best;
+}
+function routeOffset(pos, s, t, base) {
+  const R = DATA.routing, a = pos[s], b = pos[t];
+  const others = Object.keys(pos).filter((k) => k !== s && k !== t).map((k) => pos[k]);
+  if (!others.length || Math.hypot(b[0] - a[0], b[1] - a[1]) === 0) return base;
+  const signs = base === 0 ? [1, -1] : [Math.sign(base)];
+  const candidates = [base];
+  for (let j = 1; j < R.tries; j++) for (const sg of signs) candidates.push(base + sg * j * R.step * 2);
+  if (base !== 0) { candidates.slice().forEach((c) => candidates.push(-c)); candidates.push(base / 2, -base / 2, base / 4, -base / 4); }
+  let best = null;
+  for (const offset of candidates) {
+    const gap = clearance(a, b, offset, others);
+    if (gap >= R.clearance) return offset;
+    const key = [gap, -Math.abs(offset), offset];  // lexicographic max, as in Python
+    if (!best || key[0] > best[0] || (key[0] === best[0] && (key[1] > best[1] || (key[1] === best[1] && key[2] > best[2])))) best = key;
+  }
+  return best[2];
+}
+function layoutPositions() {  // y-up layout units, as in Python
+  const pos = {};
+  cy.nodes().forEach((n) => { const p = n.position(); pos[n.id()] = [p.x / DATA.scale, -p.y / DATA.scale]; });
+  return pos;
+}
+function route() {
+  const pos = layoutPositions();
+  cy.edges().forEach((e) => {
+    const s = e.source().id(), t = e.target().id(), a = pos[s], b = pos[t];
+    const len = Math.hypot(b[0] - a[0], b[1] - a[1]);
+    const base = e.hasClass("flow") ? DATA.routing.arc * len : e.hasClass("correction") ? -DATA.routing.arc * len : 0;
+    const offset = routeOffset(pos, s, t, base);
+    e.data("bend", offset * DATA.scale);
+    if (!e.hasClass("physical")) e.data("z", 1000 - Math.min(Math.round(Math.abs(offset * DATA.scale)), 999));
+  });
+}
+cy.on("dragfree", "node", route);
+
+function fitView() {
+  state.labelScale = 1; refreshAll();
+  cy.fit(undefined, 30);
+  if (cy.zoom() > 1.3) { cy.zoom(1.3); cy.center(); }
+  const scale = Math.min(1.6, Math.max(1, 1 / cy.zoom()));  // dense graphs: >= 11 px labels where possible
+  if (scale > 1) { state.labelScale = scale; refreshAll(); cy.fit(undefined, 30); }
+  cy.style().selector("edge.physical").style("font-size", 10 * state.labelScale)
+    .selector("edge.correction").style("font-size", 9 * state.labelScale).update();
+}
 
 function measText(node) {
   const m = node.data("meas");
@@ -119,12 +205,13 @@ function measText(node) {
   if ("shear" in m) return "homodyne angle " + fmt(Math.atan2(1, m.shear)) + " rad (shear k=" + fmt(m.shear) + ")";
   return (m.pauli ? "Pauli " + m.pauli + ", " : "") + m.plane + " plane, angle " + fmt(m.angle);
 }
-function describe(ele) {
+function describeLines(ele) {
   const lines = [];
   if (ele.isNode()) {
     const roles = ["input", "output", "measured", "ancilla"].filter((r) => ele.hasClass(r));
     lines.push("node " + ele.data("label"), "roles: " + roles.join(", "));
-    if (ele.data("squeezing") !== null && ele.data("squeezing") !== undefined) lines.push("squeezing r = " + fmt(ele.data("squeezing")));
+    const r = ele.data("squeezing");
+    if (r !== null && r !== undefined) lines.push("squeezing r = " + fmt(r) + " (" + fmt(20 * Math.LOG10E * r) + " dB)");
     lines.push("measurement: " + measText(ele));
     if (ele.data("order") !== null && ele.data("order") !== undefined) lines.push("measurement order #" + ele.data("order"));
     if (ele.data("layer") !== null && ele.data("layer") !== undefined) lines.push("layer " + ele.data("layer"));
@@ -132,33 +219,66 @@ function describe(ele) {
     if (state.outcomes[ele.id()] !== undefined) lines.push("recorded outcome: " + fmt(state.outcomes[ele.id()]));
     if (ele.data("annotation")) lines.push("note: " + ele.data("annotation"));
   } else if (ele.hasClass("physical")) {
-    lines.push("CZ edge " + ele.source().data("label") + " - " + ele.target().data("label"), "weight g = " + fmt(ele.data("weight")));
+    const u = ele.source().data("label"), v = ele.target().data("label"), g = fmt(ele.data("weight"));
+    lines.push("CZ edge " + u + " - " + v, "weight g = " + g);
+    if (DATA.continuous) lines.push("CZ(g): p_" + u + " += " + g + " q_" + v + ", p_" + v + " += " + g + " q_" + u);
   } else {
     lines.push((ele.hasClass("flow") ? "classical dependency: " : "correction: ") + ele.data("description"));
+    if (ele.hasClass("uncertified")) lines.push("(the flow result is NOT certified)");
+    if (ele.target().data("formula")) lines.push("target correction: " + ele.target().data("formula"));
   }
-  $("info").textContent = lines.join("\n");
+  return lines;
 }
+function describe(ele) { $("info").textContent = describeLines(ele).join("\n"); }
 cy.on("tap mouseover", "node, edge", (event) => describe(event.target));
 cy.on("data", "node, edge", (event) => { if (event.target.selected()) describe(event.target); });
+cy.on("mouseover", "node, edge", (event) => {
+  const box = cy.container().getBoundingClientRect(), p = event.renderedPosition || { x: 0, y: 0 };
+  $("tip").textContent = describeLines(event.target).join("\n");
+  $("tip").style.left = (box.left + p.x + 14) + "px"; $("tip").style.top = (box.top + p.y + 14) + "px";
+  $("tip").classList.remove("hidden");
+});
+cy.on("mouseout", "node, edge", () => $("tip").classList.add("hidden"));
 
-if (DATA.flow) {
-  const f = DATA.flow;
-  const lines = ["status: " + f.status, "algorithm: " + f.algorithm];
-  if (f.order.length) lines.push("measurement order: " + f.order.join(", "));
-  if (f.layers.length) lines.push("layers: " + f.layers.map((l) => "[" + l.join(", ") + "]").join(" "));
-  lines.push("assumptions:" + (f.assumptions.length ? "" : " none reported"));
-  f.assumptions.forEach((a) => lines.push("  - " + a));
-  if (f.certificate) lines.push("certificate: " + f.certificate);
-  if (f.diagnostics) lines.push("diagnostics: " + f.diagnostics);
-  $("flow").textContent = lines.join("\n");
-  $("flow-panel").classList.remove("hidden");
+// ---- stage-dependent panels ---------------------------------------------------------------
+let current = -1, timer = null;
+function pause() { if (timer) { clearInterval(timer); timer = null; } }
+function renderPanels(page) {
+  state.page = page;
+  $("stage").textContent = "stage: " + page.stage;
+  const f = page.flow;
+  $("flow-panel").classList.toggle("hidden", !f);
+  $("stage").className = "badge" + (f ? (f.status === "certified" ? " ok" : " warn") : "");
+  if (f) {
+    const lines = ["status: " + f.status, "algorithm: " + f.algorithm];
+    if (f.order.length) lines.push("measurement order: " + f.order.join(", "));
+    if (f.layers.length) lines.push("layers: " + f.layers.map((l) => "[" + l.join(", ") + "]").join(" "));
+    lines.push("assumptions:" + (f.assumptions.length ? "" : " none reported"));
+    f.assumptions.forEach((a) => lines.push("  - " + a));
+    if (f.certificate) lines.push("certificate: " + f.certificate);
+    if (f.diagnostics) lines.push("diagnostics: " + f.diagnostics);
+    $("flow").textContent = lines.join("\n");
+  }
+  $("order-panel").classList.toggle("hidden", !(f && f.order.length && page.stage !== "execution"));
+  state.order = -1; $("order-label").textContent = f && f.order.length ? f.order.length + " measurements" : "";
+  $("notes").textContent = page.notes.join("\n");
+  $("notes-panel").classList.toggle("hidden", !page.notes.length);
+  pause(); current = -1; $("steps").innerHTML = "";
+  $("trace-panel").classList.toggle("hidden", !page.trace);
+  if (page.trace) {
+    page.trace.steps.forEach((s, j) => {
+      const li = document.createElement("li");
+      li.textContent = s.label;
+      li.addEventListener("click", () => { pause(); showStep(j); });
+      $("steps").appendChild(li);
+    });
+    showStep(-1);
+  }
 }
-if (DATA.notes.length) { $("notes").textContent = DATA.notes.join("\n"); $("notes-panel").classList.remove("hidden"); }
 
 // ---- Stage D: execution trace -------------------------------------------------
-let current = -1, timer = null;
 function showStep(index) {
-  const steps = DATA.trace.steps;
+  const steps = state.page.trace.steps;
   current = Math.max(-1, Math.min(index, steps.length - 1));
   cy.elements().removeClass("active source done");
   state.outcomes = {};
@@ -181,25 +301,141 @@ function showStep(index) {
     "Step " + (current + 1) + "/" + steps.length + ": " + steps[current].label;
   Array.from($("steps").children).forEach((li, j) => li.classList.toggle("current", j === current));
 }
-function pause() { if (timer) { clearInterval(timer); timer = null; } }
-if (DATA.trace) {
-  DATA.trace.steps.forEach((s, j) => {
-    const li = document.createElement("li");
-    li.textContent = s.label;
-    li.addEventListener("click", () => { pause(); showStep(j); });
-    $("steps").appendChild(li);
-  });
-  $("play").onclick = () => {
-    pause();
-    if (current >= DATA.trace.steps.length - 1) showStep(-1);
-    timer = setInterval(() => { if (current >= DATA.trace.steps.length - 1) pause(); else showStep(current + 1); }, 900);
-  };
-  $("pause").onclick = pause;
-  $("step").onclick = () => { pause(); showStep(current + 1); };
-  $("reset").onclick = () => { pause(); showStep(-1); };
-  $("trace-panel").classList.remove("hidden");
-  showStep(-1);
+$("play").onclick = () => {
+  const n = state.page.trace.steps.length;
+  pause();
+  if (current >= n - 1) showStep(-1);
+  timer = setInterval(() => { if (current >= n - 1) pause(); else showStep(current + 1); }, 900);
+};
+$("pause").onclick = pause;
+$("step").onclick = () => { pause(); showStep(current + 1); };
+$("reset").onclick = () => { pause(); showStep(-1); };
+
+// ---- measurement-order stepping (flow and corrections stages) -------------------------
+function showOrder(k) {
+  const order = state.page.flow.order;
+  state.order = Math.max(-1, Math.min(k, order.length - 1));
+  cy.elements().removeClass("active source done");
+  if (state.order < 0) { $("order-label").textContent = order.length + " measurements"; return; }
+  order.slice(0, state.order).forEach((n) => cy.getElementById(n).addClass("done"));
+  const node = cy.getElementById(order[state.order]);
+  node.addClass("active");
+  const arrows = cy.edges(".flow, .correction").filter((e) => e.source().id() === node.id());
+  arrows.addClass("active");
+  const targets = Array.from(new Set(arrows.map((e) => e.target().id())));
+  const layer = node.data("layer");
+  $("order-label").textContent = "Measurement " + (state.order + 1) + "/" + order.length + ": node " + node.id() +
+    (layer !== null && layer !== undefined ? " (layer " + layer + ")" : "") +
+    (targets.length ? "; its outcome corrects " + targets.join(", ") : "; no later correction depends on it");
 }
+$("order-prev").onclick = () => showOrder(state.order - 1);
+$("order-next").onclick = () => showOrder(state.order + 1);
+$("order-clear").onclick = () => showOrder(-1);
+
+// ---- stage and layout selectors (visual only) ------------------------------------------
+function currentPositions() {
+  const out = {};
+  cy.nodes().forEach((n) => { const p = n.position(); out[n.id()] = [p.x, p.y]; });
+  return out;
+}
+function placeNodes(positions) {
+  cy.nodes().forEach((n) => { const p = positions[n.id()]; if (p) n.position({ x: p[0], y: p[1] }); });
+}
+function setStage(name) {
+  if (!state.overlays) { say("The graph was edited: re-run the analysis in Python to view other stages."); $("stage-select").value = state.stage; return; }
+  const page = DATA.stages[name];
+  if (!page) { say("Stage " + name + " has no overlay in this view."); return; }
+  const positions = currentPositions();
+  cy.batch(() => { cy.elements().remove(); cy.add(page.elements); placeNodes(positions); });
+  state.stage = name; state.outcomes = {};
+  $("stage-select").value = name;
+  route(); refreshAll(); renderPanels(page);
+}
+function setLayout(name) {
+  const positions = DATA.layouts[name];
+  if (!positions) { say("Unknown layout " + name); return; }
+  placeNodes(positions); state.layout = name; $("layout-select").value = name;
+  route(); fitView();
+}
+Object.keys(DATA.stages).forEach((s) => { const o = document.createElement("option"); o.textContent = s; $("stage-select").appendChild(o); });
+Object.keys(DATA.layouts).forEach((s) => { const o = document.createElement("option"); o.textContent = s; $("layout-select").appendChild(o); });
+$("stage-select").value = state.stage; $("layout-select").value = "view";
+$("stage-select").onchange = (e) => setStage(e.target.value);
+$("layout-select").onchange = (e) => setLayout(e.target.value);
+$("fit").onclick = fitView;
+$("reset-view").onclick = () => { cy.elements().unselect(); setLayout("view"); };
+
+// ---- exports (visual; the semantic export is Export JSON) ------------------------------------
+function download(name, blob) {
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob); link.download = name;
+  document.body.appendChild(link); link.click(); link.remove();
+}
+const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+function svgDocument() {
+  const bb = cy.elements().boundingBox({ includeLabels: true }), pad = 16;
+  const out = ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="' + [bb.x1 - pad, bb.y1 - pad, bb.w + 2 * pad, bb.h + 2 * pad].join(" ") +
+    '" width="' + (bb.w + 2 * pad) + '" height="' + (bb.h + 2 * pad) + '" font-family="DejaVu Sans, Arial, Helvetica, sans-serif">',
+    '<rect x="' + (bb.x1 - pad) + '" y="' + (bb.y1 - pad) + '" width="' + (bb.w + 2 * pad) + '" height="' + (bb.h + 2 * pad) + '" fill="#ffffff"/>', "<defs>"];
+  const markers = {};
+  cy.edges().forEach((e) => {
+    if (e.hasClass("physical")) return;
+    const color = e.style("line-color");
+    if (!markers[color]) {
+      markers[color] = "m" + Object.keys(markers).length;
+      out.push('<marker id="' + markers[color] + '" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="' + color + '"/></marker>');
+    }
+  });
+  out.push("</defs>");
+  cy.edges().forEach((e) => {
+    const s = e.source().id(), t = e.target().id(), a = e.sourceEndpoint(), b = e.targetEndpoint();
+    const cps = e.controlPoints(), kind = e.hasClass("physical") ? "edge" : e.hasClass("flow") ? "flow" : "correction";
+    const id = kind === "edge" ? "edge:" + s + "--" + t : kind + ":" + s + "->" + t;
+    const d = cps && cps.length ? "M" + a.x + "," + a.y + " Q" + cps[0].x + "," + cps[0].y + " " + b.x + "," + b.y : "M" + a.x + "," + a.y + " L" + b.x + "," + b.y;
+    const dash = e.style("line-style") === "dashed" ? ' stroke-dasharray="7,4"' : "";
+    const marker = kind === "edge" ? "" : ' marker-end="url(#' + markers[e.style("line-color")] + ')"';
+    out.push('<g id="' + esc(id) + '"><path d="' + d + '" fill="none" stroke="' + e.style("line-color") + '" stroke-width="' + parseFloat(e.style("width")) + '"' + dash + marker + "/>");
+    if (e.data("label")) {
+      const m = e.midpoint();
+      out.push('<text x="' + m.x + '" y="' + m.y + '" font-size="' + parseFloat(e.style("font-size")) + '" text-anchor="middle" dominant-baseline="central" fill="' + e.style("color") +
+        '" stroke="#ffffff" stroke-width="3" paint-order="stroke">' + esc(e.data("label")) + "</text>");
+    }
+    out.push("</g>");
+  });
+  cy.nodes().forEach((n) => {
+    const p = n.position(), w = n.width(), h = n.height(), fill = n.style("background-color"), stroke = n.style("border-color");
+    const sw = parseFloat(n.style("border-width")), common = ' fill="' + fill + '" stroke="' + stroke + '" stroke-width="' + sw + '"';
+    let shape;
+    if (n.hasClass("output")) shape = '<polygon points="' + [[p.x, p.y - h / 2], [p.x + w / 2, p.y], [p.x, p.y + h / 2], [p.x - w / 2, p.y]].map((q) => q.join(",")).join(" ") + '"' + common + "/>";
+    else if (n.hasClass("input")) shape = '<rect x="' + (p.x - w / 2) + '" y="' + (p.y - h / 2) + '" width="' + w + '" height="' + h + '" rx="6"' + common + "/>";
+    else shape = '<ellipse cx="' + p.x + '" cy="' + p.y + '" rx="' + w / 2 + '" ry="' + h / 2 + '"' + common + "/>";
+    const lines = String(n.data("display")).split("\n"), fs = parseFloat(n.style("font-size"));
+    const top = p.y - (lines.length - 1) * fs * 0.6;
+    const text = lines.map((l, i) => '<tspan x="' + p.x + '" y="' + (top + i * fs * 1.2) + '">' + esc(l) + "</tspan>").join("");
+    out.push('<g id="' + esc("node:" + n.id()) + '">' + shape + '<text id="' + esc("label:" + n.id()) + '" font-size="' + fs +
+      '" text-anchor="middle" dominant-baseline="central" fill="#0f172a">' + text + "</text></g>");
+  });
+  out.push("</svg>");
+  return out.join("\n");
+}
+function htmlDocument() {
+  const data = Object.assign({}, DATA, DATA.stages[state.stage]);
+  data.layouts = Object.assign({}, DATA.layouts, { view: currentPositions() });
+  const json = JSON.stringify(data).replace(/</g, "\\u003c").replace(/>/g, "\\u003e").replace(/&/g, "\\u0026");
+  const root = document.documentElement.cloneNode(true);
+  root.querySelector("#cy").innerHTML = ""; root.querySelector("#tip").classList.add("hidden");
+  const harness = root.querySelector("#harness"); if (harness) harness.remove();
+  root.querySelectorAll("script").forEach((s) => {
+    if (s.textContent.includes("const DATA = ")) s.textContent = s.textContent.replace(/const DATA = .*;\n/, () => "const DATA = " + json + ";\n");
+  });
+  return "<!doctype html>\n" + root.outerHTML;
+}
+$("export-svg").onclick = () => download("photographiq-graph.svg", new Blob([svgDocument()], { type: "image/svg+xml" }));
+$("export-png").onclick = () => download("photographiq-graph.png", cy.png({ full: true, scale: 3, bg: "#ffffff", output: "blob" }));
+$("export-html").onclick = () => {
+  if (!state.overlays) { say("The graph was edited: use Export JSON and re-validate it in Python."); return; }
+  download("photographiq-graph.html", new Blob([htmlDocument()], { type: "text/html" }));
+};
 
 // ---- Editing (semantics are re-validated in Python by apply_edits) -------------
 function clearOverlays() {
@@ -209,8 +445,8 @@ function clearOverlays() {
   cy.remove("edge.flow, edge.correction");
   cy.nodes().forEach((n) => n.data({ order: null, layer: null, formula: null }));
   state.outcomes = {};
-  $("trace-panel").classList.add("hidden");
-  $("flow-panel").classList.add("hidden");
+  ["trace-panel", "flow-panel", "order-panel"].forEach((id) => $(id).classList.add("hidden"));
+  $("stage-select").disabled = true;
   say("Semantic edit: flow, correction and execution overlays were removed. Re-run the analysis in Python.");
 }
 function selectedNodes() { return cy.nodes(":selected"); }
@@ -251,8 +487,8 @@ if (DATA.editable) {
     const [a, b] = [pick[0], pick[1]];
     if (a.edgesWith(b).filter(".physical").length) { say("Edge already exists; use Set weight."); return; }
     cy.add({ group: "edges", classes: "physical", data: { id: "p:new" + (edgeCounter++), source: a.id(),
-      target: b.id(), weight: w, label: DATA.continuous ? fmt(w) : "" } });
-    clearOverlays();
+      target: b.id(), weight: w, label: DATA.continuous ? fmt(w) : "", bend: 0 } });
+    clearOverlays(); route();
   };
   $("set-weight").onclick = () => {
     const w = numberFrom("weight"), edges = cy.edges(".physical:selected");
@@ -303,13 +539,17 @@ if (DATA.editable) {
     };
     const text = JSON.stringify({ graph: graph, layout: layout }, null, 1);
     $("export-text").value = text; $("export-text").classList.remove("hidden");
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(new Blob([text], { type: "application/json" }));
-    link.download = "photographiq-graph.json";
-    document.body.appendChild(link); link.click(); link.remove();
+    download("photographiq-graph.json", new Blob([text], { type: "application/json" }));
     say("Exported; load with photographiq.interactive.apply_edits(json_text).");
   };
 }
+
+placeNodes(DATA.layouts.view);
+renderPanels(DATA);
+refreshAll();
+fitView();
+window.pgq = { cy: cy, state: state, setStage: setStage, setLayout: setLayout, route: route, routeOffset: routeOffset,
+  showOrder: showOrder, svgDocument: svgDocument, htmlDocument: htmlDocument };
 </script>
 </body></html>
 """

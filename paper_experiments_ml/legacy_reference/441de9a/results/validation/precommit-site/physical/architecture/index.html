@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Physical GKP architecture - PhotoGraphiQML</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">PhotoGraphiQML</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">PhotoGraphiQML</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../api/" class="nav-link">Input/output contract</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../release-report-v0.1/" class="nav-link">Release report v0.1</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../release-report/" class="nav-link">PhotoGraphiQML 0.2.0 release assessment</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Physical</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Physical GKP architecture</a>
+</li>
+                                    
+<li>
+    <a href="../convergence/" class="dropdown-item">Finite-resource convergence studies</a>
+</li>
+                                    
+<li>
+    <a href="../decoding/" class="dropdown-item">Decoding and physical features</a>
+</li>
+                                    
+<li>
+    <a href="../execution-modes/" class="dropdown-item">Execution modes and results</a>
+</li>
+                                    
+<li>
+    <a href="../lowering/" class="dropdown-item">Inspectable lowering</a>
+</li>
+                                    
+<li>
+    <a href="../pauli-frames/" class="dropdown-item">Logical Pauli-frame propagation</a>
+</li>
+                                    
+<li>
+    <a href="../physical-training/" class="dropdown-item">Discrete physical training</a>
+</li>
+                                    
+<li>
+    <a href="../supported-measurements/" class="dropdown-item">Supported measurements</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Research</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../research/implementation-plan/" class="dropdown-item">Architecture, validation and delivery plan</a>
+</li>
+                                    
+<li>
+    <a href="../../research/mentpy-audit/" class="dropdown-item">MentPy audit</a>
+</li>
+                                    
+<li>
+    <a href="../../research/muta-mapping/" class="dropdown-item">Mathematical and implementation mapping</a>
+</li>
+                                    
+<li>
+    <a href="../../research/muta-paper-notes/" class="dropdown-item">MuTA paper analysis</a>
+</li>
+                                    
+<li>
+    <a href="../../research/photographiq-audit/" class="dropdown-item">PhotoGraphiQ capability audit</a>
+</li>
+                                    
+<li>
+    <a href="../../research/physical-gkp-design/" class="dropdown-item">PhotoGraphiQ 0.3.1 downstream design</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Tutorials</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../tutorials/" class="dropdown-item">Tutorials</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/01/" class="dropdown-item">01 What is MB-QML?</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/02/" class="dropdown-item">02 MuTA from the paper</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/03/" class="dropdown-item">03 First MuTA model</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/04/" class="dropdown-item">04 Triangle neuron anatomy</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/05/" class="dropdown-item">05 Multi-wire MuTA</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/06/" class="dropdown-item">06 Multi-layer MuTA</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/07/" class="dropdown-item">07 Trainable measurement angles</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/08/" class="dropdown-item">08 Classical feature encoding</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/09/" class="dropdown-item">09 Quantum state inputs</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/10/" class="dropdown-item">10 Gate learning</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/11/" class="dropdown-item">11 State classification</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/12/" class="dropdown-item">12 Classical classification</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/13/" class="dropdown-item">13 Quantum instrument learning</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/14/" class="dropdown-item">14 MuTA quantum kernel</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/15/" class="dropdown-item">15 Training with Adam</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/16/" class="dropdown-item">16 Finite-difference validation</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/17/" class="dropdown-item">17 Autodiff training</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/18/" class="dropdown-item">18 Noise and finite squeezing</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/19/" class="dropdown-item">19 GKP logical MuTA</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/20/" class="dropdown-item">20 MentPy cross-validation</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/21/" class="dropdown-item">21 Expressivity vs depth</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/22/" class="dropdown-item">22 Tunable entanglement</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/23/" class="dropdown-item">23 Bias engineering</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/24/" class="dropdown-item">24 Fisher information</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/25/" class="dropdown-item">25 Model serialization</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/26/" class="dropdown-item">26 Custom observable readout</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/27/" class="dropdown-item">27 Custom loss</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/28/" class="dropdown-item">28 Training callbacks</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/29/" class="dropdown-item">29 CV-native MuTA</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/30/" class="dropdown-item">30 Comparing qubit, GKP and CV MuTA</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/31_photographiq_031_encoded_interface/" class="dropdown-item">31. PhotoGraphiQ 0.3.1 encoded interface</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/32_physical_gkp_x_measurement/" class="dropdown-item">32. Physical GKP X measurement</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/33_physical_gkp_z_measurement/" class="dropdown-item">33. Physical GKP Z measurement</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/34_restricted_physical_muta/" class="dropdown-item">34. Restricted physical MuTA</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/35_zero-angle_physical_muta/" class="dropdown-item">35. Zero-angle physical MuTA</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/36_pauli-frame_propagation/" class="dropdown-item">36. Pauli-frame propagation</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/37_hard_vs_soft_decoding/" class="dropdown-item">37. Hard vs soft decoding</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/38_multi-mode_joint_readout/" class="dropdown-item">38. Multi-mode joint readout</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/39_physical_shots_and_statistical_error/" class="dropdown-item">39. Physical shots and statistical error</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/40_logical_vs_physical_comparison/" class="dropdown-item">40. Logical vs physical comparison</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/41_physical_convergence/" class="dropdown-item">41. Physical convergence</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/42_unsupported_arbitrary_xy_why_it_fails/" class="dropdown-item">42. Unsupported arbitrary XY why it fails</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/43_logical_training_to_physical_validation/" class="dropdown-item">43. Logical training to physical validation</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorials/44_discrete_physical-angle_search/" class="dropdown-item">44. Discrete physical-angle search</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../release-report/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../convergence/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#physical-gkp-architecture" class="nav-link">Physical GKP architecture</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#dependency-contract" class="nav-link">Dependency contract</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#representations-and-migration" class="nav-link">Representations and migration</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#resource-model" class="nav-link">Resource model</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="physical-gkp-architecture">Physical GKP architecture</h1>
+<p>PhotoGraphiQML 0.2.0 adds physical execution of MuTA's <strong>signed-X subset</strong>.
+Logical MuTA remains the qubit reference model, validated against MentPy.
+CVMuTA remains a separate derivation proposal: replacing triangle vertices with
+oscillators does not establish the same model or a continuous-variable generalization.</p>
+<pre><code class="language-mermaid">flowchart TD
+    M[Logical MuTA graph, flow, bound angles] --&gt; A[Allocation-free capability audit]
+    A --&gt;|all angles supported| L[Public PhotoGraphiQ Pattern]
+    A --&gt;|unsupported| E[Actionable exception before Fock allocation]
+    L --&gt; F[Finite GKP preparations and unit CZ]
+    F --&gt; R[Homodyne X records and nearest-cell decoder]
+    R --&gt; P[Classical logical Pauli frame]
+    P --&gt; J[Joint output X or Z POVM]
+    J --&gt; D[Decoded statistics and resource diagnostics]
+</code></pre>
+<h2 id="dependency-contract">Dependency contract</h2>
+<p>The runtime requirement is <code>photographiq&gt;=0.3.1,&lt;0.4</code>. CI pins
+<a href="https://github.com/chinmoybiswasdeep/PhotoGraphiQ/tree/db07f9f9bf47da841bfa6b206562c5a3ffb121d3"><code>db07f9f9bf47da841bfa6b206562c5a3ffb121d3</code></a>.
+<code>check_photographiq_contract()</code> checks the installed version and public symbols.
+The audited upstream contract lives in
+<a href="https://github.com/chinmoybiswasdeep/PhotoGraphiQ/blob/db07f9f9bf47da841bfa6b206562c5a3ffb121d3/docs/development/photographiqml-contract.md"><code>docs/development/photographiqml-contract.md</code></a>.
+No private encoded-state, decoder, or backend implementation is imported.</p>
+<h2 id="representations-and-migration">Representations and migration</h2>
+<table>
+<thead>
+<tr>
+<th>API</th>
+<th>Meaning</th>
+<th>Execution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MuTA(..., representation="logical")</code></td>
+<td>Ideal qubit graph and adaptive flow</td>
+<td>Arbitrary supported logical XY angles</td>
+</tr>
+<tr>
+<td>Legacy <code>representation="gkp"</code></td>
+<td>Resource-only v0.1 intent; deprecated alias</td>
+<td>Keeps its execution exception</td>
+</tr>
+<tr>
+<td><code>representation="gkp-resource"</code></td>
+<td>Explicit resource-only model</td>
+<td>Ideal target through <code>GKPBridge.logical_target</code></td>
+</tr>
+<tr>
+<td><code>PhysicalMuTA(...)</code></td>
+<td><code>gkp-physical</code>, finite resources</td>
+<td>Audited 0/pi family only</td>
+</tr>
+</tbody>
+</table>
+<p><code>GKPBridge.run(logical_model, ..., config=...)</code> is an explicit request to lower
+a fixed logical pattern; it performs the same preflight as <code>PhysicalMuTA.run</code>.
+Loading a schema-1 resource model never silently converts it to physical execution.
+Schema 2 stores the physical family and every resource/allocation setting.</p>
+<h2 id="resource-model">Resource model</h2>
+<p><code>GKPPhysicalConfig</code> specifies cutoff, peak width, envelope, peak count,
+integration grid, backend, decoder, dimension budget and matrix budget.
+<code>GKPCode.encode</code> builds normalized finite codeword superpositions. Nonorthogonal
+finite codewords do not define an exact isometric DV-to-CV encoding channel.
+Product logical inputs are supported; entangled input vectors fail before projection.
+Entangled output states are retained and receive joint readout.</p>
+<p>The validated backend is <code>piquasso-fock</code>. Mixed Fock requests fail before allocation:
+the attempted parity study exposed impractical upstream density-preparation
+instruction validation, so this release does not advertise that unvalidated path.</p>
+<p>Defaults are research starting points, not validated precision settings. Piquasso's
+total-photon cutoff, strict norm checks and boundary warnings remain active.
+The backend can reject a supported pattern if its requested finite resolution is
+inadequate. Physical support and numerical convergence are separate checks.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

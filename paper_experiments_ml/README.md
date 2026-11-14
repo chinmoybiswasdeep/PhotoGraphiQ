@@ -126,6 +126,30 @@ experiment runs do not invalidate this suite. `photographiq_commit` is the repos
 `photographiq_dirty` is the porcelain status of `src/photographiq` only; the field names are
 unchanged, so the schema-v3 records stay compatible.
 
+## Re-execution after the backend upgrade
+
+The unified repository later gained compiled C++ engines (`native-gaussian`, `native-fock`,
+sampling), `photographiq.flows` and the IR/compiler. The evidence recorded before that
+upgrade is frozen in `legacy_reference/441de9a/` (byte copies of `results/` and `tables/`,
+SHA-256 manifests for figures and the notebook, retrievable with
+`git show 441de9a:paper_experiments_ml/<path>`). `STATUS.md` records the re-execution
+against the upgraded tree and its comparison with that frozen evidence.
+
+- **MentPy.** R7-R13, R20 and R21 import MentPy. The project `.venv` has no MentPy, so
+  there these scripts stop with `ModuleNotFoundError: No module named 'mentpy'`. That is
+  an unavailable reference, not a scientific failure. Run them in an environment with
+  `tests/ml/mentpy_reference/requirements.txt` installed.
+- **Backends.** Every physical experiment in this suite still uses `piquasso-fock` (the
+  `GKPPhysicalConfig` default), so recorded physical numbers stay comparable.
+  `native-fock` is the second validated engine; the comparison of the two on the
+  PhotoGraphiQML physical path is core manuscript experiment PGQ-R59
+  (`paper_experiments/20_photographiqml/59_photographiqml_physical.py`) and
+  `tests/ml/cross_layer/test_native_backend.py`. See also `docs/ml/guide.md`.
+- **Finalizer gates.** An unfiltered `run_all_full.py` ends with gates that rebuild the
+  package (including the C++ extension) twice: `python -m build` inside
+  `scripts/ml/validate_release.py`, and `pip install . --target`. `run_all_full.py --filter <ID>`
+  runs one experiment without those gates.
+
 Experiment IDs are suite-qualified. The PhotoGraphiQ core suite in `paper_experiments/` uses
 R1–R42; this PhotoGraphiQML suite uses R1–R48, R_PERF and R50–R59. Cite them as, for example,
 PGQ-R17 and PGML-R17.

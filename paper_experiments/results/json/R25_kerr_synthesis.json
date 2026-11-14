@@ -1,72 +1,194 @@
 {
   "rows": [
     {
+      "backend": "native-fock",
+      "synthesis_steps": 1,
+      "fidelity_to_exact_kerr": 0.9964022467634841,
+      "trace_distance_estimate": 0.05998127404878875,
+      "primitive_count": 182,
+      "synthesis_order": 0.5,
+      "runtime_seconds": 0.007862400001613423,
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.9999984020491244,
+      "runtime_note": "provisional (shared machine)",
+      "native_vs_piquasso_output_fidelity": 1.0000000000000004
+    },
+    {
+      "backend": "piquasso-fock",
       "synthesis_steps": 1,
       "fidelity_to_exact_kerr": 0.9964022467634837,
       "trace_distance_estimate": 0.05998127404879246,
       "primitive_count": 182,
       "synthesis_order": 0.5,
-      "runtime_seconds": 0.7082407000125386,
-      "retained_norm": 1.0
+      "runtime_seconds": 2.005221600004006,
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.9999984020491239,
+      "runtime_note": "provisional (shared machine)",
+      "native_vs_piquasso_output_fidelity": 1.0000000000000004
     },
     {
+      "backend": "native-fock",
+      "synthesis_steps": 2,
+      "fidelity_to_exact_kerr": 0.9986884827149184,
+      "trace_distance_estimate": 0.03621487657139824,
+      "primitive_count": 364,
+      "synthesis_order": 0.5,
+      "runtime_seconds": 0.0166488999966532,
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999999806814406,
+      "runtime_note": "provisional (shared machine)",
+      "native_vs_piquasso_output_fidelity": 1.0000000000000004
+    },
+    {
+      "backend": "piquasso-fock",
       "synthesis_steps": 2,
       "fidelity_to_exact_kerr": 0.9986884827149182,
       "trace_distance_estimate": 0.03621487657140131,
       "primitive_count": 364,
       "synthesis_order": 0.5,
-      "runtime_seconds": 1.3602254999568686,
-      "retained_norm": 1.0
+      "runtime_seconds": 0.718811700004153,
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.9999999806814404,
+      "runtime_note": "provisional (shared machine)",
+      "native_vs_piquasso_output_fidelity": 1.0000000000000004
     },
     {
+      "backend": "native-fock",
+      "synthesis_steps": 4,
+      "fidelity_to_exact_kerr": 0.9994450996254629,
+      "trace_distance_estimate": 0.02355632345119019,
+      "primitive_count": 728,
+      "synthesis_order": 0.5,
+      "runtime_seconds": 0.03340729998308234,
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.999999999825004,
+      "runtime_note": "provisional (shared machine)",
+      "native_vs_piquasso_output_fidelity": 1.0
+    },
+    {
+      "backend": "piquasso-fock",
       "synthesis_steps": 4,
       "fidelity_to_exact_kerr": 0.9994450996254625,
       "trace_distance_estimate": 0.023556323451199616,
       "primitive_count": 728,
       "synthesis_order": 0.5,
-      "runtime_seconds": 2.7503695999621414,
-      "retained_norm": 1.0000000000000004
+      "runtime_seconds": 1.4263429999991786,
+      "retained_norm": 1.0000000000000004,
+      "min_retained_norm": 0.9999999998250042,
+      "runtime_note": "provisional (shared machine)",
+      "native_vs_piquasso_output_fidelity": 1.0
     },
     {
+      "backend": "native-fock",
       "synthesis_steps": 8,
       "fidelity_to_exact_kerr": 0.9997476199268799,
       "trace_distance_estimate": 0.015886474534021623,
       "primitive_count": 1456,
       "synthesis_order": 0.5,
-      "runtime_seconds": 5.457649899995886,
-      "retained_norm": 1.0
+      "runtime_seconds": 0.05654200000572018,
+      "retained_norm": 1.0000000000000004,
+      "min_retained_norm": 0.999999999999589,
+      "runtime_note": "provisional (shared machine)",
+      "native_vs_piquasso_output_fidelity": 1.0
     },
     {
+      "backend": "piquasso-fock",
+      "synthesis_steps": 8,
+      "fidelity_to_exact_kerr": 0.9997476199268799,
+      "trace_distance_estimate": 0.015886474534021623,
+      "primitive_count": 1456,
+      "synthesis_order": 0.5,
+      "runtime_seconds": 3.0243434000003617,
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.9999999999995877,
+      "runtime_note": "provisional (shared machine)",
+      "native_vs_piquasso_output_fidelity": 1.0
+    },
+    {
+      "backend": "native-fock",
       "synthesis_steps": 16,
       "fidelity_to_exact_kerr": 0.9998806971587574,
       "trace_distance_estimate": 0.010922584000254651,
       "primitive_count": 2912,
       "synthesis_order": 0.5,
-      "runtime_seconds": 10.839331499999389,
-      "retained_norm": 1.0000000000000002
+      "runtime_seconds": 0.10784859998966567,
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.9999999999999952,
+      "runtime_note": "provisional (shared machine)",
+      "native_vs_piquasso_output_fidelity": 1.0000000000000004
     },
     {
+      "backend": "piquasso-fock",
+      "synthesis_steps": 16,
+      "fidelity_to_exact_kerr": 0.9998806971587574,
+      "trace_distance_estimate": 0.010922584000254651,
+      "primitive_count": 2912,
+      "synthesis_order": 0.5,
+      "runtime_seconds": 7.181740700005321,
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999999999999952,
+      "runtime_note": "provisional (shared machine)",
+      "native_vs_piquasso_output_fidelity": 1.0000000000000004
+    },
+    {
+      "backend": "native-fock",
+      "synthesis_steps": 32,
+      "fidelity_to_exact_kerr": 0.9999423425743469,
+      "trace_distance_estimate": 0.0075932486890074,
+      "primitive_count": 5824,
+      "synthesis_order": 0.5,
+      "runtime_seconds": 0.17766849999316037,
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999999999999997,
+      "runtime_note": "provisional (shared machine)",
+      "native_vs_piquasso_output_fidelity": 1.0000000000000004
+    },
+    {
+      "backend": "piquasso-fock",
       "synthesis_steps": 32,
       "fidelity_to_exact_kerr": 0.9999423425743467,
       "trace_distance_estimate": 0.007593248689022021,
       "primitive_count": 5824,
       "synthesis_order": 0.5,
-      "runtime_seconds": 21.752681299985852,
-      "retained_norm": 1.0000000000000002
+      "runtime_seconds": 11.84086529997876,
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999999999999992,
+      "runtime_note": "provisional (shared machine)",
+      "native_vs_piquasso_output_fidelity": 1.0000000000000004
     },
     {
+      "backend": "native-fock",
+      "synthesis_steps": 64,
+      "fidelity_to_exact_kerr": 0.999971765397839,
+      "trace_distance_estimate": 0.005313624202081672,
+      "primitive_count": 11648,
+      "synthesis_order": 0.5,
+      "runtime_seconds": 0.3501569000072777,
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.9999999999999996,
+      "runtime_note": "provisional (shared machine)",
+      "native_vs_piquasso_output_fidelity": 1.0
+    },
+    {
+      "backend": "piquasso-fock",
       "synthesis_steps": 64,
       "fidelity_to_exact_kerr": 0.9999717653978388,
       "trace_distance_estimate": 0.005313624202102566,
       "primitive_count": 11648,
       "synthesis_order": 0.5,
-      "runtime_seconds": 44.24815479997778,
-      "retained_norm": 1.0
+      "runtime_seconds": 24.140891699993517,
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.9999999999999992,
+      "runtime_note": "provisional (shared machine)",
+      "native_vs_piquasso_output_fidelity": 1.0
     }
   ],
   "kappa": 0.05,
   "cutoff": 16,
   "note": "synthesis-only execution; MBQC injection noise excluded (see R23)",
-  "fitted_loglog_exponent": -1.1504727830393449,
-  "documented_leading_order_exponent": -1.0
+  "engines": [
+    "native-fock",
+    "piquasso-fock"
+  ],
+  "main_backend": "native-fock"
 }

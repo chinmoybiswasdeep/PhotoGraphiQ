@@ -1,0 +1,895 @@
+{
+ "source_commit": "441de9a",
+ "files": [
+  {
+   "path": "figures/pdf/R10_trainability_audit.pdf",
+   "sha256": "8bce47dbe9468dfc46bb2e26221088887b9c2d61de78bc4f22dab46212a25274",
+   "size": 18660
+  },
+  {
+   "path": "figures/pdf/R11_kernel_gram_agreement.pdf",
+   "sha256": "bf5a6bf41086948309d079a7c23bf24d5565fe883f067911539b67368b770001",
+   "size": 33927
+  },
+  {
+   "path": "figures/pdf/R12_instrument_agreement.pdf",
+   "sha256": "31273a5daea37260f38c3360a1427536e7213129195799dc380e56a2edc5fef2",
+   "size": 21988
+  },
+  {
+   "path": "figures/pdf/R13_runtime_scaling.pdf",
+   "sha256": "6cdfbc7f6773d37456d74ee16bc727b39da9202d62145baf7eb73faa1524aa09",
+   "size": 21327
+  },
+  {
+   "path": "figures/pdf/R14_parameter_contracts.pdf",
+   "sha256": "198e4f3b58df8efe82e27d4ad0e7fdde5d10b3a9ea3f67b78725f549defde8de",
+   "size": 15710
+  },
+  {
+   "path": "figures/pdf/R15_persistence_roundtrip.pdf",
+   "sha256": "cde2b21e616e7141b3ee195a4ebc23cca6b547300591746b9dfa5dc4f3f814e2",
+   "size": 15779
+  },
+  {
+   "path": "figures/pdf/R16_invalid_input_matrix.pdf",
+   "sha256": "82f458601a4b2735879eec752d0aa6a804c2816639ba00414caf2a137b8bc045",
+   "size": 17164
+  },
+  {
+   "path": "figures/pdf/R17_seeded_reproducibility.pdf",
+   "sha256": "8562255f721cb834c293cb7627a4c5edb7cacff564e3525523561f5d807755a9",
+   "size": 17131
+  },
+  {
+   "path": "figures/pdf/R18_parameter_shift_vs_fd.pdf",
+   "sha256": "c8111e996ebfed3196e2dbc823c1d8d6d59d8a73a7e8665edc74fdc3d5966e0b",
+   "size": 22514
+  },
+  {
+   "path": "figures/pdf/R19_optimizer_convergence.pdf",
+   "sha256": "f655eeb09ab9661ee96c4af77edb4d9b87c400c4df01f8ddffcde8c2da95c25f",
+   "size": 20379
+  },
+  {
+   "path": "figures/pdf/R1_triangle_anatomy.pdf",
+   "sha256": "7ddef6fb3728092e1def491b11a5fb2804e9e146e927548a11e3bb4dfc058624",
+   "size": 18017
+  },
+  {
+   "path": "figures/pdf/R20_haar_gate_learning.pdf",
+   "sha256": "5eed197c2c2e3401a0424559d0689ebc759dc5c4929d6a3467340d7aca3ea3b9",
+   "size": 39979
+  },
+  {
+   "path": "figures/pdf/R21_ising_gate_learning.pdf",
+   "sha256": "58ec0be91c7735f4f831e83f111f101c34e530a1c49837983fdcf992f203d206",
+   "size": 40092
+  },
+  {
+   "path": "figures/pdf/R22_gate_learning_sensitivity.pdf",
+   "sha256": "af808118c04de5e886815dab0b9b7bba6da1888fe1abfd2d50658d8852dcd4bc",
+   "size": 18596
+  },
+  {
+   "path": "figures/pdf/R23_classifier_verification.pdf",
+   "sha256": "86fdf97e3ba6ba2c3e4c2a31228a3afc158dc079a2494cde123ed260d619627e",
+   "size": 20988
+  },
+  {
+   "path": "figures/pdf/R24_regressor_verification.pdf",
+   "sha256": "a90ebeb1caba4b137c13d78b58214909f076fce992d6bfc5f591787af5165d4e",
+   "size": 19689
+  },
+  {
+   "path": "figures/pdf/R25_kernel_feature_state.pdf",
+   "sha256": "1ecdf6dae68f47b2c044a3b8c5178856929f28eca65bcfb347af2242c70aee97",
+   "size": 15378
+  },
+  {
+   "path": "figures/pdf/R26_kernel_properties.pdf",
+   "sha256": "21cf38aa25cbb298a7e534ae9bf495521d3d233e60e71a797d5b309add5b6b52",
+   "size": 20161
+  },
+  {
+   "path": "figures/pdf/R27_kernel_classification.pdf",
+   "sha256": "b4b7d5b60d1186663d23b026fdd348d05b4a95d91e2be7c12463e75bf4da9c16",
+   "size": 20726
+  },
+  {
+   "path": "figures/pdf/R28_kernel_robustness.pdf",
+   "sha256": "6f95eb0a1916e425611cf129ed504defd0f3c411fab0d1f3e7a772ad34f39951",
+   "size": 18876
+  },
+  {
+   "path": "figures/pdf/R29_instrument_diagnostics.pdf",
+   "sha256": "3b9930c7d4d99dafa7d9076bdc1297ef9bfc2df7093bbb8f0c47ad0c9eaede11",
+   "size": 14798
+  },
+  {
+   "path": "figures/pdf/R2_table_one_identities.pdf",
+   "sha256": "31b7c3466fa1eb20a79c8a89b287f3cb41c6afb9e2ba52d4c92cefe3c9ee922b",
+   "size": 22301
+  },
+  {
+   "path": "figures/pdf/R30_concurrence.pdf",
+   "sha256": "50b1ac73d2d66da13f4d4a65bc83e8f076580f9ebae9806d94d2e8e042c44c64",
+   "size": 18260
+  },
+  {
+   "path": "figures/pdf/R31_qfi.pdf",
+   "sha256": "3db7d098dc126fab801dbc736f5851143cd1c752884826cd074b3f4015ad1482",
+   "size": 18813
+  },
+  {
+   "path": "figures/pdf/R32_lie_closure.pdf",
+   "sha256": "fae02f7fd07c49daace5a5833dc67d86ba3d67555dba77e5d4985df0d96f74f3",
+   "size": 15963
+  },
+  {
+   "path": "figures/pdf/R33_fisher_spectra.pdf",
+   "sha256": "e1518256875eac5052d2effe2710119ed55bee9d635862ba18eacb45b1359654",
+   "size": 20450
+  },
+  {
+   "path": "figures/pdf/R34_gkp_codeword_projection.pdf",
+   "sha256": "43c31e95cc966b3bd8a1a3811f93ace9ab74611e243e5b6e1b6428604d27fabe",
+   "size": 24057
+  },
+  {
+   "path": "figures/pdf/R35_capability_map.pdf",
+   "sha256": "7039c772eeae8b84414034ade28c43513121f45e1b547af0883ecfbfab0b72fb",
+   "size": 15875
+  },
+  {
+   "path": "figures/pdf/R36_lowering_preservation.pdf",
+   "sha256": "0f880a2d0e6b7d2d52c4439f03db8bf7c691bf6c0d623338d1492a2ab8898bce",
+   "size": 17764
+  },
+  {
+   "path": "figures/pdf/R37_pauli_frame_validation.pdf",
+   "sha256": "35f1f0c688e03b8f1f4a5a1213901bcd01e7c59ee16743ccd8cf18d823c87ae7",
+   "size": 16518
+  },
+  {
+   "path": "figures/pdf/R38_public_pattern_comparison.pdf",
+   "sha256": "5b39712ade905413ada982a242cae219b7718ac1d6145e39b9b740dd60639c09",
+   "size": 15858
+  },
+  {
+   "path": "figures/pdf/R39_raw_piquasso_state_prep.pdf",
+   "sha256": "6b331e27516fbfaa63ccc8c7b29993382a278c46fe12cbb01b385a694213e72d",
+   "size": 17087
+  },
+  {
+   "path": "figures/pdf/R3_entangling_identity.pdf",
+   "sha256": "25f36e2c4b890f377428a039f5892174c2a5a21584d3b311fd467c8313affee4",
+   "size": 20628
+  },
+  {
+   "path": "figures/pdf/R40_raw_piquasso_cz.pdf",
+   "sha256": "5a00e42d3cf6c762def27709c4c672792e513926d2862e5288b657eb72cc084c",
+   "size": 17541
+  },
+  {
+   "path": "figures/pdf/R41_conditional_execution_comparison.pdf",
+   "sha256": "8e8664f12f135ef0d392fcdb117db8660f51aeb7fd19021b93c67ebb9db34378",
+   "size": 16443
+  },
+  {
+   "path": "figures/pdf/R42_abstraction_overhead.pdf",
+   "sha256": "741f7a65c5042e5e780698b97ebb6738fb3baabd715db88c0a8cdea1b4703741",
+   "size": 15554
+  },
+  {
+   "path": "figures/pdf/R43_decoded_statistics.pdf",
+   "sha256": "f2d09bdb57fc9faac687c3d6910e5695431e76cfdefbe4b346d9628d1d99fe33",
+   "size": 15412
+  },
+  {
+   "path": "figures/pdf/R44_shot_convergence.pdf",
+   "sha256": "67eaf2b8b1039cf402a782ac9661bc257d611c429e5871b37d4d028b4ea39176",
+   "size": 21389
+  },
+  {
+   "path": "figures/pdf/R45_joint_readout_correlations.pdf",
+   "sha256": "7af35196bf409ad8ad165de86fb62cc8fac62963b44281df655e4b3ce4e45c61",
+   "size": 16546
+  },
+  {
+   "path": "figures/pdf/R46_hard_vs_soft_decoding.pdf",
+   "sha256": "c5127bf5cc99bb15f9065000d371d2b17d0d652d8f0da07336e886766d515436",
+   "size": 17121
+  },
+  {
+   "path": "figures/pdf/R47_resource_axis_convergence.pdf",
+   "sha256": "76b4861919da2a8d48b8dbd472fcea8d42f9f2253f9315978404d5d9f4d1e355",
+   "size": 20962
+  },
+  {
+   "path": "figures/pdf/R48_physical_training_stability.pdf",
+   "sha256": "5ab64e3ef374dfcb7a619bf9da02ae1ac559536a2a1ed567126ec592cca350cf",
+   "size": 17037
+  },
+  {
+   "path": "figures/pdf/R4_adaptive_branches.pdf",
+   "sha256": "8c51b49513a62d9a666f5b64282e146b821c9f349234164575c6478c33c3ca0a",
+   "size": 17107
+  },
+  {
+   "path": "figures/pdf/R50_canonical_reproduction.pdf",
+   "sha256": "66d2d53d0006a53727d0ea3b0b3817231dc3888675b857d45ae0ef588758bf75",
+   "size": 16156
+  },
+  {
+   "path": "figures/pdf/R51_expanded_gate_learning.pdf",
+   "sha256": "754aac14a4d8e62ec6c176b2e4d3c2d29d2ac5bf97880c011e71783325c596a9",
+   "size": 81580
+  },
+  {
+   "path": "figures/pdf/R52_comprehensive_classification.pdf",
+   "sha256": "57dc2158ce32992ce9c952f44a9659e2c66f0250fab2ecbc35b209d5e7ad3e87",
+   "size": 16070
+  },
+  {
+   "path": "figures/pdf/R53_comprehensive_regression.pdf",
+   "sha256": "49f5abf193851613fc1c08fe25d54cdf0c7e339a4022d4ba26b7406cc8fa5f2c",
+   "size": 18809
+  },
+  {
+   "path": "figures/pdf/R54_kernel_ablations.pdf",
+   "sha256": "d1bfe8a513b38374606559e0912a3fc79f7fc49c2b48c75e0e50709081e072d7",
+   "size": 18451
+  },
+  {
+   "path": "figures/pdf/R55_expressivity_trainability.pdf",
+   "sha256": "7a98ceaddc8e38696a6b14cf6d8526302ef2ec9452a0a7eb3234eca68c116d05",
+   "size": 17663
+  },
+  {
+   "path": "figures/pdf/R56_logical_physical_gap.pdf",
+   "sha256": "6b5b3f83592966604150280d4d7d9d4a40162558b15486e98b1e40ec3b837c38",
+   "size": 14638
+  },
+  {
+   "path": "figures/pdf/R57_physical_training_evaluation.pdf",
+   "sha256": "726fcdce50904c96a5d99c173c19f13daa3ccb51fd00632d38cf221827d76d2a",
+   "size": 13924
+  },
+  {
+   "path": "figures/pdf/R58_physical_resource_boundary.pdf",
+   "sha256": "07460b7954d4fc8433cf125300c3099d43ad0e0b936050573320e66e748e9d0a",
+   "size": 17175
+  },
+  {
+   "path": "figures/pdf/R59_end_to_end_scaling.pdf",
+   "sha256": "91bbce440a85411e7519c3456af35bfb869e66705c96f3b522555c4d7f337362",
+   "size": 20967
+  },
+  {
+   "path": "figures/pdf/R5_brute_force_agreement.pdf",
+   "sha256": "81b88c85521f64d8a46ebacd3b41ae6fa96785f839c055fac411778c8cb1e095",
+   "size": 16839
+  },
+  {
+   "path": "figures/pdf/R6_batch_consistency.pdf",
+   "sha256": "a417d0549c4c8ca0d406ae7b884b79e65eb2289be22782aa79123de0ccfb2bf0",
+   "size": 14611
+  },
+  {
+   "path": "figures/pdf/R7_semantic_topology.pdf",
+   "sha256": "49786780b3669623fd47e2eb97824b5449ebc1bbbbfb4b00053316a56032f3f2",
+   "size": 16709
+  },
+  {
+   "path": "figures/pdf/R8_flow_dependency_order.pdf",
+   "sha256": "dd43eea333f00ed9eaf8a5c4eb20559f421cd54c1193c2a639ed498a25113870",
+   "size": 17861
+  },
+  {
+   "path": "figures/pdf/R9_state_density_agreement.pdf",
+   "sha256": "0a04b2c9478967ad1d848556f52c17c9b697da6923c7913070a23f09e8734b74",
+   "size": 19369
+  },
+  {
+   "path": "figures/pdf/R_PERF_aggregate_performance.pdf",
+   "sha256": "715e532084e85ffc4b426c741bd95fa59fafa721d85eb2ce217dea5fd9a3841b",
+   "size": 30832
+  },
+  {
+   "path": "figures/png/R10_trainability_audit.png",
+   "sha256": "fe0b2ea178f1940958478a358a2d66d82b7cab35158bfd70bb597b6b1cff84a0",
+   "size": 130928
+  },
+  {
+   "path": "figures/png/R11_kernel_gram_agreement.png",
+   "sha256": "5ebc679cc8102a2395204bfb071f8968602d2a567a9ead7934a67f17c92212f7",
+   "size": 138612
+  },
+  {
+   "path": "figures/png/R12_instrument_agreement.png",
+   "sha256": "41fbb79cddbd01427bdfbb8f1db25b08f94b438a709f017c1cb9919ff3da3f73",
+   "size": 141047
+  },
+  {
+   "path": "figures/png/R13_runtime_scaling.png",
+   "sha256": "76dc69954aee46f8b52357280630e8af01ab32b0bd7bf0071c777d99912aa26f",
+   "size": 171734
+  },
+  {
+   "path": "figures/png/R14_parameter_contracts.png",
+   "sha256": "d84b6b9a2debc7f33292b991bfd5ec132509b471190313f9c8dadcf2556b9baa",
+   "size": 113552
+  },
+  {
+   "path": "figures/png/R15_persistence_roundtrip.png",
+   "sha256": "c54e49f5fe8d7876eb6ddef2ab884fa8e5c05c48c6cfb8b0082a107e0a08f509",
+   "size": 66697
+  },
+  {
+   "path": "figures/png/R16_invalid_input_matrix.png",
+   "sha256": "d90ce56b4d6ad1e652d5ffddeecf514d655d4954c613484d20c4d91b41069550",
+   "size": 179714
+  },
+  {
+   "path": "figures/png/R17_seeded_reproducibility.png",
+   "sha256": "5aabf3f603618fd9e72a472b0996f4c4bcb4a43e53bab80c1d7da79bc6e37887",
+   "size": 101213
+  },
+  {
+   "path": "figures/png/R18_parameter_shift_vs_fd.png",
+   "sha256": "e689d62dac330f8e0e88cdc60d506395fff57573975ba884e063e677eb36165d",
+   "size": 252462
+  },
+  {
+   "path": "figures/png/R19_optimizer_convergence.png",
+   "sha256": "1f1858bb04e5c70b89b05e74677a9890f50369e44f415fa9c24cefbfa2e9e830",
+   "size": 173779
+  },
+  {
+   "path": "figures/png/R1_triangle_anatomy.png",
+   "sha256": "7b08ecde3eb68fa7ed4c4d42ac6e34aabbe20ea4d15888dbff8c9ce284793331",
+   "size": 102096
+  },
+  {
+   "path": "figures/png/R20_haar_gate_learning.png",
+   "sha256": "114872a197076522a9e9fcd0f5ce9f7529db9899ffbeefa0faf218b04180ccc6",
+   "size": 393963
+  },
+  {
+   "path": "figures/png/R21_ising_gate_learning.png",
+   "sha256": "6e2e92ef4f1ce44ac36f2bbf6db425200ce02ef9c9970c63deed7dbecfd5ab8a",
+   "size": 373784
+  },
+  {
+   "path": "figures/png/R22_gate_learning_sensitivity.png",
+   "sha256": "6ede3ae4bb41d280052f890585094d60acf49b888fd072968f6251345d81ca26",
+   "size": 100008
+  },
+  {
+   "path": "figures/png/R23_classifier_verification.png",
+   "sha256": "875a7cb5fcc588ac1cdd26ff66ceed18c6fdbdd4dd9509b03bbd1eb057b6a5b5",
+   "size": 99904
+  },
+  {
+   "path": "figures/png/R24_regressor_verification.png",
+   "sha256": "3cf1afadb9deee18b7ae5d9b13701a53257c294673501a996a17513e0ad63bc0",
+   "size": 157435
+  },
+  {
+   "path": "figures/png/R25_kernel_feature_state.png",
+   "sha256": "d590a4bf4093e807d74e9f56fd50ed65262483936035845d2c51da06a5f00423",
+   "size": 75842
+  },
+  {
+   "path": "figures/png/R26_kernel_properties.png",
+   "sha256": "5dacdce7c0af65529c874115a16a17de07f3bb9eb685737a861ebcf921da2b7a",
+   "size": 135217
+  },
+  {
+   "path": "figures/png/R27_kernel_classification.png",
+   "sha256": "d90f63bf749f5cb743617ac57196a93fb52ae21ea259fa7a75bab8fb479d99c1",
+   "size": 83142
+  },
+  {
+   "path": "figures/png/R28_kernel_robustness.png",
+   "sha256": "70d21c3188d49e4818a40a42eb23adbbea1ecc38b96a64b7c128df5d7d9451fd",
+   "size": 192728
+  },
+  {
+   "path": "figures/png/R29_instrument_diagnostics.png",
+   "sha256": "4f88ebbfe17e05905906b0582f04d6297e5efc32fec7daa640927bda7811bd5a",
+   "size": 66767
+  },
+  {
+   "path": "figures/png/R2_table_one_identities.png",
+   "sha256": "a36053db2bd56d400e57837a3156ed16ff33c5ec5f644eeee383636ce1d0f0df",
+   "size": 236397
+  },
+  {
+   "path": "figures/png/R30_concurrence.png",
+   "sha256": "ad3c08eeeb570aacb0c45804dc1ba91831ea474ca4abef2e949be88eac63df4d",
+   "size": 104186
+  },
+  {
+   "path": "figures/png/R31_qfi.png",
+   "sha256": "ea460b3b83c8d387ad8c84c995bb095591a761acf55b3e75bd29dda6d3108b86",
+   "size": 130905
+  },
+  {
+   "path": "figures/png/R32_lie_closure.png",
+   "sha256": "242da9a17355f0db5b2041809d9f6b682d7dedc5859815fed622ef119b43e70b",
+   "size": 118500
+  },
+  {
+   "path": "figures/png/R33_fisher_spectra.png",
+   "sha256": "758da32273c7704c90ab0f5238ca04589228dd79f9ca936fc93a0c9144d2ab5b",
+   "size": 152571
+  },
+  {
+   "path": "figures/png/R34_gkp_codeword_projection.png",
+   "sha256": "df27b3e9a7e423eae2cc795b980cb5fd713ddb659199f4fba904fff9795e1d47",
+   "size": 212227
+  },
+  {
+   "path": "figures/png/R35_capability_map.png",
+   "sha256": "b68113afdf8bc8f731ae35a116adb7ee684f0d81b5e93f8e6ea0242f237dad46",
+   "size": 81184
+  },
+  {
+   "path": "figures/png/R36_lowering_preservation.png",
+   "sha256": "cbd0344010d90751ec0944defae60cdc178c852b987b1ff1416443954cfbae98",
+   "size": 70278
+  },
+  {
+   "path": "figures/png/R37_pauli_frame_validation.png",
+   "sha256": "32b01d85ee28157c207db205f27d459e02e31a581bda24042d3708fc295c88da",
+   "size": 69642
+  },
+  {
+   "path": "figures/png/R38_public_pattern_comparison.png",
+   "sha256": "c236395268741cd273a4fa16e12b07e6f1ee8d7d81b9a08c1d622d21f09234ee",
+   "size": 61239
+  },
+  {
+   "path": "figures/png/R39_raw_piquasso_state_prep.png",
+   "sha256": "c3d0a0a4b83c87dad889fad6b3e3ad04648aebdb43a826a11b21c2de79c05699",
+   "size": 87073
+  },
+  {
+   "path": "figures/png/R3_entangling_identity.png",
+   "sha256": "15b48561344e0efe24c2ea1d8c9437cc0e438019bd7ba6e2f258140964bd27a7",
+   "size": 240470
+  },
+  {
+   "path": "figures/png/R40_raw_piquasso_cz.png",
+   "sha256": "5d7cb34cc247f4cfb611f0d11c3d7b9bc1e3415d180f469e92177dec8c4f62ec",
+   "size": 95889
+  },
+  {
+   "path": "figures/png/R41_conditional_execution_comparison.png",
+   "sha256": "bf0d46b6271babc416b549a6b243e37540370b93da60f642bc64064813d96eee",
+   "size": 121759
+  },
+  {
+   "path": "figures/png/R42_abstraction_overhead.png",
+   "sha256": "b1d8da7884e319b10e47af8c75f973090d5bfd6d7080f0167a853d0a3454932b",
+   "size": 118395
+  },
+  {
+   "path": "figures/png/R43_decoded_statistics.png",
+   "sha256": "7efbc1ec6e92db4494d6ca0e0cd2b008942da582ce9ce7c0c3129d43990f84b6",
+   "size": 91238
+  },
+  {
+   "path": "figures/png/R44_shot_convergence.png",
+   "sha256": "b3d26c37920792fd5fc30caef42739e031c05635df39615ae60d6c8e9086c1ab",
+   "size": 162558
+  },
+  {
+   "path": "figures/png/R45_joint_readout_correlations.png",
+   "sha256": "3073a2a245493c6f02e80ee24442dc4c2e2203000bc60e9e47cc6da44925c8b9",
+   "size": 114266
+  },
+  {
+   "path": "figures/png/R46_hard_vs_soft_decoding.png",
+   "sha256": "480ed9aca2ef9c9557b3a14a02e0a35b2c1226215c4431f9f6c85179933985cf",
+   "size": 88294
+  },
+  {
+   "path": "figures/png/R47_resource_axis_convergence.png",
+   "sha256": "b2c2dfb0a3b5c94ad54c72feea317d9fa53cfad3e0565ca27769c69fe8f073b6",
+   "size": 234901
+  },
+  {
+   "path": "figures/png/R48_physical_training_stability.png",
+   "sha256": "6ebcdea64391ad4a75abf604951df7c09cdfb9bb1147eea983fdc80b2c3a154e",
+   "size": 74395
+  },
+  {
+   "path": "figures/png/R4_adaptive_branches.png",
+   "sha256": "554c302cd74525373d487a221c6923ac6cdfb0d8cdd607540f211186b12f0592",
+   "size": 92127
+  },
+  {
+   "path": "figures/png/R50_canonical_reproduction.png",
+   "sha256": "56259c908183080e01857651b44e01ca25e65df4f5880051293471c99327510b",
+   "size": 109564
+  },
+  {
+   "path": "figures/png/R51_expanded_gate_learning.png",
+   "sha256": "d73ff97478ae893978a9f8c2800c7633acd51598bef0c5ab949a2e34480bea93",
+   "size": 237359
+  },
+  {
+   "path": "figures/png/R52_comprehensive_classification.png",
+   "sha256": "a00587c5f76ff7b451e5d5879ef0062cda24b947c7bb6225b60dba06ac8fa629",
+   "size": 140492
+  },
+  {
+   "path": "figures/png/R53_comprehensive_regression.png",
+   "sha256": "3f4117a87d9de16e2efa9eb3757d3d765ec406f941761d0d42c31c11d624a916",
+   "size": 149290
+  },
+  {
+   "path": "figures/png/R54_kernel_ablations.png",
+   "sha256": "d2914bac3a68bc6e0ad5700f9d32a5c04c931818741c4b434a03970a21d8d832",
+   "size": 178780
+  },
+  {
+   "path": "figures/png/R55_expressivity_trainability.png",
+   "sha256": "7580018b941f4a0aea1b8d760b082626bfdb4ec86446f57f881fab576869a379",
+   "size": 84610
+  },
+  {
+   "path": "figures/png/R56_logical_physical_gap.png",
+   "sha256": "d9eda1432251b6648b549f06d67721ec3671c8f25aa6b91e8d821e2674e0f7d6",
+   "size": 147247
+  },
+  {
+   "path": "figures/png/R57_physical_training_evaluation.png",
+   "sha256": "d99089a634a32dc02efc54cff5e8488a9e84ab5a4c71811389c02df0df1cca63",
+   "size": 61132
+  },
+  {
+   "path": "figures/png/R58_physical_resource_boundary.png",
+   "sha256": "909b8add1af3d1419d748a054a3f0090282e4972a4495722af0a2f3b4cd286d8",
+   "size": 92051
+  },
+  {
+   "path": "figures/png/R59_end_to_end_scaling.png",
+   "sha256": "a5cfb9ba3fc830184e870f3f227e652e9e294bee8e9d777c76ea2116b6a26fd5",
+   "size": 158616
+  },
+  {
+   "path": "figures/png/R5_brute_force_agreement.png",
+   "sha256": "2875d02d47a8a1af2ad145dda084b47272c51c3a0b3ec5334b8bb0f0a4af1145",
+   "size": 118206
+  },
+  {
+   "path": "figures/png/R6_batch_consistency.png",
+   "sha256": "efd331089ab574d3d9d23c2d486fdfeabc8559e5176f9cd288e303906a1d5b09",
+   "size": 62892
+  },
+  {
+   "path": "figures/png/R7_semantic_topology.png",
+   "sha256": "85188034e66cf17109fa90c264a0e8d0a1d9676829a325e6535982c39d6edbf1",
+   "size": 108333
+  },
+  {
+   "path": "figures/png/R8_flow_dependency_order.png",
+   "sha256": "abb7ec737f168ea1fd65d0f1ab9927a5897eb8a8f469006b878d6bb96da64a5a",
+   "size": 122139
+  },
+  {
+   "path": "figures/png/R9_state_density_agreement.png",
+   "sha256": "2d640668c08a6c0252bd755a5efcf83bbf80b00ad8d2bf0885b1b501d31dce58",
+   "size": 93774
+  },
+  {
+   "path": "figures/png/R_PERF_aggregate_performance.png",
+   "sha256": "9e2b5db4969ac77a74a67f6857131fcb4a92bdfdc0cc8571ea881773fafc164a",
+   "size": 376168
+  },
+  {
+   "path": "figures/svg/R10_trainability_audit.svg",
+   "sha256": "8f624dbb282a1ca97d6c46534fcb25737cbb5401b56d68a743236e08ae59ca20",
+   "size": 57237
+  },
+  {
+   "path": "figures/svg/R11_kernel_gram_agreement.svg",
+   "sha256": "3a8665a38ed9e2ead33b5b0852682545f2aacfe94a97bea45ac4484ff1236c85",
+   "size": 76268
+  },
+  {
+   "path": "figures/svg/R12_instrument_agreement.svg",
+   "sha256": "45475518297df7438814d06375fa377b7d9bffa1aa9788f3f7a9a42d54e323b1",
+   "size": 70476
+  },
+  {
+   "path": "figures/svg/R13_runtime_scaling.svg",
+   "sha256": "7dd95b756a63b0e669dea32e54e6b4a484ec2e94d5f1e8e6fcb5268c76abf7a5",
+   "size": 58729
+  },
+  {
+   "path": "figures/svg/R14_parameter_contracts.svg",
+   "sha256": "732eebabd07760279d462798039279fb116e788e9ca3f0de930602cc06d3d212",
+   "size": 57089
+  },
+  {
+   "path": "figures/svg/R15_persistence_roundtrip.svg",
+   "sha256": "94ac6e15a09676673d917624b33f3b3139780ef337ba4d65b66e54f5db9dcb0e",
+   "size": 32904
+  },
+  {
+   "path": "figures/svg/R16_invalid_input_matrix.svg",
+   "sha256": "df84b89280220ebfc16e50511136a8bc7e2ac70862814a2c20a0a6c9cb6cb363",
+   "size": 88032
+  },
+  {
+   "path": "figures/svg/R17_seeded_reproducibility.svg",
+   "sha256": "09ff37388e1efc4f6992c283e897e7615e47c26de98a8fb134dca1ddb3ac983f",
+   "size": 46214
+  },
+  {
+   "path": "figures/svg/R18_parameter_shift_vs_fd.svg",
+   "sha256": "919715e6a52509ac52b135644b782efa33f57dcc1886b92d2f13734ea68498d2",
+   "size": 88030
+  },
+  {
+   "path": "figures/svg/R19_optimizer_convergence.svg",
+   "sha256": "3fea5251216d674e1f93f91dd0dfcb2041f258f91c871d71f0789ad83273aa98",
+   "size": 59152
+  },
+  {
+   "path": "figures/svg/R1_triangle_anatomy.svg",
+   "sha256": "28cfa4e3617aac15c1ca602eb7572880080460b8f27c4a5b682369ca2b758d1b",
+   "size": 69801
+  },
+  {
+   "path": "figures/svg/R20_haar_gate_learning.svg",
+   "sha256": "e2a9a88b821c8a6f8745be5db390ef444293a6b65409b15c371d224d9a0f2770",
+   "size": 135613
+  },
+  {
+   "path": "figures/svg/R21_ising_gate_learning.svg",
+   "sha256": "066893bfa41ebd655871f28117e32d6f38be7f4a21b80df7a5d59739320aa069",
+   "size": 133242
+  },
+  {
+   "path": "figures/svg/R22_gate_learning_sensitivity.svg",
+   "sha256": "b3aacc386e56fe7d9757b4c5d18e1859f22deffb611f10e8e6fb6f04b87a8e96",
+   "size": 59529
+  },
+  {
+   "path": "figures/svg/R23_classifier_verification.svg",
+   "sha256": "132932b207123d40578b187ab815a4a45f51ac24bae6ca858187acc40a8b9718",
+   "size": 51615
+  },
+  {
+   "path": "figures/svg/R24_regressor_verification.svg",
+   "sha256": "76d48c78e87a4df519ecf7ed3f0c5fc6131a47bbb2a99b0ae28b35a5c72d71b1",
+   "size": 64579
+  },
+  {
+   "path": "figures/svg/R25_kernel_feature_state.svg",
+   "sha256": "ec4c8b607b39a08427e4a26eac60495251ed9d0fdcaac51d7f7e9e7c4b155a8d",
+   "size": 32692
+  },
+  {
+   "path": "figures/svg/R26_kernel_properties.svg",
+   "sha256": "51c306cbcb6af6868b07df9e396507718b27f2f73815c2a9c30f27de6a562f74",
+   "size": 62569
+  },
+  {
+   "path": "figures/svg/R27_kernel_classification.svg",
+   "sha256": "fec14fa1749e25bdd2e05520ff1f2e34fed65e6f39affaead58960489c25c35e",
+   "size": 58865
+  },
+  {
+   "path": "figures/svg/R28_kernel_robustness.svg",
+   "sha256": "4c7d2a34db035d472e749714801ee2f33919966d3a936009261b765c1fc48e37",
+   "size": 72964
+  },
+  {
+   "path": "figures/svg/R29_instrument_diagnostics.svg",
+   "sha256": "a921e0f68d93f187d3fdc90c5298586706dbe43a956ea8fd08b92ec80fe73f8c",
+   "size": 35232
+  },
+  {
+   "path": "figures/svg/R2_table_one_identities.svg",
+   "sha256": "b42a54346212562aa99337e49f2a747b4b399c4a2a43a72d6a53be8d0ae3c2b7",
+   "size": 88634
+  },
+  {
+   "path": "figures/svg/R30_concurrence.svg",
+   "sha256": "41bb63786719cea1c4759fb7d54776a4324f5760fc3d9e0f3ec597cab9a84698",
+   "size": 52295
+  },
+  {
+   "path": "figures/svg/R31_qfi.svg",
+   "sha256": "cd4d073c675914a5b85af5ac991eadb4120694fb8dcf4d03adc299853215f89b",
+   "size": 44977
+  },
+  {
+   "path": "figures/svg/R32_lie_closure.svg",
+   "sha256": "2d1308e11dfc27c170ee2c48af39b57181bd4d4593d918221aef72a1d7fa430f",
+   "size": 45429
+  },
+  {
+   "path": "figures/svg/R33_fisher_spectra.svg",
+   "sha256": "7037ce17a969990595921547bbe070f05dcc0b131654a9ecf62a41af536835dd",
+   "size": 70731
+  },
+  {
+   "path": "figures/svg/R34_gkp_codeword_projection.svg",
+   "sha256": "f9cf17621ab388526e61f7ac3372d68bfab6a67a8b002f9bc17617276925ad67",
+   "size": 87957
+  },
+  {
+   "path": "figures/svg/R35_capability_map.svg",
+   "sha256": "26ef8623ab46f987f88f0cc3c11b760e91981404db6a70941328ee9a230174dd",
+   "size": 45667
+  },
+  {
+   "path": "figures/svg/R36_lowering_preservation.svg",
+   "sha256": "362b672edc1c2e26f8bc93fa9200e08893f0f0099034f59a930ce7196decace7",
+   "size": 39201
+  },
+  {
+   "path": "figures/svg/R37_pauli_frame_validation.svg",
+   "sha256": "e2497041dba2b4a24c50467d6bf3a992b19943789b4559ff8d13734c8dca9a14",
+   "size": 33567
+  },
+  {
+   "path": "figures/svg/R38_public_pattern_comparison.svg",
+   "sha256": "f7228aef5436e854bea90f6fb47e07dfc5a37bd3743d6fdcbd387880c12f4530",
+   "size": 33537
+  },
+  {
+   "path": "figures/svg/R39_raw_piquasso_state_prep.svg",
+   "sha256": "76e61ae2cecf208461af012abf203b3e042810e22365d7d1ed7deb0cf73091c0",
+   "size": 45933
+  },
+  {
+   "path": "figures/svg/R3_entangling_identity.svg",
+   "sha256": "2b1b49f769888ad1e81b36c80b1a5bb1dbd085ac89e53a2a91320057392ea451",
+   "size": 58175
+  },
+  {
+   "path": "figures/svg/R40_raw_piquasso_cz.svg",
+   "sha256": "c25e9414ffaa0aa7019c18072216450463a7519b036b7c9b97a380819da03c0b",
+   "size": 54918
+  },
+  {
+   "path": "figures/svg/R41_conditional_execution_comparison.svg",
+   "sha256": "4287b11aaa3fe06d96889bad08e11112f9399e03cb1cf21467acdfbfc81ec49a",
+   "size": 48866
+  },
+  {
+   "path": "figures/svg/R42_abstraction_overhead.svg",
+   "sha256": "3075340d34913f5afd93944641066a42219135d80e082950f8280edcfd4a8f79",
+   "size": 41406
+  },
+  {
+   "path": "figures/svg/R43_decoded_statistics.svg",
+   "sha256": "704446a40b91fc934c52da01d96c11eae749fa47c28a7cebdd8f0bbcd83c5607",
+   "size": 42315
+  },
+  {
+   "path": "figures/svg/R44_shot_convergence.svg",
+   "sha256": "f5d7b31603033f3e082f22f84febd574acdff0f7bf9e9b24e948d55238d7de35",
+   "size": 59350
+  },
+  {
+   "path": "figures/svg/R45_joint_readout_correlations.svg",
+   "sha256": "57a48e75a913d2eb31518eb674a0eca07bf5687d372d1f3f2e51b20acad62a21",
+   "size": 49681
+  },
+  {
+   "path": "figures/svg/R46_hard_vs_soft_decoding.svg",
+   "sha256": "2c3254b730f611d5f829c703489a8c141e2ba53e65e8fcace3cf6955714855a7",
+   "size": 35988
+  },
+  {
+   "path": "figures/svg/R47_resource_axis_convergence.svg",
+   "sha256": "a2c718f70d1a51e2af19866811eed6eccaff781ed1002d559f8d6650bc2a1cae",
+   "size": 81921
+  },
+  {
+   "path": "figures/svg/R48_physical_training_stability.svg",
+   "sha256": "aa11466a4ee463938e4a99595bf38df8b7526d5c53974669a87780f7fcd78f03",
+   "size": 42842
+  },
+  {
+   "path": "figures/svg/R4_adaptive_branches.svg",
+   "sha256": "82875d31737af7d422ea975a479a7e25d1f0f1915eef3d09a793b4e527d2ed12",
+   "size": 47230
+  },
+  {
+   "path": "figures/svg/R50_canonical_reproduction.svg",
+   "sha256": "8229cfb42bac97814e1891d6b0936b5c9157bd0b046c952f727eab167b81e60d",
+   "size": 35463
+  },
+  {
+   "path": "figures/svg/R51_expanded_gate_learning.svg",
+   "sha256": "db84b6c90700e37afe537a69a4cae1e3a286976260d566bf2d97203585e0a329",
+   "size": 265098
+  },
+  {
+   "path": "figures/svg/R52_comprehensive_classification.svg",
+   "sha256": "e0fe8ad421c5e32919c6c918457b9d7fd9000ec47fcdfee2e0abd69bfda97d21",
+   "size": 53600
+  },
+  {
+   "path": "figures/svg/R53_comprehensive_regression.svg",
+   "sha256": "d88e3e4ff81242f56b870cd132cfc29232924424a6e5c3089097fd4d43446c78",
+   "size": 51661
+  },
+  {
+   "path": "figures/svg/R54_kernel_ablations.svg",
+   "sha256": "ad910fa63d429c628ea3dcb6b21e2709475b1fe967ece99f28d37ddbd3f95b8d",
+   "size": 64494
+  },
+  {
+   "path": "figures/svg/R55_expressivity_trainability.svg",
+   "sha256": "d50be7e3c1e586ebf722944a83172779740f0f3710d7eb55e3ea7200a07356d5",
+   "size": 49104
+  },
+  {
+   "path": "figures/svg/R56_logical_physical_gap.svg",
+   "sha256": "5cef15b7b4bdc8c8657a66cee909057b15593f1b79032cb81676700617bc8651",
+   "size": 40311
+  },
+  {
+   "path": "figures/svg/R57_physical_training_evaluation.svg",
+   "sha256": "37e80ac1b219a96b49a8eac24aa0cd336b6899d2ad49b21c0482cd89620a9795",
+   "size": 32304
+  },
+  {
+   "path": "figures/svg/R58_physical_resource_boundary.svg",
+   "sha256": "c2ab84a806b29cfb0b4c4cd4d3977e61492a22903f7f040ff291a86ed9286a34",
+   "size": 39033
+  },
+  {
+   "path": "figures/svg/R59_end_to_end_scaling.svg",
+   "sha256": "a4c9044abc3ae365f3053ab5cbd8f2647445e1d6843ff4f7f256dfb32c7262cb",
+   "size": 72488
+  },
+  {
+   "path": "figures/svg/R5_brute_force_agreement.svg",
+   "sha256": "e9fe3f039cd77ac601fd0ae92a212f1b4aefa032cb3c501b863e6a3c84e9945b",
+   "size": 57928
+  },
+  {
+   "path": "figures/svg/R6_batch_consistency.svg",
+   "sha256": "237ed3c4ab3a86f4d9dfc77a5b22c9e9f7fcb4a02fa7de8cbc189db9574aef53",
+   "size": 32916
+  },
+  {
+   "path": "figures/svg/R7_semantic_topology.svg",
+   "sha256": "57bcd2176397ad0b1f1f42275c05cc303f9663053d67bcac84a9cc2c57980dc2",
+   "size": 51879
+  },
+  {
+   "path": "figures/svg/R8_flow_dependency_order.svg",
+   "sha256": "92e0aa5eccf312696f674f7bcfc030cddfd39ecb0a1dbc4b056dc84d03998303",
+   "size": 59265
+  },
+  {
+   "path": "figures/svg/R9_state_density_agreement.svg",
+   "sha256": "436ab0d3974de3f5b178e7a0cc79a96b709cdc14d0a0c79d8d26a9f9df3b1fa5",
+   "size": 44367
+  },
+  {
+   "path": "figures/svg/R_PERF_aggregate_performance.svg",
+   "sha256": "ed0c58026e3309c75dc9ca75081cf39f249a526451f71bda5b5ac0d03f367594",
+   "size": 121526
+  },
+  {
+   "path": "PhotoGraphiQML_Manuscript_Experiments.ipynb",
+   "sha256": "b2514f5d4c085c881dfe1e3b3a0b48f822f1a5555c58da74d657140b5c878268",
+   "size": 751255
+  }
+ ]
+}

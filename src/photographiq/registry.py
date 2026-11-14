@@ -173,7 +173,7 @@ _REGISTRY: dict[str, BackendInfo] = dict(
             "native",
             precision="complex128",
             uses_cutoff=True,
-            approximations=(_TOTAL_TRUNCATION,),
+            approximations=(_TOTAL_TRUNCATION, _RENORMALISATION),
             native_components=("fock",),
         ),
         _info(
@@ -183,7 +183,7 @@ _REGISTRY: dict[str, BackendInfo] = dict(
             "native",
             precision="complex128",
             uses_cutoff=True,
-            approximations=(_TOTAL_TRUNCATION,),
+            approximations=(_TOTAL_TRUNCATION, _RENORMALISATION),
             native_components=("fock",),
         ),
     ]

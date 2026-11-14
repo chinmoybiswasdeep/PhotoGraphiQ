@@ -1,0 +1,8 @@
+case,generators,production_dimension,independent_dimension,error
+single_generator,X,1,1,0
+commuting_pair,"ZI,IZ",2,2,0
+anticommuting_pair_su2,"X,Z",3,3,0
+two_qubit_partial,"XI,IX",2,2,0
+two_qubit_local_su2_direct_sum_dim6,"XI,ZI,IX,IZ",6,6,0
+two_qubit_full_su4_dim15,"XI,ZI,IX,IZ,XX",15,15,0
+three_qubit_single,XII,1,1,0

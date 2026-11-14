@@ -1,0 +1,31 @@
+cutoff,resource_squeezing,ok,fidelity,log10_infidelity,retained_norm,error
+24,0.1,True,0.9469294912977205,-1.2751467494624917,1.0000000000000004,
+24,0.3,True,0.970600425619804,-1.5316589568555383,1.0,
+24,0.6,False,,,,Fock truncation norm 0.99836644; increase cutoff=24
+24,1.0,False,,,,Fock truncation norm 0.97312438; increase cutoff=24
+24,1.5,False,,,,Fock truncation norm 0.9696007; increase cutoff=24
+24,2.0,False,,,,Fock truncation norm 0.81062528; increase cutoff=24
+32,0.1,True,0.9469297882882736,-1.275149179846568,1.0000000000000002,
+32,0.3,True,0.9706032776846945,-1.5317010899868595,1.0000000000000002,
+32,0.6,True,0.9889756546815112,-1.9576471917022873,1.0,
+32,1.0,False,,,,Fock truncation norm 0.98298367; increase cutoff=32
+32,1.5,False,,,,Fock truncation norm 0.98779474; increase cutoff=32
+32,2.0,False,,,,Fock truncation norm 0.87133538; increase cutoff=32
+48,0.1,True,0.9469296090745074,-1.2751477132720848,1.0000000000000002,
+48,0.3,True,0.9706009723008218,-1.5316670325764228,1.0,
+48,0.6,True,0.988996020664211,-1.9584502338368102,1.0000000000000002,
+48,1.0,False,,,,Fock truncation norm 0.99239828; increase cutoff=48
+48,1.5,False,,,,Fock truncation norm 0.99791089; increase cutoff=48
+48,2.0,False,,,,Fock truncation norm 0.93791442; increase cutoff=48
+64,0.1,True,0.9469296021079399,-1.2751476562621102,1.0000000000000002,
+64,0.3,True,0.970600928140999,-1.5316663802299182,1.0000000000000002,
+64,0.6,True,0.988996718423811,-1.9584777732153165,1.0,
+64,1.0,False,,,,Fock truncation norm 0.99626856; increase cutoff=64
+64,1.5,False,,,,Fock truncation norm 0.93784546; increase cutoff=64
+64,2.0,False,,,,Fock truncation norm 0.96900177; increase cutoff=64
+96,0.1,True,0.9469296019369465,-1.2751476548628091,1.0000000000000002,
+96,0.3,True,0.9706009440205552,-1.5316666148089395,1.0,
+96,0.6,True,0.9889973966811096,-1.9585045445452236,1.0,
+96,1.0,False,,,,Fock truncation norm 0.99887962; increase cutoff=96
+96,1.5,False,,,,Fock truncation norm 0.95990628; increase cutoff=96
+96,2.0,False,,,,Fock truncation norm 0.99183844; increase cutoff=96

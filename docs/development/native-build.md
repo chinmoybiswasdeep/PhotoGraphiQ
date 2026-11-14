@@ -19,7 +19,7 @@ an `ImportError` explaining how to build them.
 | OpenMP | optional | used when the compiler provides it (`PGQ_USE_OPENMP=ON`) |
 
 No CUDA toolkit is needed. GPU acceleration is optional and provided separately
-(see the GPU section of [COMPLETE_FUNCTIONALITY.md](../COMPLETE_FUNCTIONALITY.md)).
+(see [GPU acceleration](../gpu.md)).
 
 ## Install
 

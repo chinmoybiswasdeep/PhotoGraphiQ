@@ -6,6 +6,13 @@ values, and cross-checks against an independently written NumPy coherent-
 state expansion (not reusing ``FockInput.cat``). Reports parity,
 photon-number distribution, normalization/retained mass and Wigner functions,
 and checks the expected even/odd parity sign.
+
+Upgrade migration (2026-11): the main engine is the C++ ``native-fock``
+backend; ``piquasso-fock`` (historical) and ``native-mixed-fock`` prepare the
+same resources as references. Every engine must reach fidelity
+>= 1 - 1e-6 with the independent NumPy expansion and the correct parity sign;
+the engines' parities and mean photon numbers are compared with each other.
+Retained norm and boundary population are reported for each engine.
 """
 
 from __future__ import annotations
@@ -24,8 +31,9 @@ import photographiq as pg  # noqa: E402
 ALPHAS = [0.5, 1.0, 1.5, 2.0]
 CUTOFF = 32
 REPRESENTATIVE_ALPHA = 1.5
-
-
+MAIN_BACKEND = "native-fock"
+REFERENCE_BACKENDS = ("piquasso-fock", "native-mixed-fock")
+ENGINE_AGREEMENT_TOLERANCE = 1e-9  # parity / mean photon number across engines, same cutoff
 def analytic_cat(alpha: float, cutoff: int, parity: int) -> np.ndarray:
     """Independent NumPy |alpha>+parity|-alpha> expansion (not FockInput.cat)."""
     n = np.arange(cutoff)
@@ -47,14 +55,23 @@ def main():
         for parity in (1, -1):
             resource = pg.CatResource(alpha, parity=parity)
             pattern = pg.Pattern(inputs=()).append(pg.Prepare(0, state=resource)).append(pg.Output((0,))).validate()
-            result = pg.simulate(pattern, backend="piquasso-fock", cutoff=CUTOFF, seed=0)
+            result = pg.simulate(pattern, backend=MAIN_BACKEND, cutoff=CUTOFF, seed=0)
             state = result.state
-
             analytic = analytic_cat(alpha, CUTOFF, parity)
             actual_amplitudes = dict(zip(state.basis, state.state_vector, strict=True))
             actual_vector = np.array([actual_amplitudes.get((n,), 0j) for n in range(CUTOFF)])
             overlap = np.vdot(analytic, actual_vector)
             fidelity = float(abs(overlap) ** 2)
+            references = {}
+            for backend in REFERENCE_BACKENDS:
+                other = pg.simulate(pattern, backend=backend, cutoff=CUTOFF, seed=0).state
+                rho = other.density_matrix
+                basis_index = [other.basis.index((n,)) for n in range(CUTOFF)]
+                rho = np.asarray(rho)[np.ix_(basis_index, basis_index)]
+                references[f"{backend}_fidelity_vs_independent_analytic"] = float(np.real(analytic.conj() @ rho @ analytic))
+                references[f"{backend}_parity_difference"] = abs(other.parity() - state.parity())
+                references[f"{backend}_photon_number_difference"] = abs(other.photon_number(0) - state.photon_number(0))
+                references[f"{backend}_retained_norm"] = other.retained_norms[-1] if other.retained_norms else None
 
             expected_parity = float(parity)
             actual_parity = state.parity()
@@ -70,6 +87,7 @@ def main():
                     "norm": state.norm,
                     "retained_norm": state.retained_norms[-1] if state.retained_norms else None,
                     "boundary_population": state.diagnostics[-1]["boundary_population"] if state.diagnostics else None,
+                    **references,
                 }
             )
             if alpha == REPRESENTATIVE_ALPHA:
@@ -77,12 +95,20 @@ def main():
 
     fidelity_tolerance = 1e-6
     parity_sign_failures = [r for r in rows if np.sign(r["measured_parity"]) != np.sign(r["expected_ideal_parity"])]
-    fidelity_failures = [r for r in rows if r["fidelity_vs_independent_analytic"] < 1 - fidelity_tolerance]
+    fidelity_failures = [
+        r for r in rows
+        if min(r["fidelity_vs_independent_analytic"],
+               *(r[f"{b}_fidelity_vs_independent_analytic"] for b in REFERENCE_BACKENDS)) < 1 - fidelity_tolerance
+        or max(max(r[f"{b}_parity_difference"], r[f"{b}_photon_number_difference"]) for b in REFERENCE_BACKENDS)
+        > ENGINE_AGREEMENT_TOLERANCE
+    ]
     if parity_sign_failures or fidelity_failures:
         common.save_csv(parity_sign_failures + fidelity_failures, "R21_cat_state_FAILURES")
         raise AssertionError("Cat state parity sign or independent-fidelity check failed; see FAILURES csv")
 
-    common.save_result(rows, "R21_cat_state", extra={"cutoff": CUTOFF})
+    common.save_result(rows, "R21_cat_state", extra={
+        "cutoff": CUTOFF, "main_backend": MAIN_BACKEND, "reference_backends": list(REFERENCE_BACKENDS),
+        "fidelity_tolerance": fidelity_tolerance, "engine_agreement_tolerance": ENGINE_AGREEMENT_TOLERANCE})
 
     q_axis = np.linspace(-6, 6, 121)
     p_axis = np.linspace(-6, 6, 121)
@@ -96,12 +122,33 @@ def main():
     fig.suptitle("Cat-state Wigner functions")
     common.save_figure(fig, "R21_cat_state")
     plt.close(fig)
-
+    wigner_minima = {
+        label: float(wigner_states[parity].wigner(q_axis, p_axis, node=0).values.min())
+        for parity, label in ((1, "even"), (-1, "odd"))
+    }
+    common.save_caption(
+        "R21_cat_state",
+        f"""
+**R21: finite-Fock cat states.** Wigner functions (hbar = 2) of the even and odd cat states
+|alpha> +/- |-alpha> with alpha = {REPRESENTATIVE_ALPHA}, prepared by `CatResource` on `native-fock` at
+total-photon cutoff {CUTOFF}; Wigner minima {wigner_minima['even']:.4f} (even) and {wigner_minima['odd']:.4f}
+(odd), showing the interference fringes between the two coherent components. Across alpha in {ALPHAS} and
+both parities ({len(rows)} states) the fidelity with an independent NumPy coherent-state expansion is at
+least {min(r['fidelity_vs_independent_analytic'] for r in rows):.12f} on `native-fock` and
+{min(min(r[f'{b}_fidelity_vs_independent_analytic'] for b in REFERENCE_BACKENDS) for r in rows):.12f} on
+the reference engines `piquasso-fock` and `native-mixed-fock`; parities have the expected sign, and the
+engines agree on parity and mean photon number to
+{max(max(r[f'{b}_parity_difference'], r[f'{b}_photon_number_difference']) for b in REFERENCE_BACKENDS for r in rows):.1e}.
+Maximum boundary population {max(r['boundary_population'] for r in rows):.1e}: the cutoff is not limiting
+for these amplitudes. Source: `paper_experiments/07_non_gaussian/21_cat_state.py`.
+""",
+    )
     common.print_summary(
         "R21 cat state",
         cases=len(rows),
         min_fidelity_to_analytic=min(r["fidelity_vs_independent_analytic"] for r in rows),
         all_parity_signs_correct=not parity_sign_failures,
+        min_reference_fidelity=min(min(r[f"{b}_fidelity_vs_independent_analytic"] for b in REFERENCE_BACKENDS) for r in rows),
     )
 
 

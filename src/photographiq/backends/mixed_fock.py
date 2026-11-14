@@ -4,6 +4,7 @@ import numpy as np
 from scipy.integrate import quad
 from scipy.optimize import brentq
 
+from .._checks import is_finite_real_scalar
 from .._optional import piquasso as pq
 from ..fock_measurements import wavefunctions
 from ..measurements import Homodyne, PhotonNumber
@@ -345,7 +346,7 @@ class MixedFockBackend(PiquassoFockBackend):
                 raise ArithmeticError("Mixed homodyne density is not normalized")
             target = self.rng.random() * mass
             outcome = brentq(lambda x: integrate(x) - target, -bound, bound)
-        if not np.isscalar(outcome) or not np.isreal(outcome) or not np.isfinite(outcome):
+        if not is_finite_real_scalar(outcome):
             raise ValueError("Measurement outcome must be finite and real")
         projected = conditioned(outcome)
         mass = float(np.trace(projected).real)

@@ -1,0 +1,758 @@
+{
+  "schema": "photographiq",
+  "version": 1,
+  "inputs": {
+    "tuple": [
+      0
+    ]
+  },
+  "commands": [
+    {
+      "type": "Prepare",
+      "fields": {
+        "node": 1,
+        "squeezing": 1.0,
+        "state": null
+      }
+    },
+    {
+      "type": "Prepare",
+      "fields": {
+        "node": 2,
+        "squeezing": 1.0,
+        "state": null
+      }
+    },
+    {
+      "type": "Entangle",
+      "fields": {
+        "u": 0,
+        "v": 1,
+        "weight": 1.0
+      }
+    },
+    {
+      "type": "Entangle",
+      "fields": {
+        "u": 1,
+        "v": 2,
+        "weight": 1.0
+      }
+    },
+    {
+      "type": "Measure",
+      "fields": {
+        "node": 0,
+        "measurement": {
+          "type": "Homodyne",
+          "fields": {
+            "angle": {
+              "type": "Expr",
+              "fields": {
+                "op": "atan2",
+                "args": {
+                  "tuple": [
+                    {
+                      "type": "Expr",
+                      "fields": {
+                        "op": "constant",
+                        "args": {
+                          "tuple": [
+                            1.0
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "type": "Expr",
+                      "fields": {
+                        "op": "constant",
+                        "args": {
+                          "tuple": [
+                            0.0
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "efficiency": 1.0,
+            "noise": 0.0
+          }
+        },
+        "key": null
+      }
+    },
+    {
+      "type": "Displace",
+      "fields": {
+        "node": 1,
+        "q": {
+          "type": "Expr",
+          "fields": {
+            "op": "mul",
+            "args": {
+              "tuple": [
+                {
+                  "type": "Expr",
+                  "fields": {
+                    "op": "constant",
+                    "args": {
+                      "tuple": [
+                        -1.0
+                      ]
+                    }
+                  }
+                },
+                {
+                  "type": "Expr",
+                  "fields": {
+                    "op": "div",
+                    "args": {
+                      "tuple": [
+                        {
+                          "type": "Expr",
+                          "fields": {
+                            "op": "outcome",
+                            "args": {
+                              "tuple": [
+                                0
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "type": "Expr",
+                          "fields": {
+                            "op": "sin",
+                            "args": {
+                              "tuple": [
+                                {
+                                  "type": "Expr",
+                                  "fields": {
+                                    "op": "atan2",
+                                    "args": {
+                                      "tuple": [
+                                        {
+                                          "type": "Expr",
+                                          "fields": {
+                                            "op": "constant",
+                                            "args": {
+                                              "tuple": [
+                                                1.0
+                                              ]
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "type": "Expr",
+                                          "fields": {
+                                            "op": "constant",
+                                            "args": {
+                                              "tuple": [
+                                                0.0
+                                              ]
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "p": {
+          "type": "Expr",
+          "fields": {
+            "op": "mul",
+            "args": {
+              "tuple": [
+                {
+                  "type": "Expr",
+                  "fields": {
+                    "op": "constant",
+                    "args": {
+                      "tuple": [
+                        -0.0
+                      ]
+                    }
+                  }
+                },
+                {
+                  "type": "Expr",
+                  "fields": {
+                    "op": "div",
+                    "args": {
+                      "tuple": [
+                        {
+                          "type": "Expr",
+                          "fields": {
+                            "op": "outcome",
+                            "args": {
+                              "tuple": [
+                                0
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "type": "Expr",
+                          "fields": {
+                            "op": "sin",
+                            "args": {
+                              "tuple": [
+                                {
+                                  "type": "Expr",
+                                  "fields": {
+                                    "op": "atan2",
+                                    "args": {
+                                      "tuple": [
+                                        {
+                                          "type": "Expr",
+                                          "fields": {
+                                            "op": "constant",
+                                            "args": {
+                                              "tuple": [
+                                                1.0
+                                              ]
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "type": "Expr",
+                                          "fields": {
+                                            "op": "constant",
+                                            "args": {
+                                              "tuple": [
+                                                0.0
+                                              ]
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "Displace",
+      "fields": {
+        "node": 2,
+        "q": {
+          "type": "Expr",
+          "fields": {
+            "op": "mul",
+            "args": {
+              "tuple": [
+                {
+                  "type": "Expr",
+                  "fields": {
+                    "op": "constant",
+                    "args": {
+                      "tuple": [
+                        -0.0
+                      ]
+                    }
+                  }
+                },
+                {
+                  "type": "Expr",
+                  "fields": {
+                    "op": "div",
+                    "args": {
+                      "tuple": [
+                        {
+                          "type": "Expr",
+                          "fields": {
+                            "op": "outcome",
+                            "args": {
+                              "tuple": [
+                                0
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "type": "Expr",
+                          "fields": {
+                            "op": "sin",
+                            "args": {
+                              "tuple": [
+                                {
+                                  "type": "Expr",
+                                  "fields": {
+                                    "op": "atan2",
+                                    "args": {
+                                      "tuple": [
+                                        {
+                                          "type": "Expr",
+                                          "fields": {
+                                            "op": "constant",
+                                            "args": {
+                                              "tuple": [
+                                                1.0
+                                              ]
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "type": "Expr",
+                                          "fields": {
+                                            "op": "constant",
+                                            "args": {
+                                              "tuple": [
+                                                0.0
+                                              ]
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "p": {
+          "type": "Expr",
+          "fields": {
+            "op": "mul",
+            "args": {
+              "tuple": [
+                {
+                  "type": "Expr",
+                  "fields": {
+                    "op": "constant",
+                    "args": {
+                      "tuple": [
+                        -1.0
+                      ]
+                    }
+                  }
+                },
+                {
+                  "type": "Expr",
+                  "fields": {
+                    "op": "div",
+                    "args": {
+                      "tuple": [
+                        {
+                          "type": "Expr",
+                          "fields": {
+                            "op": "outcome",
+                            "args": {
+                              "tuple": [
+                                0
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "type": "Expr",
+                          "fields": {
+                            "op": "sin",
+                            "args": {
+                              "tuple": [
+                                {
+                                  "type": "Expr",
+                                  "fields": {
+                                    "op": "atan2",
+                                    "args": {
+                                      "tuple": [
+                                        {
+                                          "type": "Expr",
+                                          "fields": {
+                                            "op": "constant",
+                                            "args": {
+                                              "tuple": [
+                                                1.0
+                                              ]
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "type": "Expr",
+                                          "fields": {
+                                            "op": "constant",
+                                            "args": {
+                                              "tuple": [
+                                                0.0
+                                              ]
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "Measure",
+      "fields": {
+        "node": 1,
+        "measurement": {
+          "type": "Homodyne",
+          "fields": {
+            "angle": {
+              "type": "Expr",
+              "fields": {
+                "op": "atan2",
+                "args": {
+                  "tuple": [
+                    {
+                      "type": "Expr",
+                      "fields": {
+                        "op": "constant",
+                        "args": {
+                          "tuple": [
+                            1.0
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "type": "Expr",
+                      "fields": {
+                        "op": "constant",
+                        "args": {
+                          "tuple": [
+                            0.0
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "efficiency": 1.0,
+            "noise": 0.0
+          }
+        },
+        "key": null
+      }
+    },
+    {
+      "type": "Displace",
+      "fields": {
+        "node": 2,
+        "q": {
+          "type": "Expr",
+          "fields": {
+            "op": "mul",
+            "args": {
+              "tuple": [
+                {
+                  "type": "Expr",
+                  "fields": {
+                    "op": "constant",
+                    "args": {
+                      "tuple": [
+                        -1.0
+                      ]
+                    }
+                  }
+                },
+                {
+                  "type": "Expr",
+                  "fields": {
+                    "op": "div",
+                    "args": {
+                      "tuple": [
+                        {
+                          "type": "Expr",
+                          "fields": {
+                            "op": "outcome",
+                            "args": {
+                              "tuple": [
+                                1
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "type": "Expr",
+                          "fields": {
+                            "op": "sin",
+                            "args": {
+                              "tuple": [
+                                {
+                                  "type": "Expr",
+                                  "fields": {
+                                    "op": "atan2",
+                                    "args": {
+                                      "tuple": [
+                                        {
+                                          "type": "Expr",
+                                          "fields": {
+                                            "op": "constant",
+                                            "args": {
+                                              "tuple": [
+                                                1.0
+                                              ]
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "type": "Expr",
+                                          "fields": {
+                                            "op": "constant",
+                                            "args": {
+                                              "tuple": [
+                                                0.0
+                                              ]
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "p": {
+          "type": "Expr",
+          "fields": {
+            "op": "mul",
+            "args": {
+              "tuple": [
+                {
+                  "type": "Expr",
+                  "fields": {
+                    "op": "constant",
+                    "args": {
+                      "tuple": [
+                        -0.0
+                      ]
+                    }
+                  }
+                },
+                {
+                  "type": "Expr",
+                  "fields": {
+                    "op": "div",
+                    "args": {
+                      "tuple": [
+                        {
+                          "type": "Expr",
+                          "fields": {
+                            "op": "outcome",
+                            "args": {
+                              "tuple": [
+                                1
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "type": "Expr",
+                          "fields": {
+                            "op": "sin",
+                            "args": {
+                              "tuple": [
+                                {
+                                  "type": "Expr",
+                                  "fields": {
+                                    "op": "atan2",
+                                    "args": {
+                                      "tuple": [
+                                        {
+                                          "type": "Expr",
+                                          "fields": {
+                                            "op": "constant",
+                                            "args": {
+                                              "tuple": [
+                                                1.0
+                                              ]
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "type": "Expr",
+                                          "fields": {
+                                            "op": "constant",
+                                            "args": {
+                                              "tuple": [
+                                                0.0
+                                              ]
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "resource": {
+    "mapping": [
+      [
+        "nodes",
+        [
+          {
+            "tuple": [
+              0,
+              {
+                "mapping": [
+                  [
+                    "squeezing",
+                    1.0
+                  ]
+                ]
+              }
+            ]
+          },
+          {
+            "tuple": [
+              1,
+              {
+                "mapping": [
+                  [
+                    "squeezing",
+                    1.0
+                  ]
+                ]
+              }
+            ]
+          },
+          {
+            "tuple": [
+              2,
+              {
+                "mapping": [
+                  [
+                    "squeezing",
+                    1.0
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      ],
+      [
+        "edges",
+        [
+          {
+            "tuple": [
+              0,
+              1,
+              {
+                "mapping": [
+                  [
+                    "weight",
+                    1.0
+                  ]
+                ]
+              }
+            ]
+          },
+          {
+            "tuple": [
+              1,
+              2,
+              {
+                "mapping": [
+                  [
+                    "weight",
+                    1.0
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      ],
+      [
+        "inputs",
+        {
+          "tuple": [
+            0
+          ]
+        }
+      ],
+      [
+        "outputs",
+        {
+          "tuple": [
+            2
+          ]
+        }
+      ],
+      [
+        "ideal",
+        false
+      ]
+    ]
+  }
+}

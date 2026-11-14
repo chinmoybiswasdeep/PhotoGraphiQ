@@ -52,6 +52,19 @@ numbers below match the `Destination` column of `EXPERIMENT_INDEX.md`.
 | J. Kernel and expressivity ablations | R54, R55 |
 | K. Physical/resource boundaries and scaling | R58, R59 |
 
+## Cross-reference to the PhotoGraphiQ core suite
+
+Core experiment PGQ-R59 (`paper_experiments/20_photographiqml/59_photographiqml_physical.py`,
+`paper_experiments/NEW_EXPERIMENTS_R59.md`) runs the restricted physical MuTA of this suite
+on PhotoGraphiQ's compiled `native-fock` engine and on `piquasso-fock`. It reports engine
+agreement (decoded probabilities, final-state fidelity, measurement records, sampled
+shots), cutoff convergence, Pauli-frame corrections on physical branches, and provisional
+runtime. It fits next to Fig. 10 / Appendix H here (second Fock engine) and does not
+replace R38-R41: those compare against an independently assembled Pattern and raw
+Piquasso, whereas PGQ-R59 compares two engines on the same lowered Pattern (class C,
+shared GKP inputs). PGQ-R59 is the core suite's R59. It is unrelated to this suite's PGML-R59
+(end-to-end scaling).
+
 ## What NOT to claim
 
 - R7–R13 (MentPy) validate the **ideal logical qubit layer only**. MentPy is
@@ -95,6 +108,10 @@ numbers below match the `Destination` column of `EXPERIMENT_INDEX.md`.
   the fixed Eq. 5 feature map does not expose them.
 - R55's finite-system gradient samples are not evidence of an asymptotic
   barren plateau. R59's empirical fits apply only to the measured ranges.
+- Agreement between `native-fock` and `piquasso-fock` (PGQ-R59) shows that two Fock
+  engines agree on one finite-GKP model. It is not evidence that the finite-GKP model
+  matches the logical MuTA (that gap is physical, see R43/R56), and it is not a fault-tolerance claim.
+  Native-engine timings are provisional, single-machine observations.
 - R56-R58 exercise the restricted signed-X physical path only. They do not
   imply support for arbitrary angles, loss, detector inefficiency, or soft
   adaptive decoding.

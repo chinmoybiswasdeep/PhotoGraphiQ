@@ -3,6 +3,14 @@
 Uses the same five-mode showcase circuit as R8 and exports the full
 gate-by-gate compilation provenance (``CompilationTrace``/``CompilationStep``)
 as a machine-readable CSV plus a human-readable text summary.
+
+Upgrade migration (2026-11): the trace is now also checked against the
+command list it describes: every index in ``step.measurements`` is a
+``Measure`` command, every index in ``step.corrections`` is a ``Displace``
+command, every feed-forward dependency of a correction points to an earlier
+command (``Pattern.dependencies``), and the trace's resource nodes are
+exactly the prepared (non-input) nodes. No backend is involved; R8 executes
+the same compiled pattern on ``gaussian`` and ``native-gaussian``.
 """
 
 from __future__ import annotations
@@ -75,8 +83,32 @@ def main():
     if all_indices != expected:
         raise AssertionError("Compilation trace command indices do not partition the command list")
 
+    dag = pattern.dependencies()
+    trace_checks = {
+        "measurement_indices_are_measure_commands": all(
+            isinstance(pattern.commands[i], pg.Measure) for s in trace.steps for i in s.measurements
+        ),
+        "correction_indices_are_displace_commands": all(
+            isinstance(pattern.commands[i], pg.Displace) for s in trace.steps for i in s.corrections
+        ),
+        "corrections_depend_only_on_earlier_commands": all(
+            u < i for s in trace.steps for i in s.corrections for u in dag.predecessors(i)
+        ),
+        "resource_nodes_equal_prepared_nodes": sorted(
+            (n for s in trace.steps for n in s.resource_nodes), key=repr
+        ) == sorted((c.node for c in pattern.commands if isinstance(c, pg.Prepare)), key=repr),
+        "every_measurement_in_some_step": sorted(i for s in trace.steps for i in s.measurements)
+        == [i for i, c in enumerate(pattern.commands) if isinstance(c, pg.Measure)],
+    }
+    if not all(trace_checks.values()):
+        common.save_json(trace_checks, "R9_compilation_trace_FAILURES")
+        raise AssertionError(f"Trace inconsistent with the command list: {trace_checks}")
+
     common.save_csv(rows, "R9_compilation_trace")
-    common.save_json({"steps": rows, "pattern_signature": trace.pattern_signature}, "R9_compilation_trace")
+    common.save_json(
+        {"steps": rows, "pattern_signature": trace.pattern_signature, "trace_checks": trace_checks},
+        "R9_compilation_trace",
+    )
     common.write_metadata("R9_compilation_trace")
     common.save_raw("\n".join(summary_lines), "R9_compilation_trace_summary.txt")
 
@@ -85,6 +117,7 @@ def main():
         gates=len(trace.steps),
         total_commands=len(pattern.commands),
         total_resource_nodes=sum(len(s.resource_nodes) for s in trace.steps),
+        **trace_checks,
     )
 
 

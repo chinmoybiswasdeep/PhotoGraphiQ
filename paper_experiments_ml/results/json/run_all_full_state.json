@@ -1,22 +1,22 @@
 {
   "schema_version": 3,
-  "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-  "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+  "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+  "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
   "experiments": {
     "01_logical_foundations/01_triangle_anatomy.py": {
       "experiment_id": "R1",
       "script": "01_logical_foundations/01_triangle_anatomy.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 23.43989729997702,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "9c828113fcbdf22caabe5fd19a7ee3e7dc6818a2cbed4c03833c78c59b350d30",
         "script_sha256": "787d61ffdc5b73e81ad51883e5467865bb86d7d983f0734cf0a86dca50e46675",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R1_triangle_anatomy.csv",
@@ -26,20 +26,20 @@
           "figures/png/R1_triangle_anatomy.png",
           "figures/svg/R1_triangle_anatomy.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "0929346d4cce78c35c5ed9dd625d1b635361ea32ec639f26fdd85aba3deb67dd",
+      "fingerprint_sha256": "cd9baa579a6f52fc6a8dc2c5ddc6ba8f31e52272adfb70ab91a4c1eba7a78c10",
       "artifacts": [
         {
           "path": "results/csv/R1_triangle_anatomy.csv",
@@ -53,23 +53,23 @@
         },
         {
           "path": "results/json/R1_triangle_anatomy.metadata.json",
-          "size": 1780,
-          "sha256": "7f5f25d8d165f8217dfca181b956aa1e6ae627a3e8e1490bd7f6e8b9c5a2f003"
+          "size": 2539,
+          "sha256": "cf0b0a55a92ee41a2ddade9d602a95b6ac043c4b2dd631b9e330d036a6535e66"
         },
         {
           "path": "figures/pdf/R1_triangle_anatomy.pdf",
-          "size": 18017,
-          "sha256": "7ddef6fb3728092e1def491b11a5fb2804e9e146e927548a11e3bb4dfc058624"
+          "size": 18030,
+          "sha256": "04ba3f2de89df4efc05422ae45fc774de7016082b8befe0c62e289f3c0a93d60"
         },
         {
           "path": "figures/png/R1_triangle_anatomy.png",
           "size": 102096,
-          "sha256": "7b08ecde3eb68fa7ed4c4d42ac6e34aabbe20ea4d15888dbff8c9ce284793331"
+          "sha256": "310d718a0719cc457fed229dbc7a1e11041530f07c2a9c95fc20f45db8e37255"
         },
         {
           "path": "figures/svg/R1_triangle_anatomy.svg",
           "size": 69801,
-          "sha256": "28cfa4e3617aac15c1ca602eb7572880080460b8f27c4a5b682369ca2b758d1b"
+          "sha256": "aedd5b9511cdefa6c6d71de0fe36a8e662270c8ccf77195cd8be136954547406"
         }
       ],
       "log": "results/logs/01_triangle_anatomy.log"
@@ -77,17 +77,17 @@
     "01_logical_foundations/02_table_one_identities.py": {
       "experiment_id": "R2",
       "script": "01_logical_foundations/02_table_one_identities.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 22.649736999999732,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "6b26d2b6cd16492f3e828262da691323122e2b1de884812cd2461c44328068f7",
         "script_sha256": "05283f2072081d84c1b0f98be50947208567c21bdfb307d0afc1c1f5db8ad156",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R2_table_one_identities.csv",
@@ -97,20 +97,20 @@
           "figures/png/R2_table_one_identities.png",
           "figures/svg/R2_table_one_identities.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "68a90d52179908dc3e821433d7f916632d1cdc0c6ecf3e3e8a42b0340d3dcd62",
+      "fingerprint_sha256": "060c76081d6a96037ee0965f7d7af1301c524c04692dcae6f863ff7281d3576c",
       "artifacts": [
         {
           "path": "results/csv/R2_table_one_identities.csv",
@@ -124,23 +124,23 @@
         },
         {
           "path": "results/json/R2_table_one_identities.metadata.json",
-          "size": 1818,
-          "sha256": "b15e6c71f94845da4359a59e4d3118a125ffd1b1359bb498ac748f24048ffa3e"
+          "size": 2577,
+          "sha256": "1b193067d1a1a940e2be275ff7d3575bc2d4bb8f3d39144be6d6bcdd212fe2fe"
         },
         {
           "path": "figures/pdf/R2_table_one_identities.pdf",
-          "size": 22301,
-          "sha256": "31b7c3466fa1eb20a79c8a89b287f3cb41c6afb9e2ba52d4c92cefe3c9ee922b"
+          "size": 22446,
+          "sha256": "96557d566212f8be34302571fa76cf49d172f16739810b561694f35bacd12df6"
         },
         {
           "path": "figures/png/R2_table_one_identities.png",
           "size": 236397,
-          "sha256": "a36053db2bd56d400e57837a3156ed16ff33c5ec5f644eeee383636ce1d0f0df"
+          "sha256": "a36edbef67e1ae5b61096d6709d4831509939bdf8d4bf95f9e3a054fb578ca7c"
         },
         {
           "path": "figures/svg/R2_table_one_identities.svg",
           "size": 88634,
-          "sha256": "b42a54346212562aa99337e49f2a747b4b399c4a2a43a72d6a53be8d0ae3c2b7"
+          "sha256": "3c5b1a66098f58206c82fc2a6794ab514dde8e87db2e5b0598125ccb5a70689d"
         }
       ],
       "log": "results/logs/02_table_one_identities.log"
@@ -148,17 +148,17 @@
     "01_logical_foundations/03_entangling_identity.py": {
       "experiment_id": "R3",
       "script": "01_logical_foundations/03_entangling_identity.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 48.82022339999094,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "6b26d2b6cd16492f3e828262da691323122e2b1de884812cd2461c44328068f7",
         "script_sha256": "04f207e721275719151d601ed4336e78b4c1cfb1c163452f995e63f99f64e84f",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R3_entangling_identity.csv",
@@ -168,20 +168,20 @@
           "figures/png/R3_entangling_identity.png",
           "figures/svg/R3_entangling_identity.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "60c76d288dc67864f5e47b46f4de9033c68bdc30000b5fd441138c6945fb9656",
+      "fingerprint_sha256": "21bd882f8c5297b1220ef6d98c2d71bacb5c385f215822920b7a6e6c2594d164",
       "artifacts": [
         {
           "path": "results/csv/R3_entangling_identity.csv",
@@ -195,23 +195,23 @@
         },
         {
           "path": "results/json/R3_entangling_identity.metadata.json",
-          "size": 1780,
-          "sha256": "e3f53f3fda5d6b4af650d443fc05cc7abfd3772a3c552e03ed2c13437d3990fe"
+          "size": 2539,
+          "sha256": "07ec61bd7eb9de2bd2275b8966a72e8ae92e84ead0ccf39f0fe3ca3e171af357"
         },
         {
           "path": "figures/pdf/R3_entangling_identity.pdf",
-          "size": 20628,
-          "sha256": "25f36e2c4b890f377428a039f5892174c2a5a21584d3b311fd467c8313affee4"
+          "size": 20823,
+          "sha256": "d871cdec01014f15d6c0d2ffcbc449766ddf4339b0b0bf1154b564dc038e9a93"
         },
         {
           "path": "figures/png/R3_entangling_identity.png",
           "size": 240470,
-          "sha256": "15b48561344e0efe24c2ea1d8c9437cc0e438019bd7ba6e2f258140964bd27a7"
+          "sha256": "d39a9d1baa0997eb8778b626c81226b93ae1acbc1a7619fccd23fb7d69a986de"
         },
         {
           "path": "figures/svg/R3_entangling_identity.svg",
           "size": 58175,
-          "sha256": "2b1b49f769888ad1e81b36c80b1a5bb1dbd085ac89e53a2a91320057392ea451"
+          "sha256": "c4ad96b4ea112ec805cac117a9a58d3fa83817151c3380b3561f3e3dc0c394ac"
         }
       ],
       "log": "results/logs/03_entangling_identity.log"
@@ -219,17 +219,17 @@
     "01_logical_foundations/04_adaptive_branches.py": {
       "experiment_id": "R4",
       "script": "01_logical_foundations/04_adaptive_branches.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 129.98997140000574,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "6b26d2b6cd16492f3e828262da691323122e2b1de884812cd2461c44328068f7",
         "script_sha256": "988e78cfc5c3d131a1b41998a48692128d4b53f861e0a40a226155e6f3fd7381",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R4_adaptive_branches.csv",
@@ -239,20 +239,20 @@
           "figures/png/R4_adaptive_branches.png",
           "figures/svg/R4_adaptive_branches.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "6dd4e4f7c12553e407eb34a7da5d38c374d877c48323de9e566af13009908184",
+      "fingerprint_sha256": "d3624e8c5b6a0c80fa053a2120ba71cb390c510e050843bc293f4a0cc7dc5ac6",
       "artifacts": [
         {
           "path": "results/csv/R4_adaptive_branches.csv",
@@ -266,23 +266,23 @@
         },
         {
           "path": "results/json/R4_adaptive_branches.metadata.json",
-          "size": 1780,
-          "sha256": "1e45ae67e62bc84e56f49d052550e1d52c4886cce08b5858cd3af3eeffb8c7c7"
+          "size": 2539,
+          "sha256": "27cbeb39e72a973e678bfefa2160c18696f8d33cc54b97cf9577d27d22c1fa30"
         },
         {
           "path": "figures/pdf/R4_adaptive_branches.pdf",
-          "size": 17107,
-          "sha256": "8c51b49513a62d9a666f5b64282e146b821c9f349234164575c6478c33c3ca0a"
+          "size": 17210,
+          "sha256": "1741b912536b5dc7856fd88b1b32a199b1d3b7a858fe7e0c515187e9bd0f187c"
         },
         {
           "path": "figures/png/R4_adaptive_branches.png",
           "size": 92127,
-          "sha256": "554c302cd74525373d487a221c6923ac6cdfb0d8cdd607540f211186b12f0592"
+          "sha256": "df693c62909aeb57876bc80877324b526b47957ef09342901b6fc83c7fd9fe20"
         },
         {
           "path": "figures/svg/R4_adaptive_branches.svg",
           "size": 47230,
-          "sha256": "82875d31737af7d422ea975a479a7e25d1f0f1915eef3d09a793b4e527d2ed12"
+          "sha256": "5773a19f1f8230118c885191b2da43791500b6715a15cba72809dd0c6b48d7ff"
         }
       ],
       "log": "results/logs/04_adaptive_branches.log"
@@ -290,17 +290,17 @@
     "01_logical_foundations/05_brute_force_agreement.py": {
       "experiment_id": "R5",
       "script": "01_logical_foundations/05_brute_force_agreement.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 11.812750200013397,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "de34e8f09b834e66c4c3f3fb8dd131aee173eae87ba85efaef18e1b0812ef497",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R5_brute_force_agreement.csv",
@@ -310,20 +310,20 @@
           "figures/png/R5_brute_force_agreement.png",
           "figures/svg/R5_brute_force_agreement.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "9807c147a93a5e7a7148876d77c977fc1bf2cd7a484a459314a009b212cb9224",
+      "fingerprint_sha256": "5329d450aaf4a31ab5cde577740234c5a04874de2eb3dd404dcff694dda3fb12",
       "artifacts": [
         {
           "path": "results/csv/R5_brute_force_agreement.csv",
@@ -337,23 +337,23 @@
         },
         {
           "path": "results/json/R5_brute_force_agreement.metadata.json",
-          "size": 1780,
-          "sha256": "4d2311e8406dfd0c55fc33b8dfb2bdc1488afa59554b6d98f433649f210f0d18"
+          "size": 2575,
+          "sha256": "bf7c365fd3757e9043b08205dd65898c0aeae1c3140f861736a2416c9680c737"
         },
         {
           "path": "figures/pdf/R5_brute_force_agreement.pdf",
-          "size": 16839,
-          "sha256": "81b88c85521f64d8a46ebacd3b41ae6fa96785f839c055fac411778c8cb1e095"
+          "size": 16985,
+          "sha256": "2609e5206dd5935995beb8f6c1545368777802a91356af653e63529cbe237516"
         },
         {
           "path": "figures/png/R5_brute_force_agreement.png",
           "size": 118206,
-          "sha256": "2875d02d47a8a1af2ad145dda084b47272c51c3a0b3ec5334b8bb0f0a4af1145"
+          "sha256": "d475b7213ca92704d4b00b54abfeb08590b67bfa33d0a183805a50d1effb1a77"
         },
         {
           "path": "figures/svg/R5_brute_force_agreement.svg",
           "size": 57928,
-          "sha256": "e9fe3f039cd77ac601fd0ae92a212f1b4aefa032cb3c501b863e6a3c84e9945b"
+          "sha256": "54c2c2eb416cddbedf4ca6ade3670f21b9e2d0a8064a68c53fc298bd9a663cb6"
         }
       ],
       "log": "results/logs/05_brute_force_agreement.log"
@@ -432,17 +432,17 @@
     "02_mentpy_validation/07_semantic_topology.py": {
       "experiment_id": "R7",
       "script": "02_mentpy_validation/07_semantic_topology.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 172.51458089999505,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "a6a6f5c4f212084141b8c628cae5befbbca1beb35ad4e9960c416c486f674595",
         "script_sha256": "79adbdcf64199be13d926804ed53ef957c00e2aac7ae272ecf28ea120c4f8aed",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R7_semantic_topology.csv",
@@ -452,20 +452,20 @@
           "figures/png/R7_semantic_topology.png",
           "figures/svg/R7_semantic_topology.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "e367f38953bc1b1838b3665e880318d830cf5c2056cfd4fad907b8d64f200209",
+      "fingerprint_sha256": "1004255b55ed38d1bd1a077f44fc54912ce67114789ca69a7600f96a3085e011",
       "artifacts": [
         {
           "path": "results/csv/R7_semantic_topology.csv",
@@ -479,23 +479,23 @@
         },
         {
           "path": "results/json/R7_semantic_topology.metadata.json",
-          "size": 1780,
-          "sha256": "f53d4588065e3543d276a4b0dc8d374d07ba3d19c286531dfd8ec934281d794a"
+          "size": 2539,
+          "sha256": "3846245151bf9d89b823ba27d99a56796ec1b6ef8ab8e1dd519cf3f320833a5d"
         },
         {
           "path": "figures/pdf/R7_semantic_topology.pdf",
-          "size": 16709,
-          "sha256": "49786780b3669623fd47e2eb97824b5449ebc1bbbbfb4b00053316a56032f3f2"
+          "size": 16819,
+          "sha256": "0c99883843d9582f271ab9655aca4ba60c6c68dae0981b3f44151a76c8490185"
         },
         {
           "path": "figures/png/R7_semantic_topology.png",
           "size": 108333,
-          "sha256": "85188034e66cf17109fa90c264a0e8d0a1d9676829a325e6535982c39d6edbf1"
+          "sha256": "7d1603ff0e7926991ef2b210da72b239a264e4e168a79acd44cf2ca24521a888"
         },
         {
           "path": "figures/svg/R7_semantic_topology.svg",
           "size": 51879,
-          "sha256": "57bcd2176397ad0b1f1f42275c05cc303f9663053d67bcac84a9cc2c57980dc2"
+          "sha256": "0d9a0198aeeed8ffd2105bd45cd8c5c1ea856ae6fa88ad9fd7728cba81ceb3f7"
         }
       ],
       "log": "results/logs/07_semantic_topology.log"
@@ -574,17 +574,17 @@
     "02_mentpy_validation/09_state_density_agreement.py": {
       "experiment_id": "R9",
       "script": "02_mentpy_validation/09_state_density_agreement.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 14.56867589999456,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "1ea3126f6dcd45d1fa8b5af77abe52ba71977e958021c483cde5b4a28e740c02",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R9_state_density_agreement.csv",
@@ -594,20 +594,20 @@
           "figures/png/R9_state_density_agreement.png",
           "figures/svg/R9_state_density_agreement.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "3db5c141644b00039f44e2f3b2e52fb3f28b1ba1830c30317d50e4d5c6b234cb",
+      "fingerprint_sha256": "ac107f5be30ffe8e36715df5117970e5f80f321318db75cc8f7ead37122e5265",
       "artifacts": [
         {
           "path": "results/csv/R9_state_density_agreement.csv",
@@ -621,23 +621,23 @@
         },
         {
           "path": "results/json/R9_state_density_agreement.metadata.json",
-          "size": 1780,
-          "sha256": "d42555d5fd7fd64f20ab67f58339a20f9dc90a9ed1a1fa30188359ec790d9c64"
+          "size": 2575,
+          "sha256": "ff53d676a2a37aba1036652cb5e6f102719ba366b9d066247f35b98af0127da4"
         },
         {
           "path": "figures/pdf/R9_state_density_agreement.pdf",
-          "size": 19369,
-          "sha256": "0a04b2c9478967ad1d848556f52c17c9b697da6923c7913070a23f09e8734b74"
+          "size": 19484,
+          "sha256": "53e33e99853d0b42315df1a3076c40cd14fe2da3bd6663770eab76e8bda9a424"
         },
         {
           "path": "figures/png/R9_state_density_agreement.png",
           "size": 93774,
-          "sha256": "2d640668c08a6c0252bd755a5efcf83bbf80b00ad8d2bf0885b1b501d31dce58"
+          "sha256": "67af6b7889b4166516b01b819de018c09fce15d98fd442c1a38d684bd3a79303"
         },
         {
           "path": "figures/svg/R9_state_density_agreement.svg",
           "size": 44367,
-          "sha256": "436ab0d3974de3f5b178e7a0cc79a96b709cdc14d0a0c79d8d26a9f9df3b1fa5"
+          "sha256": "cda884dae97f575c81b55bcbf6f4095a50635f25743f8ca5da73683d11e382bc"
         }
       ],
       "log": "results/logs/09_state_density_agreement.log"
@@ -1142,17 +1142,17 @@
     "03_parameters_and_contracts/17_seeded_reproducibility.py": {
       "experiment_id": "R17",
       "script": "03_parameters_and_contracts/17_seeded_reproducibility.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 1471.806318499992,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "a6a6f5c4f212084141b8c628cae5befbbca1beb35ad4e9960c416c486f674595",
         "script_sha256": "008c9f5fa3de40edb8f5f56f5ba6429c103f3eb35f1bda080466e3b0da91a849",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R17_seeded_reproducibility.csv",
@@ -1162,20 +1162,20 @@
           "figures/png/R17_seeded_reproducibility.png",
           "figures/svg/R17_seeded_reproducibility.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "b8de5fe1a68cc45ceef7a0717d2f27ea65f15473ba5112b4a8cba5205034301b",
+      "fingerprint_sha256": "999282a8b809401d0b5117dd9bba81577cdf68c85b5a9bb233db9a7181427382",
       "artifacts": [
         {
           "path": "results/csv/R17_seeded_reproducibility.csv",
@@ -1189,23 +1189,23 @@
         },
         {
           "path": "results/json/R17_seeded_reproducibility.metadata.json",
-          "size": 1781,
-          "sha256": "4bc208246abd723be7a00e700b8ba98a3e62135887cdff3c629d998f73fbacb6"
+          "size": 2576,
+          "sha256": "11ef8dfe2b669894d12688e426fdde24ec1031081e5879076623e578546630a6"
         },
         {
           "path": "figures/pdf/R17_seeded_reproducibility.pdf",
-          "size": 17131,
-          "sha256": "8562255f721cb834c293cb7627a4c5edb7cacff564e3525523561f5d807755a9"
+          "size": 17206,
+          "sha256": "0a8511042fb6231d9138ff20af5365c3ca706e053d3b3ff3113a289ec317a399"
         },
         {
           "path": "figures/png/R17_seeded_reproducibility.png",
           "size": 101213,
-          "sha256": "5aabf3f603618fd9e72a472b0996f4c4bcb4a43e53bab80c1d7da79bc6e37887"
+          "sha256": "489023ee666ac130adbb8a4d70399ffd73e4e6d6d5e0fc44350566381d1b1f15"
         },
         {
           "path": "figures/svg/R17_seeded_reproducibility.svg",
           "size": 46214,
-          "sha256": "09ff37388e1efc4f6992c283e897e7615e47c26de98a8fb134dca1ddb3ac983f"
+          "sha256": "43ac001eadc3df5f6331233f256ccc81d73ba52889f3d038e1c26520b710effd"
         }
       ],
       "log": "results/logs/17_seeded_reproducibility.log"
@@ -1497,17 +1497,17 @@
     "04_gradients_and_training/22_gate_learning_sensitivity.py": {
       "experiment_id": "R22",
       "script": "04_gradients_and_training/22_gate_learning_sensitivity.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 341.7148408999783,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "3f98941cc5345f7c3e3f9e8ac882d7e15c4f9915cd8b0f54e0781cabdb8fc71e",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R22_gate_learning_sensitivity.csv",
@@ -1517,20 +1517,20 @@
           "figures/png/R22_gate_learning_sensitivity.png",
           "figures/svg/R22_gate_learning_sensitivity.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "470cb31c2c7e214d9cf066f7ce96b23b01424f32e84b40c96dc88b7938ecfe1b",
+      "fingerprint_sha256": "958c9c7a19924fb229bbf829e6a2667049ffdf3c6e880b8bc64058d2da33c7cd",
       "artifacts": [
         {
           "path": "results/csv/R22_gate_learning_sensitivity.csv",
@@ -1544,23 +1544,23 @@
         },
         {
           "path": "results/json/R22_gate_learning_sensitivity.metadata.json",
-          "size": 1865,
-          "sha256": "396e7135eba4018b94f98f77efaecbcae12e72e0fd1a3dad8b79e80db2b605fb"
+          "size": 2660,
+          "sha256": "dc4f843a5cd37339965e880f85fdc74a0dbf27812ade9a97300c6b1b6e81fe37"
         },
         {
           "path": "figures/pdf/R22_gate_learning_sensitivity.pdf",
-          "size": 18596,
-          "sha256": "af808118c04de5e886815dab0b9b7bba6da1888fe1abfd2d50658d8852dcd4bc"
+          "size": 18676,
+          "sha256": "75ce9f5142e58fd93f39bf618468ddff9929a2d13f18e57d36be424b76e9b9da"
         },
         {
           "path": "figures/png/R22_gate_learning_sensitivity.png",
           "size": 100008,
-          "sha256": "6ede3ae4bb41d280052f890585094d60acf49b888fd072968f6251345d81ca26"
+          "sha256": "ce24d740336816b2807a759108c04b0e274d21ccac53525bfa5f43cae20756e9"
         },
         {
           "path": "figures/svg/R22_gate_learning_sensitivity.svg",
           "size": 59529,
-          "sha256": "b3aacc386e56fe7d9757b4c5d18e1859f22deffb611f10e8e6fb6f04b87a8e96"
+          "sha256": "04f032cd5f8792aa766db3e3fc32988fd9b3cd57fe99b420a34c8714277bea52"
         }
       ],
       "log": "results/logs/22_gate_learning_sensitivity.log"
@@ -1852,17 +1852,17 @@
     "05_kernels_and_learning/27_kernel_classification.py": {
       "experiment_id": "R27",
       "script": "05_kernels_and_learning/27_kernel_classification.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 15.748853400000371,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "d0e7eadf7480d8ef2aa88fe8dff7c592dddea1667084d7d0752cd11701af42c6",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R27_kernel_classification.csv",
@@ -1872,20 +1872,20 @@
           "figures/png/R27_kernel_classification.png",
           "figures/svg/R27_kernel_classification.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "a153912354fd2427cd95e8db778ed93cd88de3731c3df3f6801ac297e8aee273",
+      "fingerprint_sha256": "94ab8d84d1d39b600b896890c9e5883c1c503a58625bd6f6b403e653ef9cad0b",
       "artifacts": [
         {
           "path": "results/csv/R27_kernel_classification.csv",
@@ -1899,23 +1899,23 @@
         },
         {
           "path": "results/json/R27_kernel_classification.metadata.json",
-          "size": 1884,
-          "sha256": "4adbaa0595a22d44c7f768d95aa7f8644ce82f0d1dceefc235d78d2b6c4ed466"
+          "size": 2679,
+          "sha256": "bbe707dffc35d6f2429c3b3831d86997b2d80c127b7d3e31073398b8986970df"
         },
         {
           "path": "figures/pdf/R27_kernel_classification.pdf",
-          "size": 20726,
-          "sha256": "b4b7d5b60d1186663d23b026fdd348d05b4a95d91e2be7c12463e75bf4da9c16"
+          "size": 20808,
+          "sha256": "3a2de08a45b1c3e227fdd5896c4acc471c0b2e05b6dc6bf0377cc9fe81ae852c"
         },
         {
           "path": "figures/png/R27_kernel_classification.png",
           "size": 83142,
-          "sha256": "d90f63bf749f5cb743617ac57196a93fb52ae21ea259fa7a75bab8fb479d99c1"
+          "sha256": "1592b06d3bec89b032a4a9fcdd3f11df1c90b46d622440f79eac5f7d8e2c9bbc"
         },
         {
           "path": "figures/svg/R27_kernel_classification.svg",
           "size": 58865,
-          "sha256": "fec14fa1749e25bdd2e05520ff1f2e34fed65e6f39affaead58960489c25c35e"
+          "sha256": "3da61f064b8289583ea77e96e0012c1f7bfe70e58b3c5ce91c642b6ef611424f"
         }
       ],
       "log": "results/logs/27_kernel_classification.log"
@@ -1923,17 +1923,17 @@
     "05_kernels_and_learning/28_kernel_robustness.py": {
       "experiment_id": "R28",
       "script": "05_kernels_and_learning/28_kernel_robustness.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 26.894233500002883,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "85308375b9b88b6fb53b72b146e99f7e1145bf5600f9dd61dfbf4abd12380dd2",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R28_kernel_robustness.csv",
@@ -1943,20 +1943,20 @@
           "figures/png/R28_kernel_robustness.png",
           "figures/svg/R28_kernel_robustness.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "276e4c916c71dac550b30f350ee1db1cea28637e21839d4df51aedf4ee6077ae",
+      "fingerprint_sha256": "00f243cf5a25fdd3de9d4b00d6dcb0b3ed47ff7318c069bc51a8408fee4c8960",
       "artifacts": [
         {
           "path": "results/csv/R28_kernel_robustness.csv",
@@ -1970,23 +1970,23 @@
         },
         {
           "path": "results/json/R28_kernel_robustness.metadata.json",
-          "size": 1870,
-          "sha256": "6949b7ab3b7474334c9b1648afba196543670a8eac2caff18e6d73a008a27a81"
+          "size": 2665,
+          "sha256": "535e6fb9c735abc88b58f841ceb8ea1c1f1135ea3ef0ac184d574d97312c7c11"
         },
         {
           "path": "figures/pdf/R28_kernel_robustness.pdf",
-          "size": 18876,
-          "sha256": "6f95eb0a1916e425611cf129ed504defd0f3c411fab0d1f3e7a772ad34f39951"
+          "size": 18954,
+          "sha256": "53eb11e1e15c2259e7f8198ebca6459e7d0bb807e33d4958ee66ac78c9578b5e"
         },
         {
           "path": "figures/png/R28_kernel_robustness.png",
           "size": 192728,
-          "sha256": "70d21c3188d49e4818a40a42eb23adbbea1ecc38b96a64b7c128df5d7d9451fd"
+          "sha256": "8f75acce7d751c1a6076819378e04215043bcb292d7c2cd0997076c1914452d4"
         },
         {
           "path": "figures/svg/R28_kernel_robustness.svg",
           "size": 72964,
-          "sha256": "4c7d2a34db035d472e749714801ee2f33919966d3a936009261b765c1fc48e37"
+          "sha256": "53263372da4c707ee2b5d8546c61981267015014f2a2222860e614c83b49bc01"
         }
       ],
       "log": "results/logs/28_kernel_robustness.log"
@@ -2633,17 +2633,17 @@
     "08_physical_lowering/38_public_pattern_comparison.py": {
       "experiment_id": "R38",
       "script": "08_physical_lowering/38_public_pattern_comparison.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 15.552663599984953,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "8de55d33b4a286f4b45c8f520ccd440d35c2dfceb55eee569d3ffcd5a2273684",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R38_public_pattern_comparison.csv",
@@ -2653,20 +2653,20 @@
           "figures/png/R38_public_pattern_comparison.png",
           "figures/svg/R38_public_pattern_comparison.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "4098c3d2d0113c8581907718a66db6fc58f91c7be2e98901439ab5bbb5f81412",
+      "fingerprint_sha256": "5ff63b1a106f2ec40c83438567c9089dc49eee81e8b1bddb35db0058d968b23b",
       "artifacts": [
         {
           "path": "results/csv/R38_public_pattern_comparison.csv",
@@ -2680,23 +2680,23 @@
         },
         {
           "path": "results/json/R38_public_pattern_comparison.metadata.json",
-          "size": 1781,
-          "sha256": "1cdce22da5cff99954a59a24212e7e44dde02d73b2d54837e74a29f41b057a37"
+          "size": 2576,
+          "sha256": "88f888e26e91e29564b3666753bdf81796d0a5298e533b24a538425f64bd8c36"
         },
         {
           "path": "figures/pdf/R38_public_pattern_comparison.pdf",
-          "size": 15858,
-          "sha256": "5b39712ade905413ada982a242cae219b7718ac1d6145e39b9b740dd60639c09"
+          "size": 15979,
+          "sha256": "2f9cbc72462eaba084899f3eef6b54d86ce7264b59cace7e7aeb463d86252a78"
         },
         {
           "path": "figures/png/R38_public_pattern_comparison.png",
           "size": 61239,
-          "sha256": "c236395268741cd273a4fa16e12b07e6f1ee8d7d81b9a08c1d622d21f09234ee"
+          "sha256": "e57cc800a2cf2f102db15a7b6f3c3129157497f0392d90ca0d8d6e3ad81a1b9f"
         },
         {
           "path": "figures/svg/R38_public_pattern_comparison.svg",
           "size": 33537,
-          "sha256": "f7228aef5436e854bea90f6fb47e07dfc5a37bd3743d6fdcbd387880c12f4530"
+          "sha256": "22b6a0fc698c2818b52070224689c68f4818200c46ce006077b0e512da3fbdfd"
         }
       ],
       "log": "results/logs/38_public_pattern_comparison.log"
@@ -2775,17 +2775,17 @@
     "09_piquasso_validation/40_raw_piquasso_cz.py": {
       "experiment_id": "R40",
       "script": "09_piquasso_validation/40_raw_piquasso_cz.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 105.8706177000131,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "9adb684456effea56d8b1c6ab86ddf6779cab88a217339990fba9a8ba3ff68f2",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R40_raw_piquasso_cz.csv",
@@ -2795,20 +2795,20 @@
           "figures/png/R40_raw_piquasso_cz.png",
           "figures/svg/R40_raw_piquasso_cz.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "81d94d3554a216ce5bae233d17cd1413abe3eca0de1a1b764badbdf11797481e",
+      "fingerprint_sha256": "d6467f3fdb390c52e861a48d8511d5dd8560e6e2f24ef957c91e95900742d348",
       "artifacts": [
         {
           "path": "results/csv/R40_raw_piquasso_cz.csv",
@@ -2822,23 +2822,23 @@
         },
         {
           "path": "results/json/R40_raw_piquasso_cz.metadata.json",
-          "size": 1781,
-          "sha256": "f331d40fa6eb342c455d923c414a521dc1206389bdab46f9d6b34e17f19a16f2"
+          "size": 2576,
+          "sha256": "4513ab7b680f00c256a30fdb7e87990e7945d49aba36aee9ef41e48203097995"
         },
         {
           "path": "figures/pdf/R40_raw_piquasso_cz.pdf",
-          "size": 17541,
-          "sha256": "5a00e42d3cf6c762def27709c4c672792e513926d2862e5288b657eb72cc084c"
+          "size": 17706,
+          "sha256": "0f5496fc8c175d5838192abc0d3080873f4a02b80848cde23f0a37baefc7df0f"
         },
         {
           "path": "figures/png/R40_raw_piquasso_cz.png",
           "size": 95889,
-          "sha256": "5d7cb34cc247f4cfb611f0d11c3d7b9bc1e3415d180f469e92177dec8c4f62ec"
+          "sha256": "7c97bf671f9c42f17e2e5100f2c661cec92ebda0bc2857443681825ed56fa781"
         },
         {
           "path": "figures/svg/R40_raw_piquasso_cz.svg",
           "size": 54918,
-          "sha256": "c25e9414ffaa0aa7019c18072216450463a7519b036b7c9b97a380819da03c0b"
+          "sha256": "d0be3bd6361226118f6f3aaaf9ecbffb91119237747789f92326fb69237d49c5"
         }
       ],
       "log": "results/logs/40_raw_piquasso_cz.log"
@@ -2846,17 +2846,17 @@
     "09_piquasso_validation/41_conditional_execution_comparison.py": {
       "experiment_id": "R41",
       "script": "09_piquasso_validation/41_conditional_execution_comparison.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 20.72909140001866,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "c76430fb92bc649d883185c0a8e17fbe0425726d900ab335e7a3755341bbd5a6",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R41_conditional_execution_comparison.csv",
@@ -2866,20 +2866,20 @@
           "figures/png/R41_conditional_execution_comparison.png",
           "figures/svg/R41_conditional_execution_comparison.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "2c9dc835ea362376993f6db52330bf3e45319bcdae138bf5c96799dd5cb41a96",
+      "fingerprint_sha256": "04f7a9adf269d9e70e57d793c87db17536b2cd1f9100787084fcef53f1030815",
       "artifacts": [
         {
           "path": "results/csv/R41_conditional_execution_comparison.csv",
@@ -2893,23 +2893,23 @@
         },
         {
           "path": "results/json/R41_conditional_execution_comparison.metadata.json",
-          "size": 1781,
-          "sha256": "c5cb7970537adb5b596bb70ec93ba104356cb28fc9eac17f3a11dd4e2f28c86c"
+          "size": 2576,
+          "sha256": "0f930102d33040ffe934e0488e790704e052803d09e0ec68a5526d119cfb9269"
         },
         {
           "path": "figures/pdf/R41_conditional_execution_comparison.pdf",
-          "size": 16443,
-          "sha256": "8e8664f12f135ef0d392fcdb117db8660f51aeb7fd19021b93c67ebb9db34378"
+          "size": 16541,
+          "sha256": "b4570792505ed972916674c00626fabcfc71e9bcf3144b65f06a1709affbd5a0"
         },
         {
           "path": "figures/png/R41_conditional_execution_comparison.png",
           "size": 121759,
-          "sha256": "bf0d46b6271babc416b549a6b243e37540370b93da60f642bc64064813d96eee"
+          "sha256": "04c4a92dd88a5c3e7d6ec94599cde6e40763af9d5fefb650665a01e808d9f000"
         },
         {
           "path": "figures/svg/R41_conditional_execution_comparison.svg",
           "size": 48866,
-          "sha256": "4287b11aaa3fe06d96889bad08e11112f9399e03cb1cf21467acdfbfc81ec49a"
+          "sha256": "603bda57a860fc0111f998bc21aee47876d490f3e6f414cf87e8b4e0bea2f67d"
         }
       ],
       "log": "results/logs/41_conditional_execution_comparison.log"
@@ -2917,17 +2917,17 @@
     "09_piquasso_validation/42_abstraction_overhead.py": {
       "experiment_id": "R42",
       "script": "09_piquasso_validation/42_abstraction_overhead.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 24.82456509998883,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "1848b3322fb6c5c6c5493a6e453852a3aeee8b1e878e2716fc4335744c12360c",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R42_abstraction_overhead.csv",
@@ -2937,50 +2937,50 @@
           "figures/png/R42_abstraction_overhead.png",
           "figures/svg/R42_abstraction_overhead.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "32a775ce0b52d414145d0527ae7cef7cf4b26fc1437f35e4a1757a585d207fab",
+      "fingerprint_sha256": "ad20c9afb221892d07f7900d6b54f8b28d0206b46f01ed4245c45d525fd65103",
       "artifacts": [
         {
           "path": "results/csv/R42_abstraction_overhead.csv",
-          "size": 509,
-          "sha256": "3b4080b7cdc6ec0d61d3ad0cbcd651090095b59d0a2fea78862e21884f896838"
+          "size": 501,
+          "sha256": "eaf530f68359abb9286e04bd9923c509e1d482ee874a921128a604681300c3a9"
         },
         {
           "path": "results/json/R42_abstraction_overhead.json",
-          "size": 1693,
-          "sha256": "2d07353980adb0af0366a82d9aa4e5dad0eba1a121942b09f158f1e3003c2d08"
+          "size": 1685,
+          "sha256": "5a83ecbc8dcf6a8d919af743198098de4ca0e827a75c3c88099fcf305349c3b2"
         },
         {
           "path": "results/json/R42_abstraction_overhead.metadata.json",
-          "size": 1786,
-          "sha256": "7f3130cc1482d758244769212a4060d570085ed6ff9689ed4f413a5c6a700abb"
+          "size": 2581,
+          "sha256": "17f34ad78bb3daf420800324f92ffb63b41e88e76cd04e3dd3d8de27084bf319"
         },
         {
           "path": "figures/pdf/R42_abstraction_overhead.pdf",
-          "size": 15554,
-          "sha256": "741f7a65c5042e5e780698b97ebb6738fb3baabd715db88c0a8cdea1b4703741"
+          "size": 16393,
+          "sha256": "e2d422b5a8048ba50972f00805c31278ebaee3cb94f7a40df183c4daf08615da"
         },
         {
           "path": "figures/png/R42_abstraction_overhead.png",
-          "size": 118395,
-          "sha256": "b1d8da7884e319b10e47af8c75f973090d5bfd6d7080f0167a853d0a3454932b"
+          "size": 120547,
+          "sha256": "26b6bbf59d8102312a56ca6ec9a1f3c7750a3887b623ea84f9026813a52551c1"
         },
         {
           "path": "figures/svg/R42_abstraction_overhead.svg",
-          "size": 41406,
-          "sha256": "3075340d34913f5afd93944641066a42219135d80e082950f8280edcfd4a8f79"
+          "size": 42935,
+          "sha256": "88466d509050eeb24c0f3876c6257ddb39cd84fa1e1a47d1da2764fe7050a4ae"
         }
       ],
       "log": "results/logs/42_abstraction_overhead.log"
@@ -2988,17 +2988,17 @@
     "10_physical_statistics/43_decoded_statistics.py": {
       "experiment_id": "R43",
       "script": "10_physical_statistics/43_decoded_statistics.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 33.935068499995396,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "43f305fb01755d7ad7702af6b34ef031e168bfd24e7791e04df137cae4693f9e",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R43_decoded_statistics.csv",
@@ -3008,20 +3008,20 @@
           "figures/png/R43_decoded_statistics.png",
           "figures/svg/R43_decoded_statistics.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "bd8805f53771d2d976e379fee832630a9c4321215d6e0864457193cabdd969fc",
+      "fingerprint_sha256": "fdf86551badade649af8c5fe7b68179ed217ab6b0d2ffa0552317e90a9b78840",
       "artifacts": [
         {
           "path": "results/csv/R43_decoded_statistics.csv",
@@ -3035,23 +3035,23 @@
         },
         {
           "path": "results/json/R43_decoded_statistics.metadata.json",
-          "size": 1781,
-          "sha256": "8be826b734ef62078ca8362ef0da76fd16da0f22959aac4f00e95fbba66ad109"
+          "size": 2576,
+          "sha256": "7cca589991f9af103cf2e1d52f2a81400d3d462edd55c5dd93a00fef417860b1"
         },
         {
           "path": "figures/pdf/R43_decoded_statistics.pdf",
-          "size": 15412,
-          "sha256": "f2d09bdb57fc9faac687c3d6910e5695431e76cfdefbe4b346d9628d1d99fe33"
+          "size": 15497,
+          "sha256": "345fc8e0b9aaa57766b27533886a774eb9439a5072cfee9fd4390456322c7d10"
         },
         {
           "path": "figures/png/R43_decoded_statistics.png",
           "size": 91238,
-          "sha256": "7efbc1ec6e92db4494d6ca0e0cd2b008942da582ce9ce7c0c3129d43990f84b6"
+          "sha256": "169246a2ea29021eb5ac847a0c51197775ff2d7fded257911520657b3165936a"
         },
         {
           "path": "figures/svg/R43_decoded_statistics.svg",
           "size": 42315,
-          "sha256": "704446a40b91fc934c52da01d96c11eae749fa47c28a7cebdd8f0bbcd83c5607"
+          "sha256": "a4d41a256ad19a7f7927e32e0f1de20a9568fce9eaf2aa9876817fe879ff41fc"
         }
       ],
       "log": "results/logs/43_decoded_statistics.log"
@@ -3059,17 +3059,17 @@
     "10_physical_statistics/44_shot_convergence.py": {
       "experiment_id": "R44",
       "script": "10_physical_statistics/44_shot_convergence.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 629.2846115999855,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "07a75678f9f64df4e4850c15c060fa844f97970a171ebc5aa878e608f521b82e",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R44_shot_convergence.csv",
@@ -3079,20 +3079,20 @@
           "figures/png/R44_shot_convergence.png",
           "figures/svg/R44_shot_convergence.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "5973d7f968ece88230bc4bdb167719de10eed7f4ad1acc74e889d0139ae6a712",
+      "fingerprint_sha256": "ac1b7a78a7be69c8ec231a5f6a1a7e3daf15ee295977a6ea618255f30a9bfc07",
       "artifacts": [
         {
           "path": "results/csv/R44_shot_convergence.csv",
@@ -3106,23 +3106,23 @@
         },
         {
           "path": "results/json/R44_shot_convergence.metadata.json",
-          "size": 1923,
-          "sha256": "deebdb2c1cf2846d0d064b24074b3564c23e335481e4f14a790e51fb26157223"
+          "size": 2718,
+          "sha256": "e4b42b509c870ee73b18be7269414357c9de7141f3a8ad3a0f204e37c8fa42c7"
         },
         {
           "path": "figures/pdf/R44_shot_convergence.pdf",
-          "size": 21389,
-          "sha256": "67eaf2b8b1039cf402a782ac9661bc257d611c429e5871b37d4d028b4ea39176"
+          "size": 21548,
+          "sha256": "7172264fe575e83703c765dfe55ed4879de144219e963bc9cb179ecb2b1cc8ce"
         },
         {
           "path": "figures/png/R44_shot_convergence.png",
           "size": 162558,
-          "sha256": "b3d26c37920792fd5fc30caef42739e031c05635df39615ae60d6c8e9086c1ab"
+          "sha256": "e261d174bfdc37e80e33b3eb636dde27557d9c6346077ff25485f86d36b4675b"
         },
         {
           "path": "figures/svg/R44_shot_convergence.svg",
           "size": 59350,
-          "sha256": "f5d7b31603033f3e082f22f84febd574acdff0f7bf9e9b24e948d55238d7de35"
+          "sha256": "720c619f9240f693f31adec460c03fbf2035f6b4a5369bd807ad5e2bfa9b2693"
         }
       ],
       "log": "results/logs/44_shot_convergence.log"
@@ -3130,17 +3130,17 @@
     "10_physical_statistics/45_joint_readout_correlations.py": {
       "experiment_id": "R45",
       "script": "10_physical_statistics/45_joint_readout_correlations.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 29.241499099996872,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "91fa4961fb995e03828a20b887c122db3f668b7be6d42806010a091e4585e39f",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R45_joint_readout_correlations.csv",
@@ -3150,20 +3150,20 @@
           "figures/png/R45_joint_readout_correlations.png",
           "figures/svg/R45_joint_readout_correlations.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "c5356220d473aa4deddf7aa30819cd7c5d984b6286c98e5ff5c7f325e55c8fbb",
+      "fingerprint_sha256": "4c3bc54e40682b359aad23a2b72fb7606a61556cfd4b7d43b603b72d85acf4b3",
       "artifacts": [
         {
           "path": "results/csv/R45_joint_readout_correlations.csv",
@@ -3177,23 +3177,23 @@
         },
         {
           "path": "results/json/R45_joint_readout_correlations.metadata.json",
-          "size": 1783,
-          "sha256": "f76ff0230ebb5371ff055274bcc60574a9bcb7d4ba193073fca4096b9f629918"
+          "size": 2578,
+          "sha256": "dc6ac044322276abe7124cc33b31209c625f73c55f2599ba7380e8673ed4e070"
         },
         {
           "path": "figures/pdf/R45_joint_readout_correlations.pdf",
-          "size": 16546,
-          "sha256": "7af35196bf409ad8ad165de86fb62cc8fac62963b44281df655e4b3ce4e45c61"
+          "size": 16665,
+          "sha256": "f600fe7fb535ffab7461f8ab92d0081185ba51b01de7fb2ea4b6b845bb27d267"
         },
         {
           "path": "figures/png/R45_joint_readout_correlations.png",
           "size": 114266,
-          "sha256": "3073a2a245493c6f02e80ee24442dc4c2e2203000bc60e9e47cc6da44925c8b9"
+          "sha256": "1dbafb3dea885815a9e612daf98a37f416cd66da35159c4d1ba8948f2d893e27"
         },
         {
           "path": "figures/svg/R45_joint_readout_correlations.svg",
           "size": 49681,
-          "sha256": "57a48e75a913d2eb31518eb674a0eca07bf5687d372d1f3f2e51b20acad62a21"
+          "sha256": "947e977d6c45cf0eb091d0d7d903bfc90324f3d2f90c432c23520526d1079220"
         }
       ],
       "log": "results/logs/45_joint_readout_correlations.log"
@@ -3272,17 +3272,17 @@
     "11_convergence/47_resource_axis_convergence.py": {
       "experiment_id": "R47",
       "script": "11_convergence/47_resource_axis_convergence.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 21.577634799992666,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "30d1afcacc3dab95f0175655ba37788d877457a06afce047c1539391d2f7fc44",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R47_resource_axis_convergence.csv",
@@ -3292,20 +3292,20 @@
           "figures/png/R47_resource_axis_convergence.png",
           "figures/svg/R47_resource_axis_convergence.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "5e965d39efa9dfc60d7611de32016a3587125ed387a2f350aab0dad89b3f086a",
+      "fingerprint_sha256": "12ed171a2c3ba8768992b4d1206b6fcc9c43b591bc68f997f5c83533bb5a5dc7",
       "artifacts": [
         {
           "path": "results/csv/R47_resource_axis_convergence.csv",
@@ -3319,23 +3319,23 @@
         },
         {
           "path": "results/json/R47_resource_axis_convergence.metadata.json",
-          "size": 1781,
-          "sha256": "de9cc1eeb7349368a49579fc7711f19a1d2088e19d7ec17064f296aad1e60318"
+          "size": 2576,
+          "sha256": "86b4d69f7e69a586b601f264b9540b1c08af9f6c9b45a73978cded99ee6083cf"
         },
         {
           "path": "figures/pdf/R47_resource_axis_convergence.pdf",
-          "size": 20962,
-          "sha256": "76b4861919da2a8d48b8dbd472fcea8d42f9f2253f9315978404d5d9f4d1e355"
+          "size": 21076,
+          "sha256": "3b919b06e9434cdbf2b535cdcb020a51892c405a01f6429ac330b93761f0cbb7"
         },
         {
           "path": "figures/png/R47_resource_axis_convergence.png",
           "size": 234901,
-          "sha256": "b2c2dfb0a3b5c94ad54c72feea317d9fa53cfad3e0565ca27769c69fe8f073b6"
+          "sha256": "073fe69a5dbc31812b30a086c919c8bcbf521dfe21cc60a85da36b3acaa9f466"
         },
         {
           "path": "figures/svg/R47_resource_axis_convergence.svg",
           "size": 81921,
-          "sha256": "a2c718f70d1a51e2af19866811eed6eccaff781ed1002d559f8d6650bc2a1cae"
+          "sha256": "e4965805442652a59ff9f7ef1939990856885332884cd22f9705e0639e90365e"
         }
       ],
       "log": "results/logs/47_resource_axis_convergence.log"
@@ -3343,17 +3343,17 @@
     "10_physical_statistics/48_physical_training_stability.py": {
       "experiment_id": "R48",
       "script": "10_physical_statistics/48_physical_training_stability.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 834.6992694000073,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "f01d68a9eb85436470b308df61919b659be7bc1e90bdceccf42b4d0c67d18eea",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R48_physical_training_stability.csv",
@@ -3363,20 +3363,20 @@
           "figures/png/R48_physical_training_stability.png",
           "figures/svg/R48_physical_training_stability.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "1e6d41ce3a970bd2507060c9d1877c090290f4dcca60bb971d81a4b6bb7666ec",
+      "fingerprint_sha256": "8eda70596d094f1b98c4c19a1d82cc7d0568557651eb711ae1535ba95c46a61b",
       "artifacts": [
         {
           "path": "results/csv/R48_physical_training_stability.csv",
@@ -3390,23 +3390,23 @@
         },
         {
           "path": "results/json/R48_physical_training_stability.metadata.json",
-          "size": 1936,
-          "sha256": "cffb65e16fa1310d483a7a8bc9fe6f2c8a72bfcc1e00b79333526ecd90f914a7"
+          "size": 2731,
+          "sha256": "31db83d1d8c58e3a0e2bd99ef6004c6a03ebefd40b854d7e7c420f57a412f695"
         },
         {
           "path": "figures/pdf/R48_physical_training_stability.pdf",
-          "size": 17037,
-          "sha256": "5ab64e3ef374dfcb7a619bf9da02ae1ac559536a2a1ed567126ec592cca350cf"
+          "size": 17159,
+          "sha256": "992ff63a7d471217d55e755d2da6df503edef15490a743e936873ac47cb51032"
         },
         {
           "path": "figures/png/R48_physical_training_stability.png",
           "size": 74395,
-          "sha256": "6ebcdea64391ad4a75abf604951df7c09cdfb9bb1147eea983fdc80b2c3a154e"
+          "sha256": "420a0dcc70316f173a5879fa96c403c459cc52cdc8d2dd2322ef698d22f29587"
         },
         {
           "path": "figures/svg/R48_physical_training_stability.svg",
           "size": 42842,
-          "sha256": "aa11466a4ee463938e4a99595bf38df8b7526d5c53974669a87780f7fcd78f03"
+          "sha256": "a3c66f5b573fed948184ce13daeeefc5f7632b2130e997d9ffd1293d14c66da1"
         }
       ],
       "log": "results/logs/48_physical_training_stability.log"
@@ -3414,17 +3414,17 @@
     "12_performance/49_aggregate_performance_figure.py": {
       "experiment_id": "R_PERF",
       "script": "12_performance/49_aggregate_performance_figure.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 11.106992900022306,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "adc71b4605056f86c537594e1db2a869ac3c2f785fd367fa45186b7bca90f4b2",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R_PERF_aggregate_performance.csv",
@@ -3434,20 +3434,20 @@
           "figures/png/R_PERF_aggregate_performance.png",
           "figures/svg/R_PERF_aggregate_performance.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "998b2c294c7b3133815d4471053f8901e0e7d60aa121b946e18267f5f58d04bb",
+      "fingerprint_sha256": "ffe43bacb5f025346c8c8f014f21e472872d633f9d3ef345cc9226f678c73afd",
       "artifacts": [
         {
           "path": "results/csv/R_PERF_aggregate_performance.csv",
@@ -3461,23 +3461,23 @@
         },
         {
           "path": "results/json/R_PERF_aggregate_performance.metadata.json",
-          "size": 1769,
-          "sha256": "c81f744a7b3d88cac837c8d7c648b453a43ec0699b37973835c00dbfaaf0ea3c"
+          "size": 2564,
+          "sha256": "5d618c8a68608253bfcd8f4740a2193663c67d50225393a96581e4ecc5efc1cc"
         },
         {
           "path": "figures/pdf/R_PERF_aggregate_performance.pdf",
-          "size": 30832,
-          "sha256": "715e532084e85ffc4b426c741bd95fa59fafa721d85eb2ce217dea5fd9a3841b"
+          "size": 30952,
+          "sha256": "1ef119469222268b9e30afa04fc38bbf1045aca6a88c2f5311e571a175cb20a7"
         },
         {
           "path": "figures/png/R_PERF_aggregate_performance.png",
-          "size": 376168,
-          "sha256": "9e2b5db4969ac77a74a67f6857131fcb4a92bdfdc0cc8571ea881773fafc164a"
+          "size": 380690,
+          "sha256": "87c5d88582eff33b385b87c64ff23e27cf1d13f01152d070313f6fa97b4fa908"
         },
         {
           "path": "figures/svg/R_PERF_aggregate_performance.svg",
-          "size": 121526,
-          "sha256": "ed0c58026e3309c75dc9ca75081cf39f249a526451f71bda5b5ac0d03f367594"
+          "size": 120585,
+          "sha256": "031942a5ac8453a6af56b7952c807aa0c988b1d8a13bbc12f69e50f359a8c444"
         }
       ],
       "log": "results/logs/49_aggregate_performance_figure.log"
@@ -3556,17 +3556,17 @@
     "13_extended/51_expanded_gate_learning.py": {
       "experiment_id": "R51",
       "script": "13_extended/51_expanded_gate_learning.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 29.726933500001905,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "760544814feef54e8b7c7fe0df5d28d37405160b6f0fa8839955e5250c818867",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R51_expanded_gate_learning.csv",
@@ -3576,50 +3576,50 @@
           "figures/png/R51_expanded_gate_learning.png",
           "figures/svg/R51_expanded_gate_learning.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "a62fd73aa36e7310e25fc3f8434884fe7061ec44f72e2b3c08aea0aa973de0fe",
+      "fingerprint_sha256": "1feda229dfe93ae1a1812a5fd7728a0c76e55d1692961c7d500ad05fbd9b0557",
       "artifacts": [
         {
           "path": "results/csv/R51_expanded_gate_learning.csv",
-          "size": 3009,
-          "sha256": "3224bb4e813017388ca42d64050f600ca3a9e190b922823221f02c6e8f1ed759"
+          "size": 3015,
+          "sha256": "7e542cee656c15d581423d61b36ef50de6dff51fc629b6c400b5615c5b4b303c"
         },
         {
           "path": "results/json/R51_expanded_gate_learning.json",
-          "size": 11411,
-          "sha256": "38d0936fb9cfaaad58261c76861afac4817bf623f5ab4c028109b50821a3f143"
+          "size": 11417,
+          "sha256": "5821945303806803b259afd1de160c35bce4aaf2cb7496f692e4912df36e1353"
         },
         {
           "path": "results/json/R51_expanded_gate_learning.metadata.json",
-          "size": 1917,
-          "sha256": "0f40f3d207a2d21114825de983c4508b01ed79ab82e805ec66e6dbc3a1c31bdc"
+          "size": 2712,
+          "sha256": "b7acdb2a0d308caeb0c99a5a186bb464d3034de9270c439bf516e3b20d5a4856"
         },
         {
           "path": "figures/pdf/R51_expanded_gate_learning.pdf",
-          "size": 81580,
-          "sha256": "754aac14a4d8e62ec6c176b2e4d3c2d29d2ac5bf97880c011e71783325c596a9"
+          "size": 84382,
+          "sha256": "33293b432d069bcc6e4fe73c4352f7ad173c7a0a80240d10a4faab3237de122b"
         },
         {
           "path": "figures/png/R51_expanded_gate_learning.png",
           "size": 237359,
-          "sha256": "d73ff97478ae893978a9f8c2800c7633acd51598bef0c5ab949a2e34480bea93"
+          "sha256": "0fea7cddc1f289721e549f680f9e90569f6ddcc5dc19e55a5c6f6fff2218ddb9"
         },
         {
           "path": "figures/svg/R51_expanded_gate_learning.svg",
           "size": 265098,
-          "sha256": "db84b6c90700e37afe537a69a4cae1e3a286976260d566bf2d97203585e0a329"
+          "sha256": "d404241026088583a132a18b2db1e0bddc8cadf21f5423f4897a5d5076548d43"
         }
       ],
       "log": "results/logs/51_expanded_gate_learning.log"
@@ -3627,17 +3627,17 @@
     "13_extended/52_comprehensive_classification.py": {
       "experiment_id": "R52",
       "script": "13_extended/52_comprehensive_classification.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 305.1110235999804,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "ec8397e74d2e12e0427b578de75626a74b5957403898ead9e3e91c2b4fb09365",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R52_comprehensive_classification.csv",
@@ -3647,20 +3647,20 @@
           "figures/png/R52_comprehensive_classification.png",
           "figures/svg/R52_comprehensive_classification.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "1726797ffcb555963097925172b22b1dfecd22a82e9eb7aa4d761a367014e309",
+      "fingerprint_sha256": "2a04637c1aad1bd67eec4f8f4f171291fdd9464f9b6983ff6bea211c21ba00c4",
       "artifacts": [
         {
           "path": "results/csv/R52_comprehensive_classification.csv",
@@ -3674,23 +3674,23 @@
         },
         {
           "path": "results/json/R52_comprehensive_classification.metadata.json",
-          "size": 1931,
-          "sha256": "c7233b8233dcf099514fa8b18d284a13a8f5cfb5273b144668b5bd05eb4c996e"
+          "size": 2726,
+          "sha256": "db9ad5b66ea5d5244776d41dd22b6fdb3f17954067fb2f13d099399878b6b10b"
         },
         {
           "path": "figures/pdf/R52_comprehensive_classification.pdf",
-          "size": 16070,
-          "sha256": "57dc2158ce32992ce9c952f44a9659e2c66f0250fab2ecbc35b209d5e7ad3e87"
+          "size": 16221,
+          "sha256": "e39540f2003ed2e3c658cf62e2fc2b001a3e861839573e6c37b57129f9c42569"
         },
         {
           "path": "figures/png/R52_comprehensive_classification.png",
           "size": 140492,
-          "sha256": "a00587c5f76ff7b451e5d5879ef0062cda24b947c7bb6225b60dba06ac8fa629"
+          "sha256": "f85695a72a7d40a954127857640a2744ab2729cf6b32400713871237e46b425a"
         },
         {
           "path": "figures/svg/R52_comprehensive_classification.svg",
           "size": 53600,
-          "sha256": "e0fe8ad421c5e32919c6c918457b9d7fd9000ec47fcdfee2e0abd69bfda97d21"
+          "sha256": "d2998e95b4bafcadbcc257d6b49ad9bb9fb636ab1914908c0383ef53c42a5d3c"
         }
       ],
       "log": "results/logs/52_comprehensive_classification.log"
@@ -3698,17 +3698,17 @@
     "13_extended/53_comprehensive_regression.py": {
       "experiment_id": "R53",
       "script": "13_extended/53_comprehensive_regression.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 95.53849429998081,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "4177f8a99205fe94567ea45ba49d3cd2ecdc93896a8bc529bd57f21101dfc382",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R53_comprehensive_regression.csv",
@@ -3718,20 +3718,20 @@
           "figures/png/R53_comprehensive_regression.png",
           "figures/svg/R53_comprehensive_regression.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "ad2de86e8023f93304f54296180acb34e732f0bb4b9ea60127e9e85e6fd680c7",
+      "fingerprint_sha256": "c24d5def2d77c6c9f003a78c3570b06c556f1bc69cce946287d991c3df562a2c",
       "artifacts": [
         {
           "path": "results/csv/R53_comprehensive_regression.csv",
@@ -3745,23 +3745,23 @@
         },
         {
           "path": "results/json/R53_comprehensive_regression.metadata.json",
-          "size": 1923,
-          "sha256": "06d540957ff8a8f6dd6f07f09b725b9cb79b6a177fb3de38587a07288e088692"
+          "size": 2718,
+          "sha256": "19805a211ebfb3e4f370eec8026b19d0280e11d90d8319dab68d03e2fba4716a"
         },
         {
           "path": "figures/pdf/R53_comprehensive_regression.pdf",
-          "size": 18809,
-          "sha256": "49f5abf193851613fc1c08fe25d54cdf0c7e339a4022d4ba26b7406cc8fa5f2c"
+          "size": 18973,
+          "sha256": "2216256d28ae5006f38e9c986b403cda8cf03b5280be73c3103e57850faec5f6"
         },
         {
           "path": "figures/png/R53_comprehensive_regression.png",
           "size": 149290,
-          "sha256": "3f4117a87d9de16e2efa9eb3757d3d765ec406f941761d0d42c31c11d624a916"
+          "sha256": "5cc3d75912ccd14ddecb4b7656d0d39d41091ff53cbd047a65c0c3bc0bcd7440"
         },
         {
           "path": "figures/svg/R53_comprehensive_regression.svg",
           "size": 51661,
-          "sha256": "d88e3e4ff81242f56b870cd132cfc29232924424a6e5c3089097fd4d43446c78"
+          "sha256": "488f75af248eea2d8c7a99e5b372331acc2934458db9879912901f40116d53ce"
         }
       ],
       "log": "results/logs/53_comprehensive_regression.log"
@@ -3769,17 +3769,17 @@
     "13_extended/54_kernel_ablations.py": {
       "experiment_id": "R54",
       "script": "13_extended/54_kernel_ablations.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 15.929325300006894,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "e01439021eacc2a280e831240dc278779e506ca0b62408484e5b8786ca03c4d1",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R54_kernel_ablations.csv",
@@ -3789,20 +3789,20 @@
           "figures/png/R54_kernel_ablations.png",
           "figures/svg/R54_kernel_ablations.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "3a3350c5bb6a476c51fc024f114a438e39685992bef0d7ce02f473da3bedcf27",
+      "fingerprint_sha256": "30bb9b55aa13e1934e8de11d5fccb64113b78549578a9b646b96b6ea0812d99b",
       "artifacts": [
         {
           "path": "results/csv/R54_kernel_ablations.csv",
@@ -3816,23 +3816,23 @@
         },
         {
           "path": "results/json/R54_kernel_ablations.metadata.json",
-          "size": 1925,
-          "sha256": "4f033e666bc59b6e7fadb517f35d9ee05cd345408063766e0b752767f88f3706"
+          "size": 2720,
+          "sha256": "57fab2f5e792bc31fc15fcecd16896fe07dd57b8b5d1cd5274a9efdaf212140f"
         },
         {
           "path": "figures/pdf/R54_kernel_ablations.pdf",
-          "size": 18451,
-          "sha256": "d1bfe8a513b38374606559e0912a3fc79f7fc49c2b48c75e0e50709081e072d7"
+          "size": 18597,
+          "sha256": "94d7f289c0993d7ef7639cb899562b4fd59cb7d148f653fb5d4f9fa4491d82d0"
         },
         {
           "path": "figures/png/R54_kernel_ablations.png",
           "size": 178780,
-          "sha256": "d2914bac3a68bc6e0ad5700f9d32a5c04c931818741c4b434a03970a21d8d832"
+          "sha256": "794f7f9b6ea6666e890ce6ee0846c6123e278a64dd66e600be79e364e848dd38"
         },
         {
           "path": "figures/svg/R54_kernel_ablations.svg",
           "size": 64494,
-          "sha256": "ad910fa63d429c628ea3dcb6b21e2709475b1fe967ece99f28d37ddbd3f95b8d"
+          "sha256": "c58f5eb55dea6f0ec7a7cb8c8f022854a4bf19d8faf49f79e72000ef930bb4ef"
         }
       ],
       "log": "results/logs/54_kernel_ablations.log"
@@ -3840,17 +3840,17 @@
     "13_extended/55_expressivity_trainability.py": {
       "experiment_id": "R55",
       "script": "13_extended/55_expressivity_trainability.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 13.841442600009032,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "74e4e52e1954420a7d0fdca2cc24a1a3ba5e0ebdfb36b39356d0d011b4642371",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R55_expressivity_trainability.csv",
@@ -3860,20 +3860,20 @@
           "figures/png/R55_expressivity_trainability.png",
           "figures/svg/R55_expressivity_trainability.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "3cfb81a4a884b6a75d83f9a06e631081e6aa17f6868eb325d70ae7f9f2f71ade",
+      "fingerprint_sha256": "50d13d749c2496e75909dd64e00cbf8379557ccb5e027d82ad4c08cedf105752",
       "artifacts": [
         {
           "path": "results/csv/R55_expressivity_trainability.csv",
@@ -3887,23 +3887,23 @@
         },
         {
           "path": "results/json/R55_expressivity_trainability.metadata.json",
-          "size": 1931,
-          "sha256": "fc76b44805cb9cce5fdad59623852c3b1a7f5bb81e81ded08839d56d2771a0f0"
+          "size": 2726,
+          "sha256": "f5c158b1aabd226ef8736afc45da613cd3845d36f0dbc8a2e93307097380467d"
         },
         {
           "path": "figures/pdf/R55_expressivity_trainability.pdf",
-          "size": 17663,
-          "sha256": "7a98ceaddc8e38696a6b14cf6d8526302ef2ec9452a0a7eb3234eca68c116d05"
+          "size": 17786,
+          "sha256": "f7ad42df7167d7cf392229eabbd3d8443d99ff82138eb0adc1741edc5538510e"
         },
         {
           "path": "figures/png/R55_expressivity_trainability.png",
           "size": 84610,
-          "sha256": "7580018b941f4a0aea1b8d760b082626bfdb4ec86446f57f881fab576869a379"
+          "sha256": "8d4912d34ae3222fa6639956c51bc93529f7ef38e20a8146fc76095dec41ed6a"
         },
         {
           "path": "figures/svg/R55_expressivity_trainability.svg",
           "size": 49104,
-          "sha256": "d50be7e3c1e586ebf722944a83172779740f0f3710d7eb55e3ea7200a07356d5"
+          "sha256": "7ad21c560a3d359095d2dc087e1cc32820201d32037f7d66dd61d2e6776821df"
         }
       ],
       "log": "results/logs/55_expressivity_trainability.log"
@@ -3911,17 +3911,17 @@
     "13_extended/56_logical_physical_gap.py": {
       "experiment_id": "R56",
       "script": "13_extended/56_logical_physical_gap.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 38.11441259999992,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "929920815020b58cff5f1ec8cf1f2f7b2e07cc5f6e6cc63682a4afb832bb7bdf",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R56_logical_physical_gap.csv",
@@ -3931,50 +3931,50 @@
           "figures/png/R56_logical_physical_gap.png",
           "figures/svg/R56_logical_physical_gap.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "5a45d6cdfdabad0152e1f9572b2fb73a23e4a2ae944a331e735081492d8366b1",
+      "fingerprint_sha256": "c926587003efa0bc9e32e1fc446798f0abc7857dd8109a16162419b16e3895e0",
       "artifacts": [
         {
           "path": "results/csv/R56_logical_physical_gap.csv",
           "size": 602,
-          "sha256": "a39364805375c41f7592e4abfae239b1e3eec5300c34a06701adbbad95d2bc3f"
+          "sha256": "72e0455794e9cc397dde667980f6994aa3535916c219622ea42cf87b12d9a90a"
         },
         {
           "path": "results/json/R56_logical_physical_gap.json",
           "size": 2488,
-          "sha256": "4723a1c28d86e2a5e2429a324445f9afaffe1ecda0e6ec5bd40c66ed90ced66e"
+          "sha256": "d565fba158c6dacb33b382d2f5cdce8da66d98ed6293fff9839cf4b815cda2cb"
         },
         {
           "path": "results/json/R56_logical_physical_gap.metadata.json",
-          "size": 1910,
-          "sha256": "426db9fb8cf263c618d71a85caaaf3607fd677b7055359f74d212ebdbf4a4559"
+          "size": 2705,
+          "sha256": "b248f0eb4fdedb933fa6a5b087b1140d761fd08ebfa76712ca6edc634bb68b33"
         },
         {
           "path": "figures/pdf/R56_logical_physical_gap.pdf",
-          "size": 14638,
-          "sha256": "6b5b3f83592966604150280d4d7d9d4a40162558b15486e98b1e40ec3b837c38"
+          "size": 14754,
+          "sha256": "96f45d0ff04490d10131b57607e525631245c7246da53b871d5675abfbad52f7"
         },
         {
           "path": "figures/png/R56_logical_physical_gap.png",
           "size": 147247,
-          "sha256": "d9eda1432251b6648b549f06d67721ec3671c8f25aa6b91e8d821e2674e0f7d6"
+          "sha256": "8777a02765c5f6b8851ba91f128596b4d95a287b2cb0b2ee363aeb99f042fd63"
         },
         {
           "path": "figures/svg/R56_logical_physical_gap.svg",
           "size": 40311,
-          "sha256": "5cef15b7b4bdc8c8657a66cee909057b15593f1b79032cb81676700617bc8651"
+          "sha256": "ead36d98458a7d8777484101a1fa3dccf96e8ef3575e7f249d1ffc78771ef61a"
         }
       ],
       "log": "results/logs/56_logical_physical_gap.log"
@@ -3982,17 +3982,17 @@
     "13_extended/57_physical_training_evaluation.py": {
       "experiment_id": "R57",
       "script": "13_extended/57_physical_training_evaluation.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 462.0224675000063,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "3c1498c3b43f0f0fb9ef1eb36df69deb9fc5c2df42ada5835af7b1550056f013",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R57_physical_training_evaluation.csv",
@@ -4002,50 +4002,50 @@
           "figures/png/R57_physical_training_evaluation.png",
           "figures/svg/R57_physical_training_evaluation.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "cd16f450bbc37b35dd7959c9f1ac1a320f4ae504c35d34631504826a7139bb87",
+      "fingerprint_sha256": "e49c241f004d40d38257592e428ed1da37de8916737cf3721638f12228253cc9",
       "artifacts": [
         {
           "path": "results/csv/R57_physical_training_evaluation.csv",
           "size": 514,
-          "sha256": "c339e0b0b856cc09348c003c31925f9c921e4ca0f1037eaab1528c676633fbfb"
+          "sha256": "0dbeb7132a1f4496894cf67e8df815eb2b8f504ebb07e691dbe8f583944972e8"
         },
         {
           "path": "results/json/R57_physical_training_evaluation.json",
           "size": 2835,
-          "sha256": "f8bae1086d07b2785c3ca840b471f07707c288131f016569f17699680296b5f9"
+          "sha256": "ca295c217f1c69df57c7febd9ffd82c7fb1a4f86abeff9a60aff97a46b26b1a2"
         },
         {
           "path": "results/json/R57_physical_training_evaluation.metadata.json",
-          "size": 1920,
-          "sha256": "078d1766c1c6adf6dae58731cc879f3dcbbaeab0428019ed3f7b7a274ce4ad25"
+          "size": 2715,
+          "sha256": "877249838d58666b2e917810e7ab38ed9a5e6a8972400fce189dfb8b105bf9a5"
         },
         {
           "path": "figures/pdf/R57_physical_training_evaluation.pdf",
-          "size": 13924,
-          "sha256": "726fcdce50904c96a5d99c173c19f13daa3ccb51fd00632d38cf221827d76d2a"
+          "size": 14032,
+          "sha256": "cb889896a731c24b0e948995a2487c6578c72bb12bfacd3b5682add0cb8cfb90"
         },
         {
           "path": "figures/png/R57_physical_training_evaluation.png",
           "size": 61132,
-          "sha256": "d99089a634a32dc02efc54cff5e8488a9e84ab5a4c71811389c02df0df1cca63"
+          "sha256": "8fca4e2227d80e499465e51c88479b7edc6f8d07104c60225606c6b5a7e8f020"
         },
         {
           "path": "figures/svg/R57_physical_training_evaluation.svg",
           "size": 32304,
-          "sha256": "37e80ac1b219a96b49a8eac24aa0cd336b6899d2ad49b21c0482cd89620a9795"
+          "sha256": "890ced5b880028ad6695dd8033c81b6b83bcdc5eb81d5313ce2eab93553cb515"
         }
       ],
       "log": "results/logs/57_physical_training_evaluation.log"
@@ -4053,17 +4053,17 @@
     "13_extended/58_physical_resource_boundary.py": {
       "experiment_id": "R58",
       "script": "13_extended/58_physical_resource_boundary.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 17.96623200000613,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "8c6a559316b1e278455197d8b08e4a8d9fc6d940fe8345d64fb09fb0f80706e5",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R58_physical_resource_boundary.csv",
@@ -4073,20 +4073,20 @@
           "figures/png/R58_physical_resource_boundary.png",
           "figures/svg/R58_physical_resource_boundary.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "c17429c42813cd0e7ddf8062b4ae3a577346c07bce694814f27de57c65c1975e",
+      "fingerprint_sha256": "befcef075d23bb15a3b25ba00c1dff9e04c956b5906bdbe299a957af34b68efc",
       "artifacts": [
         {
           "path": "results/csv/R58_physical_resource_boundary.csv",
@@ -4100,23 +4100,23 @@
         },
         {
           "path": "results/json/R58_physical_resource_boundary.metadata.json",
-          "size": 1878,
-          "sha256": "3e89b06cabf75d49e0df0a843d8c32dea78c874596d9dcb197fe2a6bd45e7f7c"
+          "size": 2673,
+          "sha256": "b74a464bbb0753b7dc3fff9c6a34e4944ad1936d43b2e2712a7062812de72eaf"
         },
         {
           "path": "figures/pdf/R58_physical_resource_boundary.pdf",
-          "size": 17175,
-          "sha256": "07460b7954d4fc8433cf125300c3099d43ad0e0b936050573320e66e748e9d0a"
+          "size": 17284,
+          "sha256": "f35905f7fb56697f00daae0e803c8f58175d47decea0f0d821a7d0538ec35780"
         },
         {
           "path": "figures/png/R58_physical_resource_boundary.png",
           "size": 92051,
-          "sha256": "909b8add1af3d1419d748a054a3f0090282e4972a4495722af0a2f3b4cd286d8"
+          "sha256": "820da8f2c3938d7ce51d9a911ba3ddf55cde7f6a073474171040b4e679a09735"
         },
         {
           "path": "figures/svg/R58_physical_resource_boundary.svg",
           "size": 39033,
-          "sha256": "c2ab84a806b29cfb0b4c4cd4d3977e61492a22903f7f040ff291a86ed9286a34"
+          "sha256": "d1439560d53410ed66eea4df6bd72a4c63bf354eef71583c134aaf321e4a7ea6"
         }
       ],
       "log": "results/logs/58_physical_resource_boundary.log"
@@ -4124,17 +4124,17 @@
     "13_extended/59_end_to_end_scaling.py": {
       "experiment_id": "R59",
       "script": "13_extended/59_end_to_end_scaling.py",
-      "execution_status": "resumed",
-      "runtime_seconds": 0.0,
+      "execution_status": "completed",
+      "runtime_seconds": 21.30978170002345,
       "returncode": 0,
-      "reason": "complete fingerprint and every artifact hash matched",
+      "reason": "executed because restart was requested or fingerprint/artifact hashes differed",
       "fingerprint": {
         "schema_version": 3,
-        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
-        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "source_tree_fingerprint": "e33d0f0b71e51599b36110f8ebea16691035a3d8e2e755891c61af5406d9b754",
         "script_sha256": "2b7cd9eb0fb4eaa31759ecabf10f20dffe5c20b8bd237b5a50146c0950cba3c9",
         "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
-        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "metadata_sha256": "590ce48effb8f3f71b8700e0fd708f1732d3cc324be6bc6b1a56b2005cede178",
         "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
         "expected_artifacts": [
           "results/csv/R59_end_to_end_scaling.csv",
@@ -4144,50 +4144,50 @@
           "figures/png/R59_end_to_end_scaling.png",
           "figures/svg/R59_end_to_end_scaling.svg"
         ],
-        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
         "package_versions": {
-          "photographiqml": "0.2.0",
+          "photographiqml": null,
           "photographiq": "0.3.1",
           "mentpy": "0.1.0a15",
           "piquasso": "8.0.1",
-          "numpy": "2.5.3",
+          "numpy": "2.5.4",
           "scipy": "1.18.1"
         },
-        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
-        "photographiq_dirty": false,
+        "photographiq_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+        "photographiq_dirty": true,
         "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
       },
-      "fingerprint_sha256": "bcf3f10b1f458a0b4c5ad51c9a5332a6315b78062ff5eccefe5bd76616681f9b",
+      "fingerprint_sha256": "2e9acb4f1014a821d0462a81522dd6e09f632d3d79312669e885a026c4fb14c3",
       "artifacts": [
         {
           "path": "results/csv/R59_end_to_end_scaling.csv",
-          "size": 1149,
-          "sha256": "6af3243c46a66167be6471cddee5dd361c73b3fb3ebcb263b69de2d1fd160e13"
+          "size": 1163,
+          "sha256": "ea0f03cfda31a839c34ec183d760ca86ce68b066ef2e984bf63c8be2966d0568"
         },
         {
           "path": "results/json/R59_end_to_end_scaling.json",
-          "size": 5634,
-          "sha256": "2c56000dca14e07a9f421b2362b3d075ae5c856d021163fdedc9f2831874e92d"
+          "size": 5649,
+          "sha256": "60a009cadab10efa72edcd9b23c46249832500aa0cc45959303cdd1a270e45bb"
         },
         {
           "path": "results/json/R59_end_to_end_scaling.metadata.json",
-          "size": 1880,
-          "sha256": "dfef3ee9dce4a869b5b93de34ee289b1c38c317bc8aab88e1d1886e97d81fdcf"
+          "size": 2675,
+          "sha256": "7b000cc7dcd8ff6f5e8087600b9ffb2b3511ac2b1b77589962fe6336ff246ec8"
         },
         {
           "path": "figures/pdf/R59_end_to_end_scaling.pdf",
-          "size": 20967,
-          "sha256": "91bbce440a85411e7519c3456af35bfb869e66705c96f3b522555c4d7f337362"
+          "size": 21025,
+          "sha256": "fd274ff4b8d5d7723a37aac81e56bfc3acab65a8bbaad5c2deeac9b0331e683d"
         },
         {
           "path": "figures/png/R59_end_to_end_scaling.png",
-          "size": 158616,
-          "sha256": "a5cfb9ba3fc830184e870f3f227e652e9e294bee8e9d777c76ea2116b6a26fd5"
+          "size": 155391,
+          "sha256": "3989e1e8878b6a693f4c54589d008738410f91159eb177be18f5f5b530d711c5"
         },
         {
           "path": "figures/svg/R59_end_to_end_scaling.svg",
-          "size": 72488,
-          "sha256": "a4c9044abc3ae365f3053ab5cbd8f2647445e1d6843ff4f7f256dfb32c7262cb"
+          "size": 72883,
+          "sha256": "9bbd8848b70dcc5291ef09f2fbee19f9a2283919af66962fec1f14129903d482"
         }
       ],
       "log": "results/logs/59_end_to_end_scaling.log"

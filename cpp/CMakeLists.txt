@@ -64,7 +64,11 @@ if(PGQ_USE_OPENMP)
   find_package(OpenMP COMPONENTS CXX)
   if(OpenMP_CXX_FOUND)
     target_link_libraries(pgq_core PUBLIC OpenMP::OpenMP_CXX)
-    target_compile_definitions(pgq_core PUBLIC PGQ_HAVE_OPENMP=1)
+    # The kernels parallelise over fibres, batch members and summation terms themselves.
+    # Without EIGEN_DONT_PARALLELIZE, Eigen also starts an OpenMP team inside every product
+    # issued from a serial region (e.g. multiply_fibres below its work threshold): on an idle
+    # 12-thread laptop a cutoff-12 mixed-state beam splitter took 5.5 ms instead of 0.64 ms.
+    target_compile_definitions(pgq_core PUBLIC PGQ_HAVE_OPENMP=1 EIGEN_DONT_PARALLELIZE)
   endif()
 endif()
 

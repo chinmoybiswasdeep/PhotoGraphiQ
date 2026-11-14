@@ -57,3 +57,18 @@ Status values:
 | 6 | Measurement calculus, local Clifford, ZX calculus | **Fully met for the stated scope** | Qubit measurement calculus, LC and a ZX subset (R2.7), plus the Gaussian graphical calculus (R3.4). General CV-ZX is unsupported. |
 | 7 | Determinism and graph-flow algorithms | **Fully met** | Causal flow, gflow, Pauli flow (Graphix-validated) and CV flow with exact classification (R2.6, R3.5). |
 | 8 | Complete functionality documentation | **Fully met** | `docs/COMPLETE_FUNCTIONALITY.md` (36 sections), updated 2026-11-12. |
+
+## Update 2026-11-13: CI repair, manuscript experiments R1-R60
+
+Details: [manuscript upgrade report](../development/MANUSCRIPT_UPGRADE_REPORT.md) and
+[tracker](../development/MANUSCRIPT_UPGRADE_TRACKER.md). The table above records the 2026-11-12
+evidence; the rows below supersede or extend it.
+
+| ID | Requirement | Status | Last result | Blockers |
+|---|---|---|---|---|
+| R1.1 | CI failures of run 43224033322 (`441de9a`) | Validated (mypy) / Implemented (pytest, Linux-only cause) | mypy reproduced and fixed (`photographiq._checks`); `441de9a` pytest passes on Windows with latest dependencies; headless Chrome sandbox fix for Linux | remote CI needs a push; job logs need authentication |
+| R1.5 | Python 3.11-3.14 | see the report, section 10 | final tree | Linux not tested |
+| R4.2 | Manuscript experiments reproduced | Validated | core R1-R60: 60/60 pass on an idle machine (publication configuration); PhotoGraphiQML 59/59 (MentPy environment) | results produced from uncommitted sources (`git_dirty`) |
+| R4.3-4.8 | Benchmarks | Validated (one machine, idle) | R35, R36, R38, R44, R46, R58 timings final | single Windows laptop |
+| R4.11 | Native Fock threading | Validated | `EIGEN_DONT_PARALLELIZE`: cutoff-12 mixed beam splitter 5.5 ms → 0.72 ms; Gaussian benchmark unchanged | — |
+| R4.12 | Documentation/experiment consistency | Validated | `scripts/audit_manuscript_consistency.py`, 12 checks | — |

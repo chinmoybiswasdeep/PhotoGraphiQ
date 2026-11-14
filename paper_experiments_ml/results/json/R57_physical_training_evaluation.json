@@ -16,7 +16,7 @@
       "fresh_test_accuracy": 0.5,
       "generalization_gap": 0.5,
       "unstable": true,
-      "runtime_seconds": 189.49408960004803
+      "runtime_seconds": 118.0309622999921
     },
     {
       "seed": 23,
@@ -34,7 +34,7 @@
       "fresh_test_accuracy": 1.0,
       "generalization_gap": 0.0,
       "unstable": true,
-      "runtime_seconds": 176.28640290000476
+      "runtime_seconds": 119.83433439998771
     },
     {
       "seed": 47,
@@ -52,7 +52,7 @@
       "fresh_test_accuracy": 0.5,
       "generalization_gap": 0.5,
       "unstable": false,
-      "runtime_seconds": 175.33281039993744
+      "runtime_seconds": 108.33649640000658
     },
     {
       "seed": 89,
@@ -70,7 +70,7 @@
       "fresh_test_accuracy": 0.5,
       "generalization_gap": 0.5,
       "unstable": true,
-      "runtime_seconds": 181.4459628999466
+      "runtime_seconds": 103.45925559999887
     }
   ],
   "protocol": "Four selection seeds; 1 training, 2 validation and 4 fresh-test shots per input with disjoint RNG seeds.",

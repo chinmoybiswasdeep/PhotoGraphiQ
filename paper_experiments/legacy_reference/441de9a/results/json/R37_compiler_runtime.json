@@ -1,0 +1,100 @@
+{
+  "rows": [
+    {
+      "n_gates": 1,
+      "median_compile_seconds": 0.003206399967893958,
+      "std_compile_seconds": 0.0009998185862293615,
+      "iqr_compile_seconds": 0.0003117000451311469,
+      "repeats": 9,
+      "warmup": 2,
+      "resource_nodes": 4,
+      "commands": 17,
+      "measurements": 4
+    },
+    {
+      "n_gates": 2,
+      "median_compile_seconds": 0.008521299983840436,
+      "std_compile_seconds": 0.0008429471808645909,
+      "iqr_compile_seconds": 0.0013052999856881797,
+      "repeats": 9,
+      "warmup": 2,
+      "resource_nodes": 12,
+      "commands": 50,
+      "measurements": 12
+    },
+    {
+      "n_gates": 5,
+      "median_compile_seconds": 0.01918059994932264,
+      "std_compile_seconds": 0.003954957413729948,
+      "iqr_compile_seconds": 0.002869199961423874,
+      "repeats": 9,
+      "warmup": 2,
+      "resource_nodes": 28,
+      "commands": 115,
+      "measurements": 28
+    },
+    {
+      "n_gates": 10,
+      "median_compile_seconds": 0.04539499996462837,
+      "std_compile_seconds": 0.0029257317243966178,
+      "iqr_compile_seconds": 0.0029930000309832394,
+      "repeats": 9,
+      "warmup": 2,
+      "resource_nodes": 60,
+      "commands": 246,
+      "measurements": 60
+    },
+    {
+      "n_gates": 20,
+      "median_compile_seconds": 0.07443369994871318,
+      "std_compile_seconds": 0.0036254565972521483,
+      "iqr_compile_seconds": 0.005615500034764409,
+      "repeats": 9,
+      "warmup": 2,
+      "resource_nodes": 120,
+      "commands": 491,
+      "measurements": 120
+    },
+    {
+      "n_gates": 50,
+      "median_compile_seconds": 0.19462449999991804,
+      "std_compile_seconds": 0.1281019058800526,
+      "iqr_compile_seconds": 0.007488099974580109,
+      "repeats": 5,
+      "warmup": 1,
+      "resource_nodes": 300,
+      "commands": 1226,
+      "measurements": 300
+    },
+    {
+      "n_gates": 100,
+      "median_compile_seconds": 0.40340609999839216,
+      "std_compile_seconds": 0.15460472353859062,
+      "iqr_compile_seconds": 0.274524099950213,
+      "repeats": 5,
+      "warmup": 1,
+      "resource_nodes": 600,
+      "commands": 2451,
+      "measurements": 600
+    }
+  ],
+  "environment": {
+    "timestamp_utc": "2026-09-15T02:16:56.070829+00:00",
+    "git_commit": "930408142cfd2dbc380976c28aa009d23c44babe",
+    "git_branch": "manuscript-experiments",
+    "git_dirty": true,
+    "python_version": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "cpu_model": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+    "packages": {
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "networkx": "3.6.1",
+      "matplotlib": "3.11.1",
+      "piquasso": "8.0.1",
+      "photographiq": "0.3.1",
+      "graphix": "0.4",
+      "jax": "0.11.1"
+    }
+  }
+}

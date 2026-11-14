@@ -19,3 +19,11 @@
 ::: photographiq.backends.mixed_fock
     options:
       filters: ["!^_"]
+
+::: photographiq.backends.native_gaussian
+    options:
+      filters: ["!^_"]
+
+::: photographiq.backends.native_fock
+    options:
+      filters: ["!^_"]

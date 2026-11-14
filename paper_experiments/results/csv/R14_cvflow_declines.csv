@@ -1,0 +1,8 @@
+case,status,decision,regimes,witnesses,expected,ok,correction_gain_max
+singular bridge,not_certified,impossible,[],"{'u': {'u': Fraction(-1, 2), 'v': Fraction(1, 2)}, 'v': {'u': Fraction(-1, 2), 'v': Fraction(1, 2)}}",impossible with witnesses,True,
+"near-singular bridge det=1e-10, exact=None",unknown,numerically_uncertain,[],,unknown (declines),True,9999999173.59636
+"near-singular bridge det=1e-10, exact=True",certified,certified,['ideal_limit'],,certified ideal_limit only,True,9999999173.59636
+"unit wire r=4, shift=3.0",unknown,numerically_uncertain,[],,unknown (float64 check cannot run),True,
+"unit wire r=4, shift=1.5",certified,certified,"['finite_squeezing', 'ideal_limit']",,certified both regimes,True,
+qubit gflow on CV graph,unsupported,,[],,unsupported,True,
+CV_NONGAUSSIAN model,unsupported,,[],,unsupported,True,

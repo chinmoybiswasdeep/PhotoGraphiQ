@@ -1,0 +1,4 @@
+n_wires,n_layers,node_map_identity_violations,io_ok,measurement_key_coverage_ok,frame_dependency_mismatches,pattern_valid,peak_live_modes,peak_at_least_n_wires,analytic_fock_dimension,reported_fock_dimension,fock_dimension_error,cz_edges_match_graph
+1,1,0,True,True,0,True,2,True,136,136,0,True
+1,2,0,True,True,0,True,2,True,136,136,0,True
+2,1,0,True,True,0,True,3,True,816,816,0,True

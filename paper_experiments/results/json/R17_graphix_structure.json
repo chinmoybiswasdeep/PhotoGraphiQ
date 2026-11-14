@@ -45,5 +45,57 @@
       "dependency_domains_match": true
     }
   ],
-  "note": "Structural comparison only: node/edge/I-O/order/domain equivalence. Graphix never validates CV amplitudes or quadrature statistics."
+  "note": "Structural comparison only: node/edge/I-O/order/domain equivalence. Graphix never validates CV amplitudes or quadrature statistics.",
+  "flow_comparison": [
+    {
+      "case": "line_n3",
+      "photographiq_causal_flow": "certified",
+      "graphix_causal_flow_exists": true,
+      "existence_agrees": true,
+      "x_correction_support_agrees": true,
+      "graphix_flow_passes_photographiq_verifier": true,
+      "qubit_causal_on_cv_model_status": "unsupported",
+      "ok": true
+    },
+    {
+      "case": "line_n5",
+      "photographiq_causal_flow": "certified",
+      "graphix_causal_flow_exists": true,
+      "existence_agrees": true,
+      "x_correction_support_agrees": true,
+      "graphix_flow_passes_photographiq_verifier": true,
+      "qubit_causal_on_cv_model_status": "unsupported",
+      "ok": true
+    },
+    {
+      "case": "star_leaves_3",
+      "photographiq_causal_flow": "certified",
+      "graphix_causal_flow_exists": true,
+      "existence_agrees": true,
+      "x_correction_support_agrees": false,
+      "graphix_flow_passes_photographiq_verifier": true,
+      "qubit_causal_on_cv_model_status": "unsupported",
+      "ok": true
+    },
+    {
+      "case": "star_leaves_5",
+      "photographiq_causal_flow": "certified",
+      "graphix_causal_flow_exists": true,
+      "existence_agrees": true,
+      "x_correction_support_agrees": false,
+      "graphix_flow_passes_photographiq_verifier": true,
+      "qubit_causal_on_cv_model_status": "unsupported",
+      "ok": true
+    },
+    {
+      "case": "complete_3_two_inputs",
+      "photographiq_causal_flow": "not_certified",
+      "graphix_causal_flow_exists": false,
+      "existence_agrees": true,
+      "x_correction_support_agrees": null,
+      "graphix_flow_passes_photographiq_verifier": null,
+      "qubit_causal_on_cv_model_status": "unsupported",
+      "ok": true
+    }
+  ]
 }

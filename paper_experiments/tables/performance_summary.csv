@@ -1,16 +1,36 @@
 experiment,metric,value
 R35,default max_dimension guard,1000000
-R36,gaussian @ 10 modes median runtime (s),0.01562209997791797
-R36,piquasso @ 10 modes median runtime (s),0.07688790000975132
-R36,gaussian @ 20 modes median runtime (s),0.03660350001882762
-R36,piquasso @ 20 modes median runtime (s),0.19611239997902885
-R36,gaussian @ 50 modes median runtime (s),0.3378787999972701
-R36,piquasso @ 50 modes median runtime (s),0.9560963999829255
-R36,gaussian @ 100 modes median runtime (s),3.014702699962072
-R36,piquasso @ 100 modes median runtime (s),15.362418600008823
-R36,gaussian @ 200 modes median runtime (s),37.07356319995597
-R36,piquasso @ 200 modes median runtime (s),143.4238120999653
-R38,overhead ratio @ 5 modes,8.824722611492502
-R38,overhead ratio @ 10 modes,9.209789760802112
-R38,overhead ratio @ 20 modes,13.49826961158815
-R38,overhead ratio @ 40 modes,21.91025570116002
+R36,gaussian @ 10 modes median runtime (s),0.003563799982657656
+R36,native-gaussian @ 10 modes median runtime (s),0.0012277000059839338
+R36,piquasso @ 10 modes median runtime (s),0.01758519999566488
+R36,gaussian @ 10 modes median runtime (s),0.005283600010443479
+R36,native-gaussian @ 10 modes median runtime (s),0.0015845000161789358
+R36,piquasso @ 10 modes median runtime (s),0.025232500018319115
+R36,gaussian @ 20 modes median runtime (s),0.008900999993784353
+R36,native-gaussian @ 20 modes median runtime (s),0.002445199992507696
+R36,piquasso @ 20 modes median runtime (s),0.04599510002299212
+R36,gaussian @ 20 modes median runtime (s),0.013099700008751824
+R36,native-gaussian @ 20 modes median runtime (s),0.0030824000132270157
+R36,piquasso @ 20 modes median runtime (s),0.06702880002558231
+R36,gaussian @ 50 modes median runtime (s),0.06944839999778196
+R36,native-gaussian @ 50 modes median runtime (s),0.0068654000060632825
+R36,piquasso @ 50 modes median runtime (s),0.2900070999749005
+R36,gaussian @ 50 modes median runtime (s),0.1091131999855861
+R36,native-gaussian @ 50 modes median runtime (s),0.007398099987767637
+R36,piquasso @ 50 modes median runtime (s),0.44148119998862967
+R36,gaussian @ 100 modes median runtime (s),0.8793318000098225
+R36,native-gaussian @ 100 modes median runtime (s),0.02280940001946874
+R36,piquasso @ 100 modes median runtime (s),5.811042100016493
+R36,gaussian @ 100 modes median runtime (s),1.0964984000020195
+R36,native-gaussian @ 100 modes median runtime (s),0.017130699998233467
+R36,piquasso @ 100 modes median runtime (s),7.903232500015292
+R36,gaussian @ 200 modes median runtime (s),15.180225899996003
+R36,native-gaussian @ 200 modes median runtime (s),0.14445000002160668
+R36,piquasso @ 200 modes median runtime (s),88.01585049999994
+R36,gaussian @ 200 modes median runtime (s),18.507479399995646
+R36,native-gaussian @ 200 modes median runtime (s),0.07421109999995679
+R36,piquasso @ 200 modes median runtime (s),119.40566369998851
+R38,overhead ratio @ 5 modes,9.336802569183304
+R38,overhead ratio @ 10 modes,11.478304266315178
+R38,overhead ratio @ 20 modes,15.309007522077062
+R38,overhead ratio @ 40 modes,26.50886024021914

@@ -1,0 +1,5 @@
+seed,training_shot_seed,validation_shot_seed,test_shot_seed,selected_configuration,training_accuracy,validation_accuracy,fresh_test_accuracy,generalization_gap,unstable,runtime_seconds
+7,7,1007,2007,"[0.0, 0.0, 0.0, 0.0]",1.0,0.0,0.5,0.5,True,189.49408960004803
+23,23,1023,2023,"[0.0, 3.141592653589793, 0.0, 0.0]",1.0,0.75,1.0,0.0,True,176.28640290000476
+47,47,1047,2047,"[0.0, 0.0, 0.0, 0.0]",1.0,0.5,0.5,0.5,False,175.33281039993744
+89,89,1089,2089,"[0.0, 0.0, 0.0, 0.0]",1.0,1.0,0.5,0.5,True,181.4459628999466

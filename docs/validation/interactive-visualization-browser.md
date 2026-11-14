@@ -204,7 +204,27 @@ Screenshots after the fixes:
 ![6 x 6 cluster](assets/interactive/14_grid6x6.png)
 ![Static PDF, corrections stage](assets/interactive/static_corrections_pdf.png)
 
-## Remaining limits
+## Update 2026-11-13: routing, styles and controls
+
+The checks above describe the 2026-11-12 pages. On 2026-11-13 the pages and static figures
+changed:
+- **Routing.** Edges and arrows are quadratic curves routed by `layouts.route`, in Python and in
+  JavaScript, with a clearance of 0.34 layout units from every non-endpoint node. On the R57
+  graph the minimum clearance is 0.367.
+- **Styles.** CZ edges are solid neutral; flow arrows are solid blue `#0072b2`; correction
+  arrows are dashed orange `#d55e00`. Inputs are blue squares, outputs green diamonds,
+  measured nodes have a thick dark outline. Arrows of an uncertified flow are grey and dashed.
+- **Labels.** HTML nodes grow to fit their label; static `#k`, `m=` and `r=` annotations sit
+  below the node; the 6 x 6 cluster renders labels at 10.9 px.
+- **Controls.** Stage and layout selectors, fit and reset, measurement-order stepping, SVG,
+  PNG and self-contained HTML downloads.
+
+`scripts/check_interactive_browser.py` now asserts the new styles and has 12 checks; it passes
+12/12 in Edge (Playwright). Experiment R57 (`paper_experiments/18_visualization/`) repeats the
+check on a 19-node compiled graph with real drag, stage and layout switches. Of the limits
+below, the first, second, fourth and fifth are resolved by these changes; the others remain.
+
+## Remaining limits (as of 2026-11-12; see the update above)
 
 - **Arcs and edges can pass through other nodes.** Edges are straight, and arcs use a
   fixed bend of 0.22 x their length.

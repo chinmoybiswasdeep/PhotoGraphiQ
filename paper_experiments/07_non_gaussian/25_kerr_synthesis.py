@@ -8,6 +8,15 @@ approximation error from separate finite-resource MBQC injection error
 directly into PHYSICAL Fock-backend commands (Rotate/QuadraticPhase/
 CubicPhase/Displace) and executes them without compiling to an MBQC pattern.
 Fidelity to the exact phase rule is compared across synthesis_steps.
+
+Upgrade migration (2026-11): every step count is executed on ``native-fock``
+(main) and ``piquasso-fock`` (historical reference). The two engines realise
+QuadraticPhase differently at a finite cutoff (exact projected matrix
+elements vs Piquasso's truncated Euler decomposition), so their fidelities
+are reported side by side and their mutual output fidelity is recorded.
+Declared check: on each engine the infidelity at the largest step count is
+smaller than at one step (the Lie-product error decreases). Runtimes are
+provisional (shared machine).
 """
 
 from __future__ import annotations
@@ -28,8 +37,7 @@ from photographiq.synthesis import synthesize_kerr  # noqa: E402
 KAPPA = 0.05
 CUTOFF = 16
 STEPS = [1, 2, 4, 8, 16, 32, 64]
-
-
+ENGINES = ("native-fock", "piquasso-fock")
 def physical_command_for(name, mode, params):
     """Translate one synthesized Circuit gate into a direct physical command."""
     if name == "displace":
@@ -66,34 +74,55 @@ def main():
             pattern.append(pg.Output((0,)))
             pattern.validate()
 
-            start = time.perf_counter()
-            state = pg.simulate(pattern, backend="piquasso-fock", cutoff=CUTOFF, inputs={0: fock_input}, seed=0).state
-            elapsed = time.perf_counter() - start
-
-        actual_map = dict(zip(state.basis, state.state_vector, strict=True))
-        actual = np.array([actual_map.get((n,), 0j) for n in range(CUTOFF)])
-        overlap = np.vdot(expected, actual)
-        fidelity = float(np.clip(abs(overlap) ** 2, 0, 1))
-        rows.append(
-            {
-                "synthesis_steps": steps,
-                "fidelity_to_exact_kerr": fidelity,
-                "trace_distance_estimate": float(np.sqrt(max(0.0, 1 - fidelity))),
-                "primitive_count": report.primitive_count,
-                "synthesis_order": report.order,
-                "runtime_seconds": elapsed,
-                "retained_norm": state.retained_norms[-1] if state.retained_norms else None,
-            }
-        )
-        print(f"  steps={steps}: fidelity={fidelity:.8f}, primitives={report.primitive_count}, {elapsed:.3f}s", flush=True)
+            vectors = {}
+            for backend in ENGINES:
+                start = time.perf_counter()
+                state = pg.simulate(pattern, backend=backend, cutoff=CUTOFF, inputs={0: fock_input}, seed=0).state
+                elapsed = time.perf_counter() - start
+                actual_map = dict(zip(state.basis, state.state_vector, strict=True))
+                actual = np.array([actual_map.get((n,), 0j) for n in range(CUTOFF)])
+                vectors[backend] = actual
+                overlap = np.vdot(expected, actual)
+                fidelity = float(np.clip(abs(overlap) ** 2, 0, 1))
+                rows.append(
+                {
+                    "backend": backend,
+                    "synthesis_steps": steps,
+                    "fidelity_to_exact_kerr": fidelity,
+                    "trace_distance_estimate": float(np.sqrt(max(0.0, 1 - fidelity))),
+                    "primitive_count": report.primitive_count,
+                    "synthesis_order": report.order,
+                    "runtime_seconds": elapsed,
+                    "retained_norm": state.retained_norms[-1] if state.retained_norms else None,
+                    "min_retained_norm": min(state.retained_norms) if state.retained_norms else None,
+                    "runtime_note": "provisional (shared machine)",
+                }
+                )
+                print(f"  {backend} steps={steps}: fidelity={fidelity:.8f}, primitives={report.primitive_count}, {elapsed:.3f}s", flush=True)
+            mutual = float(abs(np.vdot(vectors["native-fock"], vectors["piquasso-fock"])) ** 2)
+            for row in rows[-len(ENGINES):]:
+                row["native_vs_piquasso_output_fidelity"] = mutual
 
     common.save_result(
         rows, "R25_kerr_synthesis",
-        extra={"kappa": KAPPA, "cutoff": CUTOFF, "note": "synthesis-only execution; MBQC injection noise excluded (see R23)"},
+        extra={"kappa": KAPPA, "cutoff": CUTOFF, "note": "synthesis-only execution; MBQC injection noise excluded (see R23)",
+               "engines": list(ENGINES), "main_backend": ENGINES[0]},
     )
+    failures = []
+    for backend in ENGINES:
+        subset = [r for r in rows if r["backend"] == backend]
+        if 1 - subset[-1]["fidelity_to_exact_kerr"] >= 1 - subset[0]["fidelity_to_exact_kerr"]:
+            failures.append(backend)
+    if failures:
+        common.save_csv([r for r in rows if r["backend"] in failures], "R25_kerr_synthesis_FAILURES")
+        raise AssertionError(f"Lie-product infidelity did not decrease on {failures}; see FAILURES csv")
 
     fig, ax = plt.subplots(figsize=(5.5, 3.8))
-    ax.loglog([r["synthesis_steps"] for r in rows], [max(1e-16, 1 - r["fidelity_to_exact_kerr"]) for r in rows], "o-", color="#24677b")
+    for backend, style in zip(ENGINES, ("o-", "x--"), strict=True):
+        subset = [r for r in rows if r["backend"] == backend]
+        ax.loglog([r["synthesis_steps"] for r in subset], [max(1e-16, 1 - r["fidelity_to_exact_kerr"]) for r in subset],
+                  style, label=backend)
+    ax.legend(fontsize=8)
     ax.set_xlabel("Synthesis steps")
     ax.set_ylabel("1 - fidelity to exact Kerr")
     ax.set_title(f"Kerr Lie-product synthesis, kappa={KAPPA} (direct physical execution)")
@@ -103,8 +132,9 @@ def main():
     common.print_summary(
         "R25 Kerr synthesis convergence",
         steps=STEPS,
-        min_infidelity=min(1 - r["fidelity_to_exact_kerr"] for r in rows),
-        max_infidelity=max(1 - r["fidelity_to_exact_kerr"] for r in rows),
+        **{f"{b}_infidelity_first_last": (1 - [r for r in rows if r["backend"] == b][0]["fidelity_to_exact_kerr"],
+                                          1 - [r for r in rows if r["backend"] == b][-1]["fidelity_to_exact_kerr"]) for b in ENGINES},
+        min_native_vs_piquasso_output_fidelity=min(r["native_vs_piquasso_output_fidelity"] for r in rows),
     )
 
 

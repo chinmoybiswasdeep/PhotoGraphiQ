@@ -1,6 +1,6 @@
 > Historical v0.1 design audit. The v0.2 extension is recorded in [non_gaussian_design.md](non_gaussian_design.md).
 
-> Historical v0.2 reference. For the v0.3 additions and current backend support, see the [documentation home](index.md) and [feature matrix](validation/feature-matrix.md).
+> **Historical v0.2 reference**, kept unchanged as a provenance record. Since 0.3.1 Piquasso is an optional extra, the default engines are NumPy (`gaussian`) and native C++ (`native-gaussian`, `native-fock`, `native-mixed-fock`), and several features this page calls unavailable now exist (noisy Fock homodyne, Fock loss and mixed inputs on mixed-Fock backends; finite-energy GKP; Gaussian-plus-cubic compilation; Gaussian likelihood diagnostics). Current behaviour: [backends](user-guide/backends.md), [theory](theory/index.md), [feature matrix](validation/feature-matrix.md).
 
 # Pre-implementation design record
 

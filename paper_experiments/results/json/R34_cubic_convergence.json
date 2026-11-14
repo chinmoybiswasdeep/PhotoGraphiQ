@@ -1,233 +1,618 @@
 {
   "rows": [
     {
+      "backend": "native-fock",
+      "cutoff": 24,
+      "resource_squeezing": 0.1,
+      "ok": true,
+      "fidelity": 0.9469313312462367,
+      "log10_infidelity": -1.2751618066639288,
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.999999002080497,
+      "native_vs_piquasso_fidelity": 0.9999999871573497
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 24,
+      "resource_squeezing": 0.3,
+      "ok": true,
+      "fidelity": 0.9706011792358804,
+      "log10_infidelity": -1.5316700895166486,
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999741843987144,
+      "native_vs_piquasso_fidelity": 0.9999994628668532
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 24,
+      "resource_squeezing": 0.6,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.99882411; increase cutoff=24",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 24,
+      "resource_squeezing": 1.0,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.97942754; increase cutoff=24",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 24,
+      "resource_squeezing": 1.5,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.9696007; increase cutoff=24",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 24,
+      "resource_squeezing": 2.0,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.81062528; increase cutoff=24",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "piquasso-fock",
       "cutoff": 24,
       "resource_squeezing": 0.1,
       "ok": true,
       "fidelity": 0.9469294912977205,
       "log10_infidelity": -1.2751467494624917,
-      "retained_norm": 1.0000000000000004
+      "retained_norm": 1.0000000000000004,
+      "min_retained_norm": 0.9999986460967449,
+      "native_vs_piquasso_fidelity": 0.9999999871573497
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 24,
       "resource_squeezing": 0.3,
       "ok": true,
       "fidelity": 0.970600425619804,
       "log10_infidelity": -1.5316589568555383,
-      "retained_norm": 1.0
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.9999630334180396,
+      "native_vs_piquasso_fidelity": 0.9999994628668532
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 24,
       "resource_squeezing": 0.6,
       "ok": false,
       "fidelity": null,
-      "error": "Fock truncation norm 0.99836644; increase cutoff=24"
+      "error": "Fock truncation norm 0.99836644; increase cutoff=24",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 24,
       "resource_squeezing": 1.0,
       "ok": false,
       "fidelity": null,
-      "error": "Fock truncation norm 0.97312438; increase cutoff=24"
+      "error": "Fock truncation norm 0.97312438; increase cutoff=24",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 24,
       "resource_squeezing": 1.5,
       "ok": false,
       "fidelity": null,
-      "error": "Fock truncation norm 0.9696007; increase cutoff=24"
+      "error": "Fock truncation norm 0.9696007; increase cutoff=24",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 24,
       "resource_squeezing": 2.0,
       "ok": false,
       "fidelity": null,
-      "error": "Fock truncation norm 0.81062528; increase cutoff=24"
+      "error": "Fock truncation norm 0.81062528; increase cutoff=24",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "native-fock",
+      "cutoff": 32,
+      "resource_squeezing": 0.1,
+      "ok": true,
+      "fidelity": 0.9469297078458014,
+      "log10_infidelity": -1.275148521554578,
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999999479088113,
+      "native_vs_piquasso_fidelity": 0.9999999991307094
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 32,
+      "resource_squeezing": 0.3,
+      "ok": true,
+      "fidelity": 0.9706013780173363,
+      "log10_infidelity": -1.5316730260283522,
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999965348760617,
+      "native_vs_piquasso_fidelity": 0.9999999241383685
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 32,
+      "resource_squeezing": 0.6,
+      "ok": true,
+      "fidelity": 0.9889648975795846,
+      "log10_infidelity": -1.9572236316536793,
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9996026534638205,
+      "native_vs_piquasso_fidelity": 0.9999915348457875
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 32,
+      "resource_squeezing": 1.0,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.98634933; increase cutoff=32",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 32,
+      "resource_squeezing": 1.5,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.98779474; increase cutoff=32",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 32,
+      "resource_squeezing": 2.0,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.87133538; increase cutoff=32",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "piquasso-fock",
       "cutoff": 32,
       "resource_squeezing": 0.1,
       "ok": true,
       "fidelity": 0.9469297882882736,
       "log10_infidelity": -1.275149179846568,
-      "retained_norm": 1.0000000000000002
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999999218173518,
+      "native_vs_piquasso_fidelity": 0.9999999991307094
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 32,
       "resource_squeezing": 0.3,
       "ok": true,
       "fidelity": 0.9706032776846945,
       "log10_infidelity": -1.5317010899868595,
-      "retained_norm": 1.0000000000000002
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999947093380677,
+      "native_vs_piquasso_fidelity": 0.9999999241383685
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 32,
       "resource_squeezing": 0.6,
       "ok": true,
       "fidelity": 0.9889756546815112,
       "log10_infidelity": -1.9576471917022873,
-      "retained_norm": 1.0
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.9994477791056355,
+      "native_vs_piquasso_fidelity": 0.9999915348457875
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 32,
       "resource_squeezing": 1.0,
       "ok": false,
       "fidelity": null,
-      "error": "Fock truncation norm 0.98298367; increase cutoff=32"
+      "error": "Fock truncation norm 0.98298367; increase cutoff=32",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 32,
       "resource_squeezing": 1.5,
       "ok": false,
       "fidelity": null,
-      "error": "Fock truncation norm 0.98779474; increase cutoff=32"
+      "error": "Fock truncation norm 0.98779474; increase cutoff=32",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 32,
       "resource_squeezing": 2.0,
       "ok": false,
       "fidelity": null,
-      "error": "Fock truncation norm 0.87133538; increase cutoff=32"
+      "error": "Fock truncation norm 0.87133538; increase cutoff=32",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "native-fock",
+      "cutoff": 48,
+      "resource_squeezing": 0.1,
+      "ok": true,
+      "fidelity": 0.9469296013256653,
+      "log10_infidelity": -1.275147649860471,
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999999996309147,
+      "native_vs_piquasso_fidelity": 0.9999999999930274
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 48,
+      "resource_squeezing": 0.3,
+      "ok": true,
+      "fidelity": 0.9706009885087891,
+      "log10_infidelity": -1.5316672720072222,
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.9999998810995006,
+      "native_vs_piquasso_fidelity": 0.9999999975529266
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 48,
+      "resource_squeezing": 0.6,
+      "ok": true,
+      "fidelity": 0.9889988344187609,
+      "log10_infidelity": -1.958561298597867,
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999381671336085,
+      "native_vs_piquasso_fidelity": 0.9999989464421656
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 48,
+      "resource_squeezing": 1.0,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.99379423; increase cutoff=48",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 48,
+      "resource_squeezing": 1.5,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.99791089; increase cutoff=48",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 48,
+      "resource_squeezing": 2.0,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.93791442; increase cutoff=48",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "piquasso-fock",
       "cutoff": 48,
       "resource_squeezing": 0.1,
       "ok": true,
       "fidelity": 0.9469296090745074,
       "log10_infidelity": -1.2751477132720848,
-      "retained_norm": 1.0000000000000002
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999999993436625,
+      "native_vs_piquasso_fidelity": 0.9999999999930274
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 48,
       "resource_squeezing": 0.3,
       "ok": true,
       "fidelity": 0.9706009723008218,
       "log10_infidelity": -1.5316670325764228,
-      "retained_norm": 1.0
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.9999997969994467,
+      "native_vs_piquasso_fidelity": 0.9999999975529266
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 48,
       "resource_squeezing": 0.6,
       "ok": true,
       "fidelity": 0.988996020664211,
       "log10_infidelity": -1.9584502338368102,
-      "retained_norm": 1.0000000000000002
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999110221552509,
+      "native_vs_piquasso_fidelity": 0.9999989464421656
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 48,
       "resource_squeezing": 1.0,
       "ok": false,
       "fidelity": null,
-      "error": "Fock truncation norm 0.99239828; increase cutoff=48"
+      "error": "Fock truncation norm 0.99239828; increase cutoff=48",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 48,
       "resource_squeezing": 1.5,
       "ok": false,
       "fidelity": null,
-      "error": "Fock truncation norm 0.99791089; increase cutoff=48"
+      "error": "Fock truncation norm 0.99791089; increase cutoff=48",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 48,
       "resource_squeezing": 2.0,
       "ok": false,
       "fidelity": null,
-      "error": "Fock truncation norm 0.93791442; increase cutoff=48"
+      "error": "Fock truncation norm 0.93791442; increase cutoff=48",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "native-fock",
+      "cutoff": 64,
+      "resource_squeezing": 0.1,
+      "ok": true,
+      "fidelity": 0.9469296019616449,
+      "log10_infidelity": -1.2751476550649248,
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.9999999999943163,
+      "native_vs_piquasso_fidelity": 0.9999999999998939
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 64,
+      "resource_squeezing": 0.3,
+      "ok": true,
+      "fidelity": 0.9706009394161861,
+      "log10_infidelity": -1.5316665467913833,
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.9999999930103027,
+      "native_vs_piquasso_fidelity": 0.9999999998688223
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 64,
+      "resource_squeezing": 0.6,
+      "ok": true,
+      "fidelity": 0.9889968343830272,
+      "log10_infidelity": -1.9584823500965634,
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.999987389090633,
+      "native_vs_piquasso_fidelity": 0.9999998160177346
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 64,
+      "resource_squeezing": 1.0,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.99700634; increase cutoff=64",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 64,
+      "resource_squeezing": 1.5,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.94695359; increase cutoff=64",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 64,
+      "resource_squeezing": 2.0,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.96900177; increase cutoff=64",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "piquasso-fock",
       "cutoff": 64,
       "resource_squeezing": 0.1,
       "ok": true,
       "fidelity": 0.9469296021079399,
       "log10_infidelity": -1.2751476562621102,
-      "retained_norm": 1.0000000000000002
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999999999884869,
+      "native_vs_piquasso_fidelity": 0.9999999999998939
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 64,
       "resource_squeezing": 0.3,
       "ok": true,
       "fidelity": 0.970600928140999,
       "log10_infidelity": -1.5316663802299182,
-      "retained_norm": 1.0000000000000002
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999999870813541,
+      "native_vs_piquasso_fidelity": 0.9999999998688223
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 64,
       "resource_squeezing": 0.6,
       "ok": true,
       "fidelity": 0.988996718423811,
       "log10_infidelity": -1.9584777732153165,
-      "retained_norm": 1.0
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.999981187391148,
+      "native_vs_piquasso_fidelity": 0.9999998160177346
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 64,
       "resource_squeezing": 1.0,
       "ok": false,
       "fidelity": null,
-      "error": "Fock truncation norm 0.99626856; increase cutoff=64"
+      "error": "Fock truncation norm 0.99626856; increase cutoff=64",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 64,
       "resource_squeezing": 1.5,
       "ok": false,
       "fidelity": null,
-      "error": "Fock truncation norm 0.93784546; increase cutoff=64"
+      "error": "Fock truncation norm 0.93784546; increase cutoff=64",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 64,
       "resource_squeezing": 2.0,
       "ok": false,
       "fidelity": null,
-      "error": "Fock truncation norm 0.96900177; increase cutoff=64"
+      "error": "Fock truncation norm 0.96900177; increase cutoff=64",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "native-fock",
+      "cutoff": 96,
+      "resource_squeezing": 0.1,
+      "ok": true,
+      "fidelity": 0.9469296019374195,
+      "log10_infidelity": -1.2751476548666796,
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.9999999999999944,
+      "native_vs_piquasso_fidelity": 1.0
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 96,
+      "resource_squeezing": 0.3,
+      "ok": true,
+      "fidelity": 0.9706009440756878,
+      "log10_infidelity": -1.5316666156233796,
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.9999999999389207,
+      "native_vs_piquasso_fidelity": 0.9999999999990381
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 96,
+      "resource_squeezing": 0.6,
+      "ok": true,
+      "fidelity": 0.9889973747480025,
+      "log10_infidelity": -1.9585036788030334,
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.999999105229568,
+      "native_vs_piquasso_fidelity": 0.9999999898558336
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 96,
+      "resource_squeezing": 1.0,
+      "ok": true,
+      "fidelity": 0.9973785464826506,
+      "log10_infidelity": -2.5814578386321645,
+      "retained_norm": 1.0000000000000004,
+      "min_retained_norm": 0.9991027674969685,
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 96,
+      "resource_squeezing": 1.5,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.96492085; increase cutoff=96",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "native-fock",
+      "cutoff": 96,
+      "resource_squeezing": 2.0,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.99183844; increase cutoff=96",
+      "native_vs_piquasso_fidelity": null
+    },
+    {
+      "backend": "piquasso-fock",
       "cutoff": 96,
       "resource_squeezing": 0.1,
       "ok": true,
       "fidelity": 0.9469296019369465,
       "log10_infidelity": -1.2751476548628091,
-      "retained_norm": 1.0000000000000002
+      "retained_norm": 1.0000000000000002,
+      "min_retained_norm": 0.9999999999999871,
+      "native_vs_piquasso_fidelity": 1.0
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 96,
       "resource_squeezing": 0.3,
       "ok": true,
       "fidelity": 0.9706009440205552,
       "log10_infidelity": -1.5316666148089395,
-      "retained_norm": 1.0
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.999999999874665,
+      "native_vs_piquasso_fidelity": 0.9999999999990381
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 96,
       "resource_squeezing": 0.6,
       "ok": true,
       "fidelity": 0.9889973966811096,
       "log10_infidelity": -1.9585045445452236,
-      "retained_norm": 1.0
+      "retained_norm": 1.0,
+      "min_retained_norm": 0.999998605692895,
+      "native_vs_piquasso_fidelity": 0.9999999898558336
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 96,
       "resource_squeezing": 1.0,
       "ok": false,
       "fidelity": null,
-      "error": "Fock truncation norm 0.99887962; increase cutoff=96"
+      "error": "Fock truncation norm 0.99887962; increase cutoff=96",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 96,
       "resource_squeezing": 1.5,
       "ok": false,
       "fidelity": null,
-      "error": "Fock truncation norm 0.95990628; increase cutoff=96"
+      "error": "Fock truncation norm 0.95990628; increase cutoff=96",
+      "native_vs_piquasso_fidelity": null
     },
     {
+      "backend": "piquasso-fock",
       "cutoff": 96,
       "resource_squeezing": 2.0,
       "ok": false,
       "fidelity": null,
-      "error": "Fock truncation norm 0.99183844; increase cutoff=96"
+      "error": "Fock truncation norm 0.99183844; increase cutoff=96",
+      "native_vs_piquasso_fidelity": null
     }
   ],
   "gamma": 0.15,
   "alpha": [
     0.2,
     0.0
-  ]
+  ],
+  "engines": [
+    "native-fock",
+    "piquasso-fock"
+  ],
+  "main_backend": "native-fock",
+  "engine_fidelity_floor": 0.999,
+  "monotone_slack": 1e-06,
+  "norm_guard_failures": {
+    "native-fock": 15,
+    "piquasso-fock": 16
+  }
 }

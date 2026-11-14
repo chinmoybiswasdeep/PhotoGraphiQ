@@ -1,0 +1,50 @@
+name: manuscript
+# Scientific checks behind the manuscript. Pull requests and pushes run the cheap "smoke" mode
+# (correctness checks only, no wall-clock thresholds). The "scientific" and "full" modes are
+# started by hand (Actions -> manuscript -> Run workflow) because they take hours.
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: reproduction mode
+        type: choice
+        options: [smoke, scientific, full]
+        default: scientific
+permissions:
+  contents: read
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: ${{ github.event_name == 'workflow_dispatch' && 360 || 60 }}
+    env:
+      MODE: ${{ github.event_name == 'workflow_dispatch' && inputs.mode || 'smoke' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install
+        run: python -m pip install -e '.[dev,autodiff]'
+      - name: Record environment
+        run: |
+          mkdir -p .manuscript
+          python -m pip freeze > .manuscript/pip-freeze.txt
+          python -c "from photographiq import native; print(native.AVAILABLE, native.components())" | tee .manuscript/native.txt
+      - name: Reproduce (${{ env.MODE }})
+        run: python scripts/reproduce_manuscript.py --mode "$MODE" --output .manuscript/run
+      - name: Upload reports, logs and figures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: manuscript-${{ env.MODE }}
+          include-hidden-files: true
+          if-no-files-found: warn
+          path: |
+            .manuscript/*.txt
+            .manuscript/run/summary.json
+            .manuscript/run/logs/
+            .manuscript/run/artifacts/
+            .manuscript/run/suites/*/results/json/
+            .manuscript/run/suites/*/figures/png/

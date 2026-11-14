@@ -1,0 +1,96 @@
+{
+  "rows": [
+    {
+      "cache": "basis table (6 modes, cutoff 12) - nf._occupations",
+      "first_call_seconds": 0.00015390000771731138,
+      "cached_call_seconds": 2.00001522898674e-07,
+      "speedup": 769.4941792782305
+    },
+    {
+      "cache": "cubic phase matrix (projected, gamma 0.5, cutoff 60) - nf._cubic_phase_matrix",
+      "first_call_seconds": 0.0031322999857366085,
+      "cached_call_seconds": 3.00002284348011e-07,
+      "speedup": 10440.920450135816
+    },
+    {
+      "cache": "sparse gate structure (6 modes, cutoff 10) - gpu.fock._maps/_template (CPU path)",
+      "first_call_seconds": 0.002474600012646988,
+      "cached_call_seconds": 0.00042290001874789596,
+      "speedup": 5.851501307504494
+    }
+  ],
+  "backend": "photographiq._native.fock (apply_pure, phase_pure, gaussian_unitary) and photographiq.gpu.fock (scipy.sparse CPU / cuSPARSE GPU)",
+  "precision": "complex128",
+  "cutoff": "total-photon cutoff, see rows",
+  "seed": 20261146,
+  "full": true,
+  "gpu_used": true,
+  "timing_status": "final (idle machine declared via PGQ_IDLE_MACHINE=1)",
+  "parameters": {
+    "grid": [
+      [
+        2,
+        30
+      ],
+      [
+        3,
+        16
+      ],
+      [
+        4,
+        12
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        8,
+        6
+      ],
+      [
+        4,
+        20
+      ],
+      [
+        6,
+        12
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        10,
+        7
+      ]
+    ],
+    "batches": [
+      1,
+      32
+    ],
+    "repeats": 9,
+    "beamsplitter_theta": 0.7,
+    "cz": 0.4,
+    "squeeze": 0.3,
+    "kerr": 0.35
+  },
+  "native_build_info": {
+    "compiler": "MSVC 19.50.35729.0",
+    "build_type": "Release",
+    "cxx_standard": 202002,
+    "openmp": true,
+    "eigen": "3.4.0",
+    "hbar": 2.0
+  },
+  "acceptance": {
+    "TOL_VARIANT": 1e-12,
+    "TOL_PHASE": 1e-14,
+    "TOL_PASSIVE_NORM": 1e-13,
+    "OFF_SECTOR_EXACT": 0.0
+  }
+}

@@ -1,0 +1,321 @@
+{
+  "schema": "photographiq",
+  "version": 1,
+  "inputs": {
+    "tuple": [
+      "alice"
+    ]
+  },
+  "commands": [
+    {
+      "type": "Prepare",
+      "fields": {
+        "node": "bob",
+        "squeezing": 1.0,
+        "state": null
+      }
+    },
+    {
+      "type": "Prepare",
+      "fields": {
+        "node": "carol",
+        "squeezing": 1.0,
+        "state": null
+      }
+    },
+    {
+      "type": "Entangle",
+      "fields": {
+        "u": "alice",
+        "v": "bob",
+        "weight": 1.0
+      }
+    },
+    {
+      "type": "Entangle",
+      "fields": {
+        "u": "bob",
+        "v": "carol",
+        "weight": 1.0
+      }
+    },
+    {
+      "type": "Measure",
+      "fields": {
+        "node": "alice",
+        "measurement": {
+          "type": "Homodyne",
+          "fields": {
+            "angle": 0.0,
+            "efficiency": 1.0,
+            "noise": 0.0
+          }
+        },
+        "key": "m0"
+      }
+    },
+    {
+      "type": "Displace",
+      "fields": {
+        "node": "bob",
+        "q": {
+          "type": "Expr",
+          "fields": {
+            "op": "neg",
+            "args": {
+              "tuple": [
+                {
+                  "type": "Expr",
+                  "fields": {
+                    "op": "outcome",
+                    "args": {
+                      "tuple": [
+                        "m0"
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "p": 0.0
+      }
+    },
+    {
+      "type": "Measure",
+      "fields": {
+        "node": "bob",
+        "measurement": {
+          "type": "Homodyne",
+          "fields": {
+            "angle": {
+              "type": "Expr",
+              "fields": {
+                "op": "add",
+                "args": {
+                  "tuple": [
+                    {
+                      "type": "Expr",
+                      "fields": {
+                        "op": "mul",
+                        "args": {
+                          "tuple": [
+                            {
+                              "type": "Expr",
+                              "fields": {
+                                "op": "constant",
+                                "args": {
+                                  "tuple": [
+                                    0.1
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "type": "Expr",
+                              "fields": {
+                                "op": "outcome",
+                                "args": {
+                                  "tuple": [
+                                    "m0"
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "type": "Expr",
+                      "fields": {
+                        "op": "parameter",
+                        "args": {
+                          "tuple": [
+                            "theta"
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "efficiency": 1.0,
+            "noise": 0.0
+          }
+        },
+        "key": "m1"
+      }
+    },
+    {
+      "type": "Displace",
+      "fields": {
+        "node": "carol",
+        "q": {
+          "type": "Expr",
+          "fields": {
+            "op": "neg",
+            "args": {
+              "tuple": [
+                {
+                  "type": "Expr",
+                  "fields": {
+                    "op": "outcome",
+                    "args": {
+                      "tuple": [
+                        "m1"
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "p": {
+          "type": "Expr",
+          "fields": {
+            "op": "add",
+            "args": {
+              "tuple": [
+                {
+                  "type": "Expr",
+                  "fields": {
+                    "op": "outcome",
+                    "args": {
+                      "tuple": [
+                        "m0"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "type": "Expr",
+                  "fields": {
+                    "op": "outcome",
+                    "args": {
+                      "tuple": [
+                        "m1"
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "Output",
+      "fields": {
+        "nodes": {
+          "tuple": [
+            "carol"
+          ]
+        }
+      }
+    }
+  ],
+  "resource": {
+    "mapping": [
+      [
+        "nodes",
+        [
+          {
+            "tuple": [
+              "alice",
+              {
+                "mapping": [
+                  [
+                    "squeezing",
+                    1.0
+                  ]
+                ]
+              }
+            ]
+          },
+          {
+            "tuple": [
+              "bob",
+              {
+                "mapping": [
+                  [
+                    "squeezing",
+                    1.0
+                  ]
+                ]
+              }
+            ]
+          },
+          {
+            "tuple": [
+              "carol",
+              {
+                "mapping": [
+                  [
+                    "squeezing",
+                    1.0
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      ],
+      [
+        "edges",
+        [
+          {
+            "tuple": [
+              "alice",
+              "bob",
+              {
+                "mapping": [
+                  [
+                    "weight",
+                    1.0
+                  ]
+                ]
+              }
+            ]
+          },
+          {
+            "tuple": [
+              "bob",
+              "carol",
+              {
+                "mapping": [
+                  [
+                    "weight",
+                    1.0
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      ],
+      [
+        "inputs",
+        {
+          "tuple": [
+            "alice"
+          ]
+        }
+      ],
+      [
+        "outputs",
+        {
+          "tuple": []
+        }
+      ],
+      [
+        "ideal",
+        false
+      ]
+    ]
+  }
+}

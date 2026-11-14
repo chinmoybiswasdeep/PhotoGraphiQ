@@ -1,0 +1,19 @@
+{
+  "shots": 2000,
+  "identical_outcomes_same_seed": true,
+  "identical_outcomes_different_seeds": false,
+  "ks_statistic_seed42_vs_seed43": 0.029000000000000026,
+  "ks_pvalue_seed42_vs_seed43": 0.36968362182350656,
+  "ks_statistic_seed42_vs_itself": 0.0,
+  "sample_mean_seed42": 0.5762980601980989,
+  "sample_mean_seed43": 0.5924913360766408,
+  "theoretical_mean": 0.6,
+  "mean_error_seed42": 0.02370193980190105,
+  "mean_error_seed43": 0.007508663923359138,
+  "checks": {
+    "same_seed_is_bit_identical": true,
+    "different_seeds_are_not_identical": true,
+    "different_seeds_pass_ks_same_distribution": true,
+    "sample_means_close_to_theory": true
+  }
+}

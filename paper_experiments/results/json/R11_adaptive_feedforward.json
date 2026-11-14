@@ -6,7 +6,8 @@
       "m1_outcome": 1.668443425694992,
       "adaptive_angle_used": 0.3472792096032393,
       "output_q_mean": -0.9091350329822131,
-      "output_p_mean": -0.14088231763797332
+      "output_p_mean": -0.14088231763797332,
+      "native_vs_gaussian_max_difference": 0.0
     },
     {
       "seed": 2,
@@ -14,7 +15,8 @@
       "m1_outcome": -1.9037153533944497,
       "adaptive_angle_used": 0.33945266908967664,
       "output_q_mean": 1.4310506276136716,
-      "output_p_mean": 0.9036975770503497
+      "output_p_mean": 0.9036975770503497,
+      "native_vs_gaussian_max_difference": 0.0
     },
     {
       "seed": 3,
@@ -22,7 +24,8 @@
       "m1_outcome": -8.250580047513031,
       "adaptive_angle_used": 0.4320459560692591,
       "output_q_mean": 5.3463174138758776,
-      "output_p_mean": 2.2176566827371555
+      "output_p_mean": 2.2176566827371555,
+      "native_vs_gaussian_max_difference": 0.0
     },
     {
       "seed": 4,
@@ -30,7 +33,8 @@
       "m1_outcome": -0.44096390418779385,
       "adaptive_angle_used": 0.2974104423694155,
       "output_q_mean": 0.3018969679440874,
-      "output_p_mean": 0.1556815574862945
+      "output_p_mean": 0.1556815574862945,
+      "native_vs_gaussian_max_difference": 0.0
     },
     {
       "seed": 5,
@@ -38,7 +42,8 @@
       "m1_outcome": -3.466892914799629,
       "adaptive_angle_used": 0.2899034287373276,
       "output_q_mean": 2.43857272607898,
-      "output_p_mean": 1.35140479434423
+      "output_p_mean": 1.35140479434423,
+      "native_vs_gaussian_max_difference": 0.0
     },
     {
       "seed": 6,
@@ -46,7 +51,8 @@
       "m1_outcome": 3.918858722337731,
       "adaptive_angle_used": 0.3826557877243379,
       "output_q_mean": -2.118076353330746,
-      "output_p_mean": -0.2943461016713713
+      "output_p_mean": -0.2943461016713713,
+      "native_vs_gaussian_max_difference": 0.0
     },
     {
       "seed": 7,
@@ -54,7 +60,8 @@
       "m1_outcome": 0.43893759249901926,
       "adaptive_angle_used": 0.3300615076678741,
       "output_q_mean": -0.17599605327280438,
-      "output_p_mean": 0.08225237821312084
+      "output_p_mean": 0.08225237821312084,
+      "native_vs_gaussian_max_difference": 0.0
     },
     {
       "seed": 8,
@@ -62,7 +69,8 @@
       "m1_outcome": -2.804478491316789,
       "adaptive_angle_used": 0.24308668007515588,
       "output_q_mean": 1.9303906316923163,
-      "output_p_mean": 1.0252470869231647
+      "output_p_mean": 1.0252470869231647,
+      "native_vs_gaussian_max_difference": 0.0
     }
   ],
   "pattern_json": "{\n  \"schema\": \"photographiq\",\n  \"version\": 1,\n  \"inputs\": {\n    \"tuple\": [\n      0\n    ]\n  },\n  \"commands\": [\n    {\n      \"type\": \"Prepare\",\n      \"fields\": {\n        \"node\": 1,\n        \"squeezing\": 1.0,\n        \"state\": null\n      }\n    },\n    {\n      \"type\": \"Prepare\",\n      \"fields\": {\n        \"node\": 2,\n        \"squeezing\": 1.0,\n        \"state\": null\n      }\n    },\n    {\n      \"type\": \"Entangle\",\n      \"fields\": {\n        \"u\": 0,\n        \"v\": 1,\n        \"weight\": 1.0\n      }\n    },\n    {\n      \"type\": \"Entangle\",\n      \"fields\": {\n        \"u\": 1,\n        \"v\": 2,\n        \"weight\": 1.0\n      }\n    },\n    {\n      \"type\": \"Measure\",\n      \"fields\": {\n        \"node\": 0,\n        \"measurement\": {\n          \"type\": \"Homodyne\",\n          \"fields\": {\n            \"angle\": 0.0,\n            \"efficiency\": 1.0,\n            \"noise\": 0.0\n          }\n        },\n        \"key\": \"m0\"\n      }\n    },\n    {\n      \"type\": \"Displace\",\n      \"fields\": {\n        \"node\": 1,\n        \"q\": {\n          \"type\": \"Expr\",\n          \"fields\": {\n            \"op\": \"neg\",\n            \"args\": {\n              \"tuple\": [\n                {\n                  \"type\": \"Expr\",\n                  \"fields\": {\n                    \"op\": \"outcome\",\n                    \"args\": {\n                      \"tuple\": [\n                        \"m0\"\n                      ]\n                    }\n                  }\n                }\n              ]\n            }\n          }\n        },\n        \"p\": 0.0\n      }\n    },\n    {\n      \"type\": \"Measure\",\n      \"fields\": {\n        \"node\": 1,\n        \"measurement\": {\n          \"type\": \"Homodyne\",\n          \"fields\": {\n            \"angle\": {\n              \"type\": \"Expr\",\n              \"fields\": {\n                \"op\": \"add\",\n                \"args\": {\n                  \"tuple\": [\n                    {\n                      \"type\": \"Expr\",\n                      \"fields\": {\n                        \"op\": \"mul\",\n                        \"args\": {\n                          \"tuple\": [\n                            {\n                              \"type\": \"Expr\",\n                              \"fields\": {\n                                \"op\": \"constant\",\n                                \"args\": {\n                                  \"tuple\": [\n                                    0.05\n                                  ]\n                                }\n                              }\n                            },\n                            {\n                              \"type\": \"Expr\",\n                              \"fields\": {\n                                \"op\": \"outcome\",\n                                \"args\": {\n                                  \"tuple\": [\n                                    \"m0\"\n                                  ]\n                                }\n                              }\n                            }\n                          ]\n                        }\n                      }\n                    },\n                    {\n                      \"type\": \"Expr\",\n                      \"fields\": {\n                        \"op\": \"parameter\",\n                        \"args\": {\n                          \"tuple\": [\n                            \"theta\"\n                          ]\n                        }\n                      }\n                    }\n                  ]\n                }\n              }\n            },\n            \"efficiency\": 1.0,\n            \"noise\": 0.0\n          }\n        },\n        \"key\": \"m1\"\n      }\n    },\n    {\n      \"type\": \"Displace\",\n      \"fields\": {\n        \"node\": 2,\n        \"q\": {\n          \"type\": \"Expr\",\n          \"fields\": {\n            \"op\": \"neg\",\n            \"args\": {\n              \"tuple\": [\n                {\n                  \"type\": \"Expr\",\n                  \"fields\": {\n                    \"op\": \"outcome\",\n                    \"args\": {\n                      \"tuple\": [\n                        \"m1\"\n                      ]\n                    }\n                  }\n                }\n              ]\n            }\n          }\n        },\n        \"p\": 0.0\n      }\n    },\n    {\n      \"type\": \"Output\",\n      \"fields\": {\n        \"nodes\": {\n          \"tuple\": [\n            2\n          ]\n        }\n      }\n    }\n  ],\n  \"resource\": {\n    \"mapping\": [\n      [\n        \"nodes\",\n        [\n          {\n            \"tuple\": [\n              0,\n              {\n                \"mapping\": [\n                  [\n                    \"squeezing\",\n                    1.0\n                  ]\n                ]\n              }\n            ]\n          },\n          {\n            \"tuple\": [\n              1,\n              {\n                \"mapping\": [\n                  [\n                    \"squeezing\",\n                    1.0\n                  ]\n                ]\n              }\n            ]\n          },\n          {\n            \"tuple\": [\n              2,\n              {\n                \"mapping\": [\n                  [\n                    \"squeezing\",\n                    1.0\n                  ]\n                ]\n              }\n            ]\n          }\n        ]\n      ],\n      [\n        \"edges\",\n        [\n          {\n            \"tuple\": [\n              0,\n              1,\n              {\n                \"mapping\": [\n                  [\n                    \"weight\",\n                    1.0\n                  ]\n                ]\n              }\n            ]\n          },\n          {\n            \"tuple\": [\n              1,\n              2,\n              {\n                \"mapping\": [\n                  [\n                    \"weight\",\n                    1.0\n                  ]\n                ]\n              }\n            ]\n          }\n        ]\n      ],\n      [\n        \"inputs\",\n        {\n          \"tuple\": [\n            0\n          ]\n        }\n      ],\n      [\n        \"outputs\",\n        {\n          \"tuple\": []\n        }\n      ],\n      [\n        \"ideal\",\n        false\n      ]\n    ]\n  }\n}",
@@ -115,5 +123,156 @@
   "m0_command_index": 4,
   "m1_command_index": 6,
   "affine_analyzer_rejected_pattern": true,
-  "theta_parameter": 0.3
+  "theta_parameter": 0.3,
+  "schedule_measures_m0_before_m1": true,
+  "execution_backends": [
+    "gaussian",
+    "native-gaussian"
+  ],
+  "fixed_outcome_branches": [
+    {
+      "m0": -1.5,
+      "m1": -0.8,
+      "adaptive_angle": 0.22499999999999998,
+      "gaussian_output_q_mean": 0.3703471420701821,
+      "gaussian_output_p_mean": -1.877235010214542,
+      "gaussian_m1_density": 0.1141118642810733,
+      "gaussian_vs_fixed_angle_control": 0.0,
+      "native-gaussian_output_q_mean": 0.3703471420701821,
+      "native-gaussian_output_p_mean": -1.877235010214542,
+      "native-gaussian_m1_density": 0.1141118642810733,
+      "native-gaussian_vs_fixed_angle_control": 0.0,
+      "native_vs_gaussian": 0.0
+    },
+    {
+      "m0": -1.5,
+      "m1": 0.4,
+      "adaptive_angle": 0.22499999999999998,
+      "gaussian_output_q_mean": -0.5621690849737672,
+      "gaussian_output_p_mean": -0.7085475594274763,
+      "gaussian_m1_density": 0.14153925488548394,
+      "gaussian_vs_fixed_angle_control": 0.0,
+      "native-gaussian_output_q_mean": -0.5621690849737672,
+      "native-gaussian_output_p_mean": -0.7085475594274763,
+      "native-gaussian_m1_density": 0.14153925488548394,
+      "native-gaussian_vs_fixed_angle_control": 0.0,
+      "native_vs_gaussian": 0.0
+    },
+    {
+      "m0": -0.5,
+      "m1": -0.8,
+      "adaptive_angle": 0.27499999999999997,
+      "gaussian_output_q_mean": 0.48937902302820696,
+      "gaussian_output_p_mean": -1.1009126396364775,
+      "gaussian_m1_density": 0.13421991851102166,
+      "gaussian_vs_fixed_angle_control": 0.0,
+      "native-gaussian_output_q_mean": 0.48937902302820696,
+      "native-gaussian_output_p_mean": -1.1009126396364775,
+      "native-gaussian_m1_density": 0.13421991851102166,
+      "native-gaussian_vs_fixed_angle_control": 0.0,
+      "native_vs_gaussian": 0.0
+    },
+    {
+      "m0": -0.5,
+      "m1": 0.4,
+      "adaptive_angle": 0.27499999999999997,
+      "gaussian_output_q_mean": -0.38520414556252275,
+      "gaussian_output_p_mean": 0.05243993281857249,
+      "gaussian_m1_density": 0.14663415704006397,
+      "gaussian_vs_fixed_angle_control": 0.0,
+      "native-gaussian_output_q_mean": -0.38520414556252275,
+      "native-gaussian_output_p_mean": 0.05243993281857249,
+      "native-gaussian_m1_density": 0.14663415704006397,
+      "native-gaussian_vs_fixed_angle_control": 0.0,
+      "native_vs_gaussian": 0.0
+    },
+    {
+      "m0": 0.0,
+      "m1": -0.8,
+      "adaptive_angle": 0.3,
+      "gaussian_output_q_mean": 0.5639613890277886,
+      "gaussian_output_p_mean": -0.7630486607052617,
+      "gaussian_m1_density": 0.1404398780524224,
+      "gaussian_vs_fixed_angle_control": 0.0,
+      "native-gaussian_output_q_mean": 0.5639613890277886,
+      "native-gaussian_output_p_mean": -0.7630486607052617,
+      "native-gaussian_m1_density": 0.1404398780524224,
+      "native-gaussian_vs_fixed_angle_control": 0.0,
+      "native_vs_gaussian": 0.0
+    },
+    {
+      "m0": 0.0,
+      "m1": 0.4,
+      "adaptive_angle": 0.3,
+      "gaussian_output_q_mean": -0.2819806945138943,
+      "gaussian_output_p_mean": 0.38152433035263084,
+      "gaussian_m1_density": 0.14506879525722416,
+      "gaussian_vs_fixed_angle_control": 0.0,
+      "native-gaussian_output_q_mean": -0.2819806945138943,
+      "native-gaussian_output_p_mean": 0.38152433035263084,
+      "native-gaussian_m1_density": 0.14506879525722416,
+      "native-gaussian_vs_fixed_angle_control": 0.0,
+      "native_vs_gaussian": 0.0
+    },
+    {
+      "m0": 0.7,
+      "m1": -0.8,
+      "adaptive_angle": 0.33499999999999996,
+      "gaussian_output_q_mean": 0.6789070729720158,
+      "gaussian_output_p_mean": -0.34784711946282587,
+      "gaussian_m1_density": 0.14527519233577027,
+      "gaussian_vs_fixed_angle_control": 0.0,
+      "native-gaussian_output_q_mean": 0.6789070729720158,
+      "native-gaussian_output_p_mean": -0.34784711946282587,
+      "native-gaussian_m1_density": 0.14527519233577027,
+      "native-gaussian_vs_fixed_angle_control": 0.0,
+      "native_vs_gaussian": 0.0
+    },
+    {
+      "m0": 0.7,
+      "m1": 0.4,
+      "adaptive_angle": 0.33499999999999996,
+      "gaussian_output_q_mean": -0.1273494259105299,
+      "gaussian_output_p_mean": 0.7832060810206571,
+      "gaussian_m1_density": 0.13993769708394732,
+      "gaussian_vs_fixed_angle_control": 0.0,
+      "native-gaussian_output_q_mean": -0.1273494259105299,
+      "native-gaussian_output_p_mean": 0.7832060810206571,
+      "native-gaussian_m1_density": 0.13993769708394732,
+      "native-gaussian_vs_fixed_angle_control": 0.0,
+      "native_vs_gaussian": 0.0
+    },
+    {
+      "m0": 2.0,
+      "m1": -0.8,
+      "adaptive_angle": 0.4,
+      "gaussian_output_q_mean": 0.9022441427621402,
+      "gaussian_output_p_mean": 0.24183013877869317,
+      "gaussian_m1_density": 0.1458753145701147,
+      "gaussian_vs_fixed_angle_control": 0.0,
+      "native-gaussian_output_q_mean": 0.9022441427621402,
+      "native-gaussian_output_p_mean": 0.24183013877869317,
+      "native-gaussian_m1_density": 0.1458753145701147,
+      "native-gaussian_vs_fixed_angle_control": 0.0,
+      "native_vs_gaussian": 0.0
+    },
+    {
+      "m0": 2.0,
+      "m1": 0.4,
+      "adaptive_angle": 0.4,
+      "gaussian_output_q_mean": 0.1682518148027572,
+      "gaussian_output_p_mean": 1.3440419325993938,
+      "gaussian_m1_density": 0.12684184813840602,
+      "gaussian_vs_fixed_angle_control": 0.0,
+      "native-gaussian_output_q_mean": 0.1682518148027572,
+      "native-gaussian_output_p_mean": 1.3440419325993938,
+      "native-gaussian_m1_density": 0.12684184813840602,
+      "native-gaussian_vs_fixed_angle_control": 0.0,
+      "native_vs_gaussian": 0.0
+    }
+  ],
+  "acceptance": {
+    "control_tolerance": 1e-12,
+    "native_tolerance": 1e-10
+  }
 }

@@ -1,0 +1,136 @@
+{
+  "rows": [
+    {
+      "gamma": 0.02,
+      "cutoff": 16,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 1.633432227107705e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 1.0000000000000002
+    },
+    {
+      "gamma": 0.05,
+      "cutoff": 16,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 1.1343066892162426e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 0.9999999999999999
+    },
+    {
+      "gamma": 0.1,
+      "cutoff": 16,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 1.282880033660991e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 0.9999999999999993
+    },
+    {
+      "gamma": 0.2,
+      "cutoff": 16,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 3.796101321978962e-17,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 0.9999999999999984
+    },
+    {
+      "gamma": 0.02,
+      "cutoff": 24,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 1.6683561354673546e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 1.0000000000000002
+    },
+    {
+      "gamma": 0.05,
+      "cutoff": 24,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 5.93405468720258e-17,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 0.9999999999999999
+    },
+    {
+      "gamma": 0.1,
+      "cutoff": 24,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 6.678102027419543e-17,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 1.0000000000000002
+    },
+    {
+      "gamma": 0.2,
+      "cutoff": 24,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 1.541949404818322e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 1.0000000000000004
+    },
+    {
+      "gamma": 0.02,
+      "cutoff": 32,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 1.6683561350787324e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 1.0000000000000002
+    },
+    {
+      "gamma": 0.05,
+      "cutoff": 32,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 2.5430884604436674e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 0.9999999999999999
+    },
+    {
+      "gamma": 0.1,
+      "cutoff": 32,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 1.424592738776401e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 1.0000000000000002
+    },
+    {
+      "gamma": 0.2,
+      "cutoff": 32,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 2.3554328919545297e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 0.9999999999999999
+    },
+    {
+      "gamma": 0.02,
+      "cutoff": 48,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 1.2533442100174626e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 0.9999999999999999
+    },
+    {
+      "gamma": 0.05,
+      "cutoff": 48,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 6.425877680248937e-17,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 0.9999999999999982
+    },
+    {
+      "gamma": 0.1,
+      "cutoff": 48,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 1.2719075127093567e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 0.999999999999997
+    },
+    {
+      "gamma": 0.2,
+      "cutoff": 48,
+      "fidelity_to_independent_reference": 1.0,
+      "state_vector_norm_error_phase_aligned": 2.3556224548742307e-16,
+      "trace_distance_estimate": 0.0,
+      "retained_norm": 0.9999999999999941
+    }
+  ],
+  "alpha": [
+    0.3,
+    0.1
+  ]
+}
