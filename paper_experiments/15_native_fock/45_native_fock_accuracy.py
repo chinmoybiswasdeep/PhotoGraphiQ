@@ -378,6 +378,7 @@ def main():
     fig.legend(handles, cases, loc="lower center", ncol=3, fontsize=7, frameon=False,
                title="panels (a)-(c), native-fock (floor 1e-17 = exact zero)", title_fontsize=7.5)
     axes[1, 1].legend(fontsize=5.8, loc="upper right")
+    common.finish_figure(fig)  # final printed size first, so the rect layout below fits it
     fig.tight_layout(rect=(0, 0.15, 1, 1))
     common.save_figure(fig, "R45_native_fock_accuracy", tight=False)
     plt.close(fig)

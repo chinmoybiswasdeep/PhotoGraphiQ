@@ -21,7 +21,9 @@ from __future__ import annotations
 import csv
 import importlib.util
 import io
+import re
 import sys
+import textwrap
 import time
 from math import comb
 from pathlib import Path
@@ -77,8 +79,55 @@ COLORS = {
 _STYLE_APPLIED = False
 
 
+# Manuscript style, identical in paper_experiments/common.py: Times New Roman text (with
+# metric-compatible fallbacks for machines without it), STIX math, 8 pt body text at the final
+# printed size, TrueType fonts embedded in PDF/PS (journal requirement), text kept as text in SVG.
+MANUSCRIPT_RC = {
+    "font.family": "serif",
+    "font.serif": ["Times New Roman", "Times", "Liberation Serif", "Nimbus Roman", "STIXGeneral"],
+    "mathtext.fontset": "stix",
+    "font.size": 8,
+    "axes.titlesize": 8.5,
+    "axes.titleweight": "normal",
+    "axes.labelsize": 8,
+    "legend.fontsize": 7,
+    "legend.frameon": False,
+    "legend.handlelength": 1.6,
+    "xtick.labelsize": 7,
+    "ytick.labelsize": 7,
+    "xtick.direction": "in",
+    "ytick.direction": "in",
+    "xtick.major.size": 3,
+    "ytick.major.size": 3,
+    "xtick.minor.size": 1.6,
+    "ytick.minor.size": 1.6,
+    "xtick.major.width": 0.6,
+    "ytick.major.width": 0.6,
+    "axes.linewidth": 0.6,
+    "axes.spines.top": False,
+    "axes.spines.right": False,
+    "grid.linewidth": 0.4,
+    "grid.alpha": 0.35,
+    "lines.linewidth": 1.2,
+    "lines.markersize": 3.5,
+    "patch.linewidth": 0.6,
+    "errorbar.capsize": 2,
+    "figure.dpi": 150,
+    "savefig.dpi": 600,
+    "savefig.pad_inches": 0.02,
+    "pdf.fonttype": 42,
+    "ps.fonttype": 42,
+    "svg.fonttype": "none",
+}
+SINGLE_COLUMN_IN, DOUBLE_COLUMN_IN, MAX_HEIGHT_IN, MIN_HEIGHT_IN, MIN_FONT_PT = 3.4, 7.0, 9.0, 2.4, 6.0
+_RUN_ID_PREFIX = re.compile(r"^\s*R(?:\d+|_PERF)[a-z]?\s*[:\u2013\u2014-]\s*")
+_STATUS_FLAG = re.compile(r"status\s*=\s*[\w-]+(?:\s*,\s*)?")
+_EMPTY_PARENS = re.compile(r"\s*\(\s*\)")
+_PANEL_TAG = re.compile(r"^\(?[a-z]\)")
+
+
 def setup_style():
-    """Apply a consistent, manuscript-friendly matplotlib style once."""
+    """Apply the manuscript matplotlib style (``MANUSCRIPT_RC``) once."""
     global _STYLE_APPLIED
     import matplotlib
 
@@ -86,24 +135,131 @@ def setup_style():
     import matplotlib.pyplot as plt
 
     if not _STYLE_APPLIED:
-        plt.rcParams.update(
-            {
-                "font.size": 10,
-                "axes.titlesize": 11,
-                "axes.labelsize": 10,
-                "legend.fontsize": 8.5,
-                "xtick.labelsize": 9,
-                "ytick.labelsize": 9,
-                "axes.spines.top": False,
-                "axes.spines.right": False,
-                "figure.dpi": 120,
-                "savefig.dpi": 300,
-                "lines.linewidth": 1.6,
-                "lines.markersize": 5,
-            }
-        )
+        plt.rcParams.update(MANUSCRIPT_RC)
         _STYLE_APPLIED = True
     return plt
+
+
+def _words(text: str) -> str:
+    """Print code identifiers as words (``n_qubits`` -> ``n qubits``, ``->`` -> arrow); math
+    text is untouched."""
+    return text if "$" in text else re.sub(r"(?<=[a-z0-9])_(?=[a-z0-9])", " ", text).replace("->", "→")
+
+
+def _sentence_case(text: str) -> str:
+    """Capitalize a leading plain lowercase word of 3+ letters (variables like ``q`` stay)."""
+    word = re.split(r"[ -]", text, maxsplit=1)[0]
+    return text[0].upper() + text[1:] if len(word) >= 3 and word.isalpha() and word.islower() else text
+
+
+def _clean_title(text: str) -> str:
+    """Drop run-ID prefixes and pass/fail flags: captions, not titles, carry those."""
+    text = _EMPTY_PARENS.sub("", _STATUS_FLAG.sub("", _RUN_ID_PREFIX.sub("", text))).strip()
+    return text if _PANEL_TAG.match(text) else _sentence_case(_words(text))
+
+
+def _crowded(ax) -> bool:
+    """Long tick labels, many annotations or a long legend: a single plot needing two columns."""
+    legend = ax.get_legend()
+    labels = [t.get_text() for t in ax.get_xticklabels() + ax.get_yticklabels()]
+    return (max(map(len, labels), default=0) > 14 or len(ax.texts) > 8
+            or (legend is not None and len(legend.get_texts()) > 6))
+
+
+def _reflow(fig, panels):
+    """Re-grid a crowded single row of panels; returns the new printed height (in) or None.
+
+    Four or more panels become two columns; two or three panels whose legends do not fit
+    (more than 6 entries) become one column with those legends beside their panel. Figures
+    with twin axes or colour bars are left as drawn.
+    """
+    from math import ceil
+
+    from matplotlib.gridspec import GridSpec
+
+    specs = [ax.get_subplotspec() for ax in panels]
+    if len(panels) < 2 or len(fig.axes) != len(panels) or None in specs:
+        return None
+    if any(spec.get_gridspec().nrows != 1 for spec in specs):
+        return None
+    crowded = [ax for ax in panels if ax.get_legend() is not None and len(ax.get_legend().get_texts()) > 6]
+    if len(panels) >= 4:
+        rows, cols = ceil(len(panels) / 2), 2
+    elif crowded:
+        rows, cols = len(panels), 1
+    else:
+        return None
+    grid = GridSpec(rows, cols, figure=fig)
+    for index, ax in enumerate(panels):
+        ax.set_subplotspec(grid[index // cols, index % cols])
+    if cols == 1:
+        for ax in crowded:
+            legend = ax.get_legend()
+            handles = getattr(legend, "legend_handles", None) or legend.legendHandles
+            labels = [text.get_text() for text in legend.get_texts()]
+            ax.legend(handles, labels, loc="center left", bbox_to_anchor=(1.01, 0.5), fontsize=6,
+                      ncol=1 if len(labels) <= 12 else 2, frameon=False)
+    return rows * (2.4 if cols == 2 else 2.0)
+
+
+def finish_figure(fig) -> None:
+    """Bring a figure to final printed size and manuscript conventions (idempotent).
+
+    Single plots (and originals <= 4.5 in wide) become one journal column wide, multi-panel
+    figures and diagrams two, height scaling with width; the suptitle is dropped (the caption
+    carries it); panel titles lose run IDs and status flags; multi-panel figures without
+    (a)/(b) tags get them; code identifiers print as words, titles and axis labels in
+    sentence case, titles wrapped to the panel width; every label is set in the serif face (graph-drawing helpers such
+    as networkx hard-code sans-serif) and no text falls below 6 pt.
+    """
+    from matplotlib.text import Text
+    from matplotlib.ticker import FixedFormatter, FuncFormatter
+
+    panels, seen = [], set()
+    for ax in fig.axes:  # twinx/twiny axes share their host's position: one panel
+        bounds = tuple(round(b, 6) for b in ax.get_position().bounds)
+        if ax.get_visible() and ax.get_label() != "<colorbar>" and bounds not in seen:
+            panels.append(ax)
+            seen.add(bounds)
+    reflowed_height = _reflow(fig, panels)
+    width, height = fig.get_size_inches()
+    single_plot = len(panels) == 1 and panels[0].axison and width <= 8 and not _crowded(panels[0])
+    target = SINGLE_COLUMN_IN if width <= 4.5 or single_plot else DOUBLE_COLUMN_IN
+    new_height = reflowed_height or height * target / width
+    fig.set_size_inches(target, min(max(new_height, MIN_HEIGHT_IN), MAX_HEIGHT_IN))
+    if getattr(fig, "_suptitle", None) is not None:
+        fig._suptitle.set_text("")
+    for ax in panels:
+        for title in (ax.title, ax._left_title, ax._right_title):
+            title.set_text(_clean_title(title.get_text()))
+        for axis in (ax.xaxis, ax.yaxis):
+            axis.label.set_text(_sentence_case(_words(axis.label.get_text())))
+            formatter = axis.get_major_formatter()  # label lists: set_ticklabels or categorical axes
+            labelled = isinstance(formatter, (FixedFormatter, FuncFormatter))
+            if (labelled or type(formatter).__name__ == "StrCategoryFormatter") and not getattr(
+                formatter, "_as_words", False
+            ):
+                words = FuncFormatter(lambda x, pos, f=formatter: _words(str(f(x, pos))))
+                words._as_words = True
+                axis.set_major_formatter(words)
+    texts = [t for t in fig.findobj(Text) if t.get_text()]
+    if len(panels) > 1 and not any(_PANEL_TAG.match(t.get_text().strip()) for t in texts):
+        for index, ax in enumerate(panels):
+            tag = f"({chr(ord('a') + index)})"
+            if ax.title.get_text():
+                ax.title.set_text(f"{tag} {ax.title.get_text()}")
+            else:
+                ax.set_title(tag, loc="left", fontweight="bold")
+    for ax in panels:  # wrap titles to the panel width (~0.5 em per character)
+        title = ax.title.get_text()
+        chars = int(ax.get_position().width * fig.get_figwidth() * 144 / ax.title.get_fontsize())
+        if len(title) > chars > 10 and "$" not in title:
+            ax.title.set_text(textwrap.fill(title, chars))
+    for text in texts:
+        text.set_text(_words(text.get_text()))
+        text.set_fontfamily("serif")
+        if text.get_fontsize() < MIN_FONT_PT:
+            text.set_fontsize(MIN_FONT_PT)
 
 
 def panel_label(ax, label: str) -> None:
@@ -113,7 +269,7 @@ def panel_label(ax, label: str) -> None:
         1.05,
         f"({label})",
         transform=ax.transAxes,
-        fontsize=11,
+        fontsize=9,
         fontweight="bold",
         va="bottom",
         ha="right",
@@ -121,12 +277,13 @@ def panel_label(ax, label: str) -> None:
 
 
 def save_figure(fig, name: str, *, tight: bool = True, svg: bool = True) -> dict:
-    """Save a figure as vector PDF, 300-dpi PNG, and (if compact) SVG."""
+    """Save a figure as vector PDF, 600-dpi PNG, and (if compact) SVG."""
+    finish_figure(fig)
     if tight:
-        fig.tight_layout()
+        fig.tight_layout(pad=0.4)
     pdf_path, png_path = FIG_PDF / f"{name}.pdf", FIG_PNG / f"{name}.png"
     fig.savefig(pdf_path, bbox_inches="tight")
-    fig.savefig(png_path, dpi=300, bbox_inches="tight")
+    fig.savefig(png_path, dpi=600, bbox_inches="tight")
     paths = {"pdf": pdf_path, "png": png_path}
     if svg:
         svg_path = FIG_SVG / f"{name}.svg"

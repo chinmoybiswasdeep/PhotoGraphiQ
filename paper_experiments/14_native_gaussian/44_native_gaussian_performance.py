@@ -56,7 +56,9 @@ SEED = 20261144
 # ----- acceptance criteria (declared before evaluation) -----------------------------------
 TOL_ACCURACY_REL = 1e-10  # every implementation vs the dense reference (R43 measured <= 2e-12)
 TOL_BATCH_REL = 1e-12  # native batch kernels vs the vectorised NumPy formulas, per entry relative
-MAX_CONFIG_SECONDS = 600  # a single configuration may not hang the run
+# A single configuration may not hang the run. The 256-mode NumPy reference needs ~5 min on a
+# 12-thread desktop and several times that on a 2-vCPU Colab runtime, hence 30 min.
+MAX_CONFIG_SECONDS = 1800
 
 
 def _load_r43():
