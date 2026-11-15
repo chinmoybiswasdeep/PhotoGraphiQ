@@ -11,7 +11,7 @@ data = {(i, j): v[i] * v[j] for i in range(code.cutoff) for j in range(code.cuto
 mass = sum(abs(a) ** 2 for a in data.values())
 source = pg.FockSuperposition.from_mapping({k: a / np.sqrt(mass) for k, a in data.items()})
 p = pg.Pattern(inputs=(0, 1)).append(code.logical_cz(0, 1))
-r = pg.simulate(p, initial_state=source, backend="piquasso-fock", cutoff=code.cutoff)
+r = pg.simulate(p, initial_state=source, backend="native-fock", cutoff=code.cutoff)
 print("total preparation mass:", mass)
 probabilities = pg.multimode_readout(r.state, {0: "X", 1: "Z"})
 print(probabilities)

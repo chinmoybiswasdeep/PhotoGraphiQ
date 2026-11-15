@@ -1,0 +1,150 @@
+{
+  "rows": [
+    {
+      "cutoff": 6,
+      "local_dimension": 21,
+      "bs_off_sector_max_abs": 0.0,
+      "bs_zero_fraction": 0.7936507936507936,
+      "cz_off_sector_max_abs": 0.33868488992714213,
+      "bs_unitarity_error": 1.5543122344752192e-15,
+      "bs_median_seconds": 8.400005754083395e-06,
+      "cz_median_seconds": 8.299975888803601e-06,
+      "dense_local_bytes": 7056,
+      "sector_block_bytes": 1456
+    },
+    {
+      "cutoff": 10,
+      "local_dimension": 55,
+      "bs_off_sector_max_abs": 0.0,
+      "bs_zero_fraction": 0.8727272727272727,
+      "cz_off_sector_max_abs": 0.35505220131558796,
+      "bs_unitarity_error": 2.886579864025407e-15,
+      "bs_median_seconds": 1.0199990356341004e-05,
+      "cz_median_seconds": 2.7799978852272034e-05,
+      "dense_local_bytes": 48400,
+      "sector_block_bytes": 6160
+    },
+    {
+      "cutoff": 16,
+      "local_dimension": 136,
+      "bs_off_sector_max_abs": 0.0,
+      "bs_zero_fraction": 0.9191176470588235,
+      "cz_off_sector_max_abs": 0.35595814193362446,
+      "bs_unitarity_error": 4.9960036108132044e-15,
+      "bs_median_seconds": 2.649999805726111e-05,
+      "cz_median_seconds": 0.0001474000164307654,
+      "dense_local_bytes": 295936,
+      "sector_block_bytes": 23936
+    },
+    {
+      "cutoff": 24,
+      "local_dimension": 300,
+      "bs_off_sector_max_abs": 0.0,
+      "bs_zero_fraction": 0.9455555555555556,
+      "cz_off_sector_max_abs": 0.3730234684049478,
+      "bs_unitarity_error": 7.438494264988549e-15,
+      "bs_median_seconds": 0.0003695000195875764,
+      "cz_median_seconds": 0.0010048999974969774,
+      "dense_local_bytes": 1440000,
+      "sector_block_bytes": 78400
+    },
+    {
+      "cutoff": 40,
+      "local_dimension": 820,
+      "bs_off_sector_max_abs": 0.0,
+      "bs_zero_fraction": 0.9670731707317073,
+      "cz_off_sector_max_abs": 0.3730234684049478,
+      "bs_unitarity_error": 1.1657341758564144e-14,
+      "bs_median_seconds": 0.0023388999979943037,
+      "cz_median_seconds": 0.00726129999384284,
+      "dense_local_bytes": 10758400,
+      "sector_block_bytes": 354240
+    },
+    {
+      "cutoff": 64,
+      "local_dimension": 2080,
+      "bs_off_sector_max_abs": 0.0,
+      "bs_zero_fraction": 0.979326923076923,
+      "cz_off_sector_max_abs": 0.3730234684049478,
+      "bs_unitarity_error": 2.275957200481571e-14,
+      "bs_median_seconds": 0.0139152999909129,
+      "cz_median_seconds": 0.04713730001822114,
+      "dense_local_bytes": 69222400,
+      "sector_block_bytes": 1431040
+    }
+  ],
+  "backend": "photographiq._native.fock (apply_pure, phase_pure, gaussian_unitary) and photographiq.gpu.fock (scipy.sparse CPU / cuSPARSE GPU)",
+  "precision": "complex128",
+  "cutoff": "total-photon cutoff, see rows",
+  "seed": 20261146,
+  "full": true,
+  "gpu_used": true,
+  "timing_status": "final (idle machine declared via PGQ_IDLE_MACHINE=1)",
+  "parameters": {
+    "grid": [
+      [
+        2,
+        30
+      ],
+      [
+        3,
+        16
+      ],
+      [
+        4,
+        12
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        8,
+        6
+      ],
+      [
+        4,
+        20
+      ],
+      [
+        6,
+        12
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        10,
+        7
+      ]
+    ],
+    "batches": [
+      1,
+      32
+    ],
+    "repeats": 9,
+    "beamsplitter_theta": 0.7,
+    "cz": 0.4,
+    "squeeze": 0.3,
+    "kerr": 0.35
+  },
+  "native_build_info": {
+    "compiler": "MSVC 19.50.35729.0",
+    "build_type": "Release",
+    "cxx_standard": 202002,
+    "openmp": true,
+    "eigen": "3.4.0",
+    "hbar": 2.0
+  },
+  "acceptance": {
+    "TOL_VARIANT": 1e-12,
+    "TOL_PHASE": 1e-14,
+    "TOL_PASSIVE_NORM": 1e-13,
+    "OFF_SECTOR_EXACT": 0.0
+  }
+}

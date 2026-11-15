@@ -1,0 +1,79 @@
+{
+  "rows": [
+    {
+      "gate": "rotation",
+      "params": {
+        "theta": 0.6
+      },
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 1.1102230246251565e-16,
+      "piquasso_covariance_error": 5.787877273863514e-18,
+      "raw_piquasso_mean_error": 1.1102230246251565e-16,
+      "raw_piquasso_covariance_error": 5.787877273863514e-18
+    },
+    {
+      "gate": "squeezing",
+      "params": {
+        "r": 0.5
+      },
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 5.551115123125783e-17,
+      "piquasso_covariance_error": 4.577566798522237e-16,
+      "raw_piquasso_mean_error": 7.850462293418876e-17,
+      "raw_piquasso_covariance_error": 4.577566798522237e-16
+    },
+    {
+      "gate": "displacement",
+      "params": {
+        "q": 0.4,
+        "p": -0.3
+      },
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 1.1188630228279524e-16,
+      "piquasso_covariance_error": 0.0,
+      "raw_piquasso_mean_error": 1.1188630228279524e-16,
+      "raw_piquasso_covariance_error": 0.0
+    },
+    {
+      "gate": "beamsplitter",
+      "params": {
+        "theta": 0.35
+      },
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 1.2738115944464653e-16,
+      "piquasso_covariance_error": 1.5701833464414479e-16,
+      "raw_piquasso_mean_error": 1.631746962036502e-16,
+      "raw_piquasso_covariance_error": 1.5701833464414479e-16
+    },
+    {
+      "gate": "cz",
+      "params": {
+        "weight": 0.7
+      },
+      "gaussian_mean_error": 0.0,
+      "gaussian_covariance_error": 0.0,
+      "piquasso_mean_error": 1.1443916996305594e-16,
+      "piquasso_covariance_error": 0.0,
+      "raw_piquasso_mean_error": 2.3055512673781017e-16,
+      "raw_piquasso_covariance_error": 0.0
+    },
+    {
+      "gate": "compound(squeeze+rotate+cz)",
+      "params": {
+        "r": 0.2,
+        "angle": 0.3,
+        "weight": 0.4
+      },
+      "gaussian_mean_error": 1.3877787807814457e-17,
+      "gaussian_covariance_error": 1.3738309013483032e-16,
+      "piquasso_mean_error": 2.8256297219735525e-16,
+      "piquasso_covariance_error": 4.1725779438208954e-16,
+      "raw_piquasso_mean_error": 3.1031676915590914e-17,
+      "raw_piquasso_covariance_error": 2.5133742693021536e-16
+    }
+  ]
+}

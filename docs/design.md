@@ -1,6 +1,6 @@
 > Historical v0.1 design audit. The v0.2 extension is recorded in [non_gaussian_design.md](non_gaussian_design.md).
 
-> Historical v0.2 reference. For the v0.3 additions and current backend support, see the [documentation home](index.md) and [feature matrix](validation/feature-matrix.md).
+> **Historical v0.2 reference**, kept unchanged as a provenance record. Since 0.3.1 Piquasso is an optional extra, the default engines are NumPy (`gaussian`) and native C++ (`native-gaussian`, `native-fock`, `native-mixed-fock`), and several features this page calls unavailable now exist (noisy Fock homodyne, Fock loss and mixed inputs on mixed-Fock backends; finite-energy GKP; Gaussian-plus-cubic compilation; Gaussian likelihood diagnostics). Current behaviour: [backends](user-guide/backends.md), [theory](theory/index.md), [feature matrix](validation/feature-matrix.md).
 
 # Pre-implementation design record
 
@@ -97,12 +97,19 @@ Post-design implementation: `cvflow.py` now checks its real-linear equations for
 a supplied total order and constructs the associated protocol. It does not search
 orders. Couplings are frozen at certification so later parameter changes cannot
 invalidate the generated corrections.
+Later implementation (after this record): `photographiq.flows` now searches CV
+orders (`search_cv_order`, `find_cv_flow`, real-linear layered search on the
+weighted graph) and implements qubit causal flow, gflow and Pauli flow for
+`Model.QUBIT` open graphs. The qubit rules remain separate and are still never
+applied as CV rules. See the [MBQC calculus guide](user-guide/mbqc-calculus.md).
 
 ## F. Backend limitations and discrepancies
 
 Piquasso Gaussian photon counting cannot return a non-Gaussian conditional state.
 PureFock homodyne returns samples with no conditional state in the inspected
 implementation; adaptive Fock homodyne must be rejected until implemented.
+(Later implemented in PhotoGraphiQ's own Hermite-function projection, not through
+Piquasso's sampler.)
 Global total-photon cutoff is not a per-mode cutoff. Truncation must be reported.
 Autodifferentiation connectors exist upstream; Python stochastic orchestration
 does not thereby become differentiable. Repeated trajectories are not vectorized.

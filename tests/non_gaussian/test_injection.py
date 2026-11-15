@@ -1,11 +1,12 @@
 import numpy as np
-import piquasso as pq
 import pytest
 from scipy.integrate import quad_vec
 from scipy.special import eval_hermitenorm, gammaln
 
 import photographiq as pg
 from photographiq.backends.fock import PiquassoFockBackend
+
+pq = pytest.importorskip("piquasso")  # reference simulator: optional extra
 
 
 def reference_injection(cutoff, m, *, gamma=None, r=0, alpha=None, eps=1e-11, bound=15):

@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "config": {
+    "n_wires": 1,
+    "n_layers": 2,
+    "one_column": true,
+    "restrict_trainable": true,
+    "representation": "logical",
+    "connections": null
+  },
+  "values": {
+    "alpha.w0.c0": 0.5003818664186679,
+    "alpha.w0.c1": 1.588855203878302,
+    "alpha.w0.c2": 1.102742760980774,
+    "alpha.w0.c3": -1.0991712400376326,
+    "alpha.w0.c4": 0.0,
+    "alpha.w0.c5": 0.0,
+    "alpha.w0.c6": 0.0,
+    "alpha.w0.c7": 0.0
+  },
+  "frozen": [
+    "alpha.w0.c0",
+    "alpha.w0.c1",
+    "alpha.w0.c2",
+    "alpha.w0.c3",
+    "alpha.w0.c7"
+  ]
+}

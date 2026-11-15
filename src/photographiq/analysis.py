@@ -18,6 +18,7 @@ from .commands import (
     Measure,
     Output,
     Prepare,
+    QuadraticPhase,
     Rotate,
     Signal,
     Squeeze,
@@ -136,8 +137,13 @@ def gaussian_channel(pattern, *, parameters=None):
             shift = s @ np.concatenate([offsets[n] for n in nodes])
             for i, n in enumerate(nodes):
                 active[n], offsets[n] = rows[2 * i : 2 * i + 2], shift[2 * i : 2 * i + 2]
-        elif isinstance(c, (Rotate, Squeeze)):
-            s = rotation(scalar(c.angle)) if isinstance(c, Rotate) else squeezing(scalar(c.r))
+        elif isinstance(c, (Rotate, Squeeze, QuadraticPhase)):
+            if isinstance(c, Rotate):
+                s = rotation(scalar(c.angle))
+            elif isinstance(c, Squeeze):
+                s = squeezing(scalar(c.r))
+            else:  # exp(i s q^2/4): p -> p + s q, as in simulate.
+                s = np.array([[1.0, 0.0], [scalar(c.s), 1.0]])
             active[c.node], offsets[c.node] = s @ active[c.node], s @ offsets[c.node]
         elif isinstance(c, Displace):
             shift = np.vstack([affine(c.q), affine(c.p)])

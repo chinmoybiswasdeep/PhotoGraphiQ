@@ -1,0 +1,885 @@
+{
+  "rows": [
+    {
+      "case": "coherent D(alpha)|0>, |alpha|=1.30",
+      "cutoff": 6,
+      "native_exact_error": 7.850462293418876e-17,
+      "piquasso_exact_error": 1.8619006149354548e-16,
+      "native_observable_error": 0.03610569264263486,
+      "piquasso_observable_error": 0.03610569264263486
+    },
+    {
+      "case": "coherent D(alpha)|0>, |alpha|=4.00",
+      "cutoff": 6,
+      "native_exact_error": 1.1102230246251565e-16,
+      "piquasso_exact_error": 1.1102230246251565e-16,
+      "native_observable_error": 11.369943669455182,
+      "piquasso_observable_error": 11.369943669455182
+    },
+    {
+      "case": "displaced Fock D(alpha)|cutoff/2>, |alpha|=4.00",
+      "cutoff": 6,
+      "native_exact_error": 2.220446049250313e-16,
+      "piquasso_exact_error": 3.3306690738754696e-16,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "squeezed S(r)|0>, r=0.8",
+      "cutoff": 6,
+      "native_exact_error": 1.2199371444408953e-16,
+      "piquasso_exact_error": 5.551115123125783e-17,
+      "native_observable_error": 0.2223165068452757,
+      "piquasso_observable_error": 0.22231650684527537
+    },
+    {
+      "case": "Kerr on coherent, kappa=0.35",
+      "cutoff": 6,
+      "native_exact_error": 6.206335383118183e-17,
+      "piquasso_exact_error": 1.3877787807814457e-16,
+      "native_observable_error": 0.040661146530230056,
+      "piquasso_observable_error": 0.04066114653023016
+    },
+    {
+      "case": "cubic phase (truncated_generator) on |0>, gamma=0.1",
+      "cutoff": 6,
+      "native_exact_error": NaN,
+      "piquasso_exact_error": NaN,
+      "native_observable_error": 0.0001235548684226373,
+      "piquasso_observable_error": 0.00012355486842152708
+    },
+    {
+      "case": "cubic phase (truncated_generator) on |0>, gamma=0.3",
+      "cutoff": 6,
+      "native_exact_error": NaN,
+      "piquasso_exact_error": NaN,
+      "native_observable_error": 0.01579613828930171,
+      "piquasso_observable_error": 0.015796138289301265
+    },
+    {
+      "case": "50:50 BS on |1,1>",
+      "cutoff": 6,
+      "native_exact_error": 1.1102230246251565e-16,
+      "piquasso_exact_error": 2.220446049250313e-16,
+      "native_observable_error": 0.0,
+      "piquasso_observable_error": 0.0
+    },
+    {
+      "case": "50:50 BS on |2,1>",
+      "cutoff": 6,
+      "native_exact_error": 2.220446049250313e-16,
+      "piquasso_exact_error": 2.220446049250313e-16,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "TMSV r=0.6: count k=0 on mode 0",
+      "cutoff": 6,
+      "native_exact_error": 2.220446049250313e-16,
+      "piquasso_exact_error": 2.220446049250313e-16,
+      "native_observable_error": 0.017492653788135026,
+      "piquasso_observable_error": 0.017492653788134693
+    },
+    {
+      "case": "TMSV r=0.6: count k=1 on mode 0",
+      "cutoff": 6,
+      "native_exact_error": 8.326672684688674e-17,
+      "piquasso_exact_error": 8.326672684688674e-17,
+      "native_observable_error": 0.005045270343861014,
+      "piquasso_observable_error": 0.005045270343861014
+    },
+    {
+      "case": "TMSV r=0.6: count k=2 on mode 0",
+      "cutoff": 6,
+      "native_exact_error": 3.469446951953614e-17,
+      "piquasso_exact_error": 6.938893903907228e-18,
+      "native_observable_error": 0.001455168160928666,
+      "piquasso_observable_error": 0.0014551681609287076
+    },
+    {
+      "case": "coherent D(alpha)|0>, |alpha|=1.30",
+      "cutoff": 8,
+      "native_exact_error": 7.850462293418876e-17,
+      "piquasso_exact_error": 1.7554167342883506e-16,
+      "native_observable_error": 0.002437067102702084,
+      "piquasso_observable_error": 0.00243706710270164
+    },
+    {
+      "case": "coherent D(alpha)|0>, |alpha|=4.00",
+      "cutoff": 8,
+      "native_exact_error": 2.220446049250313e-16,
+      "piquasso_exact_error": 5.551115123125783e-17,
+      "native_observable_error": 9.590188146856974,
+      "piquasso_observable_error": 9.590188146856974
+    },
+    {
+      "case": "displaced Fock D(alpha)|cutoff/2>, |alpha|=4.00",
+      "cutoff": 8,
+      "native_exact_error": 1.6653345369377348e-16,
+      "piquasso_exact_error": 2.55351295663786e-15,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "squeezed S(r)|0>, r=0.8",
+      "cutoff": 8,
+      "native_exact_error": 1.217808855084124e-16,
+      "piquasso_exact_error": 5.551115123125783e-17,
+      "native_observable_error": 0.11204654227228028,
+      "piquasso_observable_error": 0.11204654227227984
+    },
+    {
+      "case": "Kerr on coherent, kappa=0.35",
+      "cutoff": 8,
+      "native_exact_error": 1.5700924586837752e-16,
+      "piquasso_exact_error": 2.0014830212433607e-16,
+      "native_observable_error": 0.002441287755037738,
+      "piquasso_observable_error": 0.002441287755037656
+    },
+    {
+      "case": "cubic phase (truncated_generator) on |0>, gamma=0.1",
+      "cutoff": 8,
+      "native_exact_error": NaN,
+      "piquasso_exact_error": NaN,
+      "native_observable_error": 2.007858117925032e-05,
+      "piquasso_observable_error": 2.0078581179028276e-05
+    },
+    {
+      "case": "cubic phase (truncated_generator) on |0>, gamma=0.3",
+      "cutoff": 8,
+      "native_exact_error": NaN,
+      "piquasso_exact_error": NaN,
+      "native_observable_error": 0.005449498885350845,
+      "piquasso_observable_error": 0.005449498885350845
+    },
+    {
+      "case": "50:50 BS on |1,1>",
+      "cutoff": 8,
+      "native_exact_error": 1.1102230246251565e-16,
+      "piquasso_exact_error": 2.220446049250313e-16,
+      "native_observable_error": 0.0,
+      "piquasso_observable_error": 0.0
+    },
+    {
+      "case": "50:50 BS on |2,1>",
+      "cutoff": 8,
+      "native_exact_error": 2.220446049250313e-16,
+      "piquasso_exact_error": 2.220446049250313e-16,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "50:50 BS on |3,3>",
+      "cutoff": 8,
+      "native_exact_error": 1.9473523247153973e-16,
+      "piquasso_exact_error": 1.9473523247153973e-16,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "50:50 BS on |4,2>",
+      "cutoff": 8,
+      "native_exact_error": 2.7755575615628914e-16,
+      "piquasso_exact_error": 4.440892098500626e-16,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "TMSV r=0.6: count k=0 on mode 0",
+      "cutoff": 8,
+      "native_exact_error": 3.3306690738754696e-16,
+      "piquasso_exact_error": 0.0,
+      "native_observable_error": 0.004958532452374653,
+      "piquasso_observable_error": 0.00495853245237432
+    },
+    {
+      "case": "TMSV r=0.6: count k=1 on mode 0",
+      "cutoff": 8,
+      "native_exact_error": 5.551115123125783e-17,
+      "piquasso_exact_error": 1.1102230246251565e-16,
+      "native_observable_error": 0.0014301510241977455,
+      "piquasso_observable_error": 0.001430151024197801
+    },
+    {
+      "case": "TMSV r=0.6: count k=2 on mode 0",
+      "cutoff": 8,
+      "native_exact_error": 0.0,
+      "piquasso_exact_error": 2.7755575615628914e-17,
+      "native_observable_error": 0.0004124873582372693,
+      "piquasso_observable_error": 0.00041248735823729704
+    },
+    {
+      "case": "TMSV r=0.6: count k=3 on mode 0",
+      "cutoff": 8,
+      "native_exact_error": 6.938893903907228e-18,
+      "piquasso_exact_error": 2.0816681711721685e-17,
+      "native_observable_error": 0.00011897052676727166,
+      "piquasso_observable_error": 0.00011897052676729941
+    },
+    {
+      "case": "coherent D(alpha)|0>, |alpha|=1.30",
+      "cutoff": 12,
+      "native_exact_error": 7.850462293418876e-17,
+      "piquasso_exact_error": 1.2412670766236366e-16,
+      "native_observable_error": 2.50915313393385e-06,
+      "piquasso_observable_error": 2.509153134599984e-06
+    },
+    {
+      "case": "coherent D(alpha)|0>, |alpha|=4.00",
+      "cutoff": 12,
+      "native_exact_error": 1.1102230246251565e-16,
+      "piquasso_exact_error": 2.7755575615628914e-17,
+      "native_observable_error": 6.248758045021235,
+      "piquasso_observable_error": 6.248758045021237
+    },
+    {
+      "case": "displaced Fock D(alpha)|cutoff/2>, |alpha|=4.00",
+      "cutoff": 12,
+      "native_exact_error": 3.3306690738754696e-16,
+      "piquasso_exact_error": 5.1236792586450974e-14,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "squeezed S(r)|0>, r=0.8",
+      "cutoff": 12,
+      "native_exact_error": 1.2166957858988938e-16,
+      "piquasso_exact_error": 5.551115123125783e-17,
+      "native_observable_error": 0.026667845399463652,
+      "piquasso_observable_error": 0.026667845399463097
+    },
+    {
+      "case": "Kerr on coherent, kappa=0.35",
+      "cutoff": 12,
+      "native_exact_error": 7.850462293418876e-17,
+      "piquasso_exact_error": 1.7554167342883506e-16,
+      "native_observable_error": 1.9631572787726634e-06,
+      "piquasso_observable_error": 1.96315727845905e-06
+    },
+    {
+      "case": "cubic phase (truncated_generator) on |0>, gamma=0.1",
+      "cutoff": 12,
+      "native_exact_error": NaN,
+      "piquasso_exact_error": NaN,
+      "native_observable_error": 3.010886171495031e-07,
+      "piquasso_observable_error": 3.010886169274585e-07
+    },
+    {
+      "case": "cubic phase (truncated_generator) on |0>, gamma=0.3",
+      "cutoff": 12,
+      "native_exact_error": NaN,
+      "piquasso_exact_error": NaN,
+      "native_observable_error": 0.0005103286482350811,
+      "piquasso_observable_error": 0.000510328648234859
+    },
+    {
+      "case": "50:50 BS on |1,1>",
+      "cutoff": 12,
+      "native_exact_error": 1.1102230246251565e-16,
+      "piquasso_exact_error": 2.220446049250313e-16,
+      "native_observable_error": 0.0,
+      "piquasso_observable_error": 0.0
+    },
+    {
+      "case": "50:50 BS on |2,1>",
+      "cutoff": 12,
+      "native_exact_error": 2.220446049250313e-16,
+      "piquasso_exact_error": 2.220446049250313e-16,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "50:50 BS on |3,3>",
+      "cutoff": 12,
+      "native_exact_error": 1.9473523247153973e-16,
+      "piquasso_exact_error": 1.9473523247153973e-16,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "50:50 BS on |4,2>",
+      "cutoff": 12,
+      "native_exact_error": 2.7755575615628914e-16,
+      "piquasso_exact_error": 4.440892098500626e-16,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "TMSV r=0.6: count k=0 on mode 0",
+      "cutoff": 12,
+      "native_exact_error": 3.3306690738754696e-16,
+      "piquasso_exact_error": 1.1102230246251565e-16,
+      "native_observable_error": 0.0004098688359777114,
+      "piquasso_observable_error": 0.0004098688359772673
+    },
+    {
+      "case": "TMSV r=0.6: count k=1 on mode 0",
+      "cutoff": 12,
+      "native_exact_error": 8.326672684688674e-17,
+      "piquasso_exact_error": 1.3877787807814457e-16,
+      "native_observable_error": 0.00011821528671845938,
+      "piquasso_observable_error": 0.00011821528671851489
+    },
+    {
+      "case": "TMSV r=0.6: count k=2 on mode 0",
+      "cutoff": 12,
+      "native_exact_error": 2.7755575615628914e-17,
+      "piquasso_exact_error": 1.3877787807814457e-17,
+      "native_observable_error": 3.409591749167773e-05,
+      "piquasso_observable_error": 3.409591749171936e-05
+    },
+    {
+      "case": "TMSV r=0.6: count k=3 on mode 0",
+      "cutoff": 12,
+      "native_exact_error": 1.3877787807814457e-17,
+      "piquasso_exact_error": 1.734723475976807e-17,
+      "native_observable_error": 9.834020809583455e-06,
+      "piquasso_observable_error": 9.83402080961468e-06
+    },
+    {
+      "case": "coherent D(alpha)|0>, |alpha|=1.30",
+      "cutoff": 16,
+      "native_exact_error": 7.850462293418876e-17,
+      "piquasso_exact_error": 1.2412670766236366e-16,
+      "native_observable_error": 6.247837802675349e-10,
+      "piquasso_observable_error": 6.247844464013497e-10
+    },
+    {
+      "case": "coherent D(alpha)|0>, |alpha|=4.00",
+      "cutoff": 16,
+      "native_exact_error": 1.1102230246251565e-16,
+      "piquasso_exact_error": 5.551115123125783e-17,
+      "native_observable_error": 3.4011738216022316,
+      "piquasso_observable_error": 3.4011738216022316
+    },
+    {
+      "case": "displaced Fock D(alpha)|cutoff/2>, |alpha|=4.00",
+      "cutoff": 16,
+      "native_exact_error": 3.3306690738754696e-16,
+      "piquasso_exact_error": 5.414835246853045e-13,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "squeezed S(r)|0>, r=0.8",
+      "cutoff": 16,
+      "native_exact_error": 1.2165177980588802e-16,
+      "piquasso_exact_error": 5.551115123125783e-17,
+      "native_observable_error": 0.006007889623827367,
+      "piquasso_observable_error": 0.006007889623826812
+    },
+    {
+      "case": "Kerr on coherent, kappa=0.35",
+      "cutoff": 16,
+      "native_exact_error": 1.2412670766236366e-16,
+      "piquasso_exact_error": 1.2412670766236366e-16,
+      "native_observable_error": 5.591927659114409e-10,
+      "piquasso_observable_error": 5.591925637080534e-10
+    },
+    {
+      "case": "cubic phase (truncated_generator) on |0>, gamma=0.1",
+      "cutoff": 16,
+      "native_exact_error": NaN,
+      "piquasso_exact_error": NaN,
+      "native_observable_error": 3.907119516810553e-09,
+      "piquasso_observable_error": 3.907119516810553e-09
+    },
+    {
+      "case": "cubic phase (truncated_generator) on |0>, gamma=0.3",
+      "cutoff": 16,
+      "native_exact_error": NaN,
+      "piquasso_exact_error": NaN,
+      "native_observable_error": 0.00015475657031438494,
+      "piquasso_observable_error": 0.00015475657031438494
+    },
+    {
+      "case": "50:50 BS on |1,1>",
+      "cutoff": 16,
+      "native_exact_error": 1.1102230246251565e-16,
+      "piquasso_exact_error": 2.220446049250313e-16,
+      "native_observable_error": 0.0,
+      "piquasso_observable_error": 0.0
+    },
+    {
+      "case": "50:50 BS on |2,1>",
+      "cutoff": 16,
+      "native_exact_error": 2.220446049250313e-16,
+      "piquasso_exact_error": 2.220446049250313e-16,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "50:50 BS on |3,3>",
+      "cutoff": 16,
+      "native_exact_error": 1.9473523247153973e-16,
+      "piquasso_exact_error": 1.9473523247153973e-16,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "50:50 BS on |4,2>",
+      "cutoff": 16,
+      "native_exact_error": 2.7755575615628914e-16,
+      "piquasso_exact_error": 4.440892098500626e-16,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "TMSV r=0.6: count k=0 on mode 0",
+      "cutoff": 16,
+      "native_exact_error": 2.220446049250313e-16,
+      "piquasso_exact_error": 1.1102230246251565e-16,
+      "native_observable_error": 3.407792148268918e-05,
+      "piquasso_observable_error": 3.4077921482578155e-05
+    },
+    {
+      "case": "TMSV r=0.6: count k=1 on mode 0",
+      "cutoff": 16,
+      "native_exact_error": 1.1102230246251565e-16,
+      "piquasso_exact_error": 2.220446049250313e-16,
+      "native_observable_error": 9.828830360464336e-06,
+      "piquasso_observable_error": 9.828830360464336e-06
+    },
+    {
+      "case": "TMSV r=0.6: count k=2 on mode 0",
+      "cutoff": 16,
+      "native_exact_error": 4.163336342344337e-17,
+      "piquasso_exact_error": 3.469446951953614e-17,
+      "native_observable_error": 2.8348532436425766e-06,
+      "piquasso_observable_error": 2.8348532437189045e-06
+    },
+    {
+      "case": "TMSV r=0.6: count k=3 on mode 0",
+      "cutoff": 16,
+      "native_exact_error": 2.0816681711721685e-17,
+      "piquasso_exact_error": 1.734723475976807e-17,
+      "native_observable_error": 8.176347152596963e-07,
+      "piquasso_observable_error": 8.176347152978602e-07
+    },
+    {
+      "case": "coherent D(alpha)|0>, |alpha|=1.30",
+      "cutoff": 24,
+      "native_exact_error": 1.1443916996305594e-16,
+      "piquasso_exact_error": 1.2412670766236366e-16,
+      "native_observable_error": 2.220446049250313e-16,
+      "piquasso_observable_error": 6.661338147750939e-16
+    },
+    {
+      "case": "coherent D(alpha)|0>, |alpha|=4.00",
+      "cutoff": 24,
+      "native_exact_error": 4.718447854656915e-16,
+      "piquasso_exact_error": 5.551115123125783e-17,
+      "native_observable_error": 0.3580184587076616,
+      "piquasso_observable_error": 0.35801845870766513
+    },
+    {
+      "case": "displaced Fock D(alpha)|cutoff/2>, |alpha|=4.00",
+      "cutoff": 24,
+      "native_exact_error": 2.498001805406602e-16,
+      "piquasso_exact_error": 4.971439926393373e-11,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "squeezed S(r)|0>, r=0.8",
+      "cutoff": 24,
+      "native_exact_error": 1.2164822954481531e-16,
+      "piquasso_exact_error": 5.551115123125783e-17,
+      "native_observable_error": 0.0002795192722018225,
+      "piquasso_observable_error": 0.00027951927220115635
+    },
+    {
+      "case": "Kerr on coherent, kappa=0.35",
+      "cutoff": 24,
+      "native_exact_error": 1.5700924586837752e-16,
+      "piquasso_exact_error": 1.7554167342883506e-16,
+      "native_observable_error": 1.5700924586837752e-16,
+      "piquasso_observable_error": 5.551115123125783e-17
+    },
+    {
+      "case": "cubic phase (truncated_generator) on |0>, gamma=0.1",
+      "cutoff": 24,
+      "native_exact_error": NaN,
+      "piquasso_exact_error": NaN,
+      "native_observable_error": 3.2953639816923896e-12,
+      "piquasso_observable_error": 3.2949198924825396e-12
+    },
+    {
+      "case": "cubic phase (truncated_generator) on |0>, gamma=0.3",
+      "cutoff": 24,
+      "native_exact_error": NaN,
+      "piquasso_exact_error": NaN,
+      "native_observable_error": 1.1086346946687087e-05,
+      "piquasso_observable_error": 1.1086346946909131e-05
+    },
+    {
+      "case": "50:50 BS on |1,1>",
+      "cutoff": 24,
+      "native_exact_error": 1.1102230246251565e-16,
+      "piquasso_exact_error": 2.220446049250313e-16,
+      "native_observable_error": 0.0,
+      "piquasso_observable_error": 0.0
+    },
+    {
+      "case": "50:50 BS on |2,1>",
+      "cutoff": 24,
+      "native_exact_error": 2.220446049250313e-16,
+      "piquasso_exact_error": 2.220446049250313e-16,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "50:50 BS on |3,3>",
+      "cutoff": 24,
+      "native_exact_error": 1.9473523247153973e-16,
+      "piquasso_exact_error": 1.9473523247153973e-16,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "50:50 BS on |4,2>",
+      "cutoff": 24,
+      "native_exact_error": 2.7755575615628914e-16,
+      "piquasso_exact_error": 4.440892098500626e-16,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "TMSV r=0.6: count k=0 on mode 0",
+      "cutoff": 24,
+      "native_exact_error": 2.220446049250313e-16,
+      "piquasso_exact_error": 1.1102230246251565e-16,
+      "native_observable_error": 2.3581281916040808e-07,
+      "piquasso_observable_error": 2.3581281882734118e-07
+    },
+    {
+      "case": "TMSV r=0.6: count k=1 on mode 0",
+      "cutoff": 24,
+      "native_exact_error": 5.551115123125783e-17,
+      "piquasso_exact_error": 8.326672684688674e-17,
+      "native_observable_error": 6.801366092545891e-08,
+      "piquasso_observable_error": 6.801366095321448e-08
+    },
+    {
+      "case": "TMSV r=0.6: count k=2 on mode 0",
+      "cutoff": 24,
+      "native_exact_error": 2.0816681711721685e-17,
+      "piquasso_exact_error": 2.0816681711721685e-17,
+      "native_observable_error": 1.9616652219278663e-08,
+      "piquasso_observable_error": 1.9616652260912026e-08
+    },
+    {
+      "case": "TMSV r=0.6: count k=3 on mode 0",
+      "cutoff": 24,
+      "native_exact_error": 1.0408340855860843e-17,
+      "piquasso_exact_error": 1.734723475976807e-17,
+      "native_observable_error": 5.657878717618692e-09,
+      "piquasso_observable_error": 5.657878745374267e-09
+    },
+    {
+      "case": "coherent D(alpha)|0>, |alpha|=1.30",
+      "cutoff": 32,
+      "native_exact_error": 1.1443916996305594e-16,
+      "piquasso_exact_error": 1.2412670766236366e-16,
+      "native_observable_error": 2.220446049250313e-16,
+      "piquasso_observable_error": 6.661338147750939e-16
+    },
+    {
+      "case": "coherent D(alpha)|0>, |alpha|=4.00",
+      "cutoff": 32,
+      "native_exact_error": 4.718447854656915e-16,
+      "piquasso_exact_error": 5.551115123125783e-17,
+      "native_observable_error": 0.004658283698667276,
+      "piquasso_observable_error": 0.004658283698669052
+    },
+    {
+      "case": "displaced Fock D(alpha)|cutoff/2>, |alpha|=4.00",
+      "cutoff": 32,
+      "native_exact_error": 3.0531133177191805e-16,
+      "piquasso_exact_error": 6.317873169070509e-09,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "squeezed S(r)|0>, r=0.8",
+      "cutoff": 32,
+      "native_exact_error": 1.216481183158359e-16,
+      "piquasso_exact_error": 5.551115123125783e-17,
+      "native_observable_error": 1.2233299845676449e-05,
+      "piquasso_observable_error": 1.223329984478827e-05
+    },
+    {
+      "case": "Kerr on coherent, kappa=0.35",
+      "cutoff": 32,
+      "native_exact_error": 1.5700924586837752e-16,
+      "piquasso_exact_error": 1.7554167342883506e-16,
+      "native_observable_error": 1.2412670766236366e-16,
+      "piquasso_observable_error": 8.326672684688674e-17
+    },
+    {
+      "case": "cubic phase (truncated_generator) on |0>, gamma=0.1",
+      "cutoff": 32,
+      "native_exact_error": NaN,
+      "piquasso_exact_error": NaN,
+      "native_observable_error": 8.881784197001252e-15,
+      "piquasso_observable_error": 8.43769498715119e-15
+    },
+    {
+      "case": "cubic phase (truncated_generator) on |0>, gamma=0.3",
+      "cutoff": 32,
+      "native_exact_error": NaN,
+      "piquasso_exact_error": NaN,
+      "native_observable_error": 1.6691765178933338e-06,
+      "piquasso_observable_error": 1.6691765178933338e-06
+    },
+    {
+      "case": "50:50 BS on |1,1>",
+      "cutoff": 32,
+      "native_exact_error": 1.1102230246251565e-16,
+      "piquasso_exact_error": 2.220446049250313e-16,
+      "native_observable_error": 0.0,
+      "piquasso_observable_error": 0.0
+    },
+    {
+      "case": "50:50 BS on |2,1>",
+      "cutoff": 32,
+      "native_exact_error": 2.220446049250313e-16,
+      "piquasso_exact_error": 2.220446049250313e-16,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "50:50 BS on |3,3>",
+      "cutoff": 32,
+      "native_exact_error": 1.9473523247153973e-16,
+      "piquasso_exact_error": 1.9473523247153973e-16,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "50:50 BS on |4,2>",
+      "cutoff": 32,
+      "native_exact_error": 2.7755575615628914e-16,
+      "piquasso_exact_error": 4.440892098500626e-16,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "TMSV r=0.6: count k=0 on mode 0",
+      "cutoff": 32,
+      "native_exact_error": 0.0,
+      "piquasso_exact_error": 2.220446049250313e-16,
+      "native_observable_error": 1.6318575379870026e-09,
+      "piquasso_observable_error": 1.6318575379870026e-09
+    },
+    {
+      "case": "TMSV r=0.6: count k=1 on mode 0",
+      "cutoff": 32,
+      "native_exact_error": 0.0,
+      "piquasso_exact_error": 2.220446049250313e-16,
+      "native_observable_error": 4.706640077678514e-10,
+      "piquasso_observable_error": 4.706641187901539e-10
+    },
+    {
+      "case": "TMSV r=0.6: count k=2 on mode 0",
+      "cutoff": 32,
+      "native_exact_error": 2.7755575615628914e-17,
+      "piquasso_exact_error": 2.220446049250313e-16,
+      "native_observable_error": 1.3574993906750876e-10,
+      "piquasso_observable_error": 1.357500084564478e-10
+    },
+    {
+      "case": "TMSV r=0.6: count k=3 on mode 0",
+      "cutoff": 32,
+      "native_exact_error": 2.0816681711721685e-17,
+      "piquasso_exact_error": 1.0408340855860843e-17,
+      "native_observable_error": 3.915328825043751e-11,
+      "piquasso_observable_error": 3.915331947546008e-11
+    },
+    {
+      "case": "coherent D(alpha)|0>, |alpha|=1.30",
+      "cutoff": 48,
+      "native_exact_error": 1.1443916996305594e-16,
+      "piquasso_exact_error": 1.2412670766236366e-16,
+      "native_observable_error": 2.220446049250313e-16,
+      "piquasso_observable_error": 6.661338147750939e-16
+    },
+    {
+      "case": "coherent D(alpha)|0>, |alpha|=4.00",
+      "cutoff": 48,
+      "native_exact_error": 4.163336342344337e-16,
+      "piquasso_exact_error": 5.551115123125783e-17,
+      "native_observable_error": 2.7313671324691313e-09,
+      "piquasso_observable_error": 2.7313582506849343e-09
+    },
+    {
+      "case": "displaced Fock D(alpha)|cutoff/2>, |alpha|=4.00",
+      "cutoff": 48,
+      "native_exact_error": 7.216449660063518e-16,
+      "piquasso_exact_error": 3.932350536750562e-06,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "squeezed S(r)|0>, r=0.8",
+      "cutoff": 48,
+      "native_exact_error": 1.2164811452031248e-16,
+      "piquasso_exact_error": 5.551115123125783e-17,
+      "native_observable_error": 2.1468106292665823e-08,
+      "piquasso_observable_error": 2.1468105959598915e-08
+    },
+    {
+      "case": "Kerr on coherent, kappa=0.35",
+      "cutoff": 48,
+      "native_exact_error": 1.5700924586837752e-16,
+      "piquasso_exact_error": 1.7554167342883506e-16,
+      "native_observable_error": 1.2412670766236366e-16,
+      "piquasso_observable_error": 8.326672684688674e-17
+    },
+    {
+      "case": "cubic phase (truncated_generator) on |0>, gamma=0.1",
+      "cutoff": 48,
+      "native_exact_error": NaN,
+      "piquasso_exact_error": NaN,
+      "native_observable_error": 2.220446049250313e-16,
+      "piquasso_observable_error": 2.220446049250313e-16
+    },
+    {
+      "case": "cubic phase (truncated_generator) on |0>, gamma=0.3",
+      "cutoff": 48,
+      "native_exact_error": NaN,
+      "piquasso_exact_error": NaN,
+      "native_observable_error": 9.90199566786032e-09,
+      "piquasso_observable_error": 9.901995889904924e-09
+    },
+    {
+      "case": "50:50 BS on |1,1>",
+      "cutoff": 48,
+      "native_exact_error": 1.1102230246251565e-16,
+      "piquasso_exact_error": 2.220446049250313e-16,
+      "native_observable_error": 0.0,
+      "piquasso_observable_error": 0.0
+    },
+    {
+      "case": "50:50 BS on |2,1>",
+      "cutoff": 48,
+      "native_exact_error": 2.220446049250313e-16,
+      "piquasso_exact_error": 2.220446049250313e-16,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "50:50 BS on |3,3>",
+      "cutoff": 48,
+      "native_exact_error": 1.9473523247153973e-16,
+      "piquasso_exact_error": 1.9473523247153973e-16,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "50:50 BS on |4,2>",
+      "cutoff": 48,
+      "native_exact_error": 2.7755575615628914e-16,
+      "piquasso_exact_error": 4.440892098500626e-16,
+      "native_observable_error": NaN,
+      "piquasso_observable_error": NaN
+    },
+    {
+      "case": "TMSV r=0.6: count k=0 on mode 0",
+      "cutoff": 48,
+      "native_exact_error": 3.3306690738754696e-16,
+      "piquasso_exact_error": 3.3306690738754696e-16,
+      "native_observable_error": 7.793765632868599e-14,
+      "piquasso_observable_error": 7.793765632868599e-14
+    },
+    {
+      "case": "TMSV r=0.6: count k=1 on mode 0",
+      "cutoff": 48,
+      "native_exact_error": 1.1102230246251565e-16,
+      "piquasso_exact_error": 5.551115123125783e-17,
+      "native_observable_error": 2.248201624865942e-14,
+      "piquasso_observable_error": 2.2648549702353193e-14
+    },
+    {
+      "case": "TMSV r=0.6: count k=2 on mode 0",
+      "cutoff": 48,
+      "native_exact_error": 6.938893903907228e-17,
+      "piquasso_exact_error": 1.3877787807814457e-17,
+      "native_observable_error": 6.446232436729815e-15,
+      "piquasso_observable_error": 6.529499163576702e-15
+    },
+    {
+      "case": "TMSV r=0.6: count k=3 on mode 0",
+      "cutoff": 48,
+      "native_exact_error": 3.122502256758253e-17,
+      "piquasso_exact_error": 3.469446951953614e-18,
+      "native_observable_error": 1.8457457784393227e-15,
+      "piquasso_observable_error": 1.880440247958859e-15
+    }
+  ],
+  "backend": "native-fock (compiled) with piquasso-fock 8.0.1 as secondary reference",
+  "reference": "closed forms (mpmath 30 digits), enlarged-space expm, Hermite quadrature of the projected cubic phase (tests/validation/test_val_fock.py helpers), untruncated analytic observables",
+  "precision": "complex128",
+  "cutoff": [
+    6,
+    8,
+    12,
+    16,
+    24,
+    32,
+    48,
+    64,
+    96
+  ],
+  "piquasso_cutoffs": [
+    6,
+    8,
+    12,
+    16,
+    24,
+    32,
+    48
+  ],
+  "seed": 20261145,
+  "full": true,
+  "parameters": {
+    "alpha": [
+      1.2,
+      0.5
+    ],
+    "alpha_big": 4.0,
+    "squeezing": 0.8,
+    "kerr": 0.35,
+    "cubic_gammas": [
+      0.1,
+      0.3
+    ],
+    "tmsv_r": 0.6,
+    "bs_inputs": [
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        2
+      ]
+    ],
+    "norm_tolerance": "1 - 1e-12 (truncation studied, never rejected)"
+  },
+  "acceptance": {
+    "TOL_EXACT": 1e-12,
+    "TOL_HOM": 1e-15,
+    "TOL_CUBIC_PROJECTED": 1e-10,
+    "K_TRUNC": 10,
+    "TOL_PHYSICAL": 1e-12
+  }
+}

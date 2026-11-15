@@ -1,0 +1,16 @@
+experiment,metric,value
+R35,default max_dimension guard,1000000
+R36,gaussian @ 10 modes median runtime (s),0.01562209997791797
+R36,piquasso @ 10 modes median runtime (s),0.07688790000975132
+R36,gaussian @ 20 modes median runtime (s),0.03660350001882762
+R36,piquasso @ 20 modes median runtime (s),0.19611239997902885
+R36,gaussian @ 50 modes median runtime (s),0.3378787999972701
+R36,piquasso @ 50 modes median runtime (s),0.9560963999829255
+R36,gaussian @ 100 modes median runtime (s),3.014702699962072
+R36,piquasso @ 100 modes median runtime (s),15.362418600008823
+R36,gaussian @ 200 modes median runtime (s),37.07356319995597
+R36,piquasso @ 200 modes median runtime (s),143.4238120999653
+R38,overhead ratio @ 5 modes,8.824722611492502
+R38,overhead ratio @ 10 modes,9.209789760802112
+R38,overhead ratio @ 20 modes,13.49826961158815
+R38,overhead ratio @ 40 modes,21.91025570116002

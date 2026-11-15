@@ -1,0 +1,178 @@
+{
+  "rows": [
+    {
+      "modes": 2,
+      "cutoff": 30,
+      "dimension": 465,
+      "phase_median_seconds": 1.6799982404336333e-05,
+      "matrix_median_seconds": 2.1499989088624716e-05,
+      "phase_iqr": 5.999754648655653e-07,
+      "matrix_iqr": 8.999777492135763e-07,
+      "max_abs_diff": 0.0
+    },
+    {
+      "modes": 3,
+      "cutoff": 16,
+      "dimension": 816,
+      "phase_median_seconds": 2.7700007194653153e-05,
+      "matrix_median_seconds": 2.910001785494387e-05,
+      "phase_iqr": 7.999769877642393e-07,
+      "matrix_iqr": 8.00006091594696e-07,
+      "max_abs_diff": 0.0
+    },
+    {
+      "modes": 4,
+      "cutoff": 12,
+      "dimension": 1365,
+      "phase_median_seconds": 4.710000939667225e-05,
+      "matrix_median_seconds": 4.680000711232424e-05,
+      "phase_iqr": 6.999762263149023e-07,
+      "matrix_iqr": 4.999747034162283e-07,
+      "max_abs_diff": 0.0
+    },
+    {
+      "modes": 5,
+      "cutoff": 10,
+      "dimension": 2002,
+      "phase_median_seconds": 7.2900002123788e-05,
+      "matrix_median_seconds": 7.51999905332923e-05,
+      "phase_iqr": 7.00005330145359e-07,
+      "matrix_iqr": 6.00004568696022e-07,
+      "max_abs_diff": 0.0
+    },
+    {
+      "modes": 6,
+      "cutoff": 8,
+      "dimension": 1716,
+      "phase_median_seconds": 6.859999848529696e-05,
+      "matrix_median_seconds": 7.020001066848636e-05,
+      "phase_iqr": 4.0003214962780476e-07,
+      "matrix_iqr": 7.00005330145359e-07,
+      "max_abs_diff": 0.0
+    },
+    {
+      "modes": 8,
+      "cutoff": 6,
+      "dimension": 1287,
+      "phase_median_seconds": 5.77000027988106e-05,
+      "matrix_median_seconds": 6.0699996538460255e-05,
+      "phase_iqr": 2.00001522898674e-07,
+      "matrix_iqr": 4.00003045797348e-07,
+      "max_abs_diff": 0.0
+    },
+    {
+      "modes": 4,
+      "cutoff": 20,
+      "dimension": 8855,
+      "phase_median_seconds": 0.0002688000095076859,
+      "matrix_median_seconds": 0.0002781999937724322,
+      "phase_iqr": 3.89997148886323e-06,
+      "matrix_iqr": 4.2000028770416975e-06,
+      "max_abs_diff": 0.0
+    },
+    {
+      "modes": 6,
+      "cutoff": 12,
+      "dimension": 12376,
+      "phase_median_seconds": 0.00046369998017326,
+      "matrix_median_seconds": 0.0004712000081781298,
+      "phase_iqr": 5.0000089686363935e-06,
+      "matrix_iqr": 6.099988240748644e-06,
+      "max_abs_diff": 0.0
+    },
+    {
+      "modes": 8,
+      "cutoff": 9,
+      "dimension": 12870,
+      "phase_median_seconds": 0.0005541999998968095,
+      "matrix_median_seconds": 0.0005498999962583184,
+      "phase_iqr": 4.0399987483397126e-05,
+      "matrix_iqr": 6.600021151825786e-06,
+      "max_abs_diff": 0.0
+    },
+    {
+      "modes": 10,
+      "cutoff": 7,
+      "dimension": 8008,
+      "phase_median_seconds": 0.0003868999774567783,
+      "matrix_median_seconds": 0.00039770000148564577,
+      "phase_iqr": 2.1599989850074053e-05,
+      "matrix_iqr": 3.6999699659645557e-06,
+      "max_abs_diff": 0.0
+    }
+  ],
+  "backend": "photographiq._native.fock (apply_pure, phase_pure, gaussian_unitary) and photographiq.gpu.fock (scipy.sparse CPU / cuSPARSE GPU)",
+  "precision": "complex128",
+  "cutoff": "total-photon cutoff, see rows",
+  "seed": 20261146,
+  "full": true,
+  "gpu_used": true,
+  "timing_status": "final (idle machine declared via PGQ_IDLE_MACHINE=1)",
+  "parameters": {
+    "grid": [
+      [
+        2,
+        30
+      ],
+      [
+        3,
+        16
+      ],
+      [
+        4,
+        12
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        8,
+        6
+      ],
+      [
+        4,
+        20
+      ],
+      [
+        6,
+        12
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        10,
+        7
+      ]
+    ],
+    "batches": [
+      1,
+      32
+    ],
+    "repeats": 9,
+    "beamsplitter_theta": 0.7,
+    "cz": 0.4,
+    "squeeze": 0.3,
+    "kerr": 0.35
+  },
+  "native_build_info": {
+    "compiler": "MSVC 19.50.35729.0",
+    "build_type": "Release",
+    "cxx_standard": 202002,
+    "openmp": true,
+    "eigen": "3.4.0",
+    "hbar": 2.0
+  },
+  "acceptance": {
+    "TOL_VARIANT": 1e-12,
+    "TOL_PHASE": 1e-14,
+    "TOL_PASSIVE_NORM": 1e-13,
+    "OFF_SECTOR_EXACT": 0.0
+  }
+}

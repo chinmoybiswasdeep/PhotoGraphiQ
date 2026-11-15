@@ -1,0 +1,49 @@
+{
+  "rows": [
+    {
+      "case": "line_n3",
+      "nodes": 3,
+      "edges": 2,
+      "graph_isomorphic": true,
+      "canonical_edges_match": true,
+      "input_output_match": true,
+      "measurement_order_match": true,
+      "dependency_domain_checks": 2,
+      "dependency_domains_match": true
+    },
+    {
+      "case": "line_n5",
+      "nodes": 5,
+      "edges": 4,
+      "graph_isomorphic": true,
+      "canonical_edges_match": true,
+      "input_output_match": true,
+      "measurement_order_match": true,
+      "dependency_domain_checks": 4,
+      "dependency_domains_match": true
+    },
+    {
+      "case": "star_leaves_3",
+      "nodes": 4,
+      "edges": 3,
+      "graph_isomorphic": true,
+      "canonical_edges_match": true,
+      "input_output_match": true,
+      "measurement_order_match": true,
+      "dependency_domain_checks": 3,
+      "dependency_domains_match": true
+    },
+    {
+      "case": "star_leaves_5",
+      "nodes": 6,
+      "edges": 5,
+      "graph_isomorphic": true,
+      "canonical_edges_match": true,
+      "input_output_match": true,
+      "measurement_order_match": true,
+      "dependency_domain_checks": 5,
+      "dependency_domains_match": true
+    }
+  ],
+  "note": "Structural comparison only: node/edge/I-O/order/domain equivalence. Graphix never validates CV amplitudes or quadrature statistics."
+}

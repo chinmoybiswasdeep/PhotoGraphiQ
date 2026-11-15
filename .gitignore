@@ -28,3 +28,9 @@ outputs/
 !docs/tutorials/outputs/
 coverage.xml
 coverage.json
+
+# PhotoGraphiQML: local reference checkouts (e.g. MentPy source).
+.references/
+# Recorded ML validation evidence stays tracked despite the coverage.json rule above.
+!paper_experiments_ml/results/validation/**/coverage.json
+!validation/photographiqml/coverage.json

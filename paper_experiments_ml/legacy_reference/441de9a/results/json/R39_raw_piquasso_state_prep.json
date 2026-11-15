@@ -1,0 +1,32 @@
+{
+  "rows": [
+    {
+      "cutoff": 16,
+      "fidelity": 1.0,
+      "infidelity": 0.0
+    },
+    {
+      "cutoff": 24,
+      "fidelity": 1.0000000000000004,
+      "infidelity": 4.440892098500626e-16
+    },
+    {
+      "cutoff": 32,
+      "fidelity": 1.0,
+      "infidelity": 0.0
+    }
+  ],
+  "protocol": "GKPCode.plus() Fock amplitudes vs. raw Piquasso PureFockSimulator state preparation",
+  "oracle_class": "C",
+  "status_category": "exact",
+  "piquasso_version": "8.0.1",
+  "tolerance": 2.220446049250313e-12,
+  "acceptance_condition": "max |1-fidelity| < 2.220e-12",
+  "max_infidelity": 4.440892098500626e-16,
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

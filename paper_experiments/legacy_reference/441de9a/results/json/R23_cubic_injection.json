@@ -1,0 +1,168 @@
+{
+  "rows": [
+    {
+      "gamma": 0.15,
+      "resource_squeezing": 0.1,
+      "cutoff": 24,
+      "ok": true,
+      "fidelity_to_ideal_cubic_phase": 0.9469294912977205,
+      "trace_distance_estimate": 0.23037037288305862,
+      "outcome_density": 0.25819985949489505,
+      "outcome_kind": "density",
+      "retained_norm": 1.0000000000000004
+    },
+    {
+      "gamma": 0.15,
+      "resource_squeezing": 0.3,
+      "cutoff": 24,
+      "ok": true,
+      "fidelity_to_ideal_cubic_phase": 0.970600425619804,
+      "trace_distance_estimate": 0.17146304085777794,
+      "outcome_density": 0.23084832241999104,
+      "outcome_kind": "density",
+      "retained_norm": 1.0
+    },
+    {
+      "gamma": 0.15,
+      "resource_squeezing": 0.6,
+      "cutoff": 24,
+      "ok": false,
+      "error": "Fock truncation norm 0.99836644; increase cutoff=24"
+    },
+    {
+      "gamma": 0.15,
+      "resource_squeezing": 1.0,
+      "cutoff": 24,
+      "ok": false,
+      "error": "Fock truncation norm 0.97312438; increase cutoff=24"
+    },
+    {
+      "gamma": 0.15,
+      "resource_squeezing": 1.5,
+      "cutoff": 24,
+      "ok": false,
+      "error": "Fock truncation norm 0.9696007; increase cutoff=24"
+    },
+    {
+      "gamma": 0.15,
+      "resource_squeezing": 2.0,
+      "cutoff": 24,
+      "ok": false,
+      "error": "Fock truncation norm 0.81062528; increase cutoff=24"
+    },
+    {
+      "gamma": 0.15,
+      "resource_squeezing": 0.1,
+      "cutoff": 32,
+      "ok": true,
+      "fidelity_to_ideal_cubic_phase": 0.9469297882882736,
+      "trace_distance_estimate": 0.2303697282885198,
+      "outcome_density": 0.2581998480377396,
+      "outcome_kind": "density",
+      "retained_norm": 1.0000000000000002
+    },
+    {
+      "gamma": 0.15,
+      "resource_squeezing": 0.3,
+      "cutoff": 32,
+      "ok": true,
+      "fidelity_to_ideal_cubic_phase": 0.9706032776846945,
+      "trace_distance_estimate": 0.17145472380574864,
+      "outcome_density": 0.2308427912442595,
+      "outcome_kind": "density",
+      "retained_norm": 1.0000000000000002
+    },
+    {
+      "gamma": 0.15,
+      "resource_squeezing": 0.6,
+      "cutoff": 32,
+      "ok": true,
+      "fidelity_to_ideal_cubic_phase": 0.9889756546815112,
+      "trace_distance_estimate": 0.10499688242271214,
+      "outcome_density": 0.18853033570005756,
+      "outcome_kind": "density",
+      "retained_norm": 1.0
+    },
+    {
+      "gamma": 0.15,
+      "resource_squeezing": 1.0,
+      "cutoff": 32,
+      "ok": false,
+      "error": "Fock truncation norm 0.98298367; increase cutoff=32"
+    },
+    {
+      "gamma": 0.15,
+      "resource_squeezing": 1.5,
+      "cutoff": 32,
+      "ok": false,
+      "error": "Fock truncation norm 0.98779474; increase cutoff=32"
+    },
+    {
+      "gamma": 0.15,
+      "resource_squeezing": 2.0,
+      "cutoff": 32,
+      "ok": false,
+      "error": "Fock truncation norm 0.87133538; increase cutoff=32"
+    },
+    {
+      "gamma": 0.15,
+      "resource_squeezing": 0.1,
+      "cutoff": 48,
+      "ok": true,
+      "fidelity_to_ideal_cubic_phase": 0.9469296090745074,
+      "trace_distance_estimate": 0.2303701172580606,
+      "outcome_density": 0.25819988346212447,
+      "outcome_kind": "density",
+      "retained_norm": 1.0000000000000002
+    },
+    {
+      "gamma": 0.15,
+      "resource_squeezing": 0.3,
+      "cutoff": 48,
+      "ok": true,
+      "fidelity_to_ideal_cubic_phase": 0.9706009723008218,
+      "trace_distance_estimate": 0.17146144668460672,
+      "outcome_density": 0.23084020461007027,
+      "outcome_kind": "density",
+      "retained_norm": 1.0
+    },
+    {
+      "gamma": 0.15,
+      "resource_squeezing": 0.6,
+      "cutoff": 48,
+      "ok": true,
+      "fidelity_to_ideal_cubic_phase": 0.988996020664211,
+      "trace_distance_estimate": 0.10489985384064653,
+      "outcome_density": 0.1884398749341573,
+      "outcome_kind": "density",
+      "retained_norm": 1.0000000000000002
+    },
+    {
+      "gamma": 0.15,
+      "resource_squeezing": 1.0,
+      "cutoff": 48,
+      "ok": false,
+      "error": "Fock truncation norm 0.99239828; increase cutoff=48"
+    },
+    {
+      "gamma": 0.15,
+      "resource_squeezing": 1.5,
+      "cutoff": 48,
+      "ok": false,
+      "error": "Fock truncation norm 0.99791089; increase cutoff=48"
+    },
+    {
+      "gamma": 0.15,
+      "resource_squeezing": 2.0,
+      "cutoff": 48,
+      "ok": false,
+      "error": "Fock truncation norm 0.93791442; increase cutoff=48"
+    }
+  ],
+  "gamma": 0.15,
+  "alpha": [
+    0.2,
+    0.0
+  ],
+  "fixed_outcome": 0.0
+}

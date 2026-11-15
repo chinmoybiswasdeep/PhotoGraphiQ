@@ -1,0 +1,6245 @@
+{
+  "rows": [
+    {
+      "modes": 1,
+      "cutoff": 2,
+      "dimension": 2,
+      "pure_vector_bytes": 32,
+      "dense_density_matrix_bytes_rough_estimate": 64,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 3,
+      "dimension": 3,
+      "pure_vector_bytes": 48,
+      "dense_density_matrix_bytes_rough_estimate": 144,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 4,
+      "dimension": 4,
+      "pure_vector_bytes": 64,
+      "dense_density_matrix_bytes_rough_estimate": 256,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 5,
+      "dimension": 5,
+      "pure_vector_bytes": 80,
+      "dense_density_matrix_bytes_rough_estimate": 400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 6,
+      "dimension": 6,
+      "pure_vector_bytes": 96,
+      "dense_density_matrix_bytes_rough_estimate": 576,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 7,
+      "dimension": 7,
+      "pure_vector_bytes": 112,
+      "dense_density_matrix_bytes_rough_estimate": 784,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 8,
+      "dimension": 8,
+      "pure_vector_bytes": 128,
+      "dense_density_matrix_bytes_rough_estimate": 1024,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 9,
+      "dimension": 9,
+      "pure_vector_bytes": 144,
+      "dense_density_matrix_bytes_rough_estimate": 1296,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 10,
+      "dimension": 10,
+      "pure_vector_bytes": 160,
+      "dense_density_matrix_bytes_rough_estimate": 1600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 11,
+      "dimension": 11,
+      "pure_vector_bytes": 176,
+      "dense_density_matrix_bytes_rough_estimate": 1936,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 12,
+      "dimension": 12,
+      "pure_vector_bytes": 192,
+      "dense_density_matrix_bytes_rough_estimate": 2304,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 13,
+      "dimension": 13,
+      "pure_vector_bytes": 208,
+      "dense_density_matrix_bytes_rough_estimate": 2704,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 14,
+      "dimension": 14,
+      "pure_vector_bytes": 224,
+      "dense_density_matrix_bytes_rough_estimate": 3136,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 15,
+      "dimension": 15,
+      "pure_vector_bytes": 240,
+      "dense_density_matrix_bytes_rough_estimate": 3600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 16,
+      "dimension": 16,
+      "pure_vector_bytes": 256,
+      "dense_density_matrix_bytes_rough_estimate": 4096,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 17,
+      "dimension": 17,
+      "pure_vector_bytes": 272,
+      "dense_density_matrix_bytes_rough_estimate": 4624,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 18,
+      "dimension": 18,
+      "pure_vector_bytes": 288,
+      "dense_density_matrix_bytes_rough_estimate": 5184,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 19,
+      "dimension": 19,
+      "pure_vector_bytes": 304,
+      "dense_density_matrix_bytes_rough_estimate": 5776,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 20,
+      "dimension": 20,
+      "pure_vector_bytes": 320,
+      "dense_density_matrix_bytes_rough_estimate": 6400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 21,
+      "dimension": 21,
+      "pure_vector_bytes": 336,
+      "dense_density_matrix_bytes_rough_estimate": 7056,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 22,
+      "dimension": 22,
+      "pure_vector_bytes": 352,
+      "dense_density_matrix_bytes_rough_estimate": 7744,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 23,
+      "dimension": 23,
+      "pure_vector_bytes": 368,
+      "dense_density_matrix_bytes_rough_estimate": 8464,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 24,
+      "dimension": 24,
+      "pure_vector_bytes": 384,
+      "dense_density_matrix_bytes_rough_estimate": 9216,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 25,
+      "dimension": 25,
+      "pure_vector_bytes": 400,
+      "dense_density_matrix_bytes_rough_estimate": 10000,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 26,
+      "dimension": 26,
+      "pure_vector_bytes": 416,
+      "dense_density_matrix_bytes_rough_estimate": 10816,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 27,
+      "dimension": 27,
+      "pure_vector_bytes": 432,
+      "dense_density_matrix_bytes_rough_estimate": 11664,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 28,
+      "dimension": 28,
+      "pure_vector_bytes": 448,
+      "dense_density_matrix_bytes_rough_estimate": 12544,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 29,
+      "dimension": 29,
+      "pure_vector_bytes": 464,
+      "dense_density_matrix_bytes_rough_estimate": 13456,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 30,
+      "dimension": 30,
+      "pure_vector_bytes": 480,
+      "dense_density_matrix_bytes_rough_estimate": 14400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 31,
+      "dimension": 31,
+      "pure_vector_bytes": 496,
+      "dense_density_matrix_bytes_rough_estimate": 15376,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 32,
+      "dimension": 32,
+      "pure_vector_bytes": 512,
+      "dense_density_matrix_bytes_rough_estimate": 16384,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 33,
+      "dimension": 33,
+      "pure_vector_bytes": 528,
+      "dense_density_matrix_bytes_rough_estimate": 17424,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 34,
+      "dimension": 34,
+      "pure_vector_bytes": 544,
+      "dense_density_matrix_bytes_rough_estimate": 18496,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 35,
+      "dimension": 35,
+      "pure_vector_bytes": 560,
+      "dense_density_matrix_bytes_rough_estimate": 19600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 36,
+      "dimension": 36,
+      "pure_vector_bytes": 576,
+      "dense_density_matrix_bytes_rough_estimate": 20736,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 37,
+      "dimension": 37,
+      "pure_vector_bytes": 592,
+      "dense_density_matrix_bytes_rough_estimate": 21904,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 38,
+      "dimension": 38,
+      "pure_vector_bytes": 608,
+      "dense_density_matrix_bytes_rough_estimate": 23104,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 39,
+      "dimension": 39,
+      "pure_vector_bytes": 624,
+      "dense_density_matrix_bytes_rough_estimate": 24336,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 1,
+      "cutoff": 40,
+      "dimension": 40,
+      "pure_vector_bytes": 640,
+      "dense_density_matrix_bytes_rough_estimate": 25600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 2,
+      "dimension": 3,
+      "pure_vector_bytes": 48,
+      "dense_density_matrix_bytes_rough_estimate": 144,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 3,
+      "dimension": 6,
+      "pure_vector_bytes": 96,
+      "dense_density_matrix_bytes_rough_estimate": 576,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 4,
+      "dimension": 10,
+      "pure_vector_bytes": 160,
+      "dense_density_matrix_bytes_rough_estimate": 1600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 5,
+      "dimension": 15,
+      "pure_vector_bytes": 240,
+      "dense_density_matrix_bytes_rough_estimate": 3600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 6,
+      "dimension": 21,
+      "pure_vector_bytes": 336,
+      "dense_density_matrix_bytes_rough_estimate": 7056,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 7,
+      "dimension": 28,
+      "pure_vector_bytes": 448,
+      "dense_density_matrix_bytes_rough_estimate": 12544,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 8,
+      "dimension": 36,
+      "pure_vector_bytes": 576,
+      "dense_density_matrix_bytes_rough_estimate": 20736,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 9,
+      "dimension": 45,
+      "pure_vector_bytes": 720,
+      "dense_density_matrix_bytes_rough_estimate": 32400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 10,
+      "dimension": 55,
+      "pure_vector_bytes": 880,
+      "dense_density_matrix_bytes_rough_estimate": 48400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 11,
+      "dimension": 66,
+      "pure_vector_bytes": 1056,
+      "dense_density_matrix_bytes_rough_estimate": 69696,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 12,
+      "dimension": 78,
+      "pure_vector_bytes": 1248,
+      "dense_density_matrix_bytes_rough_estimate": 97344,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 13,
+      "dimension": 91,
+      "pure_vector_bytes": 1456,
+      "dense_density_matrix_bytes_rough_estimate": 132496,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 14,
+      "dimension": 105,
+      "pure_vector_bytes": 1680,
+      "dense_density_matrix_bytes_rough_estimate": 176400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 15,
+      "dimension": 120,
+      "pure_vector_bytes": 1920,
+      "dense_density_matrix_bytes_rough_estimate": 230400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 16,
+      "dimension": 136,
+      "pure_vector_bytes": 2176,
+      "dense_density_matrix_bytes_rough_estimate": 295936,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 17,
+      "dimension": 153,
+      "pure_vector_bytes": 2448,
+      "dense_density_matrix_bytes_rough_estimate": 374544,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 18,
+      "dimension": 171,
+      "pure_vector_bytes": 2736,
+      "dense_density_matrix_bytes_rough_estimate": 467856,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 19,
+      "dimension": 190,
+      "pure_vector_bytes": 3040,
+      "dense_density_matrix_bytes_rough_estimate": 577600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 20,
+      "dimension": 210,
+      "pure_vector_bytes": 3360,
+      "dense_density_matrix_bytes_rough_estimate": 705600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 21,
+      "dimension": 231,
+      "pure_vector_bytes": 3696,
+      "dense_density_matrix_bytes_rough_estimate": 853776,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 22,
+      "dimension": 253,
+      "pure_vector_bytes": 4048,
+      "dense_density_matrix_bytes_rough_estimate": 1024144,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 23,
+      "dimension": 276,
+      "pure_vector_bytes": 4416,
+      "dense_density_matrix_bytes_rough_estimate": 1218816,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 24,
+      "dimension": 300,
+      "pure_vector_bytes": 4800,
+      "dense_density_matrix_bytes_rough_estimate": 1440000,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 25,
+      "dimension": 325,
+      "pure_vector_bytes": 5200,
+      "dense_density_matrix_bytes_rough_estimate": 1690000,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 26,
+      "dimension": 351,
+      "pure_vector_bytes": 5616,
+      "dense_density_matrix_bytes_rough_estimate": 1971216,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 27,
+      "dimension": 378,
+      "pure_vector_bytes": 6048,
+      "dense_density_matrix_bytes_rough_estimate": 2286144,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 28,
+      "dimension": 406,
+      "pure_vector_bytes": 6496,
+      "dense_density_matrix_bytes_rough_estimate": 2637376,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 29,
+      "dimension": 435,
+      "pure_vector_bytes": 6960,
+      "dense_density_matrix_bytes_rough_estimate": 3027600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 30,
+      "dimension": 465,
+      "pure_vector_bytes": 7440,
+      "dense_density_matrix_bytes_rough_estimate": 3459600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 31,
+      "dimension": 496,
+      "pure_vector_bytes": 7936,
+      "dense_density_matrix_bytes_rough_estimate": 3936256,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 32,
+      "dimension": 528,
+      "pure_vector_bytes": 8448,
+      "dense_density_matrix_bytes_rough_estimate": 4460544,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 33,
+      "dimension": 561,
+      "pure_vector_bytes": 8976,
+      "dense_density_matrix_bytes_rough_estimate": 5035536,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 34,
+      "dimension": 595,
+      "pure_vector_bytes": 9520,
+      "dense_density_matrix_bytes_rough_estimate": 5664400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 35,
+      "dimension": 630,
+      "pure_vector_bytes": 10080,
+      "dense_density_matrix_bytes_rough_estimate": 6350400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 36,
+      "dimension": 666,
+      "pure_vector_bytes": 10656,
+      "dense_density_matrix_bytes_rough_estimate": 7096896,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 37,
+      "dimension": 703,
+      "pure_vector_bytes": 11248,
+      "dense_density_matrix_bytes_rough_estimate": 7907344,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 38,
+      "dimension": 741,
+      "pure_vector_bytes": 11856,
+      "dense_density_matrix_bytes_rough_estimate": 8785296,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 39,
+      "dimension": 780,
+      "pure_vector_bytes": 12480,
+      "dense_density_matrix_bytes_rough_estimate": 9734400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 2,
+      "cutoff": 40,
+      "dimension": 820,
+      "pure_vector_bytes": 13120,
+      "dense_density_matrix_bytes_rough_estimate": 10758400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 2,
+      "dimension": 4,
+      "pure_vector_bytes": 64,
+      "dense_density_matrix_bytes_rough_estimate": 256,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 3,
+      "dimension": 10,
+      "pure_vector_bytes": 160,
+      "dense_density_matrix_bytes_rough_estimate": 1600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 4,
+      "dimension": 20,
+      "pure_vector_bytes": 320,
+      "dense_density_matrix_bytes_rough_estimate": 6400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 5,
+      "dimension": 35,
+      "pure_vector_bytes": 560,
+      "dense_density_matrix_bytes_rough_estimate": 19600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 6,
+      "dimension": 56,
+      "pure_vector_bytes": 896,
+      "dense_density_matrix_bytes_rough_estimate": 50176,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 7,
+      "dimension": 84,
+      "pure_vector_bytes": 1344,
+      "dense_density_matrix_bytes_rough_estimate": 112896,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 8,
+      "dimension": 120,
+      "pure_vector_bytes": 1920,
+      "dense_density_matrix_bytes_rough_estimate": 230400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 9,
+      "dimension": 165,
+      "pure_vector_bytes": 2640,
+      "dense_density_matrix_bytes_rough_estimate": 435600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 10,
+      "dimension": 220,
+      "pure_vector_bytes": 3520,
+      "dense_density_matrix_bytes_rough_estimate": 774400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 11,
+      "dimension": 286,
+      "pure_vector_bytes": 4576,
+      "dense_density_matrix_bytes_rough_estimate": 1308736,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 12,
+      "dimension": 364,
+      "pure_vector_bytes": 5824,
+      "dense_density_matrix_bytes_rough_estimate": 2119936,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 13,
+      "dimension": 455,
+      "pure_vector_bytes": 7280,
+      "dense_density_matrix_bytes_rough_estimate": 3312400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 14,
+      "dimension": 560,
+      "pure_vector_bytes": 8960,
+      "dense_density_matrix_bytes_rough_estimate": 5017600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 15,
+      "dimension": 680,
+      "pure_vector_bytes": 10880,
+      "dense_density_matrix_bytes_rough_estimate": 7398400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 16,
+      "dimension": 816,
+      "pure_vector_bytes": 13056,
+      "dense_density_matrix_bytes_rough_estimate": 10653696,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 17,
+      "dimension": 969,
+      "pure_vector_bytes": 15504,
+      "dense_density_matrix_bytes_rough_estimate": 15023376,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 18,
+      "dimension": 1140,
+      "pure_vector_bytes": 18240,
+      "dense_density_matrix_bytes_rough_estimate": 20793600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 19,
+      "dimension": 1330,
+      "pure_vector_bytes": 21280,
+      "dense_density_matrix_bytes_rough_estimate": 28302400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 20,
+      "dimension": 1540,
+      "pure_vector_bytes": 24640,
+      "dense_density_matrix_bytes_rough_estimate": 37945600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 21,
+      "dimension": 1771,
+      "pure_vector_bytes": 28336,
+      "dense_density_matrix_bytes_rough_estimate": 50183056,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 22,
+      "dimension": 2024,
+      "pure_vector_bytes": 32384,
+      "dense_density_matrix_bytes_rough_estimate": 65545216,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 23,
+      "dimension": 2300,
+      "pure_vector_bytes": 36800,
+      "dense_density_matrix_bytes_rough_estimate": 84640000,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 24,
+      "dimension": 2600,
+      "pure_vector_bytes": 41600,
+      "dense_density_matrix_bytes_rough_estimate": 108160000,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 25,
+      "dimension": 2925,
+      "pure_vector_bytes": 46800,
+      "dense_density_matrix_bytes_rough_estimate": 136890000,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 26,
+      "dimension": 3276,
+      "pure_vector_bytes": 52416,
+      "dense_density_matrix_bytes_rough_estimate": 171714816,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 27,
+      "dimension": 3654,
+      "pure_vector_bytes": 58464,
+      "dense_density_matrix_bytes_rough_estimate": 213627456,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 28,
+      "dimension": 4060,
+      "pure_vector_bytes": 64960,
+      "dense_density_matrix_bytes_rough_estimate": 263737600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 29,
+      "dimension": 4495,
+      "pure_vector_bytes": 71920,
+      "dense_density_matrix_bytes_rough_estimate": 323280400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 30,
+      "dimension": 4960,
+      "pure_vector_bytes": 79360,
+      "dense_density_matrix_bytes_rough_estimate": 393625600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 31,
+      "dimension": 5456,
+      "pure_vector_bytes": 87296,
+      "dense_density_matrix_bytes_rough_estimate": 476286976,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 32,
+      "dimension": 5984,
+      "pure_vector_bytes": 95744,
+      "dense_density_matrix_bytes_rough_estimate": 572932096,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 33,
+      "dimension": 6545,
+      "pure_vector_bytes": 104720,
+      "dense_density_matrix_bytes_rough_estimate": 685392400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 34,
+      "dimension": 7140,
+      "pure_vector_bytes": 114240,
+      "dense_density_matrix_bytes_rough_estimate": 815673600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 35,
+      "dimension": 7770,
+      "pure_vector_bytes": 124320,
+      "dense_density_matrix_bytes_rough_estimate": 965966400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 36,
+      "dimension": 8436,
+      "pure_vector_bytes": 134976,
+      "dense_density_matrix_bytes_rough_estimate": 1138657536,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 37,
+      "dimension": 9139,
+      "pure_vector_bytes": 146224,
+      "dense_density_matrix_bytes_rough_estimate": 1336341136,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 38,
+      "dimension": 9880,
+      "pure_vector_bytes": 158080,
+      "dense_density_matrix_bytes_rough_estimate": 1561830400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 39,
+      "dimension": 10660,
+      "pure_vector_bytes": 170560,
+      "dense_density_matrix_bytes_rough_estimate": 1818169600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 3,
+      "cutoff": 40,
+      "dimension": 11480,
+      "pure_vector_bytes": 183680,
+      "dense_density_matrix_bytes_rough_estimate": 2108646400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 2,
+      "dimension": 5,
+      "pure_vector_bytes": 80,
+      "dense_density_matrix_bytes_rough_estimate": 400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 3,
+      "dimension": 15,
+      "pure_vector_bytes": 240,
+      "dense_density_matrix_bytes_rough_estimate": 3600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 4,
+      "dimension": 35,
+      "pure_vector_bytes": 560,
+      "dense_density_matrix_bytes_rough_estimate": 19600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 5,
+      "dimension": 70,
+      "pure_vector_bytes": 1120,
+      "dense_density_matrix_bytes_rough_estimate": 78400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 6,
+      "dimension": 126,
+      "pure_vector_bytes": 2016,
+      "dense_density_matrix_bytes_rough_estimate": 254016,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 7,
+      "dimension": 210,
+      "pure_vector_bytes": 3360,
+      "dense_density_matrix_bytes_rough_estimate": 705600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 8,
+      "dimension": 330,
+      "pure_vector_bytes": 5280,
+      "dense_density_matrix_bytes_rough_estimate": 1742400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 9,
+      "dimension": 495,
+      "pure_vector_bytes": 7920,
+      "dense_density_matrix_bytes_rough_estimate": 3920400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 10,
+      "dimension": 715,
+      "pure_vector_bytes": 11440,
+      "dense_density_matrix_bytes_rough_estimate": 8179600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 11,
+      "dimension": 1001,
+      "pure_vector_bytes": 16016,
+      "dense_density_matrix_bytes_rough_estimate": 16032016,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 12,
+      "dimension": 1365,
+      "pure_vector_bytes": 21840,
+      "dense_density_matrix_bytes_rough_estimate": 29811600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 13,
+      "dimension": 1820,
+      "pure_vector_bytes": 29120,
+      "dense_density_matrix_bytes_rough_estimate": 52998400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 14,
+      "dimension": 2380,
+      "pure_vector_bytes": 38080,
+      "dense_density_matrix_bytes_rough_estimate": 90630400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 15,
+      "dimension": 3060,
+      "pure_vector_bytes": 48960,
+      "dense_density_matrix_bytes_rough_estimate": 149817600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 16,
+      "dimension": 3876,
+      "pure_vector_bytes": 62016,
+      "dense_density_matrix_bytes_rough_estimate": 240374016,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 17,
+      "dimension": 4845,
+      "pure_vector_bytes": 77520,
+      "dense_density_matrix_bytes_rough_estimate": 375584400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 18,
+      "dimension": 5985,
+      "pure_vector_bytes": 95760,
+      "dense_density_matrix_bytes_rough_estimate": 573123600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 19,
+      "dimension": 7315,
+      "pure_vector_bytes": 117040,
+      "dense_density_matrix_bytes_rough_estimate": 856147600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 20,
+      "dimension": 8855,
+      "pure_vector_bytes": 141680,
+      "dense_density_matrix_bytes_rough_estimate": 1254576400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 21,
+      "dimension": 10626,
+      "pure_vector_bytes": 170016,
+      "dense_density_matrix_bytes_rough_estimate": 1806590016,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 22,
+      "dimension": 12650,
+      "pure_vector_bytes": 202400,
+      "dense_density_matrix_bytes_rough_estimate": 2560360000,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 23,
+      "dimension": 14950,
+      "pure_vector_bytes": 239200,
+      "dense_density_matrix_bytes_rough_estimate": 3576040000,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 24,
+      "dimension": 17550,
+      "pure_vector_bytes": 280800,
+      "dense_density_matrix_bytes_rough_estimate": 4928040000,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 25,
+      "dimension": 20475,
+      "pure_vector_bytes": 327600,
+      "dense_density_matrix_bytes_rough_estimate": 6707610000,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 26,
+      "dimension": 23751,
+      "pure_vector_bytes": 380016,
+      "dense_density_matrix_bytes_rough_estimate": 9025760016,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 27,
+      "dimension": 27405,
+      "pure_vector_bytes": 438480,
+      "dense_density_matrix_bytes_rough_estimate": 12016544400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 28,
+      "dimension": 31465,
+      "pure_vector_bytes": 503440,
+      "dense_density_matrix_bytes_rough_estimate": 15840739600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 29,
+      "dimension": 35960,
+      "pure_vector_bytes": 575360,
+      "dense_density_matrix_bytes_rough_estimate": 20689945600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 30,
+      "dimension": 40920,
+      "pure_vector_bytes": 654720,
+      "dense_density_matrix_bytes_rough_estimate": 26791142400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 31,
+      "dimension": 46376,
+      "pure_vector_bytes": 742016,
+      "dense_density_matrix_bytes_rough_estimate": 34411734016,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 32,
+      "dimension": 52360,
+      "pure_vector_bytes": 837760,
+      "dense_density_matrix_bytes_rough_estimate": 43865113600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 33,
+      "dimension": 58905,
+      "pure_vector_bytes": 942480,
+      "dense_density_matrix_bytes_rough_estimate": 55516784400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 34,
+      "dimension": 66045,
+      "pure_vector_bytes": 1056720,
+      "dense_density_matrix_bytes_rough_estimate": 69791072400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 35,
+      "dimension": 73815,
+      "pure_vector_bytes": 1181040,
+      "dense_density_matrix_bytes_rough_estimate": 87178467600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 36,
+      "dimension": 82251,
+      "pure_vector_bytes": 1316016,
+      "dense_density_matrix_bytes_rough_estimate": 108243632016,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 37,
+      "dimension": 91390,
+      "pure_vector_bytes": 1462240,
+      "dense_density_matrix_bytes_rough_estimate": 133634113600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 38,
+      "dimension": 101270,
+      "pure_vector_bytes": 1620320,
+      "dense_density_matrix_bytes_rough_estimate": 164089806400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 39,
+      "dimension": 111930,
+      "pure_vector_bytes": 1790880,
+      "dense_density_matrix_bytes_rough_estimate": 200453198400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 4,
+      "cutoff": 40,
+      "dimension": 123410,
+      "pure_vector_bytes": 1974560,
+      "dense_density_matrix_bytes_rough_estimate": 243680449600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 2,
+      "dimension": 6,
+      "pure_vector_bytes": 96,
+      "dense_density_matrix_bytes_rough_estimate": 576,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 3,
+      "dimension": 21,
+      "pure_vector_bytes": 336,
+      "dense_density_matrix_bytes_rough_estimate": 7056,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 4,
+      "dimension": 56,
+      "pure_vector_bytes": 896,
+      "dense_density_matrix_bytes_rough_estimate": 50176,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 5,
+      "dimension": 126,
+      "pure_vector_bytes": 2016,
+      "dense_density_matrix_bytes_rough_estimate": 254016,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 6,
+      "dimension": 252,
+      "pure_vector_bytes": 4032,
+      "dense_density_matrix_bytes_rough_estimate": 1016064,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 7,
+      "dimension": 462,
+      "pure_vector_bytes": 7392,
+      "dense_density_matrix_bytes_rough_estimate": 3415104,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 8,
+      "dimension": 792,
+      "pure_vector_bytes": 12672,
+      "dense_density_matrix_bytes_rough_estimate": 10036224,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 9,
+      "dimension": 1287,
+      "pure_vector_bytes": 20592,
+      "dense_density_matrix_bytes_rough_estimate": 26501904,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 10,
+      "dimension": 2002,
+      "pure_vector_bytes": 32032,
+      "dense_density_matrix_bytes_rough_estimate": 64128064,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 11,
+      "dimension": 3003,
+      "pure_vector_bytes": 48048,
+      "dense_density_matrix_bytes_rough_estimate": 144288144,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 12,
+      "dimension": 4368,
+      "pure_vector_bytes": 69888,
+      "dense_density_matrix_bytes_rough_estimate": 305270784,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 13,
+      "dimension": 6188,
+      "pure_vector_bytes": 99008,
+      "dense_density_matrix_bytes_rough_estimate": 612661504,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 14,
+      "dimension": 8568,
+      "pure_vector_bytes": 137088,
+      "dense_density_matrix_bytes_rough_estimate": 1174569984,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 15,
+      "dimension": 11628,
+      "pure_vector_bytes": 186048,
+      "dense_density_matrix_bytes_rough_estimate": 2163366144,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 16,
+      "dimension": 15504,
+      "pure_vector_bytes": 248064,
+      "dense_density_matrix_bytes_rough_estimate": 3845984256,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 17,
+      "dimension": 20349,
+      "pure_vector_bytes": 325584,
+      "dense_density_matrix_bytes_rough_estimate": 6625308816,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 18,
+      "dimension": 26334,
+      "pure_vector_bytes": 421344,
+      "dense_density_matrix_bytes_rough_estimate": 11095672896,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 19,
+      "dimension": 33649,
+      "pure_vector_bytes": 538384,
+      "dense_density_matrix_bytes_rough_estimate": 18116083216,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 20,
+      "dimension": 42504,
+      "pure_vector_bytes": 680064,
+      "dense_density_matrix_bytes_rough_estimate": 28905440256,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 21,
+      "dimension": 53130,
+      "pure_vector_bytes": 850080,
+      "dense_density_matrix_bytes_rough_estimate": 45164750400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 22,
+      "dimension": 65780,
+      "pure_vector_bytes": 1052480,
+      "dense_density_matrix_bytes_rough_estimate": 69232134400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 23,
+      "dimension": 80730,
+      "pure_vector_bytes": 1291680,
+      "dense_density_matrix_bytes_rough_estimate": 104277326400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 24,
+      "dimension": 98280,
+      "pure_vector_bytes": 1572480,
+      "dense_density_matrix_bytes_rough_estimate": 154543334400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 25,
+      "dimension": 118755,
+      "pure_vector_bytes": 1900080,
+      "dense_density_matrix_bytes_rough_estimate": 225644000400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 26,
+      "dimension": 142506,
+      "pure_vector_bytes": 2280096,
+      "dense_density_matrix_bytes_rough_estimate": 324927360576,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 27,
+      "dimension": 169911,
+      "pure_vector_bytes": 2718576,
+      "dense_density_matrix_bytes_rough_estimate": 461915966736,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 28,
+      "dimension": 201376,
+      "pure_vector_bytes": 3222016,
+      "dense_density_matrix_bytes_rough_estimate": 648836694016,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 29,
+      "dimension": 237336,
+      "pure_vector_bytes": 3797376,
+      "dense_density_matrix_bytes_rough_estimate": 901254030336,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 30,
+      "dimension": 278256,
+      "pure_vector_bytes": 4452096,
+      "dense_density_matrix_bytes_rough_estimate": 1238822424576,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 31,
+      "dimension": 324632,
+      "pure_vector_bytes": 5194112,
+      "dense_density_matrix_bytes_rough_estimate": 1686174966784,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 32,
+      "dimension": 376992,
+      "pure_vector_bytes": 6031872,
+      "dense_density_matrix_bytes_rough_estimate": 2273967489024,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 33,
+      "dimension": 435897,
+      "pure_vector_bytes": 6974352,
+      "dense_density_matrix_bytes_rough_estimate": 3040099113744,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 34,
+      "dimension": 501942,
+      "pure_vector_bytes": 8031072,
+      "dense_density_matrix_bytes_rough_estimate": 4031132341824,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 35,
+      "dimension": 575757,
+      "pure_vector_bytes": 9212112,
+      "dense_density_matrix_bytes_rough_estimate": 5303937968784,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 36,
+      "dimension": 658008,
+      "pure_vector_bytes": 10528128,
+      "dense_density_matrix_bytes_rough_estimate": 6927592449024,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 37,
+      "dimension": 749398,
+      "pure_vector_bytes": 11990368,
+      "dense_density_matrix_bytes_rough_estimate": 8985557798464,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 38,
+      "dimension": 850668,
+      "pure_vector_bytes": 13610688,
+      "dense_density_matrix_bytes_rough_estimate": 11578176739584,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 39,
+      "dimension": 962598,
+      "pure_vector_bytes": 15401568,
+      "dense_density_matrix_bytes_rough_estimate": 14825518553664,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 5,
+      "cutoff": 40,
+      "dimension": 1086008,
+      "pure_vector_bytes": 17376128,
+      "dense_density_matrix_bytes_rough_estimate": 18870614017024,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 6,
+      "cutoff": 2,
+      "dimension": 7,
+      "pure_vector_bytes": 112,
+      "dense_density_matrix_bytes_rough_estimate": 784,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 3,
+      "dimension": 28,
+      "pure_vector_bytes": 448,
+      "dense_density_matrix_bytes_rough_estimate": 12544,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 4,
+      "dimension": 84,
+      "pure_vector_bytes": 1344,
+      "dense_density_matrix_bytes_rough_estimate": 112896,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 5,
+      "dimension": 210,
+      "pure_vector_bytes": 3360,
+      "dense_density_matrix_bytes_rough_estimate": 705600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 6,
+      "dimension": 462,
+      "pure_vector_bytes": 7392,
+      "dense_density_matrix_bytes_rough_estimate": 3415104,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 7,
+      "dimension": 924,
+      "pure_vector_bytes": 14784,
+      "dense_density_matrix_bytes_rough_estimate": 13660416,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 8,
+      "dimension": 1716,
+      "pure_vector_bytes": 27456,
+      "dense_density_matrix_bytes_rough_estimate": 47114496,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 9,
+      "dimension": 3003,
+      "pure_vector_bytes": 48048,
+      "dense_density_matrix_bytes_rough_estimate": 144288144,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 10,
+      "dimension": 5005,
+      "pure_vector_bytes": 80080,
+      "dense_density_matrix_bytes_rough_estimate": 400800400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 11,
+      "dimension": 8008,
+      "pure_vector_bytes": 128128,
+      "dense_density_matrix_bytes_rough_estimate": 1026049024,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 12,
+      "dimension": 12376,
+      "pure_vector_bytes": 198016,
+      "dense_density_matrix_bytes_rough_estimate": 2450646016,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 13,
+      "dimension": 18564,
+      "pure_vector_bytes": 297024,
+      "dense_density_matrix_bytes_rough_estimate": 5513953536,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 14,
+      "dimension": 27132,
+      "pure_vector_bytes": 434112,
+      "dense_density_matrix_bytes_rough_estimate": 11778326784,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 15,
+      "dimension": 38760,
+      "pure_vector_bytes": 620160,
+      "dense_density_matrix_bytes_rough_estimate": 24037401600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 16,
+      "dimension": 54264,
+      "pure_vector_bytes": 868224,
+      "dense_density_matrix_bytes_rough_estimate": 47113307136,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 17,
+      "dimension": 74613,
+      "pure_vector_bytes": 1193808,
+      "dense_density_matrix_bytes_rough_estimate": 89073596304,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 18,
+      "dimension": 100947,
+      "pure_vector_bytes": 1615152,
+      "dense_density_matrix_bytes_rough_estimate": 163044748944,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 19,
+      "dimension": 134596,
+      "pure_vector_bytes": 2153536,
+      "dense_density_matrix_bytes_rough_estimate": 289857331456,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 20,
+      "dimension": 177100,
+      "pure_vector_bytes": 2833600,
+      "dense_density_matrix_bytes_rough_estimate": 501830560000,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 21,
+      "dimension": 230230,
+      "pure_vector_bytes": 3683680,
+      "dense_density_matrix_bytes_rough_estimate": 848093646400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 22,
+      "dimension": 296010,
+      "pure_vector_bytes": 4736160,
+      "dense_density_matrix_bytes_rough_estimate": 1401950721600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 23,
+      "dimension": 376740,
+      "pure_vector_bytes": 6027840,
+      "dense_density_matrix_bytes_rough_estimate": 2270928441600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 24,
+      "dimension": 475020,
+      "pure_vector_bytes": 7600320,
+      "dense_density_matrix_bytes_rough_estimate": 3610304006400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 25,
+      "dimension": 593775,
+      "pure_vector_bytes": 9500400,
+      "dense_density_matrix_bytes_rough_estimate": 5641100010000,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 26,
+      "dimension": 736281,
+      "pure_vector_bytes": 11780496,
+      "dense_density_matrix_bytes_rough_estimate": 8673755375376,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 27,
+      "dimension": 906192,
+      "pure_vector_bytes": 14499072,
+      "dense_density_matrix_bytes_rough_estimate": 13138943053824,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 6,
+      "cutoff": 28,
+      "dimension": 1107568,
+      "pure_vector_bytes": 17721088,
+      "dense_density_matrix_bytes_rough_estimate": 19627309993984,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 6,
+      "cutoff": 29,
+      "dimension": 1344904,
+      "pure_vector_bytes": 21518464,
+      "dense_density_matrix_bytes_rough_estimate": 28940268307456,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 6,
+      "cutoff": 30,
+      "dimension": 1623160,
+      "pure_vector_bytes": 25970560,
+      "dense_density_matrix_bytes_rough_estimate": 42154374169600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 6,
+      "cutoff": 31,
+      "dimension": 1947792,
+      "pure_vector_bytes": 31164672,
+      "dense_density_matrix_bytes_rough_estimate": 60702298804224,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 6,
+      "cutoff": 32,
+      "dimension": 2324784,
+      "pure_vector_bytes": 37196544,
+      "dense_density_matrix_bytes_rough_estimate": 86473930346496,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 6,
+      "cutoff": 33,
+      "dimension": 2760681,
+      "pure_vector_bytes": 44170896,
+      "dense_density_matrix_bytes_rough_estimate": 121941753340176,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 6,
+      "cutoff": 34,
+      "dimension": 3262623,
+      "pure_vector_bytes": 52201968,
+      "dense_density_matrix_bytes_rough_estimate": 170315341442064,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 6,
+      "cutoff": 35,
+      "dimension": 3838380,
+      "pure_vector_bytes": 61414080,
+      "dense_density_matrix_bytes_rough_estimate": 235730576390400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 6,
+      "cutoff": 36,
+      "dimension": 4496388,
+      "pure_vector_bytes": 71942208,
+      "dense_density_matrix_bytes_rough_estimate": 323480080744704,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 6,
+      "cutoff": 37,
+      "dimension": 5245786,
+      "pure_vector_bytes": 83932576,
+      "dense_density_matrix_bytes_rough_estimate": 440292332124736,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 6,
+      "cutoff": 38,
+      "dimension": 6096454,
+      "pure_vector_bytes": 97543264,
+      "dense_density_matrix_bytes_rough_estimate": 594668021985856,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 6,
+      "cutoff": 39,
+      "dimension": 7059052,
+      "pure_vector_bytes": 112944832,
+      "dense_density_matrix_bytes_rough_estimate": 797283442219264,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 6,
+      "cutoff": 40,
+      "dimension": 8145060,
+      "pure_vector_bytes": 130320960,
+      "dense_density_matrix_bytes_rough_estimate": 1061472038457600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 7,
+      "cutoff": 2,
+      "dimension": 8,
+      "pure_vector_bytes": 128,
+      "dense_density_matrix_bytes_rough_estimate": 1024,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 7,
+      "cutoff": 3,
+      "dimension": 36,
+      "pure_vector_bytes": 576,
+      "dense_density_matrix_bytes_rough_estimate": 20736,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 7,
+      "cutoff": 4,
+      "dimension": 120,
+      "pure_vector_bytes": 1920,
+      "dense_density_matrix_bytes_rough_estimate": 230400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 7,
+      "cutoff": 5,
+      "dimension": 330,
+      "pure_vector_bytes": 5280,
+      "dense_density_matrix_bytes_rough_estimate": 1742400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 7,
+      "cutoff": 6,
+      "dimension": 792,
+      "pure_vector_bytes": 12672,
+      "dense_density_matrix_bytes_rough_estimate": 10036224,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 7,
+      "cutoff": 7,
+      "dimension": 1716,
+      "pure_vector_bytes": 27456,
+      "dense_density_matrix_bytes_rough_estimate": 47114496,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 7,
+      "cutoff": 8,
+      "dimension": 3432,
+      "pure_vector_bytes": 54912,
+      "dense_density_matrix_bytes_rough_estimate": 188457984,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 7,
+      "cutoff": 9,
+      "dimension": 6435,
+      "pure_vector_bytes": 102960,
+      "dense_density_matrix_bytes_rough_estimate": 662547600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 7,
+      "cutoff": 10,
+      "dimension": 11440,
+      "pure_vector_bytes": 183040,
+      "dense_density_matrix_bytes_rough_estimate": 2093977600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 7,
+      "cutoff": 11,
+      "dimension": 19448,
+      "pure_vector_bytes": 311168,
+      "dense_density_matrix_bytes_rough_estimate": 6051595264,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 7,
+      "cutoff": 12,
+      "dimension": 31824,
+      "pure_vector_bytes": 509184,
+      "dense_density_matrix_bytes_rough_estimate": 16204271616,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 7,
+      "cutoff": 13,
+      "dimension": 50388,
+      "pure_vector_bytes": 806208,
+      "dense_density_matrix_bytes_rough_estimate": 40623208704,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 7,
+      "cutoff": 14,
+      "dimension": 77520,
+      "pure_vector_bytes": 1240320,
+      "dense_density_matrix_bytes_rough_estimate": 96149606400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 7,
+      "cutoff": 15,
+      "dimension": 116280,
+      "pure_vector_bytes": 1860480,
+      "dense_density_matrix_bytes_rough_estimate": 216336614400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 7,
+      "cutoff": 16,
+      "dimension": 170544,
+      "pure_vector_bytes": 2728704,
+      "dense_density_matrix_bytes_rough_estimate": 465364094976,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 7,
+      "cutoff": 17,
+      "dimension": 245157,
+      "pure_vector_bytes": 3922512,
+      "dense_density_matrix_bytes_rough_estimate": 961631274384,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 7,
+      "cutoff": 18,
+      "dimension": 346104,
+      "pure_vector_bytes": 5537664,
+      "dense_density_matrix_bytes_rough_estimate": 1916607661056,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 7,
+      "cutoff": 19,
+      "dimension": 480700,
+      "pure_vector_bytes": 7691200,
+      "dense_density_matrix_bytes_rough_estimate": 3697159840000,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 7,
+      "cutoff": 20,
+      "dimension": 657800,
+      "pure_vector_bytes": 10524800,
+      "dense_density_matrix_bytes_rough_estimate": 6923213440000,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 7,
+      "cutoff": 21,
+      "dimension": 888030,
+      "pure_vector_bytes": 14208480,
+      "dense_density_matrix_bytes_rough_estimate": 12617556494400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 7,
+      "cutoff": 22,
+      "dimension": 1184040,
+      "pure_vector_bytes": 18944640,
+      "dense_density_matrix_bytes_rough_estimate": 22431211545600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 7,
+      "cutoff": 23,
+      "dimension": 1560780,
+      "pure_vector_bytes": 24972480,
+      "dense_density_matrix_bytes_rough_estimate": 38976547334400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 7,
+      "cutoff": 24,
+      "dimension": 2035800,
+      "pure_vector_bytes": 32572800,
+      "dense_density_matrix_bytes_rough_estimate": 66311706240000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 7,
+      "cutoff": 25,
+      "dimension": 2629575,
+      "pure_vector_bytes": 42073200,
+      "dense_density_matrix_bytes_rough_estimate": 110634634890000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 7,
+      "cutoff": 26,
+      "dimension": 3365856,
+      "pure_vector_bytes": 53853696,
+      "dense_density_matrix_bytes_rough_estimate": 181263785803776,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 7,
+      "cutoff": 27,
+      "dimension": 4272048,
+      "pure_vector_bytes": 68352768,
+      "dense_density_matrix_bytes_rough_estimate": 292006305828864,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 7,
+      "cutoff": 28,
+      "dimension": 5379616,
+      "pure_vector_bytes": 86073856,
+      "dense_density_matrix_bytes_rough_estimate": 463044292919296,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 7,
+      "cutoff": 29,
+      "dimension": 6724520,
+      "pure_vector_bytes": 107592320,
+      "dense_density_matrix_bytes_rough_estimate": 723506707686400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 7,
+      "cutoff": 30,
+      "dimension": 8347680,
+      "pure_vector_bytes": 133562880,
+      "dense_density_matrix_bytes_rough_estimate": 1114940182118400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 7,
+      "cutoff": 31,
+      "dimension": 10295472,
+      "pure_vector_bytes": 164727552,
+      "dense_density_matrix_bytes_rough_estimate": 1695947899244544,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 7,
+      "cutoff": 32,
+      "dimension": 12620256,
+      "pure_vector_bytes": 201924096,
+      "dense_density_matrix_bytes_rough_estimate": 2548333784088576,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 7,
+      "cutoff": 33,
+      "dimension": 15380937,
+      "pure_vector_bytes": 246094992,
+      "dense_density_matrix_bytes_rough_estimate": 3785171567967504,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 7,
+      "cutoff": 34,
+      "dimension": 18643560,
+      "pure_vector_bytes": 298296960,
+      "dense_density_matrix_bytes_rough_estimate": 5561317271577600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 7,
+      "cutoff": 35,
+      "dimension": 22481940,
+      "pure_vector_bytes": 359711040,
+      "dense_density_matrix_bytes_rough_estimate": 8087002018617600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 7,
+      "cutoff": 36,
+      "dimension": 26978328,
+      "pure_vector_bytes": 431653248,
+      "dense_density_matrix_bytes_rough_estimate": 11645282906809344,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 7,
+      "cutoff": 37,
+      "dimension": 32224114,
+      "pure_vector_bytes": 515585824,
+      "dense_density_matrix_bytes_rough_estimate": 16614296369359936,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 7,
+      "cutoff": 38,
+      "dimension": 38320568,
+      "pure_vector_bytes": 613129088,
+      "dense_density_matrix_bytes_rough_estimate": 23495454909481984,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 7,
+      "cutoff": 39,
+      "dimension": 45379620,
+      "pure_vector_bytes": 726073920,
+      "dense_density_matrix_bytes_rough_estimate": 32948958581510400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 7,
+      "cutoff": 40,
+      "dimension": 53524680,
+      "pure_vector_bytes": 856394880,
+      "dense_density_matrix_bytes_rough_estimate": 45838261905638400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 8,
+      "cutoff": 2,
+      "dimension": 9,
+      "pure_vector_bytes": 144,
+      "dense_density_matrix_bytes_rough_estimate": 1296,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 8,
+      "cutoff": 3,
+      "dimension": 45,
+      "pure_vector_bytes": 720,
+      "dense_density_matrix_bytes_rough_estimate": 32400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 8,
+      "cutoff": 4,
+      "dimension": 165,
+      "pure_vector_bytes": 2640,
+      "dense_density_matrix_bytes_rough_estimate": 435600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 8,
+      "cutoff": 5,
+      "dimension": 495,
+      "pure_vector_bytes": 7920,
+      "dense_density_matrix_bytes_rough_estimate": 3920400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 8,
+      "cutoff": 6,
+      "dimension": 1287,
+      "pure_vector_bytes": 20592,
+      "dense_density_matrix_bytes_rough_estimate": 26501904,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 8,
+      "cutoff": 7,
+      "dimension": 3003,
+      "pure_vector_bytes": 48048,
+      "dense_density_matrix_bytes_rough_estimate": 144288144,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 8,
+      "cutoff": 8,
+      "dimension": 6435,
+      "pure_vector_bytes": 102960,
+      "dense_density_matrix_bytes_rough_estimate": 662547600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 8,
+      "cutoff": 9,
+      "dimension": 12870,
+      "pure_vector_bytes": 205920,
+      "dense_density_matrix_bytes_rough_estimate": 2650190400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 8,
+      "cutoff": 10,
+      "dimension": 24310,
+      "pure_vector_bytes": 388960,
+      "dense_density_matrix_bytes_rough_estimate": 9455617600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 8,
+      "cutoff": 11,
+      "dimension": 43758,
+      "pure_vector_bytes": 700128,
+      "dense_density_matrix_bytes_rough_estimate": 30636201024,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 8,
+      "cutoff": 12,
+      "dimension": 75582,
+      "pure_vector_bytes": 1209312,
+      "dense_density_matrix_bytes_rough_estimate": 91402219584,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 8,
+      "cutoff": 13,
+      "dimension": 125970,
+      "pure_vector_bytes": 2015520,
+      "dense_density_matrix_bytes_rough_estimate": 253895054400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 8,
+      "cutoff": 14,
+      "dimension": 203490,
+      "pure_vector_bytes": 3255840,
+      "dense_density_matrix_bytes_rough_estimate": 662530881600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 8,
+      "cutoff": 15,
+      "dimension": 319770,
+      "pure_vector_bytes": 5116320,
+      "dense_density_matrix_bytes_rough_estimate": 1636045646400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 8,
+      "cutoff": 16,
+      "dimension": 490314,
+      "pure_vector_bytes": 7845024,
+      "dense_density_matrix_bytes_rough_estimate": 3846525097536,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 8,
+      "cutoff": 17,
+      "dimension": 735471,
+      "pure_vector_bytes": 11767536,
+      "dense_density_matrix_bytes_rough_estimate": 8654681469456,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 8,
+      "cutoff": 18,
+      "dimension": 1081575,
+      "pure_vector_bytes": 17305200,
+      "dense_density_matrix_bytes_rough_estimate": 18716871690000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 8,
+      "cutoff": 19,
+      "dimension": 1562275,
+      "pure_vector_bytes": 24996400,
+      "dense_density_matrix_bytes_rough_estimate": 39051250810000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 8,
+      "cutoff": 20,
+      "dimension": 2220075,
+      "pure_vector_bytes": 35521200,
+      "dense_density_matrix_bytes_rough_estimate": 78859728090000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 8,
+      "cutoff": 21,
+      "dimension": 3108105,
+      "pure_vector_bytes": 49729680,
+      "dense_density_matrix_bytes_rough_estimate": 154565067056400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 8,
+      "cutoff": 22,
+      "dimension": 4292145,
+      "pure_vector_bytes": 68674320,
+      "dense_density_matrix_bytes_rough_estimate": 294760139216400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 8,
+      "cutoff": 23,
+      "dimension": 5852925,
+      "pure_vector_bytes": 93646800,
+      "dense_density_matrix_bytes_rough_estimate": 548107696890000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 8,
+      "cutoff": 24,
+      "dimension": 7888725,
+      "pure_vector_bytes": 126219600,
+      "dense_density_matrix_bytes_rough_estimate": 995711714010000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 8,
+      "cutoff": 25,
+      "dimension": 10518300,
+      "pure_vector_bytes": 168292800,
+      "dense_density_matrix_bytes_rough_estimate": 1770154158240000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 8,
+      "cutoff": 26,
+      "dimension": 13884156,
+      "pure_vector_bytes": 222146496,
+      "dense_density_matrix_bytes_rough_estimate": 3084316605317376,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 8,
+      "cutoff": 27,
+      "dimension": 18156204,
+      "pure_vector_bytes": 290499264,
+      "dense_density_matrix_bytes_rough_estimate": 5274363899033856,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 8,
+      "cutoff": 28,
+      "dimension": 23535820,
+      "pure_vector_bytes": 376573120,
+      "dense_density_matrix_bytes_rough_estimate": 8862957169158400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 8,
+      "cutoff": 29,
+      "dimension": 30260340,
+      "pure_vector_bytes": 484165440,
+      "dense_density_matrix_bytes_rough_estimate": 14651010830649600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 8,
+      "cutoff": 30,
+      "dimension": 38608020,
+      "pure_vector_bytes": 617728320,
+      "dense_density_matrix_bytes_rough_estimate": 23849267333126400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 8,
+      "cutoff": 31,
+      "dimension": 48903492,
+      "pure_vector_bytes": 782455872,
+      "dense_density_matrix_bytes_rough_estimate": 38264824476705024,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 8,
+      "cutoff": 32,
+      "dimension": 61523748,
+      "pure_vector_bytes": 984379968,
+      "dense_density_matrix_bytes_rough_estimate": 60562745087480064,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 8,
+      "cutoff": 33,
+      "dimension": 76904685,
+      "pure_vector_bytes": 1230474960,
+      "dense_density_matrix_bytes_rough_estimate": 94629289199187600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 8,
+      "cutoff": 34,
+      "dimension": 95548245,
+      "pure_vector_bytes": 1528771920,
+      "dense_density_matrix_bytes_rough_estimate": 146071473961280400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 8,
+      "cutoff": 35,
+      "dimension": 118030185,
+      "pure_vector_bytes": 1888482960,
+      "dense_density_matrix_bytes_rough_estimate": 222897993138147600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 8,
+      "cutoff": 36,
+      "dimension": 145008513,
+      "pure_vector_bytes": 2320136208,
+      "dense_density_matrix_bytes_rough_estimate": 336439501479538704,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 8,
+      "cutoff": 37,
+      "dimension": 177232627,
+      "pure_vector_bytes": 2835722032,
+      "dense_density_matrix_bytes_rough_estimate": 502582465173138064,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 8,
+      "cutoff": 38,
+      "dimension": 215553195,
+      "pure_vector_bytes": 3448851120,
+      "dense_density_matrix_bytes_rough_estimate": 743410877995328400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 8,
+      "cutoff": 39,
+      "dimension": 260932815,
+      "pure_vector_bytes": 4174925040,
+      "dense_density_matrix_bytes_rough_estimate": 1089374943101187600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 8,
+      "cutoff": 40,
+      "dimension": 314457495,
+      "pure_vector_bytes": 5031319920,
+      "dense_density_matrix_bytes_rough_estimate": 1582136258586800400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 2,
+      "dimension": 10,
+      "pure_vector_bytes": 160,
+      "dense_density_matrix_bytes_rough_estimate": 1600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 9,
+      "cutoff": 3,
+      "dimension": 55,
+      "pure_vector_bytes": 880,
+      "dense_density_matrix_bytes_rough_estimate": 48400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 9,
+      "cutoff": 4,
+      "dimension": 220,
+      "pure_vector_bytes": 3520,
+      "dense_density_matrix_bytes_rough_estimate": 774400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 9,
+      "cutoff": 5,
+      "dimension": 715,
+      "pure_vector_bytes": 11440,
+      "dense_density_matrix_bytes_rough_estimate": 8179600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 9,
+      "cutoff": 6,
+      "dimension": 2002,
+      "pure_vector_bytes": 32032,
+      "dense_density_matrix_bytes_rough_estimate": 64128064,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 9,
+      "cutoff": 7,
+      "dimension": 5005,
+      "pure_vector_bytes": 80080,
+      "dense_density_matrix_bytes_rough_estimate": 400800400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 9,
+      "cutoff": 8,
+      "dimension": 11440,
+      "pure_vector_bytes": 183040,
+      "dense_density_matrix_bytes_rough_estimate": 2093977600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 9,
+      "cutoff": 9,
+      "dimension": 24310,
+      "pure_vector_bytes": 388960,
+      "dense_density_matrix_bytes_rough_estimate": 9455617600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 9,
+      "cutoff": 10,
+      "dimension": 48620,
+      "pure_vector_bytes": 777920,
+      "dense_density_matrix_bytes_rough_estimate": 37822470400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 9,
+      "cutoff": 11,
+      "dimension": 92378,
+      "pure_vector_bytes": 1478048,
+      "dense_density_matrix_bytes_rough_estimate": 136539118144,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 9,
+      "cutoff": 12,
+      "dimension": 167960,
+      "pure_vector_bytes": 2687360,
+      "dense_density_matrix_bytes_rough_estimate": 451368985600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 9,
+      "cutoff": 13,
+      "dimension": 293930,
+      "pure_vector_bytes": 4702880,
+      "dense_density_matrix_bytes_rough_estimate": 1382317518400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 9,
+      "cutoff": 14,
+      "dimension": 497420,
+      "pure_vector_bytes": 7958720,
+      "dense_density_matrix_bytes_rough_estimate": 3958826502400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 9,
+      "cutoff": 15,
+      "dimension": 817190,
+      "pure_vector_bytes": 13075040,
+      "dense_density_matrix_bytes_rough_estimate": 10684791937600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 9,
+      "cutoff": 16,
+      "dimension": 1307504,
+      "pure_vector_bytes": 20920064,
+      "dense_density_matrix_bytes_rough_estimate": 27353067360256,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 17,
+      "dimension": 2042975,
+      "pure_vector_bytes": 32687600,
+      "dense_density_matrix_bytes_rough_estimate": 66779949610000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 18,
+      "dimension": 3124550,
+      "pure_vector_bytes": 49992800,
+      "dense_density_matrix_bytes_rough_estimate": 156205003240000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 19,
+      "dimension": 4686825,
+      "pure_vector_bytes": 74989200,
+      "dense_density_matrix_bytes_rough_estimate": 351461257290000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 20,
+      "dimension": 6906900,
+      "pure_vector_bytes": 110510400,
+      "dense_density_matrix_bytes_rough_estimate": 763284281760000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 21,
+      "dimension": 10015005,
+      "pure_vector_bytes": 160240080,
+      "dense_density_matrix_bytes_rough_estimate": 1604805202400400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 22,
+      "dimension": 14307150,
+      "pure_vector_bytes": 228914400,
+      "dense_density_matrix_bytes_rough_estimate": 3275112657960000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 23,
+      "dimension": 20160075,
+      "pure_vector_bytes": 322561200,
+      "dense_density_matrix_bytes_rough_estimate": 6502857984090000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 24,
+      "dimension": 28048800,
+      "pure_vector_bytes": 448780800,
+      "dense_density_matrix_bytes_rough_estimate": 12587762903040000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 25,
+      "dimension": 38567100,
+      "pure_vector_bytes": 617073600,
+      "dense_density_matrix_bytes_rough_estimate": 23798739238560000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 26,
+      "dimension": 52451256,
+      "pure_vector_bytes": 839220096,
+      "dense_density_matrix_bytes_rough_estimate": 44018148095640576,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 27,
+      "dimension": 70607460,
+      "pure_vector_bytes": 1129719360,
+      "dense_density_matrix_bytes_rough_estimate": 79766614522425600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 28,
+      "dimension": 94143280,
+      "pure_vector_bytes": 1506292480,
+      "dense_density_matrix_bytes_rough_estimate": 141807314706534400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 29,
+      "dimension": 124403620,
+      "pure_vector_bytes": 1990457920,
+      "dense_density_matrix_bytes_rough_estimate": 247620170705670400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 30,
+      "dimension": 163011640,
+      "pure_vector_bytes": 2608186240,
+      "dense_density_matrix_bytes_rough_estimate": 425164716407833600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 31,
+      "dimension": 211915132,
+      "pure_vector_bytes": 3390642112,
+      "dense_density_matrix_bytes_rough_estimate": 718528370729238784,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 32,
+      "dimension": 273438880,
+      "pure_vector_bytes": 4375022080,
+      "dense_density_matrix_bytes_rough_estimate": 1196301137530470400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 33,
+      "dimension": 350343565,
+      "pure_vector_bytes": 5605497040,
+      "dense_density_matrix_bytes_rough_estimate": 1963849816590547600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 34,
+      "dimension": 445891810,
+      "pure_vector_bytes": 7134268960,
+      "dense_density_matrix_bytes_rough_estimate": 3181112099601217600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 35,
+      "dimension": 563921995,
+      "pure_vector_bytes": 9022751920,
+      "dense_density_matrix_bytes_rough_estimate": 5088128263116480400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 36,
+      "dimension": 708930508,
+      "pure_vector_bytes": 11342888128,
+      "dense_density_matrix_bytes_rough_estimate": 8041319442770209024,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 37,
+      "dimension": 886163135,
+      "pure_vector_bytes": 14178610160,
+      "dense_density_matrix_bytes_rough_estimate": 12564561629328451600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 38,
+      "dimension": 1101716330,
+      "pure_vector_bytes": 17627461280,
+      "dense_density_matrix_bytes_rough_estimate": 19420461948618702400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 39,
+      "dimension": 1362649145,
+      "pure_vector_bytes": 21802386320,
+      "dense_density_matrix_bytes_rough_estimate": 29709003077907696400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 9,
+      "cutoff": 40,
+      "dimension": 1677106640,
+      "pure_vector_bytes": 26833706240,
+      "dense_density_matrix_bytes_rough_estimate": 45002986910913433600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 2,
+      "dimension": 11,
+      "pure_vector_bytes": 176,
+      "dense_density_matrix_bytes_rough_estimate": 1936,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 10,
+      "cutoff": 3,
+      "dimension": 66,
+      "pure_vector_bytes": 1056,
+      "dense_density_matrix_bytes_rough_estimate": 69696,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 10,
+      "cutoff": 4,
+      "dimension": 286,
+      "pure_vector_bytes": 4576,
+      "dense_density_matrix_bytes_rough_estimate": 1308736,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 10,
+      "cutoff": 5,
+      "dimension": 1001,
+      "pure_vector_bytes": 16016,
+      "dense_density_matrix_bytes_rough_estimate": 16032016,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 10,
+      "cutoff": 6,
+      "dimension": 3003,
+      "pure_vector_bytes": 48048,
+      "dense_density_matrix_bytes_rough_estimate": 144288144,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 10,
+      "cutoff": 7,
+      "dimension": 8008,
+      "pure_vector_bytes": 128128,
+      "dense_density_matrix_bytes_rough_estimate": 1026049024,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 10,
+      "cutoff": 8,
+      "dimension": 19448,
+      "pure_vector_bytes": 311168,
+      "dense_density_matrix_bytes_rough_estimate": 6051595264,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 10,
+      "cutoff": 9,
+      "dimension": 43758,
+      "pure_vector_bytes": 700128,
+      "dense_density_matrix_bytes_rough_estimate": 30636201024,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 10,
+      "cutoff": 10,
+      "dimension": 92378,
+      "pure_vector_bytes": 1478048,
+      "dense_density_matrix_bytes_rough_estimate": 136539118144,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 10,
+      "cutoff": 11,
+      "dimension": 184756,
+      "pure_vector_bytes": 2956096,
+      "dense_density_matrix_bytes_rough_estimate": 546156472576,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 10,
+      "cutoff": 12,
+      "dimension": 352716,
+      "pure_vector_bytes": 5643456,
+      "dense_density_matrix_bytes_rough_estimate": 1990537226496,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 10,
+      "cutoff": 13,
+      "dimension": 646646,
+      "pure_vector_bytes": 10346336,
+      "dense_density_matrix_bytes_rough_estimate": 6690416789056,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 10,
+      "cutoff": 14,
+      "dimension": 1144066,
+      "pure_vector_bytes": 18305056,
+      "dense_density_matrix_bytes_rough_estimate": 20942192197696,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 15,
+      "dimension": 1961256,
+      "pure_vector_bytes": 31380096,
+      "dense_density_matrix_bytes_rough_estimate": 61544401560576,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 16,
+      "dimension": 3268760,
+      "pure_vector_bytes": 52300160,
+      "dense_density_matrix_bytes_rough_estimate": 170956671001600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 17,
+      "dimension": 5311735,
+      "pure_vector_bytes": 84987760,
+      "dense_density_matrix_bytes_rough_estimate": 451432459363600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 18,
+      "dimension": 8436285,
+      "pure_vector_bytes": 134980560,
+      "dense_density_matrix_bytes_rough_estimate": 1138734473619600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 19,
+      "dimension": 13123110,
+      "pure_vector_bytes": 209969760,
+      "dense_density_matrix_bytes_rough_estimate": 2755456257153600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 20,
+      "dimension": 20030010,
+      "pure_vector_bytes": 320480160,
+      "dense_density_matrix_bytes_rough_estimate": 6419220809601600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 21,
+      "dimension": 30045015,
+      "pure_vector_bytes": 480720240,
+      "dense_density_matrix_bytes_rough_estimate": 14443246821603600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 22,
+      "dimension": 44352165,
+      "pure_vector_bytes": 709634640,
+      "dense_density_matrix_bytes_rough_estimate": 31473832642995600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 23,
+      "dimension": 64512240,
+      "pure_vector_bytes": 1032195840,
+      "dense_density_matrix_bytes_rough_estimate": 66589265757081600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 24,
+      "dimension": 92561040,
+      "pure_vector_bytes": 1480976640,
+      "dense_density_matrix_bytes_rough_estimate": 137080738014105600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 25,
+      "dimension": 131128140,
+      "pure_vector_bytes": 2098050240,
+      "dense_density_matrix_bytes_rough_estimate": 275113425597753600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 26,
+      "dimension": 183579396,
+      "pure_vector_bytes": 2937270336,
+      "dense_density_matrix_bytes_rough_estimate": 539222314171597056,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 27,
+      "dimension": 254186856,
+      "pure_vector_bytes": 4066989696,
+      "dense_density_matrix_bytes_rough_estimate": 1033775324210635776,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 28,
+      "dimension": 348330136,
+      "pure_vector_bytes": 5573282176,
+      "dense_density_matrix_bytes_rough_estimate": 1941342138332455936,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 29,
+      "dimension": 472733756,
+      "pure_vector_bytes": 7563740096,
+      "dense_density_matrix_bytes_rough_estimate": 3575635264989880576,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 30,
+      "dimension": 635745396,
+      "pure_vector_bytes": 10171926336,
+      "dense_density_matrix_bytes_rough_estimate": 6466755336563149056,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 31,
+      "dimension": 847660528,
+      "pure_vector_bytes": 13562568448,
+      "dense_density_matrix_bytes_rough_estimate": 11496453931667820544,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 32,
+      "dimension": 1121099408,
+      "pure_vector_bytes": 17937590528,
+      "dense_density_matrix_bytes_rough_estimate": 20109822121887207424,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 33,
+      "dimension": 1471442973,
+      "pure_vector_bytes": 23543087568,
+      "dense_density_matrix_bytes_rough_estimate": 34642310764657259664,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 34,
+      "dimension": 1917334783,
+      "pure_vector_bytes": 30677356528,
+      "dense_density_matrix_bytes_rough_estimate": 58818762721626513424,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 35,
+      "dimension": 2481256778,
+      "pure_vector_bytes": 39700108448,
+      "dense_density_matrix_bytes_rough_estimate": 98506163173935060544,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 36,
+      "dimension": 3190187286,
+      "pure_vector_bytes": 51042996576,
+      "dense_density_matrix_bytes_rough_estimate": 162836718716096732736,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 37,
+      "dimension": 4076350421,
+      "pure_vector_bytes": 65221606736,
+      "dense_density_matrix_bytes_rough_estimate": 265866124076590035856,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 38,
+      "dimension": 5178066751,
+      "pure_vector_bytes": 82849068016,
+      "dense_density_matrix_bytes_rough_estimate": 428998004444987136016,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 39,
+      "dimension": 6540715896,
+      "pure_vector_bytes": 104651454336,
+      "dense_density_matrix_bytes_rough_estimate": 684495430914993325056,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 10,
+      "cutoff": 40,
+      "dimension": 8217822536,
+      "pure_vector_bytes": 131485160576,
+      "dense_density_matrix_bytes_rough_estimate": 1080521715731031540736,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 2,
+      "dimension": 12,
+      "pure_vector_bytes": 192,
+      "dense_density_matrix_bytes_rough_estimate": 2304,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 11,
+      "cutoff": 3,
+      "dimension": 78,
+      "pure_vector_bytes": 1248,
+      "dense_density_matrix_bytes_rough_estimate": 97344,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 11,
+      "cutoff": 4,
+      "dimension": 364,
+      "pure_vector_bytes": 5824,
+      "dense_density_matrix_bytes_rough_estimate": 2119936,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 11,
+      "cutoff": 5,
+      "dimension": 1365,
+      "pure_vector_bytes": 21840,
+      "dense_density_matrix_bytes_rough_estimate": 29811600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 11,
+      "cutoff": 6,
+      "dimension": 4368,
+      "pure_vector_bytes": 69888,
+      "dense_density_matrix_bytes_rough_estimate": 305270784,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 11,
+      "cutoff": 7,
+      "dimension": 12376,
+      "pure_vector_bytes": 198016,
+      "dense_density_matrix_bytes_rough_estimate": 2450646016,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 11,
+      "cutoff": 8,
+      "dimension": 31824,
+      "pure_vector_bytes": 509184,
+      "dense_density_matrix_bytes_rough_estimate": 16204271616,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 11,
+      "cutoff": 9,
+      "dimension": 75582,
+      "pure_vector_bytes": 1209312,
+      "dense_density_matrix_bytes_rough_estimate": 91402219584,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 11,
+      "cutoff": 10,
+      "dimension": 167960,
+      "pure_vector_bytes": 2687360,
+      "dense_density_matrix_bytes_rough_estimate": 451368985600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 11,
+      "cutoff": 11,
+      "dimension": 352716,
+      "pure_vector_bytes": 5643456,
+      "dense_density_matrix_bytes_rough_estimate": 1990537226496,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 11,
+      "cutoff": 12,
+      "dimension": 705432,
+      "pure_vector_bytes": 11286912,
+      "dense_density_matrix_bytes_rough_estimate": 7962148905984,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 11,
+      "cutoff": 13,
+      "dimension": 1352078,
+      "pure_vector_bytes": 21633248,
+      "dense_density_matrix_bytes_rough_estimate": 29249838689344,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 14,
+      "dimension": 2496144,
+      "pure_vector_bytes": 39938304,
+      "dense_density_matrix_bytes_rough_estimate": 99691757899776,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 15,
+      "dimension": 4457400,
+      "pure_vector_bytes": 71318400,
+      "dense_density_matrix_bytes_rough_estimate": 317894636160000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 16,
+      "dimension": 7726160,
+      "pure_vector_bytes": 123618560,
+      "dense_density_matrix_bytes_rough_estimate": 955096773529600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 17,
+      "dimension": 13037895,
+      "pure_vector_bytes": 208606320,
+      "dense_density_matrix_bytes_rough_estimate": 2719787296496400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 18,
+      "dimension": 21474180,
+      "pure_vector_bytes": 343586880,
+      "dense_density_matrix_bytes_rough_estimate": 7378246506758400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 19,
+      "dimension": 34597290,
+      "pure_vector_bytes": 553556640,
+      "dense_density_matrix_bytes_rough_estimate": 19151559605505600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 20,
+      "dimension": 54627300,
+      "pure_vector_bytes": 874036800,
+      "dense_density_matrix_bytes_rough_estimate": 47746270484640000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 21,
+      "dimension": 84672315,
+      "pure_vector_bytes": 1354757040,
+      "dense_density_matrix_bytes_rough_estimate": 114710414839347600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 22,
+      "dimension": 129024480,
+      "pure_vector_bytes": 2064391680,
+      "dense_density_matrix_bytes_rough_estimate": 266357063028326400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 23,
+      "dimension": 193536720,
+      "pure_vector_bytes": 3096587520,
+      "dense_density_matrix_bytes_rough_estimate": 599303391813734400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 24,
+      "dimension": 286097760,
+      "pure_vector_bytes": 4577564160,
+      "dense_density_matrix_bytes_rough_estimate": 1309630852432281600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 25,
+      "dimension": 417225900,
+      "pure_vector_bytes": 6675614400,
+      "dense_density_matrix_bytes_rough_estimate": 2785239226092960000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 26,
+      "dimension": 600805296,
+      "pure_vector_bytes": 9612884736,
+      "dense_density_matrix_bytes_rough_estimate": 5775472059226361856,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 27,
+      "dimension": 854992152,
+      "pure_vector_bytes": 13679874432,
+      "dense_density_matrix_bytes_rough_estimate": 11696185279705457664,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 28,
+      "dimension": 1203322288,
+      "pure_vector_bytes": 19253156608,
+      "dense_density_matrix_bytes_rough_estimate": 23167752460760879104,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 29,
+      "dimension": 1676056044,
+      "pure_vector_bytes": 26816896704,
+      "dense_density_matrix_bytes_rough_estimate": 44946621802062878976,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 30,
+      "dimension": 2311801440,
+      "pure_vector_bytes": 36988823040,
+      "dense_density_matrix_bytes_rough_estimate": 85510814367777177600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 31,
+      "dimension": 3159461968,
+      "pure_vector_bytes": 50551391488,
+      "dense_density_matrix_bytes_rough_estimate": 159715198835814928384,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 32,
+      "dimension": 4280561376,
+      "pure_vector_bytes": 68488982016,
+      "dense_density_matrix_bytes_rough_estimate": 293171291099248214016,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 33,
+      "dimension": 5752004349,
+      "pure_vector_bytes": 92032069584,
+      "dense_density_matrix_bytes_rough_estimate": 529368864494638620816,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 34,
+      "dimension": 7669339132,
+      "pure_vector_bytes": 122709426112,
+      "dense_density_matrix_bytes_rough_estimate": 941100203546024214784,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 35,
+      "dimension": 10150595910,
+      "pure_vector_bytes": 162409534560,
+      "dense_density_matrix_bytes_rough_estimate": 1648553557249739649600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 36,
+      "dimension": 13340783196,
+      "pure_vector_bytes": 213452531136,
+      "dense_density_matrix_bytes_rough_estimate": 2847623940522815590656,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 37,
+      "dimension": 17417133617,
+      "pure_vector_bytes": 278674137872,
+      "dense_density_matrix_bytes_rough_estimate": 4853704694918904043024,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 38,
+      "dimension": 22595200368,
+      "pure_vector_bytes": 361523205888,
+      "dense_density_matrix_bytes_rough_estimate": 8168689274721077366784,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 39,
+      "dimension": 29135916264,
+      "pure_vector_bytes": 466174660224,
+      "dense_density_matrix_bytes_rough_estimate": 13582425864685115483136,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 11,
+      "cutoff": 40,
+      "dimension": 37353738800,
+      "pure_vector_bytes": 597659820800,
+      "dense_density_matrix_bytes_rough_estimate": 22324828837418007040000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 2,
+      "dimension": 13,
+      "pure_vector_bytes": 208,
+      "dense_density_matrix_bytes_rough_estimate": 2704,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 12,
+      "cutoff": 3,
+      "dimension": 91,
+      "pure_vector_bytes": 1456,
+      "dense_density_matrix_bytes_rough_estimate": 132496,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 12,
+      "cutoff": 4,
+      "dimension": 455,
+      "pure_vector_bytes": 7280,
+      "dense_density_matrix_bytes_rough_estimate": 3312400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 12,
+      "cutoff": 5,
+      "dimension": 1820,
+      "pure_vector_bytes": 29120,
+      "dense_density_matrix_bytes_rough_estimate": 52998400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 12,
+      "cutoff": 6,
+      "dimension": 6188,
+      "pure_vector_bytes": 99008,
+      "dense_density_matrix_bytes_rough_estimate": 612661504,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 12,
+      "cutoff": 7,
+      "dimension": 18564,
+      "pure_vector_bytes": 297024,
+      "dense_density_matrix_bytes_rough_estimate": 5513953536,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 12,
+      "cutoff": 8,
+      "dimension": 50388,
+      "pure_vector_bytes": 806208,
+      "dense_density_matrix_bytes_rough_estimate": 40623208704,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 12,
+      "cutoff": 9,
+      "dimension": 125970,
+      "pure_vector_bytes": 2015520,
+      "dense_density_matrix_bytes_rough_estimate": 253895054400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 12,
+      "cutoff": 10,
+      "dimension": 293930,
+      "pure_vector_bytes": 4702880,
+      "dense_density_matrix_bytes_rough_estimate": 1382317518400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 12,
+      "cutoff": 11,
+      "dimension": 646646,
+      "pure_vector_bytes": 10346336,
+      "dense_density_matrix_bytes_rough_estimate": 6690416789056,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 12,
+      "cutoff": 12,
+      "dimension": 1352078,
+      "pure_vector_bytes": 21633248,
+      "dense_density_matrix_bytes_rough_estimate": 29249838689344,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 13,
+      "dimension": 2704156,
+      "pure_vector_bytes": 43266496,
+      "dense_density_matrix_bytes_rough_estimate": 116999354757376,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 14,
+      "dimension": 5200300,
+      "pure_vector_bytes": 83204800,
+      "dense_density_matrix_bytes_rough_estimate": 432689921440000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 15,
+      "dimension": 9657700,
+      "pure_vector_bytes": 154523200,
+      "dense_density_matrix_bytes_rough_estimate": 1492338708640000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 16,
+      "dimension": 17383860,
+      "pure_vector_bytes": 278141760,
+      "dense_density_matrix_bytes_rough_estimate": 4835177415993600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 17,
+      "dimension": 30421755,
+      "pure_vector_bytes": 486748080,
+      "dense_density_matrix_bytes_rough_estimate": 14807730836480400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 18,
+      "dimension": 51895935,
+      "pure_vector_bytes": 830334960,
+      "dense_density_matrix_bytes_rough_estimate": 43091009112387600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 19,
+      "dimension": 86493225,
+      "pure_vector_bytes": 1383891600,
+      "dense_density_matrix_bytes_rough_estimate": 119697247534410000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 20,
+      "dimension": 141120525,
+      "pure_vector_bytes": 2257928400,
+      "dense_density_matrix_bytes_rough_estimate": 318640041220410000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 21,
+      "dimension": 225792840,
+      "pure_vector_bytes": 3612685440,
+      "dense_density_matrix_bytes_rough_estimate": 815718505524249600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 22,
+      "dimension": 354817320,
+      "pure_vector_bytes": 5677077120,
+      "dense_density_matrix_bytes_rough_estimate": 2014325289151718400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 23,
+      "dimension": 548354040,
+      "pure_vector_bytes": 8773664640,
+      "dense_density_matrix_bytes_rough_estimate": 4811074450949145600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 24,
+      "dimension": 834451800,
+      "pure_vector_bytes": 13351228800,
+      "dense_density_matrix_bytes_rough_estimate": 11140956904371840000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 25,
+      "dimension": 1251677700,
+      "pure_vector_bytes": 20026843200,
+      "dense_density_matrix_bytes_rough_estimate": 25067153034836640000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 26,
+      "dimension": 1852482996,
+      "pure_vector_bytes": 29639727936,
+      "dense_density_matrix_bytes_rough_estimate": 54907092007506176256,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 27,
+      "dimension": 2707475148,
+      "pure_vector_bytes": 43319602368,
+      "dense_density_matrix_bytes_rough_estimate": 117286746832601950464,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 28,
+      "dimension": 3910797436,
+      "pure_vector_bytes": 62572758976,
+      "dense_density_matrix_bytes_rough_estimate": 244709385366786785536,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 29,
+      "dimension": 5586853480,
+      "pure_vector_bytes": 89389655680,
+      "dense_density_matrix_bytes_rough_estimate": 499406908911809766400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 30,
+      "dimension": 7898654920,
+      "pure_vector_bytes": 126378478720,
+      "dense_density_matrix_bytes_rough_estimate": 998219992723843302400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 31,
+      "dimension": 11058116888,
+      "pure_vector_bytes": 176929870208,
+      "dense_density_matrix_bytes_rough_estimate": 1956511185738732872704,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 32,
+      "dimension": 15338678264,
+      "pure_vector_bytes": 245418852224,
+      "dense_density_matrix_bytes_rough_estimate": 3764400814184096859136,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 33,
+      "dimension": 21090682613,
+      "pure_vector_bytes": 337450921808,
+      "dense_density_matrix_bytes_rough_estimate": 7117070289316808124304,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 34,
+      "dimension": 28760021745,
+      "pure_vector_bytes": 460160347920,
+      "dense_density_matrix_bytes_rough_estimate": 13234221612365965520400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 35,
+      "dimension": 38910617655,
+      "pure_vector_bytes": 622569882480,
+      "dense_density_matrix_bytes_rough_estimate": 24224578660697563184400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 36,
+      "dimension": 52251400851,
+      "pure_vector_bytes": 836022413616,
+      "dense_density_matrix_bytes_rough_estimate": 43683342254270136387216,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 37,
+      "dimension": 69668534468,
+      "pure_vector_bytes": 1114696551488,
+      "dense_density_matrix_bytes_rough_estimate": 77659275118702464688384,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 38,
+      "dimension": 92263734836,
+      "pure_vector_bytes": 1476219757376,
+      "dense_density_matrix_bytes_rough_estimate": 136201548254203519150336,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 39,
+      "dimension": 121399651100,
+      "pure_vector_bytes": 1942394417600,
+      "dense_density_matrix_bytes_rough_estimate": 235806004595227699360000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 12,
+      "cutoff": 40,
+      "dimension": 158753389900,
+      "pure_vector_bytes": 2540054238400,
+      "dense_density_matrix_bytes_rough_estimate": 403242220875862752160000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 2,
+      "dimension": 14,
+      "pure_vector_bytes": 224,
+      "dense_density_matrix_bytes_rough_estimate": 3136,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 13,
+      "cutoff": 3,
+      "dimension": 105,
+      "pure_vector_bytes": 1680,
+      "dense_density_matrix_bytes_rough_estimate": 176400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 13,
+      "cutoff": 4,
+      "dimension": 560,
+      "pure_vector_bytes": 8960,
+      "dense_density_matrix_bytes_rough_estimate": 5017600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 13,
+      "cutoff": 5,
+      "dimension": 2380,
+      "pure_vector_bytes": 38080,
+      "dense_density_matrix_bytes_rough_estimate": 90630400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 13,
+      "cutoff": 6,
+      "dimension": 8568,
+      "pure_vector_bytes": 137088,
+      "dense_density_matrix_bytes_rough_estimate": 1174569984,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 13,
+      "cutoff": 7,
+      "dimension": 27132,
+      "pure_vector_bytes": 434112,
+      "dense_density_matrix_bytes_rough_estimate": 11778326784,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 13,
+      "cutoff": 8,
+      "dimension": 77520,
+      "pure_vector_bytes": 1240320,
+      "dense_density_matrix_bytes_rough_estimate": 96149606400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 13,
+      "cutoff": 9,
+      "dimension": 203490,
+      "pure_vector_bytes": 3255840,
+      "dense_density_matrix_bytes_rough_estimate": 662530881600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 13,
+      "cutoff": 10,
+      "dimension": 497420,
+      "pure_vector_bytes": 7958720,
+      "dense_density_matrix_bytes_rough_estimate": 3958826502400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 13,
+      "cutoff": 11,
+      "dimension": 1144066,
+      "pure_vector_bytes": 18305056,
+      "dense_density_matrix_bytes_rough_estimate": 20942192197696,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 12,
+      "dimension": 2496144,
+      "pure_vector_bytes": 39938304,
+      "dense_density_matrix_bytes_rough_estimate": 99691757899776,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 13,
+      "dimension": 5200300,
+      "pure_vector_bytes": 83204800,
+      "dense_density_matrix_bytes_rough_estimate": 432689921440000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 14,
+      "dimension": 10400600,
+      "pure_vector_bytes": 166409600,
+      "dense_density_matrix_bytes_rough_estimate": 1730759685760000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 15,
+      "dimension": 20058300,
+      "pure_vector_bytes": 320932800,
+      "dense_density_matrix_bytes_rough_estimate": 6437366382240000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 16,
+      "dimension": 37442160,
+      "pure_vector_bytes": 599074560,
+      "dense_density_matrix_bytes_rough_estimate": 22430645527449600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 17,
+      "dimension": 67863915,
+      "pure_vector_bytes": 1085822640,
+      "dense_density_matrix_bytes_rough_estimate": 73688175346035600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 18,
+      "dimension": 119759850,
+      "pure_vector_bytes": 1916157600,
+      "dense_density_matrix_bytes_rough_estimate": 229478746752360000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 19,
+      "dimension": 206253075,
+      "pure_vector_bytes": 3300049200,
+      "dense_density_matrix_bytes_rough_estimate": 680645295151290000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 20,
+      "dimension": 347373600,
+      "pure_vector_bytes": 5557977600,
+      "dense_density_matrix_bytes_rough_estimate": 1930694687631360000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 21,
+      "dimension": 573166440,
+      "pure_vector_bytes": 9170663040,
+      "dense_density_matrix_bytes_rough_estimate": 5256316287076377600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 22,
+      "dimension": 927983760,
+      "pure_vector_bytes": 14847740160,
+      "dense_density_matrix_bytes_rough_estimate": 13778461741179801600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 23,
+      "dimension": 1476337800,
+      "pure_vector_bytes": 23621404800,
+      "dense_density_matrix_bytes_rough_estimate": 34873172795341440000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 24,
+      "dimension": 2310789600,
+      "pure_vector_bytes": 36972633600,
+      "dense_density_matrix_bytes_rough_estimate": 85435977207490560000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 25,
+      "dimension": 3562467300,
+      "pure_vector_bytes": 56999476800,
+      "dense_density_matrix_bytes_rough_estimate": 203058772217108640000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 26,
+      "dimension": 5414950296,
+      "pure_vector_bytes": 86639204736,
+      "dense_density_matrix_bytes_rough_estimate": 469146987330407801856,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 27,
+      "dimension": 8122425444,
+      "pure_vector_bytes": 129958807104,
+      "dense_density_matrix_bytes_rough_estimate": 1055580721493417554176,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 28,
+      "dimension": 12033222880,
+      "pure_vector_bytes": 192531566080,
+      "dense_density_matrix_bytes_rough_estimate": 2316775246076087910400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 29,
+      "dimension": 17620076360,
+      "pure_vector_bytes": 281921221760,
+      "dense_density_matrix_bytes_rough_estimate": 4967473454915693593600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 30,
+      "dimension": 25518731280,
+      "pure_vector_bytes": 408299700480,
+      "dense_density_matrix_bytes_rough_estimate": 10419290338253607014400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 31,
+      "dimension": 36576848168,
+      "pure_vector_bytes": 585229570688,
+      "dense_density_matrix_bytes_rough_estimate": 21405853150478799299584,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 32,
+      "dimension": 51915526432,
+      "pure_vector_bytes": 830648422912,
+      "dense_density_matrix_bytes_rough_estimate": 43123550155387050409984,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 33,
+      "dimension": 73006209045,
+      "pure_vector_bytes": 1168099344720,
+      "dense_density_matrix_bytes_rough_estimate": 85278504945955836992400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 34,
+      "dimension": 101766230790,
+      "pure_vector_bytes": 1628259692640,
+      "dense_density_matrix_bytes_rough_estimate": 165701851667256704385600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 35,
+      "dimension": 140676848445,
+      "pure_vector_bytes": 2250829575120,
+      "dense_density_matrix_bytes_rough_estimate": 316639611014679982688400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 36,
+      "dimension": 192928249296,
+      "pure_vector_bytes": 3086851988736,
+      "dense_density_matrix_bytes_rough_estimate": 595540950022712391929856,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 37,
+      "dimension": 262596783764,
+      "pure_vector_bytes": 4201548540224,
+      "dense_density_matrix_bytes_rough_estimate": 1103313133491151584123136,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 38,
+      "dimension": 354860518600,
+      "pure_vector_bytes": 5677768297600,
+      "dense_density_matrix_bytes_rough_estimate": 2014815802576975135360000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 39,
+      "dimension": 476260169700,
+      "pure_vector_bytes": 7620162715200,
+      "dense_density_matrix_bytes_rough_estimate": 3629179987882764769440000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 13,
+      "cutoff": 40,
+      "dimension": 635013559600,
+      "pure_vector_bytes": 10160216953600,
+      "dense_density_matrix_bytes_rough_estimate": 6451875534013804034560000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 2,
+      "dimension": 15,
+      "pure_vector_bytes": 240,
+      "dense_density_matrix_bytes_rough_estimate": 3600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 14,
+      "cutoff": 3,
+      "dimension": 120,
+      "pure_vector_bytes": 1920,
+      "dense_density_matrix_bytes_rough_estimate": 230400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 14,
+      "cutoff": 4,
+      "dimension": 680,
+      "pure_vector_bytes": 10880,
+      "dense_density_matrix_bytes_rough_estimate": 7398400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 14,
+      "cutoff": 5,
+      "dimension": 3060,
+      "pure_vector_bytes": 48960,
+      "dense_density_matrix_bytes_rough_estimate": 149817600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 14,
+      "cutoff": 6,
+      "dimension": 11628,
+      "pure_vector_bytes": 186048,
+      "dense_density_matrix_bytes_rough_estimate": 2163366144,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 14,
+      "cutoff": 7,
+      "dimension": 38760,
+      "pure_vector_bytes": 620160,
+      "dense_density_matrix_bytes_rough_estimate": 24037401600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 14,
+      "cutoff": 8,
+      "dimension": 116280,
+      "pure_vector_bytes": 1860480,
+      "dense_density_matrix_bytes_rough_estimate": 216336614400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 14,
+      "cutoff": 9,
+      "dimension": 319770,
+      "pure_vector_bytes": 5116320,
+      "dense_density_matrix_bytes_rough_estimate": 1636045646400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 14,
+      "cutoff": 10,
+      "dimension": 817190,
+      "pure_vector_bytes": 13075040,
+      "dense_density_matrix_bytes_rough_estimate": 10684791937600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 14,
+      "cutoff": 11,
+      "dimension": 1961256,
+      "pure_vector_bytes": 31380096,
+      "dense_density_matrix_bytes_rough_estimate": 61544401560576,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 12,
+      "dimension": 4457400,
+      "pure_vector_bytes": 71318400,
+      "dense_density_matrix_bytes_rough_estimate": 317894636160000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 13,
+      "dimension": 9657700,
+      "pure_vector_bytes": 154523200,
+      "dense_density_matrix_bytes_rough_estimate": 1492338708640000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 14,
+      "dimension": 20058300,
+      "pure_vector_bytes": 320932800,
+      "dense_density_matrix_bytes_rough_estimate": 6437366382240000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 15,
+      "dimension": 40116600,
+      "pure_vector_bytes": 641865600,
+      "dense_density_matrix_bytes_rough_estimate": 25749465528960000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 16,
+      "dimension": 77558760,
+      "pure_vector_bytes": 1240940160,
+      "dense_density_matrix_bytes_rough_estimate": 96245780043801600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 17,
+      "dimension": 145422675,
+      "pure_vector_bytes": 2326762800,
+      "dense_density_matrix_bytes_rough_estimate": 338364070466490000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 18,
+      "dimension": 265182525,
+      "pure_vector_bytes": 4242920400,
+      "dense_density_matrix_bytes_rough_estimate": 1125148345046010000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 19,
+      "dimension": 471435600,
+      "pure_vector_bytes": 7542969600,
+      "dense_density_matrix_bytes_rough_estimate": 3556024399157760000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 20,
+      "dimension": 818809200,
+      "pure_vector_bytes": 13100947200,
+      "dense_density_matrix_bytes_rough_estimate": 10727176096074240000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 21,
+      "dimension": 1391975640,
+      "pure_vector_bytes": 22271610240,
+      "dense_density_matrix_bytes_rough_estimate": 31001538917654553600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 22,
+      "dimension": 2319959400,
+      "pure_vector_bytes": 37119350400,
+      "dense_density_matrix_bytes_rough_estimate": 86115385882373760000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 23,
+      "dimension": 3796297200,
+      "pure_vector_bytes": 60740755200,
+      "dense_density_matrix_bytes_rough_estimate": 230589958891645440000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 24,
+      "dimension": 6107086800,
+      "pure_vector_bytes": 97713388800,
+      "dense_density_matrix_bytes_rough_estimate": 596744146923747840000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 25,
+      "dimension": 9669554100,
+      "pure_vector_bytes": 154712865600,
+      "dense_density_matrix_bytes_rough_estimate": 1496004423885228960000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 26,
+      "dimension": 15084504396,
+      "pure_vector_bytes": 241352070336,
+      "dense_density_matrix_bytes_rough_estimate": 3640676365967093197056,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 27,
+      "dimension": 23206929840,
+      "pure_vector_bytes": 371310877440,
+      "dense_density_matrix_bytes_rough_estimate": 8616985481578918809600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 28,
+      "dimension": 35240152720,
+      "pure_vector_bytes": 563842443520,
+      "dense_density_matrix_bytes_rough_estimate": 19869893819662774374400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 29,
+      "dimension": 52860229080,
+      "pure_vector_bytes": 845763665280,
+      "dense_density_matrix_bytes_rough_estimate": 44707261094241242342400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 30,
+      "dimension": 78378960360,
+      "pure_vector_bytes": 1254063365760,
+      "dense_density_matrix_bytes_rough_estimate": 98292182833831221273600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 31,
+      "dimension": 114955808528,
+      "pure_vector_bytes": 1839292936448,
+      "dense_density_matrix_bytes_rough_estimate": 211437406629219160428544,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 32,
+      "dimension": 166871334960,
+      "pure_vector_bytes": 2669941359360,
+      "dense_density_matrix_bytes_rough_estimate": 445536678901320291225600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 33,
+      "dimension": 239877544005,
+      "pure_vector_bytes": 3838040704080,
+      "dense_density_matrix_bytes_rough_estimate": 920659777885931383040400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 34,
+      "dimension": 341643774795,
+      "pure_vector_bytes": 5466300396720,
+      "dense_density_matrix_bytes_rough_estimate": 1867527501698826836672400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 35,
+      "dimension": 482320623240,
+      "pure_vector_bytes": 7717129971840,
+      "dense_density_matrix_bytes_rough_estimate": 3722130937641952449561600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 36,
+      "dimension": 675248872536,
+      "pure_vector_bytes": 10803981960576,
+      "dense_density_matrix_bytes_rough_estimate": 7295376637778226801140736,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 37,
+      "dimension": 937845656300,
+      "pure_vector_bytes": 15005530500800,
+      "dense_density_matrix_bytes_rough_estimate": 14072871600652443675040000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 38,
+      "dimension": 1292706174900,
+      "pure_vector_bytes": 20683298798400,
+      "dense_density_matrix_bytes_rough_estimate": 26737428073993430240160000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 39,
+      "dimension": 1768966344600,
+      "pure_vector_bytes": 28303461513600,
+      "dense_density_matrix_bytes_rough_estimate": 50067870853239775186560000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 14,
+      "cutoff": 40,
+      "dimension": 2403979904200,
+      "pure_vector_bytes": 38463678467200,
+      "dense_density_matrix_bytes_rough_estimate": 92465910076759058842240000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 2,
+      "dimension": 16,
+      "pure_vector_bytes": 256,
+      "dense_density_matrix_bytes_rough_estimate": 4096,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 15,
+      "cutoff": 3,
+      "dimension": 136,
+      "pure_vector_bytes": 2176,
+      "dense_density_matrix_bytes_rough_estimate": 295936,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 15,
+      "cutoff": 4,
+      "dimension": 816,
+      "pure_vector_bytes": 13056,
+      "dense_density_matrix_bytes_rough_estimate": 10653696,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 15,
+      "cutoff": 5,
+      "dimension": 3876,
+      "pure_vector_bytes": 62016,
+      "dense_density_matrix_bytes_rough_estimate": 240374016,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 15,
+      "cutoff": 6,
+      "dimension": 15504,
+      "pure_vector_bytes": 248064,
+      "dense_density_matrix_bytes_rough_estimate": 3845984256,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 15,
+      "cutoff": 7,
+      "dimension": 54264,
+      "pure_vector_bytes": 868224,
+      "dense_density_matrix_bytes_rough_estimate": 47113307136,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 15,
+      "cutoff": 8,
+      "dimension": 170544,
+      "pure_vector_bytes": 2728704,
+      "dense_density_matrix_bytes_rough_estimate": 465364094976,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 15,
+      "cutoff": 9,
+      "dimension": 490314,
+      "pure_vector_bytes": 7845024,
+      "dense_density_matrix_bytes_rough_estimate": 3846525097536,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 15,
+      "cutoff": 10,
+      "dimension": 1307504,
+      "pure_vector_bytes": 20920064,
+      "dense_density_matrix_bytes_rough_estimate": 27353067360256,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 11,
+      "dimension": 3268760,
+      "pure_vector_bytes": 52300160,
+      "dense_density_matrix_bytes_rough_estimate": 170956671001600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 12,
+      "dimension": 7726160,
+      "pure_vector_bytes": 123618560,
+      "dense_density_matrix_bytes_rough_estimate": 955096773529600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 13,
+      "dimension": 17383860,
+      "pure_vector_bytes": 278141760,
+      "dense_density_matrix_bytes_rough_estimate": 4835177415993600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 14,
+      "dimension": 37442160,
+      "pure_vector_bytes": 599074560,
+      "dense_density_matrix_bytes_rough_estimate": 22430645527449600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 15,
+      "dimension": 77558760,
+      "pure_vector_bytes": 1240940160,
+      "dense_density_matrix_bytes_rough_estimate": 96245780043801600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 16,
+      "dimension": 155117520,
+      "pure_vector_bytes": 2481880320,
+      "dense_density_matrix_bytes_rough_estimate": 384983120175206400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 17,
+      "dimension": 300540195,
+      "pure_vector_bytes": 4808643120,
+      "dense_density_matrix_bytes_rough_estimate": 1445190540970208400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 18,
+      "dimension": 565722720,
+      "pure_vector_bytes": 9051563520,
+      "dense_density_matrix_bytes_rough_estimate": 5120675134787174400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 19,
+      "dimension": 1037158320,
+      "pure_vector_bytes": 16594533120,
+      "dense_density_matrix_bytes_rough_estimate": 17211158091923558400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 20,
+      "dimension": 1855967520,
+      "pure_vector_bytes": 29695480320,
+      "dense_density_matrix_bytes_rough_estimate": 55113846964719206400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 21,
+      "dimension": 3247943160,
+      "pure_vector_bytes": 51967090560,
+      "dense_density_matrix_bytes_rough_estimate": 168786156329452569600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 22,
+      "dimension": 5567902560,
+      "pure_vector_bytes": 89086440960,
+      "dense_density_matrix_bytes_rough_estimate": 496024622682472857600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 23,
+      "dimension": 9364199760,
+      "pure_vector_bytes": 149827196160,
+      "dense_density_matrix_bytes_rough_estimate": 1403011794322944921600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 24,
+      "dimension": 15471286560,
+      "pure_vector_bytes": 247540584960,
+      "dense_density_matrix_bytes_rough_estimate": 3829771325146186137600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 25,
+      "dimension": 25140840660,
+      "pure_vector_bytes": 402253450560,
+      "dense_density_matrix_bytes_rough_estimate": 10112989905464147769600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 26,
+      "dimension": 40225345056,
+      "pure_vector_bytes": 643605520896,
+      "dense_density_matrix_bytes_rough_estimate": 25889254157988218290176,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 27,
+      "dimension": 63432274896,
+      "pure_vector_bytes": 1014916398336,
+      "dense_density_matrix_bytes_rough_estimate": 64378455975707388973056,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 28,
+      "dimension": 98672427616,
+      "pure_vector_bytes": 1578758841856,
+      "dense_density_matrix_bytes_rough_estimate": 155779967546156151095296,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 29,
+      "dimension": 151532656696,
+      "pure_vector_bytes": 2424522507136,
+      "dense_density_matrix_bytes_rough_estimate": 367394336725564698182656,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 30,
+      "dimension": 229911617056,
+      "pure_vector_bytes": 3678585872896,
+      "dense_density_matrix_bytes_rough_estimate": 845749626516876641714176,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 31,
+      "dimension": 344867425584,
+      "pure_vector_bytes": 5517878809344,
+      "dense_density_matrix_bytes_rough_estimate": 1902936659662972443856896,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 32,
+      "dimension": 511738760544,
+      "pure_vector_bytes": 8187820168704,
+      "dense_density_matrix_bytes_rough_estimate": 4190024944689749938814976,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 33,
+      "dimension": 751616304549,
+      "pure_vector_bytes": 12025860872784,
+      "dense_density_matrix_bytes_rough_estimate": 9038833108222321889494416,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 34,
+      "dimension": 1093260079344,
+      "pure_vector_bytes": 17492161269504,
+      "dense_density_matrix_bytes_rough_estimate": 19123481617395986807525376,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 35,
+      "dimension": 1575580702584,
+      "pure_vector_bytes": 25209291241344,
+      "dense_density_matrix_bytes_rough_estimate": 39719272805681457028432896,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 36,
+      "dimension": 2250829575120,
+      "pure_vector_bytes": 36013273201920,
+      "dense_density_matrix_bytes_rough_estimate": 81059740419758075568230400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 37,
+      "dimension": 3188675231420,
+      "pure_vector_bytes": 51018803702720,
+      "dense_density_matrix_bytes_rough_estimate": 162682395703542248883462400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 38,
+      "dimension": 4481381406320,
+      "pure_vector_bytes": 71702102501120,
+      "dense_density_matrix_bytes_rough_estimate": 321324468942569934975078400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 39,
+      "dimension": 6250347750920,
+      "pure_vector_bytes": 100005564014720,
+      "dense_density_matrix_bytes_rough_estimate": 625069552118891237773542400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 15,
+      "cutoff": 40,
+      "dimension": 8654327655120,
+      "pure_vector_bytes": 138469242481920,
+      "dense_density_matrix_bytes_rough_estimate": 1198358194594797402595430400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 2,
+      "dimension": 17,
+      "pure_vector_bytes": 272,
+      "dense_density_matrix_bytes_rough_estimate": 4624,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 16,
+      "cutoff": 3,
+      "dimension": 153,
+      "pure_vector_bytes": 2448,
+      "dense_density_matrix_bytes_rough_estimate": 374544,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 16,
+      "cutoff": 4,
+      "dimension": 969,
+      "pure_vector_bytes": 15504,
+      "dense_density_matrix_bytes_rough_estimate": 15023376,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 16,
+      "cutoff": 5,
+      "dimension": 4845,
+      "pure_vector_bytes": 77520,
+      "dense_density_matrix_bytes_rough_estimate": 375584400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 16,
+      "cutoff": 6,
+      "dimension": 20349,
+      "pure_vector_bytes": 325584,
+      "dense_density_matrix_bytes_rough_estimate": 6625308816,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 16,
+      "cutoff": 7,
+      "dimension": 74613,
+      "pure_vector_bytes": 1193808,
+      "dense_density_matrix_bytes_rough_estimate": 89073596304,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 16,
+      "cutoff": 8,
+      "dimension": 245157,
+      "pure_vector_bytes": 3922512,
+      "dense_density_matrix_bytes_rough_estimate": 961631274384,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 16,
+      "cutoff": 9,
+      "dimension": 735471,
+      "pure_vector_bytes": 11767536,
+      "dense_density_matrix_bytes_rough_estimate": 8654681469456,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 16,
+      "cutoff": 10,
+      "dimension": 2042975,
+      "pure_vector_bytes": 32687600,
+      "dense_density_matrix_bytes_rough_estimate": 66779949610000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 11,
+      "dimension": 5311735,
+      "pure_vector_bytes": 84987760,
+      "dense_density_matrix_bytes_rough_estimate": 451432459363600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 12,
+      "dimension": 13037895,
+      "pure_vector_bytes": 208606320,
+      "dense_density_matrix_bytes_rough_estimate": 2719787296496400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 13,
+      "dimension": 30421755,
+      "pure_vector_bytes": 486748080,
+      "dense_density_matrix_bytes_rough_estimate": 14807730836480400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 14,
+      "dimension": 67863915,
+      "pure_vector_bytes": 1085822640,
+      "dense_density_matrix_bytes_rough_estimate": 73688175346035600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 15,
+      "dimension": 145422675,
+      "pure_vector_bytes": 2326762800,
+      "dense_density_matrix_bytes_rough_estimate": 338364070466490000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 16,
+      "dimension": 300540195,
+      "pure_vector_bytes": 4808643120,
+      "dense_density_matrix_bytes_rough_estimate": 1445190540970208400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 17,
+      "dimension": 601080390,
+      "pure_vector_bytes": 9617286240,
+      "dense_density_matrix_bytes_rough_estimate": 5780762163880833600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 18,
+      "dimension": 1166803110,
+      "pure_vector_bytes": 18668849760,
+      "dense_density_matrix_bytes_rough_estimate": 21782871960090753600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 19,
+      "dimension": 2203961430,
+      "pure_vector_bytes": 35263382880,
+      "dense_density_matrix_bytes_rough_estimate": 77719135758842318400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 20,
+      "dimension": 4059928950,
+      "pure_vector_bytes": 64958863200,
+      "dense_density_matrix_bytes_rough_estimate": 263728369264769640000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 21,
+      "dimension": 7307872110,
+      "pure_vector_bytes": 116925953760,
+      "dense_density_matrix_bytes_rough_estimate": 854479916417853633600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 22,
+      "dimension": 12875774670,
+      "pure_vector_bytes": 206012394720,
+      "dense_density_matrix_bytes_rough_estimate": 2652569173641817742400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 23,
+      "dimension": 22239974430,
+      "pure_vector_bytes": 355839590880,
+      "dense_density_matrix_bytes_rough_estimate": 7913863402352861198400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 24,
+      "dimension": 37711260990,
+      "pure_vector_bytes": 603380175840,
+      "dense_density_matrix_bytes_rough_estimate": 22754227287294332481600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 25,
+      "dimension": 62852101650,
+      "pure_vector_bytes": 1005633626400,
+      "dense_density_matrix_bytes_rough_estimate": 63206186909150923560000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 26,
+      "dimension": 103077446706,
+      "pure_vector_bytes": 1649239147296,
+      "dense_density_matrix_bytes_rough_estimate": 169999360310852324006976,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 27,
+      "dimension": 166509721602,
+      "pure_vector_bytes": 2664155545632,
+      "dense_density_matrix_bytes_rough_estimate": 443607798207608727142464,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 28,
+      "dimension": 265182149218,
+      "pure_vector_bytes": 4242914387488,
+      "dense_density_matrix_bytes_rough_estimate": 1125145156222041888184384,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 29,
+      "dimension": 416714805914,
+      "pure_vector_bytes": 6667436894624,
+      "dense_density_matrix_bytes_rough_estimate": 2778419671487083030006336,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 30,
+      "dimension": 646626422970,
+      "pure_vector_bytes": 10346022767520,
+      "dense_density_matrix_bytes_rough_estimate": 6690011694127637497934400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 31,
+      "dimension": 991493848554,
+      "pure_vector_bytes": 15863901576864,
+      "dense_density_matrix_bytes_rough_estimate": 15728960827526756606254656,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 32,
+      "dimension": 1503232609098,
+      "pure_vector_bytes": 24051721745568,
+      "dense_density_matrix_bytes_rough_estimate": 36155332432889287557977664,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 33,
+      "dimension": 2254848913647,
+      "pure_vector_bytes": 36077582618352,
+      "dense_density_matrix_bytes_rough_estimate": 81349497974000897005449744,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 34,
+      "dimension": 3348108992991,
+      "pure_vector_bytes": 53569743887856,
+      "dense_density_matrix_bytes_rough_estimate": 179357341263155329394017296,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 35,
+      "dimension": 4923689695575,
+      "pure_vector_bytes": 78779035129200,
+      "dense_density_matrix_bytes_rough_estimate": 387883523492982978793290000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 36,
+      "dimension": 7174519270695,
+      "pure_vector_bytes": 114792308331120,
+      "dense_density_matrix_bytes_rough_estimate": 823579628249182634972528400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 37,
+      "dimension": 10363194502115,
+      "pure_vector_bytes": 165811112033840,
+      "dense_density_matrix_bytes_rough_estimate": 1718332804618665003831571600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 38,
+      "dimension": 14844575908435,
+      "pure_vector_bytes": 237513214534960,
+      "dense_density_matrix_bytes_rough_estimate": 3525782942420620888066387600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 39,
+      "dimension": 21094923659355,
+      "pure_vector_bytes": 337518778549680,
+      "dense_density_matrix_bytes_rough_estimate": 7119932867104245505264256400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 16,
+      "cutoff": 40,
+      "dimension": 29749251314475,
+      "pure_vector_bytes": 475988021031600,
+      "dense_density_matrix_bytes_rough_estimate": 14160287260348680245512410000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 2,
+      "dimension": 18,
+      "pure_vector_bytes": 288,
+      "dense_density_matrix_bytes_rough_estimate": 5184,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 17,
+      "cutoff": 3,
+      "dimension": 171,
+      "pure_vector_bytes": 2736,
+      "dense_density_matrix_bytes_rough_estimate": 467856,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 17,
+      "cutoff": 4,
+      "dimension": 1140,
+      "pure_vector_bytes": 18240,
+      "dense_density_matrix_bytes_rough_estimate": 20793600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 17,
+      "cutoff": 5,
+      "dimension": 5985,
+      "pure_vector_bytes": 95760,
+      "dense_density_matrix_bytes_rough_estimate": 573123600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 17,
+      "cutoff": 6,
+      "dimension": 26334,
+      "pure_vector_bytes": 421344,
+      "dense_density_matrix_bytes_rough_estimate": 11095672896,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 17,
+      "cutoff": 7,
+      "dimension": 100947,
+      "pure_vector_bytes": 1615152,
+      "dense_density_matrix_bytes_rough_estimate": 163044748944,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 17,
+      "cutoff": 8,
+      "dimension": 346104,
+      "pure_vector_bytes": 5537664,
+      "dense_density_matrix_bytes_rough_estimate": 1916607661056,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 17,
+      "cutoff": 9,
+      "dimension": 1081575,
+      "pure_vector_bytes": 17305200,
+      "dense_density_matrix_bytes_rough_estimate": 18716871690000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 10,
+      "dimension": 3124550,
+      "pure_vector_bytes": 49992800,
+      "dense_density_matrix_bytes_rough_estimate": 156205003240000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 11,
+      "dimension": 8436285,
+      "pure_vector_bytes": 134980560,
+      "dense_density_matrix_bytes_rough_estimate": 1138734473619600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 12,
+      "dimension": 21474180,
+      "pure_vector_bytes": 343586880,
+      "dense_density_matrix_bytes_rough_estimate": 7378246506758400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 13,
+      "dimension": 51895935,
+      "pure_vector_bytes": 830334960,
+      "dense_density_matrix_bytes_rough_estimate": 43091009112387600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 14,
+      "dimension": 119759850,
+      "pure_vector_bytes": 1916157600,
+      "dense_density_matrix_bytes_rough_estimate": 229478746752360000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 15,
+      "dimension": 265182525,
+      "pure_vector_bytes": 4242920400,
+      "dense_density_matrix_bytes_rough_estimate": 1125148345046010000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 16,
+      "dimension": 565722720,
+      "pure_vector_bytes": 9051563520,
+      "dense_density_matrix_bytes_rough_estimate": 5120675134787174400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 17,
+      "dimension": 1166803110,
+      "pure_vector_bytes": 18668849760,
+      "dense_density_matrix_bytes_rough_estimate": 21782871960090753600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 18,
+      "dimension": 2333606220,
+      "pure_vector_bytes": 37337699520,
+      "dense_density_matrix_bytes_rough_estimate": 87131487840363014400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 19,
+      "dimension": 4537567650,
+      "pure_vector_bytes": 72601082400,
+      "dense_density_matrix_bytes_rough_estimate": 329432322853224360000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 20,
+      "dimension": 8597496600,
+      "pure_vector_bytes": 137559945600,
+      "dense_density_matrix_bytes_rough_estimate": 1182671164592184960000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 21,
+      "dimension": 15905368710,
+      "pure_vector_bytes": 254485899360,
+      "dense_density_matrix_bytes_rough_estimate": 4047692060816753025600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 22,
+      "dimension": 28781143380,
+      "pure_vector_bytes": 460498294080,
+      "dense_density_matrix_bytes_rough_estimate": 13253667428161885190400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 23,
+      "dimension": 51021117810,
+      "pure_vector_bytes": 816337884960,
+      "dense_density_matrix_bytes_rough_estimate": 41650471401310387137600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 24,
+      "dimension": 88732378800,
+      "pure_vector_bytes": 1419718060800,
+      "dense_density_matrix_bytes_rough_estimate": 125974960760107031040000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 25,
+      "dimension": 151584480450,
+      "pure_vector_bytes": 2425351687200,
+      "dense_density_matrix_bytes_rough_estimate": 367645675412742915240000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 26,
+      "dimension": 254661927156,
+      "pure_vector_bytes": 4074590834496,
+      "dense_density_matrix_bytes_rough_estimate": 1037643154284925603973376,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 27,
+      "dimension": 421171648758,
+      "pure_vector_bytes": 6738746380128,
+      "dense_density_matrix_bytes_rough_estimate": 2838168923480513967081024,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 28,
+      "dimension": 686353797976,
+      "pure_vector_bytes": 10981660767616,
+      "dense_density_matrix_bytes_rough_estimate": 7537304575937277147145216,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 29,
+      "dimension": 1103068603890,
+      "pure_vector_bytes": 17649097662240,
+      "dense_density_matrix_bytes_rough_estimate": 19468165518205339570113600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 30,
+      "dimension": 1749695026860,
+      "pure_vector_bytes": 27995120429760,
+      "dense_density_matrix_bytes_rough_estimate": 48982922992297857943353600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 31,
+      "dimension": 2741188875414,
+      "pure_vector_bytes": 43859022006624,
+      "dense_density_matrix_bytes_rough_estimate": 120225863211095520218742336,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 32,
+      "dimension": 4244421484512,
+      "pure_vector_bytes": 67910743752192,
+      "dense_density_matrix_bytes_rough_estimate": 288241819810992797694050304,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 33,
+      "dimension": 6499270398159,
+      "pure_vector_bytes": 103988326370544,
+      "dense_density_matrix_bytes_rough_estimate": 675848251334173542249428496,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 34,
+      "dimension": 9847379391150,
+      "pure_vector_bytes": 157558070258400,
+      "dense_density_matrix_bytes_rough_estimate": 1551534093971931915173160000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 35,
+      "dimension": 14771069086725,
+      "pure_vector_bytes": 236337105387600,
+      "dense_density_matrix_bytes_rough_estimate": 3490951711436846809139610000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 36,
+      "dimension": 21945588357420,
+      "pure_vector_bytes": 351129413718720,
+      "dense_density_matrix_bytes_rough_estimate": 7705741573653252058704902400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 37,
+      "dimension": 32308782859535,
+      "pure_vector_bytes": 516940525752560,
+      "dense_density_matrix_bytes_rough_estimate": 16701719197833321784646659600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 38,
+      "dimension": 47153358767970,
+      "pure_vector_bytes": 754453740287520,
+      "dense_density_matrix_bytes_rough_estimate": 35575027889614292420766734400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 39,
+      "dimension": 68248282427325,
+      "pure_vector_bytes": 1091972518837200,
+      "dense_density_matrix_bytes_rough_estimate": 74525248868478694302506490000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 17,
+      "cutoff": 40,
+      "dimension": 97997533741800,
+      "pure_vector_bytes": 1567960539868800,
+      "dense_density_matrix_bytes_rough_estimate": 153656265911603672145075840000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 2,
+      "dimension": 19,
+      "pure_vector_bytes": 304,
+      "dense_density_matrix_bytes_rough_estimate": 5776,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 18,
+      "cutoff": 3,
+      "dimension": 190,
+      "pure_vector_bytes": 3040,
+      "dense_density_matrix_bytes_rough_estimate": 577600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 18,
+      "cutoff": 4,
+      "dimension": 1330,
+      "pure_vector_bytes": 21280,
+      "dense_density_matrix_bytes_rough_estimate": 28302400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 18,
+      "cutoff": 5,
+      "dimension": 7315,
+      "pure_vector_bytes": 117040,
+      "dense_density_matrix_bytes_rough_estimate": 856147600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 18,
+      "cutoff": 6,
+      "dimension": 33649,
+      "pure_vector_bytes": 538384,
+      "dense_density_matrix_bytes_rough_estimate": 18116083216,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 18,
+      "cutoff": 7,
+      "dimension": 134596,
+      "pure_vector_bytes": 2153536,
+      "dense_density_matrix_bytes_rough_estimate": 289857331456,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 18,
+      "cutoff": 8,
+      "dimension": 480700,
+      "pure_vector_bytes": 7691200,
+      "dense_density_matrix_bytes_rough_estimate": 3697159840000,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 18,
+      "cutoff": 9,
+      "dimension": 1562275,
+      "pure_vector_bytes": 24996400,
+      "dense_density_matrix_bytes_rough_estimate": 39051250810000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 10,
+      "dimension": 4686825,
+      "pure_vector_bytes": 74989200,
+      "dense_density_matrix_bytes_rough_estimate": 351461257290000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 11,
+      "dimension": 13123110,
+      "pure_vector_bytes": 209969760,
+      "dense_density_matrix_bytes_rough_estimate": 2755456257153600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 12,
+      "dimension": 34597290,
+      "pure_vector_bytes": 553556640,
+      "dense_density_matrix_bytes_rough_estimate": 19151559605505600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 13,
+      "dimension": 86493225,
+      "pure_vector_bytes": 1383891600,
+      "dense_density_matrix_bytes_rough_estimate": 119697247534410000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 14,
+      "dimension": 206253075,
+      "pure_vector_bytes": 3300049200,
+      "dense_density_matrix_bytes_rough_estimate": 680645295151290000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 15,
+      "dimension": 471435600,
+      "pure_vector_bytes": 7542969600,
+      "dense_density_matrix_bytes_rough_estimate": 3556024399157760000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 16,
+      "dimension": 1037158320,
+      "pure_vector_bytes": 16594533120,
+      "dense_density_matrix_bytes_rough_estimate": 17211158091923558400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 17,
+      "dimension": 2203961430,
+      "pure_vector_bytes": 35263382880,
+      "dense_density_matrix_bytes_rough_estimate": 77719135758842318400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 18,
+      "dimension": 4537567650,
+      "pure_vector_bytes": 72601082400,
+      "dense_density_matrix_bytes_rough_estimate": 329432322853224360000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 19,
+      "dimension": 9075135300,
+      "pure_vector_bytes": 145202164800,
+      "dense_density_matrix_bytes_rough_estimate": 1317729291412897440000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 20,
+      "dimension": 17672631900,
+      "pure_vector_bytes": 282762110400,
+      "dense_density_matrix_bytes_rough_estimate": 4997150692366361760000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 21,
+      "dimension": 33578000610,
+      "pure_vector_bytes": 537248009760,
+      "dense_density_matrix_bytes_rough_estimate": 18039713999442565953600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 22,
+      "dimension": 62359143990,
+      "pure_vector_bytes": 997746303840,
+      "dense_density_matrix_bytes_rough_estimate": 62218605426648849921600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 23,
+      "dimension": 113380261800,
+      "pure_vector_bytes": 1814084188800,
+      "dense_density_matrix_bytes_rough_estimate": 205681340253384627840000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 24,
+      "dimension": 202112640600,
+      "pure_vector_bytes": 3233802249600,
+      "dense_density_matrix_bytes_rough_estimate": 653592311844876293760000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 25,
+      "dimension": 353697121050,
+      "pure_vector_bytes": 5659153936800,
+      "dense_density_matrix_bytes_rough_estimate": 2001626455024933649640000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 26,
+      "dimension": 608359048206,
+      "pure_vector_bytes": 9733744771296,
+      "dense_density_matrix_bytes_rough_estimate": 5921611704545763709094976,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 27,
+      "dimension": 1029530696964,
+      "pure_vector_bytes": 16472491151424,
+      "dense_density_matrix_bytes_rough_estimate": 16958935295858873581076736,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 28,
+      "dimension": 1715884494940,
+      "pure_vector_bytes": 27454151919040,
+      "dense_density_matrix_bytes_rough_estimate": 47108153599607982169657600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 29,
+      "dimension": 2818953098830,
+      "pure_vector_bytes": 45103249581280,
+      "dense_density_matrix_bytes_rough_estimate": 127143945174452155957902400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 30,
+      "dimension": 4568648125690,
+      "pure_vector_bytes": 73098370011040,
+      "dense_density_matrix_bytes_rough_estimate": 333960731141932000607617600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 31,
+      "dimension": 7309837001104,
+      "pure_vector_bytes": 116957392017664,
+      "dense_density_matrix_bytes_rough_estimate": 854939471723345921555501056,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 32,
+      "dimension": 11554258485616,
+      "pure_vector_bytes": 184868135769856,
+      "dense_density_matrix_bytes_rough_estimate": 2136014226438869466862391296,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 33,
+      "dimension": 18053528883775,
+      "pure_vector_bytes": 288856462140400,
+      "dense_density_matrix_bytes_rough_estimate": 5214878482516771159332010000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 34,
+      "dimension": 27900908274925,
+      "pure_vector_bytes": 446414532398800,
+      "dense_density_matrix_bytes_rough_estimate": 12455370921052453430140090000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 35,
+      "dimension": 42671977361650,
+      "pure_vector_bytes": 682751637786400,
+      "dense_density_matrix_bytes_rough_estimate": 29134362431250721518251560000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 36,
+      "dimension": 64617565719070,
+      "pure_vector_bytes": 1033881051505120,
+      "dense_density_matrix_bytes_rough_estimate": 66806876791333287138586638400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 37,
+      "dimension": 96926348578605,
+      "pure_vector_bytes": 1550821577257680,
+      "dense_density_matrix_bytes_rough_estimate": 150315472780499896061819936400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 38,
+      "dimension": 144079707346575,
+      "pure_vector_bytes": 2305275317545200,
+      "dense_density_matrix_bytes_rough_estimate": 332143393105195168434627690000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 39,
+      "dimension": 212327989773900,
+      "pure_vector_bytes": 3397247836382400,
+      "dense_density_matrix_bytes_rough_estimate": 721330803862806127569939360000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 18,
+      "cutoff": 40,
+      "dimension": 310325523515700,
+      "pure_vector_bytes": 4965208376251200,
+      "dense_density_matrix_bytes_rough_estimate": 1540830888724692379010343840000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 2,
+      "dimension": 20,
+      "pure_vector_bytes": 320,
+      "dense_density_matrix_bytes_rough_estimate": 6400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 19,
+      "cutoff": 3,
+      "dimension": 210,
+      "pure_vector_bytes": 3360,
+      "dense_density_matrix_bytes_rough_estimate": 705600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 19,
+      "cutoff": 4,
+      "dimension": 1540,
+      "pure_vector_bytes": 24640,
+      "dense_density_matrix_bytes_rough_estimate": 37945600,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 19,
+      "cutoff": 5,
+      "dimension": 8855,
+      "pure_vector_bytes": 141680,
+      "dense_density_matrix_bytes_rough_estimate": 1254576400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 19,
+      "cutoff": 6,
+      "dimension": 42504,
+      "pure_vector_bytes": 680064,
+      "dense_density_matrix_bytes_rough_estimate": 28905440256,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 19,
+      "cutoff": 7,
+      "dimension": 177100,
+      "pure_vector_bytes": 2833600,
+      "dense_density_matrix_bytes_rough_estimate": 501830560000,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 19,
+      "cutoff": 8,
+      "dimension": 657800,
+      "pure_vector_bytes": 10524800,
+      "dense_density_matrix_bytes_rough_estimate": 6923213440000,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 19,
+      "cutoff": 9,
+      "dimension": 2220075,
+      "pure_vector_bytes": 35521200,
+      "dense_density_matrix_bytes_rough_estimate": 78859728090000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 10,
+      "dimension": 6906900,
+      "pure_vector_bytes": 110510400,
+      "dense_density_matrix_bytes_rough_estimate": 763284281760000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 11,
+      "dimension": 20030010,
+      "pure_vector_bytes": 320480160,
+      "dense_density_matrix_bytes_rough_estimate": 6419220809601600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 12,
+      "dimension": 54627300,
+      "pure_vector_bytes": 874036800,
+      "dense_density_matrix_bytes_rough_estimate": 47746270484640000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 13,
+      "dimension": 141120525,
+      "pure_vector_bytes": 2257928400,
+      "dense_density_matrix_bytes_rough_estimate": 318640041220410000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 14,
+      "dimension": 347373600,
+      "pure_vector_bytes": 5557977600,
+      "dense_density_matrix_bytes_rough_estimate": 1930694687631360000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 15,
+      "dimension": 818809200,
+      "pure_vector_bytes": 13100947200,
+      "dense_density_matrix_bytes_rough_estimate": 10727176096074240000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 16,
+      "dimension": 1855967520,
+      "pure_vector_bytes": 29695480320,
+      "dense_density_matrix_bytes_rough_estimate": 55113846964719206400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 17,
+      "dimension": 4059928950,
+      "pure_vector_bytes": 64958863200,
+      "dense_density_matrix_bytes_rough_estimate": 263728369264769640000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 18,
+      "dimension": 8597496600,
+      "pure_vector_bytes": 137559945600,
+      "dense_density_matrix_bytes_rough_estimate": 1182671164592184960000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 19,
+      "dimension": 17672631900,
+      "pure_vector_bytes": 282762110400,
+      "dense_density_matrix_bytes_rough_estimate": 4997150692366361760000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 20,
+      "dimension": 35345263800,
+      "pure_vector_bytes": 565524220800,
+      "dense_density_matrix_bytes_rough_estimate": 19988602769465447040000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 21,
+      "dimension": 68923264410,
+      "pure_vector_bytes": 1102772230560,
+      "dense_density_matrix_bytes_rough_estimate": 76006662030892362369600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 22,
+      "dimension": 131282408400,
+      "pure_vector_bytes": 2100518534400,
+      "dense_density_matrix_bytes_rough_estimate": 275761132084870248960000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 23,
+      "dimension": 244662670200,
+      "pure_vector_bytes": 3914602723200,
+      "dense_density_matrix_bytes_rough_estimate": 957757155030303488640000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 24,
+      "dimension": 446775310800,
+      "pure_vector_bytes": 7148404972800,
+      "dense_density_matrix_bytes_rough_estimate": 3193730853446985546240000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 25,
+      "dimension": 800472431850,
+      "pure_vector_bytes": 12807558909600,
+      "dense_density_matrix_bytes_rough_estimate": 10252097826429646310760000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 26,
+      "dimension": 1408831480056,
+      "pure_vector_bytes": 22541303680896,
+      "dense_density_matrix_bytes_rough_estimate": 31756898227148472412210176,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 27,
+      "dimension": 2438362177020,
+      "pure_vector_bytes": 39013794832320,
+      "dense_density_matrix_bytes_rough_estimate": 95129761701147421057286400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 28,
+      "dimension": 4154246671960,
+      "pure_vector_bytes": 66467946751360,
+      "dense_density_matrix_bytes_rough_estimate": 276124246583851773603865600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 29,
+      "dimension": 6973199770790,
+      "pure_vector_bytes": 111571196332640,
+      "dense_density_matrix_bytes_rough_estimate": 778008240693531336595585600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 30,
+      "dimension": 11541847896480,
+      "pure_vector_bytes": 184669566343680,
+      "dense_density_matrix_bytes_rough_estimate": 2131428045847676812742246400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 31,
+      "dimension": 18851684897584,
+      "pure_vector_bytes": 301626958361344,
+      "dense_density_matrix_bytes_rough_estimate": 5686176375644746697104592896,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 32,
+      "dimension": 30405943383200,
+      "pure_vector_bytes": 486495094131200,
+      "dense_density_matrix_bytes_rough_estimate": 14792342288357821792675840000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 33,
+      "dimension": 48459472266975,
+      "pure_vector_bytes": 775351556271600,
+      "dense_density_matrix_bytes_rough_estimate": 37573127238299506330810410000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 34,
+      "dimension": 76360380541900,
+      "pure_vector_bytes": 1221766088670400,
+      "dense_density_matrix_bytes_rough_estimate": 93294523464060482202489760000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 35,
+      "dimension": 119032357903550,
+      "pure_vector_bytes": 1904517726456800,
+      "dense_density_matrix_bytes_rough_estimate": 226699235649261154417641640000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 36,
+      "dimension": 183649923622620,
+      "pure_vector_bytes": 2938398777961920,
+      "dense_density_matrix_bytes_rough_estimate": 539636711145506552066810630400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 37,
+      "dimension": 280576272201225,
+      "pure_vector_bytes": 4489220355219600,
+      "dense_density_matrix_bytes_rough_estimate": 1259568712357374475310264010000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 38,
+      "dimension": 424655979547800,
+      "pure_vector_bytes": 6794495672764800,
+      "dense_density_matrix_bytes_rough_estimate": 2885323215451224510279757440000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 39,
+      "dimension": 636983969321700,
+      "pure_vector_bytes": 10191743509147200,
+      "dense_density_matrix_bytes_rough_estimate": 6491977234765255148129454240000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 19,
+      "cutoff": 40,
+      "dimension": 947309492837400,
+      "pure_vector_bytes": 15156951885398400,
+      "dense_density_matrix_bytes_rough_estimate": 14358324403517632030445420160000,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 2,
+      "dimension": 21,
+      "pure_vector_bytes": 336,
+      "dense_density_matrix_bytes_rough_estimate": 7056,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 20,
+      "cutoff": 3,
+      "dimension": 231,
+      "pure_vector_bytes": 3696,
+      "dense_density_matrix_bytes_rough_estimate": 853776,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 20,
+      "cutoff": 4,
+      "dimension": 1771,
+      "pure_vector_bytes": 28336,
+      "dense_density_matrix_bytes_rough_estimate": 50183056,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 20,
+      "cutoff": 5,
+      "dimension": 10626,
+      "pure_vector_bytes": 170016,
+      "dense_density_matrix_bytes_rough_estimate": 1806590016,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 20,
+      "cutoff": 6,
+      "dimension": 53130,
+      "pure_vector_bytes": 850080,
+      "dense_density_matrix_bytes_rough_estimate": 45164750400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 20,
+      "cutoff": 7,
+      "dimension": 230230,
+      "pure_vector_bytes": 3683680,
+      "dense_density_matrix_bytes_rough_estimate": 848093646400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 20,
+      "cutoff": 8,
+      "dimension": 888030,
+      "pure_vector_bytes": 14208480,
+      "dense_density_matrix_bytes_rough_estimate": 12617556494400,
+      "exceeds_default_max_dimension": false
+    },
+    {
+      "modes": 20,
+      "cutoff": 9,
+      "dimension": 3108105,
+      "pure_vector_bytes": 49729680,
+      "dense_density_matrix_bytes_rough_estimate": 154565067056400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 10,
+      "dimension": 10015005,
+      "pure_vector_bytes": 160240080,
+      "dense_density_matrix_bytes_rough_estimate": 1604805202400400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 11,
+      "dimension": 30045015,
+      "pure_vector_bytes": 480720240,
+      "dense_density_matrix_bytes_rough_estimate": 14443246821603600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 12,
+      "dimension": 84672315,
+      "pure_vector_bytes": 1354757040,
+      "dense_density_matrix_bytes_rough_estimate": 114710414839347600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 13,
+      "dimension": 225792840,
+      "pure_vector_bytes": 3612685440,
+      "dense_density_matrix_bytes_rough_estimate": 815718505524249600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 14,
+      "dimension": 573166440,
+      "pure_vector_bytes": 9170663040,
+      "dense_density_matrix_bytes_rough_estimate": 5256316287076377600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 15,
+      "dimension": 1391975640,
+      "pure_vector_bytes": 22271610240,
+      "dense_density_matrix_bytes_rough_estimate": 31001538917654553600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 16,
+      "dimension": 3247943160,
+      "pure_vector_bytes": 51967090560,
+      "dense_density_matrix_bytes_rough_estimate": 168786156329452569600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 17,
+      "dimension": 7307872110,
+      "pure_vector_bytes": 116925953760,
+      "dense_density_matrix_bytes_rough_estimate": 854479916417853633600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 18,
+      "dimension": 15905368710,
+      "pure_vector_bytes": 254485899360,
+      "dense_density_matrix_bytes_rough_estimate": 4047692060816753025600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 19,
+      "dimension": 33578000610,
+      "pure_vector_bytes": 537248009760,
+      "dense_density_matrix_bytes_rough_estimate": 18039713999442565953600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 20,
+      "dimension": 68923264410,
+      "pure_vector_bytes": 1102772230560,
+      "dense_density_matrix_bytes_rough_estimate": 76006662030892362369600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 21,
+      "dimension": 137846528820,
+      "pure_vector_bytes": 2205544461120,
+      "dense_density_matrix_bytes_rough_estimate": 304026648123569449478400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 22,
+      "dimension": 269128937220,
+      "pure_vector_bytes": 4306062995520,
+      "dense_density_matrix_bytes_rough_estimate": 1158886157586667221254400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 23,
+      "dimension": 513791607420,
+      "pure_vector_bytes": 8220665718720,
+      "dense_density_matrix_bytes_rough_estimate": 4223709053683638384902400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 24,
+      "dimension": 960566918220,
+      "pure_vector_bytes": 15369070691520,
+      "dense_density_matrix_bytes_rough_estimate": 14763020870058690687494400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 25,
+      "dimension": 1761039350070,
+      "pure_vector_bytes": 28176629601120,
+      "dense_density_matrix_bytes_rough_estimate": 49620153479919488144078400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 26,
+      "dimension": 3169870830126,
+      "pure_vector_bytes": 50717933282016,
+      "dense_density_matrix_bytes_rough_estimate": 160769297274939141586814016,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 27,
+      "dimension": 5608233007146,
+      "pure_vector_bytes": 89731728114336,
+      "dense_density_matrix_bytes_rough_estimate": 503236439399069857393045056,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 28,
+      "dimension": 9762479679106,
+      "pure_vector_bytes": 156199674865696,
+      "dense_density_matrix_bytes_rough_estimate": 1524896151759321419727347776,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 29,
+      "dimension": 16735679449896,
+      "pure_vector_bytes": 267770871198336,
+      "dense_density_matrix_bytes_rough_estimate": 4481327466394740498790573056,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 30,
+      "dimension": 28277527346376,
+      "pure_vector_bytes": 452440437542016,
+      "dense_density_matrix_bytes_rough_estimate": 12793896845200680068485334016,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 31,
+      "dimension": 47129212243960,
+      "pure_vector_bytes": 754067395903360,
+      "dense_density_matrix_bytes_rough_estimate": 35538602347779666856903705600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 32,
+      "dimension": 77535155627160,
+      "pure_vector_bytes": 1240562490034560,
+      "dense_density_matrix_bytes_rough_estimate": 96187205730046736206874649600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 33,
+      "dimension": 125994627894135,
+      "pure_vector_bytes": 2015914046306160,
+      "dense_density_matrix_bytes_rough_estimate": 253994340130904662796278371600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 34,
+      "dimension": 202355008436035,
+      "pure_vector_bytes": 3237680134976560,
+      "dense_density_matrix_bytes_rough_estimate": 655160791026364736266984339600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 35,
+      "dimension": 321387366339585,
+      "pure_vector_bytes": 5142197861433360,
+      "dense_density_matrix_bytes_rough_estimate": 1652637427883113815704607555600,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 36,
+      "dimension": 505037289962205,
+      "pure_vector_bytes": 8080596639395280,
+      "dense_density_matrix_bytes_rough_estimate": 4081002628037893300005255392400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 37,
+      "dimension": 785613562163430,
+      "pure_vector_bytes": 12569816994614880,
+      "dense_density_matrix_bytes_rough_estimate": 9875018704881815886432469838400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 38,
+      "dimension": 1210269541711230,
+      "pure_vector_bytes": 19364312667379680,
+      "dense_density_matrix_bytes_rough_estimate": 23436037817502571084747329806400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 39,
+      "dimension": 1847253511032930,
+      "pure_vector_bytes": 29556056176526880,
+      "dense_density_matrix_bytes_rough_estimate": 54597528544375795795768710158400,
+      "exceeds_default_max_dimension": true
+    },
+    {
+      "modes": 20,
+      "cutoff": 40,
+      "dimension": 2794563003870330,
+      "pure_vector_bytes": 44713008061925280,
+      "dense_density_matrix_bytes_rough_estimate": 124953318121612192744951268942400,
+      "exceeds_default_max_dimension": true
+    }
+  ],
+  "default_max_dimension": 1000000
+}

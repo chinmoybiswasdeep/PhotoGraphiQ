@@ -1,0 +1,478 @@
+{
+  "rows": [
+    {
+      "modes": 1,
+      "cutoff": 4,
+      "total_photon_dimension": 4,
+      "product_dimension": 4,
+      "ratio": 1.0,
+      "total_vector_bytes": 64,
+      "product_vector_bytes": 64,
+      "total_density_bytes": 256
+    },
+    {
+      "modes": 1,
+      "cutoff": 6,
+      "total_photon_dimension": 6,
+      "product_dimension": 6,
+      "ratio": 1.0,
+      "total_vector_bytes": 96,
+      "product_vector_bytes": 96,
+      "total_density_bytes": 576
+    },
+    {
+      "modes": 1,
+      "cutoff": 8,
+      "total_photon_dimension": 8,
+      "product_dimension": 8,
+      "ratio": 1.0,
+      "total_vector_bytes": 128,
+      "product_vector_bytes": 128,
+      "total_density_bytes": 1024
+    },
+    {
+      "modes": 1,
+      "cutoff": 12,
+      "total_photon_dimension": 12,
+      "product_dimension": 12,
+      "ratio": 1.0,
+      "total_vector_bytes": 192,
+      "product_vector_bytes": 192,
+      "total_density_bytes": 2304
+    },
+    {
+      "modes": 2,
+      "cutoff": 4,
+      "total_photon_dimension": 10,
+      "product_dimension": 16,
+      "ratio": 1.6,
+      "total_vector_bytes": 160,
+      "product_vector_bytes": 256,
+      "total_density_bytes": 1600
+    },
+    {
+      "modes": 2,
+      "cutoff": 6,
+      "total_photon_dimension": 21,
+      "product_dimension": 36,
+      "ratio": 1.7142857142857142,
+      "total_vector_bytes": 336,
+      "product_vector_bytes": 576,
+      "total_density_bytes": 7056
+    },
+    {
+      "modes": 2,
+      "cutoff": 8,
+      "total_photon_dimension": 36,
+      "product_dimension": 64,
+      "ratio": 1.7777777777777777,
+      "total_vector_bytes": 576,
+      "product_vector_bytes": 1024,
+      "total_density_bytes": 20736
+    },
+    {
+      "modes": 2,
+      "cutoff": 12,
+      "total_photon_dimension": 78,
+      "product_dimension": 144,
+      "ratio": 1.8461538461538463,
+      "total_vector_bytes": 1248,
+      "product_vector_bytes": 2304,
+      "total_density_bytes": 97344
+    },
+    {
+      "modes": 3,
+      "cutoff": 4,
+      "total_photon_dimension": 20,
+      "product_dimension": 64,
+      "ratio": 3.2,
+      "total_vector_bytes": 320,
+      "product_vector_bytes": 1024,
+      "total_density_bytes": 6400
+    },
+    {
+      "modes": 3,
+      "cutoff": 6,
+      "total_photon_dimension": 56,
+      "product_dimension": 216,
+      "ratio": 3.857142857142857,
+      "total_vector_bytes": 896,
+      "product_vector_bytes": 3456,
+      "total_density_bytes": 50176
+    },
+    {
+      "modes": 3,
+      "cutoff": 8,
+      "total_photon_dimension": 120,
+      "product_dimension": 512,
+      "ratio": 4.266666666666667,
+      "total_vector_bytes": 1920,
+      "product_vector_bytes": 8192,
+      "total_density_bytes": 230400
+    },
+    {
+      "modes": 3,
+      "cutoff": 12,
+      "total_photon_dimension": 364,
+      "product_dimension": 1728,
+      "ratio": 4.747252747252747,
+      "total_vector_bytes": 5824,
+      "product_vector_bytes": 27648,
+      "total_density_bytes": 2119936
+    },
+    {
+      "modes": 4,
+      "cutoff": 4,
+      "total_photon_dimension": 35,
+      "product_dimension": 256,
+      "ratio": 7.314285714285714,
+      "total_vector_bytes": 560,
+      "product_vector_bytes": 4096,
+      "total_density_bytes": 19600
+    },
+    {
+      "modes": 4,
+      "cutoff": 6,
+      "total_photon_dimension": 126,
+      "product_dimension": 1296,
+      "ratio": 10.285714285714286,
+      "total_vector_bytes": 2016,
+      "product_vector_bytes": 20736,
+      "total_density_bytes": 254016
+    },
+    {
+      "modes": 4,
+      "cutoff": 8,
+      "total_photon_dimension": 330,
+      "product_dimension": 4096,
+      "ratio": 12.412121212121212,
+      "total_vector_bytes": 5280,
+      "product_vector_bytes": 65536,
+      "total_density_bytes": 1742400
+    },
+    {
+      "modes": 4,
+      "cutoff": 12,
+      "total_photon_dimension": 1365,
+      "product_dimension": 20736,
+      "ratio": 15.19120879120879,
+      "total_vector_bytes": 21840,
+      "product_vector_bytes": 331776,
+      "total_density_bytes": 29811600
+    },
+    {
+      "modes": 5,
+      "cutoff": 4,
+      "total_photon_dimension": 56,
+      "product_dimension": 1024,
+      "ratio": 18.285714285714285,
+      "total_vector_bytes": 896,
+      "product_vector_bytes": 16384,
+      "total_density_bytes": 50176
+    },
+    {
+      "modes": 5,
+      "cutoff": 6,
+      "total_photon_dimension": 252,
+      "product_dimension": 7776,
+      "ratio": 30.857142857142858,
+      "total_vector_bytes": 4032,
+      "product_vector_bytes": 124416,
+      "total_density_bytes": 1016064
+    },
+    {
+      "modes": 5,
+      "cutoff": 8,
+      "total_photon_dimension": 792,
+      "product_dimension": 32768,
+      "ratio": 41.37373737373738,
+      "total_vector_bytes": 12672,
+      "product_vector_bytes": 524288,
+      "total_density_bytes": 10036224
+    },
+    {
+      "modes": 5,
+      "cutoff": 12,
+      "total_photon_dimension": 4368,
+      "product_dimension": 248832,
+      "ratio": 56.967032967032964,
+      "total_vector_bytes": 69888,
+      "product_vector_bytes": 3981312,
+      "total_density_bytes": 305270784
+    },
+    {
+      "modes": 6,
+      "cutoff": 4,
+      "total_photon_dimension": 84,
+      "product_dimension": 4096,
+      "ratio": 48.76190476190476,
+      "total_vector_bytes": 1344,
+      "product_vector_bytes": 65536,
+      "total_density_bytes": 112896
+    },
+    {
+      "modes": 6,
+      "cutoff": 6,
+      "total_photon_dimension": 462,
+      "product_dimension": 46656,
+      "ratio": 100.98701298701299,
+      "total_vector_bytes": 7392,
+      "product_vector_bytes": 746496,
+      "total_density_bytes": 3415104
+    },
+    {
+      "modes": 6,
+      "cutoff": 8,
+      "total_photon_dimension": 1716,
+      "product_dimension": 262144,
+      "ratio": 152.76456876456876,
+      "total_vector_bytes": 27456,
+      "product_vector_bytes": 4194304,
+      "total_density_bytes": 47114496
+    },
+    {
+      "modes": 6,
+      "cutoff": 12,
+      "total_photon_dimension": 12376,
+      "product_dimension": 2985984,
+      "ratio": 241.2721396250808,
+      "total_vector_bytes": 198016,
+      "product_vector_bytes": 47775744,
+      "total_density_bytes": 2450646016
+    },
+    {
+      "modes": 7,
+      "cutoff": 4,
+      "total_photon_dimension": 120,
+      "product_dimension": 16384,
+      "ratio": 136.53333333333333,
+      "total_vector_bytes": 1920,
+      "product_vector_bytes": 262144,
+      "total_density_bytes": 230400
+    },
+    {
+      "modes": 7,
+      "cutoff": 6,
+      "total_photon_dimension": 792,
+      "product_dimension": 279936,
+      "ratio": 353.45454545454544,
+      "total_vector_bytes": 12672,
+      "product_vector_bytes": 4478976,
+      "total_density_bytes": 10036224
+    },
+    {
+      "modes": 7,
+      "cutoff": 8,
+      "total_photon_dimension": 3432,
+      "product_dimension": 2097152,
+      "ratio": 611.0582750582751,
+      "total_vector_bytes": 54912,
+      "product_vector_bytes": 33554432,
+      "total_density_bytes": 188457984
+    },
+    {
+      "modes": 7,
+      "cutoff": 12,
+      "total_photon_dimension": 31824,
+      "product_dimension": 35831808,
+      "ratio": 1125.9366515837105,
+      "total_vector_bytes": 509184,
+      "product_vector_bytes": 573308928,
+      "total_density_bytes": 16204271616
+    },
+    {
+      "modes": 8,
+      "cutoff": 4,
+      "total_photon_dimension": 165,
+      "product_dimension": 65536,
+      "ratio": 397.1878787878788,
+      "total_vector_bytes": 2640,
+      "product_vector_bytes": 1048576,
+      "total_density_bytes": 435600
+    },
+    {
+      "modes": 8,
+      "cutoff": 6,
+      "total_photon_dimension": 1287,
+      "product_dimension": 1679616,
+      "ratio": 1305.062937062937,
+      "total_vector_bytes": 20592,
+      "product_vector_bytes": 26873856,
+      "total_density_bytes": 26501904
+    },
+    {
+      "modes": 8,
+      "cutoff": 8,
+      "total_photon_dimension": 6435,
+      "product_dimension": 16777216,
+      "ratio": 2607.1819735819736,
+      "total_vector_bytes": 102960,
+      "product_vector_bytes": 268435456,
+      "total_density_bytes": 662547600
+    },
+    {
+      "modes": 8,
+      "cutoff": 12,
+      "total_photon_dimension": 75582,
+      "product_dimension": 429981696,
+      "ratio": 5688.943081686116,
+      "total_vector_bytes": 1209312,
+      "product_vector_bytes": 6879707136,
+      "total_density_bytes": 91402219584
+    },
+    {
+      "modes": 9,
+      "cutoff": 4,
+      "total_photon_dimension": 220,
+      "product_dimension": 262144,
+      "ratio": 1191.5636363636363,
+      "total_vector_bytes": 3520,
+      "product_vector_bytes": 4194304,
+      "total_density_bytes": 774400
+    },
+    {
+      "modes": 9,
+      "cutoff": 6,
+      "total_photon_dimension": 2002,
+      "product_dimension": 10077696,
+      "ratio": 5033.814185814186,
+      "total_vector_bytes": 32032,
+      "product_vector_bytes": 161243136,
+      "total_density_bytes": 64128064
+    },
+    {
+      "modes": 9,
+      "cutoff": 8,
+      "total_photon_dimension": 11440,
+      "product_dimension": 134217728,
+      "ratio": 11732.318881118881,
+      "total_vector_bytes": 183040,
+      "product_vector_bytes": 2147483648,
+      "total_density_bytes": 2093977600
+    },
+    {
+      "modes": 9,
+      "cutoff": 12,
+      "total_photon_dimension": 167960,
+      "product_dimension": 5159780352,
+      "ratio": 30720.292641105025,
+      "total_vector_bytes": 2687360,
+      "product_vector_bytes": 82556485632,
+      "total_density_bytes": 451368985600
+    },
+    {
+      "modes": 10,
+      "cutoff": 4,
+      "total_photon_dimension": 286,
+      "product_dimension": 1048576,
+      "ratio": 3666.3496503496503,
+      "total_vector_bytes": 4576,
+      "product_vector_bytes": 16777216,
+      "total_density_bytes": 1308736
+    },
+    {
+      "modes": 10,
+      "cutoff": 6,
+      "total_photon_dimension": 3003,
+      "product_dimension": 60466176,
+      "ratio": 20135.256743256745,
+      "total_vector_bytes": 48048,
+      "product_vector_bytes": 967458816,
+      "total_density_bytes": 144288144
+    },
+    {
+      "modes": 10,
+      "cutoff": 8,
+      "total_photon_dimension": 19448,
+      "product_dimension": 1073741824,
+      "ratio": 55210.912381735914,
+      "total_vector_bytes": 311168,
+      "product_vector_bytes": 17179869184,
+      "total_density_bytes": 6051595264
+    },
+    {
+      "modes": 10,
+      "cutoff": 12,
+      "total_photon_dimension": 352716,
+      "product_dimension": 61917364224,
+      "ratio": 175544.529377743,
+      "total_vector_bytes": 5643456,
+      "product_vector_bytes": 990677827584,
+      "total_density_bytes": 1990537226496
+    }
+  ],
+  "backend": "photographiq._native.fock (apply_pure, phase_pure, gaussian_unitary) and photographiq.gpu.fock (scipy.sparse CPU / cuSPARSE GPU)",
+  "precision": "complex128",
+  "cutoff": "total-photon cutoff, see rows",
+  "seed": 20261146,
+  "full": true,
+  "gpu_used": true,
+  "timing_status": "final (idle machine declared via PGQ_IDLE_MACHINE=1)",
+  "parameters": {
+    "grid": [
+      [
+        2,
+        30
+      ],
+      [
+        3,
+        16
+      ],
+      [
+        4,
+        12
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        8,
+        6
+      ],
+      [
+        4,
+        20
+      ],
+      [
+        6,
+        12
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        10,
+        7
+      ]
+    ],
+    "batches": [
+      1,
+      32
+    ],
+    "repeats": 9,
+    "beamsplitter_theta": 0.7,
+    "cz": 0.4,
+    "squeeze": 0.3,
+    "kerr": 0.35
+  },
+  "native_build_info": {
+    "compiler": "MSVC 19.50.35729.0",
+    "build_type": "Release",
+    "cxx_standard": 202002,
+    "openmp": true,
+    "eigen": "3.4.0",
+    "hbar": 2.0
+  },
+  "acceptance": {
+    "TOL_VARIANT": 1e-12,
+    "TOL_PHASE": 1e-14,
+    "TOL_PASSIVE_NORM": 1e-13,
+    "OFF_SECTOR_EXACT": 0.0
+  }
+}

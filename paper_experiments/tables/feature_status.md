@@ -1,0 +1,14 @@
+| feature | numpy_gaussian | piquasso_gaussian | pure_fock | mixed_fock | suite_evidence |
+|---|---|---|---|---|---|
+| Homodyne | S | S | E | E | R1,R2,R11-R14,R19,R20 |
+| Noisy homodyne | S | S | - | E | R32 |
+| CZ/rotation/squeezing | S | S | E | E | R3,R4,R5,R6,R15,R16,R18 |
+| Cubic/Kerr execution | - | - | E | E | R22,R23,R24,R25 |
+| Cat resources | - | - | E | E | R20,R21,R33 |
+| Photon subtraction | - | - | E | E | R19,R20,R33 |
+| Loss/thermal noise | S | S | - | E | R30,R31 |
+| GKP resources | - | - | E | E | R26,R27,R28 |
+| Gaussian compilation | S | S | E | E | R3-R10,R29 |
+| Cubic injection/Kerr synthesis | - | - | E | E | R23,R25,R34 |
+| Graphix structural comparison | n/a | n/a | n/a | n/a | R17 |
+| JAX autodiff/estimators | n/a | n/a | n/a | n/a | R41,R42 |

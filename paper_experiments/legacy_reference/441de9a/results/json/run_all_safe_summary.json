@@ -1,0 +1,254 @@
+[
+  {
+    "script": "01_core_mbqc/01_wire_teleportation.py",
+    "status": "passed",
+    "seconds": 105.33376269997098,
+    "returncode": 0
+  },
+  {
+    "script": "01_core_mbqc/02_identity_finite_squeezing.py",
+    "status": "passed",
+    "seconds": 3.5163900000043213,
+    "returncode": 0
+  },
+  {
+    "script": "02_compiler/03_rotation_compile.py",
+    "status": "passed",
+    "seconds": 4.219331100001,
+    "returncode": 0
+  },
+  {
+    "script": "02_compiler/04_squeezing_compile.py",
+    "status": "passed",
+    "seconds": 3.6344831999740563,
+    "returncode": 0
+  },
+  {
+    "script": "02_compiler/05_random_symplectic_compile.py",
+    "status": "passed",
+    "seconds": 4.212198399996851,
+    "returncode": 0
+  },
+  {
+    "script": "02_compiler/06_cz_compile.py",
+    "status": "passed",
+    "seconds": 3.5626679999986663,
+    "returncode": 0
+  },
+  {
+    "script": "02_compiler/07_beamsplitter_compile.py",
+    "status": "passed",
+    "seconds": 5.93003280000994,
+    "returncode": 0
+  },
+  {
+    "script": "02_compiler/08_multimode_showcase.py",
+    "status": "passed",
+    "seconds": 8.208760599954985,
+    "returncode": 0
+  },
+  {
+    "script": "02_compiler/09_compilation_trace.py",
+    "status": "passed",
+    "seconds": 2.5016133000026457,
+    "returncode": 0
+  },
+  {
+    "script": "02_compiler/10_compiler_scaling.py",
+    "status": "passed",
+    "seconds": 53.63554970000405,
+    "returncode": 0
+  },
+  {
+    "script": "03_adaptive_flow/11_adaptive_feedforward.py",
+    "status": "passed",
+    "seconds": 3.3597086999798194,
+    "returncode": 0
+  },
+  {
+    "script": "03_adaptive_flow/12_dependency_dag.py",
+    "status": "passed",
+    "seconds": 3.347447199979797,
+    "returncode": 0
+  },
+  {
+    "script": "03_adaptive_flow/13_invalid_causality.py",
+    "status": "passed",
+    "seconds": 2.579265500011388,
+    "returncode": 0
+  },
+  {
+    "script": "03_adaptive_flow/14_cvflow.py",
+    "status": "passed",
+    "seconds": 2.5797974999877624,
+    "returncode": 0
+  },
+  {
+    "script": "04_piquasso_validation/15_raw_piquasso_gaussian.py",
+    "status": "passed",
+    "seconds": 3.390694999950938,
+    "returncode": 0
+  },
+  {
+    "script": "04_piquasso_validation/16_numpy_analytic_reference.py",
+    "status": "passed",
+    "seconds": 3.194856100017205,
+    "returncode": 0
+  },
+  {
+    "script": "05_graphix_validation/17_graphix_structure.py",
+    "status": "skipped",
+    "reason": "optional dependency (graphix)",
+    "seconds": 0.0
+  },
+  {
+    "script": "06_backend_crosschecks/18_gaussian_backends.py",
+    "status": "skipped",
+    "reason": "large Fock (piquasso-mixed-fock, cutoff=14)",
+    "seconds": 0.0
+  },
+  {
+    "script": "07_non_gaussian/19_photon_subtraction_probability.py",
+    "status": "passed",
+    "seconds": 4.252390500041656,
+    "returncode": 0
+  },
+  {
+    "script": "07_non_gaussian/20_subtracted_squeezed_state.py",
+    "status": "skipped",
+    "reason": "large Fock (cutoff up to 36)",
+    "seconds": 0.0
+  },
+  {
+    "script": "07_non_gaussian/21_cat_state.py",
+    "status": "skipped",
+    "reason": "large Fock (cutoff=32)",
+    "seconds": 0.0
+  },
+  {
+    "script": "07_non_gaussian/22_cubic_phase_direct.py",
+    "status": "skipped",
+    "reason": "large Fock (cutoff up to 48)",
+    "seconds": 0.0
+  },
+  {
+    "script": "07_non_gaussian/23_cubic_injection.py",
+    "status": "skipped",
+    "reason": "large Fock (cutoff up to 48)",
+    "seconds": 0.0
+  },
+  {
+    "script": "07_non_gaussian/24_kerr_direct.py",
+    "status": "passed",
+    "seconds": 3.551307199988514,
+    "returncode": 0
+  },
+  {
+    "script": "07_non_gaussian/25_kerr_synthesis.py",
+    "status": "skipped",
+    "reason": "long benchmark (up to 64 synthesis steps)",
+    "seconds": 0.0
+  },
+  {
+    "script": "08_gkp/26_gkp_resource.py",
+    "status": "skipped",
+    "reason": "large Fock (cutoff up to 96)",
+    "seconds": 0.0
+  },
+  {
+    "script": "08_gkp/27_gkp_stabilizers.py",
+    "status": "skipped",
+    "reason": "large Fock (cutoff=48)",
+    "seconds": 0.0
+  },
+  {
+    "script": "08_gkp/28_gkp_syndrome.py",
+    "status": "skipped",
+    "reason": "large Fock + long benchmark (cutoff=80, ~9 minutes)",
+    "seconds": 0.0
+  },
+  {
+    "script": "09_noise/29_finite_squeezing.py",
+    "status": "passed",
+    "seconds": 3.6820568999974057,
+    "returncode": 0
+  },
+  {
+    "script": "09_noise/30_loss_validation.py",
+    "status": "passed",
+    "seconds": 3.369559000013396,
+    "returncode": 0
+  },
+  {
+    "script": "09_noise/31_thermal_noise.py",
+    "status": "passed",
+    "seconds": 3.406598799978383,
+    "returncode": 0
+  },
+  {
+    "script": "09_noise/32_noisy_measurement.py",
+    "status": "skipped",
+    "reason": "long benchmark + large Fock (mixed-fock shots)",
+    "seconds": 0.0
+  },
+  {
+    "script": "10_convergence/33_fock_cutoff.py",
+    "status": "skipped",
+    "reason": "large Fock (cutoff up to 96)",
+    "seconds": 0.0
+  },
+  {
+    "script": "10_convergence/34_cubic_convergence.py",
+    "status": "skipped",
+    "reason": "large Fock (cutoff up to 96) + long benchmark (2D scan)",
+    "seconds": 0.0
+  },
+  {
+    "script": "11_performance/35_fock_dimension_scaling.py",
+    "status": "passed",
+    "seconds": 3.702950799954124,
+    "returncode": 0
+  },
+  {
+    "script": "11_performance/36_gaussian_runtime.py",
+    "status": "skipped",
+    "reason": "long benchmark (up to 200 modes, repeated timing)",
+    "seconds": 0.0
+  },
+  {
+    "script": "11_performance/37_compiler_runtime.py",
+    "status": "skipped",
+    "reason": "long benchmark (repeated timing)",
+    "seconds": 0.0
+  },
+  {
+    "script": "11_performance/38_piquasso_overhead.py",
+    "status": "skipped",
+    "reason": "long benchmark (repeated timing)",
+    "seconds": 0.0
+  },
+  {
+    "script": "12_serialization/39_serialization.py",
+    "status": "passed",
+    "seconds": 2.575706400035415,
+    "returncode": 0
+  },
+  {
+    "script": "12_serialization/40_seeded_shots.py",
+    "status": "passed",
+    "seconds": 6.530957900045905,
+    "returncode": 0
+  },
+  {
+    "script": "13_autodiff/41_jax_gradients.py",
+    "status": "skipped",
+    "reason": "optional dependency (jax)",
+    "seconds": 0.0
+  },
+  {
+    "script": "13_autodiff/42_stochastic_gradients.py",
+    "status": "skipped",
+    "reason": "optional dependency (jax) + long benchmark",
+    "seconds": 0.0
+  }
+]

@@ -1,0 +1,557 @@
+{
+ "source_commit": "441de9a8811cefd676271efa0b65985d041666a8",
+ "files": [
+  {
+   "path": "paper_experiments/figures/pdf/R10_compiler_scaling.pdf",
+   "sha256": "db09bd86c57ab513ce265d4504be6985fd7097fb85b2cf6e368dde6109d6b095",
+   "size_bytes": 36196,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R11_adaptive_feedforward_dependencies.pdf",
+   "sha256": "5fa3d3891ad7dd49474b156c4cd0dbb63376ffbdf5e6b3412e7897cacaa54b7e",
+   "size_bytes": 16600,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R11_adaptive_feedforward_pattern.pdf",
+   "sha256": "2b0e959811d6e6cbec8926bbe0d5c707f459c4ef58d10f38b7a1d0c7477277f3",
+   "size_bytes": 20608,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R11_adaptive_feedforward_summary.pdf",
+   "sha256": "55117abe1d50e75a229b79f2f351671f3d60d962515195f080df19d2d4b3506a",
+   "size_bytes": 34619,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R12_dependency_dag.pdf",
+   "sha256": "ecbc4a1172c29246403fdf1166a79dde0164d9dc629700fc9d1a9c778dffaadb",
+   "size_bytes": 36643,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R13_invalid_causality.pdf",
+   "sha256": "cfdc7de486ef0073fe0029350cd94bb5e4de01407917068fc54ec50b72f245b7",
+   "size_bytes": 25372,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R14_cvflow.pdf",
+   "sha256": "f27dc1d776875c3db9b81a088dced05da7d434d64fdfe0ee21cb55f5e73eb559",
+   "size_bytes": 34997,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R15_raw_piquasso_gaussian.pdf",
+   "sha256": "61aaac1d2d904611944e7038704a556ec247c2441e9d38aa0bbf3140a322f18d",
+   "size_bytes": 38003,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R16_numpy_analytic_reference.pdf",
+   "sha256": "8e3d620299f22a8db39cf2db26f957988b12a3b139ffeb5625ce732fc6c45d0b",
+   "size_bytes": 27889,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R17_graphix_structure.pdf",
+   "sha256": "df9f76332fb1512256ddfb6d2c49c10da3e73a936c2beb3d9c83347a9ead2188",
+   "size_bytes": 30083,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R18_gaussian_backends.pdf",
+   "sha256": "e56fb50df27137dcf2aa737ad5184b85929f6e99397a527a99a476cf98fef149",
+   "size_bytes": 40779,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R19_photon_subtraction_probability.pdf",
+   "sha256": "411352b6c2ca2157a1f7a9c8d9c8d101894ca96dc31b25e92fe886cfe0ef9cbf",
+   "size_bytes": 44304,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R1_wire_teleportation.pdf",
+   "sha256": "6c8f7243842bfac60b9d13a51c49e4d8b5059c183a68d2b37df88c8a378841bf",
+   "size_bytes": 17058,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R1_wire_teleportation_reference_style.pdf",
+   "sha256": "44a081ea7ec58995469759d8ca35f13a09aa42c94b6659d7eb507ec1a27d2e17",
+   "size_bytes": 57133,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R20_subtracted_squeezed_state.pdf",
+   "sha256": "e4c18cdc00f337c395ddba26e533530af6cd2546cace1b5d1fdbf93548f5484b",
+   "size_bytes": 414983,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R21_cat_state.pdf",
+   "sha256": "865bcd763b8333a6f14875a925ea616e3845a77c09cec09fc69060673f169646",
+   "size_bytes": 422911,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R22_cubic_phase_direct.pdf",
+   "sha256": "bfa915aeec650001ac7680faa707d70e225b1a328ae6c422489d4487f940d474",
+   "size_bytes": 40200,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R23_cubic_injection.pdf",
+   "sha256": "ad114926d52df51f281c39af99600d77f72513e10d8dd5642b386ac132030217",
+   "size_bytes": 36874,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R24_kerr_direct.pdf",
+   "sha256": "4ed4266deaee6a5539e1289893f95d6d55a2a1cc71b3fcc18b4233f288a2f484",
+   "size_bytes": 39043,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R25_kerr_synthesis.pdf",
+   "sha256": "79e1dedd373cdb70f9c23d2b87d4bf7eb6dcf873bdc35ab67cd0718d8f9190ea",
+   "size_bytes": 39604,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R26_gkp_resource.pdf",
+   "sha256": "21ac3b681ab3aec23db3135ca09c6635168488d3907cf18ddf439e90725e2129",
+   "size_bytes": 50385,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R27_gkp_stabilizers.pdf",
+   "sha256": "b0520c077bc4f29dac26f33685cd2a856df63dbc881109912d822a29b3796ed2",
+   "size_bytes": 33196,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R28_gkp_syndrome.pdf",
+   "sha256": "7741ad638ed248582dc23e70ada8e95e8cd9c2dd0f63c70471710172e8f015f5",
+   "size_bytes": 46115,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R29_finite_squeezing.pdf",
+   "sha256": "aba98e578eb63777f77c7b7817d01554d942dcf139647619fd1288db52bd5ac5",
+   "size_bytes": 49353,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R2_identity_finite_squeezing.pdf",
+   "sha256": "ff23940fdba4e0c08df01ab53ca8c90a69cfa0faeb1f686055ba3692193a803e",
+   "size_bytes": 18595,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R2_identity_finite_squeezing_reference_style.pdf",
+   "sha256": "41715fcaa0690d8872af6bb471e4a04e0c05ac2b39f1969291eab8c2c0112599",
+   "size_bytes": 52459,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R30_loss_validation.pdf",
+   "sha256": "4349788480bedb21f739949086148bad4d83853061fb7f5612094c5721647cd4",
+   "size_bytes": 35269,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R31_thermal_noise.pdf",
+   "sha256": "356b08a548ba9ed03916ea844fcec7fea5b07c4db8e924060a8220e9f9e15583",
+   "size_bytes": 37545,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R32_noisy_measurement.pdf",
+   "sha256": "1b5847c89113f6f4c5125c64431500ca8a9a0356df0f6cf1ef6dbda94518f011",
+   "size_bytes": 34890,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R33_fock_cutoff.pdf",
+   "sha256": "8bd5e2f2a8d14ce5453d82df8bce7bcb8beadff464a8b4a1a9c88468a0dcc755",
+   "size_bytes": 38318,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R34_cubic_convergence.pdf",
+   "sha256": "0dcdfb5ccf49fe45167d9a4309fcc1ea0cd506776f22fb2397c0cf289d2a2792",
+   "size_bytes": 44160,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R35_fock_dimension_scaling.pdf",
+   "sha256": "c60bab5e32d4d75e03b5330fe8f9860dac2a1bbe7acdf8da43f46fdafec35f38",
+   "size_bytes": 58590,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R36_gaussian_runtime.pdf",
+   "sha256": "b2c268278dca051256d84de5293a54085789db55a0fad6ad209690b03d88fe76",
+   "size_bytes": 22342,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R37_compiler_runtime.pdf",
+   "sha256": "88b705aedbb400b361af3d6acab89cb638d0c95843ebf5e1e8fde344caec1693",
+   "size_bytes": 28093,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R38_piquasso_overhead.pdf",
+   "sha256": "7bd71446f09dae552e7e0372b2bbe76d5facd56c3d0655e14adc8b67300df3f3",
+   "size_bytes": 32515,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R39_serialization.pdf",
+   "sha256": "f3649733550bffad92a4404ecfebe8d9839581f6cc73c53b242a4971ba92cba1",
+   "size_bytes": 19139,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R3_rotation_compile.pdf",
+   "sha256": "11337bac291e93b87f5a666289f137a60b052d8b3ffdb5a174c6a8187839d8e0",
+   "size_bytes": 53743,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R40_seeded_shots.pdf",
+   "sha256": "0793c6dc6c87576a21eadcc1bb9c2e5b6a4dd33202813534cb8225f4c629f15e",
+   "size_bytes": 27095,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R41_jax_gradients.pdf",
+   "sha256": "7624c5c5d8588c84e7d0f6b3353c71d13d1558dd16496f7edbab2eee5add361b",
+   "size_bytes": 38971,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R42_stochastic_gradients.pdf",
+   "sha256": "eff7297f7846add5bbb58ef05323bf242023982cd03e015eb7f500918ca97764",
+   "size_bytes": 30515,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R4_squeezing_compile.pdf",
+   "sha256": "8082f7a728744d436ac4c7bd3a490109ff8cc3709f6ee832efa7df439ba305f2",
+   "size_bytes": 43071,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R5_random_symplectic_compile.pdf",
+   "sha256": "c2d34e47c8f07a9a51fe9ff63af35fc4db91287aac50d51806037cb75ea64adc",
+   "size_bytes": 45746,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R6_cz_compile.pdf",
+   "sha256": "f3c6d3f0f8f3d9af2232c430703bf3e6b4fe6f2fd14717e9f4bb8809d0cb7bc6",
+   "size_bytes": 44681,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R7_beamsplitter_compile.pdf",
+   "sha256": "1af73e6c416701f48bb363d7cf3d0d4223d8d77952f8ff65d1ec64ae35dafe20",
+   "size_bytes": 41913,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R8_multimode_showcase.pdf",
+   "sha256": "3a50b6654f86dd61c8e39b30686e52ce4c25f5da891d0832f946d1fc3e9bedcf",
+   "size_bytes": 71618,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R8_multimode_showcase_resource_accounting.pdf",
+   "sha256": "2dd5e8af7c596458de5ccc7b03bbbb52013e6bec2424bb0ca29a610a566b5cd6",
+   "size_bytes": 21099,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/pdf/R9_compilation_trace.pdf",
+   "sha256": "25b04adaa8fc2381bcc8ad7184bc1d9c99f1f45bdc074ed656b8bf2865e7471e",
+   "size_bytes": 26574,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R10_compiler_scaling.png",
+   "sha256": "5e840ff542af65b4c8178739a9e136fd4e1f6ccd2477b83b8f78ad6c35cebedb",
+   "size_bytes": 370466,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R11_adaptive_feedforward_dependencies.png",
+   "sha256": "92680ae3c97df7c2bce2a3f8ee665568462a16407c596f6724481aa7466ae7f8",
+   "size_bytes": 156854,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R11_adaptive_feedforward_pattern.png",
+   "sha256": "b61bff7d6e3158007bc064f0e1a3d51795a9b36001d22453a5a4b18d2511392a",
+   "size_bytes": 116400,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R11_adaptive_feedforward_summary.png",
+   "sha256": "46d5616446748e00ee9349de59d44a218233d70b13d3ad3a0541c7c1c5735c83",
+   "size_bytes": 177767,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R12_dependency_dag.png",
+   "sha256": "16e26e25d3e62a6187566692054e8a7a649778372a33097de0f9ce38453719a4",
+   "size_bytes": 237173,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R13_invalid_causality.png",
+   "sha256": "3b7bb0ac269e0a3d63881bd10381002676ddfe89182385bfe60fc97218a28c13",
+   "size_bytes": 156939,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R14_cvflow.png",
+   "sha256": "3505fd3969d0f914d7f13ebc8bb39f75383d602ec89dd49f72a4dfc45834b36d",
+   "size_bytes": 134376,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R15_raw_piquasso_gaussian.png",
+   "sha256": "461ca18d21e2ea1a8e8b85524838e5f7d93ca21d41c538549651f96593fc8048",
+   "size_bytes": 285782,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R16_numpy_analytic_reference.png",
+   "sha256": "d7d3249624aaadece69a2e4fa769a722d96e101352f5a567655b743dd8c55f47",
+   "size_bytes": 184307,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R17_graphix_structure.png",
+   "sha256": "5568a2f524ef0788bc232b892af5d475fd2cad215575b8e7691c4850cf628ae8",
+   "size_bytes": 201590,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R18_gaussian_backends.png",
+   "sha256": "693c67aab6bd7551959ba732c120ca43a9047d2b593f4f0c0674d34ab10864fe",
+   "size_bytes": 204258,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R19_photon_subtraction_probability.png",
+   "sha256": "24ec294a6c86ee952ce3ea3fd7e813d553e4f47d575a668d8968f2047d8fbc29",
+   "size_bytes": 488399,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R1_wire_teleportation_reference_style.png",
+   "sha256": "a232a16657a04df6af9985b6850d336aaa062a49df80758f059bf6af8c4cea44",
+   "size_bytes": 980826,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R20_subtracted_squeezed_state.png",
+   "sha256": "669da2ff8614133942e0346e0d855ddfbb50c7da3bc1a9c963f6faf548251637",
+   "size_bytes": 316513,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R21_cat_state.png",
+   "sha256": "c3ec8dd7656f043bff0ca93e0a5d43e6b64d4f633901f252f996f7cc8d0f0d3a",
+   "size_bytes": 336153,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R22_cubic_phase_direct.png",
+   "sha256": "76c89b0a429ec1c1acc79b5573846f5f07b865dd540f94b608898b3120dfbd9b",
+   "size_bytes": 309209,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R23_cubic_injection.png",
+   "sha256": "4d8de450f63787b3b1a5209dc28d7921611eb3df5bacb3e144ac217470a637f7",
+   "size_bytes": 310618,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R24_kerr_direct.png",
+   "sha256": "cbdf1faa76f9d729f559edd95fc7d702dd484b164c0184d84a637c04e24256c6",
+   "size_bytes": 150590,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R25_kerr_synthesis.png",
+   "sha256": "f4bfcdd084b9bd6a29125cf1b0b82c50ab851873f35fdf3a031f876f23b56768",
+   "size_bytes": 259655,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R26_gkp_resource.png",
+   "sha256": "6012353e1ef71fb4792be3c62212ee125dd721abee9ed1c6be77531bee97e989",
+   "size_bytes": 493313,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R27_gkp_stabilizers.png",
+   "sha256": "32273ebbee059c36e898b8cb2378e8b6fdbb8e52b8821ac76d28ad2bca0b8515",
+   "size_bytes": 247822,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R28_gkp_syndrome.png",
+   "sha256": "26fb543a9a0ca2885564322dfcec9266ed5247ec86e00bbcb3853fc0b4377666",
+   "size_bytes": 373955,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R29_finite_squeezing.png",
+   "sha256": "b5d60e47b0e0aa6b44ef273a1f419af8ba130dcc104e24b9614f0ef186dd1745",
+   "size_bytes": 328677,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R2_identity_finite_squeezing_reference_style.png",
+   "sha256": "7346a1e0b97fd2c2fa589c42c596c5216d745def7186bbaae0215a5935267fb6",
+   "size_bytes": 384576,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R30_loss_validation.png",
+   "sha256": "0878680a31520811383e47a23d0fa6b5c68df52ff873f7b26fc7a690d09ddd74",
+   "size_bytes": 214240,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R31_thermal_noise.png",
+   "sha256": "2013944ba2114d6e23efd74cb51ac9e92ad1829ab7a44fc95dd5afd26205ef34",
+   "size_bytes": 209688,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R32_noisy_measurement.png",
+   "sha256": "d28c4be9b535c10bec10145cc3e7deb05446e525a391cfc786dceb9212ed376f",
+   "size_bytes": 270904,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R33_fock_cutoff.png",
+   "sha256": "3f125be0854b628d1274e4a253a80ccfcbd47121f69d336cbbcf9f301c201725",
+   "size_bytes": 382864,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R34_cubic_convergence.png",
+   "sha256": "438155436b692e7f211229a710fb6e3086995d74fda253cfdf30b6474dd7a961",
+   "size_bytes": 157462,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R35_fock_dimension_scaling.png",
+   "sha256": "2cd547be20cb8233526aebe22c4880ffd72d857ca32e09f691d715a3034b7383",
+   "size_bytes": 284934,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R36_gaussian_runtime.png",
+   "sha256": "865cb2160c679177dc3eb00523935248c6e9f3b0e6e2f6edbc0c559b2c3ad813",
+   "size_bytes": 108586,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R37_compiler_runtime.png",
+   "sha256": "e6e4dca7c4a7bd92d42cdce3f111569ab1473b5bed032376fc5c9bfe0879a0c1",
+   "size_bytes": 153459,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R38_piquasso_overhead.png",
+   "sha256": "10fe8ac3fe72f431c8b71d93fbb416fdf720ea04be16d31ccc3fa12b4fca3a72",
+   "size_bytes": 161296,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R39_serialization.png",
+   "sha256": "12993025df02b2cce448e5eeff961e7b1cef79bdf6e0fd39af3e674d5be99aec",
+   "size_bytes": 100955,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R3_rotation_compile.png",
+   "sha256": "f484a4575abea5e749c015927e9315de43e3d16a53bbd37f218ccc8f57862798",
+   "size_bytes": 451240,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R40_seeded_shots.png",
+   "sha256": "2da8042a3be425b90191cf585a020b795dc23857f73146bfba1a487356bb4d33",
+   "size_bytes": 117931,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R41_jax_gradients.png",
+   "sha256": "13258829c174f4b0f582969dfb7a104f22a123b07996752adc72318a1db8a68a",
+   "size_bytes": 254182,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R42_stochastic_gradients.png",
+   "sha256": "22d620ee528897d8dfc20139420dd5802c3e66c50e137f7ed1e956828062461d",
+   "size_bytes": 155135,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R4_squeezing_compile.png",
+   "sha256": "a98765a7c33c69b14f703accf309b300857f0f9f96687adce27f3ffa275fff95",
+   "size_bytes": 410185,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R5_random_symplectic_compile.png",
+   "sha256": "79da24d91d561357771f5156ef750b99fbd56a592ee43f5c3c28cba572e19042",
+   "size_bytes": 263912,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R6_cz_compile.png",
+   "sha256": "83d2ac8797ddec988000797d9d915cbf68a3b93b0e2f8e050dd059d552f5a6a3",
+   "size_bytes": 330904,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R7_beamsplitter_compile.png",
+   "sha256": "e79bc50231ce53ea23af78b4bd8110cd023d09986d2ed22628c337b32aa05dd9",
+   "size_bytes": 293992,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R8_multimode_showcase.png",
+   "sha256": "f9e9697f9581797da26175d43405a2737e0bba435dc0a63b5f8270790990cf88",
+   "size_bytes": 1196264,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R8_multimode_showcase_resource_accounting.png",
+   "sha256": "2eb63068b99ba31a5981b2937e905ba94f3574b387509c4da499931a9b5c51d1",
+   "size_bytes": 116672,
+   "matches_git_441de9a": true
+  },
+  {
+   "path": "paper_experiments/figures/png/R9_compilation_trace.png",
+   "sha256": "bdc6dc47c8c1272d4ff0257329dfb4621e368f4945e137a393910c6293db420e",
+   "size_bytes": 153290,
+   "matches_git_441de9a": true
+  }
+ ]
+}

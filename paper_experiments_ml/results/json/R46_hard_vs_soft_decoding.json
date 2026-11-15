@@ -1,0 +1,64 @@
+{
+  "rows": [
+    {
+      "raw_outcome": 0.0,
+      "nearest_bit": 0,
+      "nearest_confidence_is_none": true,
+      "soft_bit": 0,
+      "soft_confidence": 0.9999939927654279
+    },
+    {
+      "raw_outcome": 0.25066282746310004,
+      "nearest_bit": 0,
+      "nearest_confidence_is_none": true,
+      "soft_bit": 0,
+      "soft_confidence": 0.9999996833648639
+    },
+    {
+      "raw_outcome": 0.5013256549262001,
+      "nearest_bit": 0,
+      "nearest_confidence_is_none": true,
+      "soft_bit": 0,
+      "soft_confidence": 0.999998434374892
+    },
+    {
+      "raw_outcome": 0.7519884823893002,
+      "nearest_bit": 0,
+      "nearest_confidence_is_none": true,
+      "soft_bit": 0,
+      "soft_confidence": 0.9998057702783504
+    },
+    {
+      "raw_outcome": 1.0026513098524001,
+      "nearest_bit": 0,
+      "nearest_confidence_is_none": true,
+      "soft_bit": 0,
+      "soft_confidence": 0.9853679554652741
+    },
+    {
+      "raw_outcome": 1.2533141373155001,
+      "nearest_bit": 1,
+      "nearest_confidence_is_none": true,
+      "soft_bit": 0,
+      "soft_confidence": 0.6093097687758051
+    }
+  ],
+  "protocol": "NearestCellDecoder vs SoftDecisionDecoder calibration sweep + soft-decoder rejection audit",
+  "oracle_class": "E",
+  "status_category": "exact",
+  "lattice_spacing": 2.5066282746310002,
+  "nearest_always_none": true,
+  "soft_confidence_monotonic_non_increasing": true,
+  "soft_confidence_overall_trend_decreasing": true,
+  "soft_rejected_before_allocation": true,
+  "audit_reasons": [
+    "Soft ensemble posteriors are not calibrated for adaptive MuTA node states; use nearest for flow and resource_readout for calibrated soft features"
+  ],
+  "acceptance_condition": "nearest confidence always None; soft confidence non-increasing toward boundary; soft rejected before allocation",
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

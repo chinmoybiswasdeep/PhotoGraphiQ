@@ -1,6 +1,6 @@
 # API and extension guide
 
-> Historical v0.2 reference. For the v0.3 additions and current backend support, see the [documentation home](index.md) and [feature matrix](validation/feature-matrix.md).
+> **Historical v0.2 reference**, kept unchanged as a provenance record. Since 0.3.1 Piquasso is an optional extra, the default engines are NumPy (`gaussian`) and native C++ (`native-gaussian`, `native-fock`, `native-mixed-fock`), and several features this page calls unavailable now exist (noisy Fock homodyne, Fock loss and mixed inputs on mixed-Fock backends; finite-energy GKP; Gaussian-plus-cubic compilation; Gaussian likelihood diagnostics). Current behaviour: [backends](user-guide/backends.md), [theory](theory/index.md), [feature matrix](validation/feature-matrix.md).
 
 | Module | Public concepts | Execution contract |
 |---|---|---|
@@ -48,14 +48,16 @@ Use statistical V and quadrature translations at the interface even if the nativ
 simulator uses other units. Unsupported operations must raise NotImplementedError.
 Use the provided analytic tests as a model, then add direct native references.
 
-## Future PhotoGraphiQML boundary
+## PhotoGraphiQML boundary
 
 Patterns can be reused with new bindings and shot results expose features and
 observables. Backend isolation permits future differentiation-aware engines.
 The current engine converts scalar parameters to Python floats and performs
 stochastic control flow; its execution is not end-to-end differentiable. Batching
 means independent trajectories, not a vectorized accelerator implementation.
-PhotoGraphiQ deliberately introduces no ML runtime dependencies.
+PhotoGraphiQ deliberately introduces no ML runtime dependencies. The
+`photographiqml` package in this repository consumes only public `photographiq`
+names; see the [contract](development/photographiqml-contract.md).
 
 
 ## v0.2 non-Gaussian API

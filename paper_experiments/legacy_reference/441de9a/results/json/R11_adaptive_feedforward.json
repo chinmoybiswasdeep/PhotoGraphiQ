@@ -1,0 +1,119 @@
+{
+  "rows": [
+    {
+      "seed": 1,
+      "m0_outcome": 0.945584192064786,
+      "m1_outcome": 1.668443425694992,
+      "adaptive_angle_used": 0.3472792096032393,
+      "output_q_mean": -0.9091350329822131,
+      "output_p_mean": -0.14088231763797332
+    },
+    {
+      "seed": 2,
+      "m0_outcome": 0.789053381793533,
+      "m1_outcome": -1.9037153533944497,
+      "adaptive_angle_used": 0.33945266908967664,
+      "output_q_mean": 1.4310506276136716,
+      "output_p_mean": 0.9036975770503497
+    },
+    {
+      "seed": 3,
+      "m0_outcome": 2.6409191213851826,
+      "m1_outcome": -8.250580047513031,
+      "adaptive_angle_used": 0.4320459560692591,
+      "output_q_mean": 5.3463174138758776,
+      "output_p_mean": 2.2176566827371555
+    },
+    {
+      "seed": 4,
+      "m0_outcome": -0.05179115261168965,
+      "m1_outcome": -0.44096390418779385,
+      "adaptive_angle_used": 0.2974104423694155,
+      "output_q_mean": 0.3018969679440874,
+      "output_p_mean": 0.1556815574862945
+    },
+    {
+      "seed": 5,
+      "m0_outcome": -0.20193142525344743,
+      "m1_outcome": -3.466892914799629,
+      "adaptive_angle_used": 0.2899034287373276,
+      "output_q_mean": 2.43857272607898,
+      "output_p_mean": 1.35140479434423
+    },
+    {
+      "seed": 6,
+      "m0_outcome": 1.653115754486758,
+      "m1_outcome": 3.918858722337731,
+      "adaptive_angle_used": 0.3826557877243379,
+      "output_q_mean": -2.118076353330746,
+      "output_p_mean": -0.2943461016713713
+    },
+    {
+      "seed": 7,
+      "m0_outcome": 0.6012301533574825,
+      "m1_outcome": 0.43893759249901926,
+      "adaptive_angle_used": 0.3300615076678741,
+      "output_q_mean": -0.17599605327280438,
+      "output_p_mean": 0.08225237821312084
+    },
+    {
+      "seed": 8,
+      "m0_outcome": -1.138266398496882,
+      "m1_outcome": -2.804478491316789,
+      "adaptive_angle_used": 0.24308668007515588,
+      "output_q_mean": 1.9303906316923163,
+      "output_p_mean": 1.0252470869231647
+    }
+  ],
+  "pattern_json": "{\n  \"schema\": \"photographiq\",\n  \"version\": 1,\n  \"inputs\": {\n    \"tuple\": [\n      0\n    ]\n  },\n  \"commands\": [\n    {\n      \"type\": \"Prepare\",\n      \"fields\": {\n        \"node\": 1,\n        \"squeezing\": 1.0,\n        \"state\": null\n      }\n    },\n    {\n      \"type\": \"Prepare\",\n      \"fields\": {\n        \"node\": 2,\n        \"squeezing\": 1.0,\n        \"state\": null\n      }\n    },\n    {\n      \"type\": \"Entangle\",\n      \"fields\": {\n        \"u\": 0,\n        \"v\": 1,\n        \"weight\": 1.0\n      }\n    },\n    {\n      \"type\": \"Entangle\",\n      \"fields\": {\n        \"u\": 1,\n        \"v\": 2,\n        \"weight\": 1.0\n      }\n    },\n    {\n      \"type\": \"Measure\",\n      \"fields\": {\n        \"node\": 0,\n        \"measurement\": {\n          \"type\": \"Homodyne\",\n          \"fields\": {\n            \"angle\": 0.0,\n            \"efficiency\": 1.0,\n            \"noise\": 0.0\n          }\n        },\n        \"key\": \"m0\"\n      }\n    },\n    {\n      \"type\": \"Displace\",\n      \"fields\": {\n        \"node\": 1,\n        \"q\": {\n          \"type\": \"Expr\",\n          \"fields\": {\n            \"op\": \"neg\",\n            \"args\": {\n              \"tuple\": [\n                {\n                  \"type\": \"Expr\",\n                  \"fields\": {\n                    \"op\": \"outcome\",\n                    \"args\": {\n                      \"tuple\": [\n                        \"m0\"\n                      ]\n                    }\n                  }\n                }\n              ]\n            }\n          }\n        },\n        \"p\": 0.0\n      }\n    },\n    {\n      \"type\": \"Measure\",\n      \"fields\": {\n        \"node\": 1,\n        \"measurement\": {\n          \"type\": \"Homodyne\",\n          \"fields\": {\n            \"angle\": {\n              \"type\": \"Expr\",\n              \"fields\": {\n                \"op\": \"add\",\n                \"args\": {\n                  \"tuple\": [\n                    {\n                      \"type\": \"Expr\",\n                      \"fields\": {\n                        \"op\": \"mul\",\n                        \"args\": {\n                          \"tuple\": [\n                            {\n                              \"type\": \"Expr\",\n                              \"fields\": {\n                                \"op\": \"constant\",\n                                \"args\": {\n                                  \"tuple\": [\n                                    0.05\n                                  ]\n                                }\n                              }\n                            },\n                            {\n                              \"type\": \"Expr\",\n                              \"fields\": {\n                                \"op\": \"outcome\",\n                                \"args\": {\n                                  \"tuple\": [\n                                    \"m0\"\n                                  ]\n                                }\n                              }\n                            }\n                          ]\n                        }\n                      }\n                    },\n                    {\n                      \"type\": \"Expr\",\n                      \"fields\": {\n                        \"op\": \"parameter\",\n                        \"args\": {\n                          \"tuple\": [\n                            \"theta\"\n                          ]\n                        }\n                      }\n                    }\n                  ]\n                }\n              }\n            },\n            \"efficiency\": 1.0,\n            \"noise\": 0.0\n          }\n        },\n        \"key\": \"m1\"\n      }\n    },\n    {\n      \"type\": \"Displace\",\n      \"fields\": {\n        \"node\": 2,\n        \"q\": {\n          \"type\": \"Expr\",\n          \"fields\": {\n            \"op\": \"neg\",\n            \"args\": {\n              \"tuple\": [\n                {\n                  \"type\": \"Expr\",\n                  \"fields\": {\n                    \"op\": \"outcome\",\n                    \"args\": {\n                      \"tuple\": [\n                        \"m1\"\n                      ]\n                    }\n                  }\n                }\n              ]\n            }\n          }\n        },\n        \"p\": 0.0\n      }\n    },\n    {\n      \"type\": \"Output\",\n      \"fields\": {\n        \"nodes\": {\n          \"tuple\": [\n            2\n          ]\n        }\n      }\n    }\n  ],\n  \"resource\": {\n    \"mapping\": [\n      [\n        \"nodes\",\n        [\n          {\n            \"tuple\": [\n              0,\n              {\n                \"mapping\": [\n                  [\n                    \"squeezing\",\n                    1.0\n                  ]\n                ]\n              }\n            ]\n          },\n          {\n            \"tuple\": [\n              1,\n              {\n                \"mapping\": [\n                  [\n                    \"squeezing\",\n                    1.0\n                  ]\n                ]\n              }\n            ]\n          },\n          {\n            \"tuple\": [\n              2,\n              {\n                \"mapping\": [\n                  [\n                    \"squeezing\",\n                    1.0\n                  ]\n                ]\n              }\n            ]\n          }\n        ]\n      ],\n      [\n        \"edges\",\n        [\n          {\n            \"tuple\": [\n              0,\n              1,\n              {\n                \"mapping\": [\n                  [\n                    \"weight\",\n                    1.0\n                  ]\n                ]\n              }\n            ]\n          },\n          {\n            \"tuple\": [\n              1,\n              2,\n              {\n                \"mapping\": [\n                  [\n                    \"weight\",\n                    1.0\n                  ]\n                ]\n              }\n            ]\n          }\n        ]\n      ],\n      [\n        \"inputs\",\n        {\n          \"tuple\": [\n            0\n          ]\n        }\n      ],\n      [\n        \"outputs\",\n        {\n          \"tuple\": []\n        }\n      ],\n      [\n        \"ideal\",\n        false\n      ]\n    ]\n  }\n}",
+  "dependency_edges": [
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      6,
+      7
+    ],
+    [
+      7,
+      8
+    ]
+  ],
+  "m0_command_index": 4,
+  "m1_command_index": 6,
+  "affine_analyzer_rejected_pattern": true,
+  "theta_parameter": 0.3
+}

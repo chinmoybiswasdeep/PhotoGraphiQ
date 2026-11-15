@@ -1,6 +1,35 @@
 """Backend contract: one trajectory, destructive measurements, labelled modes."""
 
+import numbers
 from abc import ABC, abstractmethod
+
+import numpy as np
+
+
+def resolve_angle(measurement, angle):
+    """Quadrature angle of a direct ``measure`` call.
+
+    ``simulate`` resolves ``Homodyne.angle`` (possibly an outcome expression) and passes it
+    as ``angle``. A direct call may omit ``angle``: a homodyne then measures at its own
+    numeric angle instead of silently measuring q. An explicit ``angle`` that contradicts a
+    non-zero numeric ``Homodyne.angle`` raises ``ValueError``.
+    """
+    from ..measurements import Homodyne
+
+    if not isinstance(measurement, Homodyne):
+        return 0.0 if angle is None else angle
+    own = measurement.angle
+    numeric = isinstance(own, numbers.Real) and not isinstance(own, bool)
+    if angle is None:
+        if not numeric:
+            raise ValueError(
+                "Homodyne angle is an expression: run the pattern with simulate() or pass angle="
+            )
+        return float(own)
+    if numeric and own != 0 and isinstance(angle, numbers.Real):
+        if not np.isclose(float(own), float(angle), rtol=0.0, atol=1e-12):
+            raise ValueError(f"angle={angle!r} contradicts Homodyne.angle={own!r}")
+    return angle
 
 
 class BaseBackend(ABC):
@@ -54,7 +83,7 @@ class BaseBackend(ABC):
     @abstractmethod
     def beamsplitter(self, u, v, theta): ...
     @abstractmethod
-    def measure(self, node, measurement, angle=0.0): ...
+    def measure(self, node, measurement, angle=None): ...
     @abstractmethod
     def get_state(self, nodes=None): ...
 

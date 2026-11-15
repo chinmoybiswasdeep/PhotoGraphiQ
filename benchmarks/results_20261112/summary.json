@@ -1,0 +1,456 @@
+{
+  "mode": "full",
+  "output": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139",
+  "environment": {
+    "timestamp_utc": "2026-11-12T09:11:39+00:00",
+    "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+    "packages": {
+      "photographiq": "0.3.1",
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "networkx": "3.6.1",
+      "piquasso": "8.0.1",
+      "graphix": "0.4",
+      "mpmath": "1.3.0",
+      "jax": "0.11.1",
+      "cupy-cuda12x": null,
+      "cupy-cuda13x": "14.2.0",
+      "mentpy": null,
+      "matplotlib": "3.11.1"
+    },
+    "git_head": "f30321fd09140b310c3fb53e02a9b503e756855f",
+    "git_dirty": true,
+    "native": {
+      "components": [
+        "gaussian",
+        "fock",
+        "sampling"
+      ],
+      "compiler": "MSVC 19.50.35729.0",
+      "build_type": "Release",
+      "cxx_standard": 202002,
+      "openmp": true,
+      "eigen": "3.4.0",
+      "hbar": 2.0
+    }
+  },
+  "steps": [
+    {
+      "name": "tests-validation",
+      "claim": "independent Gaussian/Fock validation matrix",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/validation"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 11.3,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\tests-validation.log"
+    },
+    {
+      "name": "tests-native",
+      "claim": "native engines agree with references",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/native"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 61.0,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\tests-native.log"
+    },
+    {
+      "name": "tests-sampling",
+      "claim": "BS/GBS probabilities and samplers",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/sampling"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 22.6,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\tests-sampling.log"
+    },
+    {
+      "name": "tests-flow-calculus",
+      "claim": "flows, measurement calculus, ZX",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/flow",
+        "tests/calculus"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 38.6,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\tests-flow-calculus.log"
+    },
+    {
+      "name": "tests-cudaq-adapter",
+      "claim": "CUDA-Q translation (NumPy reference)",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/cudaq_adapter"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 3.6,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\tests-cudaq-adapter.log"
+    },
+    {
+      "name": "tests-gpu",
+      "claim": "GPU kernels equal CPU (skips without CUDA)",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/gpu"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 9.1,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\tests-gpu.log"
+    },
+    {
+      "name": "tests-ml",
+      "claim": "PhotoGraphiQML contract and physical lowering",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/ml"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 105.1,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\tests-ml.log"
+    },
+    {
+      "name": "tests-full",
+      "claim": "complete regression suite",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 632.9,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\tests-full.log"
+    },
+    {
+      "name": "figures-check",
+      "claim": "architecture figures cite existing code",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "scripts/generate_architecture_figures.py",
+        "--check"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.3,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\figures-check.log"
+    },
+    {
+      "name": "bench-boson-sampling-smoke",
+      "claim": "benchmark runs",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "benchmarks/boson_sampling/bench_boson_sampling.py",
+        "--smoke",
+        "--output",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\artifacts\\bench-boson-sampling-smoke.json"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 4.9,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\bench-boson-sampling-smoke.log"
+    },
+    {
+      "name": "bench-boson-sampling",
+      "claim": "performance tables",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "benchmarks/boson_sampling/bench_boson_sampling.py",
+        "--output",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\artifacts\\bench-boson-sampling.json"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 47.6,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\bench-boson-sampling.log"
+    },
+    {
+      "name": "bench-gbs-smoke",
+      "claim": "benchmark runs",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "benchmarks/gaussian_boson_sampling/bench_gbs.py",
+        "--smoke",
+        "--output",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\artifacts\\bench-gbs-smoke.json"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 7.0,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\bench-gbs-smoke.log"
+    },
+    {
+      "name": "bench-gbs",
+      "claim": "performance tables",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "benchmarks/gaussian_boson_sampling/bench_gbs.py",
+        "--output",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\artifacts\\bench-gbs.json"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 40.8,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\bench-gbs.log"
+    },
+    {
+      "name": "bench-native-gaussian-smoke",
+      "claim": "benchmark runs",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "benchmarks/gaussian/bench_native_gaussian.py",
+        "--smoke",
+        "--output",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\artifacts\\bench-native-gaussian-smoke.json"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.7,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\bench-native-gaussian-smoke.log"
+    },
+    {
+      "name": "bench-native-gaussian",
+      "claim": "performance tables",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "benchmarks/gaussian/bench_native_gaussian.py",
+        "--output",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\artifacts\\bench-native-gaussian.json"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 31.0,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\bench-native-gaussian.log"
+    },
+    {
+      "name": "bench-fock-smoke",
+      "claim": "benchmark runs",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "benchmarks/fock/bench_fock.py",
+        "--smoke",
+        "--out",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\artifacts\\bench-fock-smoke.json"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 16.6,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\bench-fock-smoke.log"
+    },
+    {
+      "name": "bench-fock",
+      "claim": "performance tables",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "benchmarks/fock/bench_fock.py",
+        "--out",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\artifacts\\bench-fock.json"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 163.8,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\bench-fock.log"
+    },
+    {
+      "name": "bench-gpu-gaussian-smoke",
+      "claim": "benchmark runs",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "benchmarks/gpu/bench_gpu_gaussian.py",
+        "--smoke",
+        "--output",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\artifacts\\bench-gpu-gaussian-smoke.json"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 2.7,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\bench-gpu-gaussian-smoke.log"
+    },
+    {
+      "name": "bench-gpu-gaussian",
+      "claim": "performance tables",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "benchmarks/gpu/bench_gpu_gaussian.py",
+        "--output",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\artifacts\\bench-gpu-gaussian.json",
+        "--dtypes",
+        "float64",
+        "float32"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 369.2,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\bench-gpu-gaussian.log"
+    },
+    {
+      "name": "bench-gpu-fock-smoke",
+      "claim": "benchmark runs",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "benchmarks/gpu/bench_gpu_fock.py",
+        "--smoke",
+        "--output",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\artifacts\\bench-gpu-fock-smoke.json"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 5.3,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\bench-gpu-fock-smoke.log"
+    },
+    {
+      "name": "bench-gpu-fock",
+      "claim": "performance tables",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "benchmarks/gpu/bench_gpu_fock.py",
+        "--output",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\artifacts\\bench-gpu-fock.json"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 151.0,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\bench-gpu-fock.log"
+    },
+    {
+      "name": "bench-graphix",
+      "claim": "qubit-MBQC comparison with Graphix",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "benchmarks/graphix/bench_graphix_mbqc.py",
+        "--out-dir",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\artifacts\\graphix"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 102.2,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\bench-graphix.log"
+    },
+    {
+      "name": "threshold-mp-reference",
+      "claim": "threshold-probability accuracy vs 50-digit reference",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "benchmarks/gaussian_boson_sampling/threshold_mp_reference.py",
+        "24,12,0.9",
+        "28,14,0.9",
+        "32,16,0.9",
+        "--output",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\artifacts\\threshold_mp_reference.json"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 375.1,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\threshold-mp-reference.log"
+    },
+    {
+      "name": "paper_experiments-safe",
+      "claim": "paper_experiments light experiments",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "run_all_safe.py"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 252.3,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\paper_experiments-safe.log"
+    },
+    {
+      "name": "paper_experiments-compare",
+      "claim": "paper_experiments: regenerated values equal the recorded ones",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "scripts/compare_recorded_results.py",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\suites\\paper_experiments\\results\\json",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\paper_experiments\\results\\json",
+        "--output",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\artifacts\\paper_experiments-comparison.json"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "seconds": 0.9,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\paper_experiments-compare.log"
+    },
+    {
+      "name": "paper_experiments_ml-safe",
+      "claim": "paper_experiments_ml light experiments",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "run_all_safe.py"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "seconds": 209.0,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\paper_experiments_ml-safe.log"
+    },
+    {
+      "name": "paper_experiments_ml-compare",
+      "claim": "paper_experiments_ml: regenerated values equal the recorded ones",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Scripts\\python.exe",
+        "scripts/compare_recorded_results.py",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\suites\\paper_experiments_ml\\results\\json",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\paper_experiments_ml\\results\\json",
+        "--output",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\artifacts\\paper_experiments_ml-comparison.json"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.8,
+      "log": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\build\\reproduction\\full-20261112-041139\\logs\\paper_experiments_ml-compare.log"
+    }
+  ]
+}

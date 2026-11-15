@@ -1,0 +1,168 @@
+{
+  "rows": [
+    {
+      "case": "random",
+      "n_wires": 1,
+      "seed": 0,
+      "n_branches": 2,
+      "probability_sum_error": 8.881784197001252e-16,
+      "none_convention_consistent": true
+    },
+    {
+      "case": "random",
+      "n_wires": 1,
+      "seed": 1,
+      "n_branches": 2,
+      "probability_sum_error": 9.992007221626409e-16,
+      "none_convention_consistent": true
+    },
+    {
+      "case": "random",
+      "n_wires": 1,
+      "seed": 2,
+      "n_branches": 2,
+      "probability_sum_error": 3.3306690738754696e-16,
+      "none_convention_consistent": true
+    },
+    {
+      "case": "random",
+      "n_wires": 1,
+      "seed": 3,
+      "n_branches": 2,
+      "probability_sum_error": 5.551115123125783e-16,
+      "none_convention_consistent": true
+    },
+    {
+      "case": "random",
+      "n_wires": 1,
+      "seed": 4,
+      "n_branches": 2,
+      "probability_sum_error": 1.1102230246251565e-16,
+      "none_convention_consistent": true
+    },
+    {
+      "case": "random",
+      "n_wires": 1,
+      "seed": 5,
+      "n_branches": 2,
+      "probability_sum_error": 2.220446049250313e-16,
+      "none_convention_consistent": true
+    },
+    {
+      "case": "random",
+      "n_wires": 2,
+      "seed": 0,
+      "n_branches": 2,
+      "probability_sum_error": 6.661338147750939e-16,
+      "none_convention_consistent": true
+    },
+    {
+      "case": "random",
+      "n_wires": 2,
+      "seed": 1,
+      "n_branches": 2,
+      "probability_sum_error": 8.881784197001252e-16,
+      "none_convention_consistent": true
+    },
+    {
+      "case": "random",
+      "n_wires": 2,
+      "seed": 2,
+      "n_branches": 2,
+      "probability_sum_error": 1.887379141862766e-15,
+      "none_convention_consistent": true
+    },
+    {
+      "case": "random",
+      "n_wires": 2,
+      "seed": 3,
+      "n_branches": 2,
+      "probability_sum_error": 1.4432899320127035e-15,
+      "none_convention_consistent": true
+    },
+    {
+      "case": "random",
+      "n_wires": 2,
+      "seed": 4,
+      "n_branches": 2,
+      "probability_sum_error": 1.5543122344752192e-15,
+      "none_convention_consistent": true
+    },
+    {
+      "case": "random",
+      "n_wires": 2,
+      "seed": 5,
+      "n_branches": 2,
+      "probability_sum_error": 1.887379141862766e-15,
+      "none_convention_consistent": true
+    },
+    {
+      "case": "random",
+      "n_wires": 3,
+      "seed": 0,
+      "n_branches": 2,
+      "probability_sum_error": 2.6645352591003757e-15,
+      "none_convention_consistent": true
+    },
+    {
+      "case": "random",
+      "n_wires": 3,
+      "seed": 1,
+      "n_branches": 2,
+      "probability_sum_error": 1.3322676295501878e-15,
+      "none_convention_consistent": true
+    },
+    {
+      "case": "random",
+      "n_wires": 3,
+      "seed": 2,
+      "n_branches": 2,
+      "probability_sum_error": 1.1102230246251565e-15,
+      "none_convention_consistent": true
+    },
+    {
+      "case": "random",
+      "n_wires": 3,
+      "seed": 3,
+      "n_branches": 2,
+      "probability_sum_error": 1.5543122344752192e-15,
+      "none_convention_consistent": true
+    },
+    {
+      "case": "random",
+      "n_wires": 3,
+      "seed": 4,
+      "n_branches": 2,
+      "probability_sum_error": 2.4424906541753444e-15,
+      "none_convention_consistent": true
+    },
+    {
+      "case": "random",
+      "n_wires": 3,
+      "seed": 5,
+      "n_branches": 2,
+      "probability_sum_error": 3.219646771412954e-15,
+      "none_convention_consistent": true
+    },
+    {
+      "case": "engineered_zero_branch",
+      "n_wires": 1,
+      "seed": null,
+      "n_branches": 2,
+      "probability_sum_error": 6.661338147750939e-16,
+      "none_convention_consistent": true
+    }
+  ],
+  "protocol": "QuantumInstrumentModel trace preservation, branch completeness, negligible-branch convention",
+  "oracle_class": "E",
+  "status_category": "exact",
+  "tolerance": 2.220446049250313e-14,
+  "acceptance_condition": "max probability-sum error < 2.220e-14; always 2 branches; None iff probability<1e-15",
+  "max_probability_sum_error": 3.219646771412954e-15,
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

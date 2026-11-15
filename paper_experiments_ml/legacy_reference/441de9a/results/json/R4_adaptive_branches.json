@@ -1,0 +1,72 @@
+{
+  "rows": [
+    {
+      "n_wires": 1,
+      "seed": 0,
+      "n_measured": 4,
+      "n_branches": 16,
+      "max_branch_error": 7.132486526673724e-16,
+      "probability_sum_error": 1.887379141862766e-15,
+      "min_branch_probability": 0.06249999999999987
+    },
+    {
+      "n_wires": 1,
+      "seed": 1,
+      "n_measured": 4,
+      "n_branches": 16,
+      "max_branch_error": 6.803332117171786e-16,
+      "probability_sum_error": 1.9984014443252818e-15,
+      "min_branch_probability": 0.062499999999999854
+    },
+    {
+      "n_wires": 1,
+      "seed": 2,
+      "n_measured": 4,
+      "n_branches": 16,
+      "max_branch_error": 2.0530023947760818e-16,
+      "probability_sum_error": 8.881784197001252e-16,
+      "min_branch_probability": 0.062499999999999924
+    },
+    {
+      "n_wires": 2,
+      "seed": 0,
+      "n_measured": 8,
+      "n_branches": 256,
+      "max_branch_error": 1.4392217307494033e-15,
+      "probability_sum_error": 4.440892098500626e-16,
+      "min_branch_probability": 0.003906249999999986
+    },
+    {
+      "n_wires": 2,
+      "seed": 1,
+      "n_measured": 8,
+      "n_branches": 256,
+      "max_branch_error": 1.1461432100273835e-15,
+      "probability_sum_error": 4.440892098500626e-16,
+      "min_branch_probability": 0.003906249999999987
+    },
+    {
+      "n_wires": 2,
+      "seed": 2,
+      "n_measured": 8,
+      "n_branches": 256,
+      "max_branch_error": 1.021342635280094e-15,
+      "probability_sum_error": 4.440892098500626e-16,
+      "min_branch_probability": 0.003906249999999986
+    }
+  ],
+  "protocol": "Exhaustive branch contraction (contract_branch) vs. MuTA.run target, 1- and 2-wire models",
+  "oracle_class": "D",
+  "status_category": "exact",
+  "tolerance": 2.220446049250313e-14,
+  "acceptance_condition": "max branch error and |sum(p)-1| < 2.220e-14; min probability > -tol",
+  "max_branch_error": 1.4392217307494033e-15,
+  "max_probability_sum_error": 1.9984014443252818e-15,
+  "min_branch_probability": 0.003906249999999986,
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

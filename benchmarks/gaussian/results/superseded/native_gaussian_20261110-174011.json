@@ -1,0 +1,505 @@
+{
+  "benchmark": "native_gaussian",
+  "environment": {
+    "timestamp_utc": "2026-11-10T22:40:11+00:00",
+    "cpu": "12th Gen Intel(R) Core(TM) i5-12450HX",
+    "logical_cpus": 12,
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "blas": {
+      "name": "scipy-openblas",
+      "version": "0.3.34.106.0",
+      "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=24"
+    },
+    "env_threads": {
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "MKL_NUM_THREADS": null
+    },
+    "native_build": {
+      "compiler": "MSVC 19.50.35729.0",
+      "build_type": "Release",
+      "cxx_standard": 202002,
+      "openmp": true,
+      "eigen": "3.4.0",
+      "hbar": 2.0
+    },
+    "native_threads": 12,
+    "git": {
+      "commit": "72bcf44f0d76a86422b2a233833a145b6191b151",
+      "dirty": true
+    }
+  },
+  "parameters": {
+    "modes": [
+      8,
+      16,
+      32,
+      64,
+      128,
+      256
+    ],
+    "repeats": 15,
+    "batch": 64,
+    "output": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\benchmarks\\gaussian\\results\\native_gaussian_20261110-174011.json"
+  },
+  "results": [
+    {
+      "operation": "gate",
+      "implementation": "numpy_backend",
+      "modes": 8,
+      "median_s": 0.00045909040048718454,
+      "iqr_s": 0.00010510800033807752,
+      "samples": 15
+    },
+    {
+      "operation": "gate",
+      "implementation": "numpy_local",
+      "modes": 8,
+      "median_s": 4.2215200141072275e-05,
+      "iqr_s": 4.038998857140538e-06,
+      "samples": 15
+    },
+    {
+      "operation": "gate",
+      "implementation": "native",
+      "modes": 8,
+      "median_s": 8.470401167869567e-06,
+      "iqr_s": 3.8259942084550867e-07,
+      "samples": 15
+    },
+    {
+      "operation": "homodyne",
+      "implementation": "numpy_backend",
+      "modes": 8,
+      "median_s": 0.0006420002318918705,
+      "iqr_s": 6.440002471208572e-05,
+      "samples": 15
+    },
+    {
+      "operation": "homodyne",
+      "implementation": "native",
+      "modes": 8,
+      "median_s": 4.429975524544716e-05,
+      "iqr_s": 6.09993003308773e-06,
+      "samples": 15
+    },
+    {
+      "operation": "batch_gate",
+      "implementation": "numpy_local_loop",
+      "modes": 8,
+      "batch": 64,
+      "median_s": 0.0033784997649490833,
+      "iqr_s": 0.0002895002253353596,
+      "samples": 5
+    },
+    {
+      "operation": "batch_gate",
+      "implementation": "native_batched",
+      "modes": 8,
+      "batch": 64,
+      "median_s": 0.0005196002312004566,
+      "iqr_s": 0.0007618996314704418,
+      "samples": 5
+    },
+    {
+      "operation": "batch_homodyne",
+      "implementation": "numpy_backend_loop",
+      "modes": 8,
+      "batch": 64,
+      "median_s": 0.033307400066405535,
+      "iqr_s": 0.002191700041294098,
+      "samples": 5
+    },
+    {
+      "operation": "batch_homodyne",
+      "implementation": "native_batched",
+      "modes": 8,
+      "batch": 64,
+      "median_s": 0.005261399783194065,
+      "iqr_s": 0.005980599671602249,
+      "samples": 5
+    },
+    {
+      "operation": "gate",
+      "implementation": "numpy_backend",
+      "modes": 16,
+      "median_s": 0.0005613127984106541,
+      "iqr_s": 7.977320253849032e-05,
+      "samples": 15
+    },
+    {
+      "operation": "gate",
+      "implementation": "numpy_local",
+      "modes": 16,
+      "median_s": 3.583040088415146e-05,
+      "iqr_s": 2.7047991752624455e-06,
+      "samples": 15
+    },
+    {
+      "operation": "gate",
+      "implementation": "native",
+      "modes": 16,
+      "median_s": 7.840801030397414e-06,
+      "iqr_s": 3.3288002014160156e-06,
+      "samples": 15
+    },
+    {
+      "operation": "homodyne",
+      "implementation": "numpy_backend",
+      "modes": 16,
+      "median_s": 0.0005731000564992428,
+      "iqr_s": 4.755007103085518e-05,
+      "samples": 15
+    },
+    {
+      "operation": "homodyne",
+      "implementation": "native",
+      "modes": 16,
+      "median_s": 4.439987242221832e-05,
+      "iqr_s": 3.5499688237905502e-06,
+      "samples": 15
+    },
+    {
+      "operation": "batch_gate",
+      "implementation": "numpy_local_loop",
+      "modes": 16,
+      "batch": 64,
+      "median_s": 0.002914699725806713,
+      "iqr_s": 0.0010973992757499218,
+      "samples": 5
+    },
+    {
+      "operation": "batch_gate",
+      "implementation": "native_batched",
+      "modes": 16,
+      "batch": 64,
+      "median_s": 0.00024560000747442245,
+      "iqr_s": 0.00018859980627894402,
+      "samples": 5
+    },
+    {
+      "operation": "batch_homodyne",
+      "implementation": "numpy_backend_loop",
+      "modes": 16,
+      "batch": 64,
+      "median_s": 0.03200419992208481,
+      "iqr_s": 0.0024457997642457485,
+      "samples": 5
+    },
+    {
+      "operation": "batch_homodyne",
+      "implementation": "native_batched",
+      "modes": 16,
+      "batch": 64,
+      "median_s": 0.00011619972065091133,
+      "iqr_s": 1.2400094419717789e-05,
+      "samples": 5
+    },
+    {
+      "operation": "gate",
+      "implementation": "numpy_backend",
+      "modes": 32,
+      "median_s": 0.0011942935506663015,
+      "iqr_s": 0.0002181024192982623,
+      "samples": 15
+    },
+    {
+      "operation": "gate",
+      "implementation": "numpy_local",
+      "modes": 32,
+      "median_s": 2.6367739924500065e-05,
+      "iqr_s": 5.429028533399105e-06,
+      "samples": 15
+    },
+    {
+      "operation": "gate",
+      "implementation": "native",
+      "modes": 32,
+      "median_s": 4.893551850991864e-06,
+      "iqr_s": 2.9758384992038143e-07,
+      "samples": 15
+    },
+    {
+      "operation": "homodyne",
+      "implementation": "numpy_backend",
+      "modes": 32,
+      "median_s": 0.0007195998914539814,
+      "iqr_s": 0.00021069985814392567,
+      "samples": 15
+    },
+    {
+      "operation": "homodyne",
+      "implementation": "native",
+      "modes": 32,
+      "median_s": 5.9300102293491364e-05,
+      "iqr_s": 1.714983955025673e-05,
+      "samples": 15
+    },
+    {
+      "operation": "batch_gate",
+      "implementation": "numpy_local_loop",
+      "modes": 32,
+      "batch": 64,
+      "median_s": 0.002504099626094103,
+      "iqr_s": 0.0009620999917387962,
+      "samples": 5
+    },
+    {
+      "operation": "batch_gate",
+      "implementation": "native_batched",
+      "modes": 32,
+      "batch": 64,
+      "median_s": 0.0010953997261822224,
+      "iqr_s": 5.5800192058086395e-05,
+      "samples": 5
+    },
+    {
+      "operation": "batch_homodyne",
+      "implementation": "numpy_backend_loop",
+      "modes": 32,
+      "batch": 64,
+      "median_s": 0.048360600136220455,
+      "iqr_s": 0.004437699448317289,
+      "samples": 5
+    },
+    {
+      "operation": "batch_homodyne",
+      "implementation": "native_batched",
+      "modes": 32,
+      "batch": 64,
+      "median_s": 0.000842600129544735,
+      "iqr_s": 4.299962893128395e-05,
+      "samples": 5
+    },
+    {
+      "operation": "gate",
+      "implementation": "numpy_backend",
+      "modes": 64,
+      "median_s": 0.006470425805497554,
+      "iqr_s": 0.002091051612590109,
+      "samples": 15
+    },
+    {
+      "operation": "gate",
+      "implementation": "numpy_local",
+      "modes": 64,
+      "median_s": 3.780968367092071e-05,
+      "iqr_s": 1.3895152557280758e-05,
+      "samples": 15
+    },
+    {
+      "operation": "gate",
+      "implementation": "native",
+      "modes": 64,
+      "median_s": 9.696780433577875e-06,
+      "iqr_s": 1.558065114002075e-06,
+      "samples": 15
+    },
+    {
+      "operation": "homodyne",
+      "implementation": "numpy_backend",
+      "modes": 64,
+      "median_s": 0.003457300364971161,
+      "iqr_s": 0.000643549719825387,
+      "samples": 15
+    },
+    {
+      "operation": "homodyne",
+      "implementation": "native",
+      "modes": 64,
+      "median_s": 0.00014459993690252304,
+      "iqr_s": 1.7649726942181587e-05,
+      "samples": 15
+    },
+    {
+      "operation": "batch_gate",
+      "implementation": "numpy_local_loop",
+      "modes": 64,
+      "batch": 64,
+      "median_s": 0.01019649999216199,
+      "iqr_s": 0.0062432000413537025,
+      "samples": 5
+    },
+    {
+      "operation": "batch_gate",
+      "implementation": "native_batched",
+      "modes": 64,
+      "batch": 64,
+      "median_s": 0.004795200191438198,
+      "iqr_s": 0.004375900141894817,
+      "samples": 5
+    },
+    {
+      "operation": "batch_homodyne",
+      "implementation": "numpy_backend_loop",
+      "modes": 64,
+      "batch": 64,
+      "median_s": 0.2752543999813497,
+      "iqr_s": 0.0877049001865089,
+      "samples": 5
+    },
+    {
+      "operation": "batch_homodyne",
+      "implementation": "native_batched",
+      "modes": 64,
+      "batch": 64,
+      "median_s": 0.002987199928611517,
+      "iqr_s": 0.0003762999549508095,
+      "samples": 5
+    },
+    {
+      "operation": "gate",
+      "implementation": "numpy_backend",
+      "modes": 128,
+      "median_s": 0.02552070003002882,
+      "iqr_s": 0.0016776500269770622,
+      "samples": 15
+    },
+    {
+      "operation": "gate",
+      "implementation": "numpy_local",
+      "modes": 128,
+      "median_s": 2.6906685282786686e-05,
+      "iqr_s": 6.433110684156384e-07,
+      "samples": 15
+    },
+    {
+      "operation": "gate",
+      "implementation": "native",
+      "modes": 128,
+      "median_s": 8.633360266685486e-06,
+      "iqr_s": 1.2665987014770508e-07,
+      "samples": 15
+    },
+    {
+      "operation": "homodyne",
+      "implementation": "numpy_backend",
+      "modes": 128,
+      "median_s": 0.024565099738538265,
+      "iqr_s": 0.0023661497980356216,
+      "samples": 15
+    },
+    {
+      "operation": "homodyne",
+      "implementation": "native",
+      "modes": 128,
+      "median_s": 0.0001563001424074173,
+      "iqr_s": 5.200039595365524e-06,
+      "samples": 15
+    },
+    {
+      "operation": "batch_gate",
+      "implementation": "numpy_local_loop",
+      "modes": 128,
+      "batch": 64,
+      "median_s": 0.00972580024972558,
+      "iqr_s": 0.0026619997806847095,
+      "samples": 5
+    },
+    {
+      "operation": "batch_gate",
+      "implementation": "native_batched",
+      "modes": 128,
+      "batch": 64,
+      "median_s": 0.01485770009458065,
+      "iqr_s": 0.003181599546223879,
+      "samples": 5
+    },
+    {
+      "operation": "batch_homodyne",
+      "implementation": "numpy_backend_loop",
+      "modes": 128,
+      "batch": 64,
+      "median_s": 1.6072796997614205,
+      "iqr_s": 0.44189689960330725,
+      "samples": 5
+    },
+    {
+      "operation": "batch_homodyne",
+      "implementation": "native_batched",
+      "modes": 128,
+      "batch": 64,
+      "median_s": 0.009630100335925817,
+      "iqr_s": 0.0033760000951588154,
+      "samples": 5
+    },
+    {
+      "operation": "gate",
+      "implementation": "numpy_backend",
+      "modes": 256,
+      "median_s": 0.2877557002939284,
+      "iqr_s": 0.016848400235176086,
+      "samples": 15
+    },
+    {
+      "operation": "gate",
+      "implementation": "numpy_local",
+      "modes": 256,
+      "median_s": 7.037146549139704e-05,
+      "iqr_s": 3.10712493956089e-06,
+      "samples": 15
+    },
+    {
+      "operation": "gate",
+      "implementation": "native",
+      "modes": 256,
+      "median_s": 3.2257089125258585e-05,
+      "iqr_s": 4.064291715621948e-06,
+      "samples": 15
+    },
+    {
+      "operation": "homodyne",
+      "implementation": "numpy_backend",
+      "modes": 256,
+      "median_s": 0.1804611999541521,
+      "iqr_s": 0.06802610005252063,
+      "samples": 15
+    },
+    {
+      "operation": "homodyne",
+      "implementation": "native",
+      "modes": 256,
+      "median_s": 0.0008419998921453953,
+      "iqr_s": 0.0001688001211732626,
+      "samples": 15
+    },
+    {
+      "operation": "batch_gate",
+      "implementation": "numpy_local_loop",
+      "modes": 256,
+      "batch": 16,
+      "median_s": 0.009703100193291903,
+      "iqr_s": 0.0002574995160102844,
+      "samples": 5
+    },
+    {
+      "operation": "batch_gate",
+      "implementation": "native_batched",
+      "modes": 256,
+      "batch": 16,
+      "median_s": 0.01717159990221262,
+      "iqr_s": 0.0018698996864259243,
+      "samples": 5
+    },
+    {
+      "operation": "batch_homodyne",
+      "implementation": "numpy_backend_loop",
+      "modes": 256,
+      "batch": 16,
+      "median_s": 2.882240700069815,
+      "iqr_s": 0.1528996997512877,
+      "samples": 5
+    },
+    {
+      "operation": "batch_homodyne",
+      "implementation": "native_batched",
+      "modes": 256,
+      "batch": 16,
+      "median_s": 0.02034199982881546,
+      "iqr_s": 0.0032425997778773308,
+      "samples": 5
+    }
+  ]
+}

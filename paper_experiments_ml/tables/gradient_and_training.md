@@ -1,0 +1,5 @@
+| experiment | status |
+|---|---|
+| R18_parameter_shift_vs_fd | pass |
+| R19_optimizer_convergence | pass |
+| R22_gate_learning_sensitivity | pass |

@@ -1,8 +1,9 @@
 # Cutoff convergence
 
 `cutoff_convergence(pattern, [c1,c2,...], measurement_outcomes=...)` runs increasing
-total-photon cutoffs. The default backend is `piquasso-fock`; choose
-`backend="piquasso-mixed-fock"` for density-matrix studies. A callable pattern
+total-photon cutoffs. The default backend is `piquasso-fock` (kept for reproducibility of recorded studies; it
+needs the `piquasso` extra). Pass `backend="native-fock"` or `"native-mixed-fock"` to run
+without Piquasso, or a mixed-Fock backend for density-matrix studies. A callable pattern
 factory receives the cutoff so explicitly truncated resources can be rebuilt.
 
 Each row reports norms, maximum boundary population, occupation-aligned fidelity,

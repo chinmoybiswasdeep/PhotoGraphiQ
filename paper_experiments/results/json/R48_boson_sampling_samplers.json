@@ -1,0 +1,163 @@
+{
+  "rows": [
+    {
+      "modes": 6,
+      "inputs": "(1, 1, 1, 0, 0, 0)",
+      "method": "clifford",
+      "shots": 20000,
+      "chi2": 50.86827671383978,
+      "dof": 55,
+      "p_value": 0.6331623154736693,
+      "total_variation": 0.01665825660197246,
+      "outside_support": 0
+    },
+    {
+      "modes": 5,
+      "inputs": "(2, 1, 0, 0, 0)",
+      "method": "enumerate",
+      "shots": 20000,
+      "chi2": 37.8792570419315,
+      "dof": 34,
+      "p_value": 0.29671921507714694,
+      "total_variation": 0.014559641039476046,
+      "outside_support": 0
+    }
+  ],
+  "backend": "photographiq.sampling (native Gray-code Ryser 'native', NumPy multiplicity Ryser 'python')",
+  "reference": "permutation-sum definition, Glynn formula (this script), native Fock-space evolution of the passive unitary, Piquasso 8.0.1 PureFockSimulator, DFT suppression law",
+  "precision": "complex128",
+  "cutoff": "photons + 1 for the Fock-space references",
+  "seed": 20261148,
+  "full": true,
+  "timing_status": "PROVISIONAL (shared machine)",
+  "parameters": {
+    "permanent_sizes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      16,
+      18,
+      20
+    ],
+    "distribution_cases": [
+      [
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "sampler_shots": 20000,
+    "haar_source": "scipy.stats.unitary_group"
+  },
+  "native_threads": 12,
+  "acceptance": {
+    "TOL_PERM_SCALED": 1e-13,
+    "TOL_NORMALISATION": 1e-12,
+    "TOL_FOCK_REFERENCE": 1e-12,
+    "TOL_PIQUASSO": 1e-12,
+    "TOL_SUPPRESSION": 1e-14,
+    "MIN_CHI2_PVALUE": 0.0001
+  }
+}

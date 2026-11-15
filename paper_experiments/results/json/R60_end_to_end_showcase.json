@@ -1,0 +1,539 @@
+{
+  "rows": [
+    {
+      "check": "flow certified",
+      "status": "pass",
+      "measured": "certified",
+      "criterion": "certified"
+    },
+    {
+      "check": "ideal-limit determinism map == analytic S",
+      "status": "pass",
+      "measured": 1.155964213239713e-12,
+      "criterion": "<= 1e-09"
+    },
+    {
+      "check": "flow order respects flow map",
+      "status": "pass",
+      "measured": 0,
+      "criterion": "0 violations"
+    },
+    {
+      "check": "compiled order respects executed feed-forward",
+      "status": "pass",
+      "measured": 0,
+      "criterion": "0 violations"
+    },
+    {
+      "check": "flow-map pattern channel == compiled channel",
+      "status": "pass",
+      "measured": 1.1565193247520256e-12,
+      "criterion": "<= 1e-09"
+    },
+    {
+      "check": "compiled S == analytic S",
+      "status": "pass",
+      "measured": 5.551115123125783e-16,
+      "criterion": "<= 1e-09"
+    },
+    {
+      "check": "compiled S symplectic",
+      "status": "pass",
+      "measured": 1.1102230246251565e-16,
+      "criterion": "<= 1e-09"
+    },
+    {
+      "check": "conditional covariance outcome independent",
+      "status": "pass",
+      "measured": 0.0,
+      "criterion": "<= 1e-10"
+    },
+    {
+      "check": "ensemble mean == S mu (z)",
+      "status": "pass",
+      "measured": 1.4321945888243457,
+      "criterion": "<= 5.0"
+    },
+    {
+      "check": "ensemble cov == S V S^T + N (z)",
+      "status": "pass",
+      "measured": 1.867544309635963,
+      "criterion": "<= 5.0"
+    },
+    {
+      "check": "native-gaussian == NumPy gaussian (same seeds)",
+      "status": "pass",
+      "measured": 1.7763568394002505e-15,
+      "criterion": "<= 1e-10"
+    },
+    {
+      "check": "N(r) = e^{-2r} N0 over sweep",
+      "status": "pass",
+      "measured": 3.4495158132987525e-16,
+      "criterion": "<= 1e-09 (rel)"
+    },
+    {
+      "check": "S independent of r",
+      "status": "pass",
+      "measured": 5.551115123125783e-16,
+      "criterion": "<= 1e-09"
+    },
+    {
+      "check": "sweep r=0.5",
+      "status": "data",
+      "squeezing_r": 0.5,
+      "squeezing_dB": 4.342944819032518,
+      "map_error_vs_analytic": 5.551115123125783e-16,
+      "trace_noise": 9.05286773409214,
+      "max_eig_noise": 3.583976109767433,
+      "fidelity_to_ideal_output": 0.2224042659429077
+    },
+    {
+      "check": "sweep r=0.75",
+      "status": "data",
+      "squeezing_r": 0.75,
+      "squeezing_dB": 6.514417228548778,
+      "map_error_vs_analytic": 5.551115123125783e-16,
+      "trace_noise": 5.490841839050119,
+      "max_eig_noise": 2.173791394251558,
+      "fidelity_to_ideal_output": 0.34842055902875974
+    },
+    {
+      "check": "sweep r=1.0",
+      "status": "data",
+      "squeezing_r": 1.0,
+      "squeezing_dB": 8.685889638065037,
+      "map_error_vs_analytic": 5.551115123125783e-16,
+      "trace_noise": 3.330363923016798,
+      "max_eig_noise": 1.3184711284330421,
+      "fidelity_to_ideal_output": 0.4892850435862198
+    },
+    {
+      "check": "sweep r=1.25",
+      "status": "data",
+      "squeezing_r": 1.25,
+      "squeezing_dB": 10.857362047581296,
+      "map_error_vs_analytic": 5.551115123125783e-16,
+      "trace_noise": 2.019967827310533,
+      "max_eig_noise": 0.7996931633405537,
+      "fidelity_to_ideal_output": 0.6247736390181663
+    },
+    {
+      "check": "sweep r=1.5",
+      "status": "data",
+      "squeezing_r": 1.5,
+      "squeezing_dB": 13.028834457097556,
+      "map_error_vs_analytic": 5.551115123125783e-16,
+      "trace_noise": 1.225172418896952,
+      "max_eig_noise": 0.4850384219286286,
+      "fidelity_to_ideal_output": 0.7393166581718238
+    },
+    {
+      "check": "sweep r=2.0",
+      "status": "data",
+      "squeezing_r": 2.0,
+      "squeezing_dB": 17.371779276130074,
+      "map_error_vs_analytic": 5.551115123125783e-16,
+      "trace_noise": 0.4507157448024749,
+      "max_eig_noise": 0.17843566360578222,
+      "fidelity_to_ideal_output": 0.8883734420649005
+    },
+    {
+      "check": "sweep r=2.5",
+      "status": "data",
+      "squeezing_r": 2.5,
+      "squeezing_dB": 21.71472409516259,
+      "map_error_vs_analytic": 5.551115123125783e-16,
+      "trace_noise": 0.16580905632510487,
+      "max_eig_noise": 0.06564281221235062,
+      "fidelity_to_ideal_output": 0.956305723745931
+    },
+    {
+      "check": "sweep r=3.0",
+      "status": "data",
+      "squeezing_r": 3.0,
+      "squeezing_dB": 26.057668914195112,
+      "map_error_vs_analytic": 5.551115123125783e-16,
+      "trace_noise": 0.06099774298204379,
+      "max_eig_noise": 0.02414864107360148,
+      "fidelity_to_ideal_output": 0.9835382238250573
+    }
+  ],
+  "circuit": "Circuit(2).rotate(0, 0.4).squeeze(1, 0.3).cz(0, 1, 0.8).rotate(1, -0.6)",
+  "conventions": "hbar=2, interleaved (q0,p0,q1,p1), vacuum covariance I",
+  "resource_squeezing_r": 1.5,
+  "backend": "native-gaussian (validated against NumPy gaussian)",
+  "seeds": [
+    60,
+    4059
+  ],
+  "trajectories": 4000,
+  "input_alphas": [
+    [
+      0.6,
+      0.2
+    ],
+    [
+      -0.3,
+      0.5
+    ]
+  ],
+  "graph": {
+    "nodes": 23,
+    "edges": 22,
+    "inputs": [
+      0,
+      1
+    ],
+    "outputs": [
+      14,
+      22
+    ],
+    "compiled_gate_steps": [
+      [
+        "R",
+        4
+      ],
+      [
+        "S",
+        5
+      ],
+      [
+        "cz",
+        8
+      ],
+      [
+        "R",
+        4
+      ]
+    ]
+  },
+  "flow": {
+    "status": "certified",
+    "algorithm": "cv-flow (Booth-Markham 2023 real-linear condition; layered order search)",
+    "layers": [
+      [
+        1
+      ],
+      [
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        15
+      ],
+      [
+        16
+      ],
+      [
+        17
+      ],
+      [
+        5,
+        18
+      ],
+      [
+        11,
+        19
+      ],
+      [
+        12,
+        20
+      ],
+      [
+        13,
+        21
+      ]
+    ],
+    "measurement_order": [
+      1,
+      6,
+      0,
+      7,
+      2,
+      8,
+      3,
+      9,
+      4,
+      10,
+      15,
+      16,
+      17,
+      5,
+      18,
+      11,
+      19,
+      12,
+      20,
+      13,
+      21
+    ],
+    "dependencies": 45,
+    "assumptions": [
+      "Booth-Markham real-linear CV flow for homodyne measurements on a weighted graph",
+      "determinism is an infinite-squeezing statement; finite squeezing adds noise N and an outcome-dependent conditional shift G m, both in certificate['determinism']",
+      "unit-efficiency homodyne detection",
+      "missing resource squeezing defaults to r=1.0 (OpenGraph.to_cvgraph convention)"
+    ]
+  },
+  "executed_measurement_order": [
+    0,
+    2,
+    3,
+    4,
+    1,
+    6,
+    7,
+    8,
+    9,
+    5,
+    11,
+    12,
+    13,
+    10,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "flow_pairs_reordered_by_compiled_schedule": 2,
+  "executed_corrections": 21,
+  "flow_corrections": 45,
+  "output_corrections": {
+    "14": "q += -1 m[13]",
+    "22": "q += -1.047 m[21]"
+  },
+  "target_S": [
+    [
+      0.9210609940028851,
+      -0.3894183423086505,
+      0.0,
+      0.0
+    ],
+    [
+      0.3894183423086505,
+      0.9210609940028851,
+      0.5926545765453743,
+      0.0
+    ],
+    [
+      0.4160561262411831,
+      -0.17590570878924078,
+      0.6114236617026394,
+      0.7621876158437876
+    ],
+    [
+      0.6081475534837526,
+      -0.2571206616051342,
+      -0.4182974324618343,
+      1.1140865489919858
+    ]
+  ],
+  "compiled_S": [
+    [
+      0.921060994002885,
+      -0.3894183423086507,
+      -7.257925301663227e-17,
+      2.707324825053729e-32
+    ],
+    [
+      0.3894183423086506,
+      0.9210609940028851,
+      0.5926545765453743,
+      -2.2106984862400118e-16
+    ],
+    [
+      0.416056126241183,
+      -0.17590570878924075,
+      0.6114236617026396,
+      0.762187615843787
+    ],
+    [
+      0.6081475534837526,
+      -0.2571206616051342,
+      -0.41829743246183376,
+      1.114086548991986
+    ]
+  ],
+  "added_noise_N": [
+    [
+      0.19364404984759737,
+      0.007765189974136662,
+      0.042492694729233615,
+      0.06211139966614784
+    ],
+    [
+      0.007765189974136662,
+      0.27353640385804673,
+      0.08912310573017161,
+      -0.017694625909761796
+    ],
+    [
+      0.042492694729233615,
+      0.08912310573017161,
+      0.37341799512287377,
+      0.07363199602963465
+    ],
+    [
+      0.06211139966614784,
+      -0.017694625909761792,
+      0.07363199602963466,
+      0.38457397006843413
+    ]
+  ],
+  "displacement_d": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "ensemble_mean": [
+    0.9422263102655518,
+    0.46684031533399095,
+    0.8173562649684162,
+    1.9945249672199254
+  ],
+  "predicted_mean": [
+    0.9495058558800018,
+    0.48013366244431005,
+    0.8242384867959274,
+    1.991993808007536
+  ],
+  "ensemble_cov": [
+    [
+      1.185798544836631,
+      0.0101450960685514,
+      0.48522715141687833,
+      0.7056087006096345
+    ],
+    [
+      0.0101450960685514,
+      1.6319380929866154,
+      0.45195174020489187,
+      -0.27182679407457777
+    ],
+    [
+      0.48522715141687833,
+      0.45195174020489187,
+      1.5392327219810018,
+      0.9630636441813247
+    ],
+    [
+      0.7056087006096345,
+      -0.27182679407457777,
+      0.9630636441813247,
+      2.2214479032106755
+    ]
+  ],
+  "predicted_cov": [
+    [
+      1.1936440498475973,
+      0.007765189974136641,
+      0.4942066734452619,
+      0.7223798915938906
+    ],
+    [
+      0.007765189974136641,
+      1.6247758509582237,
+      0.4514861370463716,
+      -0.26560051361544756
+    ],
+    [
+      0.4942066734452619,
+      0.4514861370463716,
+      1.532232369525839,
+      0.9652705263223545
+    ],
+    [
+      0.7223798915938906,
+      -0.26560051361544756,
+      0.9652705263223545,
+      2.236690032150005
+    ]
+  ],
+  "conditional_cov": [
+    [
+      0.9128670049512609,
+      0.0022375035735542467,
+      0.2627649770573153,
+      0.40284116833399164
+    ],
+    [
+      0.0022375035735542467,
+      1.2873306730044805,
+      0.31322575394935376,
+      -0.1863888456538948
+    ],
+    [
+      0.2627649770573153,
+      0.31322575394935376,
+      1.0166766250810575,
+      0.47271779728940266
+    ],
+    [
+      0.40284116833399164,
+      -0.1863888456538948,
+      0.47271779728940266,
+      1.3756771531831757
+    ]
+  ],
+  "fidelity_ensemble_vs_ideal_at_r": 0.7393166581718238,
+  "log_trace_noise_slope": -1.9999999999999996,
+  "timings_provisional_shared_machine": {
+    "compile_s": 0.008493700006511062,
+    "flow_analysis_s": 0.6665073999902233,
+    "native_trajectories_s": 20.284028299996862,
+    "native_single_run": {
+      "median_seconds": 0.004562700021779165,
+      "std_seconds": 0.0003983111904262057,
+      "iqr_seconds": 0.0006759999960195273,
+      "min_seconds": 0.0042424999992363155,
+      "max_seconds": 0.005129600001964718,
+      "repeats": 5,
+      "warmup": 1,
+      "raw_seconds": [
+        0.004352600022684783,
+        0.00502860001870431,
+        0.005129600001964718,
+        0.0042424999992363155,
+        0.004562700021779165
+      ]
+    },
+    "numpy_single_run": {
+      "median_seconds": 0.015733699983684346,
+      "std_seconds": 0.002539261524939369,
+      "iqr_seconds": 0.0016202999686356634,
+      "min_seconds": 0.014632700011134148,
+      "max_seconds": 0.021074599993880838,
+      "repeats": 5,
+      "warmup": 1,
+      "raw_seconds": [
+        0.014632700011134148,
+        0.017175299988593906,
+        0.021074599993880838,
+        0.015555000019958243,
+        0.015733699983684346
+      ]
+    }
+  },
+  "interactive_html": "results/raw/R60_end_to_end_showcase.interactive.html",
+  "graph_svg": "results/raw/R60_end_to_end_showcase_graph_corrections.svg"
+}

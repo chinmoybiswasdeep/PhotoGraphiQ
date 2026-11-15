@@ -1,0 +1,57 @@
+{
+  "rows": [
+    {
+      "n_wires": 1,
+      "graph_vertices": 5,
+      "graph_edges": 4,
+      "n_parameters": 4,
+      "photographiqml_median_seconds": 6.520003080368042e-05,
+      "photographiqml_iqr_seconds": 5.700043402612209e-06,
+      "photographiqml_min_seconds": 5.870009772479534e-05,
+      "photographiqml_max_seconds": 7.11000757291913e-05,
+      "mentpy_median_seconds": 0.0009822999127209187,
+      "mentpy_iqr_seconds": 8.699996396899223e-05,
+      "mentpy_min_seconds": 0.0009359999094158411,
+      "mentpy_max_seconds": 0.0011233000550419092
+    },
+    {
+      "n_wires": 2,
+      "graph_vertices": 10,
+      "graph_edges": 10,
+      "n_parameters": 8,
+      "photographiqml_median_seconds": 0.00017370004206895828,
+      "photographiqml_iqr_seconds": 1.7149955965578556e-05,
+      "photographiqml_min_seconds": 0.000170299899764359,
+      "photographiqml_max_seconds": 0.0002234999556094408,
+      "mentpy_median_seconds": 0.0032984999706968665,
+      "mentpy_iqr_seconds": 0.00021795002976432443,
+      "mentpy_min_seconds": 0.0028726999880746007,
+      "mentpy_max_seconds": 0.003613900044001639
+    },
+    {
+      "n_wires": 3,
+      "graph_vertices": 15,
+      "graph_edges": 16,
+      "n_parameters": 12,
+      "photographiqml_median_seconds": 0.00018599990289658308,
+      "photographiqml_iqr_seconds": 2.949964255094528e-06,
+      "photographiqml_min_seconds": 0.00018089998047798872,
+      "photographiqml_max_seconds": 0.00019449996761977673,
+      "mentpy_median_seconds": 0.014754700008779764,
+      "mentpy_iqr_seconds": 0.0015117499860934913,
+      "mentpy_min_seconds": 0.01295959996059537,
+      "mentpy_max_seconds": 0.01907999999821186
+    }
+  ],
+  "protocol": "Matched-workload PhotoGraphiQML.run vs. raw MentPy PatternSimulator.run, repeated timings",
+  "oracle_class": "N/A",
+  "status_category": "statistical",
+  "acceptance_condition": "N/A (descriptive performance measurement)",
+  "status": "pass",
+  "machine_note": "Single Windows host, single process; local observation only, not a general performance claim",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "descriptive",
+  "claim_supported": "structural contract only",
+  "claim_not_supported": "no scientific performance conclusion"
+}

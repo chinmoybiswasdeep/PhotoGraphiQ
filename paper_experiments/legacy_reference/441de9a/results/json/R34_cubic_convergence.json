@@ -1,0 +1,233 @@
+{
+  "rows": [
+    {
+      "cutoff": 24,
+      "resource_squeezing": 0.1,
+      "ok": true,
+      "fidelity": 0.9469294912977205,
+      "log10_infidelity": -1.2751467494624917,
+      "retained_norm": 1.0000000000000004
+    },
+    {
+      "cutoff": 24,
+      "resource_squeezing": 0.3,
+      "ok": true,
+      "fidelity": 0.970600425619804,
+      "log10_infidelity": -1.5316589568555383,
+      "retained_norm": 1.0
+    },
+    {
+      "cutoff": 24,
+      "resource_squeezing": 0.6,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.99836644; increase cutoff=24"
+    },
+    {
+      "cutoff": 24,
+      "resource_squeezing": 1.0,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.97312438; increase cutoff=24"
+    },
+    {
+      "cutoff": 24,
+      "resource_squeezing": 1.5,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.9696007; increase cutoff=24"
+    },
+    {
+      "cutoff": 24,
+      "resource_squeezing": 2.0,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.81062528; increase cutoff=24"
+    },
+    {
+      "cutoff": 32,
+      "resource_squeezing": 0.1,
+      "ok": true,
+      "fidelity": 0.9469297882882736,
+      "log10_infidelity": -1.275149179846568,
+      "retained_norm": 1.0000000000000002
+    },
+    {
+      "cutoff": 32,
+      "resource_squeezing": 0.3,
+      "ok": true,
+      "fidelity": 0.9706032776846945,
+      "log10_infidelity": -1.5317010899868595,
+      "retained_norm": 1.0000000000000002
+    },
+    {
+      "cutoff": 32,
+      "resource_squeezing": 0.6,
+      "ok": true,
+      "fidelity": 0.9889756546815112,
+      "log10_infidelity": -1.9576471917022873,
+      "retained_norm": 1.0
+    },
+    {
+      "cutoff": 32,
+      "resource_squeezing": 1.0,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.98298367; increase cutoff=32"
+    },
+    {
+      "cutoff": 32,
+      "resource_squeezing": 1.5,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.98779474; increase cutoff=32"
+    },
+    {
+      "cutoff": 32,
+      "resource_squeezing": 2.0,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.87133538; increase cutoff=32"
+    },
+    {
+      "cutoff": 48,
+      "resource_squeezing": 0.1,
+      "ok": true,
+      "fidelity": 0.9469296090745074,
+      "log10_infidelity": -1.2751477132720848,
+      "retained_norm": 1.0000000000000002
+    },
+    {
+      "cutoff": 48,
+      "resource_squeezing": 0.3,
+      "ok": true,
+      "fidelity": 0.9706009723008218,
+      "log10_infidelity": -1.5316670325764228,
+      "retained_norm": 1.0
+    },
+    {
+      "cutoff": 48,
+      "resource_squeezing": 0.6,
+      "ok": true,
+      "fidelity": 0.988996020664211,
+      "log10_infidelity": -1.9584502338368102,
+      "retained_norm": 1.0000000000000002
+    },
+    {
+      "cutoff": 48,
+      "resource_squeezing": 1.0,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.99239828; increase cutoff=48"
+    },
+    {
+      "cutoff": 48,
+      "resource_squeezing": 1.5,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.99791089; increase cutoff=48"
+    },
+    {
+      "cutoff": 48,
+      "resource_squeezing": 2.0,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.93791442; increase cutoff=48"
+    },
+    {
+      "cutoff": 64,
+      "resource_squeezing": 0.1,
+      "ok": true,
+      "fidelity": 0.9469296021079399,
+      "log10_infidelity": -1.2751476562621102,
+      "retained_norm": 1.0000000000000002
+    },
+    {
+      "cutoff": 64,
+      "resource_squeezing": 0.3,
+      "ok": true,
+      "fidelity": 0.970600928140999,
+      "log10_infidelity": -1.5316663802299182,
+      "retained_norm": 1.0000000000000002
+    },
+    {
+      "cutoff": 64,
+      "resource_squeezing": 0.6,
+      "ok": true,
+      "fidelity": 0.988996718423811,
+      "log10_infidelity": -1.9584777732153165,
+      "retained_norm": 1.0
+    },
+    {
+      "cutoff": 64,
+      "resource_squeezing": 1.0,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.99626856; increase cutoff=64"
+    },
+    {
+      "cutoff": 64,
+      "resource_squeezing": 1.5,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.93784546; increase cutoff=64"
+    },
+    {
+      "cutoff": 64,
+      "resource_squeezing": 2.0,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.96900177; increase cutoff=64"
+    },
+    {
+      "cutoff": 96,
+      "resource_squeezing": 0.1,
+      "ok": true,
+      "fidelity": 0.9469296019369465,
+      "log10_infidelity": -1.2751476548628091,
+      "retained_norm": 1.0000000000000002
+    },
+    {
+      "cutoff": 96,
+      "resource_squeezing": 0.3,
+      "ok": true,
+      "fidelity": 0.9706009440205552,
+      "log10_infidelity": -1.5316666148089395,
+      "retained_norm": 1.0
+    },
+    {
+      "cutoff": 96,
+      "resource_squeezing": 0.6,
+      "ok": true,
+      "fidelity": 0.9889973966811096,
+      "log10_infidelity": -1.9585045445452236,
+      "retained_norm": 1.0
+    },
+    {
+      "cutoff": 96,
+      "resource_squeezing": 1.0,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.99887962; increase cutoff=96"
+    },
+    {
+      "cutoff": 96,
+      "resource_squeezing": 1.5,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.95990628; increase cutoff=96"
+    },
+    {
+      "cutoff": 96,
+      "resource_squeezing": 2.0,
+      "ok": false,
+      "fidelity": null,
+      "error": "Fock truncation norm 0.99183844; increase cutoff=96"
+    }
+  ],
+  "gamma": 0.15,
+  "alpha": [
+    0.2,
+    0.0
+  ]
+}

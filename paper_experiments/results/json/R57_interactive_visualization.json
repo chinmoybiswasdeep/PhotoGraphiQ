@@ -1,0 +1,228 @@
+{
+  "rows": [
+    {
+      "check": "flow status",
+      "status": "pass",
+      "measured": "certified",
+      "criterion": "certified"
+    },
+    {
+      "check": "flow arrows == flow.correction_map",
+      "status": "pass",
+      "measured": "34",
+      "criterion": "equal"
+    },
+    {
+      "check": "correction arrows == Displace commands",
+      "status": "pass",
+      "measured": "17",
+      "criterion": "equal pairs+labels"
+    },
+    {
+      "check": "correction coefficients",
+      "status": "pass",
+      "measured": "0.0",
+      "criterion": "<= 1e-12"
+    },
+    {
+      "check": "flow layers respect dependencies",
+      "status": "pass",
+      "measured": "9",
+      "criterion": "every s before t"
+    },
+    {
+      "check": "flow-map pattern channel == compiled channel",
+      "status": "pass",
+      "measured": "5.890288257148768e-13",
+      "criterion": "<= 1e-09"
+    },
+    {
+      "check": "semantics invariant under layouts",
+      "status": "pass",
+      "measured": "48/48",
+      "criterion": "all"
+    },
+    {
+      "check": "pattern and seeded run unchanged",
+      "status": "pass",
+      "measured": "17",
+      "criterion": "identical"
+    },
+    {
+      "check": "static SVG construct",
+      "status": "pass",
+      "measured": "19 nodes, 18 edges, 0 arrows",
+      "criterion": "equal to model"
+    },
+    {
+      "check": "static SVG flow",
+      "status": "pass",
+      "measured": "19 nodes, 18 edges, 34 arrows",
+      "criterion": "equal to model"
+    },
+    {
+      "check": "static SVG corrections",
+      "status": "pass",
+      "measured": "19 nodes, 18 edges, 17 arrows",
+      "criterion": "equal to model"
+    },
+    {
+      "check": "static SVG execution",
+      "status": "pass",
+      "measured": "19 nodes, 18 edges, 17 arrows",
+      "criterion": "equal to model"
+    },
+    {
+      "check": "routed curves clear other nodes",
+      "status": "pass",
+      "measured": "min 0.367",
+      "criterion": ">= 0.34"
+    },
+    {
+      "check": "editor JSON round trip",
+      "status": "pass",
+      "measured": "position drift 0.0e+00",
+      "criterion": "<= 1e-12"
+    },
+    {
+      "check": "layout file round trip",
+      "status": "pass",
+      "measured": "exact",
+      "criterion": "exact"
+    },
+    {
+      "check": "OpenGraph metadata round trip",
+      "status": "pass",
+      "measured": "measurements, squeezing, I/O",
+      "criterion": "exact"
+    },
+    {
+      "check": "browser real-input checks",
+      "status": "not_run",
+      "measured": "playwright not importable: No module named 'playwright'",
+      "criterion": "Playwright + Edge"
+    },
+    {
+      "check": "notebook execution",
+      "status": "pass",
+      "measured": "iframe produced; browser rendering not checked (no Playwright)",
+      "criterion": "nbclient"
+    },
+    {
+      "check": "notebook iframe renders in browser",
+      "status": "not_run",
+      "measured": "iframe produced; browser rendering not checked (no Playwright)",
+      "criterion": "Playwright"
+    }
+  ],
+  "circuit": "Circuit(2).rotate(0, 0.4).squeeze(1, 0.3).cz(0, 1, 0.8)",
+  "resource_squeezing_r": 1.5,
+  "backend": "native-gaussian",
+  "seed": 57,
+  "graph_nodes": 19,
+  "graph_edges": 18,
+  "flow_status": "certified",
+  "flow_algorithm": "cv-flow (Booth-Markham 2023 real-linear condition; layered order search)",
+  "flow_layers": [
+    [
+      1
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      4,
+      9
+    ],
+    [
+      5,
+      10
+    ],
+    [
+      11,
+      15
+    ],
+    [
+      12,
+      16
+    ],
+    [
+      13,
+      17
+    ]
+  ],
+  "flow_seconds_provisional_shared_machine": 0.4564922999998089,
+  "executed_measurement_order": [
+    0,
+    2,
+    3,
+    4,
+    1,
+    6,
+    7,
+    8,
+    9,
+    5,
+    11,
+    12,
+    13,
+    10,
+    15,
+    16,
+    17
+  ],
+  "flow_map_vs_pattern_feedforward_symmetric_difference": [
+    "(0, 3)",
+    "(1, 7)",
+    "(10, 16)",
+    "(11, 13)",
+    "(12, 14)",
+    "(15, 17)",
+    "(16, 18)",
+    "(2, 4)",
+    "(3, 5)",
+    "(4, 10)",
+    "(4, 11)",
+    "(5, 12)",
+    "(6, 8)",
+    "(7, 9)",
+    "(8, 10)",
+    "(9, 15)",
+    "(9, 5)"
+  ],
+  "flow_map_channel_difference": 5.890288257148768e-13,
+  "layouts_checked": [
+    "circular",
+    "force",
+    "grid",
+    "hierarchical",
+    "layered",
+    "manual0",
+    "manual1",
+    "manual2",
+    "manual3",
+    "manual4",
+    "publication",
+    "view"
+  ],
+  "min_route_clearance": 0.3667151483099654,
+  "browser": {
+    "status": "not_run",
+    "reason": "playwright not importable: No module named 'playwright'"
+  },
+  "notebook": {
+    "executed": true,
+    "browser": null,
+    "reason": "iframe produced; browser rendering not checked (no Playwright)"
+  },
+  "outcome_keys": 17
+}

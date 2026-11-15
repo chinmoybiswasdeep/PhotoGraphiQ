@@ -1,0 +1,57 @@
+{
+  "rows": [
+    {
+      "logical_squeezing_r": -1.0,
+      "resource_squeezing": 1.2,
+      "map_frobenius_error": 1.530711550218223e-15,
+      "noise_trace": 1.625071291842585,
+      "gaussian_max_z_mean": 1.2873507743301555,
+      "gaussian_max_z_covariance": 1.089840433128911,
+      "native-gaussian_max_z_mean": 1.2873507743301555,
+      "native-gaussian_max_z_covariance": 1.0898404331289144,
+      "native_vs_gaussian_max_record_difference": 4.440892098500626e-16,
+      "planner_backend": "native-gaussian",
+      "shots": 600,
+      "measurements": 5
+    },
+    {
+      "logical_squeezing_r": 0.2,
+      "resource_squeezing": 1.2,
+      "map_frobenius_error": 7.850476361818259e-16,
+      "noise_trace": 0.529109268355286,
+      "gaussian_max_z_mean": 1.4865339484509266,
+      "gaussian_max_z_covariance": 0.7495413375115189,
+      "native-gaussian_max_z_mean": 1.4865339484509266,
+      "native-gaussian_max_z_covariance": 0.7495413375115189,
+      "native_vs_gaussian_max_record_difference": 8.881784197001252e-16,
+      "planner_backend": "native-gaussian",
+      "shots": 600,
+      "measurements": 5
+    },
+    {
+      "logical_squeezing_r": 1.5,
+      "resource_squeezing": 1.2,
+      "map_frobenius_error": 3.847518542748416e-15,
+      "noise_trace": 2.1033058221439687,
+      "gaussian_max_z_mean": 1.7903806549003336,
+      "gaussian_max_z_covariance": 0.3844199736172827,
+      "native-gaussian_max_z_mean": 1.7903806549003336,
+      "native-gaussian_max_z_covariance": 0.3844199736172827,
+      "native_vs_gaussian_max_record_difference": 0.0,
+      "planner_backend": "native-gaussian",
+      "shots": 600,
+      "measurements": 5
+    }
+  ],
+  "backends": [
+    "gaussian",
+    "native-gaussian"
+  ],
+  "seed": 20261113,
+  "alpha": [
+    0.2,
+    0.3
+  ],
+  "sem_factor": 5.0,
+  "native_trajectory_tolerance": 1e-09
+}

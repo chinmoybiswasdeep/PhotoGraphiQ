@@ -1,0 +1,75 @@
+{
+  "rows": [
+    {
+      "objective": "quadratic_bowl",
+      "optimizer": "adam",
+      "epochs": 300,
+      "final_loss": 7.35625091214107e-13,
+      "threshold": 1e-06,
+      "distance_to_analytic_minimizer": 8.576858930949646e-07,
+      "final_gradient_norm": 1.7153717861899292e-06,
+      "passed": true
+    },
+    {
+      "objective": "quadratic_bowl",
+      "optimizer": "sgd",
+      "epochs": 300,
+      "final_loss": 4.930380657631324e-31,
+      "threshold": 1e-06,
+      "distance_to_analytic_minimizer": 7.021666937153402e-16,
+      "final_gradient_norm": 1.4043333874306805e-15,
+      "passed": true
+    },
+    {
+      "objective": "quadratic_bowl",
+      "optimizer": "lbfgs",
+      "epochs": 100,
+      "final_loss": 1.8242408433235898e-30,
+      "threshold": 1e-06,
+      "distance_to_analytic_minimizer": 1.3506446028928519e-15,
+      "final_gradient_norm": 2.7012892057857038e-15,
+      "passed": true
+    },
+    {
+      "objective": "rosenbrock",
+      "optimizer": "adam",
+      "epochs": 3000,
+      "final_loss": 3.703662242507643,
+      "threshold": 5.0,
+      "distance_to_analytic_minimizer": 2.122503429088275,
+      "final_gradient_norm": 0.03950936898863361,
+      "passed": true
+    },
+    {
+      "objective": "rosenbrock",
+      "optimizer": "sgd",
+      "epochs": 3000,
+      "final_loss": 0.015668074643020745,
+      "threshold": 5.0,
+      "distance_to_analytic_minimizer": 0.2405939689984109,
+      "final_gradient_norm": 0.13663076405737373,
+      "passed": true
+    },
+    {
+      "objective": "rosenbrock",
+      "optimizer": "lbfgs",
+      "epochs": 200,
+      "final_loss": 2.6414007826384185e-12,
+      "threshold": 0.5,
+      "distance_to_analytic_minimizer": 2.590441316401153e-07,
+      "final_gradient_norm": 7.212939035103466e-05,
+      "passed": true
+    }
+  ],
+  "protocol": "Trainer(adam/sgd/lbfgs).fit on quadratic bowl and Rosenbrock, vs. analytic minimum",
+  "oracle_class": "A",
+  "status_category": "approximate",
+  "acceptance_condition": "final_loss < declared threshold for every (objective, optimizer) pair",
+  "n_failed": 0,
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

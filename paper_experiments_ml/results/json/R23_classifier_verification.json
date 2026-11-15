@@ -1,0 +1,84 @@
+{
+  "rows": [
+    {
+      "split": 0,
+      "accuracy": 1.0,
+      "majority_baseline_accuracy": 0.5555555555555556,
+      "final_train_loss": 0.06520910154011592
+    },
+    {
+      "split": 1,
+      "accuracy": 1.0,
+      "majority_baseline_accuracy": 0.5555555555555556,
+      "final_train_loss": 0.07728795990437937
+    },
+    {
+      "split": 2,
+      "accuracy": 0.9444444444444444,
+      "majority_baseline_accuracy": 0.5555555555555556,
+      "final_train_loss": 0.074669421068585
+    },
+    {
+      "split": 3,
+      "accuracy": 0.9444444444444444,
+      "majority_baseline_accuracy": 0.5555555555555556,
+      "final_train_loss": 0.05386759697369269
+    },
+    {
+      "split": 4,
+      "accuracy": 1.0,
+      "majority_baseline_accuracy": 0.5555555555555556,
+      "final_train_loss": 0.08621089186002484
+    }
+  ],
+  "protocol": "MuTAClassifier on the one-dimensional threshold y=1[x < pi/2], repeated stratified splits",
+  "point_estimates": {
+    "accuracy_mean": 0.9777777777777779,
+    "accuracy_median": 1.0
+  },
+  "oracle_class": "A",
+  "status_category": "statistical",
+  "n_splits": 5,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "accuracy_bootstrap_ci": {
+    "point": 1.0,
+    "low": 0.9444444444444444,
+    "high": 1.0,
+    "n_boot": 2000,
+    "alpha": 0.05,
+    "n": 5,
+    "statistic": "median"
+  },
+  "paired_difference_vs_majority_baseline_ci": {
+    "point": 0.4444444444444444,
+    "low": 0.38888888888888884,
+    "high": 0.4444444444444444,
+    "n_boot": 2000,
+    "alpha": 0.05,
+    "n": 5,
+    "statistic": "median"
+  },
+  "confusion_matrix": [
+    [
+      50,
+      0
+    ],
+    [
+      2,
+      38
+    ]
+  ],
+  "acceptance_condition": "median accuracy >= 0.85 and paired improvement over majority baseline > 0",
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

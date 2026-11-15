@@ -1,0 +1,202 @@
+{
+  "config": {
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "samples": 200,
+    "test_fraction": 0.2,
+    "svm_C": 1.0,
+    "backend": "logical",
+    "preprocessing": "none; raw generated coordinates are feature angles in radians",
+    "datasets": [
+      "circles",
+      "blobs",
+      "moons"
+    ]
+  },
+  "runs": [
+    {
+      "dataset": "circles",
+      "seed": 0,
+      "accuracy": {
+        "muta": 1.0,
+        "rbf_svm": 1.0,
+        "logistic": 0.475
+      },
+      "muta_confusion": [
+        [
+          20,
+          0
+        ],
+        [
+          0,
+          20
+        ]
+      ],
+      "minimum_gram_eigenvalue": -5.3589184338775833e-14
+    },
+    {
+      "dataset": "circles",
+      "seed": 1,
+      "accuracy": {
+        "muta": 0.925,
+        "rbf_svm": 1.0,
+        "logistic": 0.425
+      },
+      "muta_confusion": [
+        [
+          17,
+          3
+        ],
+        [
+          0,
+          20
+        ]
+      ],
+      "minimum_gram_eigenvalue": -5.774706285633875e-14
+    },
+    {
+      "dataset": "circles",
+      "seed": 2,
+      "accuracy": {
+        "muta": 0.95,
+        "rbf_svm": 1.0,
+        "logistic": 0.475
+      },
+      "muta_confusion": [
+        [
+          18,
+          2
+        ],
+        [
+          0,
+          20
+        ]
+      ],
+      "minimum_gram_eigenvalue": -5.534546623956854e-14
+    },
+    {
+      "dataset": "blobs",
+      "seed": 0,
+      "accuracy": {
+        "muta": 0.55,
+        "rbf_svm": 1.0,
+        "logistic": 1.0
+      },
+      "muta_confusion": [
+        [
+          6,
+          14
+        ],
+        [
+          4,
+          16
+        ]
+      ],
+      "minimum_gram_eigenvalue": -6.055149784472251e-14
+    },
+    {
+      "dataset": "blobs",
+      "seed": 1,
+      "accuracy": {
+        "muta": 0.5,
+        "rbf_svm": 1.0,
+        "logistic": 1.0
+      },
+      "muta_confusion": [
+        [
+          16,
+          4
+        ],
+        [
+          16,
+          4
+        ]
+      ],
+      "minimum_gram_eigenvalue": -5.3625839227294485e-14
+    },
+    {
+      "dataset": "blobs",
+      "seed": 2,
+      "accuracy": {
+        "muta": 0.675,
+        "rbf_svm": 1.0,
+        "logistic": 1.0
+      },
+      "muta_confusion": [
+        [
+          9,
+          11
+        ],
+        [
+          2,
+          18
+        ]
+      ],
+      "minimum_gram_eigenvalue": -4.6739941077946257e-14
+    },
+    {
+      "dataset": "moons",
+      "seed": 0,
+      "accuracy": {
+        "muta": 0.8,
+        "rbf_svm": 1.0,
+        "logistic": 0.85
+      },
+      "muta_confusion": [
+        [
+          14,
+          6
+        ],
+        [
+          2,
+          18
+        ]
+      ],
+      "minimum_gram_eigenvalue": -7.088672575931946e-14
+    },
+    {
+      "dataset": "moons",
+      "seed": 1,
+      "accuracy": {
+        "muta": 0.85,
+        "rbf_svm": 1.0,
+        "logistic": 0.875
+      },
+      "muta_confusion": [
+        [
+          16,
+          4
+        ],
+        [
+          2,
+          18
+        ]
+      ],
+      "minimum_gram_eigenvalue": -5.390725856661565e-14
+    },
+    {
+      "dataset": "moons",
+      "seed": 2,
+      "accuracy": {
+        "muta": 0.675,
+        "rbf_svm": 1.0,
+        "logistic": 0.9
+      },
+      "muta_confusion": [
+        [
+          13,
+          7
+        ],
+        [
+          6,
+          14
+        ]
+      ],
+      "minimum_gram_eigenvalue": -4.058155632492304e-14
+    }
+  ],
+  "scope": "Eq. 5 feature map; locally specified data distributions and C, not exact Fig. 8 reproduction"
+}

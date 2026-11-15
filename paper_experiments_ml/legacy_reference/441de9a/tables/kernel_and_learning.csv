@@ -1,0 +1,7 @@
+experiment,status_category,status
+R20_haar_gate_learning,statistical,pass
+R21_ising_gate_learning,statistical,pass
+R23_classifier_verification,statistical,pass
+R24_regressor_verification,statistical,pass
+R26_kernel_properties,exact,pass
+R27_kernel_classification,statistical,pass

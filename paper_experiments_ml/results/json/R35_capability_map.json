@@ -1,0 +1,136 @@
+{
+  "rows": [
+    {
+      "center": "zero",
+      "offset": -1e-13,
+      "angle": -1e-13,
+      "expected_supported": false,
+      "actual_supported": false,
+      "correct": true
+    },
+    {
+      "center": "zero",
+      "offset": -1e-15,
+      "angle": -1e-15,
+      "expected_supported": true,
+      "actual_supported": true,
+      "correct": true
+    },
+    {
+      "center": "zero",
+      "offset": 0.0,
+      "angle": 0.0,
+      "expected_supported": true,
+      "actual_supported": true,
+      "correct": true
+    },
+    {
+      "center": "zero",
+      "offset": 1e-15,
+      "angle": 1e-15,
+      "expected_supported": true,
+      "actual_supported": true,
+      "correct": true
+    },
+    {
+      "center": "zero",
+      "offset": 1e-13,
+      "angle": 1e-13,
+      "expected_supported": false,
+      "actual_supported": false,
+      "correct": true
+    },
+    {
+      "center": "pi",
+      "offset": -1e-13,
+      "angle": 3.141592653589693,
+      "expected_supported": false,
+      "actual_supported": false,
+      "correct": true
+    },
+    {
+      "center": "pi",
+      "offset": -1e-15,
+      "angle": 3.1415926535897922,
+      "expected_supported": true,
+      "actual_supported": true,
+      "correct": true
+    },
+    {
+      "center": "pi",
+      "offset": 0.0,
+      "angle": 3.141592653589793,
+      "expected_supported": true,
+      "actual_supported": true,
+      "correct": true
+    },
+    {
+      "center": "pi",
+      "offset": 1e-15,
+      "angle": 3.141592653589794,
+      "expected_supported": true,
+      "actual_supported": true,
+      "correct": true
+    },
+    {
+      "center": "pi",
+      "offset": 1e-13,
+      "angle": 3.141592653589893,
+      "expected_supported": false,
+      "actual_supported": false,
+      "correct": true
+    },
+    {
+      "center": "Y_pi_over_2",
+      "offset": null,
+      "angle": 1.5707963267948966,
+      "expected_supported": false,
+      "actual_supported": false,
+      "correct": true
+    },
+    {
+      "center": "pi_over_4",
+      "offset": null,
+      "angle": 0.7853981633974483,
+      "expected_supported": false,
+      "actual_supported": false,
+      "correct": true
+    },
+    {
+      "center": "irrational_multiple",
+      "offset": null,
+      "angle": 1.23456789,
+      "expected_supported": false,
+      "actual_supported": false,
+      "correct": true
+    },
+    {
+      "center": "nan",
+      "offset": null,
+      "angle": NaN,
+      "expected_supported": false,
+      "actual_supported": false,
+      "correct": true
+    },
+    {
+      "center": "inf",
+      "offset": null,
+      "angle": Infinity,
+      "expected_supported": false,
+      "actual_supported": false,
+      "correct": true
+    }
+  ],
+  "protocol": "physical_capabilities classification at and around the 0/pi upstream tolerance boundary",
+  "oracle_class": "E",
+  "status_category": "exact",
+  "upstream_tolerance": 1e-14,
+  "acceptance_condition": "classification matches documented 1e-14 boundary for every declared case",
+  "n_incorrect": 0,
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

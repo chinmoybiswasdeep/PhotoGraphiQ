@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Release report v0.1 - PhotoGraphiQML</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">PhotoGraphiQML</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">PhotoGraphiQML</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../api/" class="nav-link">Input/output contract</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">Release report v0.1</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../release-report/" class="nav-link">PhotoGraphiQML 0.2.0 release assessment</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Physical</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../physical/architecture/" class="dropdown-item">Physical GKP architecture</a>
+</li>
+                                    
+<li>
+    <a href="../physical/convergence/" class="dropdown-item">Finite-resource convergence studies</a>
+</li>
+                                    
+<li>
+    <a href="../physical/decoding/" class="dropdown-item">Decoding and physical features</a>
+</li>
+                                    
+<li>
+    <a href="../physical/execution-modes/" class="dropdown-item">Execution modes and results</a>
+</li>
+                                    
+<li>
+    <a href="../physical/lowering/" class="dropdown-item">Inspectable lowering</a>
+</li>
+                                    
+<li>
+    <a href="../physical/pauli-frames/" class="dropdown-item">Logical Pauli-frame propagation</a>
+</li>
+                                    
+<li>
+    <a href="../physical/physical-training/" class="dropdown-item">Discrete physical training</a>
+</li>
+                                    
+<li>
+    <a href="../physical/supported-measurements/" class="dropdown-item">Supported measurements</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Research</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../research/implementation-plan/" class="dropdown-item">Architecture, validation and delivery plan</a>
+</li>
+                                    
+<li>
+    <a href="../research/mentpy-audit/" class="dropdown-item">MentPy audit</a>
+</li>
+                                    
+<li>
+    <a href="../research/muta-mapping/" class="dropdown-item">Mathematical and implementation mapping</a>
+</li>
+                                    
+<li>
+    <a href="../research/muta-paper-notes/" class="dropdown-item">MuTA paper analysis</a>
+</li>
+                                    
+<li>
+    <a href="../research/photographiq-audit/" class="dropdown-item">PhotoGraphiQ capability audit</a>
+</li>
+                                    
+<li>
+    <a href="../research/physical-gkp-design/" class="dropdown-item">PhotoGraphiQ 0.3.1 downstream design</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Tutorials</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../tutorials/" class="dropdown-item">Tutorials</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/01/" class="dropdown-item">01 What is MB-QML?</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/02/" class="dropdown-item">02 MuTA from the paper</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/03/" class="dropdown-item">03 First MuTA model</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/04/" class="dropdown-item">04 Triangle neuron anatomy</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/05/" class="dropdown-item">05 Multi-wire MuTA</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/06/" class="dropdown-item">06 Multi-layer MuTA</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/07/" class="dropdown-item">07 Trainable measurement angles</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/08/" class="dropdown-item">08 Classical feature encoding</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/09/" class="dropdown-item">09 Quantum state inputs</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/10/" class="dropdown-item">10 Gate learning</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/11/" class="dropdown-item">11 State classification</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/12/" class="dropdown-item">12 Classical classification</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/13/" class="dropdown-item">13 Quantum instrument learning</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/14/" class="dropdown-item">14 MuTA quantum kernel</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/15/" class="dropdown-item">15 Training with Adam</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/16/" class="dropdown-item">16 Finite-difference validation</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/17/" class="dropdown-item">17 Autodiff training</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/18/" class="dropdown-item">18 Noise and finite squeezing</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/19/" class="dropdown-item">19 GKP logical MuTA</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/20/" class="dropdown-item">20 MentPy cross-validation</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/21/" class="dropdown-item">21 Expressivity vs depth</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/22/" class="dropdown-item">22 Tunable entanglement</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/23/" class="dropdown-item">23 Bias engineering</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/24/" class="dropdown-item">24 Fisher information</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/25/" class="dropdown-item">25 Model serialization</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/26/" class="dropdown-item">26 Custom observable readout</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/27/" class="dropdown-item">27 Custom loss</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/28/" class="dropdown-item">28 Training callbacks</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/29/" class="dropdown-item">29 CV-native MuTA</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/30/" class="dropdown-item">30 Comparing qubit, GKP and CV MuTA</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/31_photographiq_031_encoded_interface/" class="dropdown-item">31. PhotoGraphiQ 0.3.1 encoded interface</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/32_physical_gkp_x_measurement/" class="dropdown-item">32. Physical GKP X measurement</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/33_physical_gkp_z_measurement/" class="dropdown-item">33. Physical GKP Z measurement</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/34_restricted_physical_muta/" class="dropdown-item">34. Restricted physical MuTA</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/35_zero-angle_physical_muta/" class="dropdown-item">35. Zero-angle physical MuTA</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/36_pauli-frame_propagation/" class="dropdown-item">36. Pauli-frame propagation</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/37_hard_vs_soft_decoding/" class="dropdown-item">37. Hard vs soft decoding</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/38_multi-mode_joint_readout/" class="dropdown-item">38. Multi-mode joint readout</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/39_physical_shots_and_statistical_error/" class="dropdown-item">39. Physical shots and statistical error</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/40_logical_vs_physical_comparison/" class="dropdown-item">40. Logical vs physical comparison</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/41_physical_convergence/" class="dropdown-item">41. Physical convergence</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/42_unsupported_arbitrary_xy_why_it_fails/" class="dropdown-item">42. Unsupported arbitrary XY why it fails</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/43_logical_training_to_physical_validation/" class="dropdown-item">43. Logical training to physical validation</a>
+</li>
+                                    
+<li>
+    <a href="../tutorials/44_discrete_physical-angle_search/" class="dropdown-item">44. Discrete physical-angle search</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../api/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../release-report/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#release-assessment" class="nav-link">Release assessment</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#repository-and-changed-files" class="nav-link">Repository and changed files</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#paper-mapping-and-reference-matrix" class="nav-link">Paper mapping and reference matrix</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#validation-and-ci" class="nav-link">Validation and CI</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#tutorials-projects-notebooks-and-figures" class="nav-link">Tutorials, projects, notebooks and figures</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#reproduced-targets-and-observed-results" class="nav-link">Reproduced targets and observed results</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#gkp-and-cv-limitations" class="nav-link">GKP and CV limitations</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#training-and-scaling-limitations" class="nav-link">Training and scaling limitations</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recommended-next-work" class="nav-link">Recommended next work</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<blockquote>
+<p>Historical v0.1 assessment. See the <a href="../release-report/">current release report</a>.</p>
+</blockquote>
+<h1 id="release-assessment">Release assessment</h1>
+<p><strong>Research foundation, not a complete physical v0.1 release.</strong> The faithful
+logical MuTA stage is implemented and tested. The GKP stage provides actual
+PhotoGraphiQ finite-resource preparation and diagnostics, but general physical
+MuTA execution remains unsupported. CVMuTA is a separate derivation proposal.
+The missing logical measurement/injection and decoding protocols are a
+scientific blocker to claiming the full requested stack is complete.</p>
+<h2 id="repository-and-changed-files">Repository and changed files</h2>
+<pre><code class="language-text">src/photographiqml/
+  ansatz/triangle.py         one paper layer and semantic geometry
+  ansatz/muta.py             composed logical model, flow and serialization
+  logical.py                Appendix B ideal logical target execution
+  parameters.py             metadata around PhotoGraphiQ Parameter
+  gkp.py                    finite resource bridge and explicit stage boundary
+  training.py               deterministic Adam/SGD/L-BFGS and histories
+  models.py                 encoding, classifiers, regressors and instruments
+  kernels.py                paper Eq. 5 kernel
+  diagnostics.py            logical concurrence and pure-state QFI
+  expressivity.py           Pauli Lie closure and local state Fisher matrix
+  validation.py             independent contraction and optional MentPy adapter
+tests/                      logical, training, GKP and reference tests
+docs/research/              paper analysis, both audits, mapping, design plan
+docs/tutorials/             30 concise tutorials, including research boundaries
+examples/tutorials/         30 executable examples
+notebooks/                  5 executed notebooks
+experiments/
+  paper_reproduction/       two Fig. 3 logical gate targets, 20 seeds each
+  kernel_classification/    three datasets with classical baselines, 3 seeds
+scripts/                    figures, learning materials and validation
+paper/PhotoGraphiQML.tex     research draft
+.github/workflows/ci.yml     core Python matrix and pinned-reference job
+</code></pre>
+<p>The <a href="../file-manifest.txt">file manifest</a> records the exact changed/created
+repository paths. README.md was modified. The pre-existing license and supplied
+paper PDF were preserved. The <code>.venv</code> and <code>.references</code> directories are local,
+ignored tooling/resources; upstream source is not copied into this package.</p>
+<h2 id="paper-mapping-and-reference-matrix">Paper mapping and reference matrix</h2>
+<p>The <a href="../research/muta-paper-notes/">paper notes</a> cover all main sections and
+Appendices A–E. The <a href="../research/muta-mapping/">mapping table</a> connects each
+concept to implementation and validation. The paper's bias is architectural
+and measurement-angle restriction, not a hidden classical offset.</p>
+<table>
+<thead>
+<tr>
+<th>Comparison</th>
+<th>Cases</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exact semantic edges, inputs, outputs, node counts</td>
+<td>(1,1), (2,1), (3,1), (2,2), (3,2), both one_column settings</td>
+<td>Pass</td>
+</tr>
+<tr>
+<td>Measurement ordering</td>
+<td>All structural cases</td>
+<td>Reference total order satisfies our flow dependency DAG</td>
+</tr>
+<tr>
+<td>Unrestricted trainability</td>
+<td>All structural cases</td>
+<td>Exact agreement</td>
+</tr>
+<tr>
+<td>Restricted trainability</td>
+<td>Both flags and all structural cases</td>
+<td>Expected upstream discrepancy explicitly asserted</td>
+</tr>
+<tr>
+<td>Logical density matrices</td>
+<td>12 width/depth/restriction configurations</td>
+<td>Pass at 1e-10 tolerance</td>
+</tr>
+<tr>
+<td>Kernel overlaps</td>
+<td>Two independent feature inputs</td>
+<td>MentPy agreement</td>
+</tr>
+<tr>
+<td>Instrument branch probabilities and states</td>
+<td>Final Z instrument</td>
+<td>MentPy agreement; not learned teleportation</td>
+</tr>
+<tr>
+<td>Adaptive outcomes</td>
+<td>Every one of 256 branches of a two-wire cell</td>
+<td>Corrected states agree, probabilities sum to one</td>
+</tr>
+<tr>
+<td>Table I and depth inclusion</td>
+<td>XX gate, Euler gate, widths 1–3</td>
+<td>Pass</td>
+</tr>
+<tr>
+<td>Raw CV states vs MentPy</td>
+<td>None</td>
+<td>Deliberately not a valid comparison</td>
+</tr>
+</tbody>
+</table>
+<p>MentPy commit: <code>63c3d83e495696b4491c9d376dab7e3e6cf6c863</code> (0.1.0a15).
+PhotoGraphiQ commit: <code>f15957d297f65f1e4761007e189f11119282dfdd</code> (0.3.0).
+Piquasso: 8.0.1. See <a href="../research/mentpy-audit/">MentPy audit</a>.</p>
+<p>The upstream restriction mutates only a trainable-node list. Cross-edge
+insertion and stacking rebuild that list from still-trainable Ment objects.
+This package fixes the measurement values explicitly and preserves those
+constraints. Numerical reference comparisons explicitly repair reference
+measurements to compare identical logical models. This discrepancy is never
+silently interpreted as faithful agreement with the unmodified template.</p>
+<h2 id="validation-and-ci">Validation and CI</h2>
+<ul>
+<li>88 tests passed on Windows with Python 3.14.4.</li>
+<li>Line coverage: 96.09% (565 of 588 executable statements).</li>
+<li>Core execution tested in a subprocess that deliberately blocks MentPy imports.
+  Separately, 54 tests passed with the reference directory excluded and 90.82%
+  coverage, confirming the core CI job can meet its threshold without reference tests.</li>
+<li>All 30 example scripts and five notebook kernels executed successfully.</li>
+<li>Ruff lint, formatting, mypy, wheel/sdist build, strict documentation build,
+  tutorial execution and notebook execution all passed. Every check returned
+  zero in the repository-root <code>validation-results.json</code>.</li>
+<li>Python 3.11, 3.12 and 3.13 are configured in CI, not locally executed here.</li>
+<li>Hosted GitHub CI, publication and deployment have not been performed.</li>
+</ul>
+<p><code>coverage.json</code> records the measured coverage. The release script checks the
+90% threshold and fails on nonzero check statuses. Optional MentPy tests skip
+when absent; core import does not load MentPy. The TeX draft is provided as
+source; compilation of that draft is not a release check.</p>
+<h2 id="tutorials-projects-notebooks-and-figures">Tutorials, projects, notebooks and figures</h2>
+<p>There are <strong>30 concise tutorials</strong>, <strong>30 corresponding runnable scripts</strong>,
+<strong>five executed curated notebooks</strong>, and <strong>two configured larger experiment
+projects</strong>. The ten larger projects requested in the brief are not complete.
+Autodiff, paper instrument learning, full physical GKP and CVMuTA tutorials
+explain missing capabilities and execute prerequisite/contract examples;
+their presence is not evidence those features are implemented.</p>
+<p>Six SVG figures were generated from scripts: logical triangle, composed MuTA,
+concurrence, GKP resource projection, gate-learning curves and kernel
+classification. All outputs are retained. No figure claims quantum advantage.</p>
+<h2 id="reproduced-targets-and-observed-results">Reproduced targets and observed results</h2>
+<p>Logical gate learning follows Fig. 3's target families, ten Haar states and
+7/3 split, with <strong>20 independent seeds per target</strong> and 120 Adam steps.
+The explicit learning rate and finite-difference gradient are local choices.
+Mean final held-out infidelity (population standard deviation over runs):</p>
+<table>
+<thead>
+<tr>
+<th>Target</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">Standard deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Haar single-qubit gate on first wire</td>
+<td style="text-align: right;">3.3990e-5</td>
+<td style="text-align: right;">1.3028e-4</td>
+</tr>
+<tr>
+<td>IsingXX(pi/2)</td>
+<td style="text-align: right;">3.3963e-6</td>
+<td style="text-align: right;">2.0807e-6</td>
+</tr>
+</tbody>
+</table>
+<p>All individual runs remain in
+<code>experiments/paper_reproduction/results/gate_learning.json</code>, including the
+less-converged Haar seed 19. The largest MentPy checkpoint density discrepancy
+is <strong>1.67e-15</strong>. MentPy was evaluated at checkpoints, not independently retrained;
+these are numerical model comparisons, not separate optimizer replications.
+The 40 training runs took about 75 seconds total in this local environment.</p>
+<p>Kernel classification uses Eq. 5 with 160/40 splits and three seeds. Mean
+held-out accuracy with raw feature coordinates:</p>
+<table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th style="text-align: right;">MuTA kernel</th>
+<th style="text-align: right;">RBF SVM</th>
+<th style="text-align: right;">Logistic regression</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Circles</td>
+<td style="text-align: right;">0.9583</td>
+<td style="text-align: right;">1.0000</td>
+<td style="text-align: right;">0.4583</td>
+</tr>
+<tr>
+<td>Blobs</td>
+<td style="text-align: right;">0.5750</td>
+<td style="text-align: right;">1.0000</td>
+<td style="text-align: right;">1.0000</td>
+</tr>
+<tr>
+<td>Moons</td>
+<td style="text-align: right;">0.7750</td>
+<td style="text-align: right;">1.0000</td>
+<td style="text-align: right;">0.8750</td>
+</tr>
+</tbody>
+</table>
+<p>These are locally specified generators, not an exact Fig. 8 reconstruction.
+The poor blobs result is retained; a periodic feature map on unscaled
+coordinates need not preserve the class geometry. Tiny negative Gram
+eigenvalues (order 1e-14) are roundoff. Per-seed confusion matrices and metrics
+are in <code>experiments/kernel_classification/results/metrics.json</code>.</p>
+<p>The paper's noisy-label/resource plots, trained QFI classifier, learned
+teleportation instrument and discrete HEA search/DQN have not been reproduced.</p>
+<h2 id="gkp-and-cv-limitations">GKP and CV limitations</h2>
+<p>GKPResource projection, finite superposition preparation and a PhotoGraphiQ
+Fock execution of a prepared resource are tested. Separate one-mode cutoff
+and grid refinement checks pass. At cutoff 48 for width=envelope=0.4,
+captured weights exceed 0.9999996, while the normalized codeword overlap is
+about 0.0130. High captured weight therefore does not imply orthogonal
+codewords or an ideal encoding channel.</p>
+<p>No arbitrary logical XY physical instrument, magic-state injection lowering,
+full decoder, correlated multimode gate convergence or logical confusion
+matrix is supplied. General <code>representation='gkp'</code> execution raises an
+actionable error; <code>GKPBridge.logical_target</code> is explicitly labeled logical.
+The <a href="../research/muta-mapping/">CV proposal</a> derives only a teleportation-step
+ingredient. There is no exported CVMuTA implementation, Gaussian universality
+claim or finite-resource monotonic-expressivity claim.</p>
+<h2 id="training-and-scaling-limitations">Training and scaling limitations</h2>
+<p>Training is deterministic and full-batch. Automatic differentiation,
+score-function estimators, physical noisy training, tied parameter groups,
+parameter bounds, mixed logical inputs, wrapper/optimizer persistence and
+general intermediate instrument controls are pending. Pure-state metrics
+are not extended to unsupported representations. The simple supervised
+wrapper uses one Z readout plus an affine/logistic head.</p>
+<p>Local statevector runs ranged from approximately 0.13–0.20 ms for one wire
+at small depth to 10.3 ms for six wires and four requested layers (24 paper
+layers, 582 graph nodes, 576 parameters). Measurements use a logical frontier,
+so statevector storage is 16*2^n bytes; the six-wire vector occupies 1024 bytes.
+This excludes graph metadata, temporary arrays and process overhead; it is
+not a measured peak-memory claim. Dense unitary extraction scales as 4^n and
+is capped at ten wires. Fock multimode performance is not benchmarked here.</p>
+<h2 id="recommended-next-work">Recommended next work</h2>
+<p>The critical next step is a validated GKP logical measurement/injection and
+decoding protocol in PhotoGraphiQ. Keep physical lowering disabled until
+that exists, then validate decoded statistics and independent convergence
+axes. In parallel, complete the remaining logical paper reproductions and
+model-training contracts. Introduce CVMuTA only as a separate mathematically
+derived family after the GKP stage. See the repository ROADMAP.md for the
+remaining release acceptance work.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

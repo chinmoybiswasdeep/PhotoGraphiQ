@@ -9,7 +9,7 @@ import numpy as np
 import photographiq as pg
 
 pattern = pg.Pattern(inputs=(0,)).append(pg.CubicPhase(0, 0.03))
-result = pg.simulate(pattern, backend="piquasso-fock", cutoff=24)
+result = pg.simulate(pattern, backend="native-fock", cutoff=24)
 mean, variance = result.state.quadrature(0, np.pi / 2)
 print("Momentum mean and variance:", mean, variance)
 print("Minimum retained norm:", min(result.state.retained_norms))

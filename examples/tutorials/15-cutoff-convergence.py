@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import photographiq as pg
 
 pattern = pg.Pattern(inputs=(0,)).append(pg.CubicPhase(0, 0.04))
-study = pg.cutoff_convergence(pattern, [12, 18, 24], high_order_moments=True)
+study = pg.cutoff_convergence(pattern, [12, 18, 24], high_order_moments=True, backend="native-fock")
 for row in study.rows:
     print(row["cutoff"], row["fidelity_to_previous"], row["high_order_moments"][0]["p4"])
 assert study.rows[-1]["fidelity_to_previous"] > 0.9999

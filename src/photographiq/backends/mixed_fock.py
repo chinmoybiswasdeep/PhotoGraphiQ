@@ -1,13 +1,15 @@
 """Density-matrix trajectories with explicit total-photon truncation, hbar=2."""
 
 import numpy as np
-import piquasso as pq
 from scipy.integrate import quad
 from scipy.optimize import brentq
 
+from .._checks import is_finite_real_scalar
+from .._optional import piquasso as pq
 from ..fock_measurements import wavefunctions
 from ..measurements import Homodyne, PhotonNumber
 from ..states import FockDensityMatrix, GaussianInput
+from .base import resolve_angle
 from .fock import PiquassoFockBackend
 
 
@@ -24,6 +26,7 @@ class MixedFockBackend(PiquassoFockBackend):
         MemoryError: A density matrix exceeds the configured allocation budget.
     """
 
+    _registry_name = "piquasso-mixed-fock"
     capabilities = PiquassoFockBackend.capabilities | frozenset(
         {
             "mixed_fock",
@@ -95,15 +98,9 @@ class MixedFockBackend(PiquassoFockBackend):
         if isinstance(state, FockDensityMatrix):
             local_basis, local = state.basis, np.asarray(state.matrix)
         elif isinstance(state, GaussianInput):
-            with pq.Program() as program:
-                pq.Q() | pq.Vacuum()
-            native = pq.GaussianSimulator(d=1, config=self._config()).execute(program).state
-            native.xpxp_mean_vector = np.array(state.mean)
-            native.xpxp_covariance_matrix = 2 * np.array(state.covariance)
-            local = native.density_matrix
-            local_basis = tuple((n,) for n in range(self.cutoff))
+            local, local_basis = self._gaussian_density(state)
         else:
-            helper = PiquassoFockBackend(self.cutoff, norm_tolerance=self.norm_tolerance)
+            helper = self._pure_helper()
             if len(nodes) == 1:
                 helper.prepare(nodes[0], squeezing, state)
             else:
@@ -125,6 +122,19 @@ class MixedFockBackend(PiquassoFockBackend):
         matrix = old[np.ix_(ii, ii)] * local[np.ix_(jj, jj)]
         self.native = self._check(self._density(matrix, basis))
         self.nodes += nodes
+
+    def _gaussian_density(self, state):
+        """Truncated density matrix and basis of a single-mode (mixed) GaussianInput."""
+        with pq.Program() as program:
+            pq.Q() | pq.Vacuum()
+        native = pq.GaussianSimulator(d=1, config=self._config()).execute(program).state
+        native.xpxp_mean_vector = np.array(state.mean)
+        native.xpxp_covariance_matrix = 2 * np.array(state.covariance)
+        return native.density_matrix, tuple((n,) for n in range(self.cutoff))
+
+    def _pure_helper(self):
+        """Pure backend used to prepare non-Gaussian resources before tensoring them in."""
+        return PiquassoFockBackend(self.cutoff, norm_tolerance=self.norm_tolerance)
 
     def _gate(self, nodes, instruction):
         if len(set(nodes)) != len(nodes):
@@ -234,7 +244,7 @@ class MixedFockBackend(PiquassoFockBackend):
             }
         )
 
-    def measure(self, node, measurement, angle=0.0, *, outcome=None):
+    def measure(self, node, measurement, angle=None, *, outcome=None):
         """Execute a destructive measurement on the density matrix.
 
         Args:
@@ -253,6 +263,7 @@ class MixedFockBackend(PiquassoFockBackend):
             ArithmeticError: Noisy homodyne convolution did not converge.
             ValueError: Photon count must be an integer within cutoff.
         """
+        angle = resolve_angle(measurement, angle)
         from ..encoded import PhysicalGKPReadout
         from ..instruments import MeasurementInstrument, destructive_instrument
 
@@ -290,7 +301,8 @@ class MixedFockBackend(PiquassoFockBackend):
         def conditioned(value):
             if not isinstance(measurement, Homodyne) or measurement.noise == 0:
                 return project(value)
-            # Electronics noise is a classical convolution in detected units.
+            # Electronics noise is a classical convolution in calibrated (incident-quadrature)
+            # units, matching the Gaussian backends (added variance noise on the calibrated record).
             from scipy.integrate import quad_vec
 
             sigma = np.sqrt(measurement.noise)
@@ -334,7 +346,7 @@ class MixedFockBackend(PiquassoFockBackend):
                 raise ArithmeticError("Mixed homodyne density is not normalized")
             target = self.rng.random() * mass
             outcome = brentq(lambda x: integrate(x) - target, -bound, bound)
-        if not np.isscalar(outcome) or not np.isreal(outcome) or not np.isfinite(outcome):
+        if not is_finite_real_scalar(outcome):
             raise ValueError("Measurement outcome must be finite and real")
         projected = conditioned(outcome)
         mass = float(np.trace(projected).real)

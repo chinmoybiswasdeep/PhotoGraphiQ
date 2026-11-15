@@ -1,0 +1,18 @@
+{
+  "rows": [
+    {
+      "sources_present": 4,
+      "sources_total": 4
+    }
+  ],
+  "protocol": "Aggregate R13/R36/R42/R47 performance figure from saved evidence",
+  "oracle_class": "N/A",
+  "status_category": "descriptive",
+  "acceptance_condition": "all four source JSON files exist and are readable",
+  "status": "pass",
+  "claim_supported": "the figure faithfully aggregates its available sources",
+  "claim_not_supported": "no cross-machine performance conclusion",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "descriptive"
+}

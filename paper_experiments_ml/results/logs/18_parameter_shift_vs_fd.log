@@ -1,0 +1,13 @@
+$ D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQML\.venv\Scripts\python.exe D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQML\paper_experiments\04_gradients_and_training\18_parameter_shift_vs_fd.py
+
+--- stdout ---
+
+=== R18 parameter-shift vs FD ===
+  n_trials: 5
+  tol: 2.220446049250313e-08
+  worst_min_error: 1.3261427816442016e-10
+  status: pass
+
+
+--- stderr ---
+

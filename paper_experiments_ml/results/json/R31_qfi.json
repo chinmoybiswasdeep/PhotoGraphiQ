@@ -1,0 +1,226 @@
+{
+  "rows": [
+    {
+      "n_qubits": 1,
+      "sample": 0,
+      "production": 0.4898272893885709,
+      "independent": 0.48982728938857,
+      "error": 8.881784197001252e-16
+    },
+    {
+      "n_qubits": 1,
+      "sample": 1,
+      "production": 21.081978750767973,
+      "independent": 21.081978750767973,
+      "error": 0.0
+    },
+    {
+      "n_qubits": 1,
+      "sample": 2,
+      "production": 2.21060576061997,
+      "independent": 2.21060576061997,
+      "error": 0.0
+    },
+    {
+      "n_qubits": 1,
+      "sample": 3,
+      "production": 24.74092412386919,
+      "independent": 24.74092412386919,
+      "error": 0.0
+    },
+    {
+      "n_qubits": 1,
+      "sample": 4,
+      "production": 19.15373526218734,
+      "independent": 19.153735262187336,
+      "error": 3.552713678800501e-15
+    },
+    {
+      "n_qubits": 1,
+      "sample": 5,
+      "production": 27.902356898339537,
+      "independent": 27.902356898339523,
+      "error": 1.4210854715202004e-14
+    },
+    {
+      "n_qubits": 1,
+      "sample": 6,
+      "production": 6.62344879633655,
+      "independent": 6.623448796336557,
+      "error": 7.105427357601002e-15
+    },
+    {
+      "n_qubits": 1,
+      "sample": 7,
+      "production": 24.966402894800467,
+      "independent": 24.966402894800446,
+      "error": 2.1316282072803006e-14
+    },
+    {
+      "n_qubits": 1,
+      "sample": 8,
+      "production": 106.98180378986324,
+      "independent": 106.98180378986325,
+      "error": 1.4210854715202004e-14
+    },
+    {
+      "n_qubits": 1,
+      "sample": 9,
+      "production": 1.1496848310728875,
+      "independent": 1.149684831072891,
+      "error": 3.552713678800501e-15
+    },
+    {
+      "n_qubits": 2,
+      "sample": 0,
+      "production": 52.853281519090146,
+      "independent": 52.85328151909014,
+      "error": 7.105427357601002e-15
+    },
+    {
+      "n_qubits": 2,
+      "sample": 1,
+      "production": 38.07172826616799,
+      "independent": 38.07172826616796,
+      "error": 2.842170943040401e-14
+    },
+    {
+      "n_qubits": 2,
+      "sample": 2,
+      "production": 59.01886839922069,
+      "independent": 59.0188683992207,
+      "error": 7.105427357601002e-15
+    },
+    {
+      "n_qubits": 2,
+      "sample": 3,
+      "production": 91.33453463806346,
+      "independent": 91.33453463806347,
+      "error": 1.4210854715202004e-14
+    },
+    {
+      "n_qubits": 2,
+      "sample": 4,
+      "production": 40.62079257789729,
+      "independent": 40.62079257789726,
+      "error": 2.842170943040401e-14
+    },
+    {
+      "n_qubits": 2,
+      "sample": 5,
+      "production": 124.82564983026462,
+      "independent": 124.82564983026465,
+      "error": 2.842170943040401e-14
+    },
+    {
+      "n_qubits": 2,
+      "sample": 6,
+      "production": 46.60109785902938,
+      "independent": 46.60109785902938,
+      "error": 0.0
+    },
+    {
+      "n_qubits": 2,
+      "sample": 7,
+      "production": 20.32350073655576,
+      "independent": 20.323500736555758,
+      "error": 3.552713678800501e-15
+    },
+    {
+      "n_qubits": 2,
+      "sample": 8,
+      "production": 25.532638965979015,
+      "independent": 25.532638965979025,
+      "error": 1.0658141036401503e-14
+    },
+    {
+      "n_qubits": 2,
+      "sample": 9,
+      "production": 51.70499794042586,
+      "independent": 51.704997940425834,
+      "error": 2.842170943040401e-14
+    },
+    {
+      "n_qubits": 3,
+      "sample": 0,
+      "production": 62.85451677006513,
+      "independent": 62.85451677006513,
+      "error": 0.0
+    },
+    {
+      "n_qubits": 3,
+      "sample": 1,
+      "production": 162.19047962504223,
+      "independent": 162.19047962504223,
+      "error": 0.0
+    },
+    {
+      "n_qubits": 3,
+      "sample": 2,
+      "production": 79.85338101613488,
+      "independent": 79.8533810161349,
+      "error": 2.842170943040401e-14
+    },
+    {
+      "n_qubits": 3,
+      "sample": 3,
+      "production": 97.23158318876794,
+      "independent": 97.23158318876794,
+      "error": 0.0
+    },
+    {
+      "n_qubits": 3,
+      "sample": 4,
+      "production": 119.79507609950385,
+      "independent": 119.79507609950385,
+      "error": 0.0
+    },
+    {
+      "n_qubits": 3,
+      "sample": 5,
+      "production": 101.49549940474131,
+      "independent": 101.49549940474131,
+      "error": 0.0
+    },
+    {
+      "n_qubits": 3,
+      "sample": 6,
+      "production": 109.83467196890315,
+      "independent": 109.83467196890311,
+      "error": 4.263256414560601e-14
+    },
+    {
+      "n_qubits": 3,
+      "sample": 7,
+      "production": 323.47634477402113,
+      "independent": 323.47634477402113,
+      "error": 0.0
+    },
+    {
+      "n_qubits": 3,
+      "sample": 8,
+      "production": 74.60868490352246,
+      "independent": 74.60868490352247,
+      "error": 1.4210854715202004e-14
+    },
+    {
+      "n_qubits": 3,
+      "sample": 9,
+      "production": 91.31021232867533,
+      "independent": 91.31021232867533,
+      "error": 0.0
+    }
+  ],
+  "protocol": "diagnostics.pure_qfi vs. independent density-matrix trace formula for 4*Var(H)",
+  "oracle_class": "A",
+  "status_category": "exact",
+  "tolerance": 8.881784197001252e-14,
+  "acceptance_condition": "max error < 8.882e-14",
+  "max_error": 4.263256414560601e-14,
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

@@ -1,6 +1,7 @@
 # Citing PhotoGraphiQ
 
-Cite the software version and commit used in your experiment. Collective authorship
+Cite the software version and commit used in your experiment (`git rev-parse HEAD`; every
+manuscript-experiment result also records it in its `.metadata.json`). Collective authorship
 is retained until maintainers supply an authoritative author list. No DOI or
 journal acceptance is claimed.
 
@@ -8,7 +9,7 @@ journal acceptance is claimed.
 @software{photographiq,
   author = {{PhotoGraphiQ contributors}},
   title = {PhotoGraphiQ},
-  version = {0.3.0},
+  version = {0.3.1},
   url = {https://github.com/chinmoybiswasdeep/PhotoGraphiQ}
 }
 ```

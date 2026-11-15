@@ -2,6 +2,7 @@
 
 
 ```python
+import photographiq as pg
 from photographiq.cvflow import certify_cv_flow, flow_pattern
 
 graph = pg.CVGraph.line(4, squeezing=0.8, inputs=(0,), outputs=(3,))

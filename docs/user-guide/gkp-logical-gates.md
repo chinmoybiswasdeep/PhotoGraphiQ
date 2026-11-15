@@ -4,7 +4,7 @@
 import photographiq as pg
 code = pg.GKPCode(cutoff=80)
 p = pg.Pattern(inputs=(0,)).append(code.logical_gate(0, "S"))
-r = pg.simulate(p, inputs={0: code.plus()}, backend="piquasso-fock", cutoff=80)
+r = pg.simulate(p, inputs={0: code.plus()}, backend="native-fock", cutoff=80)
 print(code.diagnostics(r.state))
 ```
 

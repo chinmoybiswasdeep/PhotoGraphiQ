@@ -1,0 +1,303 @@
+{
+  "results": [
+    {
+      "script": "01_logical_foundations/01_triangle_anatomy.py",
+      "status": "passed",
+      "seconds": 4.290155699942261,
+      "returncode": 0
+    },
+    {
+      "script": "01_logical_foundations/02_table_one_identities.py",
+      "status": "passed",
+      "seconds": 5.112388800014742,
+      "returncode": 0
+    },
+    {
+      "script": "01_logical_foundations/03_entangling_identity.py",
+      "status": "passed",
+      "seconds": 4.671310400008224,
+      "returncode": 0
+    },
+    {
+      "script": "01_logical_foundations/04_adaptive_branches.py",
+      "status": "passed",
+      "seconds": 4.791122899972834,
+      "returncode": 0
+    },
+    {
+      "script": "01_logical_foundations/05_brute_force_agreement.py",
+      "status": "passed",
+      "seconds": 4.425962999928743,
+      "returncode": 0
+    },
+    {
+      "script": "01_logical_foundations/06_batch_consistency.py",
+      "status": "passed",
+      "seconds": 3.9750172999920323,
+      "returncode": 0
+    },
+    {
+      "script": "02_mentpy_validation/07_semantic_topology.py",
+      "status": "passed",
+      "seconds": 7.433704599970952,
+      "returncode": 0
+    },
+    {
+      "script": "02_mentpy_validation/08_flow_dependency_order.py",
+      "status": "passed",
+      "seconds": 6.8017166999634355,
+      "returncode": 0
+    },
+    {
+      "script": "02_mentpy_validation/09_state_density_agreement.py",
+      "status": "passed",
+      "seconds": 7.198966299998574,
+      "returncode": 0
+    },
+    {
+      "script": "02_mentpy_validation/10_trainability_audit.py",
+      "status": "passed",
+      "seconds": 7.246552900061943,
+      "returncode": 0
+    },
+    {
+      "script": "02_mentpy_validation/11_kernel_gram_agreement.py",
+      "status": "passed",
+      "seconds": 7.8769214999629185,
+      "returncode": 0
+    },
+    {
+      "script": "02_mentpy_validation/12_instrument_agreement.py",
+      "status": "passed",
+      "seconds": 7.30750320001971,
+      "returncode": 0
+    },
+    {
+      "script": "02_mentpy_validation/13_runtime_scaling.py",
+      "status": "passed",
+      "seconds": 7.248969599953853,
+      "returncode": 0
+    },
+    {
+      "script": "03_parameters_and_contracts/14_parameter_contracts.py",
+      "status": "passed",
+      "seconds": 4.071497099939734,
+      "returncode": 0
+    },
+    {
+      "script": "03_parameters_and_contracts/15_persistence_roundtrip.py",
+      "status": "passed",
+      "seconds": 3.8054092000238597,
+      "returncode": 0
+    },
+    {
+      "script": "03_parameters_and_contracts/16_invalid_input_matrix.py",
+      "status": "passed",
+      "seconds": 4.369056100025773,
+      "returncode": 0
+    },
+    {
+      "script": "03_parameters_and_contracts/17_seeded_reproducibility.py",
+      "status": "skipped",
+      "reason": "moderate (includes one 32-shot physical run at cutoff=40)",
+      "seconds": 0.0
+    },
+    {
+      "script": "04_gradients_and_training/18_parameter_shift_vs_fd.py",
+      "status": "passed",
+      "seconds": 5.054742599953897,
+      "returncode": 0
+    },
+    {
+      "script": "04_gradients_and_training/19_optimizer_convergence.py",
+      "status": "passed",
+      "seconds": 4.940859399968758,
+      "returncode": 0
+    },
+    {
+      "script": "04_gradients_and_training/20_haar_gate_learning.py",
+      "status": "passed",
+      "seconds": 47.19999450002797,
+      "returncode": 0
+    },
+    {
+      "script": "04_gradients_and_training/21_ising_gate_learning.py",
+      "status": "passed",
+      "seconds": 47.493306100019254,
+      "returncode": 0
+    },
+    {
+      "script": "04_gradients_and_training/22_gate_learning_sensitivity.py",
+      "status": "skipped",
+      "reason": "moderate (108 short training runs, ~1-2 min)",
+      "seconds": 0.0
+    },
+    {
+      "script": "04_gradients_and_training/23_classifier_verification.py",
+      "status": "passed",
+      "seconds": 23.57263629999943,
+      "returncode": 0
+    },
+    {
+      "script": "04_gradients_and_training/24_regressor_verification.py",
+      "status": "passed",
+      "seconds": 98.39612399996258,
+      "returncode": 0
+    },
+    {
+      "script": "05_kernels_and_learning/25_kernel_feature_state.py",
+      "status": "passed",
+      "seconds": 4.528726399992593,
+      "returncode": 0
+    },
+    {
+      "script": "05_kernels_and_learning/26_kernel_properties.py",
+      "status": "passed",
+      "seconds": 5.37981019995641,
+      "returncode": 0
+    },
+    {
+      "script": "05_kernels_and_learning/27_kernel_classification.py",
+      "status": "skipped",
+      "reason": "moderate (24 SVM fits across 3 datasets, ~1 min)",
+      "seconds": 0.0
+    },
+    {
+      "script": "05_kernels_and_learning/28_kernel_robustness.py",
+      "status": "skipped",
+      "reason": "moderate (~1 min)",
+      "seconds": 0.0
+    },
+    {
+      "script": "06_expressivity_and_diagnostics/29_instrument_diagnostics.py",
+      "status": "passed",
+      "seconds": 4.40129089995753,
+      "returncode": 0
+    },
+    {
+      "script": "06_expressivity_and_diagnostics/30_concurrence.py",
+      "status": "passed",
+      "seconds": 8.151119200047106,
+      "returncode": 0
+    },
+    {
+      "script": "06_expressivity_and_diagnostics/31_qfi.py",
+      "status": "passed",
+      "seconds": 4.740554200019687,
+      "returncode": 0
+    },
+    {
+      "script": "06_expressivity_and_diagnostics/32_lie_closure.py",
+      "status": "passed",
+      "seconds": 4.352878000005148,
+      "returncode": 0
+    },
+    {
+      "script": "06_expressivity_and_diagnostics/33_fisher_spectra.py",
+      "status": "passed",
+      "seconds": 5.117662800010294,
+      "returncode": 0
+    },
+    {
+      "script": "07_gkp_resources/34_gkp_codeword_projection.py",
+      "status": "passed",
+      "seconds": 8.594750500051305,
+      "returncode": 0
+    },
+    {
+      "script": "08_physical_lowering/35_capability_map.py",
+      "status": "passed",
+      "seconds": 4.22976550005842,
+      "returncode": 0
+    },
+    {
+      "script": "08_physical_lowering/36_lowering_preservation.py",
+      "status": "passed",
+      "seconds": 4.739464699989185,
+      "returncode": 0
+    },
+    {
+      "script": "08_physical_lowering/37_pauli_frame_validation.py",
+      "status": "passed",
+      "seconds": 4.416725400020368,
+      "returncode": 0
+    },
+    {
+      "script": "08_physical_lowering/38_public_pattern_comparison.py",
+      "status": "skipped",
+      "reason": "heavy (Fock simulation, independent Pattern construction)",
+      "seconds": 0.0
+    },
+    {
+      "script": "09_piquasso_validation/39_raw_piquasso_state_prep.py",
+      "status": "passed",
+      "seconds": 5.585901699960232,
+      "returncode": 0
+    },
+    {
+      "script": "09_piquasso_validation/40_raw_piquasso_cz.py",
+      "status": "skipped",
+      "reason": "heavy (2-mode Fock simulation, cutoff up to 80)",
+      "seconds": 0.0
+    },
+    {
+      "script": "09_piquasso_validation/41_conditional_execution_comparison.py",
+      "status": "skipped",
+      "reason": "heavy (4 independent Fock simulations)",
+      "seconds": 0.0
+    },
+    {
+      "script": "09_piquasso_validation/42_abstraction_overhead.py",
+      "status": "skipped",
+      "reason": "heavy (repeated Fock simulations for timing)",
+      "seconds": 0.0
+    },
+    {
+      "script": "10_physical_statistics/43_decoded_statistics.py",
+      "status": "skipped",
+      "reason": "heavy (1- and 2-wire physical-conditional Fock simulation)",
+      "seconds": 0.0
+    },
+    {
+      "script": "10_physical_statistics/44_shot_convergence.py",
+      "status": "skipped",
+      "reason": "heavy (many physical-shots Fock simulations, several minutes)",
+      "seconds": 0.0
+    },
+    {
+      "script": "10_physical_statistics/45_joint_readout_correlations.py",
+      "status": "skipped",
+      "reason": "heavy (2-wire physical-conditional Fock simulation)",
+      "seconds": 0.0
+    },
+    {
+      "script": "10_physical_statistics/46_hard_vs_soft_decoding.py",
+      "status": "passed",
+      "seconds": 4.616598900058307,
+      "returncode": 0
+    },
+    {
+      "script": "11_convergence/47_resource_axis_convergence.py",
+      "status": "skipped",
+      "reason": "heavy (5 axes x up to 4 physical-conditional Fock simulations)",
+      "seconds": 0.0
+    },
+    {
+      "script": "10_physical_statistics/48_physical_training_stability.py",
+      "status": "skipped",
+      "reason": "heavy (6 seeds x DiscreteSearch x physical shots, several minutes)",
+      "seconds": 0.0
+    },
+    {
+      "script": "12_performance/49_aggregate_performance_figure.py",
+      "status": "passed",
+      "seconds": 3.4993317999178544,
+      "returncode": 0
+    }
+  ],
+  "ran": 36,
+  "passed": 36,
+  "failed": 0,
+  "skipped": 13,
+  "total_wall_seconds": 389.63957699993625
+}

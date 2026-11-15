@@ -1,0 +1,136 @@
+{
+  "rows": [
+    {
+      "n_wires": 1,
+      "n_layers": 1,
+      "min_eigenvalue": 9.427598048525161e-17
+    },
+    {
+      "n_wires": 2,
+      "n_layers": 1,
+      "min_eigenvalue": -1.5928824031337045e-16
+    },
+    {
+      "n_wires": 2,
+      "n_layers": 2,
+      "min_eigenvalue": -4.543411725661932e-16
+    },
+    {
+      "n_wires": 3,
+      "n_layers": 1,
+      "min_eigenvalue": -9.224188534965817e-17
+    },
+    {
+      "step_convergence": true,
+      "step": 0.01,
+      "error_vs_reference": 2.2964607286788682e-05
+    },
+    {
+      "step_convergence": true,
+      "step": 0.001,
+      "error_vs_reference": 2.298399608916344e-07
+    },
+    {
+      "step_convergence": true,
+      "step": 0.0001,
+      "error_vs_reference": 2.5933822138901346e-09
+    },
+    {
+      "step_convergence": true,
+      "step": 1e-05,
+      "error_vs_reference": 7.711149430669454e-10
+    },
+    {
+      "scaling": true,
+      "n_wires": 1,
+      "n_layers": 1,
+      "n_parameters": 4,
+      "rank": 2,
+      "condition_number": 9.174696228344189
+    },
+    {
+      "scaling": true,
+      "n_wires": 2,
+      "n_layers": 1,
+      "n_parameters": 8,
+      "rank": 5,
+      "condition_number": 42.93828311370277
+    },
+    {
+      "scaling": true,
+      "n_wires": 2,
+      "n_layers": 2,
+      "n_parameters": 16,
+      "rank": 6,
+      "condition_number": 6.404553327861212
+    },
+    {
+      "scaling": true,
+      "n_wires": 3,
+      "n_layers": 1,
+      "n_parameters": 12,
+      "rank": 9,
+      "condition_number": 93.54989840188817
+    }
+  ],
+  "protocol": "state_fisher PSD check and step-convergence, plus rank/conditioning vs wires/depth",
+  "oracle_class": "A/E",
+  "status_category": "exact/approximate",
+  "tolerance": 8.881784197001252e-12,
+  "step_convergence_rows": [
+    {
+      "step": 0.01,
+      "error_vs_reference": 2.2964607286788682e-05
+    },
+    {
+      "step": 0.001,
+      "error_vs_reference": 2.298399608916344e-07
+    },
+    {
+      "step": 0.0001,
+      "error_vs_reference": 2.5933822138901346e-09
+    },
+    {
+      "step": 1e-05,
+      "error_vs_reference": 7.711149430669454e-10
+    }
+  ],
+  "scaling_rows": [
+    {
+      "n_wires": 1,
+      "n_layers": 1,
+      "n_parameters": 4,
+      "rank": 2,
+      "condition_number": 9.174696228344189
+    },
+    {
+      "n_wires": 2,
+      "n_layers": 1,
+      "n_parameters": 8,
+      "rank": 5,
+      "condition_number": 42.93828311370277
+    },
+    {
+      "n_wires": 2,
+      "n_layers": 2,
+      "n_parameters": 16,
+      "rank": 6,
+      "condition_number": 6.404553327861212
+    },
+    {
+      "n_wires": 3,
+      "n_layers": 1,
+      "n_parameters": 12,
+      "rank": 9,
+      "condition_number": 93.54989840188817
+    }
+  ],
+  "acceptance_condition": "min eigenvalue > -8.882e-12; convergence error monotonically decreases from step=1e-2 to 1e-5",
+  "min_eigenvalue_overall": -4.543411725661932e-16,
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

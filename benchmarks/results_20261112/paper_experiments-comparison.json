@@ -1,0 +1,328 @@
+{
+  "rtol": 1e-09,
+  "since": 1794476906.125,
+  "files": {
+    "R10_compiler_scaling.json": {
+      "status": "agrees",
+      "compared": 156,
+      "identical": 156,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R11_adaptive_feedforward.json": {
+      "status": "agrees",
+      "compared": 75,
+      "identical": 75,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R12_dependency_dag.json": {
+      "status": "agrees",
+      "compared": 110,
+      "identical": 110,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R13_invalid_causality.json": {
+      "status": "differs",
+      "compared": 48,
+      "identical": 46,
+      "close": 0,
+      "different": 2,
+      "structure": 12,
+      "first_differences": [
+        "/rows[0]/imprecise_message_expected: present in only one file",
+        "/rows[1]/imprecise_message_expected: present in only one file",
+        "/rows[2]/imprecise_message_expected: present in only one file",
+        "/rows[2]/message: 'Self CZ is invalid: command 0 entangles 0 with itself' vs 'Cyclic command dependencies'",
+        "/rows[3]/imprecise_message_expected: present in only one file",
+        "/rows[4]/imprecise_message_expected: present in only one file",
+        "/rows[4]/message: 'Command 0 (Output) repeats a mode: (0, 0)' vs 'Cyclic command dependencies'",
+        "/rows[5]/imprecise_message_expected: present in only one file",
+        "/rows[6]/imprecise_message_expected: present in only one file",
+        "/rows[7]/imprecise_message_expected: present in only one file"
+      ]
+    },
+    "R14_cvflow.json": {
+      "status": "differs",
+      "compared": 20,
+      "identical": 20,
+      "close": 0,
+      "different": 0,
+      "structure": 12,
+      "first_differences": [
+        "/ensemble_covariance: present in only one file",
+        "/ensemble_mean: present in only one file",
+        "/flow_pattern_output_covariance: present in only one file",
+        "/flow_pattern_output_mean: present in only one file",
+        "/flow_vs_channel_covariance_error: present in only one file",
+        "/flow_vs_channel_mean_error: present in only one file",
+        "/shots: present in only one file",
+        "/single_trajectory_covariance: present in only one file",
+        "/single_trajectory_covariance_error: present in only one file",
+        "/single_trajectory_mean: present in only one file"
+      ]
+    },
+    "R15_raw_piquasso_gaussian.json": {
+      "status": "differs",
+      "compared": 982,
+      "identical": 974,
+      "close": 0,
+      "different": 8,
+      "structure": 0,
+      "first_differences": [
+        "/rows[100]/covariance_frobenius_error: 2.4902805348788315e-16 vs 2.8373208998997885e-16",
+        "/rows[101]/covariance_frobenius_error: 6.753223014464259e-16 vs 6.329245045284193e-16",
+        "/rows[102]/covariance_frobenius_error: 2.7755575615628914e-16 vs 3.885780586188048e-16",
+        "/rows[104]/covariance_frobenius_error: 2.3795449221434073e-16 vs 2.5739461938222585e-16",
+        "/rows[108]/covariance_frobenius_error: 2.387624894196368e-16 vs 2.8576114088871287e-16",
+        "/rows[114]/covariance_frobenius_error: 4.980559976921029e-16 vs 4.999857065771613e-16",
+        "/rows[116]/covariance_frobenius_error: 4.577566798522237e-16 vs 4.578749955049992e-16",
+        "/rows[117]/covariance_frobenius_error: 8.117492921294519e-17 vs 1.1292628106320432e-16"
+      ]
+    },
+    "R16_numpy_analytic_reference.json": {
+      "status": "agrees",
+      "compared": 51,
+      "identical": 51,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R19_photon_subtraction_probability.json": {
+      "status": "agrees",
+      "compared": 1351,
+      "identical": 1351,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R1_wire_teleportation.json": {
+      "status": "differs",
+      "compared": 2,
+      "identical": 1,
+      "close": 0,
+      "different": 1,
+      "structure": 9,
+      "first_differences": [
+        "/channel_matrix: present in only one file",
+        "/channel_noise: present in only one file",
+        "/displacement: present in only one file",
+        "/matrix: present in only one file",
+        "/noise: present in only one file",
+        "/protocol: present in only one file",
+        "/rows: length 6 vs 25",
+        "/seed_base: present in only one file",
+        "/shear_k: present in only one file",
+        "/shots: 4000 vs 500"
+      ]
+    },
+    "R24_kerr_direct.json": {
+      "status": "agrees",
+      "compared": 58,
+      "identical": 58,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R29_finite_squeezing_cz.json": {
+      "status": "agrees",
+      "compared": 101,
+      "identical": 101,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R29_finite_squeezing_single_mode.json": {
+      "status": "agrees",
+      "compared": 142,
+      "identical": 142,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R2_identity_finite_squeezing.json": {
+      "status": "differs",
+      "compared": 3,
+      "identical": 3,
+      "close": 0,
+      "different": 0,
+      "structure": 2,
+      "first_differences": [
+        "/rows: length 7 vs 13",
+        "/theory: present in only one file"
+      ]
+    },
+    "R30_loss_validation.json": {
+      "status": "agrees",
+      "compared": 162,
+      "identical": 162,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R31_thermal_noise.json": {
+      "status": "agrees",
+      "compared": 152,
+      "identical": 152,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R35_fock_dimension_scaling.json": {
+      "status": "agrees",
+      "compared": 4681,
+      "identical": 4681,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R39_serialization.json": {
+      "status": "agrees",
+      "compared": 8,
+      "identical": 8,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R3_rotation_compile_squeezing_sweep.json": {
+      "status": "differs",
+      "compared": 35,
+      "identical": 35,
+      "close": 0,
+      "different": 0,
+      "structure": 36,
+      "first_differences": [
+        "/fixed_theta: present in only one file",
+        "/rows[0]/commands: present in only one file",
+        "/rows[0]/max_abs_shear: present in only one file",
+        "/rows[0]/n_shear_steps: present in only one file",
+        "/rows[0]/noise_oracle_error: present in only one file",
+        "/rows[0]/oracle_map_error: present in only one file",
+        "/rows[1]/commands: present in only one file",
+        "/rows[1]/max_abs_shear: present in only one file",
+        "/rows[1]/n_shear_steps: present in only one file",
+        "/rows[1]/noise_oracle_error: present in only one file"
+      ]
+    },
+    "R3_rotation_compile_theta_sweep.json": {
+      "status": "differs",
+      "compared": 150,
+      "identical": 150,
+      "close": 0,
+      "different": 0,
+      "structure": 100,
+      "first_differences": [
+        "/rows[0]/max_abs_shear: present in only one file",
+        "/rows[0]/n_shear_steps: present in only one file",
+        "/rows[0]/noise_oracle_error: present in only one file",
+        "/rows[0]/oracle_map_error: present in only one file",
+        "/rows[1]/max_abs_shear: present in only one file",
+        "/rows[1]/n_shear_steps: present in only one file",
+        "/rows[1]/noise_oracle_error: present in only one file",
+        "/rows[1]/oracle_map_error: present in only one file",
+        "/rows[2]/max_abs_shear: present in only one file",
+        "/rows[2]/n_shear_steps: present in only one file"
+      ]
+    },
+    "R40_seeded_shots.json": {
+      "status": "agrees",
+      "compared": 15,
+      "identical": 15,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    },
+    "R4_squeezing_compile.json": {
+      "status": "differs",
+      "compared": 73,
+      "identical": 73,
+      "close": 0,
+      "different": 0,
+      "structure": 36,
+      "first_differences": [
+        "/rows[0]/max_abs_shear: present in only one file",
+        "/rows[0]/noise_oracle_error: present in only one file",
+        "/rows[0]/oracle_map_error: present in only one file",
+        "/rows[0]/theory_condition_number: present in only one file",
+        "/rows[1]/max_abs_shear: present in only one file",
+        "/rows[1]/noise_oracle_error: present in only one file",
+        "/rows[1]/oracle_map_error: present in only one file",
+        "/rows[1]/theory_condition_number: present in only one file",
+        "/rows[2]/max_abs_shear: present in only one file",
+        "/rows[2]/noise_oracle_error: present in only one file"
+      ]
+    },
+    "R5_random_symplectic_compile.json": {
+      "status": "differs",
+      "compared": 4407,
+      "identical": 4407,
+      "close": 0,
+      "different": 0,
+      "structure": 1600,
+      "first_differences": [
+        "/rows[0]/compiled_matrix: present in only one file",
+        "/rows[0]/determinant_error: present in only one file",
+        "/rows[0]/n_shear_steps: present in only one file",
+        "/rows[0]/target_matrix: present in only one file",
+        "/rows[1]/compiled_matrix: present in only one file",
+        "/rows[1]/determinant_error: present in only one file",
+        "/rows[1]/n_shear_steps: present in only one file",
+        "/rows[1]/target_matrix: present in only one file",
+        "/rows[2]/compiled_matrix: present in only one file",
+        "/rows[2]/determinant_error: present in only one file"
+      ]
+    },
+    "R6_cz_compile.json": {
+      "status": "differs",
+      "compared": 73,
+      "identical": 73,
+      "close": 0,
+      "different": 0,
+      "structure": 27,
+      "first_differences": [
+        "/rows[0]/cross_correlations: present in only one file",
+        "/rows[0]/mean_p0_q1_correlation: present in only one file",
+        "/rows[0]/mean_q0_q1_correlation: present in only one file",
+        "/rows[1]/cross_correlations: present in only one file",
+        "/rows[1]/mean_p0_q1_correlation: present in only one file",
+        "/rows[1]/mean_q0_q1_correlation: present in only one file",
+        "/rows[2]/cross_correlations: present in only one file",
+        "/rows[2]/mean_p0_q1_correlation: present in only one file",
+        "/rows[2]/mean_q0_q1_correlation: present in only one file",
+        "/rows[3]/cross_correlations: present in only one file"
+      ]
+    },
+    "R7_beamsplitter_compile.json": {
+      "status": "differs",
+      "compared": 137,
+      "identical": 137,
+      "close": 0,
+      "different": 0,
+      "structure": 17,
+      "first_differences": [
+        "/rows[0]/determinant_error: present in only one file",
+        "/rows[1]/determinant_error: present in only one file",
+        "/rows[2]/determinant_error: present in only one file",
+        "/rows[3]/determinant_error: present in only one file",
+        "/rows[4]/determinant_error: present in only one file",
+        "/rows[5]/determinant_error: present in only one file",
+        "/rows[6]/determinant_error: present in only one file",
+        "/rows[7]/determinant_error: present in only one file",
+        "/rows[8]/determinant_error: present in only one file",
+        "/rows[9]/determinant_error: present in only one file"
+      ]
+    },
+    "R9_compilation_trace.json": {
+      "status": "agrees",
+      "compared": 1471,
+      "identical": 1471,
+      "close": 0,
+      "different": 0,
+      "structure": 0
+    }
+  }
+}

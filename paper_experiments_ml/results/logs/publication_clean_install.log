@@ -1,0 +1,25 @@
+$ D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQML\.venv\Scripts\python.exe -m pip install . --no-deps --target C:\Users\TONMOY~1\AppData\Local\Temp\photographiqml-install-kaaofwcy\site
+
+--- stdout ---
+Processing .\.
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: photographiqml
+  Building wheel for photographiqml (pyproject.toml): started
+  Building wheel for photographiqml (pyproject.toml): finished with status 'done'
+  Created wheel for photographiqml: filename=photographiqml-0.2.0-py3-none-any.whl size=32508 sha256=a4288155e4f8fa9a255243a47c371cf21983de1bea020481d3ab5ca6f160641c
+  Stored in directory: C:\Users\Tonmoy Biswas Arko\AppData\Local\Temp\pip-ephem-wheel-cache-h4vey7s0\wheels\06\1c\5d\2f0c7653c29515b6a4bd0ad9f15ea3437a7505746959c0e438
+Successfully built photographiqml
+Installing collected packages: photographiqml
+Successfully installed photographiqml-0.2.0
+
+
+--- stderr ---
+
+[notice] A new release of pip is available: 26.0.1 -> 26.2.1
+[notice] To update, run: D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQML\.venv\Scripts\python.exe -m pip install --upgrade pip
+

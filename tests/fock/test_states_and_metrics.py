@@ -1,9 +1,10 @@
 import numpy as np
-import piquasso as pq
 import pytest
 
 import photographiq as pg
 from photographiq.backends.fock import PiquassoFockBackend
+
+pq = pytest.importorskip("piquasso")  # reference simulator: optional extra
 
 
 def state(resource, cutoff=20):

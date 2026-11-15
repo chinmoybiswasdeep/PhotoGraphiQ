@@ -11,7 +11,7 @@ import photographiq as pg
 circuit = pg.Circuit(1).cubic_phase(0, 0.02)
 pattern, trace = circuit.compile(squeezing=0.2, return_trace=True)
 result = pg.simulate(
-    pattern, backend="piquasso-fock", cutoff=24, measurement_outcomes={("cubic", 1): 0.1}
+    pattern, backend="native-fock", cutoff=24, measurement_outcomes={("cubic", 1): 0.1}
 )
 print("Generated commands:", len(pattern.commands))
 print("Branch density:", np.exp(result.log_likelihood))

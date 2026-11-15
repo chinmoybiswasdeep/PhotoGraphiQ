@@ -2,6 +2,9 @@
 
 
 ```python
+import photographiq as pg
+
+pattern = pg.protocols.wire([0, 0.3])
 text = pattern.to_json()
 restored = pg.Pattern.from_json(text)
 print(restored.inspect())

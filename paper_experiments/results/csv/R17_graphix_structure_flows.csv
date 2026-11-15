@@ -1,0 +1,6 @@
+case,photographiq_causal_flow,graphix_causal_flow_exists,existence_agrees,x_correction_support_agrees,graphix_flow_passes_photographiq_verifier,qubit_causal_on_cv_model_status,ok
+line_n3,certified,True,True,True,True,unsupported,True
+line_n5,certified,True,True,True,True,unsupported,True
+star_leaves_3,certified,True,True,False,True,unsupported,True
+star_leaves_5,certified,True,True,False,True,unsupported,True
+complete_3_two_inputs,not_certified,False,True,,,unsupported,True

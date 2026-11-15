@@ -1,0 +1,404 @@
+{
+  "date": "2026-09-11",
+  "scope": "Local Windows CI-equivalent validation; optional pinned MentPy installed in Python 3.14 only",
+  "tutorial_scripts": 44,
+  "notebooks": 5,
+  "rows": [
+    {
+      "matrix": "3.11",
+      "python": "3.11.16",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "tests_passed": 93,
+      "skipped_modules": 2,
+      "coverage": {
+        "covered_lines": 971,
+        "num_statements": 1026,
+        "percent_covered": 94.63937621832359,
+        "percent_covered_display": "95",
+        "missing_lines": 55,
+        "excluded_lines": 0,
+        "percent_statements_covered": 94.63937621832359,
+        "percent_statements_covered_display": "95"
+      },
+      "dependencies": {
+        "photographiq": "0.3.1",
+        "photographiqml": "0.2.0",
+        "piquasso": "8.0.1",
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "coverage": "7.16.0",
+        "pytest": "9.1.1"
+      },
+      "checks": [
+        {
+          "command": [
+            "-m",
+            "pytest",
+            "--cov=photographiqml",
+            "--cov-fail-under=90",
+            "--cov-report=json:.references\\validation-311\\coverage.json",
+            "--cov-report=term-missing"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "-m",
+            "ruff",
+            "check",
+            "src",
+            "tests",
+            "scripts",
+            "experiments",
+            "examples"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "-m",
+            "ruff",
+            "format",
+            "--check",
+            "src",
+            "tests",
+            "scripts",
+            "experiments",
+            "examples"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "-m",
+            "mypy"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "-m",
+            "build",
+            "--outdir",
+            ".references\\validation-311\\dist"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "-m",
+            "mkdocs",
+            "build",
+            "--strict",
+            "--site-dir",
+            "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\.references\\validation-311\\site"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "scripts/execute_tutorials.py"
+          ],
+          "returncode": 0
+        }
+      ]
+    },
+    {
+      "matrix": "3.12",
+      "python": "3.12.14",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "tests_passed": 93,
+      "skipped_modules": 2,
+      "coverage": {
+        "covered_lines": 971,
+        "num_statements": 1026,
+        "percent_covered": 94.63937621832359,
+        "percent_covered_display": "95",
+        "missing_lines": 55,
+        "excluded_lines": 0,
+        "percent_statements_covered": 94.63937621832359,
+        "percent_statements_covered_display": "95"
+      },
+      "dependencies": {
+        "photographiq": "0.3.1",
+        "photographiqml": "0.2.0",
+        "piquasso": "8.0.1",
+        "numpy": "2.5.3",
+        "scipy": "1.18.1",
+        "coverage": "7.16.0",
+        "pytest": "9.1.1"
+      },
+      "checks": [
+        {
+          "command": [
+            "-m",
+            "pytest",
+            "--cov=photographiqml",
+            "--cov-fail-under=90",
+            "--cov-report=json:.references\\validation-312\\coverage.json",
+            "--cov-report=term-missing"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "-m",
+            "ruff",
+            "check",
+            "src",
+            "tests",
+            "scripts",
+            "experiments",
+            "examples"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "-m",
+            "ruff",
+            "format",
+            "--check",
+            "src",
+            "tests",
+            "scripts",
+            "experiments",
+            "examples"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "-m",
+            "mypy"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "-m",
+            "build",
+            "--outdir",
+            ".references\\validation-312\\dist"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "-m",
+            "mkdocs",
+            "build",
+            "--strict",
+            "--site-dir",
+            "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\.references\\validation-312\\site"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "scripts/execute_tutorials.py"
+          ],
+          "returncode": 0
+        }
+      ]
+    },
+    {
+      "matrix": "3.13",
+      "python": "3.13.15",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "tests_passed": 93,
+      "skipped_modules": 2,
+      "coverage": {
+        "covered_lines": 971,
+        "num_statements": 1026,
+        "percent_covered": 94.63937621832359,
+        "percent_covered_display": "95",
+        "missing_lines": 55,
+        "excluded_lines": 0,
+        "percent_statements_covered": 94.63937621832359,
+        "percent_statements_covered_display": "95"
+      },
+      "dependencies": {
+        "photographiq": "0.3.1",
+        "photographiqml": "0.2.0",
+        "piquasso": "8.0.1",
+        "numpy": "2.5.3",
+        "scipy": "1.18.1",
+        "coverage": "7.16.0",
+        "pytest": "9.1.1"
+      },
+      "checks": [
+        {
+          "command": [
+            "-m",
+            "pytest",
+            "--cov=photographiqml",
+            "--cov-fail-under=90",
+            "--cov-report=json:.references\\validation-313\\coverage.json",
+            "--cov-report=term-missing"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "-m",
+            "ruff",
+            "check",
+            "src",
+            "tests",
+            "scripts",
+            "experiments",
+            "examples"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "-m",
+            "ruff",
+            "format",
+            "--check",
+            "src",
+            "tests",
+            "scripts",
+            "experiments",
+            "examples"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "-m",
+            "mypy"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "-m",
+            "build",
+            "--outdir",
+            ".references\\validation-313\\dist"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "-m",
+            "mkdocs",
+            "build",
+            "--strict",
+            "--site-dir",
+            "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\.references\\validation-313\\site"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "scripts/execute_tutorials.py"
+          ],
+          "returncode": 0
+        }
+      ]
+    },
+    {
+      "matrix": "3.14",
+      "python": "3.14.4",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "tests_passed": 127,
+      "skipped_modules": 0,
+      "coverage": {
+        "covered_lines": 969,
+        "num_statements": 993,
+        "percent_covered": 97.58308157099698,
+        "percent_covered_display": "98",
+        "missing_lines": 24,
+        "excluded_lines": 0,
+        "percent_statements_covered": 97.58308157099698,
+        "percent_statements_covered_display": "98"
+      },
+      "dependencies": {
+        "photographiq": "0.3.1",
+        "photographiqml": "0.2.0",
+        "piquasso": "8.0.1",
+        "numpy": "2.5.3",
+        "scipy": "1.18.1",
+        "coverage": "7.16.0",
+        "pytest": "9.1.1"
+      },
+      "checks": [
+        {
+          "command": [
+            "-m",
+            "pytest",
+            "--cov=photographiqml",
+            "--cov-fail-under=90",
+            "--cov-report=json:coverage.json",
+            "--cov-report=term-missing"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "-m",
+            "ruff",
+            "check",
+            "src",
+            "tests",
+            "scripts",
+            "experiments",
+            "examples"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "-m",
+            "ruff",
+            "format",
+            "--check",
+            "src",
+            "tests",
+            "scripts",
+            "experiments",
+            "examples"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "-m",
+            "mypy"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "-m",
+            "build",
+            "--outdir",
+            "dist"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "-m",
+            "mkdocs",
+            "build",
+            "--strict",
+            "--site-dir",
+            "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\site"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "scripts/execute_tutorials.py"
+          ],
+          "returncode": 0
+        }
+      ]
+    }
+  ]
+}

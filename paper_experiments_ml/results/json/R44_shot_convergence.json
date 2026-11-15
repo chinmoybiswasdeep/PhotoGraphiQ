@@ -1,0 +1,129 @@
+{
+  "rows": [
+    {
+      "shots": 4,
+      "max_rb_standard_error": 0.14405697805947484,
+      "max_empirical_standard_error": 0.21650635094610965
+    },
+    {
+      "shots": 8,
+      "max_rb_standard_error": 0.09798243103994499,
+      "max_empirical_standard_error": 0.1767766952966369
+    },
+    {
+      "shots": 16,
+      "max_rb_standard_error": 0.06075199202917634,
+      "max_empirical_standard_error": 0.12401959270615269
+    },
+    {
+      "shots": 32,
+      "max_rb_standard_error": 0.03905781122294218,
+      "max_empirical_standard_error": 0.08682074519880027
+    },
+    {
+      "coverage_check": true,
+      "seed": 0,
+      "label": "(0,)",
+      "estimate": 0.5781483001634362,
+      "se": 0.06333002034821689,
+      "low": 0.4540214602809311,
+      "high": 0.7022751400459413,
+      "covered": true
+    },
+    {
+      "coverage_check": true,
+      "seed": 1,
+      "label": "(0,)",
+      "estimate": 0.6085799628962285,
+      "se": 0.048027277648870735,
+      "low": 0.5144464987044419,
+      "high": 0.7027134270880151,
+      "covered": true
+    },
+    {
+      "coverage_check": true,
+      "seed": 2,
+      "label": "(0,)",
+      "estimate": 0.6124119851664697,
+      "se": 0.05041521053013027,
+      "low": 0.5135981725274144,
+      "high": 0.711225797805525,
+      "covered": true
+    },
+    {
+      "coverage_check": true,
+      "seed": 3,
+      "label": "(0,)",
+      "estimate": 0.5514127630546855,
+      "se": 0.045597239740786145,
+      "low": 0.4620421731627446,
+      "high": 0.6407833529466263,
+      "covered": true
+    },
+    {
+      "coverage_check": true,
+      "seed": 4,
+      "label": "(0,)",
+      "estimate": 0.5973940955990495,
+      "se": 0.059751342846461115,
+      "low": 0.48028146361998575,
+      "high": 0.7145067275781133,
+      "covered": true
+    },
+    {
+      "coverage_check": true,
+      "seed": 5,
+      "label": "(0,)",
+      "estimate": 0.5718688383037049,
+      "se": 0.05813048744354662,
+      "low": 0.4579330829143536,
+      "high": 0.6858045936930564,
+      "covered": true
+    },
+    {
+      "coverage_check": true,
+      "seed": 6,
+      "label": "(0,)",
+      "estimate": 0.5894847473132887,
+      "se": 0.054392496094249114,
+      "low": 0.48287545496856044,
+      "high": 0.696094039658017,
+      "covered": true
+    },
+    {
+      "coverage_check": true,
+      "seed": 7,
+      "label": "(0,)",
+      "estimate": 0.5468937955167137,
+      "se": 0.06376789256712474,
+      "low": 0.4219087260851492,
+      "high": 0.6718788649482782,
+      "covered": true
+    }
+  ],
+  "protocol": "Rao-Blackwell and empirical standard-error shot convergence + coverage check",
+  "oracle_class": "E",
+  "status_category": "statistical",
+  "reference_shots": 64,
+  "coverage_shots": 16,
+  "coverage_rate": 1.0,
+  "seeds": [
+    2026,
+    999,
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007
+  ],
+  "acceptance_condition": "shots=32 SE < shots=4 SE; coverage rate in [0.5,1.0] (loose n=8 sanity band)",
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

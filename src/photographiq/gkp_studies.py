@@ -61,12 +61,18 @@ class GKPMeasurementStudy:
     rows: list[dict]
 
 
-def measurement_convergence(code, values, *, axis="cutoff", basis="Z", coefficients=(1, 0)):
+def measurement_convergence(
+    code, values, *, axis="cutoff", basis="Z", coefficients=(1, 0), backend="piquasso-fock"
+):
     """Vary one parameter independently; report physical metrics, never auto-certify.
 
     Width/envelope sweeps change the physical resource, not numerical resolution.
     Residual moments integrate each cell separately to avoid grid parity bias.
+    ``backend`` prepares the codeword state: ``piquasso-fock`` (default, kept for
+    reproducibility of recorded studies) or ``native-fock``.
     """
+    if backend not in ("piquasso-fock", "native-fock"):
+        raise ValueError("backend must be piquasso-fock or native-fock")
     from scipy.integrate import quad
 
     from .gkp import SPACING
@@ -105,7 +111,7 @@ def measurement_convergence(code, values, *, axis="cutoff", basis="Z", coefficie
             for order in (1, 2)
         ]
         state = simulate(
-            Pattern(inputs=(0,)), inputs={0: source}, backend="piquasso-fock", cutoff=current.cutoff
+            Pattern(inputs=(0,)), inputs={0: source}, backend=backend, cutoff=current.cutoff
         ).state
         fidelity = None
         if previous is not None:

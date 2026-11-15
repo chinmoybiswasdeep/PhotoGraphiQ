@@ -1,0 +1,65 @@
+{
+  "rows": [
+    {
+      "split": 0,
+      "r_squared": 0.9999985856921942,
+      "mse": 1.4435348835744713e-07,
+      "mean_residual": 0.00014701731951208697
+    },
+    {
+      "split": 1,
+      "r_squared": 0.9999990623185627,
+      "mse": 1.167242473454049e-07,
+      "mean_residual": -0.00016169082994842992
+    },
+    {
+      "split": 2,
+      "r_squared": 0.9999977211722795,
+      "mse": 2.0305773573647692e-07,
+      "mean_residual": -5.891035812565257e-05
+    },
+    {
+      "split": 3,
+      "r_squared": 0.9999991820303686,
+      "mse": 6.401601719210788e-08,
+      "mean_residual": 0.00022084723657597496
+    },
+    {
+      "split": 4,
+      "r_squared": 0.9999872224572443,
+      "mse": 1.4165747779640959e-06,
+      "mean_residual": -0.0002665837848767193
+    }
+  ],
+  "protocol": "MuTARegressor on sin(x) target, repeated held-out splits + residual calibration",
+  "oracle_class": "A",
+  "status_category": "statistical",
+  "n_splits": 5,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "r_squared_bootstrap_ci": {
+    "point": 0.9999985856921942,
+    "low": 0.9999872224572443,
+    "high": 0.9999991820303686,
+    "n_boot": 2000,
+    "alpha": 0.05,
+    "n": 5,
+    "statistic": "median"
+  },
+  "mean_residual": -2.386408337254797e-05,
+  "residual_prediction_correlation": 0.5660156782074457,
+  "overall_mse": 3.889452533191065e-07,
+  "calibration_check_gated_by_mse_floor": false,
+  "acceptance_condition": "median R^2 >= 0.9; |mean residual| < 0.1; |corr(residual,prediction)| < 0.5 (only when overall MSE >= 1e-4)",
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

@@ -1,0 +1,59 @@
+{
+  "rows": [
+    {
+      "n_wires": 1,
+      "n_layers": 1,
+      "node_map_identity_violations": 0,
+      "io_ok": true,
+      "measurement_key_coverage_ok": true,
+      "frame_dependency_mismatches": 0,
+      "pattern_valid": true,
+      "peak_live_modes": 2,
+      "peak_at_least_n_wires": true,
+      "analytic_fock_dimension": 136,
+      "reported_fock_dimension": 136,
+      "fock_dimension_error": 0,
+      "cz_edges_match_graph": true
+    },
+    {
+      "n_wires": 1,
+      "n_layers": 2,
+      "node_map_identity_violations": 0,
+      "io_ok": true,
+      "measurement_key_coverage_ok": true,
+      "frame_dependency_mismatches": 0,
+      "pattern_valid": true,
+      "peak_live_modes": 2,
+      "peak_at_least_n_wires": true,
+      "analytic_fock_dimension": 136,
+      "reported_fock_dimension": 136,
+      "fock_dimension_error": 0,
+      "cz_edges_match_graph": true
+    },
+    {
+      "n_wires": 2,
+      "n_layers": 1,
+      "node_map_identity_violations": 0,
+      "io_ok": true,
+      "measurement_key_coverage_ok": true,
+      "frame_dependency_mismatches": 0,
+      "pattern_valid": true,
+      "peak_live_modes": 3,
+      "peak_at_least_n_wires": true,
+      "analytic_fock_dimension": 816,
+      "reported_fock_dimension": 816,
+      "fock_dimension_error": 0,
+      "cz_edges_match_graph": true
+    }
+  ],
+  "protocol": "lower_muta_to_gkp structural preservation + analytic Fock-dimension cross-check",
+  "oracle_class": "A/E",
+  "status_category": "exact",
+  "acceptance_condition": "0 violations in every category; Fock dimension exact match; pattern validates",
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

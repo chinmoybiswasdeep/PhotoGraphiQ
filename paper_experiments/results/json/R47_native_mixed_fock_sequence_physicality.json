@@ -1,0 +1,806 @@
+{
+  "rows": [
+    {
+      "cutoff": 6,
+      "step": 0,
+      "operation": "bs",
+      "hermiticity": 6.938893903907228e-18,
+      "trace_error": 4.440892098500626e-16,
+      "min_eigenvalue": -5.215070466097395e-16,
+      "retained_norm_step": 1.0
+    },
+    {
+      "cutoff": 6,
+      "step": 1,
+      "operation": "cz",
+      "hermiticity": 5.551115123125783e-17,
+      "trace_error": 0.0,
+      "min_eigenvalue": -5.041496161954812e-17,
+      "retained_norm_step": 0.9991066236150192
+    },
+    {
+      "cutoff": 6,
+      "step": 2,
+      "operation": "kerr",
+      "hermiticity": 6.206335383118183e-17,
+      "trace_error": 1.1102230246251565e-16,
+      "min_eigenvalue": -5.962624124233573e-17,
+      "retained_norm_step": 1.0000000000000002
+    },
+    {
+      "cutoff": 6,
+      "step": 3,
+      "operation": "cubic",
+      "hermiticity": 5.721958498152797e-17,
+      "trace_error": 5.052588567784325e-33,
+      "min_eigenvalue": -5.926348617852669e-17,
+      "retained_norm_step": 0.9986199016065251
+    },
+    {
+      "cutoff": 6,
+      "step": 4,
+      "operation": "squeeze",
+      "hermiticity": 1.3877787807814457e-16,
+      "trace_error": 1.1102230246251565e-16,
+      "min_eigenvalue": -8.086930897817033e-17,
+      "retained_norm_step": 0.9994592130309407
+    },
+    {
+      "cutoff": 6,
+      "step": 5,
+      "operation": "displace",
+      "hermiticity": 1.5700924586837752e-16,
+      "trace_error": 2.2204784941198936e-16,
+      "min_eigenvalue": -6.260937917496531e-17,
+      "retained_norm_step": 0.9997635118154894
+    },
+    {
+      "cutoff": 6,
+      "step": 6,
+      "operation": "loss",
+      "hermiticity": 1.3877787807814457e-16,
+      "trace_error": 1.201225860486362e-18,
+      "min_eigenvalue": -5.969772066926939e-18,
+      "retained_norm_step": 0.9999123864127075
+    },
+    {
+      "cutoff": 6,
+      "step": 7,
+      "operation": "bs",
+      "hermiticity": 1.415262216750919e-16,
+      "trace_error": 1.1102954168363268e-16,
+      "min_eigenvalue": -2.2548848711262118e-17,
+      "retained_norm_step": 0.9999999999999999
+    },
+    {
+      "cutoff": 6,
+      "step": 8,
+      "operation": "cz",
+      "hermiticity": 1.2794688166302258e-16,
+      "trace_error": 6.885725960805787e-19,
+      "min_eigenvalue": -1.892977670165084e-17,
+      "retained_norm_step": 0.9956910989672052
+    },
+    {
+      "cutoff": 6,
+      "step": 9,
+      "operation": "kerr",
+      "hermiticity": 1.2794688166302258e-16,
+      "trace_error": 2.2204567257330936e-16,
+      "min_eigenvalue": -3.218333510310096e-17,
+      "retained_norm_step": 1.0000000000000002
+    },
+    {
+      "cutoff": 6,
+      "step": 10,
+      "operation": "cubic",
+      "hermiticity": 9.770051323749143e-17,
+      "trace_error": 2.220446641653187e-16,
+      "min_eigenvalue": -1.8491045505008687e-17,
+      "retained_norm_step": 0.9976780964492091
+    },
+    {
+      "cutoff": 6,
+      "step": 11,
+      "operation": "squeeze",
+      "hermiticity": 1.0591761858187545e-16,
+      "trace_error": 2.2204466990695524e-16,
+      "min_eigenvalue": -3.4367756311777566e-17,
+      "retained_norm_step": 0.9983605894792865
+    },
+    {
+      "cutoff": 6,
+      "step": 12,
+      "operation": "displace",
+      "hermiticity": 1.1775693440128312e-16,
+      "trace_error": 2.2204704486393374e-16,
+      "min_eigenvalue": -2.842672385619036e-17,
+      "retained_norm_step": 0.9989168780464297
+    },
+    {
+      "cutoff": 6,
+      "step": 13,
+      "operation": "loss",
+      "hermiticity": 1.1775693440128312e-16,
+      "trace_error": 1.1102714334710497e-16,
+      "min_eigenvalue": 3.185602324447406e-11,
+      "retained_norm_step": 0.9996523325419931
+    },
+    {
+      "cutoff": 6,
+      "step": 14,
+      "operation": "bs",
+      "hermiticity": 1.1102230246251568e-16,
+      "trace_error": 2.220712642613487e-16,
+      "min_eigenvalue": 3.185602335500858e-11,
+      "retained_norm_step": 0.9999999999999999
+    },
+    {
+      "cutoff": 6,
+      "step": 15,
+      "operation": "cz",
+      "hermiticity": 9.837950954267543e-17,
+      "trace_error": 4.953758164221972e-18,
+      "min_eigenvalue": 3.008150474982365e-11,
+      "retained_norm_step": 0.987446624874273
+    },
+    {
+      "cutoff": 6,
+      "step": 16,
+      "operation": "kerr",
+      "hermiticity": 9.83795095426754e-17,
+      "trace_error": 4.953758164221975e-18,
+      "min_eigenvalue": 3.008150507219601e-11,
+      "retained_norm_step": 1.0000000000000002
+    },
+    {
+      "cutoff": 6,
+      "step": 17,
+      "operation": "cubic",
+      "hermiticity": 9.694937808359733e-17,
+      "trace_error": 3.546354473436864e-18,
+      "min_eigenvalue": 2.960344356045675e-11,
+      "retained_norm_step": 0.995302860715674
+    },
+    {
+      "cutoff": 6,
+      "step": 18,
+      "operation": "squeeze",
+      "hermiticity": 9.707735641567229e-17,
+      "trace_error": 3.330958570598499e-16,
+      "min_eigenvalue": 2.915551727432532e-11,
+      "retained_norm_step": 0.9962478707702151
+    },
+    {
+      "cutoff": 6,
+      "step": 19,
+      "operation": "displace",
+      "hermiticity": 1.153297605929378e-16,
+      "trace_error": 2.2205655230681174e-16,
+      "min_eigenvalue": 2.8774543348357447e-11,
+      "retained_norm_step": 0.9972479949519548
+    },
+    {
+      "cutoff": 6,
+      "step": 20,
+      "operation": "loss",
+      "hermiticity": 1.153297605929378e-16,
+      "trace_error": 2.2205627434097474e-16,
+      "min_eigenvalue": 9.584596170299486e-09,
+      "retained_norm_step": 0.9992184188881568
+    },
+    {
+      "cutoff": 8,
+      "step": 0,
+      "operation": "bs",
+      "hermiticity": 2.7755575615628914e-17,
+      "trace_error": 1.1102230246251565e-16,
+      "min_eigenvalue": -8.162518774658252e-16,
+      "retained_norm_step": 1.0
+    },
+    {
+      "cutoff": 8,
+      "step": 1,
+      "operation": "cz",
+      "hermiticity": 1.1102230246251565e-16,
+      "trace_error": 4.440892098500626e-16,
+      "min_eigenvalue": -7.198034688701367e-17,
+      "retained_norm_step": 0.9999254324839859
+    },
+    {
+      "cutoff": 8,
+      "step": 2,
+      "operation": "kerr",
+      "hermiticity": 1.2412670766236366e-16,
+      "trace_error": 4.440892098500626e-16,
+      "min_eigenvalue": -8.705390086817819e-17,
+      "retained_norm_step": 1.0
+    },
+    {
+      "cutoff": 8,
+      "step": 3,
+      "operation": "cubic",
+      "hermiticity": 1.6883057536160649e-16,
+      "trace_error": 2.220446049250313e-16,
+      "min_eigenvalue": -2.2512036502246827e-16,
+      "retained_norm_step": 0.9996847895251822
+    },
+    {
+      "cutoff": 8,
+      "step": 4,
+      "operation": "squeeze",
+      "hermiticity": 1.3877787807814457e-16,
+      "trace_error": 2.8272397489092557e-33,
+      "min_eigenvalue": -9.672223035313261e-17,
+      "retained_norm_step": 0.9999046660147218
+    },
+    {
+      "cutoff": 8,
+      "step": 5,
+      "operation": "displace",
+      "hermiticity": 1.1102569054260746e-16,
+      "trace_error": 2.2204554799934086e-16,
+      "min_eigenvalue": -2.3971524540718155e-16,
+      "retained_norm_step": 0.9999483465170733
+    },
+    {
+      "cutoff": 8,
+      "step": 6,
+      "operation": "loss",
+      "hermiticity": 1.1102230246251565e-16,
+      "trace_error": 3.3306753638440583e-16,
+      "min_eigenvalue": -1.6534924717938998e-17,
+      "retained_norm_step": 0.9999867176052969
+    },
+    {
+      "cutoff": 8,
+      "step": 7,
+      "operation": "bs",
+      "hermiticity": 8.326672684688674e-17,
+      "trace_error": 2.220774257913212e-16,
+      "min_eigenvalue": -4.0940026279039025e-17,
+      "retained_norm_step": 1.0
+    },
+    {
+      "cutoff": 8,
+      "step": 8,
+      "operation": "cz",
+      "hermiticity": 7.473417450352271e-17,
+      "trace_error": 6.661733710033641e-16,
+      "min_eigenvalue": -2.1785768718755068e-17,
+      "retained_norm_step": 0.9986707613188167
+    },
+    {
+      "cutoff": 8,
+      "step": 9,
+      "operation": "kerr",
+      "hermiticity": 8.121767085755589e-17,
+      "trace_error": 6.661733710033641e-16,
+      "min_eigenvalue": -2.802321897621175e-17,
+      "retained_norm_step": 1.0
+    },
+    {
+      "cutoff": 8,
+      "step": 10,
+      "operation": "cubic",
+      "hermiticity": 9.159602786276758e-17,
+      "trace_error": 4.441564330736902e-16,
+      "min_eigenvalue": -3.060192089674459e-17,
+      "retained_norm_step": 0.9980947317415295
+    },
+    {
+      "cutoff": 8,
+      "step": 11,
+      "operation": "squeeze",
+      "hermiticity": 1.153297605929378e-16,
+      "trace_error": 8.882134799121738e-16,
+      "min_eigenvalue": -4.265143893281244e-17,
+      "retained_norm_step": 0.9993644985598086
+    },
+    {
+      "cutoff": 8,
+      "step": 12,
+      "operation": "displace",
+      "hermiticity": 1.1631705747361534e-16,
+      "trace_error": 9.851423273565338e-18,
+      "min_eigenvalue": -2.945359247332118e-17,
+      "retained_norm_step": 0.9995487319418198
+    },
+    {
+      "cutoff": 8,
+      "step": 13,
+      "operation": "loss",
+      "hermiticity": 1.1631705747361534e-16,
+      "trace_error": 9.852431832211586e-18,
+      "min_eigenvalue": 5.929408939352238e-15,
+      "retained_norm_step": 0.999885611840787
+    },
+    {
+      "cutoff": 8,
+      "step": 14,
+      "operation": "bs",
+      "hermiticity": 7.144028522217822e-17,
+      "trace_error": 1.729717003451357e-17,
+      "min_eigenvalue": 5.929394893948632e-15,
+      "retained_norm_step": 0.9999999999999998
+    },
+    {
+      "cutoff": 8,
+      "step": 15,
+      "operation": "cz",
+      "hermiticity": 8.649732044470335e-17,
+      "trace_error": 2.227733643107424e-16,
+      "min_eigenvalue": 5.283914305582732e-15,
+      "retained_norm_step": 0.9935679854724911
+    },
+    {
+      "cutoff": 8,
+      "step": 16,
+      "operation": "kerr",
+      "hermiticity": 8.649732044470335e-17,
+      "trace_error": 2.227733643107424e-16,
+      "min_eigenvalue": 5.28394748445613e-15,
+      "retained_norm_step": 1.0
+    },
+    {
+      "cutoff": 8,
+      "step": 17,
+      "operation": "cubic",
+      "hermiticity": 9.813077866773594e-17,
+      "trace_error": 6.663795755073705e-16,
+      "min_eigenvalue": 5.219928367517488e-15,
+      "retained_norm_step": 0.9949265023711223
+    },
+    {
+      "cutoff": 8,
+      "step": 18,
+      "operation": "squeeze",
+      "hermiticity": 1.0501884686643169e-16,
+      "trace_error": 6.663928361601673e-16,
+      "min_eigenvalue": 4.926599782449232e-15,
+      "retained_norm_step": 0.9979922219388633
+    },
+    {
+      "cutoff": 8,
+      "step": 19,
+      "operation": "displace",
+      "hermiticity": 1.4088688899021424e-16,
+      "trace_error": 2.226028544641903e-16,
+      "min_eigenvalue": 4.8743439801076585e-15,
+      "retained_norm_step": 0.998536906534774
+    },
+    {
+      "cutoff": 8,
+      "step": 20,
+      "operation": "loss",
+      "hermiticity": 1.4088688899021424e-16,
+      "trace_error": 4.443685665092868e-16,
+      "min_eigenvalue": 1.4974128740968608e-11,
+      "retained_norm_step": 0.9996482677348517
+    },
+    {
+      "cutoff": 10,
+      "step": 0,
+      "operation": "bs",
+      "hermiticity": 2.7755575615628914e-17,
+      "trace_error": 2.220446049250313e-16,
+      "min_eigenvalue": -6.698104886558477e-16,
+      "retained_norm_step": 0.9999999999999994
+    },
+    {
+      "cutoff": 10,
+      "step": 1,
+      "operation": "cz",
+      "hermiticity": 5.551115123125783e-17,
+      "trace_error": 2.220446049250313e-16,
+      "min_eigenvalue": -1.4301845940621176e-16,
+      "retained_norm_step": 0.9999938611614639
+    },
+    {
+      "cutoff": 10,
+      "step": 2,
+      "operation": "kerr",
+      "hermiticity": 3.1031676915590914e-17,
+      "trace_error": 1.1102230246251565e-16,
+      "min_eigenvalue": -7.897026995739797e-17,
+      "retained_norm_step": 1.0000000000000002
+    },
+    {
+      "cutoff": 10,
+      "step": 3,
+      "operation": "cubic",
+      "hermiticity": 1.2412670766236366e-16,
+      "trace_error": 2.0191767235401413e-34,
+      "min_eigenvalue": -8.675192964160472e-17,
+      "retained_norm_step": 0.9999315148847526
+    },
+    {
+      "cutoff": 10,
+      "step": 4,
+      "operation": "squeeze",
+      "hermiticity": 1.6883057536160649e-16,
+      "trace_error": 1.1102230246251565e-16,
+      "min_eigenvalue": -3.800474481203621e-17,
+      "retained_norm_step": 0.9999808588215254
+    },
+    {
+      "cutoff": 10,
+      "step": 5,
+      "operation": "displace",
+      "hermiticity": 1.3877787807814457e-16,
+      "trace_error": 5.966104410352806e-19,
+      "min_eigenvalue": -4.546163193532893e-16,
+      "retained_norm_step": 0.9999872266891833
+    },
+    {
+      "cutoff": 10,
+      "step": 6,
+      "operation": "loss",
+      "hermiticity": 1.3877787807814457e-16,
+      "trace_error": 8.881786200586925e-16,
+      "min_eigenvalue": -1.2643806131691473e-17,
+      "retained_norm_step": 0.9999974183556588
+    },
+    {
+      "cutoff": 10,
+      "step": 7,
+      "operation": "bs",
+      "hermiticity": 8.441528768080324e-17,
+      "trace_error": 3.3322754073343356e-16,
+      "min_eigenvalue": -3.3203802912344573e-17,
+      "retained_norm_step": 0.9999999999999999
+    },
+    {
+      "cutoff": 10,
+      "step": 8,
+      "operation": "cz",
+      "hermiticity": 1.0838898772828417e-16,
+      "trace_error": 2.2246137884531064e-16,
+      "min_eigenvalue": -4.0006498927993993e-17,
+      "retained_norm_step": 0.999591912149552
+    },
+    {
+      "cutoff": 10,
+      "step": 9,
+      "operation": "kerr",
+      "hermiticity": 1.1796119636642288e-16,
+      "trace_error": 2.2246137884531064e-16,
+      "min_eigenvalue": -7.063319366755363e-17,
+      "retained_norm_step": 1.0000000000000002
+    },
+    {
+      "cutoff": 10,
+      "step": 10,
+      "operation": "cubic",
+      "hermiticity": 1.5700924586837752e-16,
+      "trace_error": 5.552168133859312e-16,
+      "min_eigenvalue": -6.036905081387319e-17,
+      "retained_norm_step": 0.9989068428186836
+    },
+    {
+      "cutoff": 10,
+      "step": 11,
+      "operation": "squeeze",
+      "hermiticity": 1.3329179921125024e-16,
+      "trace_error": 9.992551236813096e-16,
+      "min_eigenvalue": -1.0515062933665465e-16,
+      "retained_norm_step": 0.9997457257640529
+    },
+    {
+      "cutoff": 10,
+      "step": 12,
+      "operation": "displace",
+      "hermiticity": 1.0103182026100663e-16,
+      "trace_error": 2.2239858781064527e-16,
+      "min_eigenvalue": -5.831292646422319e-17,
+      "retained_norm_step": 0.9997962202284163
+    },
+    {
+      "cutoff": 10,
+      "step": 13,
+      "operation": "loss",
+      "hermiticity": 9.437916079723832e-17,
+      "trace_error": 4.442662905510363e-16,
+      "min_eigenvalue": 9.355360388244894e-19,
+      "retained_norm_step": 0.9999585604561377
+    },
+    {
+      "cutoff": 10,
+      "step": 14,
+      "operation": "bs",
+      "hermiticity": 7.850462293418876e-17,
+      "trace_error": 7.776064610235089e-16,
+      "min_eigenvalue": 9.383549551197925e-19,
+      "retained_norm_step": 0.9999999999999998
+    },
+    {
+      "cutoff": 10,
+      "step": 15,
+      "operation": "cz",
+      "hermiticity": 9.71445146547012e-17,
+      "trace_error": 1.1105311193907997e-15,
+      "min_eigenvalue": 8.103922794172677e-19,
+      "retained_norm_step": 0.9966695751736682
+    },
+    {
+      "cutoff": 10,
+      "step": 16,
+      "operation": "kerr",
+      "hermiticity": 8.355534721610419e-17,
+      "trace_error": 9.995430385420603e-16,
+      "min_eigenvalue": 8.23886413004976e-19,
+      "retained_norm_step": 0.9999999999999999
+    },
+    {
+      "cutoff": 10,
+      "step": 17,
+      "operation": "cubic",
+      "hermiticity": 1.0875671929592901e-16,
+      "trace_error": 2.237283971788669e-16,
+      "min_eigenvalue": 7.982813944731912e-19,
+      "retained_norm_step": 0.9959184452227039
+    },
+    {
+      "cutoff": 10,
+      "step": 18,
+      "operation": "squeeze",
+      "hermiticity": 1.6365348541700846e-16,
+      "trace_error": 4.448126544845416e-16,
+      "min_eigenvalue": 7.680313176337809e-19,
+      "retained_norm_step": 0.9989238372191472
+    },
+    {
+      "cutoff": 10,
+      "step": 19,
+      "operation": "displace",
+      "hermiticity": 1.893949450598201e-16,
+      "trace_error": 2.4229866241579253e-17,
+      "min_eigenvalue": 7.478118348621811e-19,
+      "retained_norm_step": 0.9992223413567418
+    },
+    {
+      "cutoff": 10,
+      "step": 20,
+      "operation": "loss",
+      "hermiticity": 1.6184142622847344e-16,
+      "trace_error": 4.447499417667581e-16,
+      "min_eigenvalue": 6.101715921078746e-14,
+      "retained_norm_step": 0.9998331260020541
+    },
+    {
+      "cutoff": 12,
+      "step": 0,
+      "operation": "bs",
+      "hermiticity": 2.7755575615628914e-17,
+      "trace_error": 2.220446049250313e-16,
+      "min_eigenvalue": -8.753506592237931e-16,
+      "retained_norm_step": 1.0
+    },
+    {
+      "cutoff": 12,
+      "step": 1,
+      "operation": "cz",
+      "hermiticity": 1.1102230246251565e-16,
+      "trace_error": 4.440892098500626e-16,
+      "min_eigenvalue": -1.777904427823187e-17,
+      "retained_norm_step": 0.9999994924127749
+    },
+    {
+      "cutoff": 12,
+      "step": 2,
+      "operation": "kerr",
+      "hermiticity": 1.2412670766236366e-16,
+      "trace_error": 1.1102230246251565e-16,
+      "min_eigenvalue": -1.977432169757596e-17,
+      "retained_norm_step": 0.9999999999999998
+    },
+    {
+      "cutoff": 12,
+      "step": 3,
+      "operation": "cubic",
+      "hermiticity": 1.3877787807814457e-16,
+      "trace_error": 4.440892098500626e-16,
+      "min_eigenvalue": -5.303125249748262e-16,
+      "retained_norm_step": 0.9999835117791199
+    },
+    {
+      "cutoff": 12,
+      "step": 4,
+      "operation": "squeeze",
+      "hermiticity": 1.0007415106216802e-16,
+      "trace_error": 1.3322676295501878e-15,
+      "min_eigenvalue": -4.273942906586717e-17,
+      "retained_norm_step": 0.9999959672311137
+    },
+    {
+      "cutoff": 12,
+      "step": 5,
+      "operation": "displace",
+      "hermiticity": 1.7554167342883506e-16,
+      "trace_error": 1.237497461445007e-18,
+      "min_eigenvalue": -4.841717663565788e-16,
+      "retained_norm_step": 0.9999968692496943
+    },
+    {
+      "cutoff": 12,
+      "step": 6,
+      "operation": "loss",
+      "hermiticity": 1.4946834900704541e-16,
+      "trace_error": 4.440909340313546e-16,
+      "min_eigenvalue": -2.7126563508941474e-17,
+      "retained_norm_step": 0.9999994583717466
+    },
+    {
+      "cutoff": 12,
+      "step": 7,
+      "operation": "bs",
+      "hermiticity": 1.387778780781446e-16,
+      "trace_error": 6.661489519372608e-16,
+      "min_eigenvalue": -1.3774185286722105e-16,
+      "retained_norm_step": 0.9999999999999998
+    },
+    {
+      "cutoff": 12,
+      "step": 8,
+      "operation": "cz",
+      "hermiticity": 1.3087964421453007e-16,
+      "trace_error": 8.88186335434713e-16,
+      "min_eigenvalue": -1.1231191298195632e-16,
+      "retained_norm_step": 0.9998743731645332
+    },
+    {
+      "cutoff": 12,
+      "step": 9,
+      "operation": "kerr",
+      "hermiticity": 1.3087964421453007e-16,
+      "trace_error": 8.88186335434713e-16,
+      "min_eigenvalue": -9.830164493830345e-17,
+      "retained_norm_step": 1.0
+    },
+    {
+      "cutoff": 12,
+      "step": 10,
+      "operation": "cubic",
+      "hermiticity": 1.3039779184781998e-16,
+      "trace_error": 3.3309204777369404e-16,
+      "min_eigenvalue": -1.0417486293197125e-16,
+      "retained_norm_step": 0.9994118710602719
+    },
+    {
+      "cutoff": 12,
+      "step": 11,
+      "operation": "squeeze",
+      "hermiticity": 1.2820258570590944e-16,
+      "trace_error": 1.1102301351590192e-15,
+      "min_eigenvalue": -1.511029565125831e-16,
+      "retained_norm_step": 0.99989416932057
+    },
+    {
+      "cutoff": 12,
+      "step": 12,
+      "operation": "displace",
+      "hermiticity": 1.3618760837415414e-16,
+      "trace_error": 2.2208905223850587e-16,
+      "min_eigenvalue": -1.70942275916149e-16,
+      "retained_norm_step": 0.9999132409320067
+    },
+    {
+      "cutoff": 12,
+      "step": 13,
+      "operation": "loss",
+      "hermiticity": 1.3220377936010176e-16,
+      "trace_error": 6.661486310140566e-16,
+      "min_eigenvalue": 7.669795674526056e-23,
+      "retained_norm_step": 0.999984266659398
+    },
+    {
+      "cutoff": 12,
+      "step": 14,
+      "operation": "bs",
+      "hermiticity": 1.249000902703301e-16,
+      "trace_error": 3.333650136157723e-16,
+      "min_eigenvalue": -4.0541133857310505e-22,
+      "retained_norm_step": 0.9999999999999997
+    },
+    {
+      "cutoff": 12,
+      "step": 15,
+      "operation": "cz",
+      "hermiticity": 1.2412670766236366e-16,
+      "trace_error": 2.2273024253513027e-16,
+      "min_eigenvalue": -1.1097582920332074e-19,
+      "retained_norm_step": 0.9982900707326267
+    },
+    {
+      "cutoff": 12,
+      "step": 16,
+      "operation": "kerr",
+      "hermiticity": 1.3092278833360675e-16,
+      "trace_error": 2.2273024253513027e-16,
+      "min_eigenvalue": -1.0052839568755362e-19,
+      "retained_norm_step": 1.0000000000000002
+    },
+    {
+      "cutoff": 12,
+      "step": 17,
+      "operation": "cubic",
+      "hermiticity": 1.2757001226805672e-16,
+      "trace_error": 8.883204337978507e-16,
+      "min_eigenvalue": -1.4511093113670174e-19,
+      "retained_norm_step": 0.9972321349973216
+    },
+    {
+      "cutoff": 12,
+      "step": 18,
+      "operation": "squeeze",
+      "hermiticity": 1.316562550716263e-16,
+      "trace_error": 8.883256595851743e-16,
+      "min_eigenvalue": -1.6465387450197978e-19,
+      "retained_norm_step": 0.99939712335156
+    },
+    {
+      "cutoff": 12,
+      "step": 19,
+      "operation": "displace",
+      "hermiticity": 1.2398116134574891e-16,
+      "trace_error": 1.9315386694200116e-17,
+      "min_eigenvalue": -2.0976717782525385e-19,
+      "retained_norm_step": 0.9995549938130764
+    },
+    {
+      "cutoff": 12,
+      "step": 20,
+      "operation": "loss",
+      "hermiticity": 1.2295751324518482e-16,
+      "trace_error": 2.2288344073590286e-16,
+      "min_eigenvalue": 2.2595477538185934e-16,
+      "retained_norm_step": 0.9999158699822389
+    }
+  ],
+  "backend": "native-mixed-fock (compiled) with piquasso-mixed-fock 8.0.1 secondary; NumPy gaussian backend for Gaussian moments",
+  "reference": "closed forms, dense expm (90 levels), channel invariants, Gaussian conditioning",
+  "precision": "complex128",
+  "cutoff": [
+    8,
+    12,
+    16,
+    24,
+    32,
+    48
+  ],
+  "sequence_cutoffs": [
+    6,
+    8,
+    10,
+    12
+  ],
+  "seed": 20261147,
+  "full": true,
+  "parameters": {
+    "piquasso_max_cutoff": 8,
+    "openmp_threads": 1,
+    "nbars": [
+      0.3,
+      1.0
+    ],
+    "alpha": 1.5,
+    "etas": [
+      0.3,
+      0.7
+    ],
+    "n_th": 0.4,
+    "tmsv_r": 0.6,
+    "tmsv_eta": 0.8,
+    "homodyne_outcome": 0.7,
+    "norm_tolerance": "1 - 1e-12 (truncation studied, never rejected)"
+  },
+  "acceptance": {
+    "TOL_EXACT": 1e-12,
+    "TOL_HERMITIAN": 1e-13,
+    "TOL_TRACE": 1e-12,
+    "TOL_MIN_EIG": -1e-12,
+    "TOL_CONSISTENCY": 1e-12,
+    "K_TRUNC": 10,
+    "TOL_GAUSSIAN_TOP": 1e-06
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "rows": [
+    {
+      "layer": "logical",
+      "seed": 0,
+      "same_seed_max_diff": 0.0
+    },
+    {
+      "layer": "logical",
+      "seed": 1,
+      "same_seed_max_diff": 0.0
+    },
+    {
+      "layer": "logical",
+      "seed": 7,
+      "same_seed_max_diff": 0.0
+    },
+    {
+      "layer": "logical",
+      "seed": 123,
+      "same_seed_max_diff": 0.0
+    },
+    {
+      "layer": "physical",
+      "seed": 2026,
+      "same_seed_max_diff": 0,
+      "same_seed_bit_diff": 0,
+      "same_seed_probability_diff": 0.0,
+      "different_seed_tv_distance": 0.0,
+      "different_seed_tv_standard_error": 0.08682074519880027
+    }
+  ],
+  "protocol": "Same-seed reproducibility and different-seed distinctness, logical + physical",
+  "oracle_class": "E",
+  "status_category": "exact/statistical",
+  "acceptance_condition": "same-seed max diff == 0 in every case; different-seed logical init differs",
+  "max_same_seed_error": 0.0,
+  "different_seed_logical_init_differs": true,
+  "different_seed_physical_tv_distance": 0.0,
+  "different_seed_physical_tv_standard_error": 0.08682074519880027,
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

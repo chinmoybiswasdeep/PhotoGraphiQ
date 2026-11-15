@@ -1,0 +1,13 @@
+n_wires,n_layers,one_column,n_measured,order_violations,correction_mismatches,self_correction_dropped
+1,1,False,4,0,0,4
+1,1,True,4,0,0,4
+1,2,False,8,0,0,8
+1,2,True,8,0,0,8
+2,1,False,16,0,0,16
+2,1,True,8,0,0,8
+2,2,False,32,0,0,32
+2,2,True,16,0,0,16
+3,1,False,36,0,0,36
+3,1,True,12,0,0,12
+3,2,False,72,0,0,72
+3,2,True,24,0,0,24

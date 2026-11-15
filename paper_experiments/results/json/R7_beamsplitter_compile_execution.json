@@ -1,0 +1,35 @@
+{
+  "rows": [
+    {
+      "theta": 0.3,
+      "squeezing": 1.2,
+      "map_frobenius_error": 3.054278824187844e-15,
+      "noise_trace": 9.815978449972276,
+      "gaussian_max_z_mean": 1.3485983996124236,
+      "gaussian_max_z_covariance": 2.4277490727762854,
+      "native-gaussian_max_z_mean": 1.348598399612426,
+      "native-gaussian_max_z_covariance": 2.427749072776287,
+      "native_vs_gaussian_max_record_difference": 1.0658141036401503e-14,
+      "planner_backend": "native-gaussian",
+      "shots": 300,
+      "measurements": 96
+    }
+  ],
+  "backends": [
+    "gaussian",
+    "native-gaussian"
+  ],
+  "seed": 20261113,
+  "alphas": [
+    [
+      0.3,
+      0.1
+    ],
+    [
+      -0.2,
+      0.2
+    ]
+  ],
+  "sem_factor": 5.0,
+  "native_trajectory_tolerance": 1e-09
+}

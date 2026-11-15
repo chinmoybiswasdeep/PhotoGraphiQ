@@ -3,6 +3,10 @@
 Fock evolution uses projected finite-dimensional generators. It is a separate
 numerical realization from native Piquasso; both cutoff and gradients must converge.
 No JAX import occurs until a differentiable operation is requested.
+
+Requires JAX and Piquasso (``pip install 'photographiq[autodiff]'`` installs both):
+every input and ``Prepare``/``PrepareResource`` state is built by the Piquasso-backed
+:class:`~photographiq.backends.mixed_fock.MixedFockBackend` before the JAX evolution.
 """
 
 from itertools import product

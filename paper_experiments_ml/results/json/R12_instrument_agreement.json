@@ -1,0 +1,115 @@
+{
+  "rows": [
+    {
+      "n_wires": 1,
+      "seed": 0,
+      "max_probability_error": 4.440892098500626e-16,
+      "max_conditional_state_error": 2.2582615571362553e-16,
+      "photographiqml_probability_sum_error": 4.440892098500626e-16,
+      "mentpy_probability_sum_error": 2.220446049250313e-16
+    },
+    {
+      "n_wires": 1,
+      "seed": 1,
+      "max_probability_error": 7.771561172376096e-16,
+      "max_conditional_state_error": 1.1620202809265456e-16,
+      "photographiqml_probability_sum_error": 5.551115123125783e-16,
+      "mentpy_probability_sum_error": 2.220446049250313e-16
+    },
+    {
+      "n_wires": 1,
+      "seed": 2,
+      "max_probability_error": 5.551115123125783e-16,
+      "max_conditional_state_error": 2.3012791781354123e-16,
+      "photographiqml_probability_sum_error": 8.881784197001252e-16,
+      "mentpy_probability_sum_error": 2.220446049250313e-16
+    },
+    {
+      "n_wires": 1,
+      "seed": 3,
+      "max_probability_error": 4.440892098500626e-16,
+      "max_conditional_state_error": 2.262685104704883e-16,
+      "photographiqml_probability_sum_error": 6.661338147750939e-16,
+      "mentpy_probability_sum_error": 2.220446049250313e-16
+    },
+    {
+      "n_wires": 2,
+      "seed": 0,
+      "max_probability_error": 1.6653345369377348e-15,
+      "max_conditional_state_error": 3.320603061595825e-16,
+      "photographiqml_probability_sum_error": 2.1094237467877974e-15,
+      "mentpy_probability_sum_error": 0.0
+    },
+    {
+      "n_wires": 2,
+      "seed": 1,
+      "max_probability_error": 7.771561172376096e-16,
+      "max_conditional_state_error": 4.1620845484984343e-16,
+      "photographiqml_probability_sum_error": 1.5543122344752192e-15,
+      "mentpy_probability_sum_error": 1.1102230246251565e-16
+    },
+    {
+      "n_wires": 2,
+      "seed": 2,
+      "max_probability_error": 1.4432899320127035e-15,
+      "max_conditional_state_error": 3.8759748922454503e-16,
+      "photographiqml_probability_sum_error": 2.220446049250313e-15,
+      "mentpy_probability_sum_error": 4.440892098500626e-16
+    },
+    {
+      "n_wires": 2,
+      "seed": 3,
+      "max_probability_error": 8.881784197001252e-16,
+      "max_conditional_state_error": 8.04740779769074e-16,
+      "photographiqml_probability_sum_error": 1.3322676295501878e-15,
+      "mentpy_probability_sum_error": 2.220446049250313e-16
+    },
+    {
+      "n_wires": 3,
+      "seed": 0,
+      "max_probability_error": 1.5543122344752192e-15,
+      "max_conditional_state_error": 6.826507454643201e-16,
+      "photographiqml_probability_sum_error": 2.4424906541753444e-15,
+      "mentpy_probability_sum_error": 0.0
+    },
+    {
+      "n_wires": 3,
+      "seed": 1,
+      "max_probability_error": 1.6653345369377348e-15,
+      "max_conditional_state_error": 7.493204095270087e-16,
+      "photographiqml_probability_sum_error": 2.220446049250313e-15,
+      "mentpy_probability_sum_error": 1.1102230246251565e-16
+    },
+    {
+      "n_wires": 3,
+      "seed": 2,
+      "max_probability_error": 1.3322676295501878e-15,
+      "max_conditional_state_error": 1.3313344677723352e-15,
+      "photographiqml_probability_sum_error": 1.7763568394002505e-15,
+      "mentpy_probability_sum_error": 1.1102230246251565e-16
+    },
+    {
+      "n_wires": 3,
+      "seed": 3,
+      "max_probability_error": 1.4432899320127035e-15,
+      "max_conditional_state_error": 1.0380700960924395e-15,
+      "photographiqml_probability_sum_error": 1.4432899320127035e-15,
+      "mentpy_probability_sum_error": 2.220446049250313e-16
+    }
+  ],
+  "protocol": "QuantumInstrumentModel vs. independent projection of MentPy-executed density matrix",
+  "oracle_class": "B",
+  "status_category": "exact",
+  "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863",
+  "tolerance": 2.220446049250313e-13,
+  "acceptance_condition": "max branch-probability error, max conditional-state error and trace-preservation error all < 2.220e-13",
+  "max_probability_error": 1.6653345369377348e-15,
+  "max_conditional_state_error": 1.3313344677723352e-15,
+  "max_trace_preservation_error": 2.4424906541753444e-15,
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

@@ -1,0 +1,159 @@
+{
+  "rows": [
+    {
+      "efficiency": 1.0,
+      "noise": 0.0,
+      "empirical_variance": 0.998544187602908,
+      "predicted_variance": 1.0,
+      "absolute_error": 0.0014558123970920267,
+      "sampling_error_6sigma": 0.10955364135157215,
+      "within_tolerance": true
+    },
+    {
+      "efficiency": 1.0,
+      "noise": 0.2,
+      "empirical_variance": 1.1982530251234897,
+      "predicted_variance": 1.2,
+      "absolute_error": 0.00174697487651021,
+      "sampling_error_6sigma": 0.1314643696218866,
+      "within_tolerance": true
+    },
+    {
+      "efficiency": 1.0,
+      "noise": 0.6,
+      "empirical_variance": 1.597670700164653,
+      "predicted_variance": 1.6,
+      "absolute_error": 0.0023292998353470207,
+      "sampling_error_6sigma": 0.17528582616251545,
+      "within_tolerance": true
+    },
+    {
+      "efficiency": 0.9,
+      "noise": 0.0,
+      "empirical_variance": 1.1094935417810092,
+      "predicted_variance": 1.1111111111111112,
+      "absolute_error": 0.0016175693301019312,
+      "sampling_error_6sigma": 0.1217262681684135,
+      "within_tolerance": true
+    },
+    {
+      "efficiency": 0.9,
+      "noise": 0.2,
+      "empirical_variance": 1.3092023793015906,
+      "predicted_variance": 1.3111111111111111,
+      "absolute_error": 0.0019087318095205585,
+      "sampling_error_6sigma": 0.14363699643872793,
+      "within_tolerance": true
+    },
+    {
+      "efficiency": 0.9,
+      "noise": 0.6,
+      "empirical_variance": 1.7086200543427545,
+      "predicted_variance": 1.7111111111111112,
+      "absolute_error": 0.002491056768356703,
+      "sampling_error_6sigma": 0.18745845297935682,
+      "within_tolerance": true
+    },
+    {
+      "efficiency": 0.7,
+      "noise": 0.0,
+      "empirical_variance": 1.4264916965755827,
+      "predicted_variance": 1.4285714285714286,
+      "absolute_error": 0.0020797319958458793,
+      "sampling_error_6sigma": 0.15650520193081738,
+      "within_tolerance": true
+    },
+    {
+      "efficiency": 0.7,
+      "noise": 0.2,
+      "empirical_variance": 1.6262005340961647,
+      "predicted_variance": 1.6285714285714286,
+      "absolute_error": 0.0023708944752638406,
+      "sampling_error_6sigma": 0.17841593020113178,
+      "within_tolerance": true
+    },
+    {
+      "efficiency": 0.7,
+      "noise": 0.6,
+      "empirical_variance": 2.025618209137328,
+      "predicted_variance": 2.0285714285714285,
+      "absolute_error": 0.002953219434100429,
+      "sampling_error_6sigma": 0.22223738674176063,
+      "within_tolerance": true
+    },
+    {
+      "efficiency": 0.5,
+      "noise": 0.0,
+      "empirical_variance": 1.9970883752058166,
+      "predicted_variance": 2.0,
+      "absolute_error": 0.0029116247941833873,
+      "sampling_error_6sigma": 0.2191072827031443,
+      "within_tolerance": true
+    },
+    {
+      "efficiency": 0.5,
+      "noise": 0.2,
+      "empirical_variance": 2.196797212726398,
+      "predicted_variance": 2.2,
+      "absolute_error": 0.0032027872736022367,
+      "sampling_error_6sigma": 0.24101801097345876,
+      "within_tolerance": true
+    },
+    {
+      "efficiency": 0.5,
+      "noise": 0.6,
+      "empirical_variance": 2.5962148877675615,
+      "predicted_variance": 2.6,
+      "absolute_error": 0.0037851122324386033,
+      "sampling_error_6sigma": 0.2848394675140876,
+      "within_tolerance": true
+    }
+  ],
+  "shots": 6000,
+  "alpha": [
+    0.4,
+    0.2
+  ],
+  "mixed_fock": [
+    {
+      "efficiency": 1.0,
+      "noise": 0.0,
+      "ok": true,
+      "empirical_variance": 0.8295634492993911,
+      "predicted_variance": 1.0,
+      "absolute_error": 0.17043655070060892,
+      "cutoff": 10,
+      "shots": 200
+    },
+    {
+      "efficiency": 1.0,
+      "noise": 0.3,
+      "ok": true,
+      "empirical_variance": 1.9188979681597609,
+      "predicted_variance": 1.3,
+      "absolute_error": 0.6188979681597608,
+      "cutoff": 10,
+      "shots": 6
+    },
+    {
+      "efficiency": 0.8,
+      "noise": 0.0,
+      "ok": true,
+      "empirical_variance": 1.0369543200929667,
+      "predicted_variance": 1.25,
+      "absolute_error": 0.21304567990703327,
+      "cutoff": 10,
+      "shots": 200
+    },
+    {
+      "efficiency": 0.8,
+      "noise": 0.3,
+      "ok": true,
+      "empirical_variance": 2.287916794176162,
+      "predicted_variance": 1.55,
+      "absolute_error": 0.7379167941761617,
+      "cutoff": 10,
+      "shots": 6
+    }
+  ]
+}

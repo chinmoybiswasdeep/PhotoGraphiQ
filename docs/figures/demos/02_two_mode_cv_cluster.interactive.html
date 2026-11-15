@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Two-mode CV cluster</title>
+<style>
+:root { --ink:#0f172a; --muted:#475569; --line:#cbd5e1; --panel:#f8fafc; --accent:#0072b2; }
+* { box-sizing:border-box; }
+body { margin:0; font:13px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--ink); background:#fff; }
+header { padding:6px 12px; border-bottom:1px solid var(--line); display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+header h1 { font-size:15px; margin:0; }
+.badge { font-size:11px; padding:1px 7px; border-radius:9px; background:#e2e8f0; }
+.badge.ok { background:#d8f0e6; color:#00563f; } .badge.warn { background:#fde7d6; color:#8a3b00; }
+main { display:grid; grid-template-columns:310px 1fr; height:calc(100vh - 44px); min-height:420px; }
+aside { overflow:auto; padding:8px 10px; border-right:1px solid var(--line); background:var(--panel); }
+#cy { width:100%; height:100%; min-height:360px; background:#fff; }
+section { margin-bottom:10px; } h2 { font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); margin:6px 0; }
+button, select, input { font:inherit; margin:1px 0; } button { cursor:pointer; padding:2px 7px; }
+input[type=number] { width:76px; }
+pre, #info { white-space:pre-wrap; margin:0; font:12px/1.35 ui-monospace,Consolas,monospace; }
+#flow { max-height:170px; overflow:auto; }
+#steps { padding-left:20px; margin:4px 0; max-height:220px; overflow:auto; font-size:12px; }
+#steps li.current { font-weight:600; color:#9f1d6b; } #steps li { cursor:pointer; }
+textarea { width:100%; height:90px; font:11px ui-monospace,Consolas,monospace; }
+.legend span { display:inline-block; margin-right:8px; white-space:nowrap; } .hidden { display:none; }
+#status { color:#8a3b00; min-height:1em; }
+#tip { position:fixed; pointer-events:none; z-index:10; max-width:360px; padding:4px 7px; background:#fff;
+  border:1px solid #94a3b8; border-radius:4px; box-shadow:0 2px 6px rgba(15,23,42,.18);
+  font:12px/1.35 ui-monospace,Consolas,monospace; white-space:pre-wrap; }
+@media (max-width:700px) { main { grid-template-columns:1fr; height:auto; } #cy { height:70vh; } }
+</style></head>
+<body>
+<header><h1 id="title"></h1><span class="badge" id="stage"></span><span class="badge" id="model"></span>
+<label>stage <select id="stage-select"></select></label>
+<label>layout <select id="layout-select"></select></label>
+<button id="fit">Fit</button> <button id="reset-view">Reset view</button>
+<button id="export-svg">SVG</button> <button id="export-png">PNG</button> <button id="export-html">HTML</button></header>
+<main>
+<aside>
+<section class="legend"><span><span style="color:#0072b2">&#9632;</span> input</span><span><span style="color:#009e73">&#9670;</span> output</span><span>&#9675; ancilla</span><span>thick outline = measured</span><br>
+<span>&#9472; CZ edge</span><span style="color:#0072b2">&#9472;&#9654; flow dependency</span><span style="color:#d55e00">- - &#9654; correction</span></section>
+<section id="flow-panel" class="hidden"><h2>Flow analysis</h2><pre id="flow"></pre></section>
+<section id="order-panel" class="hidden"><h2>Measurement order</h2>
+<button id="order-prev">&#9664; Prev</button> <button id="order-next">Next &#9654;</button> <button id="order-clear">Clear</button>
+<div id="order-label"></div></section>
+<section id="trace-panel" class="hidden"><h2>Execution</h2>
+<button id="play">Play</button> <button id="pause">Pause</button> <button id="step">Step</button> <button id="reset">Reset</button>
+<div id="step-label"></div><ol id="steps"></ol></section>
+<section id="edit-panel" class="hidden"><h2>Edit</h2>
+<button id="add-node">Add node</button> <button id="remove">Remove selected</button><br>
+weight <input id="weight" type="number" value="1" step="0.1"> <button id="add-edge">Add edge (2 selected)</button> <button id="set-weight">Set weight</button><br>
+<button id="toggle-input">Toggle input</button> <button id="toggle-output">Toggle output</button><br>
+<span id="cv-edit">shear k <input id="shear" type="number" value="0" step="0.1"> squeezing r <input id="squeeze" type="number" value="1" step="0.1" min="0"><br><button id="set-squeeze">Set squeezing</button> </span>
+<span id="qubit-edit">plane <select id="plane"><option>XY</option><option>YZ</option><option>XZ</option></select> angle <input id="angle" type="number" value="0" step="0.1">
+pauli <select id="pauli"><option value="">none</option><option>X</option><option>Y</option><option>Z</option></select><br></span>
+<button id="set-meas">Set measurement</button> <button id="clear-meas">Clear measurement</button><br>
+<button id="export">Export JSON</button>
+<textarea id="export-text" class="hidden" readonly></textarea></section>
+<section><div id="status"></div><h2>Selection</h2><div id="info">Click or hover a node or edge.</div></section>
+<section id="notes-panel" class="hidden"><h2>Notes</h2><pre id="notes"></pre></section>
+</aside>
+<div id="cy"></div>
+</main>
+<div id="tip" class="hidden"></div>
+<script src="https://cdn.jsdelivr.net/npm/cytoscape@3.30.2/dist/cytoscape.min.js"></script>
+<script>
+"use strict";
+const DATA = {"title": "Two-mode CV cluster", "model": "cv-gaussian", "continuous": true, "editable": true, "scale": 110.0, "inputs": [], "outputs": [], "stage": "construct", "elements": [{"group": "nodes", "data": {"id": "0", "raw": 0, "label": "0", "squeezing": 1.0, "meas": {"shear": 0.0}, "measText": "homodyne angle 1.571 rad (shear k=0)", "order": null, "layer": null, "formula": null, "annotation": null}, "position": {"x": 0.0, "y": -0.0}, "classes": "measured ancilla"}, {"group": "nodes", "data": {"id": "1", "raw": 1, "label": "1", "squeezing": 1.0, "meas": {"shear": 0.0}, "measText": "homodyne angle 1.571 rad (shear k=0)", "order": null, "layer": null, "formula": null, "annotation": null}, "position": {"x": 110.0, "y": -0.0}, "classes": "measured ancilla"}, {"group": "edges", "data": {"id": "p:0", "source": "0", "target": "1", "weight": 1.0, "label": "1", "bend": 0.0}, "classes": "physical"}], "flow": null, "trace": null, "notes": [], "stages": {"construct": {"stage": "construct", "elements": [{"group": "nodes", "data": {"id": "0", "raw": 0, "label": "0", "squeezing": 1.0, "meas": {"shear": 0.0}, "measText": "homodyne angle 1.571 rad (shear k=0)", "order": null, "layer": null, "formula": null, "annotation": null}, "position": {"x": 0.0, "y": -0.0}, "classes": "measured ancilla"}, {"group": "nodes", "data": {"id": "1", "raw": 1, "label": "1", "squeezing": 1.0, "meas": {"shear": 0.0}, "measText": "homodyne angle 1.571 rad (shear k=0)", "order": null, "layer": null, "formula": null, "annotation": null}, "position": {"x": 110.0, "y": -0.0}, "classes": "measured ancilla"}, {"group": "edges", "data": {"id": "p:0", "source": "0", "target": "1", "weight": 1.0, "label": "1", "bend": 0.0}, "classes": "physical"}], "flow": null, "trace": null, "notes": []}}, "layouts": {"view": {"0": [0.0, -0.0], "1": [110.0, -0.0]}, "publication": {"0": [0.0, -0.0], "1": [110.0, -0.0]}, "hierarchical": {"0": [0.0, -0.0], "1": [110.0, -0.0]}, "grid": {"0": [0.0, -0.0], "1": [110.0, -0.0]}, "circular": {"0": [110.0, -0.0], "1": [-110.0, -1.3471114790620885e-14]}, "force": {"0": [-34.84598044681468, -109.99999999999999], "1": [34.84598044681466, 110.0]}}, "routing": {"clearance": 0.34, "arc": 0.3, "step": 0.16, "tries": 10}};
+const $ = (id) => document.getElementById(id);
+const fmt = (x) => (typeof x === "number" ? Number(x.toPrecision(4)).toString() : String(x));
+function say(message) { $("status").textContent = message; }
+$("title").textContent = DATA.title;
+$("model").textContent = DATA.model;
+
+const COLORS = { input: "#9ccbee", inputEdge: "#0072b2", output: "#a6dcc6", outputEdge: "#00795a",
+  ancilla: "#eef0f3", ancillaEdge: "#475569", measuredEdge: "#1f2937", edge: "#64748b",
+  flow: "#0072b2", uncertified: "#6b7280", correction: "#d55e00", active: "#9f1d6b" };
+const STYLE = [
+  { selector: "node", style: { label: "data(display)", "text-wrap": "wrap", "text-valign": "center",
+    "text-halign": "center", "font-size": "data(fs)", width: "data(w)", height: "data(h)",
+    "background-color": COLORS.ancilla, "border-width": 1, "border-color": COLORS.ancillaEdge,
+    color: "#0f172a", shape: "ellipse" } },
+  { selector: "node.input", style: { shape: "round-rectangle", "background-color": COLORS.input, "border-color": COLORS.inputEdge } },
+  { selector: "node.output", style: { shape: "diamond", "background-color": COLORS.output, "border-color": COLORS.outputEdge } },
+  { selector: "node.measured", style: { "border-width": 3, "border-color": COLORS.measuredEdge } },
+  { selector: "edge.physical", style: { width: 2.5, "line-color": COLORS.edge, label: "data(label)",
+    "font-size": 10, "text-background-color": "#fff", "text-background-opacity": 0.9,
+    "text-background-padding": 2, "curve-style": "unbundled-bezier",
+    "control-point-distances": "data(bend)", "control-point-weights": [0.5], "edge-distances": "node-position" } },
+  { selector: "edge.flow", style: { width: 2, "line-color": COLORS.flow, "line-style": "solid",
+    "target-arrow-shape": "triangle", "target-arrow-color": COLORS.flow, "curve-style": "unbundled-bezier",
+    "control-point-distances": "data(bend)", "control-point-weights": [0.5], "edge-distances": "node-position", "arrow-scale": 1.2,
+    "z-index": "data(z)" } },
+  { selector: "edge.flow.uncertified", style: { "line-color": COLORS.uncertified, "line-style": "dashed",
+    "target-arrow-color": COLORS.uncertified } },
+  { selector: "edge.correction", style: { width: 2, "line-color": COLORS.correction, "line-style": "dashed",
+    "line-dash-pattern": [7, 4], "target-arrow-shape": "triangle-tee", "target-arrow-color": COLORS.correction,
+    "curve-style": "unbundled-bezier", "control-point-distances": "data(bend)", "control-point-weights": [0.5], "edge-distances": "node-position",
+    label: "data(label)", "font-size": 9, color: COLORS.correction, "text-background-color": "#fff",
+    "text-background-opacity": 1, "text-background-padding": 1, "z-index": "data(z)" } },
+  { selector: ".active", style: { "border-width": 5, "border-color": COLORS.active, "line-color": COLORS.active,
+    "target-arrow-color": COLORS.active } },
+  { selector: "node.source", style: { "border-width": 4, "border-color": COLORS.flow, "border-style": "double" } },
+  { selector: "node.done", style: { "background-opacity": 0.45, "border-opacity": 0.45 } },  // text stays legible
+  { selector: ":selected", style: { "overlay-color": "#7c3aed", "overlay-opacity": 0.25 } },
+];
+
+const state = { inputs: DATA.inputs.slice(), outputs: DATA.outputs.slice(), outcomes: {}, overlays: true,
+  stage: DATA.stage, layout: "view", labelScale: 1, order: -1, page: DATA };
+const cy = cytoscape({ container: $("cy"), elements: DATA.elements, layout: { name: "preset" },
+  style: STYLE, wheelSensitivity: 0.25 });
+
+function roleClasses(node) {
+  const isInput = state.inputs.includes(node.id()), isOutput = state.outputs.includes(node.id());
+  node.toggleClass("input", isInput).toggleClass("output", isOutput)
+    .toggleClass("measured", !isOutput).toggleClass("ancilla", !isInput);
+}
+// Node boxes grow with their label (id, #order, m=outcome), so text never overflows the shape.
+function refresh(node) {
+  roleClasses(node);
+  let text = node.data("label");
+  if (node.data("order") !== null && node.data("order") !== undefined) text += "\n#" + node.data("order");
+  if (state.outcomes[node.id()] !== undefined) text += "\nm=" + fmt(state.outcomes[node.id()]);
+  const lines = text.split("\n"), fs = 11 * state.labelScale;
+  const longest = Math.max(...lines.map((l) => l.length));
+  let w = Math.max(42 * state.labelScale, 0.62 * fs * longest + 14), h = Math.max(42 * state.labelScale, 1.3 * fs * lines.length + 12);
+  if (node.hasClass("output")) { w *= 1.45; h *= 1.45; }
+  node.data({ display: text, fs: fs, w: w, h: h });
+}
+function refreshAll() { cy.nodes().forEach(refresh); }
+
+// ---- routing: the same algorithm as photographiq.interactive.layouts.route ------------
+function clearance(a, b, offset, others) {
+  const dx = b[0] - a[0], dy = b[1] - a[1], len = Math.hypot(dx, dy) || 1;
+  const cx = (a[0] + b[0]) / 2 + offset * dy / len, cyy = (a[1] + b[1]) / 2 - offset * dx / len;
+  let best = Infinity;
+  for (let i = 1; i < 40; i++) {
+    const t = i / 40, u = 1 - t;
+    const x = u * u * a[0] + 2 * t * u * cx + t * t * b[0], y = u * u * a[1] + 2 * t * u * cyy + t * t * b[1];
+    for (const o of others) best = Math.min(best, Math.hypot(x - o[0], y - o[1]));
+  }
+  return best;
+}
+function routeOffset(pos, s, t, base) {
+  const R = DATA.routing, a = pos[s], b = pos[t];
+  const others = Object.keys(pos).filter((k) => k !== s && k !== t).map((k) => pos[k]);
+  if (!others.length || Math.hypot(b[0] - a[0], b[1] - a[1]) === 0) return base;
+  const signs = base === 0 ? [1, -1] : [Math.sign(base)];
+  const candidates = [base];
+  for (let j = 1; j < R.tries; j++) for (const sg of signs) candidates.push(base + sg * j * R.step * 2);
+  if (base !== 0) { candidates.slice().forEach((c) => candidates.push(-c)); candidates.push(base / 2, -base / 2, base / 4, -base / 4); }
+  let best = null;
+  for (const offset of candidates) {
+    const gap = clearance(a, b, offset, others);
+    if (gap >= R.clearance) return offset;
+    const key = [gap, -Math.abs(offset), offset];  // lexicographic max, as in Python
+    if (!best || key[0] > best[0] || (key[0] === best[0] && (key[1] > best[1] || (key[1] === best[1] && key[2] > best[2])))) best = key;
+  }
+  return best[2];
+}
+function layoutPositions() {  // y-up layout units, as in Python
+  const pos = {};
+  cy.nodes().forEach((n) => { const p = n.position(); pos[n.id()] = [p.x / DATA.scale, -p.y / DATA.scale]; });
+  return pos;
+}
+function route() {
+  const pos = layoutPositions();
+  cy.edges().forEach((e) => {
+    const s = e.source().id(), t = e.target().id(), a = pos[s], b = pos[t];
+    const len = Math.hypot(b[0] - a[0], b[1] - a[1]);
+    const base = e.hasClass("flow") ? DATA.routing.arc * len : e.hasClass("correction") ? -DATA.routing.arc * len : 0;
+    const offset = routeOffset(pos, s, t, base);
+    e.data("bend", offset * DATA.scale);
+    if (!e.hasClass("physical")) e.data("z", 1000 - Math.min(Math.round(Math.abs(offset * DATA.scale)), 999));
+  });
+}
+cy.on("dragfree", "node", route);
+
+function fitView() {
+  state.labelScale = 1; refreshAll();
+  cy.fit(undefined, 30);
+  if (cy.zoom() > 1.3) { cy.zoom(1.3); cy.center(); }
+  const scale = Math.min(1.6, Math.max(1, 1 / cy.zoom()));  // dense graphs: >= 11 px labels where possible
+  if (scale > 1) { state.labelScale = scale; refreshAll(); cy.fit(undefined, 30); }
+  cy.style().selector("edge.physical").style("font-size", 10 * state.labelScale)
+    .selector("edge.correction").style("font-size", 9 * state.labelScale).update();
+}
+
+function measText(node) {
+  const m = node.data("meas");
+  if (!m) return node.data("measText") || (state.outputs.includes(node.id()) ? "output (not measured)" : "unspecified");
+  if ("shear" in m) return "homodyne angle " + fmt(Math.atan2(1, m.shear)) + " rad (shear k=" + fmt(m.shear) + ")";
+  return (m.pauli ? "Pauli " + m.pauli + ", " : "") + m.plane + " plane, angle " + fmt(m.angle);
+}
+function describeLines(ele) {
+  const lines = [];
+  if (ele.isNode()) {
+    const roles = ["input", "output", "measured", "ancilla"].filter((r) => ele.hasClass(r));
+    lines.push("node " + ele.data("label"), "roles: " + roles.join(", "));
+    const r = ele.data("squeezing");
+    if (r !== null && r !== undefined) lines.push("squeezing r = " + fmt(r) + " (" + fmt(20 * Math.LOG10E * r) + " dB)");
+    lines.push("measurement: " + measText(ele));
+    if (ele.data("order") !== null && ele.data("order") !== undefined) lines.push("measurement order #" + ele.data("order"));
+    if (ele.data("layer") !== null && ele.data("layer") !== undefined) lines.push("layer " + ele.data("layer"));
+    if (ele.data("formula")) lines.push("correction: " + ele.data("formula"));
+    if (state.outcomes[ele.id()] !== undefined) lines.push("recorded outcome: " + fmt(state.outcomes[ele.id()]));
+    if (ele.data("annotation")) lines.push("note: " + ele.data("annotation"));
+  } else if (ele.hasClass("physical")) {
+    const u = ele.source().data("label"), v = ele.target().data("label"), g = fmt(ele.data("weight"));
+    lines.push("CZ edge " + u + " - " + v, "weight g = " + g);
+    if (DATA.continuous) lines.push("CZ(g): p_" + u + " += " + g + " q_" + v + ", p_" + v + " += " + g + " q_" + u);
+  } else {
+    lines.push((ele.hasClass("flow") ? "classical dependency: " : "correction: ") + ele.data("description"));
+    if (ele.hasClass("uncertified")) lines.push("(the flow result is NOT certified)");
+    if (ele.target().data("formula")) lines.push("target correction: " + ele.target().data("formula"));
+  }
+  return lines;
+}
+function describe(ele) { $("info").textContent = describeLines(ele).join("\n"); }
+cy.on("tap mouseover", "node, edge", (event) => describe(event.target));
+cy.on("data", "node, edge", (event) => { if (event.target.selected()) describe(event.target); });
+cy.on("mouseover", "node, edge", (event) => {
+  const box = cy.container().getBoundingClientRect(), p = event.renderedPosition || { x: 0, y: 0 };
+  $("tip").textContent = describeLines(event.target).join("\n");
+  $("tip").style.left = (box.left + p.x + 14) + "px"; $("tip").style.top = (box.top + p.y + 14) + "px";
+  $("tip").classList.remove("hidden");
+});
+cy.on("mouseout", "node, edge", () => $("tip").classList.add("hidden"));
+
+// ---- stage-dependent panels ---------------------------------------------------------------
+let current = -1, timer = null;
+function pause() { if (timer) { clearInterval(timer); timer = null; } }
+function renderPanels(page) {
+  state.page = page;
+  $("stage").textContent = "stage: " + page.stage;
+  const f = page.flow;
+  $("flow-panel").classList.toggle("hidden", !f);
+  $("stage").className = "badge" + (f ? (f.status === "certified" ? " ok" : " warn") : "");
+  if (f) {
+    const lines = ["status: " + f.status, "algorithm: " + f.algorithm];
+    if (f.order.length) lines.push("measurement order: " + f.order.join(", "));
+    if (f.layers.length) lines.push("layers: " + f.layers.map((l) => "[" + l.join(", ") + "]").join(" "));
+    lines.push("assumptions:" + (f.assumptions.length ? "" : " none reported"));
+    f.assumptions.forEach((a) => lines.push("  - " + a));
+    if (f.certificate) lines.push("certificate: " + f.certificate);
+    if (f.diagnostics) lines.push("diagnostics: " + f.diagnostics);
+    $("flow").textContent = lines.join("\n");
+  }
+  $("order-panel").classList.toggle("hidden", !(f && f.order.length && page.stage !== "execution"));
+  state.order = -1; $("order-label").textContent = f && f.order.length ? f.order.length + " measurements" : "";
+  $("notes").textContent = page.notes.join("\n");
+  $("notes-panel").classList.toggle("hidden", !page.notes.length);
+  pause(); current = -1; $("steps").innerHTML = "";
+  $("trace-panel").classList.toggle("hidden", !page.trace);
+  if (page.trace) {
+    page.trace.steps.forEach((s, j) => {
+      const li = document.createElement("li");
+      li.textContent = s.label;
+      li.addEventListener("click", () => { pause(); showStep(j); });
+      $("steps").appendChild(li);
+    });
+    showStep(-1);
+  }
+}
+
+// ---- Stage D: execution trace -------------------------------------------------
+function showStep(index) {
+  const steps = state.page.trace.steps;
+  current = Math.max(-1, Math.min(index, steps.length - 1));
+  cy.elements().removeClass("active source done");
+  state.outcomes = {};
+  for (let j = 0; j <= current; j++) {
+    const s = steps[j];
+    if (s.kind === "measure") {
+      s.nodes.forEach((n) => { state.outcomes[n] = s.outcome; if (j < current) cy.getElementById(n).addClass("done"); });
+    }
+  }
+  if (current >= 0) {
+    const s = steps[current];
+    s.nodes.forEach((n) => cy.getElementById(n).addClass("active"));
+    if (s.kind === "entangle" && s.nodes.length === 2) {
+      cy.getElementById(s.nodes[0]).edgesWith(cy.getElementById(s.nodes[1])).filter(".physical").addClass("active");
+    }
+    s.sources.forEach((n) => cy.getElementById(n).addClass("source"));
+  }
+  refreshAll();
+  $("step-label").textContent = current < 0 ? "Ready: " + steps.length + " steps" :
+    "Step " + (current + 1) + "/" + steps.length + ": " + steps[current].label;
+  Array.from($("steps").children).forEach((li, j) => li.classList.toggle("current", j === current));
+}
+$("play").onclick = () => {
+  const n = state.page.trace.steps.length;
+  pause();
+  if (current >= n - 1) showStep(-1);
+  timer = setInterval(() => { if (current >= n - 1) pause(); else showStep(current + 1); }, 900);
+};
+$("pause").onclick = pause;
+$("step").onclick = () => { pause(); showStep(current + 1); };
+$("reset").onclick = () => { pause(); showStep(-1); };
+
+// ---- measurement-order stepping (flow and corrections stages) -------------------------
+function showOrder(k) {
+  const order = state.page.flow.order;
+  state.order = Math.max(-1, Math.min(k, order.length - 1));
+  cy.elements().removeClass("active source done");
+  if (state.order < 0) { $("order-label").textContent = order.length + " measurements"; return; }
+  order.slice(0, state.order).forEach((n) => cy.getElementById(n).addClass("done"));
+  const node = cy.getElementById(order[state.order]);
+  node.addClass("active");
+  const arrows = cy.edges(".flow, .correction").filter((e) => e.source().id() === node.id());
+  arrows.addClass("active");
+  const targets = Array.from(new Set(arrows.map((e) => e.target().id())));
+  const layer = node.data("layer");
+  $("order-label").textContent = "Measurement " + (state.order + 1) + "/" + order.length + ": node " + node.id() +
+    (layer !== null && layer !== undefined ? " (layer " + layer + ")" : "") +
+    (targets.length ? "; its outcome corrects " + targets.join(", ") : "; no later correction depends on it");
+}
+$("order-prev").onclick = () => showOrder(state.order - 1);
+$("order-next").onclick = () => showOrder(state.order + 1);
+$("order-clear").onclick = () => showOrder(-1);
+
+// ---- stage and layout selectors (visual only) ------------------------------------------
+function currentPositions() {
+  const out = {};
+  cy.nodes().forEach((n) => { const p = n.position(); out[n.id()] = [p.x, p.y]; });
+  return out;
+}
+function placeNodes(positions) {
+  cy.nodes().forEach((n) => { const p = positions[n.id()]; if (p) n.position({ x: p[0], y: p[1] }); });
+}
+function setStage(name) {
+  if (!state.overlays) { say("The graph was edited: re-run the analysis in Python to view other stages."); $("stage-select").value = state.stage; return; }
+  const page = DATA.stages[name];
+  if (!page) { say("Stage " + name + " has no overlay in this view."); return; }
+  const positions = currentPositions();
+  cy.batch(() => { cy.elements().remove(); cy.add(page.elements); placeNodes(positions); });
+  state.stage = name; state.outcomes = {};
+  $("stage-select").value = name;
+  route(); refreshAll(); renderPanels(page);
+}
+function setLayout(name) {
+  const positions = DATA.layouts[name];
+  if (!positions) { say("Unknown layout " + name); return; }
+  placeNodes(positions); state.layout = name; $("layout-select").value = name;
+  route(); fitView();
+}
+Object.keys(DATA.stages).forEach((s) => { const o = document.createElement("option"); o.textContent = s; $("stage-select").appendChild(o); });
+Object.keys(DATA.layouts).forEach((s) => { const o = document.createElement("option"); o.textContent = s; $("layout-select").appendChild(o); });
+$("stage-select").value = state.stage; $("layout-select").value = "view";
+$("stage-select").onchange = (e) => setStage(e.target.value);
+$("layout-select").onchange = (e) => setLayout(e.target.value);
+$("fit").onclick = fitView;
+$("reset-view").onclick = () => { cy.elements().unselect(); setLayout("view"); };
+
+// ---- exports (visual; the semantic export is Export JSON) ------------------------------------
+function download(name, blob) {
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob); link.download = name;
+  document.body.appendChild(link); link.click(); link.remove();
+}
+const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+function svgDocument() {
+  const bb = cy.elements().boundingBox({ includeLabels: true }), pad = 16;
+  const out = ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="' + [bb.x1 - pad, bb.y1 - pad, bb.w + 2 * pad, bb.h + 2 * pad].join(" ") +
+    '" width="' + (bb.w + 2 * pad) + '" height="' + (bb.h + 2 * pad) + '" font-family="DejaVu Sans, Arial, Helvetica, sans-serif">',
+    '<rect x="' + (bb.x1 - pad) + '" y="' + (bb.y1 - pad) + '" width="' + (bb.w + 2 * pad) + '" height="' + (bb.h + 2 * pad) + '" fill="#ffffff"/>', "<defs>"];
+  const markers = {};
+  cy.edges().forEach((e) => {
+    if (e.hasClass("physical")) return;
+    const color = e.style("line-color");
+    if (!markers[color]) {
+      markers[color] = "m" + Object.keys(markers).length;
+      out.push('<marker id="' + markers[color] + '" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="' + color + '"/></marker>');
+    }
+  });
+  out.push("</defs>");
+  cy.edges().forEach((e) => {
+    const s = e.source().id(), t = e.target().id(), a = e.sourceEndpoint(), b = e.targetEndpoint();
+    const cps = e.controlPoints(), kind = e.hasClass("physical") ? "edge" : e.hasClass("flow") ? "flow" : "correction";
+    const id = kind === "edge" ? "edge:" + s + "--" + t : kind + ":" + s + "->" + t;
+    const d = cps && cps.length ? "M" + a.x + "," + a.y + " Q" + cps[0].x + "," + cps[0].y + " " + b.x + "," + b.y : "M" + a.x + "," + a.y + " L" + b.x + "," + b.y;
+    const dash = e.style("line-style") === "dashed" ? ' stroke-dasharray="7,4"' : "";
+    const marker = kind === "edge" ? "" : ' marker-end="url(#' + markers[e.style("line-color")] + ')"';
+    out.push('<g id="' + esc(id) + '"><path d="' + d + '" fill="none" stroke="' + e.style("line-color") + '" stroke-width="' + parseFloat(e.style("width")) + '"' + dash + marker + "/>");
+    if (e.data("label")) {
+      const m = e.midpoint();
+      out.push('<text x="' + m.x + '" y="' + m.y + '" font-size="' + parseFloat(e.style("font-size")) + '" text-anchor="middle" dominant-baseline="central" fill="' + e.style("color") +
+        '" stroke="#ffffff" stroke-width="3" paint-order="stroke">' + esc(e.data("label")) + "</text>");
+    }
+    out.push("</g>");
+  });
+  cy.nodes().forEach((n) => {
+    const p = n.position(), w = n.width(), h = n.height(), fill = n.style("background-color"), stroke = n.style("border-color");
+    const sw = parseFloat(n.style("border-width")), common = ' fill="' + fill + '" stroke="' + stroke + '" stroke-width="' + sw + '"';
+    let shape;
+    if (n.hasClass("output")) shape = '<polygon points="' + [[p.x, p.y - h / 2], [p.x + w / 2, p.y], [p.x, p.y + h / 2], [p.x - w / 2, p.y]].map((q) => q.join(",")).join(" ") + '"' + common + "/>";
+    else if (n.hasClass("input")) shape = '<rect x="' + (p.x - w / 2) + '" y="' + (p.y - h / 2) + '" width="' + w + '" height="' + h + '" rx="6"' + common + "/>";
+    else shape = '<ellipse cx="' + p.x + '" cy="' + p.y + '" rx="' + w / 2 + '" ry="' + h / 2 + '"' + common + "/>";
+    const lines = String(n.data("display")).split("\n"), fs = parseFloat(n.style("font-size"));
+    const top = p.y - (lines.length - 1) * fs * 0.6;
+    const text = lines.map((l, i) => '<tspan x="' + p.x + '" y="' + (top + i * fs * 1.2) + '">' + esc(l) + "</tspan>").join("");
+    out.push('<g id="' + esc("node:" + n.id()) + '">' + shape + '<text id="' + esc("label:" + n.id()) + '" font-size="' + fs +
+      '" text-anchor="middle" dominant-baseline="central" fill="#0f172a">' + text + "</text></g>");
+  });
+  out.push("</svg>");
+  return out.join("\n");
+}
+function htmlDocument() {
+  const data = Object.assign({}, DATA, DATA.stages[state.stage]);
+  data.layouts = Object.assign({}, DATA.layouts, { view: currentPositions() });
+  const json = JSON.stringify(data).replace(/</g, "\\u003c").replace(/>/g, "\\u003e").replace(/&/g, "\\u0026");
+  const root = document.documentElement.cloneNode(true);
+  root.querySelector("#cy").innerHTML = ""; root.querySelector("#tip").classList.add("hidden");
+  const harness = root.querySelector("#harness"); if (harness) harness.remove();
+  root.querySelectorAll("script").forEach((s) => {
+    if (s.textContent.includes("const DATA = ")) s.textContent = s.textContent.replace(/const DATA = .*;\n/, () => "const DATA = " + json + ";\n");
+  });
+  return "<!doctype html>\n" + root.outerHTML;
+}
+$("export-svg").onclick = () => download("photographiq-graph.svg", new Blob([svgDocument()], { type: "image/svg+xml" }));
+$("export-png").onclick = () => download("photographiq-graph.png", cy.png({ full: true, scale: 3, bg: "#ffffff", output: "blob" }));
+$("export-html").onclick = () => {
+  if (!state.overlays) { say("The graph was edited: use Export JSON and re-validate it in Python."); return; }
+  download("photographiq-graph.html", new Blob([htmlDocument()], { type: "text/html" }));
+};
+
+// ---- Editing (semantics are re-validated in Python by apply_edits) -------------
+function clearOverlays() {
+  if (!state.overlays) return;
+  state.overlays = false;
+  pause();
+  cy.remove("edge.flow, edge.correction");
+  cy.nodes().forEach((n) => n.data({ order: null, layer: null, formula: null }));
+  state.outcomes = {};
+  ["trace-panel", "flow-panel", "order-panel"].forEach((id) => $(id).classList.add("hidden"));
+  $("stage-select").disabled = true;
+  say("Semantic edit: flow, correction and execution overlays were removed. Re-run the analysis in Python.");
+}
+function selectedNodes() { return cy.nodes(":selected"); }
+function newRaw() {
+  const raws = cy.nodes().map((n) => n.data("raw"));
+  if (raws.every(Number.isInteger)) return raws.length ? Math.max(...raws) + 1 : 0;
+  let k = raws.length;
+  while (cy.getElementById("n" + k).nonempty()) k++;
+  return "n" + k;
+}
+let edgeCounter = 0;
+function numberFrom(id) {
+  const x = Number($(id).value);
+  if (!Number.isFinite(x)) { say(id + " must be a finite number"); return null; }
+  return x;
+}
+if (DATA.editable) {
+  $("edit-panel").classList.remove("hidden");
+  $(DATA.continuous ? "qubit-edit" : "cv-edit").classList.add("hidden");
+  $("add-node").onclick = () => {
+    const raw = newRaw(), box = cy.extent();
+    const node = cy.add({ group: "nodes", data: { id: String(raw), raw: raw, label: String(raw), squeezing: null,
+      meas: null, order: null, layer: null, formula: null }, position: { x: (box.x1 + box.x2) / 2, y: (box.y1 + box.y2) / 2 } });
+    clearOverlays(); refresh(node); say("Added node " + raw + " (drag to place).");
+  };
+  $("remove").onclick = () => {
+    const doomed = cy.$("node:selected, edge.physical:selected");
+    if (!doomed.length) { say("Select nodes or CZ edges to remove."); return; }
+    doomed.nodes().forEach((n) => {
+      state.inputs = state.inputs.filter((i) => i !== n.id());
+      state.outputs = state.outputs.filter((o) => o !== n.id());
+    });
+    clearOverlays(); doomed.remove(); refreshAll();
+  };
+  $("add-edge").onclick = () => {
+    const pick = selectedNodes(), w = numberFrom("weight");
+    if (pick.length !== 2 || w === null) { say("Select exactly two nodes and give a weight."); return; }
+    const [a, b] = [pick[0], pick[1]];
+    if (a.edgesWith(b).filter(".physical").length) { say("Edge already exists; use Set weight."); return; }
+    cy.add({ group: "edges", classes: "physical", data: { id: "p:new" + (edgeCounter++), source: a.id(),
+      target: b.id(), weight: w, label: DATA.continuous ? fmt(w) : "", bend: 0 } });
+    clearOverlays(); route();
+  };
+  $("set-weight").onclick = () => {
+    const w = numberFrom("weight"), edges = cy.edges(".physical:selected");
+    if (w === null || !edges.length) { say("Select CZ edges and give a weight."); return; }
+    edges.forEach((e) => e.data({ weight: w, label: DATA.continuous ? fmt(w) : "" }));
+    clearOverlays();
+  };
+  const toggle = (list) => () => {
+    const pick = selectedNodes();
+    if (!pick.length) { say("Select nodes first."); return; }
+    pick.forEach((n) => {
+      const i = state[list].indexOf(n.id());
+      if (i >= 0) state[list].splice(i, 1); else state[list].push(n.id());
+      if (list === "outputs" && i < 0 && n.data("meas")) { n.data("meas", null); say("Outputs are not measured: cleared the measurement of " + n.id()); }
+    });
+    clearOverlays(); refreshAll();
+  };
+  $("toggle-input").onclick = toggle("inputs");
+  $("toggle-output").onclick = toggle("outputs");
+  $("set-squeeze").onclick = () => {
+    const r = numberFrom("squeeze"), pick = selectedNodes();
+    if (r === null || !pick.length) { say("Select nodes and give a squeezing value."); return; }
+    pick.forEach((n) => n.data("squeezing", r)); clearOverlays();
+  };
+  $("set-meas").onclick = () => {
+    const pick = selectedNodes().filter((n) => !state.outputs.includes(n.id()));
+    if (!pick.length) { say("Select measured (non-output) nodes."); return; }
+    let spec;
+    if (DATA.continuous) { const k = numberFrom("shear"); if (k === null) return; spec = { shear: k }; }
+    else { const a = numberFrom("angle"); if (a === null) return; spec = { plane: $("plane").value, angle: a, pauli: $("pauli").value || null }; }
+    pick.forEach((n) => n.data("meas", Object.assign({}, spec))); clearOverlays();
+  };
+  $("clear-meas").onclick = () => { selectedNodes().forEach((n) => n.data("meas", null)); clearOverlays(); };
+  $("export").onclick = () => {
+    const raw = (id) => cy.getElementById(id).data("raw");
+    const measurements = {}, layout = {};
+    cy.nodes().forEach((n) => {
+      if (n.data("meas")) measurements[n.id()] = n.data("meas");
+      const p = n.position();
+      layout[n.id()] = [p.x / DATA.scale, -p.y / DATA.scale];
+    });
+    const graph = {
+      model: DATA.model,
+      nodes: cy.nodes().map((n) => (n.data("squeezing") === null || n.data("squeezing") === undefined)
+        ? { id: n.data("raw") } : { id: n.data("raw"), squeezing: n.data("squeezing") }),
+      edges: cy.edges(".physical").map((e) => ({ source: e.source().data("raw"), target: e.target().data("raw"), weight: e.data("weight") })),
+      inputs: state.inputs.map(raw), outputs: state.outputs.map(raw), measurements: measurements,
+    };
+    const text = JSON.stringify({ graph: graph, layout: layout }, null, 1);
+    $("export-text").value = text; $("export-text").classList.remove("hidden");
+    download("photographiq-graph.json", new Blob([text], { type: "application/json" }));
+    say("Exported; load with photographiq.interactive.apply_edits(json_text).");
+  };
+}
+
+placeNodes(DATA.layouts.view);
+renderPanels(DATA);
+refreshAll();
+fitView();
+window.pgq = { cy: cy, state: state, setStage: setStage, setLayout: setLayout, route: route, routeOffset: routeOffset,
+  showOrder: showOrder, svgDocument: svgDocument, htmlDocument: htmlDocument };
+</script>
+</body></html>

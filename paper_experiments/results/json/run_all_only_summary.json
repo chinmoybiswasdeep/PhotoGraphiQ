@@ -1,0 +1,44 @@
+[
+  {
+    "id": "R16",
+    "script": "04_piquasso_validation/16_numpy_analytic_reference.py",
+    "tier": "safe",
+    "seconds": 5.5,
+    "status": "passed",
+    "returncode": 0,
+    "args": []
+  },
+  {
+    "id": "R44",
+    "script": "14_native_gaussian/44_native_gaussian_performance.py",
+    "tier": "heavy",
+    "seconds": 601.8,
+    "status": "passed",
+    "returncode": 0,
+    "args": [
+      "--full"
+    ]
+  },
+  {
+    "id": "R46",
+    "script": "15_native_fock/46_fock_space_optimization.py",
+    "tier": "heavy",
+    "seconds": 19.2,
+    "status": "passed",
+    "returncode": 0,
+    "args": [
+      "--full"
+    ]
+  },
+  {
+    "id": "R58",
+    "script": "19_gpu/58_gpu_gaussian.py",
+    "tier": "heavy",
+    "seconds": 268.5,
+    "status": "passed",
+    "returncode": 0,
+    "args": [
+      "--full"
+    ]
+  }
+]

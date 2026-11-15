@@ -1,0 +1,13 @@
+$ D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQML\.venv\Scripts\python.exe D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQML\paper_experiments\02_mentpy_validation\09_state_density_agreement.py
+
+--- stdout ---
+
+=== R9 state/density agreement ===
+  n_points: 48
+  tol: 2.220446049250313e-13
+  max_error: 3.4416956180491725e-15
+  status: pass
+
+
+--- stderr ---
+

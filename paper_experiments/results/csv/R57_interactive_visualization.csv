@@ -1,0 +1,20 @@
+check,status,measured,criterion
+flow status,pass,certified,certified
+flow arrows == flow.correction_map,pass,34,equal
+correction arrows == Displace commands,pass,17,equal pairs+labels
+correction coefficients,pass,0.0,<= 1e-12
+flow layers respect dependencies,pass,9,every s before t
+flow-map pattern channel == compiled channel,pass,5.890288257148768e-13,<= 1e-09
+semantics invariant under layouts,pass,48/48,all
+pattern and seeded run unchanged,pass,17,identical
+static SVG construct,pass,"19 nodes, 18 edges, 0 arrows",equal to model
+static SVG flow,pass,"19 nodes, 18 edges, 34 arrows",equal to model
+static SVG corrections,pass,"19 nodes, 18 edges, 17 arrows",equal to model
+static SVG execution,pass,"19 nodes, 18 edges, 17 arrows",equal to model
+routed curves clear other nodes,pass,min 0.367,>= 0.34
+editor JSON round trip,pass,position drift 0.0e+00,<= 1e-12
+layout file round trip,pass,exact,exact
+OpenGraph metadata round trip,pass,"measurements, squeezing, I/O",exact
+browser real-input checks,not_run,playwright not importable: No module named 'playwright',Playwright + Edge
+notebook execution,pass,iframe produced; browser rendering not checked (no Playwright),nbclient
+notebook iframe renders in browser,not_run,iframe produced; browser rendering not checked (no Playwright),Playwright

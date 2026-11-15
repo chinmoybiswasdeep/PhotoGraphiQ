@@ -5,8 +5,50 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 import numpy as np
+from scipy.special import xlogy
 
 from .gaussian import omega, rotation
+
+
+def _symplectic_eigenvalues(covariance):
+    # The spectrum of i Omega V is {+-nu_k}; keep one of each pair. With V = L L^T,
+    # i L^T Omega L is Hermitian and isospectral, so its eigenvalues have error ~eps*||V||
+    # instead of eps*||V||^2 for the non-normal i Omega V (matters for strong squeezing).
+    n = len(covariance) // 2
+    try:
+        lower = np.linalg.cholesky(covariance)
+        values = np.linalg.eigvalsh(1j * lower.T @ omega(n) @ lower)
+    except np.linalg.LinAlgError:  # not positive definite: unphysical, keep the general path
+        values = np.linalg.eigvals(1j * omega(n) @ covariance)
+    return np.sort(np.abs(values))[::2]
+
+
+def _bbp_fidelity(mean1, cov1, mean2, cov2):
+    """Squared Uhlmann fidelity of two mixed Gaussian states (Banchi-Braunstein-Pirandola).
+
+    BBP work in units with vacuum covariance I/2, so V_a = V1/2, V_b = V2/2 and
+    V_aux = Omega^T (V_a+V_b)^-1 (Omega/4 + V_b Omega V_a). Their determinant
+    det[2 (sqrt(I + (V_aux Omega)^-2/4) + I) V_aux] is evaluated spectrally as
+    det(2 V_aux) prod_j (1 + sqrt(1 + 1/(4 mu_j^2))), mu_j the eigenvalues of V_aux Omega
+    (spectral mapping theorem), so no matrix square root is formed. In these units the
+    displacement term becomes exp(-d^T (V1+V2)^-1 d / 2) with d the hbar=2 mean difference.
+    The imaginary part of the eigenvalue product cancels analytically and is discarded.
+    """
+    n = len(mean1) // 2
+    om = omega(n)
+    va, vb = cov1 / 2, cov2 / 2
+    total = va + vb
+    aux = om.T @ np.linalg.solve(total, om / 4 + vb @ om @ va)
+    mu = np.linalg.eigvals(aux @ om).astype(complex)
+    product = np.prod(1 + np.sqrt(1 + 1 / (4 * mu**2))).real
+    sign_aux, log_aux = np.linalg.slogdet(2 * aux)
+    sign_total, log_total = np.linalg.slogdet(total)
+    ratio = product * sign_aux * sign_total * np.exp(log_aux - log_total)
+    if not ratio >= 0:
+        raise ValueError("Fidelity determinant ratio is not positive")
+    delta = np.asarray(mean1) - np.asarray(mean2)
+    exponent = delta @ np.linalg.solve(cov1 + cov2, delta)
+    return float(np.sqrt(ratio) * np.exp(-0.5 * exponent))
 
 
 @dataclass(frozen=True)
@@ -218,6 +260,73 @@ class GaussianState:
             * np.exp(-0.5 * delta @ np.linalg.solve(cov, delta))
             / np.sqrt(np.linalg.det(cov))
         )
+
+    def fidelity(self, other, pure_tolerance=1e-9):
+        """Squared Uhlmann fidelity (Tr sqrt(sqrt(rho) sigma sqrt(rho)))**2 of two Gaussian states.
+
+        Valid for arbitrary mixed states, unlike ``overlap`` (Tr rho sigma), which agrees
+        only when one state is pure. ``other`` must have the same node set; it is reordered
+        to this state's label order. If either state is pure (all symplectic eigenvalues
+        within ``pure_tolerance`` of 1) the exact identity F = Tr rho sigma is used, because
+        the general formula loses accuracy near purity (errors ~1e-6 for squeezing r ~ 3).
+        Otherwise it evaluates the Banchi-Braunstein-Pirandola formula (PRL 115, 260501)
+        with NumPy, see ``_bbp_fidelity``; for nearly pure mixed states that formula is
+        accurate only to roughly sqrt(machine epsilon) * exp(2 r) for squeezing r (observed
+        relative errors ~2e-7 at r = 1.5 and ~4e-6 at r = 3 when nu - 1 <= 1e-5). For squeezing
+        beyond r ~ 3-4 a rotated float64 covariance cannot resolve purity at all (relative
+        error ~eps*exp(4r) in its smallest eigenvalue); treat results there as unreliable.
+
+        Raises:
+            ValueError: State node sets differ.
+        """
+        if set(self.nodes) != set(other.nodes):
+            raise ValueError("State node sets must agree")
+        other = other.reduced(self.nodes)
+        pure = (np.all(abs(s.symplectic_eigenvalues() - 1) < pure_tolerance) for s in (self, other))
+        if any(pure):
+            return self.overlap(other)
+        return _bbp_fidelity(self.mean, self.covariance, other.mean, other.covariance)
+
+    def symplectic_eigenvalues(self):
+        """Return the sorted symplectic eigenvalues nu_k of V (vacuum nu = 1, physical nu >= 1)."""
+        return _symplectic_eigenvalues(self.covariance)
+
+    def purity(self):
+        """Return Tr(rho^2) = det(V)^(-1/2) (hbar=2, vacuum V = I)."""
+        return float(np.exp(-0.5 * np.linalg.slogdet(self.covariance)[1]))
+
+    def entropy(self, tolerance=1e-7):
+        """Return the von Neumann entropy in nats, sum_k g(nu_k).
+
+        g(nu) = ((nu+1)/2) ln((nu+1)/2) - ((nu-1)/2) ln((nu-1)/2), with g(1) = 0.
+        Eigenvalues within ``tolerance`` below 1 are treated as 1 (numerical noise).
+
+        Raises:
+            ValueError: A symplectic eigenvalue is below 1 - tolerance (unphysical covariance).
+        """
+        nu = self.symplectic_eigenvalues()
+        if nu.size and nu.min() < 1 - tolerance:
+            raise ValueError("Covariance has a symplectic eigenvalue below 1")
+        a, b = (np.maximum(nu, 1) + 1) / 2, (np.maximum(nu, 1) - 1) / 2
+        return float(np.sum(xlogy(a, a) - xlogy(b, b)))
+
+    def log_negativity(self, nodes):
+        """Return the base-2 logarithmic negativity of the bipartition (nodes | rest).
+
+        The partial transpose flips the sign of p on ``nodes``; with nu~_k the symplectic
+        eigenvalues of the transposed covariance, E_N = sum_k max(0, -log2 nu~_k).
+
+        Raises:
+            ValueError: Unknown or repeated node labels.
+        """
+        nodes = tuple(nodes)
+        if len(set(nodes)) != len(nodes) or not set(nodes) <= set(self.nodes):
+            raise ValueError("Provide unique labels of this state")
+        flip = np.ones(self.mean.size)
+        for node in nodes:
+            flip[2 * self.nodes.index(node) + 1] = -1
+        nu = _symplectic_eigenvalues(flip[:, None] * self.covariance * flip)
+        return float(np.sum(np.maximum(0.0, -np.log2(nu))))
 
 
 @dataclass(frozen=True)

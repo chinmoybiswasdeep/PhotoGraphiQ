@@ -20,6 +20,7 @@ _OPS: dict[str, Callable[..., Any]] = {
     "atan2": math.atan2,
     "exp": math.exp,
 }
+_NOT_FINITE_REAL = "Expression must evaluate to a finite real scalar"
 
 
 @dataclass(frozen=True)
@@ -116,10 +117,19 @@ class Expr:
         else:
             if self.op not in _OPS:
                 raise ValueError(f"Unknown expression operation: {self.op}")
-            value = _OPS[self.op](*(a.evaluate(records, parameters) for a in self.args))
-        value = float(value)
+            operands = [a.evaluate(records, parameters) for a in self.args]
+            try:
+                value = _OPS[self.op](*operands)
+            except (OverflowError, ZeroDivisionError) as err:
+                raise ValueError(_NOT_FINITE_REAL) from err
+        if isinstance(value, complex):  # e.g. (-8.0) ** (1 / 3)
+            raise ValueError(_NOT_FINITE_REAL)
+        try:
+            value = float(value)  # an int parameter or record beyond float range overflows
+        except OverflowError as err:
+            raise ValueError(_NOT_FINITE_REAL) from err
         if not math.isfinite(value):
-            raise ValueError("Expression must evaluate to a finite real scalar")
+            raise ValueError(_NOT_FINITE_REAL)
         return value
 
 

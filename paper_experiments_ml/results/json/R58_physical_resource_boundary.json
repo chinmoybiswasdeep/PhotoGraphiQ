@@ -1,0 +1,282 @@
+{
+  "rows": [
+    {
+      "cutoff": 8,
+      "peak_width": 0.75,
+      "shots": null,
+      "decoder": "nearest",
+      "hilbert_dimension": 36,
+      "retained_norm": null,
+      "region": "unconverged/resource-rejected",
+      "supported": true,
+      "reasons": [
+        "Fock truncation norm 0.95978977; increase cutoff=8"
+      ]
+    },
+    {
+      "cutoff": 8,
+      "peak_width": 0.9,
+      "shots": null,
+      "decoder": "nearest",
+      "hilbert_dimension": 36,
+      "retained_norm": null,
+      "region": "unconverged/resource-rejected",
+      "supported": true,
+      "reasons": [
+        "Fock truncation norm 0.96187017; increase cutoff=8"
+      ]
+    },
+    {
+      "cutoff": 8,
+      "peak_width": 1.05,
+      "shots": null,
+      "decoder": "nearest",
+      "hilbert_dimension": 36,
+      "retained_norm": null,
+      "region": "unconverged/resource-rejected",
+      "supported": true,
+      "reasons": [
+        "Fock truncation norm 0.95654365; increase cutoff=8"
+      ]
+    },
+    {
+      "cutoff": 12,
+      "peak_width": 0.75,
+      "shots": null,
+      "decoder": "nearest",
+      "hilbert_dimension": 78,
+      "retained_norm": null,
+      "region": "unconverged/resource-rejected",
+      "supported": true,
+      "reasons": [
+        "Fock truncation norm 0.99369232; increase cutoff=12"
+      ]
+    },
+    {
+      "cutoff": 12,
+      "peak_width": 0.9,
+      "shots": null,
+      "decoder": "nearest",
+      "hilbert_dimension": 78,
+      "retained_norm": null,
+      "region": "unconverged/resource-rejected",
+      "supported": true,
+      "reasons": [
+        "Fock truncation norm 0.9936769; increase cutoff=12"
+      ]
+    },
+    {
+      "cutoff": 12,
+      "peak_width": 1.05,
+      "shots": null,
+      "decoder": "nearest",
+      "hilbert_dimension": 78,
+      "retained_norm": null,
+      "region": "unconverged/resource-rejected",
+      "supported": true,
+      "reasons": [
+        "Fock truncation norm 0.99125409; increase cutoff=12"
+      ]
+    },
+    {
+      "cutoff": 16,
+      "peak_width": 0.75,
+      "shots": null,
+      "decoder": "nearest",
+      "hilbert_dimension": 136,
+      "retained_norm": 0.9991323492010656,
+      "region": "acceptable",
+      "supported": true,
+      "reasons": []
+    },
+    {
+      "cutoff": 16,
+      "peak_width": 0.9,
+      "shots": null,
+      "decoder": "nearest",
+      "hilbert_dimension": 136,
+      "retained_norm": 0.9991058893243037,
+      "region": "acceptable",
+      "supported": true,
+      "reasons": []
+    },
+    {
+      "cutoff": 16,
+      "peak_width": 1.05,
+      "shots": null,
+      "decoder": "nearest",
+      "hilbert_dimension": 136,
+      "retained_norm": null,
+      "region": "unconverged/resource-rejected",
+      "supported": true,
+      "reasons": [
+        "Fock truncation norm 0.99843903; increase cutoff=16"
+      ]
+    },
+    {
+      "cutoff": 20,
+      "peak_width": 0.75,
+      "shots": null,
+      "decoder": "nearest",
+      "hilbert_dimension": 210,
+      "retained_norm": 0.9997920299811629,
+      "region": "acceptable",
+      "supported": true,
+      "reasons": []
+    },
+    {
+      "cutoff": 20,
+      "peak_width": 0.9,
+      "shots": null,
+      "decoder": "nearest",
+      "hilbert_dimension": 210,
+      "retained_norm": 0.9998800964574989,
+      "region": "acceptable",
+      "supported": true,
+      "reasons": []
+    },
+    {
+      "cutoff": 20,
+      "peak_width": 1.05,
+      "shots": null,
+      "decoder": "nearest",
+      "hilbert_dimension": 210,
+      "retained_norm": 0.9996547420844168,
+      "region": "acceptable",
+      "supported": true,
+      "reasons": []
+    },
+    {
+      "cutoff": 24,
+      "peak_width": 0.75,
+      "shots": null,
+      "decoder": "nearest",
+      "hilbert_dimension": 300,
+      "retained_norm": 0.9999449165421896,
+      "region": "acceptable",
+      "supported": true,
+      "reasons": []
+    },
+    {
+      "cutoff": 24,
+      "peak_width": 0.9,
+      "shots": null,
+      "decoder": "nearest",
+      "hilbert_dimension": 300,
+      "retained_norm": 0.9999814752633133,
+      "region": "acceptable",
+      "supported": true,
+      "reasons": []
+    },
+    {
+      "cutoff": 24,
+      "peak_width": 1.05,
+      "shots": null,
+      "decoder": "nearest",
+      "hilbert_dimension": 300,
+      "retained_norm": 0.999936249484901,
+      "region": "acceptable",
+      "supported": true,
+      "reasons": []
+    },
+    {
+      "cutoff": 28,
+      "peak_width": 0.75,
+      "shots": null,
+      "decoder": "nearest",
+      "hilbert_dimension": 406,
+      "retained_norm": 0.9999850968924824,
+      "region": "acceptable",
+      "supported": true,
+      "reasons": []
+    },
+    {
+      "cutoff": 28,
+      "peak_width": 0.9,
+      "shots": null,
+      "decoder": "nearest",
+      "hilbert_dimension": 406,
+      "retained_norm": 0.9999958216198981,
+      "region": "acceptable",
+      "supported": true,
+      "reasons": []
+    },
+    {
+      "cutoff": 28,
+      "peak_width": 1.05,
+      "shots": null,
+      "decoder": "nearest",
+      "hilbert_dimension": 406,
+      "retained_norm": 0.9999878611164168,
+      "region": "acceptable",
+      "supported": true,
+      "reasons": []
+    },
+    {
+      "cutoff": null,
+      "peak_width": null,
+      "shots": null,
+      "decoder": null,
+      "hilbert_dimension": null,
+      "retained_norm": null,
+      "region": "unsupported",
+      "supported": false,
+      "reasons": [
+        "loss_channel is not implemented by the audited physical path"
+      ]
+    },
+    {
+      "cutoff": null,
+      "peak_width": null,
+      "shots": null,
+      "decoder": null,
+      "hilbert_dimension": null,
+      "retained_norm": null,
+      "region": "unsupported",
+      "supported": false,
+      "reasons": [
+        "detector_inefficiency is not implemented by the audited physical path"
+      ]
+    },
+    {
+      "cutoff": null,
+      "peak_width": null,
+      "shots": null,
+      "decoder": null,
+      "hilbert_dimension": null,
+      "retained_norm": null,
+      "region": "unsupported",
+      "supported": false,
+      "reasons": [
+        "arbitrary physical angle is not implemented by the audited physical path"
+      ]
+    },
+    {
+      "cutoff": null,
+      "peak_width": null,
+      "shots": null,
+      "decoder": null,
+      "hilbert_dimension": null,
+      "retained_norm": null,
+      "region": "unsupported",
+      "supported": false,
+      "reasons": [
+        "soft adaptive decoder is not implemented by the audited physical path"
+      ]
+    }
+  ],
+  "protocol": "One-axis resource grid with capability audit and actual conditional Piquasso execution for every supported point.",
+  "oracle_class": "E",
+  "status_category": "exact/descriptive",
+  "seeds": [],
+  "n_repetitions": 1,
+  "uncertainty_method": "none (deterministic sweep)",
+  "acceptance_condition": "structural regions use the predeclared criterion: supported capability audit, retained norm >= 0.90, and configured allocation budget",
+  "structural_status": "pass",
+  "scientific_outcome": "descriptive",
+  "claim_supported": "The signed-X finite-GKP path is mapped by cutoff and peak width using an a-priori retained-norm criterion.",
+  "claim_not_supported": "Loss, detector inefficiency, arbitrary-angle measurement and soft adaptive decoding are not modeled.",
+  "status": "pass",
+  "operating_boundary_criterion": "supported capability audit, retained norm >= 0.90, and configured allocation budget",
+  "execution_status": "completed"
+}

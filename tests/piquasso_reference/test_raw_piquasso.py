@@ -1,10 +1,12 @@
 """Raw Piquasso references with explicit covariance and detector conventions."""
 
 import numpy as np
-import piquasso as pq
+import pytest
 
 import photographiq as pg
 from photographiq.analysis import gaussian_channel
+
+pq = pytest.importorskip("piquasso")  # reference simulator: optional extra
 
 
 def test_raw_graph_state_and_displacement():

@@ -1,0 +1,445 @@
+[
+  {
+    "name": "antlr4-python3-runtime",
+    "version": "4.9.2"
+  },
+  {
+    "name": "appdirs",
+    "version": "1.4.4"
+  },
+  {
+    "name": "ast_serialize",
+    "version": "0.11.1"
+  },
+  {
+    "name": "asttokens",
+    "version": "3.0.2"
+  },
+  {
+    "name": "attrs",
+    "version": "26.1.0"
+  },
+  {
+    "name": "autograd",
+    "version": "1.8.0"
+  },
+  {
+    "name": "autoray",
+    "version": "0.8.4"
+  },
+  {
+    "name": "build",
+    "version": "1.6.1"
+  },
+  {
+    "name": "cachetools",
+    "version": "7.1.8"
+  },
+  {
+    "name": "certifi",
+    "version": "2026.7.22"
+  },
+  {
+    "name": "charset-normalizer",
+    "version": "3.5.1"
+  },
+  {
+    "name": "click",
+    "version": "8.5.0"
+  },
+  {
+    "name": "cloudpickle",
+    "version": "3.1.2"
+  },
+  {
+    "name": "colorama",
+    "version": "0.4.6"
+  },
+  {
+    "name": "comm",
+    "version": "0.2.3"
+  },
+  {
+    "name": "contourpy",
+    "version": "1.3.3"
+  },
+  {
+    "name": "coverage",
+    "version": "7.16.0"
+  },
+  {
+    "name": "cycler",
+    "version": "0.12.1"
+  },
+  {
+    "name": "debugpy",
+    "version": "1.8.21"
+  },
+  {
+    "name": "diastatic-malt",
+    "version": "2.15.3"
+  },
+  {
+    "name": "dill",
+    "version": "0.4.1"
+  },
+  {
+    "name": "executing",
+    "version": "2.2.1"
+  },
+  {
+    "name": "fastjsonschema",
+    "version": "2.22.2"
+  },
+  {
+    "name": "fonttools",
+    "version": "4.65.0"
+  },
+  {
+    "name": "galois",
+    "version": "0.4.11"
+  },
+  {
+    "name": "gast",
+    "version": "0.7.0"
+  },
+  {
+    "name": "ghp-import",
+    "version": "2.1.0"
+  },
+  {
+    "name": "idna",
+    "version": "3.19"
+  },
+  {
+    "name": "iniconfig",
+    "version": "2.3.0"
+  },
+  {
+    "name": "ipykernel",
+    "version": "7.3.0"
+  },
+  {
+    "name": "ipython",
+    "version": "9.17.1"
+  },
+  {
+    "name": "ipython_pygments_lexers",
+    "version": "1.1.1"
+  },
+  {
+    "name": "jedi",
+    "version": "0.20.0"
+  },
+  {
+    "name": "Jinja2",
+    "version": "3.1.6"
+  },
+  {
+    "name": "joblib",
+    "version": "1.6.0"
+  },
+  {
+    "name": "jsonschema",
+    "version": "4.26.0"
+  },
+  {
+    "name": "jsonschema-specifications",
+    "version": "2025.9.1"
+  },
+  {
+    "name": "jupyter_client",
+    "version": "8.10.0"
+  },
+  {
+    "name": "jupyter_core",
+    "version": "5.9.1"
+  },
+  {
+    "name": "kiwisolver",
+    "version": "1.5.1"
+  },
+  {
+    "name": "librt",
+    "version": "0.15.0"
+  },
+  {
+    "name": "llvmlite",
+    "version": "0.49.0"
+  },
+  {
+    "name": "Markdown",
+    "version": "3.10.3"
+  },
+  {
+    "name": "MarkupSafe",
+    "version": "3.0.3"
+  },
+  {
+    "name": "matplotlib",
+    "version": "3.11.1"
+  },
+  {
+    "name": "matplotlib-inline",
+    "version": "0.2.2"
+  },
+  {
+    "name": "mentpy",
+    "version": "0.1.0a15",
+    "editable_project_location": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\.references\\mentpy"
+  },
+  {
+    "name": "mergedeep",
+    "version": "1.3.4"
+  },
+  {
+    "name": "mkdocs",
+    "version": "1.6.1"
+  },
+  {
+    "name": "mkdocs-get-deps",
+    "version": "0.2.2"
+  },
+  {
+    "name": "mpmath",
+    "version": "1.3.0"
+  },
+  {
+    "name": "multiprocess",
+    "version": "0.70.19"
+  },
+  {
+    "name": "mypy",
+    "version": "2.3.1"
+  },
+  {
+    "name": "mypy_extensions",
+    "version": "1.1.0"
+  },
+  {
+    "name": "narwhals",
+    "version": "2.26.0"
+  },
+  {
+    "name": "nbclient",
+    "version": "0.11.0"
+  },
+  {
+    "name": "nbformat",
+    "version": "5.11.1"
+  },
+  {
+    "name": "nest-asyncio2",
+    "version": "1.7.2"
+  },
+  {
+    "name": "networkx",
+    "version": "3.6.1"
+  },
+  {
+    "name": "numba",
+    "version": "0.67.0"
+  },
+  {
+    "name": "numpy",
+    "version": "2.5.3"
+  },
+  {
+    "name": "packaging",
+    "version": "26.3"
+  },
+  {
+    "name": "parso",
+    "version": "0.8.7"
+  },
+  {
+    "name": "pathos",
+    "version": "0.3.5"
+  },
+  {
+    "name": "pathspec",
+    "version": "1.1.1"
+  },
+  {
+    "name": "pennylane",
+    "version": "0.45.1"
+  },
+  {
+    "name": "pennylane_lightning",
+    "version": "0.45.0"
+  },
+  {
+    "name": "photographiq",
+    "version": "0.3.0",
+    "editable_project_location": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ"
+  },
+  {
+    "name": "photographiqml",
+    "version": "0.1.0",
+    "editable_project_location": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML"
+  },
+  {
+    "name": "pillow",
+    "version": "12.3.0"
+  },
+  {
+    "name": "pip",
+    "version": "26.0.1"
+  },
+  {
+    "name": "piquasso",
+    "version": "8.0.1"
+  },
+  {
+    "name": "platformdirs",
+    "version": "4.11.8"
+  },
+  {
+    "name": "pluggy",
+    "version": "1.6.0"
+  },
+  {
+    "name": "pox",
+    "version": "0.3.7"
+  },
+  {
+    "name": "ppft",
+    "version": "1.7.8"
+  },
+  {
+    "name": "prompt_toolkit",
+    "version": "3.0.53"
+  },
+  {
+    "name": "psutil",
+    "version": "7.2.2"
+  },
+  {
+    "name": "pure_eval",
+    "version": "0.2.4"
+  },
+  {
+    "name": "Pygments",
+    "version": "2.21.0"
+  },
+  {
+    "name": "pymupdf",
+    "version": "1.28.2"
+  },
+  {
+    "name": "pyparsing",
+    "version": "3.3.2"
+  },
+  {
+    "name": "pyproject_hooks",
+    "version": "1.2.0"
+  },
+  {
+    "name": "pytest",
+    "version": "9.1.1"
+  },
+  {
+    "name": "pytest-cov",
+    "version": "7.1.0"
+  },
+  {
+    "name": "python-dateutil",
+    "version": "2.9.0.post0"
+  },
+  {
+    "name": "PyYAML",
+    "version": "6.0.3"
+  },
+  {
+    "name": "pyyaml_env_tag",
+    "version": "1.1"
+  },
+  {
+    "name": "pyzmq",
+    "version": "27.2.0"
+  },
+  {
+    "name": "quantum-blackbird",
+    "version": "0.5.0"
+  },
+  {
+    "name": "referencing",
+    "version": "0.37.0"
+  },
+  {
+    "name": "requests",
+    "version": "2.34.2"
+  },
+  {
+    "name": "rpds-py",
+    "version": "2026.6.3"
+  },
+  {
+    "name": "ruff",
+    "version": "0.16.7"
+  },
+  {
+    "name": "rustworkx",
+    "version": "0.18.1"
+  },
+  {
+    "name": "scikit-learn",
+    "version": "1.9.1"
+  },
+  {
+    "name": "scipy",
+    "version": "1.18.1"
+  },
+  {
+    "name": "scipy-openblas32",
+    "version": "0.3.34.237.0"
+  },
+  {
+    "name": "six",
+    "version": "1.17.0"
+  },
+  {
+    "name": "stack-data",
+    "version": "0.6.3"
+  },
+  {
+    "name": "sympy",
+    "version": "1.14.0"
+  },
+  {
+    "name": "termcolor",
+    "version": "3.3.0"
+  },
+  {
+    "name": "threadpoolctl",
+    "version": "3.6.0"
+  },
+  {
+    "name": "tomlkit",
+    "version": "0.15.1"
+  },
+  {
+    "name": "tornado",
+    "version": "6.5.8"
+  },
+  {
+    "name": "traitlets",
+    "version": "5.16.1"
+  },
+  {
+    "name": "typing_extensions",
+    "version": "4.16.0"
+  },
+  {
+    "name": "urllib3",
+    "version": "2.7.0"
+  },
+  {
+    "name": "watchdog",
+    "version": "6.0.0"
+  },
+  {
+    "name": "wcwidth",
+    "version": "0.8.3"
+  }
+]

@@ -1,0 +1,208 @@
+{
+  "rows": [
+    {
+      "eta": 0.05,
+      "gaussian_mean_error": 0.0,
+      "gaussian_photon_number_error": 1.3877787807814457e-17,
+      "gaussian_photon_number": 0.026000000000000023,
+      "piquasso_mean_error": 1.8619006149354548e-16,
+      "piquasso_photon_number_error": 1.3877787807814457e-17,
+      "piquasso_photon_number": 0.026000000000000023,
+      "expected_photon_number": 0.02600000000000001
+    },
+    {
+      "eta": 0.1,
+      "gaussian_mean_error": 0.0,
+      "gaussian_photon_number_error": 2.7755575615628914e-17,
+      "gaussian_photon_number": 0.052000000000000046,
+      "piquasso_mean_error": 1.6653345369377348e-16,
+      "piquasso_photon_number_error": 8.326672684688674e-17,
+      "piquasso_photon_number": 0.051999999999999935,
+      "expected_photon_number": 0.05200000000000002
+    },
+    {
+      "eta": 0.15,
+      "gaussian_mean_error": 0.0,
+      "gaussian_photon_number_error": 5.551115123125783e-17,
+      "gaussian_photon_number": 0.07799999999999996,
+      "piquasso_mean_error": 5.551115123125783e-17,
+      "piquasso_photon_number_error": 5.551115123125783e-17,
+      "piquasso_photon_number": 0.07800000000000007,
+      "expected_photon_number": 0.07800000000000001
+    },
+    {
+      "eta": 0.2,
+      "gaussian_mean_error": 0.0,
+      "gaussian_photon_number_error": 5.551115123125783e-17,
+      "gaussian_photon_number": 0.10399999999999998,
+      "piquasso_mean_error": 4.965068306494546e-16,
+      "piquasso_photon_number_error": 5.551115123125783e-17,
+      "piquasso_photon_number": 0.10400000000000009,
+      "expected_photon_number": 0.10400000000000004
+    },
+    {
+      "eta": 0.25,
+      "gaussian_mean_error": 0.0,
+      "gaussian_photon_number_error": 2.7755575615628914e-17,
+      "gaussian_photon_number": 0.13,
+      "piquasso_mean_error": 1.1102230246251565e-16,
+      "piquasso_photon_number_error": 2.7755575615628914e-17,
+      "piquasso_photon_number": 0.13,
+      "expected_photon_number": 0.13000000000000003
+    },
+    {
+      "eta": 0.3,
+      "gaussian_mean_error": 0.0,
+      "gaussian_photon_number_error": 1.1102230246251565e-16,
+      "gaussian_photon_number": 0.15599999999999992,
+      "piquasso_mean_error": 2.482534153247273e-16,
+      "piquasso_photon_number_error": 1.1102230246251565e-16,
+      "piquasso_photon_number": 0.15600000000000014,
+      "expected_photon_number": 0.15600000000000003
+    },
+    {
+      "eta": 0.35,
+      "gaussian_mean_error": 0.0,
+      "gaussian_photon_number_error": 8.326672684688674e-17,
+      "gaussian_photon_number": 0.18199999999999994,
+      "piquasso_mean_error": 2.482534153247273e-16,
+      "piquasso_photon_number_error": 2.7755575615628914e-17,
+      "piquasso_photon_number": 0.18200000000000005,
+      "expected_photon_number": 0.18200000000000002
+    },
+    {
+      "eta": 0.39999999999999997,
+      "gaussian_mean_error": 0.0,
+      "gaussian_photon_number_error": 8.326672684688674e-17,
+      "gaussian_photon_number": 0.20799999999999996,
+      "piquasso_mean_error": 3.3306690738754696e-16,
+      "piquasso_photon_number_error": 1.3877787807814457e-16,
+      "piquasso_photon_number": 0.20800000000000018,
+      "expected_photon_number": 0.20800000000000005
+    },
+    {
+      "eta": 0.44999999999999996,
+      "gaussian_mean_error": 0.0,
+      "gaussian_photon_number_error": 5.551115123125783e-17,
+      "gaussian_photon_number": 0.23399999999999999,
+      "piquasso_mean_error": 4.002966042486721e-16,
+      "piquasso_photon_number_error": 1.6653345369377348e-16,
+      "piquasso_photon_number": 0.2340000000000002,
+      "expected_photon_number": 0.23400000000000004
+    },
+    {
+      "eta": 0.49999999999999994,
+      "gaussian_mean_error": 0.0,
+      "gaussian_photon_number_error": 1.1102230246251565e-16,
+      "gaussian_photon_number": 0.2599999999999999,
+      "piquasso_mean_error": 3.510833468576701e-16,
+      "piquasso_photon_number_error": 1.1102230246251565e-16,
+      "piquasso_photon_number": 0.2600000000000001,
+      "expected_photon_number": 0.26
+    },
+    {
+      "eta": 0.5499999999999999,
+      "gaussian_mean_error": 0.0,
+      "gaussian_photon_number_error": 2.220446049250313e-16,
+      "gaussian_photon_number": 0.2859999999999998,
+      "piquasso_mean_error": 3.510833468576701e-16,
+      "piquasso_photon_number_error": 1.1102230246251565e-16,
+      "piquasso_photon_number": 0.28600000000000014,
+      "expected_photon_number": 0.28600000000000003
+    },
+    {
+      "eta": 0.6,
+      "gaussian_mean_error": 0.0,
+      "gaussian_photon_number_error": 0.0,
+      "gaussian_photon_number": 0.31200000000000006,
+      "piquasso_mean_error": 3.510833468576701e-16,
+      "piquasso_photon_number_error": 2.220446049250313e-16,
+      "piquasso_photon_number": 0.3120000000000003,
+      "expected_photon_number": 0.31200000000000006
+    },
+    {
+      "eta": 0.65,
+      "gaussian_mean_error": 0.0,
+      "gaussian_photon_number_error": 0.0,
+      "gaussian_photon_number": 0.3380000000000001,
+      "piquasso_mean_error": 3.510833468576701e-16,
+      "piquasso_photon_number_error": 2.220446049250313e-16,
+      "piquasso_photon_number": 0.3380000000000003,
+      "expected_photon_number": 0.3380000000000001
+    },
+    {
+      "eta": 0.7,
+      "gaussian_mean_error": 0.0,
+      "gaussian_photon_number_error": 5.551115123125783e-17,
+      "gaussian_photon_number": 0.364,
+      "piquasso_mean_error": 4.577566798522237e-16,
+      "piquasso_photon_number_error": 1.6653345369377348e-16,
+      "piquasso_photon_number": 0.3640000000000002,
+      "expected_photon_number": 0.36400000000000005
+    },
+    {
+      "eta": 0.75,
+      "gaussian_mean_error": 0.0,
+      "gaussian_photon_number_error": 2.220446049250313e-16,
+      "gaussian_photon_number": 0.3899999999999999,
+      "piquasso_mean_error": 4.965068306494546e-16,
+      "piquasso_photon_number_error": 0.0,
+      "piquasso_photon_number": 0.3900000000000001,
+      "expected_photon_number": 0.3900000000000001
+    },
+    {
+      "eta": 0.7999999999999999,
+      "gaussian_mean_error": 0.0,
+      "gaussian_photon_number_error": 1.6653345369377348e-16,
+      "gaussian_photon_number": 0.4159999999999999,
+      "piquasso_mean_error": 2.482534153247273e-16,
+      "piquasso_photon_number_error": 5.551115123125783e-17,
+      "piquasso_photon_number": 0.41600000000000004,
+      "expected_photon_number": 0.4160000000000001
+    },
+    {
+      "eta": 0.85,
+      "gaussian_mean_error": 0.0,
+      "gaussian_photon_number_error": 1.6653345369377348e-16,
+      "gaussian_photon_number": 0.44199999999999995,
+      "piquasso_mean_error": 4.440892098500626e-16,
+      "piquasso_photon_number_error": 1.6653345369377348e-16,
+      "piquasso_photon_number": 0.4420000000000003,
+      "expected_photon_number": 0.4420000000000001
+    },
+    {
+      "eta": 0.9,
+      "gaussian_mean_error": 0.0,
+      "gaussian_photon_number_error": 1.6653345369377348e-16,
+      "gaussian_photon_number": 0.46799999999999997,
+      "piquasso_mean_error": 4.965068306494546e-16,
+      "piquasso_photon_number_error": 1.6653345369377348e-16,
+      "piquasso_photon_number": 0.4680000000000003,
+      "expected_photon_number": 0.46800000000000014
+    },
+    {
+      "eta": 0.95,
+      "gaussian_mean_error": 0.0,
+      "gaussian_photon_number_error": 3.3306690738754696e-16,
+      "gaussian_photon_number": 0.4939999999999998,
+      "piquasso_mean_error": 3.1401849173675503e-16,
+      "piquasso_photon_number_error": 0.0,
+      "piquasso_photon_number": 0.4940000000000001,
+      "expected_photon_number": 0.4940000000000001
+    },
+    {
+      "eta": 1.0,
+      "gaussian_mean_error": 0.0,
+      "gaussian_photon_number_error": 1.1102230246251565e-16,
+      "gaussian_photon_number": 0.52,
+      "piquasso_mean_error": 4.577566798522237e-16,
+      "piquasso_photon_number_error": 3.3306690738754696e-16,
+      "piquasso_photon_number": 0.5200000000000005,
+      "expected_photon_number": 0.5200000000000001
+    }
+  ],
+  "alpha": [
+    0.6,
+    0.4
+  ]
+}

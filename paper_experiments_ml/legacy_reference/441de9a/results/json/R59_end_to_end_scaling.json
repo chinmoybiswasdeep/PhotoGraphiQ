@@ -1,0 +1,205 @@
+{
+  "rows": [
+    {
+      "pipeline": "logical",
+      "size": 1,
+      "size_unit": "wires",
+      "median_seconds": 0.001231800066307187,
+      "iqr_seconds": 0.0003714999766089022,
+      "peak_python_bytes": 7192,
+      "repetitions": 3,
+      "warmups": 1
+    },
+    {
+      "pipeline": "logical",
+      "size": 2,
+      "size_unit": "wires",
+      "median_seconds": 0.0006874999962747097,
+      "iqr_seconds": 0.0002077000099234283,
+      "peak_python_bytes": 7248,
+      "repetitions": 3,
+      "warmups": 1
+    },
+    {
+      "pipeline": "logical",
+      "size": 3,
+      "size_unit": "wires",
+      "median_seconds": 0.001626199926249683,
+      "iqr_seconds": 0.0004359500017017126,
+      "peak_python_bytes": 7520,
+      "repetitions": 3,
+      "warmups": 1
+    },
+    {
+      "pipeline": "kernel",
+      "size": 20,
+      "size_unit": "samples",
+      "median_seconds": 0.023244100040756166,
+      "iqr_seconds": 0.00089414999820292,
+      "peak_python_bytes": 17644,
+      "repetitions": 3,
+      "warmups": 1
+    },
+    {
+      "pipeline": "kernel",
+      "size": 40,
+      "size_unit": "samples",
+      "median_seconds": 0.04988229996524751,
+      "iqr_seconds": 0.009934699977748096,
+      "peak_python_bytes": 41868,
+      "repetitions": 3,
+      "warmups": 1
+    },
+    {
+      "pipeline": "kernel",
+      "size": 80,
+      "size_unit": "samples",
+      "median_seconds": 0.09023719991091639,
+      "iqr_seconds": 0.01315530005376786,
+      "peak_python_bytes": 159584,
+      "repetitions": 3,
+      "warmups": 1
+    },
+    {
+      "pipeline": "training",
+      "size": 5,
+      "size_unit": "epochs",
+      "median_seconds": 0.0012969999806955457,
+      "iqr_seconds": 0.00040045008063316345,
+      "peak_python_bytes": 3312,
+      "repetitions": 3,
+      "warmups": 1
+    },
+    {
+      "pipeline": "training",
+      "size": 10,
+      "size_unit": "epochs",
+      "median_seconds": 0.002640599966980517,
+      "iqr_seconds": 0.0005160500295460224,
+      "peak_python_bytes": 3504,
+      "repetitions": 3,
+      "warmups": 1
+    },
+    {
+      "pipeline": "training",
+      "size": 20,
+      "size_unit": "epochs",
+      "median_seconds": 0.009114300017245114,
+      "iqr_seconds": 0.001576300011947751,
+      "peak_python_bytes": 3720,
+      "repetitions": 3,
+      "warmups": 1
+    },
+    {
+      "pipeline": "physical_and_decoding",
+      "size": 20,
+      "size_unit": "cutoff",
+      "median_seconds": 2.184696249954868,
+      "iqr_seconds": 0.17684234998887405,
+      "peak_python_bytes": 432063,
+      "repetitions": 2,
+      "warmups": 1
+    },
+    {
+      "pipeline": "physical_and_decoding",
+      "size": 24,
+      "size_unit": "cutoff",
+      "median_seconds": 2.5334916000138037,
+      "iqr_seconds": 0.016193299961742014,
+      "peak_python_bytes": 491712,
+      "repetitions": 2,
+      "warmups": 1
+    },
+    {
+      "pipeline": "artifact_serialization",
+      "size": 10,
+      "size_unit": "row_blocks",
+      "median_seconds": 0.0033301999792456627,
+      "iqr_seconds": 0.0017870001029223204,
+      "peak_python_bytes": 31746,
+      "repetitions": 5,
+      "warmups": 1
+    },
+    {
+      "pipeline": "artifact_serialization",
+      "size": 100,
+      "size_unit": "row_blocks",
+      "median_seconds": 0.034658199991099536,
+      "iqr_seconds": 0.00420930003747344,
+      "peak_python_bytes": 354070,
+      "repetitions": 5,
+      "warmups": 1
+    },
+    {
+      "pipeline": "artifact_serialization",
+      "size": 1000,
+      "size_unit": "row_blocks",
+      "median_seconds": 0.3870967999100685,
+      "iqr_seconds": 0.01258459989912808,
+      "peak_python_bytes": 4020772,
+      "repetitions": 5,
+      "warmups": 1
+    }
+  ],
+  "protocol": "One warm-up; repeated median/IQR timing and tracemalloc peaks for logical, kernel, training, physical/decoding and serialization pipelines.",
+  "oracle_class": "N/A",
+  "status_category": "exact/descriptive",
+  "seeds": [],
+  "n_repetitions": 1,
+  "uncertainty_method": "none (deterministic sweep)",
+  "acceptance_condition": "structural: positive finite timings, explicit warm-up/repetition counts and measured-range-only fits",
+  "structural_status": "pass",
+  "scientific_outcome": "descriptive",
+  "claim_supported": "Runtime and Python allocation peaks are measured over declared ranges with warm-up and dispersion.",
+  "claim_not_supported": "Fits are empirical over measured ranges only; no out-of-range or asymptotic extrapolation is made.",
+  "status": "pass",
+  "scaling_fits": {
+    "artifact_serialization": {
+      "empirical_log_log_slope": 1.032674633648146,
+      "intercept": -8.094317214900057,
+      "measured_range": [
+        10,
+        1000
+      ],
+      "extrapolation": "not performed"
+    },
+    "kernel": {
+      "empirical_log_log_slope": 0.9784288660556223,
+      "intercept": -6.664341645029202,
+      "measured_range": [
+        20,
+        80
+      ],
+      "extrapolation": "not performed"
+    },
+    "logical": {
+      "empirical_log_log_slope": 0.1350138091669082,
+      "intercept": -6.881716345105732,
+      "measured_range": [
+        1,
+        3
+      ],
+      "extrapolation": "not performed"
+    },
+    "physical_and_decoding": {
+      "empirical_log_log_slope": 0.81241971669244,
+      "intercept": -1.6523151621221668,
+      "measured_range": [
+        20,
+        24
+      ],
+      "extrapolation": "not performed"
+    },
+    "training": {
+      "empirical_log_log_slope": 1.4064767013543455,
+      "intercept": -8.999319347633014,
+      "measured_range": [
+        5,
+        20
+      ],
+      "extrapolation": "not performed"
+    }
+  },
+  "unused_payload_guard": 14,
+  "execution_status": "completed"
+}

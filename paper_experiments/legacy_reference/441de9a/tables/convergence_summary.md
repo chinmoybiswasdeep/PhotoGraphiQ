@@ -1,0 +1,7 @@
+| experiment | workload | cutoffs_tested | smallest_cutoff | largest_cutoff | fidelity_at_second_largest_cutoff |
+|---|---|---|---|---|---|
+| R33 | cat_state | 5 | 16 | 64 | 1.0 |
+| R33 | photon_subtraction | 5 | 8 | 32 | 1.0 |
+| R33 | cubic_phase | 5 | 16 | 64 | 0.9999999999999887 |
+| R33 | gkp_resource | 5 | 24 | 96 | 0.9999999974475406 |
+| R25 | Kerr synthesis (steps) | 7 | 1 | 64 | 0.9999423425743467 |

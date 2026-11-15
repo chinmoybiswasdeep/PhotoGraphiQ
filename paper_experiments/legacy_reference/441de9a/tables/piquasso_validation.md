@@ -1,0 +1,14 @@
+| source | gate | n_cases | max_mean_error | max_covariance_error |
+|---|---|---|---|---|
+| R15 (raw Piquasso) | displacement | 20 | 4.965068306494546e-16 | 0.0 |
+| R15 (raw Piquasso) | rotation | 20 | 4.577566798522237e-16 | 0.0 |
+| R15 (raw Piquasso) | squeezing | 20 | 7.021666937153402e-16 | 0.0 |
+| R15 (raw Piquasso) | beamsplitter | 20 | 7.108895957933346e-16 | 0.0 |
+| R15 (raw Piquasso) | cz | 20 | 1.047382306668854e-15 | 0.0 |
+| R15 (raw Piquasso) | compound(squeeze+rotate+cz+displace) | 20 | 2.7303643765501543e-15 | 6.329245045284193e-16 |
+| R16 (independent NumPy analytic) | rotation | 1 | 1.1102230246251565e-16 | 5.787877273863514e-18 |
+| R16 (independent NumPy analytic) | squeezing | 1 | 7.850462293418876e-17 | 4.577566798522237e-16 |
+| R16 (independent NumPy analytic) | displacement | 1 | 1.1188630228279524e-16 | 0.0 |
+| R16 (independent NumPy analytic) | beamsplitter | 1 | 1.631746962036502e-16 | 1.5701833464414479e-16 |
+| R16 (independent NumPy analytic) | cz | 1 | 2.3055512673781017e-16 | 0.0 |
+| R16 (independent NumPy analytic) | compound(squeeze+rotate+cz) | 1 | 3.1031676915590914e-17 | 2.5133742693021536e-16 |

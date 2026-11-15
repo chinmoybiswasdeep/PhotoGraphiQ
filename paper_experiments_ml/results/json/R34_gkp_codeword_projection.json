@@ -1,0 +1,85 @@
+{
+  "rows": [
+    {
+      "axis": "cutoff",
+      "value": 12,
+      "captured_weight_0": 0.9836803285242085,
+      "captured_weight_1": 0.9701252225657025,
+      "codeword_overlap": 0.020606299057056632,
+      "min_gram_eigenvalue": 0.9793937009429436,
+      "max_gram_eigenvalue": 1.0206062990570568,
+      "physical_muta_validated": false
+    },
+    {
+      "axis": "cutoff",
+      "value": 20,
+      "captured_weight_0": 0.9988943187205362,
+      "captured_weight_1": 0.9983916303099666,
+      "codeword_overlap": 0.01327990780128704,
+      "min_gram_eigenvalue": 0.9867200921987129,
+      "max_gram_eigenvalue": 1.0132799078012868,
+      "physical_muta_validated": false
+    },
+    {
+      "axis": "cutoff",
+      "value": 32,
+      "captured_weight_0": 0.9999859906431399,
+      "captured_weight_1": 0.9999667784896437,
+      "codeword_overlap": 0.013027693067729594,
+      "min_gram_eigenvalue": 0.9869723069322706,
+      "max_gram_eigenvalue": 1.0130276930677296,
+      "physical_muta_validated": false
+    },
+    {
+      "axis": "cutoff",
+      "value": 48,
+      "captured_weight_0": 0.9999998740551588,
+      "captured_weight_1": 0.9999996976882929,
+      "codeword_overlap": 0.013021654549314705,
+      "min_gram_eigenvalue": 0.9869783454506851,
+      "max_gram_eigenvalue": 1.0130216545493147,
+      "physical_muta_validated": false
+    },
+    {
+      "axis": "grid_points",
+      "value": 2049,
+      "captured_weight_0": 0.9999859906431379,
+      "captured_weight_1": 0.9999667784896435,
+      "codeword_overlap": 0.013027693067729457,
+      "min_gram_eigenvalue": 0.9869723069322707,
+      "max_gram_eigenvalue": 1.0130276930677298,
+      "physical_muta_validated": false
+    },
+    {
+      "axis": "grid_points",
+      "value": 4097,
+      "captured_weight_0": 0.9999859906431399,
+      "captured_weight_1": 0.9999667784896437,
+      "codeword_overlap": 0.013027693067729594,
+      "min_gram_eigenvalue": 0.9869723069322706,
+      "max_gram_eigenvalue": 1.0130276930677296,
+      "physical_muta_validated": false
+    },
+    {
+      "axis": "grid_points",
+      "value": 8193,
+      "captured_weight_0": 0.9999859906431403,
+      "captured_weight_1": 0.9999667784896447,
+      "codeword_overlap": 0.013027693067728842,
+      "min_gram_eigenvalue": 0.9869723069322713,
+      "max_gram_eigenvalue": 1.013027693067729,
+      "physical_muta_validated": false
+    }
+  ],
+  "protocol": "GKPBridge.diagnostics vs. cutoff/grid_points refinement, Gram PSD invariant",
+  "oracle_class": "A/E",
+  "status_category": "exact/statistical",
+  "tolerance": 2.220446049250313e-13,
+  "acceptance_condition": "captured weights in [0,1]; Gram matrix PSD; physical_muta_validated always False",
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

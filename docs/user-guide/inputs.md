@@ -40,7 +40,7 @@ result = pg.simulate(pattern, initial_state=state, backend="gaussian")
 Mean has shape `(2*modes,)`, covariance `(2*modes,2*modes)`, and `nodes` must
 match ordered pattern inputs. Off-diagonal covariance blocks describe correlations.
 This direct correlated-Gaussian injection path is supported by Gaussian backends.
-For external Piquasso Gaussian states, use `PiquassoBackend.import_state(native,
+For external Piquasso Gaussian states (optional `piquasso` extra), use `PiquassoBackend.import_state(native,
 nodes, source_hbar=...)`, then supply its `.get_state()` snapshot. Declare source
 hbar explicitly; native covariance cannot simply be copied into V.
 
@@ -69,7 +69,7 @@ which regenerates the projected resource and records its retained weight.
 resource = pg.FockSuperposition.from_mapping({(0, 0): 2**-0.5, (1, 1): 2**-0.5})
 pattern = pg.Pattern(inputs=("a", "b"))
 result = pg.simulate(pattern, initial_state=resource,
-                     backend="piquasso-fock", cutoff=8)
+                     backend="native-fock", cutoff=8)
 ```
 
 Occupation tuples follow preparation-label order. `FockSuperposition.number((2,1))`
@@ -87,7 +87,7 @@ per mode. Resource support exceeding that limit fails before preparation.
 mixed = pg.FockDensityMatrix([[0.3, 0], [0, 0.7]], ((0,), (1,)))
 thermal_fock = pg.FockDensityMatrix.thermal(mean_photons=0.1, cutoff=12)
 result = pg.simulate(pg.Pattern(inputs=(0,)), initial_state=mixed,
-                     backend="piquasso-mixed-fock", cutoff=12)
+                     backend="native-mixed-fock", cutoff=12)
 ```
 
 `matrix[i,j]` multiplies $|\mathrm{basis}_i\rangle\langle\mathrm{basis}_j|$.

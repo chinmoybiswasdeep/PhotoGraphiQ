@@ -1,0 +1,369 @@
+{
+  "rows": [
+    {
+      "dataset": "circles",
+      "seed": 0,
+      "accuracy_muta": 1.0,
+      "accuracy_rbf_svm": 1.0,
+      "accuracy_logistic": 0.4166666666666667
+    },
+    {
+      "dataset": "circles",
+      "seed": 1,
+      "accuracy_muta": 1.0,
+      "accuracy_rbf_svm": 1.0,
+      "accuracy_logistic": 0.4444444444444444
+    },
+    {
+      "dataset": "circles",
+      "seed": 2,
+      "accuracy_muta": 0.9444444444444444,
+      "accuracy_rbf_svm": 1.0,
+      "accuracy_logistic": 0.5
+    },
+    {
+      "dataset": "circles",
+      "seed": 3,
+      "accuracy_muta": 0.9722222222222222,
+      "accuracy_rbf_svm": 1.0,
+      "accuracy_logistic": 0.4444444444444444
+    },
+    {
+      "dataset": "circles",
+      "seed": 4,
+      "accuracy_muta": 1.0,
+      "accuracy_rbf_svm": 1.0,
+      "accuracy_logistic": 0.4444444444444444
+    },
+    {
+      "dataset": "circles",
+      "seed": 5,
+      "accuracy_muta": 1.0,
+      "accuracy_rbf_svm": 1.0,
+      "accuracy_logistic": 0.3888888888888889
+    },
+    {
+      "dataset": "circles",
+      "seed": 6,
+      "accuracy_muta": 0.9722222222222222,
+      "accuracy_rbf_svm": 1.0,
+      "accuracy_logistic": 0.3888888888888889
+    },
+    {
+      "dataset": "circles",
+      "seed": 7,
+      "accuracy_muta": 0.9166666666666666,
+      "accuracy_rbf_svm": 1.0,
+      "accuracy_logistic": 0.3611111111111111
+    },
+    {
+      "dataset": "moons",
+      "seed": 0,
+      "accuracy_muta": 0.7777777777777778,
+      "accuracy_rbf_svm": 0.9722222222222222,
+      "accuracy_logistic": 0.8888888888888888
+    },
+    {
+      "dataset": "moons",
+      "seed": 1,
+      "accuracy_muta": 0.6666666666666666,
+      "accuracy_rbf_svm": 1.0,
+      "accuracy_logistic": 0.8888888888888888
+    },
+    {
+      "dataset": "moons",
+      "seed": 2,
+      "accuracy_muta": 0.6111111111111112,
+      "accuracy_rbf_svm": 0.9722222222222222,
+      "accuracy_logistic": 0.9444444444444444
+    },
+    {
+      "dataset": "moons",
+      "seed": 3,
+      "accuracy_muta": 0.6388888888888888,
+      "accuracy_rbf_svm": 0.9722222222222222,
+      "accuracy_logistic": 0.9166666666666666
+    },
+    {
+      "dataset": "moons",
+      "seed": 4,
+      "accuracy_muta": 0.6666666666666666,
+      "accuracy_rbf_svm": 1.0,
+      "accuracy_logistic": 0.8333333333333334
+    },
+    {
+      "dataset": "moons",
+      "seed": 5,
+      "accuracy_muta": 0.6388888888888888,
+      "accuracy_rbf_svm": 1.0,
+      "accuracy_logistic": 0.8055555555555556
+    },
+    {
+      "dataset": "moons",
+      "seed": 6,
+      "accuracy_muta": 0.6944444444444444,
+      "accuracy_rbf_svm": 0.9722222222222222,
+      "accuracy_logistic": 0.8055555555555556
+    },
+    {
+      "dataset": "moons",
+      "seed": 7,
+      "accuracy_muta": 0.7777777777777778,
+      "accuracy_rbf_svm": 1.0,
+      "accuracy_logistic": 0.8333333333333334
+    },
+    {
+      "dataset": "blobs",
+      "seed": 0,
+      "accuracy_muta": 0.5555555555555556,
+      "accuracy_rbf_svm": 0.8333333333333334,
+      "accuracy_logistic": 0.8055555555555556
+    },
+    {
+      "dataset": "blobs",
+      "seed": 1,
+      "accuracy_muta": 0.5555555555555556,
+      "accuracy_rbf_svm": 1.0,
+      "accuracy_logistic": 1.0
+    },
+    {
+      "dataset": "blobs",
+      "seed": 2,
+      "accuracy_muta": 0.5,
+      "accuracy_rbf_svm": 1.0,
+      "accuracy_logistic": 1.0
+    },
+    {
+      "dataset": "blobs",
+      "seed": 3,
+      "accuracy_muta": 0.5277777777777778,
+      "accuracy_rbf_svm": 1.0,
+      "accuracy_logistic": 1.0
+    },
+    {
+      "dataset": "blobs",
+      "seed": 4,
+      "accuracy_muta": 0.5833333333333334,
+      "accuracy_rbf_svm": 0.9166666666666666,
+      "accuracy_logistic": 0.9166666666666666
+    },
+    {
+      "dataset": "blobs",
+      "seed": 5,
+      "accuracy_muta": 0.6944444444444444,
+      "accuracy_rbf_svm": 0.6666666666666666,
+      "accuracy_logistic": 0.6944444444444444
+    },
+    {
+      "dataset": "blobs",
+      "seed": 6,
+      "accuracy_muta": 0.6666666666666666,
+      "accuracy_rbf_svm": 1.0,
+      "accuracy_logistic": 1.0
+    },
+    {
+      "dataset": "blobs",
+      "seed": 7,
+      "accuracy_muta": 0.4444444444444444,
+      "accuracy_rbf_svm": 1.0,
+      "accuracy_logistic": 1.0
+    }
+  ],
+  "protocol": "MuTA-kernel SVM vs. RBF-SVM/logistic baselines on circles/moons/blobs, repeated splits",
+  "oracle_class": "N/A",
+  "status_category": "statistical",
+  "structural_status": "pass",
+  "scientific_outcome": "descriptive",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "svm_C": 1.0,
+  "summary": {
+    "circles": {
+      "muta_ci": {
+        "point": 0.9861111111111112,
+        "low": 0.9583333333333333,
+        "high": 1.0,
+        "n_boot": 2000,
+        "alpha": 0.05,
+        "n": 8,
+        "statistic": "median"
+      },
+      "rbf_svm_ci": {
+        "point": 1.0,
+        "low": 1.0,
+        "high": 1.0,
+        "n_boot": 2000,
+        "alpha": 0.05,
+        "n": 8,
+        "statistic": "median"
+      },
+      "logistic_ci": {
+        "point": 0.4305555555555556,
+        "low": 0.3888888888888889,
+        "high": 0.4444444444444444,
+        "n_boot": 2000,
+        "alpha": 0.05,
+        "n": 8,
+        "statistic": "median"
+      },
+      "muta_minus_rbf_ci": {
+        "point": -0.013888888888888895,
+        "low": -0.041666666666666685,
+        "high": 0.0,
+        "n_boot": 2000,
+        "alpha": 0.05,
+        "n": 8,
+        "statistic": "median"
+      },
+      "muta_minus_logistic_ci": {
+        "point": 0.5555555555555556,
+        "low": 0.5277777777777778,
+        "high": 0.5833333333333333,
+        "n_boot": 2000,
+        "alpha": 0.05,
+        "n": 8,
+        "statistic": "median"
+      }
+    },
+    "moons": {
+      "muta_ci": {
+        "point": 0.6666666666666666,
+        "low": 0.6388888888888888,
+        "high": 0.7777777777777778,
+        "n_boot": 2000,
+        "alpha": 0.05,
+        "n": 8,
+        "statistic": "median"
+      },
+      "rbf_svm_ci": {
+        "point": 0.9861111111111112,
+        "low": 0.9722222222222222,
+        "high": 1.0,
+        "n_boot": 2000,
+        "alpha": 0.05,
+        "n": 8,
+        "statistic": "median"
+      },
+      "logistic_ci": {
+        "point": 0.8611111111111112,
+        "low": 0.8194444444444444,
+        "high": 0.9166666666666666,
+        "n_boot": 2000,
+        "alpha": 0.05,
+        "n": 8,
+        "statistic": "median"
+      },
+      "muta_minus_rbf_ci": {
+        "point": -0.33333333333333337,
+        "low": -0.34722222222222227,
+        "high": -0.2222222222222222,
+        "n_boot": 2000,
+        "alpha": 0.05,
+        "n": 8,
+        "statistic": "median"
+      },
+      "muta_minus_logistic_ci": {
+        "point": -0.16666666666666674,
+        "low": -0.2777777777777778,
+        "high": -0.11111111111111105,
+        "n_boot": 2000,
+        "alpha": 0.05,
+        "n": 8,
+        "statistic": "median"
+      }
+    },
+    "blobs": {
+      "muta_ci": {
+        "point": 0.5555555555555556,
+        "low": 0.5,
+        "high": 0.625,
+        "n_boot": 2000,
+        "alpha": 0.05,
+        "n": 8,
+        "statistic": "median"
+      },
+      "rbf_svm_ci": {
+        "point": 1.0,
+        "low": 0.875,
+        "high": 1.0,
+        "n_boot": 2000,
+        "alpha": 0.05,
+        "n": 8,
+        "statistic": "median"
+      },
+      "logistic_ci": {
+        "point": 1.0,
+        "low": 0.8611111111111112,
+        "high": 1.0,
+        "n_boot": 2000,
+        "alpha": 0.05,
+        "n": 8,
+        "statistic": "median"
+      },
+      "muta_minus_rbf_ci": {
+        "point": -0.3888888888888889,
+        "low": -0.5,
+        "high": -0.3055555555555555,
+        "n_boot": 2000,
+        "alpha": 0.05,
+        "n": 8,
+        "statistic": "median"
+      },
+      "muta_minus_logistic_ci": {
+        "point": -0.3888888888888889,
+        "low": -0.5,
+        "high": -0.29166666666666663,
+        "n_boot": 2000,
+        "alpha": 0.05,
+        "n": 8,
+        "statistic": "median"
+      }
+    }
+  },
+  "confusion_matrices": {
+    "circles": [
+      [
+        137,
+        7
+      ],
+      [
+        0,
+        144
+      ]
+    ],
+    "moons": [
+      [
+        89,
+        55
+      ],
+      [
+        36,
+        108
+      ]
+    ],
+    "blobs": [
+      [
+        80,
+        64
+      ],
+      [
+        61,
+        83
+      ]
+    ]
+  },
+  "min_gram_eigenvalue_overall": -3.30788976935803e-14,
+  "acceptance_condition": "structural: every accuracy in [0,1] and every training Gram matrix PSD within declared tolerance; scientific outcome: descriptive, no performance threshold",
+  "status": "pass",
+  "execution_status": "completed",
+  "claim_supported": "structural contract only",
+  "claim_not_supported": "no scientific performance conclusion"
+}

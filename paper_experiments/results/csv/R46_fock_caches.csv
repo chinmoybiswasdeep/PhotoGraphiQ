@@ -1,0 +1,4 @@
+cache,first_call_seconds,cached_call_seconds,speedup
+"basis table (6 modes, cutoff 12) - nf._occupations",0.00015390000771731138,2.00001522898674e-07,769.4941792782305
+"cubic phase matrix (projected, gamma 0.5, cutoff 60) - nf._cubic_phase_matrix",0.0031322999857366085,3.00002284348011e-07,10440.920450135816
+"sparse gate structure (6 modes, cutoff 10) - gpu.fock._maps/_template (CPU path)",0.002474600012646988,0.00042290001874789596,5.851501307504494

@@ -37,7 +37,19 @@ likelihoods and synthetic ensemble draws. Ideal XY tests cover six qubit states.
 ## Scope of evidence
 
 These are finite primitive and small two-mode validations. They do not establish
-fault tolerance, a universal cutoff, physical Y, magic-state injection, arbitrary
-XY, or an executable finite-energy MuTA model. The downstream bridge remains
-blocked. See the [hardening report](../development/gkp-logical-interface-hardening.md)
-for measured release-gate results and remaining work.
+fault tolerance, a universal cutoff, physical Y, magic-state injection or
+arbitrary XY.
+
+A finite-energy MuTA model now executes, but only in a restricted form.
+`photographiqml.PhysicalMuTA` (and `GKPBridge.run` with a `PhysicalMuTA` or a
+fixed logical model) lowers the signed-X subset, with every measurement angle in
+{0, pi} modulo 2pi (absolute tolerance 1e-14), to physical GKP X readout. It runs on `piquasso-fock` and `native-fock`
+only (`VALIDATED_BACKENDS` in `photographiqml.lowering`; native-fock is compared
+with piquasso-fock in `tests/ml/cross_layer/test_native_backend.py`). Mixed-Fock
+lowering is rejected. Arbitrary-angle physical MuTA is still unsupported: every
+bound angle is audited before allocation, and any angle outside the signed-X
+family raises `UnsupportedPhysicalMeasurement` (a `NotImplementedError`). Legacy `gkp`/`gkp-resource` models still
+refuse `GKPBridge.run`. One resource setting is not a convergence study, so
+results carry `convergence["certified"] = False`. See the
+[hardening report](../development/gkp-logical-interface-hardening.md) for
+measured release-gate results and remaining work.

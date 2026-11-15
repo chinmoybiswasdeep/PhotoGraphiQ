@@ -1,0 +1,206 @@
+{
+  "rows": [
+    {
+      "command_index": 0,
+      "command_type": "Prepare",
+      "schedule_position": 0,
+      "dependencies": []
+    },
+    {
+      "command_index": 1,
+      "command_type": "Prepare",
+      "schedule_position": 1,
+      "dependencies": []
+    },
+    {
+      "command_index": 2,
+      "command_type": "Prepare",
+      "schedule_position": 2,
+      "dependencies": []
+    },
+    {
+      "command_index": 3,
+      "command_type": "Entangle",
+      "schedule_position": 3,
+      "dependencies": [
+        0
+      ]
+    },
+    {
+      "command_index": 4,
+      "command_type": "Entangle",
+      "schedule_position": 4,
+      "dependencies": [
+        1,
+        3
+      ]
+    },
+    {
+      "command_index": 5,
+      "command_type": "Entangle",
+      "schedule_position": 5,
+      "dependencies": [
+        2,
+        4
+      ]
+    },
+    {
+      "command_index": 6,
+      "command_type": "Measure",
+      "schedule_position": 6,
+      "dependencies": [
+        3
+      ]
+    },
+    {
+      "command_index": 7,
+      "command_type": "Displace",
+      "schedule_position": 7,
+      "dependencies": [
+        4,
+        6
+      ]
+    },
+    {
+      "command_index": 8,
+      "command_type": "Measure",
+      "schedule_position": 8,
+      "dependencies": [
+        6,
+        7
+      ]
+    },
+    {
+      "command_index": 9,
+      "command_type": "Displace",
+      "schedule_position": 9,
+      "dependencies": [
+        5,
+        6,
+        8
+      ]
+    },
+    {
+      "command_index": 10,
+      "command_type": "Measure",
+      "schedule_position": 10,
+      "dependencies": [
+        9
+      ]
+    },
+    {
+      "command_index": 11,
+      "command_type": "Displace",
+      "schedule_position": 11,
+      "dependencies": [
+        5,
+        6,
+        8,
+        10
+      ]
+    },
+    {
+      "command_index": 12,
+      "command_type": "Output",
+      "schedule_position": 12,
+      "dependencies": [
+        11
+      ]
+    }
+  ],
+  "dependency_edges": [
+    [
+      0,
+      3
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      5,
+      9
+    ],
+    [
+      5,
+      11
+    ],
+    [
+      6,
+      7
+    ],
+    [
+      6,
+      8
+    ],
+    [
+      6,
+      9
+    ],
+    [
+      6,
+      11
+    ],
+    [
+      7,
+      8
+    ],
+    [
+      8,
+      9
+    ],
+    [
+      8,
+      11
+    ],
+    [
+      9,
+      10
+    ],
+    [
+      10,
+      11
+    ],
+    [
+      11,
+      12
+    ]
+  ],
+  "topological_schedule": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "backward_violations": [],
+  "pattern_json": "{\n  \"schema\": \"photographiq\",\n  \"version\": 1,\n  \"inputs\": {\n    \"tuple\": [\n      0\n    ]\n  },\n  \"commands\": [\n    {\n      \"type\": \"Prepare\",\n      \"fields\": {\n        \"node\": 1,\n        \"squeezing\": 1.0,\n        \"state\": null\n      }\n    },\n    {\n      \"type\": \"Prepare\",\n      \"fields\": {\n        \"node\": 2,\n        \"squeezing\": 1.0,\n        \"state\": null\n      }\n    },\n    {\n      \"type\": \"Prepare\",\n      \"fields\": {\n        \"node\": 3,\n        \"squeezing\": 1.0,\n        \"state\": null\n      }\n    },\n    {\n      \"type\": \"Entangle\",\n      \"fields\": {\n        \"u\": 0,\n        \"v\": 1,\n        \"weight\": 1.0\n      }\n    },\n    {\n      \"type\": \"Entangle\",\n      \"fields\": {\n        \"u\": 1,\n        \"v\": 2,\n        \"weight\": 1.0\n      }\n    },\n    {\n      \"type\": \"Entangle\",\n      \"fields\": {\n        \"u\": 2,\n        \"v\": 3,\n        \"weight\": 1.0\n      }\n    },\n    {\n      \"type\": \"Measure\",\n      \"fields\": {\n        \"node\": 0,\n        \"measurement\": {\n          \"type\": \"Homodyne\",\n          \"fields\": {\n            \"angle\": 0.0,\n            \"efficiency\": 1.0,\n            \"noise\": 0.0\n          }\n        },\n        \"key\": \"m0\"\n      }\n    },\n    {\n      \"type\": \"Displace\",\n      \"fields\": {\n        \"node\": 1,\n        \"q\": {\n          \"type\": \"Expr\",\n          \"fields\": {\n            \"op\": \"neg\",\n            \"args\": {\n              \"tuple\": [\n                {\n                  \"type\": \"Expr\",\n                  \"fields\": {\n                    \"op\": \"outcome\",\n                    \"args\": {\n                      \"tuple\": [\n                        \"m0\"\n                      ]\n                    }\n                  }\n                }\n              ]\n            }\n          }\n        },\n        \"p\": 0.0\n      }\n    },\n    {\n      \"type\": \"Measure\",\n      \"fields\": {\n        \"node\": 1,\n        \"measurement\": {\n          \"type\": \"Homodyne\",\n          \"fields\": {\n            \"angle\": {\n              \"type\": \"Expr\",\n              \"fields\": {\n                \"op\": \"mul\",\n                \"args\": {\n                  \"tuple\": [\n                    {\n                      \"type\": \"Expr\",\n                      \"fields\": {\n                        \"op\": \"constant\",\n                        \"args\": {\n                          \"tuple\": [\n                            0.1\n                          ]\n                        }\n                      }\n                    },\n                    {\n                      \"type\": \"Expr\",\n                      \"fields\": {\n                        \"op\": \"outcome\",\n                        \"args\": {\n                          \"tuple\": [\n                            \"m0\"\n                          ]\n                        }\n                      }\n                    }\n                  ]\n                }\n              }\n            },\n            \"efficiency\": 1.0,\n            \"noise\": 0.0\n          }\n        },\n        \"key\": \"m1\"\n      }\n    },\n    {\n      \"type\": \"Displace\",\n      \"fields\": {\n        \"node\": 2,\n        \"q\": {\n          \"type\": \"Expr\",\n          \"fields\": {\n            \"op\": \"neg\",\n            \"args\": {\n              \"tuple\": [\n                {\n                  \"type\": \"Expr\",\n                  \"fields\": {\n                    \"op\": \"outcome\",\n                    \"args\": {\n                      \"tuple\": [\n                        \"m1\"\n                      ]\n                    }\n                  }\n                }\n              ]\n            }\n          }\n        },\n        \"p\": {\n          \"type\": \"Expr\",\n          \"fields\": {\n            \"op\": \"mul\",\n            \"args\": {\n              \"tuple\": [\n                {\n                  \"type\": \"Expr\",\n                  \"fields\": {\n                    \"op\": \"constant\",\n                    \"args\": {\n                      \"tuple\": [\n                        0.2\n                      ]\n                    }\n                  }\n                },\n                {\n                  \"type\": \"Expr\",\n                  \"fields\": {\n                    \"op\": \"outcome\",\n                    \"args\": {\n                      \"tuple\": [\n                        \"m0\"\n                      ]\n                    }\n                  }\n                }\n              ]\n            }\n          }\n        }\n      }\n    },\n    {\n      \"type\": \"Measure\",\n      \"fields\": {\n        \"node\": 2,\n        \"measurement\": {\n          \"type\": \"Homodyne\",\n          \"fields\": {\n            \"angle\": 1.5707963267948966,\n            \"efficiency\": 1.0,\n            \"noise\": 0.0\n          }\n        },\n        \"key\": \"m2\"\n      }\n    },\n    {\n      \"type\": \"Displace\",\n      \"fields\": {\n        \"node\": 3,\n        \"q\": {\n          \"type\": \"Expr\",\n          \"fields\": {\n            \"op\": \"neg\",\n            \"args\": {\n              \"tuple\": [\n                {\n                  \"type\": \"Expr\",\n                  \"fields\": {\n                    \"op\": \"outcome\",\n                    \"args\": {\n                      \"tuple\": [\n                        \"m2\"\n                      ]\n                    }\n                  }\n                }\n              ]\n            }\n          }\n        },\n        \"p\": {\n          \"type\": \"Expr\",\n          \"fields\": {\n            \"op\": \"add\",\n            \"args\": {\n              \"tuple\": [\n                {\n                  \"type\": \"Expr\",\n                  \"fields\": {\n                    \"op\": \"neg\",\n                    \"args\": {\n                      \"tuple\": [\n                        {\n                          \"type\": \"Expr\",\n                          \"fields\": {\n                            \"op\": \"outcome\",\n                            \"args\": {\n                              \"tuple\": [\n                                \"m0\"\n                              ]\n                            }\n                          }\n                        }\n                      ]\n                    }\n                  }\n                },\n                {\n                  \"type\": \"Expr\",\n                  \"fields\": {\n                    \"op\": \"outcome\",\n                    \"args\": {\n                      \"tuple\": [\n                        \"m1\"\n                      ]\n                    }\n                  }\n                }\n              ]\n            }\n          }\n        }\n      }\n    },\n    {\n      \"type\": \"Output\",\n      \"fields\": {\n        \"nodes\": {\n          \"tuple\": [\n            3\n          ]\n        }\n      }\n    }\n  ],\n  \"resource\": {\n    \"mapping\": [\n      [\n        \"nodes\",\n        [\n          {\n            \"tuple\": [\n              0,\n              {\n                \"mapping\": [\n                  [\n                    \"squeezing\",\n                    1.0\n                  ]\n                ]\n              }\n            ]\n          },\n          {\n            \"tuple\": [\n              1,\n              {\n                \"mapping\": [\n                  [\n                    \"squeezing\",\n                    1.0\n                  ]\n                ]\n              }\n            ]\n          },\n          {\n            \"tuple\": [\n              2,\n              {\n                \"mapping\": [\n                  [\n                    \"squeezing\",\n                    1.0\n                  ]\n                ]\n              }\n            ]\n          },\n          {\n            \"tuple\": [\n              3,\n              {\n                \"mapping\": [\n                  [\n                    \"squeezing\",\n                    1.0\n                  ]\n                ]\n              }\n            ]\n          }\n        ]\n      ],\n      [\n        \"edges\",\n        [\n          {\n            \"tuple\": [\n              0,\n              1,\n              {\n                \"mapping\": [\n                  [\n                    \"weight\",\n                    1.0\n                  ]\n                ]\n              }\n            ]\n          },\n          {\n            \"tuple\": [\n              1,\n              2,\n              {\n                \"mapping\": [\n                  [\n                    \"weight\",\n                    1.0\n                  ]\n                ]\n              }\n            ]\n          },\n          {\n            \"tuple\": [\n              2,\n              3,\n              {\n                \"mapping\": [\n                  [\n                    \"weight\",\n                    1.0\n                  ]\n                ]\n              }\n            ]\n          }\n        ]\n      ],\n      [\n        \"inputs\",\n        {\n          \"tuple\": [\n            0\n          ]\n        }\n      ],\n      [\n        \"outputs\",\n        {\n          \"tuple\": []\n        }\n      ],\n      [\n        \"ideal\",\n        false\n      ]\n    ]\n  }\n}"
+}

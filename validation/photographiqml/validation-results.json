@@ -1,0 +1,77 @@
+{
+  "python": "3.14.4",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "checks": [
+    {
+      "command": [
+        "-m",
+        "pytest",
+        "--cov=photographiqml",
+        "--cov-fail-under=90",
+        "--cov-report=json:coverage.json",
+        "--cov-report=term-missing"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "tests",
+        "scripts",
+        "experiments",
+        "examples"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "src",
+        "tests",
+        "scripts",
+        "experiments",
+        "examples"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "-m",
+        "mypy"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "-m",
+        "build",
+        "--outdir",
+        "dist"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "-m",
+        "mkdocs",
+        "build",
+        "--strict",
+        "--site-dir",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\site"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "scripts/execute_tutorials.py"
+      ],
+      "returncode": 0
+    }
+  ]
+}

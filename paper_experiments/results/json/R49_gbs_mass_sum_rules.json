@@ -1,0 +1,233 @@
+{
+  "rows": [
+    {
+      "modes": 2,
+      "squeezing": 0.5,
+      "cutoff": 6,
+      "hafnian_captured_mass": 0.9902610405280697,
+      "fock_captured_mass": 0.9902610405280702,
+      "mass_difference": 4.440892098500626e-16,
+      "truncated_mass": 0.009738959471930264,
+      "fock_input_mass_kept": 0.9902610405280702
+    },
+    {
+      "modes": 2,
+      "squeezing": 0.5,
+      "cutoff": 10,
+      "hafnian_captured_mass": 0.9995558589336779,
+      "fock_captured_mass": 0.9995558589336783,
+      "mass_difference": 3.3306690738754696e-16,
+      "truncated_mass": 0.00044414106632206796,
+      "fock_input_mass_kept": 0.9995558589336784
+    },
+    {
+      "modes": 3,
+      "squeezing": 0.5,
+      "cutoff": 10,
+      "hafnian_captured_mass": 0.9989100931731868,
+      "fock_captured_mass": 0.9989100931731876,
+      "mass_difference": 7.771561172376096e-16,
+      "truncated_mass": 0.0010899068268132028,
+      "fock_input_mass_kept": 0.9989100931731871
+    },
+    {
+      "modes": 3,
+      "squeezing": 1.0,
+      "cutoff": 12,
+      "hafnian_captured_mass": 0.9210012600035028,
+      "fock_captured_mass": 0.9210012600035045,
+      "mass_difference": 1.6653345369377348e-15,
+      "truncated_mass": 0.0789987399964972,
+      "fock_input_mass_kept": 0.9210012600035031
+    },
+    {
+      "modes": 4,
+      "squeezing": 0.3,
+      "cutoff": 9,
+      "hafnian_captured_mass": 0.9999754590655999,
+      "fock_captured_mass": 0.9999754590656006,
+      "mass_difference": 6.661338147750939e-16,
+      "truncated_mass": 2.4540934400074654e-05,
+      "fock_input_mass_kept": 0.9999754590656003
+    },
+    {
+      "modes": 4,
+      "squeezing": 0.6,
+      "cutoff": 12,
+      "hafnian_captured_mass": 0.9969665341977733,
+      "fock_captured_mass": 0.9969665341977738,
+      "mass_difference": 5.551115123125783e-16,
+      "truncated_mass": 0.0030334658022267424,
+      "fock_input_mass_kept": 0.9969665341977734
+    },
+    {
+      "modes": 5,
+      "squeezing": 0.4,
+      "cutoff": 9,
+      "hafnian_captured_mass": 0.9993930460267807,
+      "fock_captured_mass": 0.9993930460267816,
+      "mass_difference": 8.881784197001252e-16,
+      "truncated_mass": 0.0006069539732193041,
+      "fock_input_mass_kept": 0.9993930460267804
+    }
+  ],
+  "backend": "photographiq.sampling (native and NumPy hafnian / loop hafnian)",
+  "reference": "perfect-matching definitions (this script); native Fock-space evolution (exact in truncation for undisplaced lossless states); Piquasso 8.0.1 get_particle_detection_probability",
+  "precision": "complex128",
+  "cutoff": "see rows",
+  "seed": 20261149,
+  "full": true,
+  "parameters": {
+    "openmp_threads": 1,
+    "fock_configs": [
+      [
+        2,
+        0.5,
+        6,
+        false
+      ],
+      [
+        2,
+        0.5,
+        10,
+        false
+      ],
+      [
+        2,
+        0.5,
+        16,
+        false
+      ],
+      [
+        3,
+        0.5,
+        10,
+        false
+      ],
+      [
+        3,
+        1.0,
+        12,
+        false
+      ],
+      [
+        4,
+        0.3,
+        9,
+        false
+      ],
+      [
+        2,
+        0.5,
+        8,
+        true
+      ],
+      [
+        2,
+        0.5,
+        14,
+        true
+      ],
+      [
+        2,
+        0.5,
+        22,
+        true
+      ],
+      [
+        2,
+        0.5,
+        30,
+        true
+      ],
+      [
+        4,
+        0.6,
+        12,
+        false
+      ],
+      [
+        5,
+        0.4,
+        9,
+        false
+      ],
+      [
+        2,
+        0.5,
+        40,
+        true
+      ],
+      [
+        3,
+        0.4,
+        12,
+        true
+      ],
+      [
+        3,
+        0.4,
+        20,
+        true
+      ]
+    ],
+    "piquasso_configs": [
+      [
+        4,
+        0.5,
+        1.0,
+        false,
+        8
+      ],
+      [
+        6,
+        0.5,
+        0.9,
+        false,
+        8
+      ],
+      [
+        6,
+        0.8,
+        1.0,
+        true,
+        6
+      ],
+      [
+        8,
+        0.6,
+        0.7,
+        true,
+        8
+      ],
+      [
+        10,
+        0.7,
+        0.9,
+        false,
+        12
+      ],
+      [
+        12,
+        0.5,
+        1.0,
+        false,
+        12
+      ],
+      [
+        10,
+        0.5,
+        0.8,
+        true,
+        10
+      ]
+    ]
+  },
+  "acceptance": {
+    "TOL_HAF_REL": 1e-12,
+    "TOL_EXACT_FOCK": 1e-13,
+    "TOL_PIQUASSO_REL": 1e-09,
+    "TOL_MASS": 1e-12,
+    "TOL_DISPLACED_TOP": 1e-10
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "rows": [
+    {
+      "state": "coherent",
+      "alpha": 0.0,
+      "native_mean_error": 0.0,
+      "native_cov_error": 0.0,
+      "native_photon_number_error": 0.0,
+      "native_physical_margin": 0.0,
+      "numpy_mean_error": 0.0,
+      "numpy_cov_error": 0.0,
+      "numpy_photon_number_error": 0.0,
+      "numpy_physical_margin": 0.0
+    },
+    {
+      "state": "coherent",
+      "alpha": "(0.7-0.3j)",
+      "native_mean_error": 0.0,
+      "native_cov_error": 0.0,
+      "native_photon_number_error": 1.1102230246251565e-16,
+      "native_physical_margin": 0.0,
+      "numpy_mean_error": 0.0,
+      "numpy_cov_error": 0.0,
+      "numpy_photon_number_error": 1.1102230246251565e-16,
+      "numpy_physical_margin": 0.0
+    },
+    {
+      "state": "coherent",
+      "alpha": "(-1.5+2j)",
+      "native_mean_error": 0.0,
+      "native_cov_error": 0.0,
+      "native_photon_number_error": 0.0,
+      "native_physical_margin": 0.0,
+      "numpy_mean_error": 0.0,
+      "numpy_cov_error": 0.0,
+      "numpy_photon_number_error": 0.0,
+      "numpy_physical_margin": 0.0
+    },
+    {
+      "state": "squeezed",
+      "r": 0.3,
+      "theta": 0.0,
+      "native_mean_error": 0.0,
+      "native_cov_error": 0.0,
+      "native_photon_number_error": 0.0,
+      "native_physical_margin": 0.0,
+      "numpy_mean_error": 0.0,
+      "numpy_cov_error": 0.0,
+      "numpy_photon_number_error": 0.0,
+      "numpy_physical_margin": 0.0
+    },
+    {
+      "state": "squeezed",
+      "r": 1.0,
+      "theta": 0.7,
+      "native_mean_error": 0.0,
+      "native_cov_error": 0.0,
+      "native_photon_number_error": 0.0,
+      "native_physical_margin": -9.015140849607261e-17,
+      "numpy_mean_error": 0.0,
+      "numpy_cov_error": 0.0,
+      "numpy_photon_number_error": 0.0,
+      "numpy_physical_margin": -9.015140849607261e-17
+    },
+    {
+      "state": "squeezed",
+      "r": 2.0,
+      "theta": -1.2,
+      "native_mean_error": 0.0,
+      "native_cov_error": 0.0,
+      "native_photon_number_error": 0.0,
+      "native_physical_margin": 1.6267555203994084e-17,
+      "numpy_mean_error": 0.0,
+      "numpy_cov_error": 0.0,
+      "numpy_photon_number_error": 0.0,
+      "numpy_physical_margin": 1.6267555203994084e-17
+    },
+    {
+      "state": "thermal",
+      "nbar": 0.1,
+      "native_mean_error": 0.0,
+      "native_cov_error": 0.0,
+      "native_photon_number_error": 0.0,
+      "native_physical_margin": 0.1666666666666666,
+      "numpy_mean_error": 0.0,
+      "numpy_cov_error": 0.0,
+      "numpy_photon_number_error": 0.0,
+      "numpy_physical_margin": 0.1666666666666666
+    },
+    {
+      "state": "thermal",
+      "nbar": 1.0,
+      "native_mean_error": 0.0,
+      "native_cov_error": 0.0,
+      "native_photon_number_error": 0.0,
+      "native_physical_margin": 0.6666666666666666,
+      "numpy_mean_error": 0.0,
+      "numpy_cov_error": 0.0,
+      "numpy_photon_number_error": 0.0,
+      "numpy_physical_margin": 0.6666666666666666
+    },
+    {
+      "state": "thermal",
+      "nbar": 5.0,
+      "native_mean_error": 0.0,
+      "native_cov_error": 0.0,
+      "native_photon_number_error": 0.0,
+      "native_physical_margin": 0.909090909090909,
+      "numpy_mean_error": 0.0,
+      "numpy_cov_error": 0.0,
+      "numpy_photon_number_error": 0.0,
+      "numpy_physical_margin": 0.909090909090909
+    },
+    {
+      "state": "displaced squeezed thermal",
+      "r": 0.6,
+      "theta": 0.4,
+      "nbar": 0.5,
+      "alpha": "(0.8+0.2j)",
+      "native_mean_error": 0.0,
+      "native_cov_error": 0.0,
+      "native_photon_number_error": 0.0,
+      "native_physical_margin": 0.06642479699169591,
+      "numpy_mean_error": 0.0,
+      "numpy_cov_error": 0.0,
+      "numpy_photon_number_error": 0.0,
+      "numpy_physical_margin": 0.06642479699169591
+    }
+  ],
+  "backend": "native-gaussian (compiled photographiq._native.gaussian) vs NumPy 'gaussian'",
+  "reference": "first-principles expm(2 Omega M) symplectics, closed-form states, precision-matrix dilation conditioning (tests/validation/test_val_gaussian.py)",
+  "precision": "float64",
+  "cutoff": null,
+  "seed": 20261143,
+  "full": true,
+  "parameters": {
+    "modes": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128
+    ],
+    "depths": [
+      10,
+      40,
+      160,
+      640,
+      2560
+    ],
+    "feedforward_seeds": 20,
+    "long_wire_steps": 24,
+    "squeeze_scale": "0.15 * min(1, sqrt(40 n / depth))",
+    "cz_and_shear_scale": "0.3 * min(1, sqrt(40 n / depth))",
+    "loss_eta_range": [
+      0.6,
+      1.0
+    ],
+    "loss_nth_range": [
+      0.0,
+      0.2
+    ]
+  },
+  "acceptance": {
+    "TOL_STATE": 1e-13,
+    "circuit_relative_bound": "64 * depth * eps",
+    "TOL_PHYSICAL_REL": 1e-12,
+    "TOL_CONDITIONAL": 1e-10,
+    "TOL_DENSITY_REL": 1e-10,
+    "TOL_TRAJECTORY": 1e-11,
+    "TOL_FEEDFORWARD": 1e-11
+  }
+}

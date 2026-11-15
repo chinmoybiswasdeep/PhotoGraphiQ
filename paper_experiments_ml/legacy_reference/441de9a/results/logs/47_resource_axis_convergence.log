@@ -1,0 +1,68 @@
+$ D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQML\.venv\Scripts\python.exe D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQML\paper_experiments\11_convergence\47_resource_axis_convergence.py
+
+--- stdout ---
+
+=== R47 resource axis convergence ===
+  all_uncertified: True
+  numerical_axes_ok: True
+  status: pass
+
+
+--- stderr ---
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.9998801; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99989369; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99989137; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99990317; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998277; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998148; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998547; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998654; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.9999971; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999582; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999749; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99999768; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998573; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99997959; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998478; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.9999866; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99997764; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99997577; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998135; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998011; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99997022; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99997147; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998175; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998266; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998751; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998599; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998711; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\src\photographiq\backends\fock.py:465: RuntimeWarning: GaussianTransform: retained Fock norm 0.99998827; test a larger cutoff
+  self._gate((u, v), pq.GaussianTransform(passive=passive, active=active))
+

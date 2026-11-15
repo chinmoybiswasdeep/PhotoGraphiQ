@@ -1,0 +1,76 @@
+{
+  "rows": [
+    {
+      "axis": "cutoff",
+      "value": 20,
+      "total_variation_distance": 0.1730384132198664,
+      "observable_error": 0.3460768264397328,
+      "finite_state_fidelity": null,
+      "captured_weight": 0.9998800964574989,
+      "runtime_seconds": null,
+      "supported": true
+    },
+    {
+      "axis": "cutoff",
+      "value": 24,
+      "total_variation_distance": 0.17284892122480128,
+      "observable_error": 0.34569784244960255,
+      "finite_state_fidelity": null,
+      "captured_weight": 0.9999814752633133,
+      "runtime_seconds": null,
+      "supported": true
+    },
+    {
+      "axis": "cutoff",
+      "value": 28,
+      "total_variation_distance": 0.1727673451909123,
+      "observable_error": 0.3455346903818246,
+      "finite_state_fidelity": null,
+      "captured_weight": 0.9999958216198981,
+      "runtime_seconds": null,
+      "supported": true
+    },
+    {
+      "axis": "shots",
+      "value": 2,
+      "total_variation_distance": 0.4139210746500711,
+      "observable_error": 0.8278421493001422,
+      "finite_state_fidelity": null,
+      "captured_weight": null,
+      "runtime_seconds": 7.215454400051385,
+      "supported": true
+    },
+    {
+      "axis": "shots",
+      "value": 8,
+      "total_variation_distance": 0.38868462205412707,
+      "observable_error": 0.7773692441082541,
+      "finite_state_fidelity": null,
+      "captured_weight": null,
+      "runtime_seconds": 27.774001299985684,
+      "supported": true
+    },
+    {
+      "axis": "decoder",
+      "value": "soft adaptive flow",
+      "supported": false,
+      "reason": "soft ensemble posterior is not calibrated for adaptive node states"
+    }
+  ],
+  "protocol": "One-wire signed-X, varying cutoff then shots one axis at a time; independent shot seeds.",
+  "oracle_class": "E",
+  "status_category": "statistical",
+  "seeds": [
+    5602,
+    5608
+  ],
+  "n_repetitions": 2,
+  "uncertainty_method": "percentile bootstrap, 2000 resamples",
+  "acceptance_condition": "structural: TV distance in [0,1], finite state fidelity remains None, unsupported configurations are rejected/labeled",
+  "structural_status": "pass",
+  "scientific_outcome": "descriptive",
+  "claim_supported": "Decoded probability/observable gaps and retained weights are measured for supported signed-X configurations.",
+  "claim_not_supported": "Finite-state fidelity, arbitrary-angle measurements and soft adaptive decoding remain unsupported.",
+  "status": "pass",
+  "execution_status": "completed"
+}

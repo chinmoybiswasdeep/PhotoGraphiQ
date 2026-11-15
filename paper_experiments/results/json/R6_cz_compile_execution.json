@@ -1,0 +1,63 @@
+{
+  "rows": [
+    {
+      "weight": -1.0,
+      "squeezing": 1.0,
+      "map_frobenius_error": 2.9997597730436923e-16,
+      "noise_oracle_frobenius_error": 8.275366815931792e-34,
+      "gaussian_max_z_mean": 0.43703361067261604,
+      "gaussian_max_z_covariance": 1.2398527156321237,
+      "native-gaussian_max_z_mean": 0.43703361067261604,
+      "native-gaussian_max_z_covariance": 1.2398527156321237,
+      "native_vs_gaussian_max_record_difference": 0.0,
+      "planner_backend": "native-gaussian",
+      "shots": 600,
+      "measurements": 8
+    },
+    {
+      "weight": 0.5,
+      "squeezing": 1.0,
+      "map_frobenius_error": 2.5978681687064796e-16,
+      "noise_oracle_frobenius_error": 8.275366815931792e-34,
+      "gaussian_max_z_mean": 0.6634688356520106,
+      "gaussian_max_z_covariance": 1.683848708543063,
+      "native-gaussian_max_z_mean": 0.6634688356520106,
+      "native-gaussian_max_z_covariance": 1.683848708543063,
+      "native_vs_gaussian_max_record_difference": 0.0,
+      "planner_backend": "native-gaussian",
+      "shots": 600,
+      "measurements": 8
+    },
+    {
+      "weight": 2.0,
+      "squeezing": 1.0,
+      "map_frobenius_error": 4.2423009548996277e-16,
+      "noise_oracle_frobenius_error": 8.275366815931792e-34,
+      "gaussian_max_z_mean": 0.5942658226016264,
+      "gaussian_max_z_covariance": 1.400265219840828,
+      "native-gaussian_max_z_mean": 0.5942658226016264,
+      "native-gaussian_max_z_covariance": 1.400265219840828,
+      "native_vs_gaussian_max_record_difference": 0.0,
+      "planner_backend": "native-gaussian",
+      "shots": 600,
+      "measurements": 8
+    }
+  ],
+  "backends": [
+    "gaussian",
+    "native-gaussian"
+  ],
+  "seed": 20261113,
+  "alphas": [
+    [
+      0.3,
+      0.1
+    ],
+    [
+      -0.2,
+      0.4
+    ]
+  ],
+  "sem_factor": 5.0,
+  "native_trajectory_tolerance": 1e-09
+}

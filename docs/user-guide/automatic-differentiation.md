@@ -1,6 +1,6 @@
 # Automatic differentiation
 
-Install the `autodiff` extra. The dedicated JAX execution path preserves scalar
+Install the `autodiff` extra (it also installs Piquasso, which prepares the input states). The dedicated JAX execution path preserves scalar
 expression trees and uses dense finite-Fock generators with fixed topology.
 It does not wrap NumPy `simulate()` in a gradient decorator.
 

@@ -7,7 +7,7 @@ from typing import Any
 
 import numpy as np
 
-from .backends import BaseBackend, GaussianBackend, PiquassoBackend
+from .backends import BaseBackend, GaussianBackend
 from .commands import (
     BeamSplitter,
     CubicPhase,
@@ -40,7 +40,8 @@ class Result:
         outcomes (dict): Measurement readings keyed by result key.
         records (dict): Previously produced classical records.
         state (object): Supported state preparation or independent state snapshot.
-        backend (object): Name of the execution backend.
+        backend (str): Class name of the backend instance that ran the pattern, e.g.
+            ``"GaussianBackend"`` (not the registry name such as ``"gaussian"``).
         seed (object): Random seed or SeedSequence; zero is valid.
         physical_displacements (object): Number of displacement commands physically executed.
         measurement_statistics (object): Per-key conditional probability or density diagnostics.
@@ -64,8 +65,9 @@ class Result:
     def log_likelihood(self):
         """Log product of recorded conditional probabilities/densities.
 
-        If homodyne is present this is a joint density, not an event probability.
-        Gaussian backends currently do not populate this diagnostic.
+        If homodyne, heterodyne or generaldyne is present this is a joint density in
+        calibrated outcome units, not an event probability. Postselected entries describe a
+        conditional branch, not a deterministic operation.
         """
         if len(self.measurement_statistics) != len(self.outcomes):
             raise NotImplementedError("Backend did not report every measurement likelihood")
@@ -113,27 +115,18 @@ class ShotResult:
 
 
 def _backend(backend, cutoff):
+    """Return a backend instance; names resolve through ``photographiq.registry``."""
     if isinstance(backend, BaseBackend):
         return backend
-    if backend == "piquasso":
-        return PiquassoBackend()
-    if backend == "gaussian":
-        return GaussianBackend()
-    if backend == "piquasso-fock":
-        from .backends.fock import PiquassoFockBackend
+    from .registry import create_backend
 
-        return PiquassoFockBackend(cutoff=cutoff)
-    if backend == "piquasso-mixed-fock":
-        from .backends.mixed_fock import MixedFockBackend
-
-        return MixedFockBackend(cutoff=cutoff)
-    raise ValueError(f"Unknown backend: {backend!r}")
+    return create_backend(backend, cutoff)
 
 
 def simulate(
     pattern,
     *,
-    backend="piquasso",
+    backend="gaussian",
     parameters=None,
     inputs=None,
     seed=None,
@@ -149,8 +142,12 @@ def simulate(
 
     Args:
         pattern (Pattern): Causal commands and ordered input/output labels.
-        backend (str): gaussian, piquasso, piquasso-fock, piquasso-mixed-fock,
-            or a configured BaseBackend instance.
+        backend (str): Registered backend name (``photographiq.available_backends()``):
+            gaussian (default, NumPy), native-gaussian, native-fock, native-mixed-fock,
+            and with the optional Piquasso extra piquasso, piquasso-fock,
+            piquasso-mixed-fock; or a configured BaseBackend instance. The default was
+            ``piquasso`` in earlier releases; both give identical seeded trajectories (same
+            random-number consumption, results equal to float rounding).
         parameters (dict): External real parameter bindings.
         inputs (dict): Individual input descriptions keyed by input labels.
         seed (object): Random seed or SeedSequence; zero is valid.
@@ -158,7 +155,9 @@ def simulate(
         cutoff (int): Exclusive total-photon cutoff, required for Fock execution.
         initial_state (object): Correlated GaussianState, FockSuperposition or
             FockDensityMatrix in pattern input order, without individual inputs.
-        measurement_outcomes (dict): Explicit Fock postselection outcomes.
+        measurement_outcomes (dict): Explicit postselection outcomes keyed by result key, in
+            the same calibrated units as the returned records (with ``frame=True`` these
+            include the deferred frame shift). The result is the conditional branch.
 
     Returns:
         result (Result): Conditional output snapshot and classical trajectory records.
@@ -271,18 +270,28 @@ def simulate(
             shift = pending.pop(c.node, np.zeros(2)) if virtual else np.zeros(2)
             if not virtual:
                 flush(c.node)
-            if c.result_key in measurement_outcomes:
-                record = engine.measure(
-                    c.node, c.measurement, angle, outcome=measurement_outcomes[c.result_key]
-                )
+            if virtual and isinstance(c.measurement, Homodyne):
+                shift = float(np.array([np.cos(angle), np.sin(angle)]) @ shift)
+            postselected = c.result_key in measurement_outcomes
+            engine.last_measurement = {}
+            if postselected:
+                given = measurement_outcomes[c.result_key]
+                # Records include the deferred frame shift; the engine state does not.
+                # Densities are translation invariant, so only the outcome is shifted.
+                # Mismatched shapes go through unshifted so the engine rejects them.
+                shifted = virtual and np.shape(given) == np.shape(shift)
+                fixed = np.subtract(given, shift) if shifted else given
+                record = engine.measure(c.node, c.measurement, angle, outcome=fixed)
             else:
                 record = engine.measure(c.node, c.measurement, angle)
-            if engine.supports("fock_input"):
+            if engine.last_measurement:
                 statistics[c.result_key] = dict(engine.last_measurement)
-                statistics[c.result_key]["postselected"] = c.result_key in measurement_outcomes
-            if virtual:
+                statistics[c.result_key]["postselected"] = postselected
+            if virtual and postselected:
+                record = float(given) if np.isscalar(record) else tuple(map(float, given))
+            elif virtual:
                 if isinstance(c.measurement, Homodyne):
-                    record += float(np.array([np.cos(angle), np.sin(angle)]) @ shift)
+                    record += shift
                 else:
                     record = tuple(np.asarray(record) + shift)
             outcomes[c.result_key] = records[c.result_key] = record

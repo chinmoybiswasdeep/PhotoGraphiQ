@@ -21,5 +21,13 @@ Generated from source docstrings. Private implementation names are excluded.
 - [Synthesis](synthesis.md)
 - [Gkp](gkp.md)
 - [Autodiff](autodiff.md)
+- [Open-graph IR](ir.md) (`photographiq.ir`)
+- [Backend registry](registry.md) (`photographiq.registry`)
+- [Flows](flows.md) (`photographiq.flows`; the [Flow](flow.md) page covers `photographiq.cvflow`)
+- [Measurement calculus](calculus.md) (`photographiq.calculus`)
+- [Sampling](sampling.md) (`photographiq.sampling`)
+- [Interactive visualization](interactive.md) (`photographiq.interactive`)
+- [GPU](gpu.md) (`photographiq.gpu`, optional CuPy)
+- [Native engines](native.md) (`photographiq.native`)
 
 The root `photographiq.__all__` defines convenience exports; backend and specialist modules also have documented public APIs.

@@ -1,0 +1,191 @@
+{
+  "gkp_resources": [
+    {
+      "cutoff": 8,
+      "captured_weights": [
+        0.819426737000138,
+        0.9450482172581125
+      ],
+      "codeword_overlap": 0.04733089101714527,
+      "gram_eigenvalues": [
+        0.952669108982855,
+        1.0473308910171455
+      ],
+      "physical_muta_validated": false
+    },
+    {
+      "cutoff": 16,
+      "captured_weights": [
+        0.9924818527180169,
+        0.9936131404547148
+      ],
+      "codeword_overlap": 0.010832592121382932,
+      "gram_eigenvalues": [
+        0.9891674078786171,
+        1.0108325921213832
+      ],
+      "physical_muta_validated": false
+    },
+    {
+      "cutoff": 24,
+      "captured_weights": [
+        0.9991148519899784,
+        0.9998322102372406
+      ],
+      "codeword_overlap": 0.012804157264342983,
+      "gram_eigenvalues": [
+        0.9871958427356573,
+        1.0128041572643431
+      ],
+      "physical_muta_validated": false
+    },
+    {
+      "cutoff": 32,
+      "captured_weights": [
+        0.9999859906431399,
+        0.9999667784896437
+      ],
+      "codeword_overlap": 0.013027693067729594,
+      "gram_eigenvalues": [
+        0.9869723069322706,
+        1.0130276930677296
+      ],
+      "physical_muta_validated": false
+    },
+    {
+      "cutoff": 48,
+      "captured_weights": [
+        0.9999998740551588,
+        0.9999996976882929
+      ],
+      "codeword_overlap": 0.013021654549314705,
+      "gram_eigenvalues": [
+        0.9869783454506851,
+        1.0130216545493147
+      ],
+      "physical_muta_validated": false
+    }
+  ],
+  "logical_scaling": [
+    {
+      "wires": 1,
+      "layers": 1,
+      "parameters": 4,
+      "nodes": 5,
+      "seconds_per_run": 0.00020136666717007756,
+      "statevector_bytes": 32
+    },
+    {
+      "wires": 1,
+      "layers": 2,
+      "parameters": 8,
+      "nodes": 9,
+      "seconds_per_run": 0.00012983333241815367,
+      "statevector_bytes": 32
+    },
+    {
+      "wires": 1,
+      "layers": 4,
+      "parameters": 16,
+      "nodes": 17,
+      "seconds_per_run": 0.00022446666844189167,
+      "statevector_bytes": 32
+    },
+    {
+      "wires": 2,
+      "layers": 1,
+      "parameters": 16,
+      "nodes": 18,
+      "seconds_per_run": 0.0002641333364105473,
+      "statevector_bytes": 64
+    },
+    {
+      "wires": 2,
+      "layers": 2,
+      "parameters": 32,
+      "nodes": 34,
+      "seconds_per_run": 0.0005757999994481603,
+      "statevector_bytes": 64
+    },
+    {
+      "wires": 2,
+      "layers": 4,
+      "parameters": 64,
+      "nodes": 66,
+      "seconds_per_run": 0.0009185666664658735,
+      "statevector_bytes": 64
+    },
+    {
+      "wires": 3,
+      "layers": 1,
+      "parameters": 36,
+      "nodes": 39,
+      "seconds_per_run": 0.0007285000077293565,
+      "statevector_bytes": 128
+    },
+    {
+      "wires": 3,
+      "layers": 2,
+      "parameters": 72,
+      "nodes": 75,
+      "seconds_per_run": 0.0010716666680915903,
+      "statevector_bytes": 128
+    },
+    {
+      "wires": 3,
+      "layers": 4,
+      "parameters": 144,
+      "nodes": 147,
+      "seconds_per_run": 0.002168533334042877,
+      "statevector_bytes": 128
+    },
+    {
+      "wires": 4,
+      "layers": 1,
+      "parameters": 64,
+      "nodes": 68,
+      "seconds_per_run": 0.0010067333350889385,
+      "statevector_bytes": 256
+    },
+    {
+      "wires": 4,
+      "layers": 2,
+      "parameters": 128,
+      "nodes": 132,
+      "seconds_per_run": 0.00227916666578191,
+      "statevector_bytes": 256
+    },
+    {
+      "wires": 4,
+      "layers": 4,
+      "parameters": 256,
+      "nodes": 260,
+      "seconds_per_run": 0.004023300008460258,
+      "statevector_bytes": 256
+    },
+    {
+      "wires": 6,
+      "layers": 1,
+      "parameters": 144,
+      "nodes": 150,
+      "seconds_per_run": 0.002448466664645821,
+      "statevector_bytes": 1024
+    },
+    {
+      "wires": 6,
+      "layers": 2,
+      "parameters": 288,
+      "nodes": 294,
+      "seconds_per_run": 0.004883799992967397,
+      "statevector_bytes": 1024
+    },
+    {
+      "wires": 6,
+      "layers": 4,
+      "parameters": 576,
+      "nodes": 582,
+      "seconds_per_run": 0.010265566660867384,
+      "statevector_bytes": 1024
+    }
+  ]
+}

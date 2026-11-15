@@ -1,0 +1,53 @@
+{
+  "rows": [
+    {
+      "theta": 0.7,
+      "squeezing": 0.3,
+      "map_frobenius_error": 1.5700924586837752e-16,
+      "noise_spectral_norm": 1.337827919859563,
+      "noise_trace": 2.2683733909953325
+    },
+    {
+      "theta": 0.7,
+      "squeezing": 0.5,
+      "map_frobenius_error": 1.5700924586837752e-16,
+      "noise_spectral_norm": 0.8967728728280258,
+      "noise_trace": 1.5205361558780102
+    },
+    {
+      "theta": 0.7,
+      "squeezing": 0.8,
+      "map_frobenius_error": 1.5700924586837752e-16,
+      "noise_spectral_norm": 0.4921593875414891,
+      "noise_trace": 0.8344879354475323
+    },
+    {
+      "theta": 0.7,
+      "squeezing": 1.2,
+      "map_frobenius_error": 1.5700924586837752e-16,
+      "noise_spectral_norm": 0.22114146778458355,
+      "noise_trace": 0.37495959960295866
+    },
+    {
+      "theta": 0.7,
+      "squeezing": 1.6,
+      "map_frobenius_error": 1.5700924586837752e-16,
+      "noise_spectral_norm": 0.09936526664300883,
+      "noise_trace": 0.16848020847540554
+    },
+    {
+      "theta": 0.7,
+      "squeezing": 2.0,
+      "map_frobenius_error": 1.5700924586837752e-16,
+      "noise_spectral_norm": 0.04464769232993468,
+      "noise_trace": 0.07570303754850752
+    },
+    {
+      "theta": 0.7,
+      "squeezing": 2.5,
+      "map_frobenius_error": 1.5700924586837752e-16,
+      "noise_spectral_norm": 0.01642496810393086,
+      "noise_trace": 0.027849591148325657
+    }
+  ]
+}

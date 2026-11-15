@@ -1,0 +1,5647 @@
+{
+  "rows": [
+    {
+      "case": "spider fusion",
+      "kind": "textbook",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "proportionality_after_over_before": "(1+0j)",
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0,
+      "closed_form_error": 1.1102230246251565e-16,
+      "spiders_before": 2,
+      "spiders_after": 1
+    },
+    {
+      "case": "identity removal (H.H = I)",
+      "kind": "textbook",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "proportionality_after_over_before": "(1+0j)",
+      "library_vs_independent_before": 2.2371143170757382e-17,
+      "library_vs_independent_after": 0.0,
+      "closed_form_error": 2.220446049250313e-16,
+      "spiders_before": 1,
+      "spiders_after": 0
+    },
+    {
+      "case": "colour change",
+      "kind": "textbook",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.7755575615628914e-17,
+      "proportionality_after_over_before": "(1-0j)",
+      "library_vs_independent_before": 2.7755575615628914e-17,
+      "library_vs_independent_after": 0.0,
+      "closed_form_error": 0.0,
+      "spiders_before": 1,
+      "spiders_after": 1
+    },
+    {
+      "case": "bialgebra (2x2)",
+      "kind": "textbook",
+      "factor": "(1.4142135623730951+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "proportionality_after_over_before": "(1+0j)",
+      "library_vs_independent_before": 2.299347170293092e-17,
+      "library_vs_independent_after": 2.2993471702930916e-17,
+      "closed_form_error": null,
+      "spiders_before": 2,
+      "spiders_after": 4
+    },
+    {
+      "case": "Hopf",
+      "kind": "textbook",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "proportionality_after_over_before": "(1+0j)",
+      "library_vs_independent_before": 2.299347170293092e-17,
+      "library_vs_independent_after": 0.0,
+      "closed_form_error": null,
+      "spiders_before": 2,
+      "spiders_after": 2
+    },
+    {
+      "case": "Hadamard-pair cancellation",
+      "kind": "textbook",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.2412670766236366e-16,
+      "proportionality_after_over_before": "(1+0j)",
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0,
+      "closed_form_error": null,
+      "spiders_before": 2,
+      "spiders_after": 2
+    },
+    {
+      "case": "Pauli state copy",
+      "kind": "textbook",
+      "factor": "(0.43954462381734144+0.5538957696834954j)",
+      "after_vs_before": 7.850462293418876e-17,
+      "proportionality_after_over_before": "(1+0j)",
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0,
+      "closed_form_error": null,
+      "spiders_before": 2,
+      "spiders_after": 2
+    },
+    {
+      "case": "Hadamard self-loop",
+      "kind": "textbook",
+      "factor": "(0.7071067811865476+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "proportionality_after_over_before": "(1+0j)",
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0,
+      "closed_form_error": null,
+      "spiders_before": 1,
+      "spiders_after": 1
+    },
+    {
+      "case": "random_0000",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.2487068343022356e-16,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 2.4641973631672935e-17
+    },
+    {
+      "case": "random_0001",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0002",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.7755575615628914e-17,
+      "library_vs_independent_before": 1.3877787807814457e-17,
+      "library_vs_independent_after": 3.0814879110195774e-33
+    },
+    {
+      "case": "random_0003",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.6653345369377348e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 3.1116426608676864e-19
+    },
+    {
+      "case": "random_0004",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.5700924586837766e-16,
+      "library_vs_independent_before": 1.9048415650791935e-17,
+      "library_vs_independent_after": 1.9048415650791886e-17
+    },
+    {
+      "case": "random_0005",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 8.326672684688674e-17,
+      "library_vs_independent_before": 1.5558213304338422e-19,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0006",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.6883057536160646e-16,
+      "library_vs_independent_before": 1.110662007763815e-16,
+      "library_vs_independent_after": 5.745540483721777e-17
+    },
+    {
+      "case": "random_0007",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 2.7755575615628914e-17,
+      "library_vs_independent_before": 1.106199196623546e-33,
+      "library_vs_independent_after": 2.0365228363028023e-34
+    },
+    {
+      "case": "random_0008",
+      "kind": "random",
+      "rule": "hadamard-pair",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 1.1807900117552228e-17,
+      "library_vs_independent_after": 3.1116426608676864e-19
+    },
+    {
+      "case": "random_0009",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.3306690738754696e-16,
+      "library_vs_independent_before": 2.789575886628524e-18,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0010",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.2993471702930907e-17,
+      "library_vs_independent_before": 2.2993471702930907e-17,
+      "library_vs_independent_after": 7.17468466399325e-18
+    },
+    {
+      "case": "random_0011",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.5407439555097887e-33,
+      "library_vs_independent_before": 1.3324866582380842e-19,
+      "library_vs_independent_after": 4.7899539011102066e-18
+    },
+    {
+      "case": "random_0012",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.665465448663247e-16,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0013",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 4.712773633005276e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0014",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 4.335559509131367e-16,
+      "library_vs_independent_before": 7.850462293418876e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0015",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(0.7071067811865476+0j)",
+      "after_vs_before": 7.0400196301906e-17,
+      "library_vs_independent_before": 6.734631938767464e-18,
+      "library_vs_independent_after": 6.734631938767465e-18
+    },
+    {
+      "case": "random_0016",
+      "kind": "random",
+      "rule": "copy",
+      "factor": "(-0.7071067811865476+8.659560562354934e-17j)",
+      "after_vs_before": 3.1401849173675513e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0017",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 7.850462293418876e-17,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0018",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0019",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 3.3673159693836955e-18,
+      "library_vs_independent_after": 3.367315969383714e-18
+    },
+    {
+      "case": "random_0020",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.5700924586837754e-16,
+      "library_vs_independent_before": 2.2371143170757385e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0021",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 3.251767952832689e-17,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0022",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 5.594315114139762e-17,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0023",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0024",
+      "kind": "random",
+      "rule": "copy",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0025",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.6653345369377348e-16,
+      "library_vs_independent_before": 7.850462293418876e-17,
+      "library_vs_independent_after": 1.2412670766236366e-16
+    },
+    {
+      "case": "random_0026",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 6.7346319387674465e-18,
+      "library_vs_independent_after": 6.734631938767465e-18
+    },
+    {
+      "case": "random_0027",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.5700924586837752e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0028",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0029",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.2412670766236366e-16,
+      "library_vs_independent_before": 1.676291577252807e-16,
+      "library_vs_independent_after": 7.638135993175947e-18
+    },
+    {
+      "case": "random_0030",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.2412670766236366e-16,
+      "library_vs_independent_before": 1.2412670766236366e-16,
+      "library_vs_independent_after": 1.1443916996305594e-16
+    },
+    {
+      "case": "random_0031",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 9.52420782539596e-18,
+      "library_vs_independent_after": 3.251767952832689e-17
+    },
+    {
+      "case": "random_0032",
+      "kind": "random",
+      "rule": "copy",
+      "factor": "(0.7071067811865476+0j)",
+      "after_vs_before": 3.1857335584217254e-17,
+      "library_vs_independent_before": 1.953077387496842e-17,
+      "library_vs_independent_after": 1.669889248938922e-17
+    },
+    {
+      "case": "random_0033",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0034",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.5700924586837752e-16,
+      "library_vs_independent_before": 1.2412670766236366e-16,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0035",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.3306690738754696e-16,
+      "library_vs_independent_before": 1.5818787038937665e-17,
+      "library_vs_independent_after": 1.2412670766236366e-16
+    },
+    {
+      "case": "random_0036",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 7.850462293418876e-17,
+      "library_vs_independent_before": 2.7755575615628914e-17,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0037",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.6653345369377348e-16,
+      "library_vs_independent_before": 6.734631938767465e-18,
+      "library_vs_independent_after": 1.9725280260694705e-18
+    },
+    {
+      "case": "random_0038",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 2.789575886628524e-18,
+      "library_vs_independent_after": 1.346926387753493e-17
+    },
+    {
+      "case": "random_0039",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 5.721958498152797e-17,
+      "library_vs_independent_before": 5.721958498152797e-17,
+      "library_vs_independent_after": 5.721958498152797e-17
+    },
+    {
+      "case": "random_0040",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 4.400527252257787e-19
+    },
+    {
+      "case": "random_0041",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.7755575615628914e-17,
+      "library_vs_independent_before": 3.925231146709438e-17,
+      "library_vs_independent_after": 2.7755575615628914e-17
+    },
+    {
+      "case": "random_0042",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.608224830031759e-16,
+      "library_vs_independent_before": 7.850462293418876e-17,
+      "library_vs_independent_after": 1.8619006149354548e-16
+    },
+    {
+      "case": "random_0043",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.465190328815662e-32,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0044",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.7755575615628914e-17,
+      "library_vs_independent_before": 2.7755575615628914e-17,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0045",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.6782945342419286e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 5.594315114139762e-17
+    },
+    {
+      "case": "random_0046",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.7755575615628914e-16,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0047",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.6653345369377348e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0048",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.3306690738754696e-16,
+      "library_vs_independent_before": 4.400527252257787e-19,
+      "library_vs_independent_after": 4.400527252257785e-19
+    },
+    {
+      "case": "random_0049",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.207886688857819e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 2.0585979666079194e-16
+    },
+    {
+      "case": "random_0050",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 1.1807900117552225e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0051",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(0.7071067811865476+0j)",
+      "after_vs_before": 1.1311333509432094e-16,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 8.349446244694612e-18
+    },
+    {
+      "case": "random_0052",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.2412670766236366e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 4.629475209693093e-34
+    },
+    {
+      "case": "random_0053",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.330669107414399e-16,
+      "library_vs_independent_before": 1.1102231252419407e-16,
+      "library_vs_independent_after": 1.1102234270922386e-16
+    },
+    {
+      "case": "random_0054",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 4.450939646611226e-18,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0055",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 4.443480665481479e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 1.1205324441488816e-16
+    },
+    {
+      "case": "random_0056",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.3714374201337736e-16,
+      "library_vs_independent_before": 8.246180353006788e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0057",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.689731085869606e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0058",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.3879830277165206e-16,
+      "library_vs_independent_before": 4.163336342344337e-17,
+      "library_vs_independent_after": 5.624061705045736e-17
+    },
+    {
+      "case": "random_0059",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.7755575615628914e-17,
+      "library_vs_independent_before": 2.7755575615628914e-17,
+      "library_vs_independent_after": 6.162975822039155e-33
+    },
+    {
+      "case": "random_0060",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(0.7071067811865476+0j)",
+      "after_vs_before": 1.1443916996305594e-16,
+      "library_vs_independent_before": 1.0007415106216804e-16,
+      "library_vs_independent_after": 1.0007415106216804e-16
+    },
+    {
+      "case": "random_0061",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 7.850462293418876e-17
+    },
+    {
+      "case": "random_0062",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0063",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 4.710277376051326e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0064",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.510833468576701e-16,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0065",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0066",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.5407439555097887e-33,
+      "library_vs_independent_before": 1.1185571585378688e-17,
+      "library_vs_independent_after": 1.1185571585378686e-17
+    },
+    {
+      "case": "random_0067",
+      "kind": "random",
+      "rule": "hadamard-pair",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 3.3306690738754696e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 7.17468466399325e-18
+    },
+    {
+      "case": "random_0068",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.1183523716375092e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0069",
+      "kind": "random",
+      "rule": "hadamard-pair",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 2.7755575615628914e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0070",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 3.0814879110195774e-33,
+      "library_vs_independent_after": 3.0814879110195774e-33
+    },
+    {
+      "case": "random_0071",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.4946834900704541e-16,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 6.206335383118183e-17
+    },
+    {
+      "case": "random_0072",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.992176319251257e-17,
+      "library_vs_independent_before": 3.992176319251257e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0073",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0074",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 4.681544967996658e-17,
+      "library_vs_independent_before": 9.30677259706885e-18,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0075",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 7.850462293418876e-17,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0076",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.3306690738754696e-16,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 9.524207825395958e-18
+    },
+    {
+      "case": "random_0077",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.3306690738754696e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0078",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.39040233211075e-32,
+      "library_vs_independent_before": 2.973986900846895e-17,
+      "library_vs_independent_after": 1.5700924586837762e-16
+    },
+    {
+      "case": "random_0079",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 3.105468723363237e-33,
+      "library_vs_independent_before": 2.2002636261288945e-19,
+      "library_vs_independent_after": 7.909393519468831e-18
+    },
+    {
+      "case": "random_0080",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 1.1185571585378688e-17
+    },
+    {
+      "case": "random_0081",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 1.232595164407831e-32,
+      "library_vs_independent_after": 1.232595164407831e-32
+    },
+    {
+      "case": "random_0082",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 2.0671249322650796e-32,
+      "library_vs_independent_before": 2.2200170587948503e-17,
+      "library_vs_independent_after": 6.162975822039155e-33
+    },
+    {
+      "case": "random_0083",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.6653345369377348e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0084",
+      "kind": "random",
+      "rule": "hadamard-pair",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0085",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.0007415106216804e-16,
+      "library_vs_independent_before": 1.1443916996305594e-16,
+      "library_vs_independent_after": 6.206335383118183e-17
+    },
+    {
+      "case": "random_0086",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 6.206335383118183e-17,
+      "library_vs_independent_before": 1.8619006149354548e-16,
+      "library_vs_independent_after": 1.1443916996305594e-16
+    },
+    {
+      "case": "random_0087",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 4.577566798522237e-16,
+      "library_vs_independent_before": 2.237726045655905e-16,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0088",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 8.3365878311806e-17,
+      "library_vs_independent_before": 7.850462293418876e-17,
+      "library_vs_independent_after": 1.2412670766236366e-16
+    },
+    {
+      "case": "random_0089",
+      "kind": "random",
+      "rule": "hadamard-pair",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 6.162975822039155e-33,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0090",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 7.850462293418876e-17,
+      "library_vs_independent_before": 5.561946577567963e-17,
+      "library_vs_independent_after": 8.036095970540329e-17
+    },
+    {
+      "case": "random_0091",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.734723475976807e-16,
+      "library_vs_independent_before": 5.928593550334434e-17,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0092",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.3877787807814457e-16,
+      "library_vs_independent_before": 1.5700924586837752e-16,
+      "library_vs_independent_after": 1.3877787807814457e-16
+    },
+    {
+      "case": "random_0093",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102381612588674e-16,
+      "library_vs_independent_before": 6.206335383118183e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0094",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 7.350462269818266e-18,
+      "library_vs_independent_after": 7.350462269818266e-18
+    },
+    {
+      "case": "random_0095",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0096",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 8.505453752507596e-17,
+      "library_vs_independent_before": 6.938893903907228e-18,
+      "library_vs_independent_after": 5.555146084613467e-17
+    },
+    {
+      "case": "random_0097",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.1107649934270853e-16,
+      "library_vs_independent_before": 4.757505937652546e-18,
+      "library_vs_independent_after": 1.6243141295403868e-17
+    },
+    {
+      "case": "random_0098",
+      "kind": "random",
+      "rule": "hadamard-pair",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.6653345369377348e-16,
+      "library_vs_independent_before": 3.3673159693837136e-18,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0099",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.0014830212433607e-16,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 7.850462293418876e-17
+    },
+    {
+      "case": "random_0100",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.2412670766236366e-16,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0101",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 7.776515945702111e-16,
+      "library_vs_independent_before": 4.163336342344337e-17,
+      "library_vs_independent_after": 4.163336342344337e-17
+    },
+    {
+      "case": "random_0102",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 6.162975822039155e-33,
+      "library_vs_independent_after": 6.162975822039155e-33
+    },
+    {
+      "case": "random_0103",
+      "kind": "random",
+      "rule": "copy",
+      "factor": "(0.7071067811865476+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0104",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0105",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0106",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0107",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 1.1443916996305594e-16,
+      "library_vs_independent_after": 1.1443916996305594e-16
+    },
+    {
+      "case": "random_0108",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 1.232595164407831e-32,
+      "library_vs_independent_after": 1.232595164407831e-32
+    },
+    {
+      "case": "random_0109",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 3.25176795283269e-17,
+      "library_vs_independent_after": 3.25176795283269e-17
+    },
+    {
+      "case": "random_0110",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.6653345369377348e-16,
+      "library_vs_independent_before": 6.734631938767485e-18,
+      "library_vs_independent_after": 3.1116426608676864e-19
+    },
+    {
+      "case": "random_0111",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.0286052121357763e-16,
+      "library_vs_independent_before": 1.232595164407831e-32,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0112",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 4.440892098500626e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0113",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1443916996305594e-16,
+      "library_vs_independent_before": 2.7755575615628914e-17,
+      "library_vs_independent_after": 8.326672684688674e-17
+    },
+    {
+      "case": "random_0114",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0115",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0116",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0117",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.376611507232129e-16,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0118",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0119",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 1.1496735851465456e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0120",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0121",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0122",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.0007415106216804e-16,
+      "library_vs_independent_before": 1.5752868455084725e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0123",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0124",
+      "kind": "random",
+      "rule": "hadamard-pair",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 6.890416440883599e-33,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 2.7755575615628914e-17
+    },
+    {
+      "case": "random_0125",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 9.524207825395958e-18
+    },
+    {
+      "case": "random_0126",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 6.734631938767465e-18,
+      "library_vs_independent_after": 6.7346319387674465e-18
+    },
+    {
+      "case": "random_0127",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.608224830031759e-16,
+      "library_vs_independent_before": 1.669889248938922e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0128",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 5.721958498152797e-17,
+      "library_vs_independent_before": 1.734723475976807e-17,
+      "library_vs_independent_after": 1.734723475976807e-18
+    },
+    {
+      "case": "random_0129",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0130",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 1.2177821967717145e-33,
+      "library_vs_independent_after": 1.2155125021227052e-34
+    },
+    {
+      "case": "random_0131",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 1.110256985439254e-16,
+      "library_vs_independent_after": 1.110256985439254e-16
+    },
+    {
+      "case": "random_0132",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.2301825219878386e-16,
+      "library_vs_independent_before": 1.2412670766236366e-16,
+      "library_vs_independent_after": 4.163336342344337e-17
+    },
+    {
+      "case": "random_0133",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.5700924586837754e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0134",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.433175098891678e-16,
+      "library_vs_independent_before": 1.3877787807814457e-17,
+      "library_vs_independent_after": 1.596683745277067e-17
+    },
+    {
+      "case": "random_0135",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.1526873496831003e-16,
+      "library_vs_independent_before": 3.2432891557815305e-18,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0136",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1776349355277001e-17,
+      "library_vs_independent_before": 7.850462293418876e-17,
+      "library_vs_independent_after": 7.850462293418876e-17
+    },
+    {
+      "case": "random_0137",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0138",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.11926176005117e-16,
+      "library_vs_independent_before": 4.981465578107486e-18,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0139",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.2412670766236366e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0140",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 2.220446049250313e-16
+    },
+    {
+      "case": "random_0141",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.0014830212433607e-16,
+      "library_vs_independent_before": 8.327343614462565e-17,
+      "library_vs_independent_after": 8.428098256447085e-17
+    },
+    {
+      "case": "random_0142",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0143",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 5.162205835949051e-34,
+      "library_vs_independent_after": 5.16220583594905e-34
+    },
+    {
+      "case": "random_0144",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 6.1568918560122566e-18,
+      "library_vs_independent_after": 1.9725280260694705e-18
+    },
+    {
+      "case": "random_0145",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0146",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0147",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 6.162975822039155e-33
+    },
+    {
+      "case": "random_0148",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 6.734631938767465e-18,
+      "library_vs_independent_after": 2.5783047589559443e-17
+    },
+    {
+      "case": "random_0149",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.376611507232129e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 2.7755575615628914e-17
+    },
+    {
+      "case": "random_0150",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0151",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.6656749387564747e-16,
+      "library_vs_independent_before": 8.035271863581253e-19,
+      "library_vs_independent_after": 2.7873732987866235e-17
+    },
+    {
+      "case": "random_0152",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0153",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 2.7755575615628914e-17,
+      "library_vs_independent_before": 7.388702472878153e-34,
+      "library_vs_independent_after": 1.6367666570544999e-34
+    },
+    {
+      "case": "random_0154",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 1.6698892489389224e-17,
+      "library_vs_independent_after": 1.669889248938922e-17
+    },
+    {
+      "case": "random_0155",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.721958498152797e-17,
+      "library_vs_independent_before": 4.073045672605605e-34,
+      "library_vs_independent_after": 1.3877787807814457e-17
+    },
+    {
+      "case": "random_0156",
+      "kind": "random",
+      "rule": "copy",
+      "factor": "(-0.3535533905932738+4.329780281177467e-17j)",
+      "after_vs_before": 2.689169815213469e-16,
+      "library_vs_independent_before": 9.524207825395954e-18,
+      "library_vs_independent_after": 2.3615800235104435e-17
+    },
+    {
+      "case": "random_0157",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.5700924586837752e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0158",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 2.7733391199176196e-32,
+      "library_vs_independent_after": 3.697785493223493e-32
+    },
+    {
+      "case": "random_0159",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.6960316310477642e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0160",
+      "kind": "random",
+      "rule": "copy",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0161",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.7755575615628914e-17,
+      "library_vs_independent_before": 6.162975822039155e-33,
+      "library_vs_independent_after": 6.162975822039155e-33
+    },
+    {
+      "case": "random_0162",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 4.400527252257787e-19
+    },
+    {
+      "case": "random_0163",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 7.850462293418876e-17
+    },
+    {
+      "case": "random_0164",
+      "kind": "random",
+      "rule": "hadamard-pair",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 8.326672684688674e-17,
+      "library_vs_independent_before": 2.7755575615628914e-17,
+      "library_vs_independent_after": 6.206335383118183e-17
+    },
+    {
+      "case": "random_0165",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.5700924586837752e-16,
+      "library_vs_independent_before": 1.3877787807814457e-16,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0166",
+      "kind": "random",
+      "rule": "hadamard-pair",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 1.428631173809394e-17,
+      "library_vs_independent_after": 8.276225623888836e-18
+    },
+    {
+      "case": "random_0167",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 6.7346319387674634e-18,
+      "library_vs_independent_after": 6.734631938767465e-18
+    },
+    {
+      "case": "random_0168",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 2.310348488423735e-17,
+      "library_vs_independent_after": 2.310348488423735e-17
+    },
+    {
+      "case": "random_0169",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0170",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0171",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.6653345369377348e-16,
+      "library_vs_independent_before": 1.181316942824963e-34,
+      "library_vs_independent_after": 2.465190328815662e-32
+    },
+    {
+      "case": "random_0172",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 1.232595164407831e-32,
+      "library_vs_independent_after": 2.7755575615628914e-17
+    },
+    {
+      "case": "random_0173",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0174",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 1.0101947908151197e-17
+    },
+    {
+      "case": "random_0175",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0176",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 2.208655501144854e-33,
+      "library_vs_independent_after": 2.208655501144854e-33
+    },
+    {
+      "case": "random_0177",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 6.206335383118183e-17,
+      "library_vs_independent_before": 4.7621039126979945e-18,
+      "library_vs_independent_after": 1.4937506039933698e-17
+    },
+    {
+      "case": "random_0178",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 6.206335383118183e-17,
+      "library_vs_independent_before": 1.1104852761737626e-16,
+      "library_vs_independent_after": 5.566696019316773e-17
+    },
+    {
+      "case": "random_0179",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.2247786310271853e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0180",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 6.634924930647418e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 7.252591922963388e-17
+    },
+    {
+      "case": "random_0181",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 3.925231146709438e-17,
+      "library_vs_independent_before": 2.7755575615628914e-17,
+      "library_vs_independent_after": 2.7755575615628914e-17
+    },
+    {
+      "case": "random_0182",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(0.7071067811865476+0j)",
+      "after_vs_before": 1.7743390503460954e-16,
+      "library_vs_independent_before": 7.045796204854215e-18,
+      "library_vs_independent_after": 4.7621039126979676e-18
+    },
+    {
+      "case": "random_0183",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.4722084665732446e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0184",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 8.326672684688674e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0185",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.8160078520762394e-16,
+      "library_vs_independent_before": 3.5864783480532625e-33,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0186",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 4.710277376051331e-16,
+      "library_vs_independent_before": 1.570092458683777e-16,
+      "library_vs_independent_after": 1.9048415650791935e-17
+    },
+    {
+      "case": "random_0187",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0188",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 2.3615800235104456e-17,
+      "library_vs_independent_after": 2.3615800235104456e-17
+    },
+    {
+      "case": "random_0189",
+      "kind": "random",
+      "rule": "bialgebra",
+      "factor": "(1.4142135623730951+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 6.734631938767465e-18,
+      "library_vs_independent_after": 4.598694340586182e-17
+    },
+    {
+      "case": "random_0190",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.5700924586837757e-16,
+      "library_vs_independent_before": 3.2517679528326896e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0191",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.7755575615628914e-17,
+      "library_vs_independent_before": 6.162975822039155e-33,
+      "library_vs_independent_after": 5.440420604492795e-34
+    },
+    {
+      "case": "random_0192",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.0014830212433607e-16,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0193",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 5.563603303790225e-17,
+      "library_vs_independent_before": 2.7896074504107526e-17,
+      "library_vs_independent_after": 1.3877787807814457e-17
+    },
+    {
+      "case": "random_0194",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102259529767605e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 5.551173689926149e-17
+    },
+    {
+      "case": "random_0195",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.3092278833360675e-16,
+      "library_vs_independent_before": 2.7966233355175365e-18,
+      "library_vs_independent_after": 6.206335383118183e-17
+    },
+    {
+      "case": "random_0196",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0197",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 8.14928704288497e-16,
+      "library_vs_independent_before": 1.3877787807814457e-17,
+      "library_vs_independent_after": 1.1188630228279524e-16
+    },
+    {
+      "case": "random_0198",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 1.6653345369377348e-16,
+      "library_vs_independent_after": 1.6653345369377348e-16
+    },
+    {
+      "case": "random_0199",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0200",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 6.206335383118183e-17,
+      "library_vs_independent_before": 3.469446951953614e-17,
+      "library_vs_independent_after": 1.4012805093765518e-18
+    },
+    {
+      "case": "random_0201",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1443916996305594e-16,
+      "library_vs_independent_before": 4.556981919879673e-18,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0202",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.1031676915590914e-17,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 1.3877787807814457e-17
+    },
+    {
+      "case": "random_0203",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1443916996305594e-16,
+      "library_vs_independent_before": 6.938893903907228e-18,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0204",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.1188630228279524e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0205",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.3306690738754696e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0206",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.721958498152797e-17,
+      "library_vs_independent_before": 5.721958498152797e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0207",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.662155983824308e-17,
+      "library_vs_independent_before": 6.206335383118183e-17,
+      "library_vs_independent_after": 1.112050794201933e-16
+    },
+    {
+      "case": "random_0208",
+      "kind": "random",
+      "rule": "hadamard-pair",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0209",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.2887833992611187e-16,
+      "library_vs_independent_before": 3.925231146709438e-17,
+      "library_vs_independent_after": 4.443059973708341e-17
+    },
+    {
+      "case": "random_0210",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 2.299347170293092e-17,
+      "library_vs_independent_after": 2.2993471702930894e-17
+    },
+    {
+      "case": "random_0211",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 7.545532696112003e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 1.6872324034953706e-16
+    },
+    {
+      "case": "random_0212",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 8.659560562354928e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0213",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 2.220446049250313e-16,
+      "library_vs_independent_after": 1.1115642698680643e-16
+    },
+    {
+      "case": "random_0214",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 9.524207825395989e-18,
+      "library_vs_independent_after": 6.734631938767465e-18
+    },
+    {
+      "case": "random_0215",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.2412670766236366e-16,
+      "library_vs_independent_before": 6.206335383118183e-17,
+      "library_vs_independent_after": 1.2412670766236366e-16
+    },
+    {
+      "case": "random_0216",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 2.145483602805531e-33,
+      "library_vs_independent_after": 2.212398393247092e-33
+    },
+    {
+      "case": "random_0217",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0218",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 4.440892098500626e-16,
+      "library_vs_independent_before": 2.3615800235104456e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0219",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0220",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 3.925231146709438e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0221",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 1.1354333420562208e-16,
+      "library_vs_independent_after": 1.1649618863414512e-16
+    },
+    {
+      "case": "random_0222",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 4.507783663153694e-17,
+      "library_vs_independent_before": 2.220483329174882e-16,
+      "library_vs_independent_after": 2.2683358668636953e-16
+    },
+    {
+      "case": "random_0223",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.2263907214770273e-16,
+      "library_vs_independent_before": 2.2729511820139823e-16,
+      "library_vs_independent_after": 2.2887833992611187e-16
+    },
+    {
+      "case": "random_0224",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0225",
+      "kind": "random",
+      "rule": "hadamard-pair",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0226",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1188630228279524e-16,
+      "library_vs_independent_before": 6.206335383118183e-17,
+      "library_vs_independent_after": 1.1123893155135927e-16
+    },
+    {
+      "case": "random_0227",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 1.5700924586837752e-16,
+      "library_vs_independent_after": 1.2694794442246029e-16
+    },
+    {
+      "case": "random_0228",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 8.777083671441753e-17,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 3.925231146709438e-17
+    },
+    {
+      "case": "random_0229",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-16,
+      "library_vs_independent_before": 1.1443916996305594e-16,
+      "library_vs_independent_after": 1.5700924586837752e-16
+    },
+    {
+      "case": "random_0230",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.7755575615628914e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 1.3780428143621699e-17
+    },
+    {
+      "case": "random_0231",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 6.280369834735101e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0232",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 1.2412670766236366e-16,
+      "library_vs_independent_after": 1.2412670766236366e-16
+    },
+    {
+      "case": "random_0233",
+      "kind": "random",
+      "rule": "bialgebra",
+      "factor": "(1.4142135623730951+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0234",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.110223024625157e-16,
+      "library_vs_independent_before": 6.503535905665379e-17,
+      "library_vs_independent_after": 6.223285321735375e-19
+    },
+    {
+      "case": "random_0235",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 8.326672684688674e-17,
+      "library_vs_independent_before": 5.903950058776114e-18,
+      "library_vs_independent_after": 3.522898102427117e-18
+    },
+    {
+      "case": "random_0236",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0237",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0238",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 3.147289606770853e-18,
+      "library_vs_independent_after": 2.200263626128893e-19
+    },
+    {
+      "case": "random_0239",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.3306690738754696e-16,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0240",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.1323078034094375e-18,
+      "library_vs_independent_before": 1.110352166366516e-16,
+      "library_vs_independent_after": 1.1107554886876494e-16
+    },
+    {
+      "case": "random_0241",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.9279638981753175e-16,
+      "library_vs_independent_before": 8.326672684688674e-17,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0242",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0243",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 4.965068306494546e-16,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0244",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0245",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 4.134249864530159e-32,
+      "library_vs_independent_before": 2.465190328815662e-32,
+      "library_vs_independent_after": 1.232595164407831e-32
+    },
+    {
+      "case": "random_0246",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0247",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 9.964260550621736e-18,
+      "library_vs_independent_after": 9.964260550621736e-18
+    },
+    {
+      "case": "random_0248",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 2.7755575615628914e-17,
+      "library_vs_independent_before": 3.522898102427117e-18,
+      "library_vs_independent_after": 2.225469823305613e-18
+    },
+    {
+      "case": "random_0249",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 1.937242691362865e-33
+    },
+    {
+      "case": "random_0250",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.3335590258932494e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 1.3877787807814457e-17
+    },
+    {
+      "case": "random_0251",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 2.7755575615628914e-17,
+      "library_vs_independent_before": 8.129419882081721e-18,
+      "library_vs_independent_after": 1.232595164407831e-32
+    },
+    {
+      "case": "random_0252",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0253",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.1211468303779313e-16,
+      "library_vs_independent_before": 5.721958498152797e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0254",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.7431527984210495e-32,
+      "library_vs_independent_before": 6.890416440883599e-33,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0255",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.2412670766236366e-16,
+      "library_vs_independent_before": 2.7755575615628914e-17,
+      "library_vs_independent_after": 1.3877787807814457e-17
+    },
+    {
+      "case": "random_0256",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.5700924586837757e-16,
+      "library_vs_independent_before": 5.4888822699084284e-17,
+      "library_vs_independent_after": 3.25176795283269e-17
+    },
+    {
+      "case": "random_0257",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.8609792490763984e-17,
+      "library_vs_independent_before": 6.938893903907228e-18,
+      "library_vs_independent_after": 5.9064363595078105e-18
+    },
+    {
+      "case": "random_0258",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0259",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 9.72064493212764e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0260",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 2.578304758955944e-17
+    },
+    {
+      "case": "random_0261",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.869931039739981e-17,
+      "library_vs_independent_before": 2.880078215181945e-34,
+      "library_vs_independent_after": 5.567318465425489e-17
+    },
+    {
+      "case": "random_0262",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.5700924586837752e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0263",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 4.335559509131367e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0264",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 4.440892098500626e-16,
+      "library_vs_independent_before": 1.3469263877534927e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0265",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0266",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.7755575615628914e-17,
+      "library_vs_independent_before": 1.1443916996305594e-16,
+      "library_vs_independent_after": 3.1031676915590914e-17
+    },
+    {
+      "case": "random_0267",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 1.1194758416297585e-17,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0268",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 8.326672684688674e-17,
+      "library_vs_independent_before": 6.206335383118183e-17,
+      "library_vs_independent_after": 1.1446810350191886e-16
+    },
+    {
+      "case": "random_0269",
+      "kind": "random",
+      "rule": "hadamard-pair",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 2.7755575615628914e-16,
+      "library_vs_independent_before": 1.2467701592657217e-32,
+      "library_vs_independent_after": 1.232595164407831e-32
+    },
+    {
+      "case": "random_0270",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.7755575615628914e-16,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0271",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1443916996305594e-16,
+      "library_vs_independent_before": 3.925231146709438e-17,
+      "library_vs_independent_after": 5.003707553108402e-17
+    },
+    {
+      "case": "random_0272",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 4.710277376051326e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0273",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0274",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 3.1031676915590914e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0275",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1443916996305594e-16,
+      "library_vs_independent_before": 2.7755575615628914e-17,
+      "library_vs_independent_after": 2.4635907164784487e-34
+    },
+    {
+      "case": "random_0276",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.2412670766236366e-16,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0277",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.0014830212433607e-16,
+      "library_vs_independent_before": 7.850462293418876e-17,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0278",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0279",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 7.174684663993241e-18,
+      "library_vs_independent_after": 1.3469263877534893e-17
+    },
+    {
+      "case": "random_0280",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0281",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.721958498152797e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0282",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.2412670766236366e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0283",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0284",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.6711069443220836e-16,
+      "library_vs_independent_before": 1.6883057536160646e-16,
+      "library_vs_independent_after": 1.1857187100668868e-16
+    },
+    {
+      "case": "random_0285",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0286",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.232595164407831e-32,
+      "library_vs_independent_before": 5.440420604492795e-34,
+      "library_vs_independent_after": 1.7019488840949962e-34
+    },
+    {
+      "case": "random_0287",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 8.659560562354929e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0288",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0289",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.355138688025663e-16,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 2.7755575615628914e-17
+    },
+    {
+      "case": "random_0290",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.580798907709514e-17,
+      "library_vs_independent_before": 1.3877787807814457e-17,
+      "library_vs_independent_after": 2.807587336616899e-17
+    },
+    {
+      "case": "random_0291",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0292",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0293",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 6.734631938767465e-18,
+      "library_vs_independent_after": 6.734631938767465e-18
+    },
+    {
+      "case": "random_0294",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 9.524207825395989e-18,
+      "library_vs_independent_after": 6.734631938767428e-18
+    },
+    {
+      "case": "random_0295",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 4.204188735372284e-17,
+      "library_vs_independent_after": 9.524207825395958e-18
+    },
+    {
+      "case": "random_0296",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.2221394694025363e-16,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 6.530138245420935e-18
+    },
+    {
+      "case": "random_0297",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.2492193928706386e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0298",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0299",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0300",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0301",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 5.551655688561487e-17,
+      "library_vs_independent_after": 5.551655688561487e-17
+    },
+    {
+      "case": "random_0302",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0303",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.5748973542056272e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0304",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0305",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 2.220446049250313e-16,
+      "library_vs_independent_after": 2.2887833992611187e-16
+    },
+    {
+      "case": "random_0306",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0307",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 5.2246016227419544e-34,
+      "library_vs_independent_after": 6.23957867929046e-36
+    },
+    {
+      "case": "random_0308",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0309",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0310",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.236836966738114e-16,
+      "library_vs_independent_before": 7.850482768685367e-17,
+      "library_vs_independent_after": 3.164630776485893e-16
+    },
+    {
+      "case": "random_0311",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 6.162975822039155e-33,
+      "library_vs_independent_before": 8.247545447247108e-34,
+      "library_vs_independent_after": 1.2371318170870665e-33
+    },
+    {
+      "case": "random_0312",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0313",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 3.189535099615334e-17,
+      "library_vs_independent_after": 2.2993471702930913e-17
+    },
+    {
+      "case": "random_0314",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.7755575615628914e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0315",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.5818787038937672e-17,
+      "library_vs_independent_before": 2.1794055339477994e-17,
+      "library_vs_independent_after": 1.581878703893767e-17
+    },
+    {
+      "case": "random_0316",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0317",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.721958498152797e-17,
+      "library_vs_independent_before": 3.1031676915590914e-17,
+      "library_vs_independent_after": 1.1443916996305594e-16
+    },
+    {
+      "case": "random_0318",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.041422676582192e-17,
+      "library_vs_independent_before": 2.041422676582192e-17,
+      "library_vs_independent_after": 2.041422676582192e-17
+    },
+    {
+      "case": "random_0319",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.482534153247273e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0320",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 5.551773721213313e-17,
+      "library_vs_independent_before": 2.787106435922262e-17,
+      "library_vs_independent_after": 6.938893903907228e-18
+    },
+    {
+      "case": "random_0321",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0322",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 7.850462293418876e-17,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0323",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1107649934270853e-16,
+      "library_vs_independent_before": 1.2412670766236366e-16,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0324",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0325",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 1.3877787807814457e-17,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0326",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 2.2993471702930916e-17,
+      "library_vs_independent_after": 1.5818787038937665e-17
+    },
+    {
+      "case": "random_0327",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.7755575615628914e-16,
+      "library_vs_independent_before": 1.1807900117552228e-17,
+      "library_vs_independent_after": 9.21304355930922e-18
+    },
+    {
+      "case": "random_0328",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.3306690738754696e-16,
+      "library_vs_independent_before": 4.629475209693093e-34,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0329",
+      "kind": "random",
+      "rule": "hadamard-pair",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.6653345369377348e-16,
+      "library_vs_independent_before": 1.0101947908151197e-17,
+      "library_vs_independent_after": 4.542077550085098e-18
+    },
+    {
+      "case": "random_0330",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1295700899707568e-16,
+      "library_vs_independent_before": 2.8609792490763984e-17,
+      "library_vs_independent_after": 5.551367942818191e-17
+    },
+    {
+      "case": "random_0331",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.0814879110195767e-33,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 1.0101947908151197e-17
+    },
+    {
+      "case": "random_0332",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0333",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 1.1807900117552225e-17,
+      "library_vs_independent_after": 1.1807900117552228e-17
+    },
+    {
+      "case": "random_0334",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 5.721958498152797e-17,
+      "library_vs_independent_before": 1.2892404938113595e-17,
+      "library_vs_independent_after": 8.370991571200277e-18
+    },
+    {
+      "case": "random_0335",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.1031676915590914e-17,
+      "library_vs_independent_before": 2.827936433667122e-17,
+      "library_vs_independent_after": 1.4557237217103698e-17
+    },
+    {
+      "case": "random_0336",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.299347170293092e-17,
+      "library_vs_independent_before": 2.299347170293092e-17,
+      "library_vs_independent_after": 2.299347170293092e-17
+    },
+    {
+      "case": "random_0337",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 2.0203895816302395e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0338",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102573915060132e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 2.8609792490763984e-17
+    },
+    {
+      "case": "random_0339",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(0.7071067811865476+0j)",
+      "after_vs_before": 1.7743390503460954e-16,
+      "library_vs_independent_before": 9.21304355930922e-18,
+      "library_vs_independent_after": 9.524207825395961e-18
+    },
+    {
+      "case": "random_0340",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.66536553992983e-16,
+      "library_vs_independent_before": 1.1102296695788834e-16,
+      "library_vs_independent_after": 5.551474946248309e-17
+    },
+    {
+      "case": "random_0341",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.5700924586837757e-16,
+      "library_vs_independent_before": 9.524207825395964e-18,
+      "library_vs_independent_after": 2.361580023510447e-17
+    },
+    {
+      "case": "random_0342",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.140184917367551e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0343",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 7.909393519468828e-18,
+      "library_vs_independent_after": 7.90939351946883e-18
+    },
+    {
+      "case": "random_0344",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 1.3029211152309112e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0345",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 1.232595164407831e-32,
+      "library_vs_independent_after": 6.162975822039155e-33
+    },
+    {
+      "case": "random_0346",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 2.3615800235104456e-17,
+      "library_vs_independent_after": 2.3615800235104456e-17
+    },
+    {
+      "case": "random_0347",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220717083251841e-16,
+      "library_vs_independent_before": 1.939125109671724e-17,
+      "library_vs_independent_after": 1.8261477175071235e-16
+    },
+    {
+      "case": "random_0348",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 1.232595164407831e-32,
+      "library_vs_independent_after": 1.232595164407831e-32
+    },
+    {
+      "case": "random_0349",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0350",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 6.842277657836021e-49,
+      "library_vs_independent_before": 2.2209636513357307e-33,
+      "library_vs_independent_after": 2.2209636513357314e-33
+    },
+    {
+      "case": "random_0351",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0352",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(0.7071067811865476+0j)",
+      "after_vs_before": 1.0007415106216804e-16,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0353",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 1.3698374438667591e-33,
+      "library_vs_independent_after": 1.3698374438667591e-33
+    },
+    {
+      "case": "random_0354",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.6653345369377348e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0355",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1443916996305594e-16,
+      "library_vs_independent_before": 6.206335383118183e-17,
+      "library_vs_independent_after": 6.206335383118183e-17
+    },
+    {
+      "case": "random_0356",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1123893155135927e-16,
+      "library_vs_independent_before": 2.7759630043087594e-17,
+      "library_vs_independent_after": 1.6367666570544994e-34
+    },
+    {
+      "case": "random_0357",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0358",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1161597815419028e-16,
+      "library_vs_independent_before": 5.721958498152797e-17,
+      "library_vs_independent_after": 5.721958498152797e-17
+    },
+    {
+      "case": "random_0359",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 6.206335383118183e-17,
+      "library_vs_independent_before": 6.206335383118183e-17,
+      "library_vs_independent_after": 1.1113914254892318e-16
+    },
+    {
+      "case": "random_0360",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.7554167342883506e-16,
+      "library_vs_independent_before": 1.8619006149354548e-16,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0361",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.5476231888929306e-16,
+      "library_vs_independent_before": 1.1443916996305594e-16,
+      "library_vs_independent_after": 1.249000902703301e-16
+    },
+    {
+      "case": "random_0362",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 2.7755575615628914e-17,
+      "library_vs_independent_before": 7.388702472878153e-34,
+      "library_vs_independent_after": 1.6367666570544999e-34
+    },
+    {
+      "case": "random_0363",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0364",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0365",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 2.299347170293092e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0366",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0367",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.0671249322650796e-32,
+      "library_vs_independent_before": 3.0814879110195774e-33,
+      "library_vs_independent_after": 8.750606412632285e-34
+    },
+    {
+      "case": "random_0368",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 2.7755575615628914e-17,
+      "library_vs_independent_after": 2.7755575615628914e-17
+    },
+    {
+      "case": "random_0369",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 2.7755575615628914e-17,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0370",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 4.7621039126979945e-18,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0371",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1161597815419028e-16,
+      "library_vs_independent_before": 5.554406006986148e-17,
+      "library_vs_independent_after": 1.3408462302818434e-17
+    },
+    {
+      "case": "random_0372",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0373",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.6667795129466247e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 7.847084099647526e-18
+    },
+    {
+      "case": "random_0374",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.552362641487218e-17,
+      "library_vs_independent_before": 1.1103506810142336e-16,
+      "library_vs_independent_after": 5.558480827644833e-17
+    },
+    {
+      "case": "random_0375",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0376",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 2.2204951067400376e-16,
+      "library_vs_independent_after": 2.2204951067400376e-16
+    },
+    {
+      "case": "random_0377",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.6883057536160646e-16,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 6.206335383118183e-17
+    },
+    {
+      "case": "random_0378",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0379",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0380",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0381",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.3306690738754696e-16,
+      "library_vs_independent_before": 1.842608711861844e-17,
+      "library_vs_independent_after": 8.901879293222452e-18
+    },
+    {
+      "case": "random_0382",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 6.167577041987167e-33,
+      "library_vs_independent_before": 3.0814879110195774e-33,
+      "library_vs_independent_after": 3.428023268962182e-34
+    },
+    {
+      "case": "random_0383",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.6653345369377348e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0384",
+      "kind": "random",
+      "rule": "hadamard-pair",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 6.206335383118183e-17,
+      "library_vs_independent_before": 5.721958498152797e-17,
+      "library_vs_independent_after": 1.3877787807814457e-17
+    },
+    {
+      "case": "random_0385",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 7.323520245837662e-34,
+      "library_vs_independent_after": 7.323520245837662e-34
+    },
+    {
+      "case": "random_0386",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(0.7071067811865476+0j)",
+      "after_vs_before": 1.1443916996305594e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0387",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.2412670766236366e-16,
+      "library_vs_independent_before": 7.472444047607007e-35,
+      "library_vs_independent_after": 1.7653317815153337e-34
+    },
+    {
+      "case": "random_0388",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0389",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1188630228279524e-16,
+      "library_vs_independent_before": 2.7755575615628914e-17,
+      "library_vs_independent_after": 3.925231146709438e-17
+    },
+    {
+      "case": "random_0390",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 3.2735333141089997e-34,
+      "library_vs_independent_after": 2.1287185932266286e-33
+    },
+    {
+      "case": "random_0391",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.7554167342883506e-16,
+      "library_vs_independent_before": 5.55115383457283e-17,
+      "library_vs_independent_after": 2.0731254107529247e-19
+    },
+    {
+      "case": "random_0392",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1443916996305594e-16,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0393",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0394",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.3877787807814457e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0395",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.721958498152797e-17,
+      "library_vs_independent_before": 1.3877787807814457e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0396",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 9.52420782539596e-18,
+      "library_vs_independent_after": 1.3780428143621699e-17
+    },
+    {
+      "case": "random_0397",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.273268443289398e-16,
+      "library_vs_independent_before": 6.450309188414802e-17,
+      "library_vs_independent_after": 1.2900618376829602e-16
+    },
+    {
+      "case": "random_0398",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 1.1807900117552228e-17,
+      "library_vs_independent_after": 1.6258839764163445e-17
+    },
+    {
+      "case": "random_0399",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 2.7755575615628914e-17,
+      "library_vs_independent_after": 2.7755575615628914e-17
+    },
+    {
+      "case": "random_0400",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1443916996305594e-16,
+      "library_vs_independent_before": 1.3485943491272828e-17,
+      "library_vs_independent_after": 1.1196973292653457e-16
+    },
+    {
+      "case": "random_0401",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0402",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0403",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.7755575615628914e-16,
+      "library_vs_independent_before": 1.1807900117552228e-17,
+      "library_vs_independent_after": 9.21304355930922e-18
+    },
+    {
+      "case": "random_0404",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 4.714364385389476e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 3.155876281729836e-17
+    },
+    {
+      "case": "random_0405",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0406",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(0.7071067811865476+0j)",
+      "after_vs_before": 1.7743390503460954e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0407",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 9.524207825396014e-18,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0408",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 4.629475209693092e-34,
+      "library_vs_independent_after": 4.629475209693093e-34
+    },
+    {
+      "case": "random_0409",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.6883057536160646e-16,
+      "library_vs_independent_before": 1.9087681176982077e-19,
+      "library_vs_independent_after": 2.776018835093179e-17
+    },
+    {
+      "case": "random_0410",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 5.162205835949051e-34,
+      "library_vs_independent_after": 6.162975822039155e-33
+    },
+    {
+      "case": "random_0411",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 9.21304355930922e-18,
+      "library_vs_independent_after": 7.045796204854234e-18
+    },
+    {
+      "case": "random_0412",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 4.450939646611226e-18,
+      "library_vs_independent_after": 1.1807900117552228e-17
+    },
+    {
+      "case": "random_0413",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 1.446588973442545e-33,
+      "library_vs_independent_after": 1.4465889734425453e-33
+    },
+    {
+      "case": "random_0414",
+      "kind": "random",
+      "rule": "copy",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.5700924586837754e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0415",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.5700924586837757e-16,
+      "library_vs_independent_before": 2.716412021012332e-17,
+      "library_vs_independent_after": 1.5934174818592479e-16
+    },
+    {
+      "case": "random_0416",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.1650862548380725e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0417",
+      "kind": "random",
+      "rule": "copy",
+      "factor": "(0.3535533905932738+0j)",
+      "after_vs_before": 5.900916318210358e-16,
+      "library_vs_independent_before": 1.1102230246251575e-16,
+      "library_vs_independent_after": 1.1102230246251568e-16
+    },
+    {
+      "case": "random_0418",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.5700924586837752e-16,
+      "library_vs_independent_before": 6.734631938767465e-18,
+      "library_vs_independent_after": 6.734631938767465e-18
+    },
+    {
+      "case": "random_0419",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0420",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0421",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.2247786310271853e-16,
+      "library_vs_independent_before": 1.3877787807814457e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0422",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0423",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.79553433516819e-16,
+      "library_vs_independent_before": 2.7755575615628914e-17,
+      "library_vs_independent_after": 1.3668035872266426e-16
+    },
+    {
+      "case": "random_0424",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 1.232595164407831e-32,
+      "library_vs_independent_after": 3.789971224937385e-51
+    },
+    {
+      "case": "random_0425",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1443916996305594e-16,
+      "library_vs_independent_before": 5.560217968478858e-17,
+      "library_vs_independent_after": 5.560217968478858e-17
+    },
+    {
+      "case": "random_0426",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 6.734631938767465e-18,
+      "library_vs_independent_after": 6.734631938767465e-18
+    },
+    {
+      "case": "random_0427",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.7431527984210495e-32,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0428",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 3.2735333141089997e-34,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0429",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.2993471702930907e-17,
+      "library_vs_independent_before": 7.17468466399325e-18,
+      "library_vs_independent_after": 2.2993471702930907e-17
+    },
+    {
+      "case": "random_0430",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 2.220446049250313e-16,
+      "library_vs_independent_after": 2.220446049250313e-16
+    },
+    {
+      "case": "random_0431",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 7.850462293418876e-17,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0432",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 9.880371224902231e-34,
+      "library_vs_independent_after": 9.880371224902231e-34
+    },
+    {
+      "case": "random_0433",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.237726045655905e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0434",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.7238012298709097e-16,
+      "library_vs_independent_before": 1.1443916996305594e-16,
+      "library_vs_independent_after": 1.1443916996305594e-16
+    },
+    {
+      "case": "random_0435",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 1.394787943314262e-18
+    },
+    {
+      "case": "random_0436",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0437",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0438",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0439",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0440",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 4.163336342344337e-17,
+      "library_vs_independent_before": 3.87634588448719e-18,
+      "library_vs_independent_after": 6.938893903907228e-18
+    },
+    {
+      "case": "random_0441",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0442",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 1.232595164407831e-32,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0443",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.2412670766236366e-16,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0444",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 1.232595164407831e-32,
+      "library_vs_independent_after": 1.4647040491675324e-33
+    },
+    {
+      "case": "random_0445",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 2.3810519563489884e-18,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0446",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0447",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 6.167381562448201e-33,
+      "library_vs_independent_before": 6.162989643133629e-33,
+      "library_vs_independent_after": 2.46127993175266e-34
+    },
+    {
+      "case": "random_0448",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 6.059128614320848e-17,
+      "library_vs_independent_before": 6.938893903907228e-18,
+      "library_vs_independent_after": 1.734723475976807e-17
+    },
+    {
+      "case": "random_0449",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.6653345369377348e-16,
+      "library_vs_independent_before": 1.4647040491675324e-33,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0450",
+      "kind": "random",
+      "rule": "hadamard-pair",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 5.554905373073943e-17,
+      "library_vs_independent_before": 5.579876782010677e-17,
+      "library_vs_independent_after": 2.812228725380421e-17
+    },
+    {
+      "case": "random_0451",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.118557158537869e-17,
+      "library_vs_independent_before": 1.118557158537869e-17,
+      "library_vs_independent_after": 1.118557158537869e-17
+    },
+    {
+      "case": "random_0452",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.2412670766236366e-16,
+      "library_vs_independent_before": 4.9020181436821595e-18,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0453",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0454",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 4.5102810375396984e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 4.5102810375396984e-17
+    },
+    {
+      "case": "random_0455",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.1401849173675523e-16,
+      "library_vs_independent_before": 2.7284780635878283e-17,
+      "library_vs_independent_after": 7.755399572684443e-18
+    },
+    {
+      "case": "random_0456",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 2.525795506525166e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0457",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.2412670766236366e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0458",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 6.206335383118183e-17,
+      "library_vs_independent_before": 1.0101947908151197e-17,
+      "library_vs_independent_after": 1.394787943314262e-18
+    },
+    {
+      "case": "random_0459",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.6762312587852222e-16,
+      "library_vs_independent_before": 5.959602043214372e-17,
+      "library_vs_independent_after": 1.2531201017546844e-16
+    },
+    {
+      "case": "random_0460",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 2.237726045655905e-16,
+      "library_vs_independent_after": 2.237726045655905e-16
+    },
+    {
+      "case": "random_0461",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0462",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0463",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1443916996305594e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0464",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 4.742874840267547e-16,
+      "library_vs_independent_before": 2.2371143170757382e-17,
+      "library_vs_independent_after": 5.827816856821702e-17
+    },
+    {
+      "case": "random_0465",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.2412670766236366e-16,
+      "library_vs_independent_before": 3.111642660867696e-19,
+      "library_vs_independent_after": 3.1116426608676864e-19
+    },
+    {
+      "case": "random_0466",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0467",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.5700924586837757e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 2.2371143170757385e-17
+    },
+    {
+      "case": "random_0468",
+      "kind": "random",
+      "rule": "hadamard-pair",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.8619006149354548e-16,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0469",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0470",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 4.652682298944613e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0471",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0472",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 2.2887833992611187e-16,
+      "library_vs_independent_after": 8.886119947416683e-17
+    },
+    {
+      "case": "random_0473",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 7.850462293418876e-17,
+      "library_vs_independent_before": 2.7755575615628914e-17,
+      "library_vs_independent_after": 2.7755575615628914e-17
+    },
+    {
+      "case": "random_0474",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 1.3877787807814457e-17,
+      "library_vs_independent_after": 1.3877787807814457e-17
+    },
+    {
+      "case": "random_0475",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.2412670766236366e-16,
+      "library_vs_independent_before": 1.2412670766236366e-16,
+      "library_vs_independent_after": 1.2412670766236366e-16
+    },
+    {
+      "case": "random_0476",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0477",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1443916996305592e-15,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0478",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.2487068343022356e-16,
+      "library_vs_independent_before": 1.7554167342883506e-16,
+      "library_vs_independent_after": 1.1443916996305594e-16
+    },
+    {
+      "case": "random_0479",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0480",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.2887833992611187e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 1.1119929728820045e-16
+    },
+    {
+      "case": "random_0481",
+      "kind": "random",
+      "rule": "hadamard-pair",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.2412670766236366e-16,
+      "library_vs_independent_before": 1.622352627449629e-18,
+      "library_vs_independent_after": 2.7755575615628914e-17
+    },
+    {
+      "case": "random_0482",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.221170142648258e-16,
+      "library_vs_independent_before": 3.3673159693837313e-18,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0483",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.3306690738754696e-16,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0484",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.3306690738754696e-16,
+      "library_vs_independent_before": 2.3615800235104456e-17,
+      "library_vs_independent_after": 1.904841565079192e-17
+    },
+    {
+      "case": "random_0485",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 1.8603931175733393e-17,
+      "library_vs_independent_after": 1.8603931175733393e-17
+    },
+    {
+      "case": "random_0486",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 3.3673159693836955e-18
+    },
+    {
+      "case": "random_0487",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0488",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.2229064990708366e-16,
+      "library_vs_independent_before": 5.553136370448295e-17,
+      "library_vs_independent_after": 2.7755575615628914e-17
+    },
+    {
+      "case": "random_0489",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0490",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0491",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0492",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0493",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 3.1116426608676864e-19,
+      "library_vs_independent_after": 3.1116426608676864e-19
+    },
+    {
+      "case": "random_0494",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 4.440892098500626e-16,
+      "library_vs_independent_before": 1.346926387753493e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0495",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.3714374201337736e-16,
+      "library_vs_independent_before": 1.1443916996305594e-16,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0496",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.1401849173675503e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0497",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 2.929408098335065e-33,
+      "library_vs_independent_after": 2.929408098335065e-33
+    },
+    {
+      "case": "random_0498",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 8.34944624469461e-18,
+      "library_vs_independent_after": 1.0101947908151194e-17
+    },
+    {
+      "case": "random_0499",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0500",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0501",
+      "kind": "random",
+      "rule": "bialgebra",
+      "factor": "(1.4142135623730951+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 2.7755575615628914e-17,
+      "library_vs_independent_after": 1.176270680547127e-17
+    },
+    {
+      "case": "random_0502",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 8.901879293222452e-18,
+      "library_vs_independent_after": 2.3615800235104456e-17
+    },
+    {
+      "case": "random_0503",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 1.1807900117552228e-17,
+      "library_vs_independent_after": 4.450939646611226e-18
+    },
+    {
+      "case": "random_0504",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0505",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0506",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.2412670766236366e-16,
+      "library_vs_independent_before": 2.220717083251841e-16,
+      "library_vs_independent_after": 1.2412670766236366e-16
+    },
+    {
+      "case": "random_0507",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.3306690738754696e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0508",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0509",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 4.7621039126979945e-18,
+      "library_vs_independent_after": 4.7621039126979945e-18
+    },
+    {
+      "case": "random_0510",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0511",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1188630228279524e-16,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 4.2349997174859565e-17
+    },
+    {
+      "case": "random_0512",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.756258623163319e-17,
+      "library_vs_independent_before": 1.4461098981307127e-17,
+      "library_vs_independent_after": 3.5475165600701717e-17
+    },
+    {
+      "case": "random_0513",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.3306690738754696e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 2.283692292156239e-18
+    },
+    {
+      "case": "random_0514",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.721958498152797e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 1.2412670766236366e-16
+    },
+    {
+      "case": "random_0515",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.698833784396188e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0516",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 6.2129616363648685e-34,
+      "library_vs_independent_after": 1.9911336075032464e-33
+    },
+    {
+      "case": "random_0517",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1188630228279524e-16,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 1.2509268882771005e-17
+    },
+    {
+      "case": "random_0518",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.5700924586837752e-16,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 9.524207825395986e-18
+    },
+    {
+      "case": "random_0519",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 1.3877787807814457e-17,
+      "library_vs_independent_after": 2.7755575615628914e-17
+    },
+    {
+      "case": "random_0520",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 2.299347170293092e-17,
+      "library_vs_independent_after": 2.299347170293092e-17
+    },
+    {
+      "case": "random_0521",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 6.734631938767465e-18,
+      "library_vs_independent_after": 4.7621039126979945e-18
+    },
+    {
+      "case": "random_0522",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.7755575615628914e-17,
+      "library_vs_independent_before": 3.0814879110195774e-33,
+      "library_vs_independent_after": 3.0814879110195774e-33
+    },
+    {
+      "case": "random_0523",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.232595164407831e-32,
+      "library_vs_independent_before": 1.581878703893766e-17,
+      "library_vs_independent_after": 1.5818787038937662e-17
+    },
+    {
+      "case": "random_0524",
+      "kind": "random",
+      "rule": "copy",
+      "factor": "(0.7071067811865476+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0525",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 6.969320381211996e-18,
+      "library_vs_independent_before": 6.505213034913027e-19,
+      "library_vs_independent_after": 8.673617379884035e-19
+    },
+    {
+      "case": "random_0526",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0527",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.7755575615628914e-16,
+      "library_vs_independent_before": 2.299347170293092e-17,
+      "library_vs_independent_after": 1.9109945699728456e-17
+    },
+    {
+      "case": "random_0528",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 9.067017537021069e-17,
+      "library_vs_independent_before": 2.031125622828526e-17,
+      "library_vs_independent_after": 3.3043368517574837e-17
+    },
+    {
+      "case": "random_0529",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.6653345369377348e-16,
+      "library_vs_independent_before": 3.111642660867686e-19,
+      "library_vs_independent_after": 3.1116426608676845e-19
+    },
+    {
+      "case": "random_0530",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 2.220446049250313e-16
+    },
+    {
+      "case": "random_0531",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.5700924586837752e-16,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0532",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 5.19481582002849e-34,
+      "library_vs_independent_after": 2.8800782151819452e-34
+    },
+    {
+      "case": "random_0533",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 3.925231146709438e-17,
+      "library_vs_independent_before": 5.247893874216524e-18,
+      "library_vs_independent_after": 1.3877787807814457e-17
+    },
+    {
+      "case": "random_0534",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0535",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.237726045655905e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 1.3877787807814457e-17
+    },
+    {
+      "case": "random_0536",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 5.551124154723881e-17,
+      "library_vs_independent_after": 5.551124154723881e-17
+    },
+    {
+      "case": "random_0537",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.91393021041295e-16,
+      "library_vs_independent_before": 3.25176795283269e-17,
+      "library_vs_independent_after": 9.569651052064749e-17
+    },
+    {
+      "case": "random_0538",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 6.162975822039155e-33,
+      "library_vs_independent_after": 3.881225874186858e-17
+    },
+    {
+      "case": "random_0539",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 2.7755575615628914e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0540",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 2.299347170293092e-17,
+      "library_vs_independent_after": 6.734631938767476e-18
+    },
+    {
+      "case": "random_0541",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 1.127401263759418e-16,
+      "library_vs_independent_after": 1.127401263759418e-16
+    },
+    {
+      "case": "random_0542",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 6.938893903907228e-17
+    },
+    {
+      "case": "random_0543",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 9.964260550621738e-18,
+      "library_vs_independent_after": 1.6698892489389224e-17
+    },
+    {
+      "case": "random_0544",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 2.7755575615628914e-17,
+      "library_vs_independent_after": 2.7755575615628914e-17
+    },
+    {
+      "case": "random_0545",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 4.47545209131181e-16,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 6.151553276491808e-17
+    },
+    {
+      "case": "random_0546",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 8.901879293222452e-18,
+      "library_vs_independent_after": 2.3615800235104456e-17
+    },
+    {
+      "case": "random_0547",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0548",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.3330333795729956e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 1.1443916996305594e-16
+    },
+    {
+      "case": "random_0549",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.5700924586837752e-16,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0550",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 4.742874840267547e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0551",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 9.553901181283548e-18,
+      "library_vs_independent_before": 3.1405593590244665e-34,
+      "library_vs_independent_after": 1.1690664641427162e-17
+    },
+    {
+      "case": "random_0552",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0553",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0554",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1443916996305594e-16,
+      "library_vs_independent_before": 1.0690019089558654e-17,
+      "library_vs_independent_after": 2.7755575615628914e-17
+    },
+    {
+      "case": "random_0555",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 2.237726045655905e-16,
+      "library_vs_independent_after": 2.237726045655905e-16
+    },
+    {
+      "case": "random_0556",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 2.7755575615628914e-17,
+      "library_vs_independent_after": 2.7755575615628914e-17
+    },
+    {
+      "case": "random_0557",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 6.206335383118183e-17,
+      "library_vs_independent_before": 3.111642660867691e-19,
+      "library_vs_independent_after": 1.1185571585378691e-17
+    },
+    {
+      "case": "random_0558",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.775576272205813e-16,
+      "library_vs_independent_before": 1.1102698004047498e-16,
+      "library_vs_independent_after": 3.273533314108999e-34
+    },
+    {
+      "case": "random_0559",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.7554167342883506e-16,
+      "library_vs_independent_before": 1.1807900117552228e-17,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0560",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.5700924586837752e-16,
+      "library_vs_independent_before": 1.2412670766236366e-16,
+      "library_vs_independent_after": 1.2412670766236366e-16
+    },
+    {
+      "case": "random_0561",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 1.1102230246251565e-16,
+      "library_vs_independent_after": 6.734631938767465e-18
+    },
+    {
+      "case": "random_0562",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1443916996305594e-16,
+      "library_vs_independent_before": 6.206335383118183e-17,
+      "library_vs_independent_after": 7.850462293418876e-17
+    },
+    {
+      "case": "random_0563",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.7755575615628914e-16,
+      "library_vs_independent_before": 1.5700924586837752e-16,
+      "library_vs_independent_after": 1.684537394815139e-17
+    },
+    {
+      "case": "random_0564",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1104571854082422e-16,
+      "library_vs_independent_before": 1.5372966371155744e-18,
+      "library_vs_independent_after": 7.430459182126828e-19
+    },
+    {
+      "case": "random_0565",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.735609385308554e-32,
+      "library_vs_independent_before": 3.163757407787533e-17,
+      "library_vs_independent_after": 8.605242596838474e-34
+    },
+    {
+      "case": "random_0566",
+      "kind": "random",
+      "rule": "self-loop",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0567",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0568",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 2.2371143170757382e-17,
+      "library_vs_independent_after": 2.2371143170757382e-17
+    },
+    {
+      "case": "random_0569",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.3877787807814457e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0570",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0571",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 2.299347170293092e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0572",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 8.3367545586622e-17,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 2.805658274092449e-17
+    },
+    {
+      "case": "random_0573",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102380785015966e-16,
+      "library_vs_independent_before": 6.206335383118183e-17,
+      "library_vs_independent_after": 8.777083671441753e-17
+    },
+    {
+      "case": "random_0574",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.119707683121139e-16,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 1.1443916996305594e-16
+    },
+    {
+      "case": "random_0575",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 6.938893903907228e-17,
+      "library_vs_independent_before": 5.594315114139762e-17,
+      "library_vs_independent_after": 6.591949208711867e-17
+    },
+    {
+      "case": "random_0576",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 7.850462293418876e-17,
+      "library_vs_independent_after": 7.850462293418876e-17
+    },
+    {
+      "case": "random_0577",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.2301825219878386e-16,
+      "library_vs_independent_before": 1.1631705747361534e-16,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0578",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.342213888644167e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 1.1102230246251565e-16
+    },
+    {
+      "case": "random_0579",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.2705300141197633e-32,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0580",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0581",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 2.2002636261294155e-19,
+      "library_vs_independent_after": 3.2296286118541837e-18
+    },
+    {
+      "case": "random_0582",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 1.6653345369377348e-16,
+      "library_vs_independent_after": 1.6653345369377348e-16
+    },
+    {
+      "case": "random_0583",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 2.7755575615628914e-17,
+      "library_vs_independent_after": 2.7755575615628914e-17
+    },
+    {
+      "case": "random_0584",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 5.928593550334434e-17,
+      "library_vs_independent_before": 6.546139416680338e-17,
+      "library_vs_independent_after": 8.886119947416683e-17
+    },
+    {
+      "case": "random_0585",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 2.299347170293092e-17,
+      "library_vs_independent_after": 9.524207825395989e-18
+    },
+    {
+      "case": "random_0586",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 2.1628504089033294e-17,
+      "library_vs_independent_after": 2.1628504089033294e-17
+    },
+    {
+      "case": "random_0587",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 8.26491824985233e-17,
+      "library_vs_independent_before": 1.2392058102708777e-18,
+      "library_vs_independent_after": 1.1749677648701577e-17
+    },
+    {
+      "case": "random_0588",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 3.88617494031169e-16,
+      "library_vs_independent_before": 5.5786530077842e-17,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "random_0589",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.2412670766236366e-16,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0590",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 8.777083671441753e-17,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 3.925231146709438e-17
+    },
+    {
+      "case": "random_0591",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 5.551115123125783e-17,
+      "library_vs_independent_before": 1.9725280260694705e-18,
+      "library_vs_independent_after": 1.0101947908151197e-17
+    },
+    {
+      "case": "random_0592",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 6.206335383118183e-17,
+      "library_vs_independent_before": 1.4983385772098594e-19,
+      "library_vs_independent_after": 5.386149773972391e-18
+    },
+    {
+      "case": "random_0593",
+      "kind": "random",
+      "rule": "identity",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1102230246251565e-16,
+      "library_vs_independent_before": 5.551115123125783e-17,
+      "library_vs_independent_after": 6.162975822039155e-33
+    },
+    {
+      "case": "random_0594",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 2.220446049250313e-16,
+      "library_vs_independent_before": 2.3615800235104444e-17,
+      "library_vs_independent_after": 2.2371143170757382e-17
+    },
+    {
+      "case": "random_0595",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 2.7755575615628914e-17,
+      "library_vs_independent_before": 5.2277143695336184e-18,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0596",
+      "kind": "random",
+      "rule": "fuse",
+      "factor": "(1+0j)",
+      "after_vs_before": 1.1857187100668868e-16,
+      "library_vs_independent_before": 2.7755575615628914e-17,
+      "library_vs_independent_after": 5.551115123125783e-17
+    },
+    {
+      "case": "random_0597",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 2.7755575615628914e-17,
+      "library_vs_independent_before": 1.0750476754904619e-33,
+      "library_vs_independent_after": 1.2680115802435945e-33
+    },
+    {
+      "case": "random_0598",
+      "kind": "random",
+      "rule": "color-change",
+      "factor": "(1+0j)",
+      "after_vs_before": 0.0,
+      "library_vs_independent_before": 2.128753448022163e-19,
+      "library_vs_independent_after": 2.128753448022163e-19
+    },
+    {
+      "case": "random_0599",
+      "kind": "random",
+      "rule": "hopf",
+      "factor": "(0.5+0j)",
+      "after_vs_before": 1.1102323349816923e-16,
+      "library_vs_independent_before": 5.2461108044129936e-18,
+      "library_vs_independent_after": 1.7188202212260044e-19
+    },
+    {
+      "case": "graph_state_n3_0",
+      "kind": "graph-state",
+      "edges": 2,
+      "diagram_vs_statevector": 5.551115123125783e-17,
+      "after_vs_before": 5.551115123125783e-17,
+      "simplify_steps": 2,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "graph_state_n3_1",
+      "kind": "graph-state",
+      "edges": 1,
+      "diagram_vs_statevector": 5.551115123125783e-17,
+      "after_vs_before": 5.551115123125783e-17,
+      "simplify_steps": 2,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "graph_state_n3_2",
+      "kind": "graph-state",
+      "edges": 3,
+      "diagram_vs_statevector": 1.1102230246251565e-16,
+      "after_vs_before": 1.1102230246251565e-16,
+      "simplify_steps": 0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "graph_state_n4_0",
+      "kind": "graph-state",
+      "edges": 2,
+      "diagram_vs_statevector": 5.551115123125783e-17,
+      "after_vs_before": 5.551115123125783e-17,
+      "simplify_steps": 2,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "graph_state_n4_1",
+      "kind": "graph-state",
+      "edges": 5,
+      "diagram_vs_statevector": 8.326672684688674e-17,
+      "after_vs_before": 8.326672684688674e-17,
+      "simplify_steps": 0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "graph_state_n4_2",
+      "kind": "graph-state",
+      "edges": 4,
+      "diagram_vs_statevector": 1.1102230246251565e-16,
+      "after_vs_before": 1.1102230246251565e-16,
+      "simplify_steps": 0,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "graph_state_n5_0",
+      "kind": "graph-state",
+      "edges": 7,
+      "diagram_vs_statevector": 1.1102230246251565e-16,
+      "after_vs_before": 1.1102230246251565e-16,
+      "simplify_steps": 1,
+      "library_vs_independent_before": 2.7755575615628914e-17,
+      "library_vs_independent_after": 2.7755575615628914e-17
+    },
+    {
+      "case": "graph_state_n5_1",
+      "kind": "graph-state",
+      "edges": 5,
+      "diagram_vs_statevector": 8.326672684688674e-17,
+      "after_vs_before": 8.326672684688674e-17,
+      "simplify_steps": 1,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "graph_state_n5_2",
+      "kind": "graph-state",
+      "edges": 4,
+      "diagram_vs_statevector": 5.551115123125783e-17,
+      "after_vs_before": 5.551115123125783e-17,
+      "simplify_steps": 2,
+      "library_vs_independent_before": 0.0,
+      "library_vs_independent_after": 0.0
+    },
+    {
+      "case": "mbqc_branch_{0: 0, 1: 0}",
+      "kind": "mbqc-branch",
+      "after_vs_before": 1.2412670766236366e-16,
+      "diagram_vs_statevector": 1.2412670766236366e-16,
+      "library_vs_independent_before": 6.206335383118183e-17
+    },
+    {
+      "case": "mbqc_branch_{0: 0, 1: 1}",
+      "kind": "mbqc-branch",
+      "after_vs_before": 1.8041124150158794e-16,
+      "diagram_vs_statevector": 2.2729511820139823e-16,
+      "library_vs_independent_before": 6.206335383118183e-17
+    },
+    {
+      "case": "mbqc_branch_{0: 1, 1: 0}",
+      "kind": "mbqc-branch",
+      "after_vs_before": 1.430489624538199e-16,
+      "diagram_vs_statevector": 1.6883057536160646e-16,
+      "library_vs_independent_before": 0.0
+    },
+    {
+      "case": "mbqc_branch_{0: 1, 1: 1}",
+      "kind": "mbqc-branch",
+      "after_vs_before": 1.6883057536160646e-16,
+      "diagram_vs_statevector": 1.6883057536160646e-16,
+      "library_vs_independent_before": 2.7755575615628914e-17
+    }
+  ],
+  "seed": 20261156,
+  "scope": "QUBIT ZX subset only (no CV-ZX, no pi-copy, no ZX local complementation/pivoting)",
+  "backend": "independent einsum tensor evaluator (NumPy complex128) vs photographiq.calculus.zx",
+  "precision": "complex128",
+  "scalar_convention": "exact scalars tracked by every rewrite; matrices compared with no phase/normalisation freedom",
+  "parameters": {
+    "n_random": 600
+  },
+  "acceptance": {
+    "TOL_EXACT": 1e-12,
+    "MIN_RANDOM_APPLIED": 100
+  },
+  "random_rule_counts": {
+    "fuse": 140,
+    "identity": 55,
+    "color-change": 288,
+    "self-loop": 25,
+    "hopf": 63,
+    "hadamard-pair": 17,
+    "copy": 9,
+    "bialgebra": 3
+  },
+  "worst": {
+    "after_vs_before": 1.1443916996305592e-15,
+    "library_vs_independent_before": 2.2887833992611187e-16,
+    "library_vs_independent_after": 3.164630776485893e-16,
+    "closed_form_error": 2.220446049250313e-16,
+    "diagram_vs_statevector": 2.2729511820139823e-16
+  }
+}

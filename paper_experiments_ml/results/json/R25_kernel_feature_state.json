@@ -1,0 +1,76 @@
+{
+  "rows": [
+    {
+      "sample": 0,
+      "x0": 0.14855491724728864,
+      "x1": 5.660693756345847,
+      "density_matrix_error": 1.1010121080331971e-15
+    },
+    {
+      "sample": 1,
+      "x0": -4.4716221861221825,
+      "x1": 5.637895228653949,
+      "density_matrix_error": 1.34593134880857e-15
+    },
+    {
+      "sample": 2,
+      "x0": -2.3645957120020693,
+      "x1": -0.9635082585295942,
+      "density_matrix_error": 1.6158708806765113e-15
+    },
+    {
+      "sample": 3,
+      "x0": 4.118032245234479,
+      "x1": -1.1410373044890063,
+      "density_matrix_error": 7.882513446484688e-16
+    },
+    {
+      "sample": 4,
+      "x0": 0.6232126594324416,
+      "x1": -5.9368672763640955,
+      "density_matrix_error": 2.2562366424003522e-15
+    },
+    {
+      "sample": 5,
+      "x0": 3.1857396792059323,
+      "x1": 0.4793230103730357,
+      "density_matrix_error": 1.2947771581522365e-15
+    },
+    {
+      "sample": 6,
+      "x0": -2.139654354343185,
+      "x1": 3.6245019831004175,
+      "density_matrix_error": 1.0657043180891246e-15
+    },
+    {
+      "sample": 7,
+      "x0": -2.473126713943413,
+      "x1": -0.5843627551360235,
+      "density_matrix_error": 1.3159478798134005e-15
+    },
+    {
+      "sample": 8,
+      "x0": -4.598767661793986,
+      "x1": -1.217518120023814,
+      "density_matrix_error": 1.5584649013859688e-15
+    },
+    {
+      "sample": 9,
+      "x0": -3.7264913494094465,
+      "x1": -2.9868586540967352,
+      "density_matrix_error": 2.1726154085300423e-15
+    }
+  ],
+  "protocol": "MuTAKernel.features vs. independent kron/tensor-reshape contraction",
+  "oracle_class": "D",
+  "status_category": "exact",
+  "tolerance": 4.440892098500626e-14,
+  "acceptance_condition": "max density-matrix error < 4.441e-14",
+  "max_error": 2.2562366424003522e-15,
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

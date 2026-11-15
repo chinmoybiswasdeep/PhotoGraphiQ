@@ -1,0 +1,257 @@
+{
+  "rows": [
+    {
+      "n_wires": 1,
+      "n_layers": 1,
+      "one_column": true,
+      "n_nodes": 5,
+      "seed": 0,
+      "skipped": false,
+      "density_matrix_error": 2.273786106096902e-16,
+      "branch_probability": 0.0624999999999999
+    },
+    {
+      "n_wires": 1,
+      "n_layers": 1,
+      "one_column": true,
+      "n_nodes": 5,
+      "seed": 1,
+      "skipped": false,
+      "density_matrix_error": 8.994662104450107e-16,
+      "branch_probability": 0.06249999999999991
+    },
+    {
+      "n_wires": 1,
+      "n_layers": 1,
+      "one_column": true,
+      "n_nodes": 5,
+      "seed": 2,
+      "skipped": false,
+      "density_matrix_error": 2.969969134149246e-16,
+      "branch_probability": 0.062499999999999944
+    },
+    {
+      "n_wires": 1,
+      "n_layers": 1,
+      "one_column": true,
+      "n_nodes": 5,
+      "seed": 3,
+      "skipped": false,
+      "density_matrix_error": 5.616285672668959e-16,
+      "branch_probability": 0.0624999999999999
+    },
+    {
+      "n_wires": 1,
+      "n_layers": 3,
+      "one_column": true,
+      "n_nodes": 13,
+      "seed": 0,
+      "skipped": false,
+      "density_matrix_error": 1.8925429821784087e-15,
+      "branch_probability": 0.00024414062499999883
+    },
+    {
+      "n_wires": 1,
+      "n_layers": 3,
+      "one_column": true,
+      "n_nodes": 13,
+      "seed": 1,
+      "skipped": false,
+      "density_matrix_error": 1.6090370598202176e-15,
+      "branch_probability": 0.00024414062499999886
+    },
+    {
+      "n_wires": 1,
+      "n_layers": 3,
+      "one_column": true,
+      "n_nodes": 13,
+      "seed": 2,
+      "skipped": false,
+      "density_matrix_error": 1.615244608115357e-15,
+      "branch_probability": 0.000244140624999999
+    },
+    {
+      "n_wires": 1,
+      "n_layers": 3,
+      "one_column": true,
+      "n_nodes": 13,
+      "seed": 3,
+      "skipped": false,
+      "density_matrix_error": 2.1095226490260947e-15,
+      "branch_probability": 0.00024414062499999864
+    },
+    {
+      "n_wires": 2,
+      "n_layers": 1,
+      "one_column": true,
+      "n_nodes": 10,
+      "seed": 0,
+      "skipped": false,
+      "density_matrix_error": 8.084387950199398e-16,
+      "branch_probability": 0.0039062499999999874
+    },
+    {
+      "n_wires": 2,
+      "n_layers": 1,
+      "one_column": true,
+      "n_nodes": 10,
+      "seed": 1,
+      "skipped": false,
+      "density_matrix_error": 9.820890880164723e-16,
+      "branch_probability": 0.0039062499999999883
+    },
+    {
+      "n_wires": 2,
+      "n_layers": 1,
+      "one_column": true,
+      "n_nodes": 10,
+      "seed": 2,
+      "skipped": false,
+      "density_matrix_error": 8.78016360745188e-16,
+      "branch_probability": 0.0039062499999999866
+    },
+    {
+      "n_wires": 2,
+      "n_layers": 1,
+      "one_column": true,
+      "n_nodes": 10,
+      "seed": 3,
+      "skipped": false,
+      "density_matrix_error": 2.194541560958827e-15,
+      "branch_probability": 0.0039062499999999857
+    },
+    {
+      "n_wires": 2,
+      "n_layers": 1,
+      "one_column": false,
+      "n_nodes": 18,
+      "seed": 0,
+      "skipped": false,
+      "density_matrix_error": 2.216676308539019e-15,
+      "branch_probability": 1.5258789062499905e-05
+    },
+    {
+      "n_wires": 2,
+      "n_layers": 1,
+      "one_column": false,
+      "n_nodes": 18,
+      "seed": 1,
+      "skipped": false,
+      "density_matrix_error": 2.2765192392716336e-15,
+      "branch_probability": 1.5258789062499912e-05
+    },
+    {
+      "n_wires": 2,
+      "n_layers": 1,
+      "one_column": false,
+      "n_nodes": 18,
+      "seed": 2,
+      "skipped": false,
+      "density_matrix_error": 2.2405964135179623e-15,
+      "branch_probability": 1.5258789062499886e-05
+    },
+    {
+      "n_wires": 2,
+      "n_layers": 1,
+      "one_column": false,
+      "n_nodes": 18,
+      "seed": 3,
+      "skipped": false,
+      "density_matrix_error": 3.919921279333596e-15,
+      "branch_probability": 1.52587890624999e-05
+    },
+    {
+      "n_wires": 2,
+      "n_layers": 2,
+      "one_column": true,
+      "n_nodes": 18,
+      "seed": 0,
+      "skipped": false,
+      "density_matrix_error": 2.4568937418001337e-15,
+      "branch_probability": 1.5258789062499902e-05
+    },
+    {
+      "n_wires": 2,
+      "n_layers": 2,
+      "one_column": true,
+      "n_nodes": 18,
+      "seed": 1,
+      "skipped": false,
+      "density_matrix_error": 2.5045242995727888e-15,
+      "branch_probability": 1.5258789062499907e-05
+    },
+    {
+      "n_wires": 2,
+      "n_layers": 2,
+      "one_column": true,
+      "n_nodes": 18,
+      "seed": 2,
+      "skipped": false,
+      "density_matrix_error": 1.9768505211403245e-15,
+      "branch_probability": 1.525878906249991e-05
+    },
+    {
+      "n_wires": 2,
+      "n_layers": 2,
+      "one_column": true,
+      "n_nodes": 18,
+      "seed": 3,
+      "skipped": false,
+      "density_matrix_error": 3.6242849681393884e-15,
+      "branch_probability": 1.5258789062499886e-05
+    },
+    {
+      "n_wires": 3,
+      "n_layers": 1,
+      "one_column": true,
+      "n_nodes": 15,
+      "seed": 0,
+      "skipped": false,
+      "density_matrix_error": 1.5532959846426024e-15,
+      "branch_probability": 0.00024414062499999886
+    },
+    {
+      "n_wires": 3,
+      "n_layers": 1,
+      "one_column": true,
+      "n_nodes": 15,
+      "seed": 1,
+      "skipped": false,
+      "density_matrix_error": 1.621915350957079e-15,
+      "branch_probability": 0.00024414062499999892
+    },
+    {
+      "n_wires": 3,
+      "n_layers": 1,
+      "one_column": true,
+      "n_nodes": 15,
+      "seed": 2,
+      "skipped": false,
+      "density_matrix_error": 1.6465148454927607e-15,
+      "branch_probability": 0.00024414062499999892
+    },
+    {
+      "n_wires": 3,
+      "n_layers": 1,
+      "one_column": true,
+      "n_nodes": 15,
+      "seed": 3,
+      "skipped": false,
+      "density_matrix_error": 2.7343866133256672e-15,
+      "branch_probability": 0.00024414062499999892
+    }
+  ],
+  "protocol": "MuTA.run vs. freshly written kron/tensor-reshape zero-branch contraction",
+  "oracle_class": "D",
+  "status_category": "exact",
+  "tolerance": 4.440892098500626e-14,
+  "acceptance_condition": "max density-matrix error < 4.441e-14",
+  "max_error": 3.919921279333596e-15,
+  "n_configurations_checked": 24,
+  "status": "pass",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

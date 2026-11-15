@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "Please cite the software version and commit, plus relevant upstream software and protocols."
 title: "PhotoGraphiQ"
 type: software
-version: 0.3.0
+version: 0.3.1
 license: MIT
 repository-code: "https://github.com/chinmoybiswasdeep/PhotoGraphiQ"
 authors:
@@ -12,5 +12,5 @@ preferred-citation:
   title: "PhotoGraphiQ"
   authors:
     - name: "PhotoGraphiQ contributors"
-  version: 0.3.0
+  version: 0.3.1
   url: "https://github.com/chinmoybiswasdeep/PhotoGraphiQ"

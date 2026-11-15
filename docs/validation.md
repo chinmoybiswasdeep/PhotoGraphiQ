@@ -2,8 +2,11 @@
 
 The test suite is executable evidence, not a proof of correctness for every
 possible input. Run `python -m pytest --cov=photographiq` to obtain current counts
-and coverage. The checked local environment is recorded in
-`paper/results/environment.json`; `requirements-lock.txt` freezes its dependencies.
+and coverage. Checked environments are recorded per validation run in `validation/*/environment.json`
+(for example `validation/gkp-logical/python-3.12/environment.json`) and in
+`benchmarks/results_20261112/summary.json`; `requirements-lock.txt` freezes the
+dependencies. The current per-requirement status is in the
+[master validation status](validation/MASTER_VALIDATION_STATUS.md).
 
 | Suite | Evidence |
 |---|---|
@@ -18,8 +21,8 @@ and coverage. The checked local environment is recorded in
 Deterministic floating-point comparisons generally use 1e-10–1e-13 on modest
 examples. Monte Carlo tests use fixed seeds and absolute tolerances appropriate
 to their finite shot counts; they are statistical checks rather than precision
-gate-fidelity claims. Piquasso and NumPy Gaussian backends share the exact
-conditioning adapter. Agreement between them alone is therefore not independent
+gate-fidelity claims. Piquasso, NumPy and native Gaussian backends share the exact
+conditioning adapter (`native-gaussian` subclasses the NumPy backend). Agreement between them alone is therefore not independent
 measurement validation: analytical Schur checks and independent measurement
 statistics supply that evidence. The affine Wigner analyzer is a separate
 implementation from conditional trajectories.
@@ -37,32 +40,49 @@ diag(z^2,z^-2). No such finite-detector approximation is used by PhotoGraphiQ.
 ## Implemented scope versus remaining research
 
 * Gaussian MBQC, affine gate compilation, total-order CV-flow certification and
-  finite-squeezing analysis are implemented. A full optimal CV-flow/order finder
-  is not. Binary gflow, Pauli flow and qubit Clifford preprocessing are not ported.
+  finite-squeezing analysis are implemented. `photographiq.flows` adds a CV order
+  search (`search_cv_order`, `find_cv_flow`) on weighted `Model.CV_GAUSSIAN` open
+  graphs: it finds an admissible total order whenever one exists (exactly in exact
+  arithmetic, up to `tolerance` numerically) and checks determinism numerically by
+  Gaussian postselection. It does not claim a minimal-depth order. Qubit causal
+  flow, plane-aware gflow and Pauli flow are implemented for `Model.QUBIT` only and
+  are never used as CV determinism certificates. `photographiq.calculus.clifford`
+  provides local Cliffords, local complementation and LC equivalence; Pauli
+  measurement removal as a graph preprocessing pass is not implemented.
 * The pure-Fock adapter supports resource experiments, photon counting and ideal
-  adaptive homodyne. Noisy Fock homodyne is rejected. Gaussian photon counting is rejected because its conditional
-  state is non-Gaussian. Mixed Fock preparation, GKP resources and non-Gaussian
-  universal compilation remain future work.
+  adaptive homodyne. Noisy Fock homodyne needs mixed-state conditioning: pure-Fock
+  backends reject it and the mixed-Fock backends (`piquasso-mixed-fock`,
+  `native-mixed-fock`) execute it. Gaussian photon counting is rejected because its
+  conditional state is non-Gaussian. Mixed Fock preparation (density-matrix and
+  mixed Gaussian inputs, loss and thermal noise) and finite-energy GKP resources are
+  implemented; see [Mixed Fock](user-guide/mixed-fock.md) and [GKP](user-guide/gkp.md).
+  Non-Gaussian compilation covers the Gaussian-plus-cubic gate set and experimental
+  Kerr synthesis only ([universal compilation](user-guide/universal-compilation.md));
+  arbitrary unitaries are not compiled.
 * Norm monitoring detects many cutoff problems but is not a rigorous Fock error
   certificate. Convergence must be checked at increasing total-photon cutoffs.
 * The Gaussian trajectory implementation uses dense covariance matrices, with
   physicality checks involving dense eigensolvers. It prioritizes validation over
   optimized large-resource scaling. Beam-splitter compilation is especially costly.
+  The C++ `native-gaussian` engine ($O(nk)$ local updates) and the optional CuPy batched
+  kernels address scaling; measured figures are in [performance](performance.md).
 * General-dyne simulation is supported, but exact channel analysis currently only
   supports homodyne and affine feed-forward. Nonlinear adaptive mixtures generally
   require trajectory observables rather than a Gaussian fit.
 * Generic mode mismatch, dephasing, experimental interferometer synthesis,
-  differentiable batching, hardware execution and fault-tolerance studies are not
-  implemented. Temporal and dual-rail graph labels alone do not model hardware.
+  hardware execution and fault-tolerance studies are not implemented. Batched
+  gradients exist only in the separate JAX path
+  (`autodiff.parameter_batch_expectation`, fixed topology and fixed outcomes);
+  `simulate()` trajectories are not differentiable. Temporal and dual-rail graph labels alone do not model hardware.
 
 ## Build and manuscript evidence
 
-The paper derives the convention choices, measurement updates, teleportation
-channel, compiler and frame transformations. Data are generated by
-`experiments/reproduce.py`; timing fields describe this machine only and are not
-comparative performance claims. The manuscript uses the official Quantum class.
-It is a draft with collective contributor metadata, to be finalized by the actual
-authors; no acceptance, DOI, affiliation or experimental result is invented.
+The derivations are in [theory](theory/index.md). Manuscript evidence is produced by
+`scripts/reproduce_manuscript.py` and the experiment suites in `paper_experiments/` and
+`paper_experiments_ml/` (see [Phase 4](validation/PHASE4_MANUSCRIPT_REPRODUCIBILITY.md));
+the older v0.2/v0.3 data were generated by `experiments/reproduce.py`. Timing fields
+describe the recording machine only. No acceptance, DOI, affiliation or experimental
+result is claimed.
 
 
 ## Non-Gaussian extension validation

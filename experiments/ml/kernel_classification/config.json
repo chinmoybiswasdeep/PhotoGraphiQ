@@ -1,0 +1,9 @@
+{
+  "seeds": [0, 1, 2],
+  "samples": 200,
+  "test_fraction": 0.2,
+  "svm_C": 1.0,
+  "backend": "logical",
+  "preprocessing": "none; raw generated coordinates are feature angles in radians",
+  "datasets": ["circles", "blobs", "moons"]
+}

@@ -1,12 +1,13 @@
 """Algebraic finite-model tests, distinct from infinite-space convergence claims."""
 
 import numpy as np
-import piquasso as pq
 import pytest
 from scipy.special import gammaln
 
 import photographiq as pg
 from tests.fock.reference import cubic, kerr, phase_aligned_distance, quadratic, rotation
+
+pq = pytest.importorskip("piquasso")  # reference simulator: optional extra
 
 
 def source_vector(kind, cutoff):

@@ -1,0 +1,3 @@
+case,status,decision,has_witnesses,expected,ok
+singular_bridge_cv_flow,not_certified,impossible,True,not_certified/impossible with rational witnesses,True
+qubit_gflow_on_cv_graph,unsupported,,False,unsupported,True

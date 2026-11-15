@@ -2,9 +2,19 @@
 
 PhotoGraphiQ provides physical encoded primitives; PhotoGraphiQML decides which
 logical operations its model requests. No ML, MuTA, optimizer or MentPy dependency
-is added to PhotoGraphiQ. The sibling PhotoGraphiQML checkout was audited, including
-its bridge, logical executor, MuTA model, mapping, audit and release assessment.
-Its `GKPBridge.run()` remains unsupported and was not modified.
+is added to PhotoGraphiQ.
+
+**Unified repository.** PhotoGraphiQML now lives in this repository as
+`src/photographiqml` and ships in the same distribution. The dependency remains
+one-directional: `photographiqml` imports only public top-level `photographiq`
+names (checked at runtime by `photographiqml.lowering.check_photographiq_contract`
+and in `tests/ml/cross_layer/test_contract.py`), and `photographiq` never imports
+`photographiqml`. This page is the single authoritative interface contract between
+the two packages; the earlier wording below about a separate "downstream" checkout
+describes how the contract was originally audited (core commit `db07f9f`, whose
+`src/photographiq` is byte-identical to the merge base). `GKPBridge.run()` on a
+legacy resource-only model remains unsupported; `PhysicalMuTA` is the supported
+restricted path.
 
 ## Stable interfaces
 

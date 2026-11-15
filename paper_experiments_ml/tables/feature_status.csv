@@ -1,0 +1,11 @@
+feature,logical,physical
+Logical X/XY(0),Yes,Yes
+Logical XY(pi),Yes,Yes (flipped bit)
+Logical Z (output/instrument),Yes,Output only
+Logical Y / XY(pi/2),Yes,Unsupported
+XY(pi/4),Yes,Unsupported
+Arbitrary XY,Yes,Unsupported
+Continuous logical training,Yes (Adam/SGD/L-BFGS),No (categorical DiscreteSearch only)
+Eq. 5 kernel,Yes,Unsupported
+QuantumInstrumentModel,Yes,Unsupported
+Soft decoder for flow-based execution,n/a,Rejected before allocation

@@ -10,7 +10,7 @@ import photographiq as pg
 
 pattern = pg.Pattern(inputs=(0,)).append(pg.Kerr(0, 0.2)).append(pg.Loss(0, 0.6))
 result = pg.simulate(
-    pattern, inputs={0: pg.FockInput.number(2)}, backend="piquasso-mixed-fock", cutoff=6
+    pattern, inputs={0: pg.FockInput.number(2)}, backend="native-mixed-fock", cutoff=6
 )
 rho = result.state.density_matrix
 print("Photon probabilities:", result.state.probabilities)

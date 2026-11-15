@@ -1,0 +1,83 @@
+{
+  "python": "3.14.4",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "checks": [
+    {
+      "command": [
+        "-m",
+        "pytest",
+        "--cov=photographiqml",
+        "--cov-fail-under=90",
+        "--cov-report=json:D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\paper_experiments\\results\\validation\\ea56bf364c71-20260924T222124Z\\coverage.json",
+        "--cov-report=term-missing"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "-m",
+        "ruff",
+        "check",
+        "--exclude",
+        "paper_experiments/PhotoGraphiQML_Manuscript_Experiments.ipynb",
+        "src",
+        "tests",
+        "scripts",
+        "experiments",
+        "examples",
+        "paper_experiments"
+      ],
+      "returncode": 1
+    },
+    {
+      "command": [
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "--exclude",
+        "paper_experiments/PhotoGraphiQML_Manuscript_Experiments.ipynb",
+        "src",
+        "tests",
+        "scripts",
+        "experiments",
+        "examples",
+        "paper_experiments"
+      ],
+      "returncode": 1
+    },
+    {
+      "command": [
+        "-m",
+        "mypy"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "-m",
+        "build",
+        "--outdir",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\paper_experiments\\results\\validation\\ea56bf364c71-20260924T222124Z\\dist"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "-m",
+        "mkdocs",
+        "build",
+        "--strict",
+        "--site-dir",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\paper_experiments\\results\\validation\\ea56bf364c71-20260924T222124Z\\site"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "scripts/execute_tutorials.py"
+      ],
+      "returncode": 0
+    }
+  ]
+}

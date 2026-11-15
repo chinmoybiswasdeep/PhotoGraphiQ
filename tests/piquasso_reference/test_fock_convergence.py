@@ -1,7 +1,9 @@
 import numpy as np
-import piquasso as pq
+import pytest
 
 import photographiq as pg
+
+pq = pytest.importorskip("piquasso")  # reference simulator: optional extra
 
 
 def test_fock_cz_raw_reference_and_cutoff_convergence():

@@ -1,0 +1,4509 @@
+{
+  "schema_version": 3,
+  "publication_mode": true,
+  "run_identifier": "ea56bf364c71-20260924T235941Z",
+  "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+  "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+  "evidence_commit": "7be58767780c2989ad32a14f6f1582893fda01fb",
+  "branch": "manuscript-experiments",
+  "dirty_source_paths": [],
+  "environment": {
+    "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+    "dependencies": {
+      "photographiqml": "0.2.0",
+      "photographiq": "0.3.1",
+      "mentpy": "0.1.0a15",
+      "piquasso": "8.0.1",
+      "numpy": "2.5.3",
+      "scipy": "1.18.1"
+    },
+    "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+    "photographiq_dirty": false,
+    "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+  },
+  "started_utc": "2026-09-24T23:59:41.144971+00:00",
+  "completed_utc": "2026-09-25T00:13:07.178785+00:00",
+  "expected_experiment_ids": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10",
+    "R11",
+    "R12",
+    "R13",
+    "R14",
+    "R15",
+    "R16",
+    "R17",
+    "R18",
+    "R19",
+    "R20",
+    "R21",
+    "R22",
+    "R23",
+    "R24",
+    "R25",
+    "R26",
+    "R27",
+    "R28",
+    "R29",
+    "R30",
+    "R31",
+    "R32",
+    "R33",
+    "R34",
+    "R35",
+    "R36",
+    "R37",
+    "R38",
+    "R39",
+    "R40",
+    "R41",
+    "R42",
+    "R43",
+    "R44",
+    "R45",
+    "R46",
+    "R47",
+    "R48",
+    "R_PERF",
+    "R50",
+    "R51",
+    "R52",
+    "R53",
+    "R54",
+    "R55",
+    "R56",
+    "R57",
+    "R58",
+    "R59"
+  ],
+  "completed_experiment_ids": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10",
+    "R11",
+    "R12",
+    "R13",
+    "R14",
+    "R15",
+    "R16",
+    "R17",
+    "R18",
+    "R19",
+    "R20",
+    "R21",
+    "R22",
+    "R23",
+    "R24",
+    "R25",
+    "R26",
+    "R27",
+    "R28",
+    "R29",
+    "R30",
+    "R31",
+    "R32",
+    "R33",
+    "R34",
+    "R35",
+    "R36",
+    "R37",
+    "R38",
+    "R39",
+    "R40",
+    "R41",
+    "R42",
+    "R43",
+    "R44",
+    "R45",
+    "R46",
+    "R47",
+    "R48",
+    "R_PERF",
+    "R50",
+    "R51",
+    "R52",
+    "R53",
+    "R54",
+    "R55",
+    "R56",
+    "R57",
+    "R58",
+    "R59"
+  ],
+  "resumed_experiment_ids": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10",
+    "R11",
+    "R12",
+    "R13",
+    "R14",
+    "R15",
+    "R16",
+    "R17",
+    "R18",
+    "R19",
+    "R20",
+    "R21",
+    "R22",
+    "R23",
+    "R24",
+    "R25",
+    "R26",
+    "R27",
+    "R28",
+    "R29",
+    "R30",
+    "R31",
+    "R32",
+    "R33",
+    "R34",
+    "R35",
+    "R36",
+    "R37",
+    "R38",
+    "R39",
+    "R40",
+    "R41",
+    "R42",
+    "R43",
+    "R44",
+    "R45",
+    "R46",
+    "R47",
+    "R48",
+    "R_PERF",
+    "R50",
+    "R51",
+    "R52",
+    "R53",
+    "R54",
+    "R55",
+    "R56",
+    "R57",
+    "R58",
+    "R59"
+  ],
+  "failed_experiment_ids": [],
+  "skipped_experiment_ids": [],
+  "counts": {
+    "expected": 59,
+    "completed_or_resumed": 59,
+    "executed": 0,
+    "resumed": 59,
+    "failed": 0,
+    "skipped": 0
+  },
+  "experiments": [
+    {
+      "experiment_id": "R1",
+      "script": "01_logical_foundations/01_triangle_anatomy.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "787d61ffdc5b73e81ad51883e5467865bb86d7d983f0734cf0a86dca50e46675",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R1_triangle_anatomy.csv",
+          "results/json/R1_triangle_anatomy.json",
+          "results/json/R1_triangle_anatomy.metadata.json",
+          "figures/pdf/R1_triangle_anatomy.pdf",
+          "figures/png/R1_triangle_anatomy.png",
+          "figures/svg/R1_triangle_anatomy.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "0929346d4cce78c35c5ed9dd625d1b635361ea32ec639f26fdd85aba3deb67dd",
+      "artifacts": [
+        {
+          "path": "results/csv/R1_triangle_anatomy.csv",
+          "size": 3482,
+          "sha256": "6b81cbcc3b1ff4d773d64f349a4aa37592cb43333cfc3a13549fc30d57dc77a3"
+        },
+        {
+          "path": "results/json/R1_triangle_anatomy.json",
+          "size": 27273,
+          "sha256": "b7f51c01115806c0755e007d79c2774b2dc21a3ede908009aee9288a8682b24f"
+        },
+        {
+          "path": "results/json/R1_triangle_anatomy.metadata.json",
+          "size": 1780,
+          "sha256": "7f5f25d8d165f8217dfca181b956aa1e6ae627a3e8e1490bd7f6e8b9c5a2f003"
+        },
+        {
+          "path": "figures/pdf/R1_triangle_anatomy.pdf",
+          "size": 18017,
+          "sha256": "7ddef6fb3728092e1def491b11a5fb2804e9e146e927548a11e3bb4dfc058624"
+        },
+        {
+          "path": "figures/png/R1_triangle_anatomy.png",
+          "size": 102096,
+          "sha256": "7b08ecde3eb68fa7ed4c4d42ac6e34aabbe20ea4d15888dbff8c9ce284793331"
+        },
+        {
+          "path": "figures/svg/R1_triangle_anatomy.svg",
+          "size": 69801,
+          "sha256": "28cfa4e3617aac15c1ca602eb7572880080460b8f27c4a5b682369ca2b758d1b"
+        }
+      ],
+      "log": "results/logs/01_triangle_anatomy.log"
+    },
+    {
+      "experiment_id": "R2",
+      "script": "01_logical_foundations/02_table_one_identities.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "05283f2072081d84c1b0f98be50947208567c21bdfb307d0afc1c1f5db8ad156",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R2_table_one_identities.csv",
+          "results/json/R2_table_one_identities.json",
+          "results/json/R2_table_one_identities.metadata.json",
+          "figures/pdf/R2_table_one_identities.pdf",
+          "figures/png/R2_table_one_identities.png",
+          "figures/svg/R2_table_one_identities.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "68a90d52179908dc3e821433d7f916632d1cdc0c6ecf3e3e8a42b0340d3dcd62",
+      "artifacts": [
+        {
+          "path": "results/csv/R2_table_one_identities.csv",
+          "size": 7632,
+          "sha256": "c61b73e872278a5000a5e321f0fc24c1d008839a622226a697f728b1593bb1eb"
+        },
+        {
+          "path": "results/json/R2_table_one_identities.json",
+          "size": 15794,
+          "sha256": "4923086e28236805e797d55b5e521aa9ae061162f87eb59a5b132bb52692fefa"
+        },
+        {
+          "path": "results/json/R2_table_one_identities.metadata.json",
+          "size": 1818,
+          "sha256": "b15e6c71f94845da4359a59e4d3118a125ffd1b1359bb498ac748f24048ffa3e"
+        },
+        {
+          "path": "figures/pdf/R2_table_one_identities.pdf",
+          "size": 22301,
+          "sha256": "31b7c3466fa1eb20a79c8a89b287f3cb41c6afb9e2ba52d4c92cefe3c9ee922b"
+        },
+        {
+          "path": "figures/png/R2_table_one_identities.png",
+          "size": 236397,
+          "sha256": "a36053db2bd56d400e57837a3156ed16ff33c5ec5f644eeee383636ce1d0f0df"
+        },
+        {
+          "path": "figures/svg/R2_table_one_identities.svg",
+          "size": 88634,
+          "sha256": "b42a54346212562aa99337e49f2a747b4b399c4a2a43a72d6a53be8d0ae3c2b7"
+        }
+      ],
+      "log": "results/logs/02_table_one_identities.log"
+    },
+    {
+      "experiment_id": "R3",
+      "script": "01_logical_foundations/03_entangling_identity.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "04f207e721275719151d601ed4336e78b4c1cfb1c163452f995e63f99f64e84f",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R3_entangling_identity.csv",
+          "results/json/R3_entangling_identity.json",
+          "results/json/R3_entangling_identity.metadata.json",
+          "figures/pdf/R3_entangling_identity.pdf",
+          "figures/png/R3_entangling_identity.png",
+          "figures/svg/R3_entangling_identity.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "60c76d288dc67864f5e47b46f4de9033c68bdc30000b5fd441138c6945fb9656",
+      "artifacts": [
+        {
+          "path": "results/csv/R3_entangling_identity.csv",
+          "size": 6316,
+          "sha256": "883b674dc718df155aac3e45d6f10c101e1130999c8c09428eeb7ff5bd96e383"
+        },
+        {
+          "path": "results/json/R3_entangling_identity.json",
+          "size": 15269,
+          "sha256": "5a72e48a1691ee63bb053d76346490184e80d3113b7cd4f5e38b499620d74cca"
+        },
+        {
+          "path": "results/json/R3_entangling_identity.metadata.json",
+          "size": 1780,
+          "sha256": "e3f53f3fda5d6b4af650d443fc05cc7abfd3772a3c552e03ed2c13437d3990fe"
+        },
+        {
+          "path": "figures/pdf/R3_entangling_identity.pdf",
+          "size": 20628,
+          "sha256": "25f36e2c4b890f377428a039f5892174c2a5a21584d3b311fd467c8313affee4"
+        },
+        {
+          "path": "figures/png/R3_entangling_identity.png",
+          "size": 240470,
+          "sha256": "15b48561344e0efe24c2ea1d8c9437cc0e438019bd7ba6e2f258140964bd27a7"
+        },
+        {
+          "path": "figures/svg/R3_entangling_identity.svg",
+          "size": 58175,
+          "sha256": "2b1b49f769888ad1e81b36c80b1a5bb1dbd085ac89e53a2a91320057392ea451"
+        }
+      ],
+      "log": "results/logs/03_entangling_identity.log"
+    },
+    {
+      "experiment_id": "R4",
+      "script": "01_logical_foundations/04_adaptive_branches.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "988e78cfc5c3d131a1b41998a48692128d4b53f861e0a40a226155e6f3fd7381",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R4_adaptive_branches.csv",
+          "results/json/R4_adaptive_branches.json",
+          "results/json/R4_adaptive_branches.metadata.json",
+          "figures/pdf/R4_adaptive_branches.pdf",
+          "figures/png/R4_adaptive_branches.png",
+          "figures/svg/R4_adaptive_branches.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "6dd4e4f7c12553e407eb34a7da5d38c374d877c48323de9e566af13009908184",
+      "artifacts": [
+        {
+          "path": "results/csv/R4_adaptive_branches.csv",
+          "size": 547,
+          "sha256": "d79be05574eb0b74dd42790fedde84d9f950c0b442525b5d38434b8a35382bb5"
+        },
+        {
+          "path": "results/json/R4_adaptive_branches.json",
+          "size": 2226,
+          "sha256": "a2386a6f7c04be10f31bf27ab1e5c57e6aac15c44e814e08157b29e0fe5f517d"
+        },
+        {
+          "path": "results/json/R4_adaptive_branches.metadata.json",
+          "size": 1780,
+          "sha256": "1e45ae67e62bc84e56f49d052550e1d52c4886cce08b5858cd3af3eeffb8c7c7"
+        },
+        {
+          "path": "figures/pdf/R4_adaptive_branches.pdf",
+          "size": 17107,
+          "sha256": "8c51b49513a62d9a666f5b64282e146b821c9f349234164575c6478c33c3ca0a"
+        },
+        {
+          "path": "figures/png/R4_adaptive_branches.png",
+          "size": 92127,
+          "sha256": "554c302cd74525373d487a221c6923ac6cdfb0d8cdd607540f211186b12f0592"
+        },
+        {
+          "path": "figures/svg/R4_adaptive_branches.svg",
+          "size": 47230,
+          "sha256": "82875d31737af7d422ea975a479a7e25d1f0f1915eef3d09a793b4e527d2ed12"
+        }
+      ],
+      "log": "results/logs/04_adaptive_branches.log"
+    },
+    {
+      "experiment_id": "R5",
+      "script": "01_logical_foundations/05_brute_force_agreement.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "de34e8f09b834e66c4c3f3fb8dd131aee173eae87ba85efaef18e1b0812ef497",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R5_brute_force_agreement.csv",
+          "results/json/R5_brute_force_agreement.json",
+          "results/json/R5_brute_force_agreement.metadata.json",
+          "figures/pdf/R5_brute_force_agreement.pdf",
+          "figures/png/R5_brute_force_agreement.png",
+          "figures/svg/R5_brute_force_agreement.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "9807c147a93a5e7a7148876d77c977fc1bf2cd7a484a459314a009b212cb9224",
+      "artifacts": [
+        {
+          "path": "results/csv/R5_brute_force_agreement.csv",
+          "size": 1638,
+          "sha256": "37e6f0ea8600bdd18806c088d2c1c42ced381628436b06b2b8d1bb423bf02663"
+        },
+        {
+          "path": "results/json/R5_brute_force_agreement.json",
+          "size": 6468,
+          "sha256": "b641c02ba4c4b7d3072b5c13af6fd9b88d247127f5c7046c6d9222c4886b683f"
+        },
+        {
+          "path": "results/json/R5_brute_force_agreement.metadata.json",
+          "size": 1780,
+          "sha256": "4d2311e8406dfd0c55fc33b8dfb2bdc1488afa59554b6d98f433649f210f0d18"
+        },
+        {
+          "path": "figures/pdf/R5_brute_force_agreement.pdf",
+          "size": 16839,
+          "sha256": "81b88c85521f64d8a46ebacd3b41ae6fa96785f839c055fac411778c8cb1e095"
+        },
+        {
+          "path": "figures/png/R5_brute_force_agreement.png",
+          "size": 118206,
+          "sha256": "2875d02d47a8a1af2ad145dda084b47272c51c3a0b3ec5334b8bb0f0a4af1145"
+        },
+        {
+          "path": "figures/svg/R5_brute_force_agreement.svg",
+          "size": 57928,
+          "sha256": "e9fe3f039cd77ac601fd0ae92a212f1b4aefa032cb3c501b863e6a3c84e9945b"
+        }
+      ],
+      "log": "results/logs/05_brute_force_agreement.log"
+    },
+    {
+      "experiment_id": "R6",
+      "script": "01_logical_foundations/06_batch_consistency.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "258abe8fbbfc850fbee6b0b1ea624d9dd5ac75f0e444c23ac34b483bc3b5451f",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R6_batch_consistency.csv",
+          "results/json/R6_batch_consistency.json",
+          "results/json/R6_batch_consistency.metadata.json",
+          "figures/pdf/R6_batch_consistency.pdf",
+          "figures/png/R6_batch_consistency.png",
+          "figures/svg/R6_batch_consistency.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "42bcb2d8e8af0c7ef595b52f85517bf25685fa1f77fd3bea9582593c1f000b26",
+      "artifacts": [
+        {
+          "path": "results/csv/R6_batch_consistency.csv",
+          "size": 190,
+          "sha256": "1346d9f17a99794f3492f833cf42638457f123b1905559f5983e1e3ba53cf7fb"
+        },
+        {
+          "path": "results/json/R6_batch_consistency.json",
+          "size": 1650,
+          "sha256": "ec436c1da8fb6f3ebba8d95058a1518d30abd8d7b0d1675632e8a020de0627ad"
+        },
+        {
+          "path": "results/json/R6_batch_consistency.metadata.json",
+          "size": 1780,
+          "sha256": "3748a7d118f701b9ff76aa86d1f37bddbce823836c95063463e96207783aa224"
+        },
+        {
+          "path": "figures/pdf/R6_batch_consistency.pdf",
+          "size": 14611,
+          "sha256": "a417d0549c4c8ca0d406ae7b884b79e65eb2289be22782aa79123de0ccfb2bf0"
+        },
+        {
+          "path": "figures/png/R6_batch_consistency.png",
+          "size": 62892,
+          "sha256": "efd331089ab574d3d9d23c2d486fdfeabc8559e5176f9cd288e303906a1d5b09"
+        },
+        {
+          "path": "figures/svg/R6_batch_consistency.svg",
+          "size": 32916,
+          "sha256": "237ed3c4ab3a86f4d9dfc77a5b22c9e9f7fcb4a02fa7de8cbc189db9574aef53"
+        }
+      ],
+      "log": "results/logs/06_batch_consistency.log"
+    },
+    {
+      "experiment_id": "R7",
+      "script": "02_mentpy_validation/07_semantic_topology.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "79adbdcf64199be13d926804ed53ef957c00e2aac7ae272ecf28ea120c4f8aed",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R7_semantic_topology.csv",
+          "results/json/R7_semantic_topology.json",
+          "results/json/R7_semantic_topology.metadata.json",
+          "figures/pdf/R7_semantic_topology.pdf",
+          "figures/png/R7_semantic_topology.png",
+          "figures/svg/R7_semantic_topology.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "e367f38953bc1b1838b3665e880318d830cf5c2056cfd4fad907b8d64f200209",
+      "artifacts": [
+        {
+          "path": "results/csv/R7_semantic_topology.csv",
+          "size": 1047,
+          "sha256": "f3d09534a8b9aa9270f2333653411a145efaf279e3e230ca39c2554eb928f4f9"
+        },
+        {
+          "path": "results/json/R7_semantic_topology.json",
+          "size": 7818,
+          "sha256": "6f4c993386e5a0509837494778da70eb9fec474769103857dc96ccb24303fe00"
+        },
+        {
+          "path": "results/json/R7_semantic_topology.metadata.json",
+          "size": 1780,
+          "sha256": "f53d4588065e3543d276a4b0dc8d374d07ba3d19c286531dfd8ec934281d794a"
+        },
+        {
+          "path": "figures/pdf/R7_semantic_topology.pdf",
+          "size": 16709,
+          "sha256": "49786780b3669623fd47e2eb97824b5449ebc1bbbbfb4b00053316a56032f3f2"
+        },
+        {
+          "path": "figures/png/R7_semantic_topology.png",
+          "size": 108333,
+          "sha256": "85188034e66cf17109fa90c264a0e8d0a1d9676829a325e6535982c39d6edbf1"
+        },
+        {
+          "path": "figures/svg/R7_semantic_topology.svg",
+          "size": 51879,
+          "sha256": "57bcd2176397ad0b1f1f42275c05cc303f9663053d67bcac84a9cc2c57980dc2"
+        }
+      ],
+      "log": "results/logs/07_semantic_topology.log"
+    },
+    {
+      "experiment_id": "R8",
+      "script": "02_mentpy_validation/08_flow_dependency_order.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "8217e19b097cf2c47b4bea3870dfdabe0b5b646d959a91c1a702e25fc735848c",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R8_flow_dependency_order.csv",
+          "results/json/R8_flow_dependency_order.json",
+          "results/json/R8_flow_dependency_order.metadata.json",
+          "figures/pdf/R8_flow_dependency_order.pdf",
+          "figures/png/R8_flow_dependency_order.png",
+          "figures/svg/R8_flow_dependency_order.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "c214f1512703e38dcc9e935db2ee85c0aad439a1c5a3f9f1b2dc1e9420445bc4",
+      "artifacts": [
+        {
+          "path": "results/csv/R8_flow_dependency_order.csv",
+          "size": 326,
+          "sha256": "d5be6176e144b02d99a72f523a3b42c6eaba5b7308c8ff38a530833f5f68aa06"
+        },
+        {
+          "path": "results/json/R8_flow_dependency_order.json",
+          "size": 3254,
+          "sha256": "01228350fe6a717d81d9e0d6d7c3d4af18588767ce0417284c7d0eb099bc94a7"
+        },
+        {
+          "path": "results/json/R8_flow_dependency_order.metadata.json",
+          "size": 1780,
+          "sha256": "ed43d8c78cebab871cabf3081f7865c9b0a3203ff9e4120aafcfe81ed1b8155b"
+        },
+        {
+          "path": "figures/pdf/R8_flow_dependency_order.pdf",
+          "size": 17861,
+          "sha256": "dd43eea333f00ed9eaf8a5c4eb20559f421cd54c1193c2a639ed498a25113870"
+        },
+        {
+          "path": "figures/png/R8_flow_dependency_order.png",
+          "size": 122139,
+          "sha256": "abb7ec737f168ea1fd65d0f1ab9927a5897eb8a8f469006b878d6bb96da64a5a"
+        },
+        {
+          "path": "figures/svg/R8_flow_dependency_order.svg",
+          "size": 59265,
+          "sha256": "92e0aa5eccf312696f674f7bcfc030cddfd39ecb0a1dbc4b056dc84d03998303"
+        }
+      ],
+      "log": "results/logs/08_flow_dependency_order.log"
+    },
+    {
+      "experiment_id": "R9",
+      "script": "02_mentpy_validation/09_state_density_agreement.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "1ea3126f6dcd45d1fa8b5af77abe52ba71977e958021c483cde5b4a28e740c02",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R9_state_density_agreement.csv",
+          "results/json/R9_state_density_agreement.json",
+          "results/json/R9_state_density_agreement.metadata.json",
+          "figures/pdf/R9_state_density_agreement.pdf",
+          "figures/png/R9_state_density_agreement.png",
+          "figures/svg/R9_state_density_agreement.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "3db5c141644b00039f44e2f3b2e52fb3f28b1ba1830c30317d50e4d5c6b234cb",
+      "artifacts": [
+        {
+          "path": "results/csv/R9_state_density_agreement.csv",
+          "size": 1666,
+          "sha256": "7a543ddd6fd9688f351f23f9a2e15ebfb8398a5390670dcb8b602d569e91f957"
+        },
+        {
+          "path": "results/json/R9_state_density_agreement.json",
+          "size": 7819,
+          "sha256": "401d81328d0bfac34e36e5901687c5f3c49af996d0b8acc40dc5eb528d4b2f6e"
+        },
+        {
+          "path": "results/json/R9_state_density_agreement.metadata.json",
+          "size": 1780,
+          "sha256": "d42555d5fd7fd64f20ab67f58339a20f9dc90a9ed1a1fa30188359ec790d9c64"
+        },
+        {
+          "path": "figures/pdf/R9_state_density_agreement.pdf",
+          "size": 19369,
+          "sha256": "0a04b2c9478967ad1d848556f52c17c9b697da6923c7913070a23f09e8734b74"
+        },
+        {
+          "path": "figures/png/R9_state_density_agreement.png",
+          "size": 93774,
+          "sha256": "2d640668c08a6c0252bd755a5efcf83bbf80b00ad8d2bf0885b1b501d31dce58"
+        },
+        {
+          "path": "figures/svg/R9_state_density_agreement.svg",
+          "size": 44367,
+          "sha256": "436ab0d3974de3f5b178e7a0cc79a96b709cdc14d0a0c79d8d26a9f9df3b1fa5"
+        }
+      ],
+      "log": "results/logs/09_state_density_agreement.log"
+    },
+    {
+      "experiment_id": "R10",
+      "script": "02_mentpy_validation/10_trainability_audit.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "c24ee6973e858c9ee48b89c679f9bb73812809a73f4e7003be30f39291e74d5e",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R10_trainability_audit.csv",
+          "results/json/R10_trainability_audit.json",
+          "results/json/R10_trainability_audit.metadata.json",
+          "figures/pdf/R10_trainability_audit.pdf",
+          "figures/png/R10_trainability_audit.png",
+          "figures/svg/R10_trainability_audit.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "68bfe459f2d843db5d860cf330f43edf791c9f676b138b6a1ead8a773ba4ae5d",
+      "artifacts": [
+        {
+          "path": "results/csv/R10_trainability_audit.csv",
+          "size": 458,
+          "sha256": "6b0ba799b0d7bb4dc24d0851a50e76a0ac6aacde7539778b50c697fbb823f918"
+        },
+        {
+          "path": "results/json/R10_trainability_audit.json",
+          "size": 3828,
+          "sha256": "5072949f6ab02a2ac345210f1fda103717138f49f21118246ae77422056482df"
+        },
+        {
+          "path": "results/json/R10_trainability_audit.metadata.json",
+          "size": 1783,
+          "sha256": "bd072b08952bf2eacd6d58f910bda4334e972e7dc11afab8d4c372a437cb9505"
+        },
+        {
+          "path": "figures/pdf/R10_trainability_audit.pdf",
+          "size": 18660,
+          "sha256": "8bce47dbe9468dfc46bb2e26221088887b9c2d61de78bc4f22dab46212a25274"
+        },
+        {
+          "path": "figures/png/R10_trainability_audit.png",
+          "size": 130928,
+          "sha256": "fe0b2ea178f1940958478a358a2d66d82b7cab35158bfd70bb597b6b1cff84a0"
+        },
+        {
+          "path": "figures/svg/R10_trainability_audit.svg",
+          "size": 57237,
+          "sha256": "8f624dbb282a1ca97d6c46534fcb25737cbb5401b56d68a743236e08ae59ca20"
+        }
+      ],
+      "log": "results/logs/10_trainability_audit.log"
+    },
+    {
+      "experiment_id": "R11",
+      "script": "02_mentpy_validation/11_kernel_gram_agreement.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "56c46fadd1af6c5c66c43b05533ec50bc5df2bafb07faf731aefd65c50312a74",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R11_kernel_gram_agreement.csv",
+          "results/json/R11_kernel_gram_agreement.json",
+          "results/json/R11_kernel_gram_agreement.metadata.json",
+          "figures/pdf/R11_kernel_gram_agreement.pdf",
+          "figures/png/R11_kernel_gram_agreement.png",
+          "figures/svg/R11_kernel_gram_agreement.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "a0e3a6e8746598942f3c591f7e9a9e29264c8aa4df78e416ae3a90bfba4e1ac7",
+      "artifacts": [
+        {
+          "path": "results/csv/R11_kernel_gram_agreement.csv",
+          "size": 533,
+          "sha256": "35ae4fa22e8e1e6b3a1fdfbf44c7881618445b2c92af703b7329736c3f5dca74"
+        },
+        {
+          "path": "results/json/R11_kernel_gram_agreement.json",
+          "size": 5406,
+          "sha256": "6160427dcd95346074c5aa0e12850ad3e4df9e474f13bc970ccf7fc70ffe667f"
+        },
+        {
+          "path": "results/json/R11_kernel_gram_agreement.metadata.json",
+          "size": 1781,
+          "sha256": "40c39b7290744d492fb6f66e5d61e0346e7c6387f24b42b7730bf49758fa4998"
+        },
+        {
+          "path": "figures/pdf/R11_kernel_gram_agreement.pdf",
+          "size": 33927,
+          "sha256": "bf5a6bf41086948309d079a7c23bf24d5565fe883f067911539b67368b770001"
+        },
+        {
+          "path": "figures/png/R11_kernel_gram_agreement.png",
+          "size": 138612,
+          "sha256": "5ebc679cc8102a2395204bfb071f8968602d2a567a9ead7934a67f17c92212f7"
+        },
+        {
+          "path": "figures/svg/R11_kernel_gram_agreement.svg",
+          "size": 76268,
+          "sha256": "3a8665a38ed9e2ead33b5b0852682545f2aacfe94a97bea45ac4484ff1236c85"
+        }
+      ],
+      "log": "results/logs/11_kernel_gram_agreement.log"
+    },
+    {
+      "experiment_id": "R12",
+      "script": "02_mentpy_validation/12_instrument_agreement.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "a250a99225334e333079cded614c079c074050e7aebc53ccdc4616db8edd8d58",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R12_instrument_agreement.csv",
+          "results/json/R12_instrument_agreement.json",
+          "results/json/R12_instrument_agreement.metadata.json",
+          "figures/pdf/R12_instrument_agreement.pdf",
+          "figures/png/R12_instrument_agreement.png",
+          "figures/svg/R12_instrument_agreement.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "e4d184ea651d7d153f3cde13559928d6868986a0ef900c7d64a221ac67300b65",
+      "artifacts": [
+        {
+          "path": "results/csv/R12_instrument_agreement.csv",
+          "size": 1218,
+          "sha256": "f9e0794be78f1ec0675b4d4d51fbc0d7966d44b913655cb5816d970864dd7c44"
+        },
+        {
+          "path": "results/json/R12_instrument_agreement.json",
+          "size": 4310,
+          "sha256": "3c162b41964f665c29b73480d6fcd889907e2e223cf6388ed385424fa2fa1ac0"
+        },
+        {
+          "path": "results/json/R12_instrument_agreement.metadata.json",
+          "size": 1781,
+          "sha256": "f89743a0219133968d9913a0d1f3d346ab27562c4182ca723c312df6bb87b500"
+        },
+        {
+          "path": "figures/pdf/R12_instrument_agreement.pdf",
+          "size": 21988,
+          "sha256": "31273a5daea37260f38c3360a1427536e7213129195799dc380e56a2edc5fef2"
+        },
+        {
+          "path": "figures/png/R12_instrument_agreement.png",
+          "size": 141047,
+          "sha256": "41fbb79cddbd01427bdfbb8f1db25b08f94b438a709f017c1cb9919ff3da3f73"
+        },
+        {
+          "path": "figures/svg/R12_instrument_agreement.svg",
+          "size": 70476,
+          "sha256": "45475518297df7438814d06375fa377b7d9bffa1aa9788f3f7a9a42d54e323b1"
+        }
+      ],
+      "log": "results/logs/12_instrument_agreement.log"
+    },
+    {
+      "experiment_id": "R13",
+      "script": "02_mentpy_validation/13_runtime_scaling.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "e0634cc7e9586d43217d394cb2b0e6eef939ca266abf6a916cedf5cdce3aa17f",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R13_runtime_scaling.csv",
+          "results/json/R13_runtime_scaling.json",
+          "results/json/R13_runtime_scaling.metadata.json",
+          "figures/pdf/R13_runtime_scaling.pdf",
+          "figures/png/R13_runtime_scaling.png",
+          "figures/svg/R13_runtime_scaling.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "f2de35ade52fd7914b6c9fcba5a020a2f6877c3878d22856b47273688e651762",
+      "artifacts": [
+        {
+          "path": "results/csv/R13_runtime_scaling.csv",
+          "size": 793,
+          "sha256": "3af30d18afc7ba63474a8e46e8185db5c172494854d036903632225436b03e01"
+        },
+        {
+          "path": "results/json/R13_runtime_scaling.json",
+          "size": 2276,
+          "sha256": "c80047569366df32fdab203393bb27a566b79dd1ecb0e0578ccd324aff181714"
+        },
+        {
+          "path": "results/json/R13_runtime_scaling.metadata.json",
+          "size": 1786,
+          "sha256": "9403a6b53389a4a63195481290da955f8fc530857b97ae128de8e071ff2495d7"
+        },
+        {
+          "path": "figures/pdf/R13_runtime_scaling.pdf",
+          "size": 21327,
+          "sha256": "6cdfbc7f6773d37456d74ee16bc727b39da9202d62145baf7eb73faa1524aa09"
+        },
+        {
+          "path": "figures/png/R13_runtime_scaling.png",
+          "size": 171734,
+          "sha256": "76dc69954aee46f8b52357280630e8af01ab32b0bd7bf0071c777d99912aa26f"
+        },
+        {
+          "path": "figures/svg/R13_runtime_scaling.svg",
+          "size": 58729,
+          "sha256": "7dd95b756a63b0e669dea32e54e6b4a484ec2e94d5f1e8e6fcb5268c76abf7a5"
+        }
+      ],
+      "log": "results/logs/13_runtime_scaling.log"
+    },
+    {
+      "experiment_id": "R14",
+      "script": "03_parameters_and_contracts/14_parameter_contracts.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "78b07db1cf4dc766a145e8f36e67c001170834812ec0c239c1e3a204992a3040",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R14_parameter_contracts.csv",
+          "results/json/R14_parameter_contracts.json",
+          "results/json/R14_parameter_contracts.metadata.json",
+          "figures/pdf/R14_parameter_contracts.pdf",
+          "figures/png/R14_parameter_contracts.png",
+          "figures/svg/R14_parameter_contracts.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "ac29bd04bb98988aafbb938020d77776a7d3fbaacc5e5ce8b0a95430e07da65d",
+      "artifacts": [
+        {
+          "path": "results/csv/R14_parameter_contracts.csv",
+          "size": 490,
+          "sha256": "cfa1a20e5f05e934b920e2966b2a291b517411b461374eee48ad68caad1e57a2"
+        },
+        {
+          "path": "results/json/R14_parameter_contracts.json",
+          "size": 1554,
+          "sha256": "bc50da1e93a557d6a9686acf12152dc3ad8ab578447a16dda585495f16567c95"
+        },
+        {
+          "path": "results/json/R14_parameter_contracts.metadata.json",
+          "size": 1781,
+          "sha256": "c784e923caa8db46773030ad736c747c2291b4124bacea5d6b39399488c7cad7"
+        },
+        {
+          "path": "figures/pdf/R14_parameter_contracts.pdf",
+          "size": 15710,
+          "sha256": "198e4f3b58df8efe82e27d4ad0e7fdde5d10b3a9ea3f67b78725f549defde8de"
+        },
+        {
+          "path": "figures/png/R14_parameter_contracts.png",
+          "size": 113552,
+          "sha256": "d84b6b9a2debc7f33292b991bfd5ec132509b471190313f9c8dadcf2556b9baa"
+        },
+        {
+          "path": "figures/svg/R14_parameter_contracts.svg",
+          "size": 57089,
+          "sha256": "732eebabd07760279d462798039279fb116e788e9ca3f0de930602cc06d3d212"
+        }
+      ],
+      "log": "results/logs/14_parameter_contracts.log"
+    },
+    {
+      "experiment_id": "R15",
+      "script": "03_parameters_and_contracts/15_persistence_roundtrip.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "1c818a8282ac9e1ac634be91e77a3aba0f691d3aaa2f3ab33d89a65cdb169569",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R15_persistence_roundtrip.csv",
+          "results/json/R15_persistence_roundtrip.json",
+          "results/json/R15_persistence_roundtrip.metadata.json",
+          "figures/pdf/R15_persistence_roundtrip.pdf",
+          "figures/png/R15_persistence_roundtrip.png",
+          "figures/svg/R15_persistence_roundtrip.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "e3dca3d2b5e2a24ca5d408b568247cd21f664c969982fb1fb5e4f46fb17ab41f",
+      "artifacts": [
+        {
+          "path": "results/csv/R15_persistence_roundtrip.csv",
+          "size": 192,
+          "sha256": "e1422dcf7b8bf42a6a2393d1a21b1581f3cb16950863b23c2c3a8408f65a51fc"
+        },
+        {
+          "path": "results/json/R15_persistence_roundtrip.json",
+          "size": 1286,
+          "sha256": "05c08c27e01d67d7ebcb3930adb8d7521554ff05cff7d18ee877df035f1b7020"
+        },
+        {
+          "path": "results/json/R15_persistence_roundtrip.metadata.json",
+          "size": 1781,
+          "sha256": "a7d9fb380595c36a00ca171fcd93ad802265e8de8aac71ab1b11692b876ac656"
+        },
+        {
+          "path": "figures/pdf/R15_persistence_roundtrip.pdf",
+          "size": 15779,
+          "sha256": "cde2b21e616e7141b3ee195a4ebc23cca6b547300591746b9dfa5dc4f3f814e2"
+        },
+        {
+          "path": "figures/png/R15_persistence_roundtrip.png",
+          "size": 66697,
+          "sha256": "c54e49f5fe8d7876eb6ddef2ab884fa8e5c05c48c6cfb8b0082a107e0a08f509"
+        },
+        {
+          "path": "figures/svg/R15_persistence_roundtrip.svg",
+          "size": 32904,
+          "sha256": "94ac6e15a09676673d917624b33f3b3139780ef337ba4d65b66e54f5db9dcb0e"
+        }
+      ],
+      "log": "results/logs/15_persistence_roundtrip.log"
+    },
+    {
+      "experiment_id": "R16",
+      "script": "03_parameters_and_contracts/16_invalid_input_matrix.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "ab777234142c2a611c25ea972068f4485fce78aacea72f5a7f47eec20211beaa",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R16_invalid_input_matrix.csv",
+          "results/json/R16_invalid_input_matrix.json",
+          "results/json/R16_invalid_input_matrix.metadata.json",
+          "figures/pdf/R16_invalid_input_matrix.pdf",
+          "figures/png/R16_invalid_input_matrix.png",
+          "figures/svg/R16_invalid_input_matrix.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "fbf5282daf326d637783699485973a6db74472faf93eac5d93b95d2b11594f35",
+      "artifacts": [
+        {
+          "path": "results/csv/R16_invalid_input_matrix.csv",
+          "size": 1658,
+          "sha256": "321e73a75acb368d75b334a4c9608900db4601d55a845895c296753998494cb9"
+        },
+        {
+          "path": "results/json/R16_invalid_input_matrix.json",
+          "size": 4615,
+          "sha256": "f38676bf8678e35934783479b0ac050d701691a09e910f42f704e0325623f20c"
+        },
+        {
+          "path": "results/json/R16_invalid_input_matrix.metadata.json",
+          "size": 1781,
+          "sha256": "36d4e0fba9ac8bc3a150818ccd6015b0961bedbe6eec3bb66a40385522abaec9"
+        },
+        {
+          "path": "figures/pdf/R16_invalid_input_matrix.pdf",
+          "size": 17164,
+          "sha256": "82f458601a4b2735879eec752d0aa6a804c2816639ba00414caf2a137b8bc045"
+        },
+        {
+          "path": "figures/png/R16_invalid_input_matrix.png",
+          "size": 179714,
+          "sha256": "d90ce56b4d6ad1e652d5ffddeecf514d655d4954c613484d20c4d91b41069550"
+        },
+        {
+          "path": "figures/svg/R16_invalid_input_matrix.svg",
+          "size": 88032,
+          "sha256": "df84b89280220ebfc16e50511136a8bc7e2ac70862814a2c20a0a6c9cb6cb363"
+        }
+      ],
+      "log": "results/logs/16_invalid_input_matrix.log"
+    },
+    {
+      "experiment_id": "R17",
+      "script": "03_parameters_and_contracts/17_seeded_reproducibility.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "008c9f5fa3de40edb8f5f56f5ba6429c103f3eb35f1bda080466e3b0da91a849",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R17_seeded_reproducibility.csv",
+          "results/json/R17_seeded_reproducibility.json",
+          "results/json/R17_seeded_reproducibility.metadata.json",
+          "figures/pdf/R17_seeded_reproducibility.pdf",
+          "figures/png/R17_seeded_reproducibility.png",
+          "figures/svg/R17_seeded_reproducibility.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "b8de5fe1a68cc45ceef7a0717d2f27ea65f15473ba5112b4a8cba5205034301b",
+      "artifacts": [
+        {
+          "path": "results/csv/R17_seeded_reproducibility.csv",
+          "size": 256,
+          "sha256": "70cf437f7ee5532554f86b9ccfadd1ce1ef3c7f3b05835ddac8c1c46e6cfbfac"
+        },
+        {
+          "path": "results/json/R17_seeded_reproducibility.json",
+          "size": 1331,
+          "sha256": "70edda4adcc6d35853ca9ca558dd52b48269e090953f2c213cb6a1565c755c98"
+        },
+        {
+          "path": "results/json/R17_seeded_reproducibility.metadata.json",
+          "size": 1781,
+          "sha256": "4bc208246abd723be7a00e700b8ba98a3e62135887cdff3c629d998f73fbacb6"
+        },
+        {
+          "path": "figures/pdf/R17_seeded_reproducibility.pdf",
+          "size": 17131,
+          "sha256": "8562255f721cb834c293cb7627a4c5edb7cacff564e3525523561f5d807755a9"
+        },
+        {
+          "path": "figures/png/R17_seeded_reproducibility.png",
+          "size": 101213,
+          "sha256": "5aabf3f603618fd9e72a472b0996f4c4bcb4a43e53bab80c1d7da79bc6e37887"
+        },
+        {
+          "path": "figures/svg/R17_seeded_reproducibility.svg",
+          "size": 46214,
+          "sha256": "09ff37388e1efc4f6992c283e897e7615e47c26de98a8fb134dca1ddb3ac983f"
+        }
+      ],
+      "log": "results/logs/17_seeded_reproducibility.log"
+    },
+    {
+      "experiment_id": "R18",
+      "script": "04_gradients_and_training/18_parameter_shift_vs_fd.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "baf2ddf8977379dce9b491d18979e537f320f6912dbd56cad318c0ece50c207d",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R18_parameter_shift_vs_fd.csv",
+          "results/json/R18_parameter_shift_vs_fd.json",
+          "results/json/R18_parameter_shift_vs_fd.metadata.json",
+          "figures/pdf/R18_parameter_shift_vs_fd.pdf",
+          "figures/png/R18_parameter_shift_vs_fd.png",
+          "figures/svg/R18_parameter_shift_vs_fd.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "cbaf20dfb1d9175bb8fc693052c7a763af2a2209f360d63b87d2e03ff75016b9",
+      "artifacts": [
+        {
+          "path": "results/csv/R18_parameter_shift_vs_fd.csv",
+          "size": 2839,
+          "sha256": "c897127ff932c7622dd0b3f2501443030d26cc67da3eaeab50824147a18d9298"
+        },
+        {
+          "path": "results/json/R18_parameter_shift_vs_fd.json",
+          "size": 8067,
+          "sha256": "083c2af272431260da9437eed27923363a21a41d607b2568a0b6aade7a0d5a20"
+        },
+        {
+          "path": "results/json/R18_parameter_shift_vs_fd.metadata.json",
+          "size": 1781,
+          "sha256": "6f539818ec98f3ebddab3c81095a925d291b3aca8e309bd96841338b516d5d1b"
+        },
+        {
+          "path": "figures/pdf/R18_parameter_shift_vs_fd.pdf",
+          "size": 22514,
+          "sha256": "c8111e996ebfed3196e2dbc823c1d8d6d59d8a73a7e8665edc74fdc3d5966e0b"
+        },
+        {
+          "path": "figures/png/R18_parameter_shift_vs_fd.png",
+          "size": 252462,
+          "sha256": "e689d62dac330f8e0e88cdc60d506395fff57573975ba884e063e677eb36165d"
+        },
+        {
+          "path": "figures/svg/R18_parameter_shift_vs_fd.svg",
+          "size": 88030,
+          "sha256": "919715e6a52509ac52b135644b782efa33f57dcc1886b92d2f13734ea68498d2"
+        }
+      ],
+      "log": "results/logs/18_parameter_shift_vs_fd.log"
+    },
+    {
+      "experiment_id": "R19",
+      "script": "04_gradients_and_training/19_optimizer_convergence.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "61cb70c37719f0d0153f41d623efa1103104e45a6767343f13be290eb6a2597c",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R19_optimizer_convergence.csv",
+          "results/json/R19_optimizer_convergence.json",
+          "results/json/R19_optimizer_convergence.metadata.json",
+          "figures/pdf/R19_optimizer_convergence.pdf",
+          "figures/png/R19_optimizer_convergence.png",
+          "figures/svg/R19_optimizer_convergence.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "0922f9a899cc2e4c4f53b7711181514abe5638ffad7fad495af8ea406bc111ba",
+      "artifacts": [
+        {
+          "path": "results/csv/R19_optimizer_convergence.csv",
+          "size": 685,
+          "sha256": "6ef21106ff459b9317df06dfcc9cc8cc0ce2dabf13a94ca3c2b6554fc7055151"
+        },
+        {
+          "path": "results/json/R19_optimizer_convergence.json",
+          "size": 2322,
+          "sha256": "b343adf6e0f1aa9b08405ae8c25b1b99c72830de6e75266e42a7c56e0f9234e1"
+        },
+        {
+          "path": "results/json/R19_optimizer_convergence.metadata.json",
+          "size": 1781,
+          "sha256": "3ea9ddf60db7dcec7ec5586edeb911fb5bb7547a7f7f00cffb73605b1b150ba0"
+        },
+        {
+          "path": "figures/pdf/R19_optimizer_convergence.pdf",
+          "size": 20379,
+          "sha256": "f655eeb09ab9661ee96c4af77edb4d9b87c400c4df01f8ddffcde8c2da95c25f"
+        },
+        {
+          "path": "figures/png/R19_optimizer_convergence.png",
+          "size": 173779,
+          "sha256": "1f1858bb04e5c70b89b05e74677a9890f50369e44f415fa9c24cefbfa2e9e830"
+        },
+        {
+          "path": "figures/svg/R19_optimizer_convergence.svg",
+          "size": 59152,
+          "sha256": "3fea5251216d674e1f93f91dd0dfcb2041f258f91c871d71f0789ad83273aa98"
+        }
+      ],
+      "log": "results/logs/19_optimizer_convergence.log"
+    },
+    {
+      "experiment_id": "R20",
+      "script": "04_gradients_and_training/20_haar_gate_learning.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "67d909e03f2a7abde9c35c31923fd4e528aa9795d01a8559ef8679257f0c657f",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R20_haar_gate_learning.csv",
+          "results/json/R20_haar_gate_learning.json",
+          "results/json/R20_haar_gate_learning.metadata.json",
+          "figures/pdf/R20_haar_gate_learning.pdf",
+          "figures/png/R20_haar_gate_learning.png",
+          "figures/svg/R20_haar_gate_learning.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "bc5cbaef0c0033c86f9688a7ad2d5a8e6059b41b4af2032d8a9f234424daebd4",
+      "artifacts": [
+        {
+          "path": "results/csv/R20_haar_gate_learning.csv",
+          "size": 1847,
+          "sha256": "a5e250d75d1ccb2b09febbe04954eb10f2e397158e13194b98ceda25b24c1c15"
+        },
+        {
+          "path": "results/json/R20_haar_gate_learning.json",
+          "size": 5856,
+          "sha256": "635ae83f33cc056eaeb3f6024ba3a5f30c8f0b177ae51b6a14addbec43ba25de"
+        },
+        {
+          "path": "results/json/R20_haar_gate_learning.metadata.json",
+          "size": 1976,
+          "sha256": "e5484d8a3fd162f8f833c20812c1fd365873d66d36a9c6116af5491049a57108"
+        },
+        {
+          "path": "figures/pdf/R20_haar_gate_learning.pdf",
+          "size": 39979,
+          "sha256": "5eed197c2c2e3401a0424559d0689ebc759dc5c4929d6a3467340d7aca3ea3b9"
+        },
+        {
+          "path": "figures/png/R20_haar_gate_learning.png",
+          "size": 393963,
+          "sha256": "114872a197076522a9e9fcd0f5ce9f7529db9899ffbeefa0faf218b04180ccc6"
+        },
+        {
+          "path": "figures/svg/R20_haar_gate_learning.svg",
+          "size": 135613,
+          "sha256": "e2a9a88b821c8a6f8745be5db390ef444293a6b65409b15c371d224d9a0f2770"
+        }
+      ],
+      "log": "results/logs/20_haar_gate_learning.log"
+    },
+    {
+      "experiment_id": "R21",
+      "script": "04_gradients_and_training/21_ising_gate_learning.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "074bcb9aa1f2b1d1953fbb84e29a67830bc98c283ce3c4c323475a3f2e63c40a",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R21_ising_gate_learning.csv",
+          "results/json/R21_ising_gate_learning.json",
+          "results/json/R21_ising_gate_learning.metadata.json",
+          "figures/pdf/R21_ising_gate_learning.pdf",
+          "figures/png/R21_ising_gate_learning.png",
+          "figures/svg/R21_ising_gate_learning.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "f544a6bebba4d4c4d1e9a7883877382e3d0501ca1bf718de2e475a0865c297ce",
+      "artifacts": [
+        {
+          "path": "results/csv/R21_ising_gate_learning.csv",
+          "size": 1854,
+          "sha256": "35dc76cf2e9affcdef0945f17d1856b123874b7f92b93b4c0d3b77b65dc35fa4"
+        },
+        {
+          "path": "results/json/R21_ising_gate_learning.json",
+          "size": 5854,
+          "sha256": "2bc1075848cc787576ac8b807ab3cdc934767af89ac2e3245fa86d9fdd4f13cf"
+        },
+        {
+          "path": "results/json/R21_ising_gate_learning.metadata.json",
+          "size": 1976,
+          "sha256": "98fc508b0598096f556794a09f58a43addf52a1aabf87434a26e56e340f2a747"
+        },
+        {
+          "path": "figures/pdf/R21_ising_gate_learning.pdf",
+          "size": 40092,
+          "sha256": "58ec0be91c7735f4f831e83f111f101c34e530a1c49837983fdcf992f203d206"
+        },
+        {
+          "path": "figures/png/R21_ising_gate_learning.png",
+          "size": 373784,
+          "sha256": "6e2e92ef4f1ce44ac36f2bbf6db425200ce02ef9c9970c63deed7dbecfd5ab8a"
+        },
+        {
+          "path": "figures/svg/R21_ising_gate_learning.svg",
+          "size": 133242,
+          "sha256": "066893bfa41ebd655871f28117e32d6f38be7f4a21b80df7a5d59739320aa069"
+        }
+      ],
+      "log": "results/logs/21_ising_gate_learning.log"
+    },
+    {
+      "experiment_id": "R22",
+      "script": "04_gradients_and_training/22_gate_learning_sensitivity.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "3f98941cc5345f7c3e3f9e8ac882d7e15c4f9915cd8b0f54e0781cabdb8fc71e",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R22_gate_learning_sensitivity.csv",
+          "results/json/R22_gate_learning_sensitivity.json",
+          "results/json/R22_gate_learning_sensitivity.metadata.json",
+          "figures/pdf/R22_gate_learning_sensitivity.pdf",
+          "figures/png/R22_gate_learning_sensitivity.png",
+          "figures/svg/R22_gate_learning_sensitivity.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "470cb31c2c7e214d9cf066f7ce96b23b01424f32e84b40c96dc88b7938ecfe1b",
+      "artifacts": [
+        {
+          "path": "results/csv/R22_gate_learning_sensitivity.csv",
+          "size": 3291,
+          "sha256": "bf5d9965ef4e68ca8291c38f41aec10ef54a417ec44d9fabf82181bbd7a3cde8"
+        },
+        {
+          "path": "results/json/R22_gate_learning_sensitivity.json",
+          "size": 8056,
+          "sha256": "01134b7e51518ab8da728bc32fa91e96d824a13d5bb527ee471f3b3c86e590b5"
+        },
+        {
+          "path": "results/json/R22_gate_learning_sensitivity.metadata.json",
+          "size": 1865,
+          "sha256": "396e7135eba4018b94f98f77efaecbcae12e72e0fd1a3dad8b79e80db2b605fb"
+        },
+        {
+          "path": "figures/pdf/R22_gate_learning_sensitivity.pdf",
+          "size": 18596,
+          "sha256": "af808118c04de5e886815dab0b9b7bba6da1888fe1abfd2d50658d8852dcd4bc"
+        },
+        {
+          "path": "figures/png/R22_gate_learning_sensitivity.png",
+          "size": 100008,
+          "sha256": "6ede3ae4bb41d280052f890585094d60acf49b888fd072968f6251345d81ca26"
+        },
+        {
+          "path": "figures/svg/R22_gate_learning_sensitivity.svg",
+          "size": 59529,
+          "sha256": "b3aacc386e56fe7d9757b4c5d18e1859f22deffb611f10e8e6fb6f04b87a8e96"
+        }
+      ],
+      "log": "results/logs/22_gate_learning_sensitivity.log"
+    },
+    {
+      "experiment_id": "R23",
+      "script": "04_gradients_and_training/23_classifier_verification.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "17b9bc6e63612c57a119ee91fb10c983fab262e3b1170b0e1511eaf2896cefad",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R23_classifier_verification.csv",
+          "results/json/R23_classifier_verification.json",
+          "results/json/R23_classifier_verification.metadata.json",
+          "figures/pdf/R23_classifier_verification.pdf",
+          "figures/png/R23_classifier_verification.png",
+          "figures/svg/R23_classifier_verification.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "5f2e7f27aef1055c9d22e9bbcb89a5f0b60e07b4d8e69ae29f8461791510de46",
+      "artifacts": [
+        {
+          "path": "results/csv/R23_classifier_verification.csv",
+          "size": 312,
+          "sha256": "f6886d0903cc63649c3c37aab7a67270757ffdfa6033352fc30c831ae2fb4393"
+        },
+        {
+          "path": "results/json/R23_classifier_verification.json",
+          "size": 1993,
+          "sha256": "e0633cb1fc4aa071590810d73e0aed7f0286b8d598841bb2e6c130f7e9347014"
+        },
+        {
+          "path": "results/json/R23_classifier_verification.metadata.json",
+          "size": 1858,
+          "sha256": "8b76776aeded60ac0c76776024d1fb9785c45580a246b81cb6d5d161f63556aa"
+        },
+        {
+          "path": "figures/pdf/R23_classifier_verification.pdf",
+          "size": 20988,
+          "sha256": "86fdf97e3ba6ba2c3e4c2a31228a3afc158dc079a2494cde123ed260d619627e"
+        },
+        {
+          "path": "figures/png/R23_classifier_verification.png",
+          "size": 99904,
+          "sha256": "875a7cb5fcc588ac1cdd26ff66ceed18c6fdbdd4dd9509b03bbd1eb057b6a5b5"
+        },
+        {
+          "path": "figures/svg/R23_classifier_verification.svg",
+          "size": 51615,
+          "sha256": "132932b207123d40578b187ab815a4a45f51ac24bae6ca858187acc40a8b9718"
+        }
+      ],
+      "log": "results/logs/23_classifier_verification.log"
+    },
+    {
+      "experiment_id": "R24",
+      "script": "04_gradients_and_training/24_regressor_verification.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "8bbd5fc4d1c7b8b735b719d30295451ad981020ec5deaa27e4451f2e060ae871",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R24_regressor_verification.csv",
+          "results/json/R24_regressor_verification.json",
+          "results/json/R24_regressor_verification.metadata.json",
+          "figures/pdf/R24_regressor_verification.pdf",
+          "figures/png/R24_regressor_verification.png",
+          "figures/svg/R24_regressor_verification.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "55865627d6242ae6ed641074d53980796d1f1c6a2e57397d030cd89d08822c23",
+      "artifacts": [
+        {
+          "path": "results/csv/R24_regressor_verification.csv",
+          "size": 368,
+          "sha256": "e2ba381f7d722fe450d55975b4e8ff4869cab2d3c923ce14cd8bdae0c25e3d8c"
+        },
+        {
+          "path": "results/json/R24_regressor_verification.json",
+          "size": 1779,
+          "sha256": "0f8f01f359f6bfb29b060fb8445b2117702a11c094b3b752d64572827c801921"
+        },
+        {
+          "path": "results/json/R24_regressor_verification.metadata.json",
+          "size": 1858,
+          "sha256": "4d961d3ef29aec8a52bbafbd9e8366600967e8242e2534606c2e0ec403c6b1f8"
+        },
+        {
+          "path": "figures/pdf/R24_regressor_verification.pdf",
+          "size": 19689,
+          "sha256": "a90ebeb1caba4b137c13d78b58214909f076fce992d6bfc5f591787af5165d4e"
+        },
+        {
+          "path": "figures/png/R24_regressor_verification.png",
+          "size": 157435,
+          "sha256": "3cf1afadb9deee18b7ae5d9b13701a53257c294673501a996a17513e0ad63bc0"
+        },
+        {
+          "path": "figures/svg/R24_regressor_verification.svg",
+          "size": 64579,
+          "sha256": "76d48c78e87a4df519ecf7ed3f0c5fc6131a47bbb2a99b0ae28b35a5c72d71b1"
+        }
+      ],
+      "log": "results/logs/24_regressor_verification.log"
+    },
+    {
+      "experiment_id": "R25",
+      "script": "05_kernels_and_learning/25_kernel_feature_state.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "1049288f1f875e022fd7586b7e7ce332aa6fac951219498fe50ec44aa745ff74",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R25_kernel_feature_state.csv",
+          "results/json/R25_kernel_feature_state.json",
+          "results/json/R25_kernel_feature_state.metadata.json",
+          "figures/pdf/R25_kernel_feature_state.pdf",
+          "figures/png/R25_kernel_feature_state.png",
+          "figures/svg/R25_kernel_feature_state.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "a9b6f45870cf781fb670b94152a0c50709770bfbb5e882a34af2185d34b9392d",
+      "artifacts": [
+        {
+          "path": "results/csv/R25_kernel_feature_state.csv",
+          "size": 667,
+          "sha256": "a892332aa2349e03bf1a0e055171e0994a4842b5fbd24e02cf808b6463b5ccaa"
+        },
+        {
+          "path": "results/json/R25_kernel_feature_state.json",
+          "size": 2030,
+          "sha256": "a03132b97939e5e71896fab670d86f6ad6c37de0a115c89b299b3785476f6d08"
+        },
+        {
+          "path": "results/json/R25_kernel_feature_state.metadata.json",
+          "size": 1781,
+          "sha256": "2534d647a8e9a69e35959d18ea152622cce1425676396bca7d1b5006ba714d76"
+        },
+        {
+          "path": "figures/pdf/R25_kernel_feature_state.pdf",
+          "size": 15378,
+          "sha256": "1ecdf6dae68f47b2c044a3b8c5178856929f28eca65bcfb347af2242c70aee97"
+        },
+        {
+          "path": "figures/png/R25_kernel_feature_state.png",
+          "size": 75842,
+          "sha256": "d590a4bf4093e807d74e9f56fd50ed65262483936035845d2c51da06a5f00423"
+        },
+        {
+          "path": "figures/svg/R25_kernel_feature_state.svg",
+          "size": 32692,
+          "sha256": "ec4c8b607b39a08427e4a26eac60495251ed9d0fdcaac51d7f7e9e7c4b155a8d"
+        }
+      ],
+      "log": "results/logs/25_kernel_feature_state.log"
+    },
+    {
+      "experiment_id": "R26",
+      "script": "05_kernels_and_learning/26_kernel_properties.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "ceeae3eb90f519597c56fe011bf03b18fd1fa16b79bbdcc6fb3c6889e5dfe403",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R26_kernel_properties.csv",
+          "results/json/R26_kernel_properties.json",
+          "results/json/R26_kernel_properties.metadata.json",
+          "figures/pdf/R26_kernel_properties.pdf",
+          "figures/png/R26_kernel_properties.png",
+          "figures/svg/R26_kernel_properties.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "cf0738f641fd356de44c3f390cc040f3fdc42ed275ebf1009833115a71c83745",
+      "artifacts": [
+        {
+          "path": "results/csv/R26_kernel_properties.csv",
+          "size": 711,
+          "sha256": "c465dce348619cfc76a7e792db8b0ef3df941d27f5b68f93b403cd24499d5b1c"
+        },
+        {
+          "path": "results/json/R26_kernel_properties.json",
+          "size": 2305,
+          "sha256": "8773a7aa24239a87c1e8c4a38b289977c0b21b2155ec0a696478aaa079b73c8a"
+        },
+        {
+          "path": "results/json/R26_kernel_properties.metadata.json",
+          "size": 1781,
+          "sha256": "1a846a6cdc722cca9b87713f41f81d3dbeabcc710047dc8a065db70dd0c41428"
+        },
+        {
+          "path": "figures/pdf/R26_kernel_properties.pdf",
+          "size": 20161,
+          "sha256": "21cf38aa25cbb298a7e534ae9bf495521d3d233e60e71a797d5b309add5b6b52"
+        },
+        {
+          "path": "figures/png/R26_kernel_properties.png",
+          "size": 135217,
+          "sha256": "5dacdce7c0af65529c874115a16a17de07f3bb9eb685737a861ebcf921da2b7a"
+        },
+        {
+          "path": "figures/svg/R26_kernel_properties.svg",
+          "size": 62569,
+          "sha256": "51c306cbcb6af6868b07df9e396507718b27f2f73815c2a9c30f27de6a562f74"
+        }
+      ],
+      "log": "results/logs/26_kernel_properties.log"
+    },
+    {
+      "experiment_id": "R27",
+      "script": "05_kernels_and_learning/27_kernel_classification.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "d0e7eadf7480d8ef2aa88fe8dff7c592dddea1667084d7d0752cd11701af42c6",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R27_kernel_classification.csv",
+          "results/json/R27_kernel_classification.json",
+          "results/json/R27_kernel_classification.metadata.json",
+          "figures/pdf/R27_kernel_classification.pdf",
+          "figures/png/R27_kernel_classification.png",
+          "figures/svg/R27_kernel_classification.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "a153912354fd2427cd95e8db778ed93cd88de3731c3df3f6801ac297e8aee273",
+      "artifacts": [
+        {
+          "path": "results/csv/R27_kernel_classification.csv",
+          "size": 1218,
+          "sha256": "bf0e83aac630af815eadc039b049c72bc7b541ca2f6ae01f06302c45cfd96f35"
+        },
+        {
+          "path": "results/json/R27_kernel_classification.json",
+          "size": 8686,
+          "sha256": "9c78d5ba45c1be49ffd3092f5eea22beffa30d4663c35343cdefd93410510499"
+        },
+        {
+          "path": "results/json/R27_kernel_classification.metadata.json",
+          "size": 1884,
+          "sha256": "4adbaa0595a22d44c7f768d95aa7f8644ce82f0d1dceefc235d78d2b6c4ed466"
+        },
+        {
+          "path": "figures/pdf/R27_kernel_classification.pdf",
+          "size": 20726,
+          "sha256": "b4b7d5b60d1186663d23b026fdd348d05b4a95d91e2be7c12463e75bf4da9c16"
+        },
+        {
+          "path": "figures/png/R27_kernel_classification.png",
+          "size": 83142,
+          "sha256": "d90f63bf749f5cb743617ac57196a93fb52ae21ea259fa7a75bab8fb479d99c1"
+        },
+        {
+          "path": "figures/svg/R27_kernel_classification.svg",
+          "size": 58865,
+          "sha256": "fec14fa1749e25bdd2e05520ff1f2e34fed65e6f39affaead58960489c25c35e"
+        }
+      ],
+      "log": "results/logs/27_kernel_classification.log"
+    },
+    {
+      "experiment_id": "R28",
+      "script": "05_kernels_and_learning/28_kernel_robustness.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "85308375b9b88b6fb53b72b146e99f7e1145bf5600f9dd61dfbf4abd12380dd2",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R28_kernel_robustness.csv",
+          "results/json/R28_kernel_robustness.json",
+          "results/json/R28_kernel_robustness.metadata.json",
+          "figures/pdf/R28_kernel_robustness.pdf",
+          "figures/png/R28_kernel_robustness.png",
+          "figures/svg/R28_kernel_robustness.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "276e4c916c71dac550b30f350ee1db1cea28637e21839d4df51aedf4ee6077ae",
+      "artifacts": [
+        {
+          "path": "results/csv/R28_kernel_robustness.csv",
+          "size": 2035,
+          "sha256": "7ad806717d96207dc53961d77aa29d781cb8c5402b0c0ec1b9f91d4da70f17e0"
+        },
+        {
+          "path": "results/json/R28_kernel_robustness.json",
+          "size": 6491,
+          "sha256": "f44f32b9d935869f06f2a1dd0f7d71f2cf052a7ce82ce342dc8082fd785e0672"
+        },
+        {
+          "path": "results/json/R28_kernel_robustness.metadata.json",
+          "size": 1870,
+          "sha256": "6949b7ab3b7474334c9b1648afba196543670a8eac2caff18e6d73a008a27a81"
+        },
+        {
+          "path": "figures/pdf/R28_kernel_robustness.pdf",
+          "size": 18876,
+          "sha256": "6f95eb0a1916e425611cf129ed504defd0f3c411fab0d1f3e7a772ad34f39951"
+        },
+        {
+          "path": "figures/png/R28_kernel_robustness.png",
+          "size": 192728,
+          "sha256": "70d21c3188d49e4818a40a42eb23adbbea1ecc38b96a64b7c128df5d7d9451fd"
+        },
+        {
+          "path": "figures/svg/R28_kernel_robustness.svg",
+          "size": 72964,
+          "sha256": "4c7d2a34db035d472e749714801ee2f33919966d3a936009261b765c1fc48e37"
+        }
+      ],
+      "log": "results/logs/28_kernel_robustness.log"
+    },
+    {
+      "experiment_id": "R29",
+      "script": "06_expressivity_and_diagnostics/29_instrument_diagnostics.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "894ef87c640150ebd8985aa6360b4e4f2d033a9404b630c4c69f02b1ae842e34",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R29_instrument_diagnostics.csv",
+          "results/json/R29_instrument_diagnostics.json",
+          "results/json/R29_instrument_diagnostics.metadata.json",
+          "figures/pdf/R29_instrument_diagnostics.pdf",
+          "figures/png/R29_instrument_diagnostics.png",
+          "figures/svg/R29_instrument_diagnostics.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "40deaefdac7f7f3f146e23684923fa09227df504a6ce42c72c1ce3bcb3be2021",
+      "artifacts": [
+        {
+          "path": "results/csv/R29_instrument_diagnostics.csv",
+          "size": 862,
+          "sha256": "dbaeb9cb33307649b365ae6d8f0bd9de7613cf395df828a832640cb6e1415b85"
+        },
+        {
+          "path": "results/json/R29_instrument_diagnostics.json",
+          "size": 4301,
+          "sha256": "1ce541b8c80ae503d662f411119793611eeb3431977b8b3a22c64d6c77f50dd6"
+        },
+        {
+          "path": "results/json/R29_instrument_diagnostics.metadata.json",
+          "size": 1781,
+          "sha256": "d5bb82025d00ccbe0b2543da18358aab2b2f801bd7652293235c26c991c8ddac"
+        },
+        {
+          "path": "figures/pdf/R29_instrument_diagnostics.pdf",
+          "size": 14798,
+          "sha256": "3b9930c7d4d99dafa7d9076bdc1297ef9bfc2df7093bbb8f0c47ad0c9eaede11"
+        },
+        {
+          "path": "figures/png/R29_instrument_diagnostics.png",
+          "size": 66767,
+          "sha256": "4f88ebbfe17e05905906b0582f04d6297e5efc32fec7daa640927bda7811bd5a"
+        },
+        {
+          "path": "figures/svg/R29_instrument_diagnostics.svg",
+          "size": 35232,
+          "sha256": "a921e0f68d93f187d3fdc90c5298586706dbe43a956ea8fd08b92ec80fe73f8c"
+        }
+      ],
+      "log": "results/logs/29_instrument_diagnostics.log"
+    },
+    {
+      "experiment_id": "R30",
+      "script": "06_expressivity_and_diagnostics/30_concurrence.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "84fd16124f5d386052dda554b592a2cdace951bb1a89ebb4f457533146b8c493",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R30_concurrence.csv",
+          "results/json/R30_concurrence.json",
+          "results/json/R30_concurrence.metadata.json",
+          "figures/pdf/R30_concurrence.pdf",
+          "figures/png/R30_concurrence.png",
+          "figures/svg/R30_concurrence.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "848361db0d4ff064343a6b547c62e63f950e7080bfcc041f69718a24361b6ec4",
+      "artifacts": [
+        {
+          "path": "results/csv/R30_concurrence.csv",
+          "size": 2417,
+          "sha256": "1889dec5aec9ce7a0e71debf1270e168930b8ecd91b8a08bbeaf4aff8131c928"
+        },
+        {
+          "path": "results/json/R30_concurrence.json",
+          "size": 6725,
+          "sha256": "b356f9d09feb7688b3006e4d3ae0265c993281a9288e4a6a4c7c0e0ace8cd56d"
+        },
+        {
+          "path": "results/json/R30_concurrence.metadata.json",
+          "size": 1781,
+          "sha256": "7a6a63d9eeb87dbbc37f99c8cb64f686385d653ca9dadde08bb026c07f189271"
+        },
+        {
+          "path": "figures/pdf/R30_concurrence.pdf",
+          "size": 18260,
+          "sha256": "50b1ac73d2d66da13f4d4a65bc83e8f076580f9ebae9806d94d2e8e042c44c64"
+        },
+        {
+          "path": "figures/png/R30_concurrence.png",
+          "size": 104186,
+          "sha256": "ad3c08eeeb570aacb0c45804dc1ba91831ea474ca4abef2e949be88eac63df4d"
+        },
+        {
+          "path": "figures/svg/R30_concurrence.svg",
+          "size": 52295,
+          "sha256": "41bb63786719cea1c4759fb7d54776a4324f5760fc3d9e0f3ec597cab9a84698"
+        }
+      ],
+      "log": "results/logs/30_concurrence.log"
+    },
+    {
+      "experiment_id": "R31",
+      "script": "06_expressivity_and_diagnostics/31_qfi.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "d83a5cbf2b3ce64ecbd5f8d2633319a2409723c0e2197d073c4ef600f8f4cb68",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R31_qfi.csv",
+          "results/json/R31_qfi.json",
+          "results/json/R31_qfi.metadata.json",
+          "figures/pdf/R31_qfi.pdf",
+          "figures/png/R31_qfi.png",
+          "figures/svg/R31_qfi.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "4002407677eac7acf6c45f191fad1523457da4ef5eb9205a300ddb39b58363c0",
+      "artifacts": [
+        {
+          "path": "results/csv/R31_qfi.csv",
+          "size": 1735,
+          "sha256": "76adb437190dfd1c85f5fb5090f9ca240444e54e3f41bff7a06adcea3a24d875"
+        },
+        {
+          "path": "results/json/R31_qfi.json",
+          "size": 5432,
+          "sha256": "d00bef37b170ad1200d38a647fd0acdbabf36ddd362254a8c2db1ff92f1b7098"
+        },
+        {
+          "path": "results/json/R31_qfi.metadata.json",
+          "size": 1781,
+          "sha256": "1d94dff8f91d8148ebc5d7178a58f7b79b380942ee91c433d9c7d3d684f869d0"
+        },
+        {
+          "path": "figures/pdf/R31_qfi.pdf",
+          "size": 18813,
+          "sha256": "3db7d098dc126fab801dbc736f5851143cd1c752884826cd074b3f4015ad1482"
+        },
+        {
+          "path": "figures/png/R31_qfi.png",
+          "size": 130905,
+          "sha256": "ea460b3b83c8d387ad8c84c995bb095591a761acf55b3e75bd29dda6d3108b86"
+        },
+        {
+          "path": "figures/svg/R31_qfi.svg",
+          "size": 44977,
+          "sha256": "cd4d073c675914a5b85af5ac991eadb4120694fb8dcf4d03adc299853215f89b"
+        }
+      ],
+      "log": "results/logs/31_qfi.log"
+    },
+    {
+      "experiment_id": "R32",
+      "script": "06_expressivity_and_diagnostics/32_lie_closure.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "614f59d333b9fd4b947ac682301287d050580cd8deef51fd9f9905f3cb9bec5e",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R32_lie_closure.csv",
+          "results/json/R32_lie_closure.json",
+          "results/json/R32_lie_closure.metadata.json",
+          "figures/pdf/R32_lie_closure.pdf",
+          "figures/png/R32_lie_closure.png",
+          "figures/svg/R32_lie_closure.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "ac8a3e4de972e1339a7d990b178af69d9373d8abd453ba7674a7a8a5c85eee77",
+      "artifacts": [
+        {
+          "path": "results/csv/R32_lie_closure.csv",
+          "size": 321,
+          "sha256": "4a7a00468864310c541925c50cb699de8f213930f20604aa9367a2f8e2222116"
+        },
+        {
+          "path": "results/json/R32_lie_closure.json",
+          "size": 1659,
+          "sha256": "8e6f554a6cb4ed84136e31507f34d3da41f4889579357ebc19a4b9e2d191dd6b"
+        },
+        {
+          "path": "results/json/R32_lie_closure.metadata.json",
+          "size": 1781,
+          "sha256": "2d1475583d0f1110cdebb220b925ccf8aa509322bee13dd17c81772a4407d1cf"
+        },
+        {
+          "path": "figures/pdf/R32_lie_closure.pdf",
+          "size": 15963,
+          "sha256": "fae02f7fd07c49daace5a5833dc67d86ba3d67555dba77e5d4985df0d96f74f3"
+        },
+        {
+          "path": "figures/png/R32_lie_closure.png",
+          "size": 118500,
+          "sha256": "242da9a17355f0db5b2041809d9f6b682d7dedc5859815fed622ef119b43e70b"
+        },
+        {
+          "path": "figures/svg/R32_lie_closure.svg",
+          "size": 45429,
+          "sha256": "2d1308e11dfc27c170ee2c48af39b57181bd4d4593d918221aef72a1d7fa430f"
+        }
+      ],
+      "log": "results/logs/32_lie_closure.log"
+    },
+    {
+      "experiment_id": "R33",
+      "script": "06_expressivity_and_diagnostics/33_fisher_spectra.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "d37a6a313cda6fa5c73506b9a8657ca08109e92d2bf48e41be7012394f211ac7",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R33_fisher_spectra.csv",
+          "results/json/R33_fisher_spectra.json",
+          "results/json/R33_fisher_spectra.metadata.json",
+          "figures/pdf/R33_fisher_spectra.pdf",
+          "figures/png/R33_fisher_spectra.png",
+          "figures/svg/R33_fisher_spectra.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "2210f9479e768330eba2131366863338431bfdc1ba70dbdfc425599575a7a47d",
+      "artifacts": [
+        {
+          "path": "results/csv/R33_fisher_spectra.csv",
+          "size": 556,
+          "sha256": "8da446194dd20d4c7bc91077c53ce97e7f950edbeed45c28ef5b8e4727406212"
+        },
+        {
+          "path": "results/json/R33_fisher_spectra.json",
+          "size": 3117,
+          "sha256": "3947dee12c7a503a17a8482265d273a60ab0faa114d2307a1778ea9309f52747"
+        },
+        {
+          "path": "results/json/R33_fisher_spectra.metadata.json",
+          "size": 1783,
+          "sha256": "9fe20afd7ab6e7bca43f55bafb89a68126428ec3879eda3976cbdc3b013a89e1"
+        },
+        {
+          "path": "figures/pdf/R33_fisher_spectra.pdf",
+          "size": 20450,
+          "sha256": "e1518256875eac5052d2effe2710119ed55bee9d635862ba18eacb45b1359654"
+        },
+        {
+          "path": "figures/png/R33_fisher_spectra.png",
+          "size": 152571,
+          "sha256": "758da32273c7704c90ab0f5238ca04589228dd79f9ca936fc93a0c9144d2ab5b"
+        },
+        {
+          "path": "figures/svg/R33_fisher_spectra.svg",
+          "size": 70731,
+          "sha256": "7037ce17a969990595921547bbe070f05dcc0b131654a9ecf62a41af536835dd"
+        }
+      ],
+      "log": "results/logs/33_fisher_spectra.log"
+    },
+    {
+      "experiment_id": "R34",
+      "script": "07_gkp_resources/34_gkp_codeword_projection.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "a1d23ad226cb796271f1ce8939dab68a91315c32b06cd190327b3d2c0a82ea36",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R34_gkp_codeword_projection.csv",
+          "results/json/R34_gkp_codeword_projection.json",
+          "results/json/R34_gkp_codeword_projection.metadata.json",
+          "figures/pdf/R34_gkp_codeword_projection.pdf",
+          "figures/png/R34_gkp_codeword_projection.png",
+          "figures/svg/R34_gkp_codeword_projection.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "fb8af01c1b5e127cc80482a49cc89918d53d89e326bf7df9679388d219ae57a3",
+      "artifacts": [
+        {
+          "path": "results/csv/R34_gkp_codeword_projection.csv",
+          "size": 938,
+          "sha256": "f627efa50cd79c3f8659df912e812b94bdd8ad506153437edbe7fa5264142bb6"
+        },
+        {
+          "path": "results/json/R34_gkp_codeword_projection.json",
+          "size": 2928,
+          "sha256": "32730e08a4e0764a17ab64a948e12f66776712fa0d7b769646b6f5884c07b52a"
+        },
+        {
+          "path": "results/json/R34_gkp_codeword_projection.metadata.json",
+          "size": 1783,
+          "sha256": "aabc5ec6e4ef07192b07f2c1d8adc22df256240ac18183c3db98b5ebecdf0a0f"
+        },
+        {
+          "path": "figures/pdf/R34_gkp_codeword_projection.pdf",
+          "size": 24057,
+          "sha256": "43c31e95cc966b3bd8a1a3811f93ace9ab74611e243e5b6e1b6428604d27fabe"
+        },
+        {
+          "path": "figures/png/R34_gkp_codeword_projection.png",
+          "size": 212227,
+          "sha256": "df27b3e9a7e423eae2cc795b980cb5fd713ddb659199f4fba904fff9795e1d47"
+        },
+        {
+          "path": "figures/svg/R34_gkp_codeword_projection.svg",
+          "size": 87957,
+          "sha256": "f9cf17621ab388526e61f7ac3372d68bfab6a67a8b002f9bc17617276925ad67"
+        }
+      ],
+      "log": "results/logs/34_gkp_codeword_projection.log"
+    },
+    {
+      "experiment_id": "R35",
+      "script": "08_physical_lowering/35_capability_map.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "46a133c0fb6bc5ba643c7d4e2650dd05af2beb56f1452537e6177aab799a3448",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R35_capability_map.csv",
+          "results/json/R35_capability_map.json",
+          "results/json/R35_capability_map.metadata.json",
+          "figures/pdf/R35_capability_map.pdf",
+          "figures/png/R35_capability_map.png",
+          "figures/svg/R35_capability_map.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "bc7fcff3b2ed6070366fa8325fe6d63691bd25936f762122fc7db2af1b4fa86e",
+      "artifacts": [
+        {
+          "path": "results/csv/R35_capability_map.csv",
+          "size": 640,
+          "sha256": "22f800c1e88561bb38e276a0b4933c36e16432a9afa0c2e16ccd83957b29007c"
+        },
+        {
+          "path": "results/json/R35_capability_map.json",
+          "size": 3238,
+          "sha256": "204ae6d04889fbb1dc9ae64abd844ea4bf97ba9d886b7f4838a4d361d3aa5dbc"
+        },
+        {
+          "path": "results/json/R35_capability_map.metadata.json",
+          "size": 1781,
+          "sha256": "01d1d56b5ab0e9bf80f7f3b156b81aa69f6361f40d2904774de49f7e8c90f5f3"
+        },
+        {
+          "path": "figures/pdf/R35_capability_map.pdf",
+          "size": 15875,
+          "sha256": "7039c772eeae8b84414034ade28c43513121f45e1b547af0883ecfbfab0b72fb"
+        },
+        {
+          "path": "figures/png/R35_capability_map.png",
+          "size": 81184,
+          "sha256": "b68113afdf8bc8f731ae35a116adb7ee684f0d81b5e93f8e6ea0242f237dad46"
+        },
+        {
+          "path": "figures/svg/R35_capability_map.svg",
+          "size": 45667,
+          "sha256": "26ef8623ab46f987f88f0cc3c11b760e91981404db6a70941328ee9a230174dd"
+        }
+      ],
+      "log": "results/logs/35_capability_map.log"
+    },
+    {
+      "experiment_id": "R36",
+      "script": "08_physical_lowering/36_lowering_preservation.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "70993f5f9ee9da742056dfe220a8c7c048e7c13d863659ca95d2ba70b3e5e33a",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R36_lowering_preservation.csv",
+          "results/json/R36_lowering_preservation.json",
+          "results/json/R36_lowering_preservation.metadata.json",
+          "figures/pdf/R36_lowering_preservation.pdf",
+          "figures/png/R36_lowering_preservation.png",
+          "figures/svg/R36_lowering_preservation.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "f004c783fd0d546482064f14b9063ebe6267c99834844127b18768fbfce5c6e4",
+      "artifacts": [
+        {
+          "path": "results/csv/R36_lowering_preservation.csv",
+          "size": 385,
+          "sha256": "f97ece7e48b1ea3e98b0a9dc5725ae1aa20dfda9db8623f46440ff358af3ead6"
+        },
+        {
+          "path": "results/json/R36_lowering_preservation.json",
+          "size": 1826,
+          "sha256": "657589e12177ba8f2cd8606c3296fa374b591cbf892367d703a3735da9f8af20"
+        },
+        {
+          "path": "results/json/R36_lowering_preservation.metadata.json",
+          "size": 1783,
+          "sha256": "8bbe572628484320cadc0cd33c5b7d8f8873388662bedeb7870531223f097c9f"
+        },
+        {
+          "path": "figures/pdf/R36_lowering_preservation.pdf",
+          "size": 17764,
+          "sha256": "0f880a2d0e6b7d2d52c4439f03db8bf7c691bf6c0d623338d1492a2ab8898bce"
+        },
+        {
+          "path": "figures/png/R36_lowering_preservation.png",
+          "size": 70278,
+          "sha256": "cbd0344010d90751ec0944defae60cdc178c852b987b1ff1416443954cfbae98"
+        },
+        {
+          "path": "figures/svg/R36_lowering_preservation.svg",
+          "size": 39201,
+          "sha256": "362b672edc1c2e26f8bc93fa9200e08893f0f0099034f59a930ce7196decace7"
+        }
+      ],
+      "log": "results/logs/36_lowering_preservation.log"
+    },
+    {
+      "experiment_id": "R37",
+      "script": "08_physical_lowering/37_pauli_frame_validation.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "707979b0652a509c93e86fa986f6e16c4955daa22755348f0ecc20b9f6968d08",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R37_pauli_frame_validation.csv",
+          "results/json/R37_pauli_frame_validation.json",
+          "results/json/R37_pauli_frame_validation.metadata.json",
+          "figures/pdf/R37_pauli_frame_validation.pdf",
+          "figures/png/R37_pauli_frame_validation.png",
+          "figures/svg/R37_pauli_frame_validation.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "91362929e9f7b22e6d9c496051380725df78340510ee374a68fc5778039e17f4",
+      "artifacts": [
+        {
+          "path": "results/csv/R37_pauli_frame_validation.csv",
+          "size": 88,
+          "sha256": "f0e5e28362d26921264ad84ad981bc81566c4ff158b1a8486a766ae85807ef1c"
+        },
+        {
+          "path": "results/json/R37_pauli_frame_validation.json",
+          "size": 771,
+          "sha256": "d19753056a63c76ad6dc61713847e10e9049e66920d5eac32eee22f78feb3e57"
+        },
+        {
+          "path": "results/json/R37_pauli_frame_validation.metadata.json",
+          "size": 1781,
+          "sha256": "3b2f6bd9a3171b7f1096878e674bcab45dd2683529cb83cbeb56ed6717f6c01d"
+        },
+        {
+          "path": "figures/pdf/R37_pauli_frame_validation.pdf",
+          "size": 16518,
+          "sha256": "35f1f0c688e03b8f1f4a5a1213901bcd01e7c59ee16743ccd8cf18d823c87ae7"
+        },
+        {
+          "path": "figures/png/R37_pauli_frame_validation.png",
+          "size": 69642,
+          "sha256": "32b01d85ee28157c207db205f27d459e02e31a581bda24042d3708fc295c88da"
+        },
+        {
+          "path": "figures/svg/R37_pauli_frame_validation.svg",
+          "size": 33567,
+          "sha256": "e2497041dba2b4a24c50467d6bf3a992b19943789b4559ff8d13734c8dca9a14"
+        }
+      ],
+      "log": "results/logs/37_pauli_frame_validation.log"
+    },
+    {
+      "experiment_id": "R38",
+      "script": "08_physical_lowering/38_public_pattern_comparison.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "8de55d33b4a286f4b45c8f520ccd440d35c2dfceb55eee569d3ffcd5a2273684",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R38_public_pattern_comparison.csv",
+          "results/json/R38_public_pattern_comparison.json",
+          "results/json/R38_public_pattern_comparison.metadata.json",
+          "figures/pdf/R38_public_pattern_comparison.pdf",
+          "figures/png/R38_public_pattern_comparison.png",
+          "figures/svg/R38_public_pattern_comparison.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "4098c3d2d0113c8581907718a66db6fc58f91c7be2e98901439ab5bbb5f81412",
+      "artifacts": [
+        {
+          "path": "results/csv/R38_public_pattern_comparison.csv",
+          "size": 147,
+          "sha256": "5f2b1985c35c11de03ca574216af04aa0ffaeb388fecfd803cbc7e87fdbdae92"
+        },
+        {
+          "path": "results/json/R38_public_pattern_comparison.json",
+          "size": 1088,
+          "sha256": "e2cc4169d33449804ffd8bc7df51c315146d9a4ec9dd099d7832ce28ac2c2468"
+        },
+        {
+          "path": "results/json/R38_public_pattern_comparison.metadata.json",
+          "size": 1781,
+          "sha256": "1cdce22da5cff99954a59a24212e7e44dde02d73b2d54837e74a29f41b057a37"
+        },
+        {
+          "path": "figures/pdf/R38_public_pattern_comparison.pdf",
+          "size": 15858,
+          "sha256": "5b39712ade905413ada982a242cae219b7718ac1d6145e39b9b740dd60639c09"
+        },
+        {
+          "path": "figures/png/R38_public_pattern_comparison.png",
+          "size": 61239,
+          "sha256": "c236395268741cd273a4fa16e12b07e6f1ee8d7d81b9a08c1d622d21f09234ee"
+        },
+        {
+          "path": "figures/svg/R38_public_pattern_comparison.svg",
+          "size": 33537,
+          "sha256": "f7228aef5436e854bea90f6fb47e07dfc5a37bd3743d6fdcbd387880c12f4530"
+        }
+      ],
+      "log": "results/logs/38_public_pattern_comparison.log"
+    },
+    {
+      "experiment_id": "R39",
+      "script": "09_piquasso_validation/39_raw_piquasso_state_prep.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "35ab38fa995661d98b79b14fac5e3d5b1741fce757856b0ff5456a50d1201d51",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R39_raw_piquasso_state_prep.csv",
+          "results/json/R39_raw_piquasso_state_prep.json",
+          "results/json/R39_raw_piquasso_state_prep.metadata.json",
+          "figures/pdf/R39_raw_piquasso_state_prep.pdf",
+          "figures/png/R39_raw_piquasso_state_prep.png",
+          "figures/svg/R39_raw_piquasso_state_prep.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "770980d26a215e6d73ba7e5888f231b43007a5c4fb7b4a76f980acc11059cdb7",
+      "artifacts": [
+        {
+          "path": "results/csv/R39_raw_piquasso_state_prep.csv",
+          "size": 93,
+          "sha256": "fac9e3c3dc1bd532037260b2bf10eaf3dc07d5641ff8970dc9d2ee92df56e984"
+        },
+        {
+          "path": "results/json/R39_raw_piquasso_state_prep.json",
+          "size": 853,
+          "sha256": "33008aeeebaf1603c4a145488281c59a9d363e58326933094d75ded0c586f11f"
+        },
+        {
+          "path": "results/json/R39_raw_piquasso_state_prep.metadata.json",
+          "size": 1781,
+          "sha256": "27518c6f4f306c65a39e7a242f2192217e85c490464774ab12eb8209c105fc91"
+        },
+        {
+          "path": "figures/pdf/R39_raw_piquasso_state_prep.pdf",
+          "size": 17087,
+          "sha256": "6b331e27516fbfaa63ccc8c7b29993382a278c46fe12cbb01b385a694213e72d"
+        },
+        {
+          "path": "figures/png/R39_raw_piquasso_state_prep.png",
+          "size": 87073,
+          "sha256": "c3d0a0a4b83c87dad889fad6b3e3ad04648aebdb43a826a11b21c2de79c05699"
+        },
+        {
+          "path": "figures/svg/R39_raw_piquasso_state_prep.svg",
+          "size": 45933,
+          "sha256": "76e61ae2cecf208461af012abf203b3e042810e22365d7d1ed7deb0cf73091c0"
+        }
+      ],
+      "log": "results/logs/39_raw_piquasso_state_prep.log"
+    },
+    {
+      "experiment_id": "R40",
+      "script": "09_piquasso_validation/40_raw_piquasso_cz.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "9adb684456effea56d8b1c6ab86ddf6779cab88a217339990fba9a8ba3ff68f2",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R40_raw_piquasso_cz.csv",
+          "results/json/R40_raw_piquasso_cz.json",
+          "results/json/R40_raw_piquasso_cz.metadata.json",
+          "figures/pdf/R40_raw_piquasso_cz.pdf",
+          "figures/png/R40_raw_piquasso_cz.png",
+          "figures/svg/R40_raw_piquasso_cz.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "81d94d3554a216ce5bae233d17cd1413abe3eca0de1a1b764badbdf11797481e",
+      "artifacts": [
+        {
+          "path": "results/csv/R40_raw_piquasso_cz.csv",
+          "size": 589,
+          "sha256": "7b1fd21a8448accd99c6118bccfde8aa4aede41d4afe6d3d3d8cd3c3e1e7952d"
+        },
+        {
+          "path": "results/json/R40_raw_piquasso_cz.json",
+          "size": 2342,
+          "sha256": "78134d3e7beb9ee6d245dd6c0ba0e8db09932a50893416439937d962d854599f"
+        },
+        {
+          "path": "results/json/R40_raw_piquasso_cz.metadata.json",
+          "size": 1781,
+          "sha256": "f331d40fa6eb342c455d923c414a521dc1206389bdab46f9d6b34e17f19a16f2"
+        },
+        {
+          "path": "figures/pdf/R40_raw_piquasso_cz.pdf",
+          "size": 17541,
+          "sha256": "5a00e42d3cf6c762def27709c4c672792e513926d2862e5288b657eb72cc084c"
+        },
+        {
+          "path": "figures/png/R40_raw_piquasso_cz.png",
+          "size": 95889,
+          "sha256": "5d7cb34cc247f4cfb611f0d11c3d7b9bc1e3415d180f469e92177dec8c4f62ec"
+        },
+        {
+          "path": "figures/svg/R40_raw_piquasso_cz.svg",
+          "size": 54918,
+          "sha256": "c25e9414ffaa0aa7019c18072216450463a7519b036b7c9b97a380819da03c0b"
+        }
+      ],
+      "log": "results/logs/40_raw_piquasso_cz.log"
+    },
+    {
+      "experiment_id": "R41",
+      "script": "09_piquasso_validation/41_conditional_execution_comparison.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "c76430fb92bc649d883185c0a8e17fbe0425726d900ab335e7a3755341bbd5a6",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R41_conditional_execution_comparison.csv",
+          "results/json/R41_conditional_execution_comparison.json",
+          "results/json/R41_conditional_execution_comparison.metadata.json",
+          "figures/pdf/R41_conditional_execution_comparison.pdf",
+          "figures/png/R41_conditional_execution_comparison.png",
+          "figures/svg/R41_conditional_execution_comparison.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "2c9dc835ea362376993f6db52330bf3e45319bcdae138bf5c96799dd5cb41a96",
+      "artifacts": [
+        {
+          "path": "results/csv/R41_conditional_execution_comparison.csv",
+          "size": 646,
+          "sha256": "b8d64ded4f711339c38fc3cea6b0e40d0e20054fa3e5739978c5cbd789679b08"
+        },
+        {
+          "path": "results/json/R41_conditional_execution_comparison.json",
+          "size": 2090,
+          "sha256": "36e921312c2137a8e5862f059053ecaa5b7a70094bc8dba836ea0abcd70ceb4d"
+        },
+        {
+          "path": "results/json/R41_conditional_execution_comparison.metadata.json",
+          "size": 1781,
+          "sha256": "c5cb7970537adb5b596bb70ec93ba104356cb28fc9eac17f3a11dd4e2f28c86c"
+        },
+        {
+          "path": "figures/pdf/R41_conditional_execution_comparison.pdf",
+          "size": 16443,
+          "sha256": "8e8664f12f135ef0d392fcdb117db8660f51aeb7fd19021b93c67ebb9db34378"
+        },
+        {
+          "path": "figures/png/R41_conditional_execution_comparison.png",
+          "size": 121759,
+          "sha256": "bf0d46b6271babc416b549a6b243e37540370b93da60f642bc64064813d96eee"
+        },
+        {
+          "path": "figures/svg/R41_conditional_execution_comparison.svg",
+          "size": 48866,
+          "sha256": "4287b11aaa3fe06d96889bad08e11112f9399e03cb1cf21467acdfbfc81ec49a"
+        }
+      ],
+      "log": "results/logs/41_conditional_execution_comparison.log"
+    },
+    {
+      "experiment_id": "R42",
+      "script": "09_piquasso_validation/42_abstraction_overhead.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "1848b3322fb6c5c6c5493a6e453852a3aeee8b1e878e2716fc4335744c12360c",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R42_abstraction_overhead.csv",
+          "results/json/R42_abstraction_overhead.json",
+          "results/json/R42_abstraction_overhead.metadata.json",
+          "figures/pdf/R42_abstraction_overhead.pdf",
+          "figures/png/R42_abstraction_overhead.png",
+          "figures/svg/R42_abstraction_overhead.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "32a775ce0b52d414145d0527ae7cef7cf4b26fc1437f35e4a1757a585d207fab",
+      "artifacts": [
+        {
+          "path": "results/csv/R42_abstraction_overhead.csv",
+          "size": 509,
+          "sha256": "3b4080b7cdc6ec0d61d3ad0cbcd651090095b59d0a2fea78862e21884f896838"
+        },
+        {
+          "path": "results/json/R42_abstraction_overhead.json",
+          "size": 1693,
+          "sha256": "2d07353980adb0af0366a82d9aa4e5dad0eba1a121942b09f158f1e3003c2d08"
+        },
+        {
+          "path": "results/json/R42_abstraction_overhead.metadata.json",
+          "size": 1786,
+          "sha256": "7f3130cc1482d758244769212a4060d570085ed6ff9689ed4f413a5c6a700abb"
+        },
+        {
+          "path": "figures/pdf/R42_abstraction_overhead.pdf",
+          "size": 15554,
+          "sha256": "741f7a65c5042e5e780698b97ebb6738fb3baabd715db88c0a8cdea1b4703741"
+        },
+        {
+          "path": "figures/png/R42_abstraction_overhead.png",
+          "size": 118395,
+          "sha256": "b1d8da7884e319b10e47af8c75f973090d5bfd6d7080f0167a853d0a3454932b"
+        },
+        {
+          "path": "figures/svg/R42_abstraction_overhead.svg",
+          "size": 41406,
+          "sha256": "3075340d34913f5afd93944641066a42219135d80e082950f8280edcfd4a8f79"
+        }
+      ],
+      "log": "results/logs/42_abstraction_overhead.log"
+    },
+    {
+      "experiment_id": "R43",
+      "script": "10_physical_statistics/43_decoded_statistics.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "43f305fb01755d7ad7702af6b34ef031e168bfd24e7791e04df137cae4693f9e",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R43_decoded_statistics.csv",
+          "results/json/R43_decoded_statistics.json",
+          "results/json/R43_decoded_statistics.metadata.json",
+          "figures/pdf/R43_decoded_statistics.pdf",
+          "figures/png/R43_decoded_statistics.png",
+          "figures/svg/R43_decoded_statistics.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "bd8805f53771d2d976e379fee832630a9c4321215d6e0864457193cabdd969fc",
+      "artifacts": [
+        {
+          "path": "results/csv/R43_decoded_statistics.csv",
+          "size": 431,
+          "sha256": "97089a51aa19e1359db1f9b5d3c1d94ed386e7d32f71d8845fc63a6000720875"
+        },
+        {
+          "path": "results/json/R43_decoded_statistics.json",
+          "size": 1646,
+          "sha256": "aaffcf13a1928b5db0d66dd4c30772bca3174d0b1ae31fff1ee369a5c48d8159"
+        },
+        {
+          "path": "results/json/R43_decoded_statistics.metadata.json",
+          "size": 1781,
+          "sha256": "8be826b734ef62078ca8362ef0da76fd16da0f22959aac4f00e95fbba66ad109"
+        },
+        {
+          "path": "figures/pdf/R43_decoded_statistics.pdf",
+          "size": 15412,
+          "sha256": "f2d09bdb57fc9faac687c3d6910e5695431e76cfdefbe4b346d9628d1d99fe33"
+        },
+        {
+          "path": "figures/png/R43_decoded_statistics.png",
+          "size": 91238,
+          "sha256": "7efbc1ec6e92db4494d6ca0e0cd2b008942da582ce9ce7c0c3129d43990f84b6"
+        },
+        {
+          "path": "figures/svg/R43_decoded_statistics.svg",
+          "size": 42315,
+          "sha256": "704446a40b91fc934c52da01d96c11eae749fa47c28a7cebdd8f0bbcd83c5607"
+        }
+      ],
+      "log": "results/logs/43_decoded_statistics.log"
+    },
+    {
+      "experiment_id": "R44",
+      "script": "10_physical_statistics/44_shot_convergence.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "07a75678f9f64df4e4850c15c060fa844f97970a171ebc5aa878e608f521b82e",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R44_shot_convergence.csv",
+          "results/json/R44_shot_convergence.json",
+          "results/json/R44_shot_convergence.metadata.json",
+          "figures/pdf/R44_shot_convergence.pdf",
+          "figures/png/R44_shot_convergence.png",
+          "figures/svg/R44_shot_convergence.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "5973d7f968ece88230bc4bdb167719de10eed7f4ad1acc74e889d0139ae6a712",
+      "artifacts": [
+        {
+          "path": "results/csv/R44_shot_convergence.csv",
+          "size": 1109,
+          "sha256": "ecd13c6d326e2b921d80588f4c3c78e70c49784eef4e2702a23c01f113578a43"
+        },
+        {
+          "path": "results/json/R44_shot_convergence.json",
+          "size": 3217,
+          "sha256": "745093e2a1d6854af51aa4ba50209137008376f783d09015eb0bcd66b42995a3"
+        },
+        {
+          "path": "results/json/R44_shot_convergence.metadata.json",
+          "size": 1923,
+          "sha256": "deebdb2c1cf2846d0d064b24074b3564c23e335481e4f14a790e51fb26157223"
+        },
+        {
+          "path": "figures/pdf/R44_shot_convergence.pdf",
+          "size": 21389,
+          "sha256": "67eaf2b8b1039cf402a782ac9661bc257d611c429e5871b37d4d028b4ea39176"
+        },
+        {
+          "path": "figures/png/R44_shot_convergence.png",
+          "size": 162558,
+          "sha256": "b3d26c37920792fd5fc30caef42739e031c05635df39615ae60d6c8e9086c1ab"
+        },
+        {
+          "path": "figures/svg/R44_shot_convergence.svg",
+          "size": 59350,
+          "sha256": "f5d7b31603033f3e082f22f84febd574acdff0f7bf9e9b24e948d55238d7de35"
+        }
+      ],
+      "log": "results/logs/44_shot_convergence.log"
+    },
+    {
+      "experiment_id": "R45",
+      "script": "10_physical_statistics/45_joint_readout_correlations.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "91fa4961fb995e03828a20b887c122db3f668b7be6d42806010a091e4585e39f",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R45_joint_readout_correlations.csv",
+          "results/json/R45_joint_readout_correlations.json",
+          "results/json/R45_joint_readout_correlations.metadata.json",
+          "figures/pdf/R45_joint_readout_correlations.pdf",
+          "figures/png/R45_joint_readout_correlations.png",
+          "figures/svg/R45_joint_readout_correlations.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "c5356220d473aa4deddf7aa30819cd7c5d984b6286c98e5ff5c7f325e55c8fbb",
+      "artifacts": [
+        {
+          "path": "results/csv/R45_joint_readout_correlations.csv",
+          "size": 337,
+          "sha256": "7aeb866e739790af0612e25ed9c8c20690ada3efe89c5728479d664902a298a1"
+        },
+        {
+          "path": "results/json/R45_joint_readout_correlations.json",
+          "size": 1473,
+          "sha256": "961ba7d209e39f5c69f2c655e1479db3a0e062728906bce2e516a48e033a8398"
+        },
+        {
+          "path": "results/json/R45_joint_readout_correlations.metadata.json",
+          "size": 1783,
+          "sha256": "f76ff0230ebb5371ff055274bcc60574a9bcb7d4ba193073fca4096b9f629918"
+        },
+        {
+          "path": "figures/pdf/R45_joint_readout_correlations.pdf",
+          "size": 16546,
+          "sha256": "7af35196bf409ad8ad165de86fb62cc8fac62963b44281df655e4b3ce4e45c61"
+        },
+        {
+          "path": "figures/png/R45_joint_readout_correlations.png",
+          "size": 114266,
+          "sha256": "3073a2a245493c6f02e80ee24442dc4c2e2203000bc60e9e47cc6da44925c8b9"
+        },
+        {
+          "path": "figures/svg/R45_joint_readout_correlations.svg",
+          "size": 49681,
+          "sha256": "57a48e75a913d2eb31518eb674a0eca07bf5687d372d1f3f2e51b20acad62a21"
+        }
+      ],
+      "log": "results/logs/45_joint_readout_correlations.log"
+    },
+    {
+      "experiment_id": "R46",
+      "script": "10_physical_statistics/46_hard_vs_soft_decoding.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "441dc03255e3dc05b7f386487366cfebd77704478e46f981cf6b77d2e990176c",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R46_hard_vs_soft_decoding.csv",
+          "results/json/R46_hard_vs_soft_decoding.json",
+          "results/json/R46_hard_vs_soft_decoding.metadata.json",
+          "figures/pdf/R46_hard_vs_soft_decoding.pdf",
+          "figures/png/R46_hard_vs_soft_decoding.png",
+          "figures/svg/R46_hard_vs_soft_decoding.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "fc26c1548c5045b9b8af8ea52c312219d4d977b87055b7ffd8c3267aa3a0e23e",
+      "artifacts": [
+        {
+          "path": "results/csv/R46_hard_vs_soft_decoding.csv",
+          "size": 343,
+          "sha256": "4ac7662678c7502a5c296253a11a9bc694de46fcf055996f5b746a27e6dc98fe"
+        },
+        {
+          "path": "results/json/R46_hard_vs_soft_decoding.json",
+          "size": 2050,
+          "sha256": "6a46318888f017146c362325bb91e72de47206cbee0218afa06c2252a3b655a2"
+        },
+        {
+          "path": "results/json/R46_hard_vs_soft_decoding.metadata.json",
+          "size": 1781,
+          "sha256": "28af33d74f584a7557442fba22323d7b7360ba61d66ced2c80433769dec2e7d4"
+        },
+        {
+          "path": "figures/pdf/R46_hard_vs_soft_decoding.pdf",
+          "size": 17121,
+          "sha256": "c5127bf5cc99bb15f9065000d371d2b17d0d652d8f0da07336e886766d515436"
+        },
+        {
+          "path": "figures/png/R46_hard_vs_soft_decoding.png",
+          "size": 88294,
+          "sha256": "480ed9aca2ef9c9557b3a14a02e0a35b2c1226215c4431f9f6c85179933985cf"
+        },
+        {
+          "path": "figures/svg/R46_hard_vs_soft_decoding.svg",
+          "size": 35988,
+          "sha256": "2c3254b730f611d5f829c703489a8c141e2ba53e65e8fcace3cf6955714855a7"
+        }
+      ],
+      "log": "results/logs/46_hard_vs_soft_decoding.log"
+    },
+    {
+      "experiment_id": "R47",
+      "script": "11_convergence/47_resource_axis_convergence.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "30d1afcacc3dab95f0175655ba37788d877457a06afce047c1539391d2f7fc44",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R47_resource_axis_convergence.csv",
+          "results/json/R47_resource_axis_convergence.json",
+          "results/json/R47_resource_axis_convergence.metadata.json",
+          "figures/pdf/R47_resource_axis_convergence.pdf",
+          "figures/png/R47_resource_axis_convergence.png",
+          "figures/svg/R47_resource_axis_convergence.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "5e965d39efa9dfc60d7611de32016a3587125ed387a2f350aab0dad89b3f086a",
+      "artifacts": [
+        {
+          "path": "results/csv/R47_resource_axis_convergence.csv",
+          "size": 841,
+          "sha256": "11d0cc7f5f5dd51b3d6ad9eeaf41d3be63ec5ca11d1846ddc9dbdd7d49ed616e"
+        },
+        {
+          "path": "results/json/R47_resource_axis_convergence.json",
+          "size": 3468,
+          "sha256": "82d83a93b1471d9dc5c078f9ea39a8e7426a9c60ab9a3e8435ab0bd2404734b1"
+        },
+        {
+          "path": "results/json/R47_resource_axis_convergence.metadata.json",
+          "size": 1781,
+          "sha256": "de9cc1eeb7349368a49579fc7711f19a1d2088e19d7ec17064f296aad1e60318"
+        },
+        {
+          "path": "figures/pdf/R47_resource_axis_convergence.pdf",
+          "size": 20962,
+          "sha256": "76b4861919da2a8d48b8dbd472fcea8d42f9f2253f9315978404d5d9f4d1e355"
+        },
+        {
+          "path": "figures/png/R47_resource_axis_convergence.png",
+          "size": 234901,
+          "sha256": "b2c2dfb0a3b5c94ad54c72feea317d9fa53cfad3e0565ca27769c69fe8f073b6"
+        },
+        {
+          "path": "figures/svg/R47_resource_axis_convergence.svg",
+          "size": 81921,
+          "sha256": "a2c718f70d1a51e2af19866811eed6eccaff781ed1002d559f8d6650bc2a1cae"
+        }
+      ],
+      "log": "results/logs/47_resource_axis_convergence.log"
+    },
+    {
+      "experiment_id": "R48",
+      "script": "10_physical_statistics/48_physical_training_stability.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "f01d68a9eb85436470b308df61919b659be7bc1e90bdceccf42b4d0c67d18eea",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R48_physical_training_stability.csv",
+          "results/json/R48_physical_training_stability.json",
+          "results/json/R48_physical_training_stability.metadata.json",
+          "figures/pdf/R48_physical_training_stability.pdf",
+          "figures/png/R48_physical_training_stability.png",
+          "figures/svg/R48_physical_training_stability.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "1e6d41ce3a970bd2507060c9d1877c090290f4dcca60bb971d81a4b6bb7666ec",
+      "artifacts": [
+        {
+          "path": "results/csv/R48_physical_training_stability.csv",
+          "size": 404,
+          "sha256": "18c8109818f5794598978ba9bb458df80010285dc247ffa4f95ddff7d2d7f062"
+        },
+        {
+          "path": "results/json/R48_physical_training_stability.json",
+          "size": 2756,
+          "sha256": "77e00e72cba552fe39de723641fec724c4165c33addcc0b5a597f3c9926272f5"
+        },
+        {
+          "path": "results/json/R48_physical_training_stability.metadata.json",
+          "size": 1936,
+          "sha256": "cffb65e16fa1310d483a7a8bc9fe6f2c8a72bfcc1e00b79333526ecd90f914a7"
+        },
+        {
+          "path": "figures/pdf/R48_physical_training_stability.pdf",
+          "size": 17037,
+          "sha256": "5ab64e3ef374dfcb7a619bf9da02ae1ac559536a2a1ed567126ec592cca350cf"
+        },
+        {
+          "path": "figures/png/R48_physical_training_stability.png",
+          "size": 74395,
+          "sha256": "6ebcdea64391ad4a75abf604951df7c09cdfb9bb1147eea983fdc80b2c3a154e"
+        },
+        {
+          "path": "figures/svg/R48_physical_training_stability.svg",
+          "size": 42842,
+          "sha256": "aa11466a4ee463938e4a99595bf38df8b7526d5c53974669a87780f7fcd78f03"
+        }
+      ],
+      "log": "results/logs/48_physical_training_stability.log"
+    },
+    {
+      "experiment_id": "R_PERF",
+      "script": "12_performance/49_aggregate_performance_figure.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "adc71b4605056f86c537594e1db2a869ac3c2f785fd367fa45186b7bca90f4b2",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R_PERF_aggregate_performance.csv",
+          "results/json/R_PERF_aggregate_performance.json",
+          "results/json/R_PERF_aggregate_performance.metadata.json",
+          "figures/pdf/R_PERF_aggregate_performance.pdf",
+          "figures/png/R_PERF_aggregate_performance.png",
+          "figures/svg/R_PERF_aggregate_performance.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "998b2c294c7b3133815d4471053f8901e0e7d60aa121b946e18267f5f58d04bb",
+      "artifacts": [
+        {
+          "path": "results/csv/R_PERF_aggregate_performance.csv",
+          "size": 34,
+          "sha256": "7a61531fc0875349fd1a46807dd1f07042b1566b0c92c96e66cceb4343053169"
+        },
+        {
+          "path": "results/json/R_PERF_aggregate_performance.json",
+          "size": 579,
+          "sha256": "5ea0ff429b3b1d297bf8f752dbdefadfd451ee6da53033c5ac604ec161d58e20"
+        },
+        {
+          "path": "results/json/R_PERF_aggregate_performance.metadata.json",
+          "size": 1769,
+          "sha256": "c81f744a7b3d88cac837c8d7c648b453a43ec0699b37973835c00dbfaaf0ea3c"
+        },
+        {
+          "path": "figures/pdf/R_PERF_aggregate_performance.pdf",
+          "size": 30832,
+          "sha256": "715e532084e85ffc4b426c741bd95fa59fafa721d85eb2ce217dea5fd9a3841b"
+        },
+        {
+          "path": "figures/png/R_PERF_aggregate_performance.png",
+          "size": 376168,
+          "sha256": "9e2b5db4969ac77a74a67f6857131fcb4a92bdfdc0cc8571ea881773fafc164a"
+        },
+        {
+          "path": "figures/svg/R_PERF_aggregate_performance.svg",
+          "size": 121526,
+          "sha256": "ed0c58026e3309c75dc9ca75081cf39f249a526451f71bda5b5ac0d03f367594"
+        }
+      ],
+      "log": "results/logs/49_aggregate_performance_figure.log"
+    },
+    {
+      "experiment_id": "R50",
+      "script": "13_extended/50_canonical_reproduction.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "0dd6a611582622e34d88e1b54ccbbbf221754dd2b6b0339d111ee63bdd59d581",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R50_canonical_reproduction.csv",
+          "results/json/R50_canonical_reproduction.json",
+          "results/json/R50_canonical_reproduction.metadata.json",
+          "figures/pdf/R50_canonical_reproduction.pdf",
+          "figures/png/R50_canonical_reproduction.png",
+          "figures/svg/R50_canonical_reproduction.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "32acf84fdf811c31ff55102cb523c199dc33cfc7f70a8c30ee2c596108cdabd7",
+      "artifacts": [
+        {
+          "path": "results/csv/R50_canonical_reproduction.csv",
+          "size": 1495,
+          "sha256": "366546795aa11889393d983e1a27c000a1061c1d05ab04b514c2994514e4dc53"
+        },
+        {
+          "path": "results/json/R50_canonical_reproduction.json",
+          "size": 4880,
+          "sha256": "60103df14e4256becc7f78ef9e80bcc8f086b79102eef7f3f23fd5d49160c529"
+        },
+        {
+          "path": "results/json/R50_canonical_reproduction.metadata.json",
+          "size": 1918,
+          "sha256": "19e424c7f67d25808e5d776fd0ae5f2cefb6e6425bd1c864c5d3c5105900970d"
+        },
+        {
+          "path": "figures/pdf/R50_canonical_reproduction.pdf",
+          "size": 16156,
+          "sha256": "66d2d53d0006a53727d0ea3b0b3817231dc3888675b857d45ae0ef588758bf75"
+        },
+        {
+          "path": "figures/png/R50_canonical_reproduction.png",
+          "size": 109564,
+          "sha256": "56259c908183080e01857651b44e01ca25e65df4f5880051293471c99327510b"
+        },
+        {
+          "path": "figures/svg/R50_canonical_reproduction.svg",
+          "size": 35463,
+          "sha256": "8229cfb42bac97814e1891d6b0936b5c9157bd0b046c952f727eab167b81e60d"
+        }
+      ],
+      "log": "results/logs/50_canonical_reproduction.log"
+    },
+    {
+      "experiment_id": "R51",
+      "script": "13_extended/51_expanded_gate_learning.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "760544814feef54e8b7c7fe0df5d28d37405160b6f0fa8839955e5250c818867",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R51_expanded_gate_learning.csv",
+          "results/json/R51_expanded_gate_learning.json",
+          "results/json/R51_expanded_gate_learning.metadata.json",
+          "figures/pdf/R51_expanded_gate_learning.pdf",
+          "figures/png/R51_expanded_gate_learning.png",
+          "figures/svg/R51_expanded_gate_learning.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "a62fd73aa36e7310e25fc3f8434884fe7061ec44f72e2b3c08aea0aa973de0fe",
+      "artifacts": [
+        {
+          "path": "results/csv/R51_expanded_gate_learning.csv",
+          "size": 3009,
+          "sha256": "3224bb4e813017388ca42d64050f600ca3a9e190b922823221f02c6e8f1ed759"
+        },
+        {
+          "path": "results/json/R51_expanded_gate_learning.json",
+          "size": 11411,
+          "sha256": "38d0936fb9cfaaad58261c76861afac4817bf623f5ab4c028109b50821a3f143"
+        },
+        {
+          "path": "results/json/R51_expanded_gate_learning.metadata.json",
+          "size": 1917,
+          "sha256": "0f40f3d207a2d21114825de983c4508b01ed79ab82e805ec66e6dbc3a1c31bdc"
+        },
+        {
+          "path": "figures/pdf/R51_expanded_gate_learning.pdf",
+          "size": 81580,
+          "sha256": "754aac14a4d8e62ec6c176b2e4d3c2d29d2ac5bf97880c011e71783325c596a9"
+        },
+        {
+          "path": "figures/png/R51_expanded_gate_learning.png",
+          "size": 237359,
+          "sha256": "d73ff97478ae893978a9f8c2800c7633acd51598bef0c5ab949a2e34480bea93"
+        },
+        {
+          "path": "figures/svg/R51_expanded_gate_learning.svg",
+          "size": 265098,
+          "sha256": "db84b6c90700e37afe537a69a4cae1e3a286976260d566bf2d97203585e0a329"
+        }
+      ],
+      "log": "results/logs/51_expanded_gate_learning.log"
+    },
+    {
+      "experiment_id": "R52",
+      "script": "13_extended/52_comprehensive_classification.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "ec8397e74d2e12e0427b578de75626a74b5957403898ead9e3e91c2b4fb09365",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R52_comprehensive_classification.csv",
+          "results/json/R52_comprehensive_classification.json",
+          "results/json/R52_comprehensive_classification.metadata.json",
+          "figures/pdf/R52_comprehensive_classification.pdf",
+          "figures/png/R52_comprehensive_classification.png",
+          "figures/svg/R52_comprehensive_classification.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "1726797ffcb555963097925172b22b1dfecd22a82e9eb7aa4d761a367014e309",
+      "artifacts": [
+        {
+          "path": "results/csv/R52_comprehensive_classification.csv",
+          "size": 8837,
+          "sha256": "f48674bb502bfa0a31ad6e9ba55511b4456c64e6139d4363c342ce2173e0a799"
+        },
+        {
+          "path": "results/json/R52_comprehensive_classification.json",
+          "size": 34982,
+          "sha256": "f438134be5cf70645c23735f6590245b403d12c9d3f21c699b995316cc2d8541"
+        },
+        {
+          "path": "results/json/R52_comprehensive_classification.metadata.json",
+          "size": 1931,
+          "sha256": "c7233b8233dcf099514fa8b18d284a13a8f5cfb5273b144668b5bd05eb4c996e"
+        },
+        {
+          "path": "figures/pdf/R52_comprehensive_classification.pdf",
+          "size": 16070,
+          "sha256": "57dc2158ce32992ce9c952f44a9659e2c66f0250fab2ecbc35b209d5e7ad3e87"
+        },
+        {
+          "path": "figures/png/R52_comprehensive_classification.png",
+          "size": 140492,
+          "sha256": "a00587c5f76ff7b451e5d5879ef0062cda24b947c7bb6225b60dba06ac8fa629"
+        },
+        {
+          "path": "figures/svg/R52_comprehensive_classification.svg",
+          "size": 53600,
+          "sha256": "e0fe8ad421c5e32919c6c918457b9d7fd9000ec47fcdfee2e0abd69bfda97d21"
+        }
+      ],
+      "log": "results/logs/52_comprehensive_classification.log"
+    },
+    {
+      "experiment_id": "R53",
+      "script": "13_extended/53_comprehensive_regression.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "4177f8a99205fe94567ea45ba49d3cd2ecdc93896a8bc529bd57f21101dfc382",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R53_comprehensive_regression.csv",
+          "results/json/R53_comprehensive_regression.json",
+          "results/json/R53_comprehensive_regression.metadata.json",
+          "figures/pdf/R53_comprehensive_regression.pdf",
+          "figures/png/R53_comprehensive_regression.png",
+          "figures/svg/R53_comprehensive_regression.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "ad2de86e8023f93304f54296180acb34e732f0bb4b9ea60127e9e85e6fd680c7",
+      "artifacts": [
+        {
+          "path": "results/csv/R53_comprehensive_regression.csv",
+          "size": 7678,
+          "sha256": "2febdefafc0508bce916f95c16a51b26166cc069a993c79b989657722a9da89c"
+        },
+        {
+          "path": "results/json/R53_comprehensive_regression.json",
+          "size": 18663,
+          "sha256": "0c4b657441258fcc36251fc7f14fec4d86371aa373123ed5e14fe6c7bb37fc6e"
+        },
+        {
+          "path": "results/json/R53_comprehensive_regression.metadata.json",
+          "size": 1923,
+          "sha256": "06d540957ff8a8f6dd6f07f09b725b9cb79b6a177fb3de38587a07288e088692"
+        },
+        {
+          "path": "figures/pdf/R53_comprehensive_regression.pdf",
+          "size": 18809,
+          "sha256": "49f5abf193851613fc1c08fe25d54cdf0c7e339a4022d4ba26b7406cc8fa5f2c"
+        },
+        {
+          "path": "figures/png/R53_comprehensive_regression.png",
+          "size": 149290,
+          "sha256": "3f4117a87d9de16e2efa9eb3757d3d765ec406f941761d0d42c31c11d624a916"
+        },
+        {
+          "path": "figures/svg/R53_comprehensive_regression.svg",
+          "size": 51661,
+          "sha256": "d88e3e4ff81242f56b870cd132cfc29232924424a6e5c3089097fd4d43446c78"
+        }
+      ],
+      "log": "results/logs/53_comprehensive_regression.log"
+    },
+    {
+      "experiment_id": "R54",
+      "script": "13_extended/54_kernel_ablations.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "e01439021eacc2a280e831240dc278779e506ca0b62408484e5b8786ca03c4d1",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R54_kernel_ablations.csv",
+          "results/json/R54_kernel_ablations.json",
+          "results/json/R54_kernel_ablations.metadata.json",
+          "figures/pdf/R54_kernel_ablations.pdf",
+          "figures/png/R54_kernel_ablations.png",
+          "figures/svg/R54_kernel_ablations.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "3a3350c5bb6a476c51fc024f114a438e39685992bef0d7ce02f473da3bedcf27",
+      "artifacts": [
+        {
+          "path": "results/csv/R54_kernel_ablations.csv",
+          "size": 18213,
+          "sha256": "8426705905a30a1259ba6f76291117fdc7666e057ec6624ae57d6c5b78780865"
+        },
+        {
+          "path": "results/json/R54_kernel_ablations.json",
+          "size": 55230,
+          "sha256": "bea35c0febec0ff345912e1ccca0f39bdc60eb6f5293108c0e106efc6ade974a"
+        },
+        {
+          "path": "results/json/R54_kernel_ablations.metadata.json",
+          "size": 1925,
+          "sha256": "4f033e666bc59b6e7fadb517f35d9ee05cd345408063766e0b752767f88f3706"
+        },
+        {
+          "path": "figures/pdf/R54_kernel_ablations.pdf",
+          "size": 18451,
+          "sha256": "d1bfe8a513b38374606559e0912a3fc79f7fc49c2b48c75e0e50709081e072d7"
+        },
+        {
+          "path": "figures/png/R54_kernel_ablations.png",
+          "size": 178780,
+          "sha256": "d2914bac3a68bc6e0ad5700f9d32a5c04c931818741c4b434a03970a21d8d832"
+        },
+        {
+          "path": "figures/svg/R54_kernel_ablations.svg",
+          "size": 64494,
+          "sha256": "ad910fa63d429c628ea3dcb6b21e2709475b1fe967ece99f28d37ddbd3f95b8d"
+        }
+      ],
+      "log": "results/logs/54_kernel_ablations.log"
+    },
+    {
+      "experiment_id": "R55",
+      "script": "13_extended/55_expressivity_trainability.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "74e4e52e1954420a7d0fdca2cc24a1a3ba5e0ebdfb36b39356d0d011b4642371",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R55_expressivity_trainability.csv",
+          "results/json/R55_expressivity_trainability.json",
+          "results/json/R55_expressivity_trainability.metadata.json",
+          "figures/pdf/R55_expressivity_trainability.pdf",
+          "figures/png/R55_expressivity_trainability.png",
+          "figures/svg/R55_expressivity_trainability.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "3cfb81a4a884b6a75d83f9a06e631081e6aa17f6868eb325d70ae7f9f2f71ade",
+      "artifacts": [
+        {
+          "path": "results/csv/R55_expressivity_trainability.csv",
+          "size": 3321,
+          "sha256": "edd7e03e5cc4d80988ccd2005515fe680e78d47575364b3ff4b25e907fd530f7"
+        },
+        {
+          "path": "results/json/R55_expressivity_trainability.json",
+          "size": 11685,
+          "sha256": "8f8e8e91847cc1139749925666580b67d66aa73f1f84b66e2b321253c0be2833"
+        },
+        {
+          "path": "results/json/R55_expressivity_trainability.metadata.json",
+          "size": 1931,
+          "sha256": "fc76b44805cb9cce5fdad59623852c3b1a7f5bb81e81ded08839d56d2771a0f0"
+        },
+        {
+          "path": "figures/pdf/R55_expressivity_trainability.pdf",
+          "size": 17663,
+          "sha256": "7a98ceaddc8e38696a6b14cf6d8526302ef2ec9452a0a7eb3234eca68c116d05"
+        },
+        {
+          "path": "figures/png/R55_expressivity_trainability.png",
+          "size": 84610,
+          "sha256": "7580018b941f4a0aea1b8d760b082626bfdb4ec86446f57f881fab576869a379"
+        },
+        {
+          "path": "figures/svg/R55_expressivity_trainability.svg",
+          "size": 49104,
+          "sha256": "d50be7e3c1e586ebf722944a83172779740f0f3710d7eb55e3ea7200a07356d5"
+        }
+      ],
+      "log": "results/logs/55_expressivity_trainability.log"
+    },
+    {
+      "experiment_id": "R56",
+      "script": "13_extended/56_logical_physical_gap.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "929920815020b58cff5f1ec8cf1f2f7b2e07cc5f6e6cc63682a4afb832bb7bdf",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R56_logical_physical_gap.csv",
+          "results/json/R56_logical_physical_gap.json",
+          "results/json/R56_logical_physical_gap.metadata.json",
+          "figures/pdf/R56_logical_physical_gap.pdf",
+          "figures/png/R56_logical_physical_gap.png",
+          "figures/svg/R56_logical_physical_gap.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "5a45d6cdfdabad0152e1f9572b2fb73a23e4a2ae944a331e735081492d8366b1",
+      "artifacts": [
+        {
+          "path": "results/csv/R56_logical_physical_gap.csv",
+          "size": 602,
+          "sha256": "a39364805375c41f7592e4abfae239b1e3eec5300c34a06701adbbad95d2bc3f"
+        },
+        {
+          "path": "results/json/R56_logical_physical_gap.json",
+          "size": 2488,
+          "sha256": "4723a1c28d86e2a5e2429a324445f9afaffe1ecda0e6ec5bd40c66ed90ced66e"
+        },
+        {
+          "path": "results/json/R56_logical_physical_gap.metadata.json",
+          "size": 1910,
+          "sha256": "426db9fb8cf263c618d71a85caaaf3607fd677b7055359f74d212ebdbf4a4559"
+        },
+        {
+          "path": "figures/pdf/R56_logical_physical_gap.pdf",
+          "size": 14638,
+          "sha256": "6b5b3f83592966604150280d4d7d9d4a40162558b15486e98b1e40ec3b837c38"
+        },
+        {
+          "path": "figures/png/R56_logical_physical_gap.png",
+          "size": 147247,
+          "sha256": "d9eda1432251b6648b549f06d67721ec3671c8f25aa6b91e8d821e2674e0f7d6"
+        },
+        {
+          "path": "figures/svg/R56_logical_physical_gap.svg",
+          "size": 40311,
+          "sha256": "5cef15b7b4bdc8c8657a66cee909057b15593f1b79032cb81676700617bc8651"
+        }
+      ],
+      "log": "results/logs/56_logical_physical_gap.log"
+    },
+    {
+      "experiment_id": "R57",
+      "script": "13_extended/57_physical_training_evaluation.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "3c1498c3b43f0f0fb9ef1eb36df69deb9fc5c2df42ada5835af7b1550056f013",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R57_physical_training_evaluation.csv",
+          "results/json/R57_physical_training_evaluation.json",
+          "results/json/R57_physical_training_evaluation.metadata.json",
+          "figures/pdf/R57_physical_training_evaluation.pdf",
+          "figures/png/R57_physical_training_evaluation.png",
+          "figures/svg/R57_physical_training_evaluation.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "cd16f450bbc37b35dd7959c9f1ac1a320f4ae504c35d34631504826a7139bb87",
+      "artifacts": [
+        {
+          "path": "results/csv/R57_physical_training_evaluation.csv",
+          "size": 514,
+          "sha256": "c339e0b0b856cc09348c003c31925f9c921e4ca0f1037eaab1528c676633fbfb"
+        },
+        {
+          "path": "results/json/R57_physical_training_evaluation.json",
+          "size": 2835,
+          "sha256": "f8bae1086d07b2785c3ca840b471f07707c288131f016569f17699680296b5f9"
+        },
+        {
+          "path": "results/json/R57_physical_training_evaluation.metadata.json",
+          "size": 1920,
+          "sha256": "078d1766c1c6adf6dae58731cc879f3dcbbaeab0428019ed3f7b7a274ce4ad25"
+        },
+        {
+          "path": "figures/pdf/R57_physical_training_evaluation.pdf",
+          "size": 13924,
+          "sha256": "726fcdce50904c96a5d99c173c19f13daa3ccb51fd00632d38cf221827d76d2a"
+        },
+        {
+          "path": "figures/png/R57_physical_training_evaluation.png",
+          "size": 61132,
+          "sha256": "d99089a634a32dc02efc54cff5e8488a9e84ab5a4c71811389c02df0df1cca63"
+        },
+        {
+          "path": "figures/svg/R57_physical_training_evaluation.svg",
+          "size": 32304,
+          "sha256": "37e80ac1b219a96b49a8eac24aa0cd336b6899d2ad49b21c0482cd89620a9795"
+        }
+      ],
+      "log": "results/logs/57_physical_training_evaluation.log"
+    },
+    {
+      "experiment_id": "R58",
+      "script": "13_extended/58_physical_resource_boundary.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "8c6a559316b1e278455197d8b08e4a8d9fc6d940fe8345d64fb09fb0f80706e5",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R58_physical_resource_boundary.csv",
+          "results/json/R58_physical_resource_boundary.json",
+          "results/json/R58_physical_resource_boundary.metadata.json",
+          "figures/pdf/R58_physical_resource_boundary.pdf",
+          "figures/png/R58_physical_resource_boundary.png",
+          "figures/svg/R58_physical_resource_boundary.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "c17429c42813cd0e7ddf8062b4ae3a577346c07bce694814f27de57c65c1975e",
+      "artifacts": [
+        {
+          "path": "results/csv/R58_physical_resource_boundary.csv",
+          "size": 1895,
+          "sha256": "6375e049309a40b55f7df98687e3612c2aaac7dd2df1857f8fbdf1ffb589fe3b"
+        },
+        {
+          "path": "results/json/R58_physical_resource_boundary.json",
+          "size": 7435,
+          "sha256": "1c440a66418c061b22b2addbedc0abbd36ff8571084bf920a9436f587af31ae5"
+        },
+        {
+          "path": "results/json/R58_physical_resource_boundary.metadata.json",
+          "size": 1878,
+          "sha256": "3e89b06cabf75d49e0df0a843d8c32dea78c874596d9dcb197fe2a6bd45e7f7c"
+        },
+        {
+          "path": "figures/pdf/R58_physical_resource_boundary.pdf",
+          "size": 17175,
+          "sha256": "07460b7954d4fc8433cf125300c3099d43ad0e0b936050573320e66e748e9d0a"
+        },
+        {
+          "path": "figures/png/R58_physical_resource_boundary.png",
+          "size": 92051,
+          "sha256": "909b8add1af3d1419d748a054a3f0090282e4972a4495722af0a2f3b4cd286d8"
+        },
+        {
+          "path": "figures/svg/R58_physical_resource_boundary.svg",
+          "size": 39033,
+          "sha256": "c2ab84a806b29cfb0b4c4cd4d3977e61492a22903f7f040ff291a86ed9286a34"
+        }
+      ],
+      "log": "results/logs/58_physical_resource_boundary.log"
+    },
+    {
+      "experiment_id": "R59",
+      "script": "13_extended/59_end_to_end_scaling.py",
+      "execution_status": "resumed",
+      "runtime_seconds": 0.0,
+      "returncode": 0,
+      "reason": "complete fingerprint and every artifact hash matched",
+      "fingerprint": {
+        "schema_version": 3,
+        "source_commit": "ea56bf364c71b7f6349a9fb8eb3171a9c4a96058",
+        "source_tree_fingerprint": "fa50e5937a17ad6876583a018efc559f8b2bc42e9a1aa830a2ac09a0478cdf60",
+        "script_sha256": "2b7cd9eb0fb4eaa31759ecabf10f20dffe5c20b8bd237b5a50146c0950cba3c9",
+        "common_sha256": "28c1d0c699ebcb34ac90d2c285efd7d0af09605ba54abc0716aae4b74dd0aa5e",
+        "metadata_sha256": "4779052b19f4cf0f19bbb22ee0efeb080e2507fdb962c69fd4fdd2f153755484",
+        "contract_sha256": "53b37b34bc62d533a3372eb2b70b2b1ed8edc8f3ad599896cc48c7d8dd0c494e",
+        "expected_artifacts": [
+          "results/csv/R59_end_to_end_scaling.csv",
+          "results/json/R59_end_to_end_scaling.json",
+          "results/json/R59_end_to_end_scaling.metadata.json",
+          "figures/pdf/R59_end_to_end_scaling.pdf",
+          "figures/png/R59_end_to_end_scaling.png",
+          "figures/svg/R59_end_to_end_scaling.svg"
+        ],
+        "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+        "package_versions": {
+          "photographiqml": "0.2.0",
+          "photographiq": "0.3.1",
+          "mentpy": "0.1.0a15",
+          "piquasso": "8.0.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1"
+        },
+        "photographiq_commit": "6d49da06fa6ede78bf06ea1df07ccfb3b4f5250e",
+        "photographiq_dirty": false,
+        "mentpy_commit": "63c3d83e495696b4491c9d376dab7e3e6cf6c863"
+      },
+      "fingerprint_sha256": "bcf3f10b1f458a0b4c5ad51c9a5332a6315b78062ff5eccefe5bd76616681f9b",
+      "artifacts": [
+        {
+          "path": "results/csv/R59_end_to_end_scaling.csv",
+          "size": 1149,
+          "sha256": "6af3243c46a66167be6471cddee5dd361c73b3fb3ebcb263b69de2d1fd160e13"
+        },
+        {
+          "path": "results/json/R59_end_to_end_scaling.json",
+          "size": 5634,
+          "sha256": "2c56000dca14e07a9f421b2362b3d075ae5c856d021163fdedc9f2831874e92d"
+        },
+        {
+          "path": "results/json/R59_end_to_end_scaling.metadata.json",
+          "size": 1880,
+          "sha256": "dfef3ee9dce4a869b5b93de34ee289b1c38c317bc8aab88e1d1886e97d81fdcf"
+        },
+        {
+          "path": "figures/pdf/R59_end_to_end_scaling.pdf",
+          "size": 20967,
+          "sha256": "91bbce440a85411e7519c3456af35bfb869e66705c96f3b522555c4d7f337362"
+        },
+        {
+          "path": "figures/png/R59_end_to_end_scaling.png",
+          "size": 158616,
+          "sha256": "a5cfb9ba3fc830184e870f3f227e652e9e294bee8e9d777c76ea2116b6a26fd5"
+        },
+        {
+          "path": "figures/svg/R59_end_to_end_scaling.svg",
+          "size": 72488,
+          "sha256": "a4c9044abc3ae365f3053ab5cbd8f2647445e1d6843ff4f7f256dfb32c7262cb"
+        }
+      ],
+      "log": "results/logs/59_end_to_end_scaling.log"
+    }
+  ],
+  "finalizer_and_quality_gates": [
+    {
+      "name": "generate_tables",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\.venv\\Scripts\\python.exe",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\paper_experiments\\generate_tables.py"
+      ],
+      "returncode": 0,
+      "runtime_seconds": 0.36805110005661845,
+      "log": "results/logs/publication_generate_tables.log"
+    },
+    {
+      "name": "build_notebook",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\.venv\\Scripts\\python.exe",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\paper_experiments\\build_notebook.py"
+      ],
+      "returncode": 0,
+      "runtime_seconds": 0.4618248000042513,
+      "log": "results/logs/publication_build_notebook.log"
+    },
+    {
+      "name": "build_manifest",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\.venv\\Scripts\\python.exe",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\paper_experiments\\build_manifest.py"
+      ],
+      "returncode": 0,
+      "runtime_seconds": 11.233608099981211,
+      "log": "results/logs/publication_build_manifest.log"
+    },
+    {
+      "name": "verify_evidence_pre_status",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\.venv\\Scripts\\python.exe",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\paper_experiments\\verify_evidence.py",
+        "--pre-status"
+      ],
+      "returncode": 0,
+      "runtime_seconds": 12.402479800046422,
+      "log": "results/logs/publication_verify_evidence_pre_status.log"
+    },
+    {
+      "name": "repository_validation",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\.venv\\Scripts\\python.exe",
+        "scripts/validate_release.py",
+        "--output-dir",
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\paper_experiments\\results\\validation\\ea56bf364c71-20260924T235941Z"
+      ],
+      "returncode": 0,
+      "runtime_seconds": 150.87585880002007,
+      "log": "results/logs/publication_repository_validation.log"
+    },
+    {
+      "name": "notebook_validation",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import nbformat; nbformat.validate(nbformat.read('paper_experiments/PhotoGraphiQML_Manuscript_Experiments.ipynb', 4))"
+      ],
+      "returncode": 0,
+      "runtime_seconds": 0.44342419994063675,
+      "log": "results/logs/publication_notebook_validation.log"
+    },
+    {
+      "name": "clean_install",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        ".",
+        "--no-deps",
+        "--target",
+        "C:\\Users\\TONMOY~1\\AppData\\Local\\Temp\\photographiqml-install-kaaofwcy\\site"
+      ],
+      "returncode": 0,
+      "runtime_seconds": 6.257250100024976,
+      "log": "results/logs/publication_clean_install.log"
+    },
+    {
+      "name": "installed_import_smoke",
+      "command": [
+        "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQML\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import photographiqml; print(photographiqml.__version__)"
+      ],
+      "returncode": 0,
+      "runtime_seconds": 2.916624699952081,
+      "log": "results/logs/publication_installed_import_smoke.log"
+    }
+  ],
+  "manifest_sha256": "d721ee870de72875d563138c2f9b08f3742b019d78bbabc96ac4bee10f702d60",
+  "total_wall_seconds": 184.95912160002626,
+  "overall_acceptance": true,
+  "rejection_reasons": []
+}
