@@ -1,0 +1,706 @@
+{
+  "rows": [
+    {
+      "part": "ideal",
+      "raw": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "interpreted": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "adaptive": true,
+      "fidelity": 1.0,
+      "probability": 0.06249999999999988,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "interpreted": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "adaptive": false,
+      "fidelity": 1.0,
+      "probability": 0.06249999999999988,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "interpreted": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "adaptive": true,
+      "fidelity": 1.0,
+      "probability": 0.06249999999999988,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "interpreted": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "adaptive": false,
+      "fidelity": 1.0,
+      "probability": 0.06249999999999988,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "interpreted": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "adaptive": true,
+      "fidelity": 1.0,
+      "probability": 0.06249999999999988,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "interpreted": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "adaptive": false,
+      "fidelity": 1.0,
+      "probability": 0.06249999999999988,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "interpreted": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "adaptive": true,
+      "fidelity": 1.0,
+      "probability": 0.06249999999999988,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "interpreted": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "adaptive": false,
+      "fidelity": 1.0,
+      "probability": 0.06249999999999988,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "interpreted": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "adaptive": true,
+      "fidelity": 1.0,
+      "probability": 0.062499999999999896,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "interpreted": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "adaptive": false,
+      "fidelity": 0.6841423317014905,
+      "probability": 0.06249999999999989,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "interpreted": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "adaptive": true,
+      "fidelity": 1.0,
+      "probability": 0.062499999999999896,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "interpreted": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "adaptive": false,
+      "fidelity": 0.6841423317014905,
+      "probability": 0.06249999999999989,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "interpreted": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "adaptive": true,
+      "fidelity": 1.0,
+      "probability": 0.062499999999999896,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "interpreted": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "adaptive": false,
+      "fidelity": 0.6841423317014905,
+      "probability": 0.06249999999999989,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "interpreted": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "adaptive": true,
+      "fidelity": 1.0,
+      "probability": 0.062499999999999896,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "interpreted": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "adaptive": false,
+      "fidelity": 0.6841423317014905,
+      "probability": 0.06249999999999989,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "interpreted": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "adaptive": true,
+      "fidelity": 0.9999999999999998,
+      "probability": 0.062499999999999896,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "interpreted": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "adaptive": false,
+      "fidelity": 0.43272047286630627,
+      "probability": 0.0624999999999999,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "interpreted": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "adaptive": true,
+      "fidelity": 0.9999999999999998,
+      "probability": 0.062499999999999896,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "interpreted": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "adaptive": false,
+      "fidelity": 0.43272047286630627,
+      "probability": 0.0624999999999999,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "interpreted": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "adaptive": true,
+      "fidelity": 0.9999999999999998,
+      "probability": 0.062499999999999896,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "interpreted": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "adaptive": false,
+      "fidelity": 0.43272047286630627,
+      "probability": 0.0624999999999999,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "interpreted": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "adaptive": true,
+      "fidelity": 0.9999999999999998,
+      "probability": 0.062499999999999896,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "interpreted": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "adaptive": false,
+      "fidelity": 0.43272047286630627,
+      "probability": 0.0624999999999999,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "interpreted": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "adaptive": true,
+      "fidelity": 0.9999999999999998,
+      "probability": 0.062499999999999896,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "interpreted": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "adaptive": false,
+      "fidelity": 0.6931712855622854,
+      "probability": 0.06249999999999992,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "interpreted": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "adaptive": true,
+      "fidelity": 0.9999999999999998,
+      "probability": 0.062499999999999896,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "interpreted": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "adaptive": false,
+      "fidelity": 0.6931712855622854,
+      "probability": 0.06249999999999992,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "interpreted": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "adaptive": true,
+      "fidelity": 0.9999999999999998,
+      "probability": 0.0624999999999999,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "interpreted": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "adaptive": false,
+      "fidelity": 0.6931712855622854,
+      "probability": 0.06249999999999992,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "interpreted": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "adaptive": true,
+      "fidelity": 0.9999999999999998,
+      "probability": 0.0624999999999999,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "ideal",
+      "raw": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "interpreted": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "adaptive": false,
+      "fidelity": 0.6931712855622854,
+      "probability": 0.06249999999999992,
+      "reference_probability": 0.06249999999999988
+    },
+    {
+      "part": "physical",
+      "first_bit": 0,
+      "interpreted_first_bit": 0,
+      "adaptive": true,
+      "recorded_angle_node_0_1": 1.0,
+      "expected_angle": 1.0,
+      "decoded_output": [
+        0.7668076327017127,
+        0.23319236729828718
+      ],
+      "logical_target": [
+        0.45179461120044073,
+        0.5482053887995582
+      ],
+      "tvd": 0.3150130215012715
+    },
+    {
+      "part": "physical",
+      "first_bit": 0,
+      "interpreted_first_bit": 0,
+      "adaptive": false,
+      "recorded_angle_node_0_1": 1.0,
+      "expected_angle": 1.0,
+      "decoded_output": [
+        0.7668076327017127,
+        0.23319236729828718
+      ],
+      "logical_target": [
+        0.45179461120044073,
+        0.5482053887995582
+      ],
+      "tvd": 0.3150130215012715
+    },
+    {
+      "part": "physical",
+      "first_bit": 1,
+      "interpreted_first_bit": 1,
+      "adaptive": true,
+      "recorded_angle_node_0_1": -1.0,
+      "expected_angle": -1.0,
+      "decoded_output": [
+        0.7945343442502065,
+        0.2054656557497932
+      ],
+      "logical_target": [
+        0.45179461120044073,
+        0.5482053887995582
+      ],
+      "tvd": 0.34273973304976535
+    },
+    {
+      "part": "physical",
+      "first_bit": 1,
+      "interpreted_first_bit": 1,
+      "adaptive": false,
+      "recorded_angle_node_0_1": 1.0,
+      "expected_angle": 1.0,
+      "decoded_output": [
+        0.956666611399932,
+        0.04333338860006865
+      ],
+      "logical_target": [
+        0.45179461120044073,
+        0.5482053887995582
+      ],
+      "tvd": 0.5048720001994904
+    }
+  ],
+  "oracle_class": "A",
+  "status": "pass",
+  "ideal_ok": true,
+  "angle_ok": true,
+  "x1_branch_adaptive_better": true,
+  "angles": [
+    0.0,
+    1.0,
+    0.6,
+    0.0
+  ],
+  "flipped_branches": [
+    [
+      1,
+      true
+    ],
+    [
+      1,
+      false
+    ]
+  ],
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

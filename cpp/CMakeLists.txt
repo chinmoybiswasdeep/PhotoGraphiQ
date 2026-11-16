@@ -34,6 +34,10 @@ if(NOT TARGET Eigen3::Eigen)
   target_include_directories(Eigen3::Eigen INTERFACE "${eigen_SOURCE_DIR}")
 endif()
 
+# Tolerate "fock;fock" and a trailing ";" (each component's sources and test exactly once).
+list(FILTER PGQ_COMPONENTS EXCLUDE REGEX "^$")
+list(REMOVE_DUPLICATES PGQ_COMPONENTS)
+
 set(PGQ_CORE_SOURCES "")
 set(PGQ_BINDING_SOURCES "")
 set(PGQ_DEFINITIONS "")
@@ -80,13 +84,15 @@ target_compile_definitions(_native PRIVATE
 install(TARGETS _native LIBRARY DESTINATION photographiq RUNTIME DESTINATION photographiq)
 
 if(PGQ_BUILD_CPP_TESTS)
-  file(GLOB test_sources CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_*.cpp")
   enable_testing()
-  foreach(test_source IN LISTS test_sources)
-    get_filename_component(test_name "${test_source}" NAME_WE)
-    # Each test file is guarded by the PGQ_WITH_* macros of the components it needs.
-    add_executable(${test_name} "${test_source}")
-    target_link_libraries(${test_name} PRIVATE pgq_core)
-    add_test(NAME ${test_name} COMMAND ${test_name})
+  # Register only the tests of built components: a disabled component's test file compiles to
+  # an empty main() (its PGQ_WITH_* guard), which ctest would otherwise count as a pass.
+  foreach(component IN LISTS PGQ_COMPONENTS)
+    set(test_source "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_${component}.cpp")
+    if(EXISTS "${test_source}")
+      add_executable(test_${component} "${test_source}")
+      target_link_libraries(test_${component} PRIVATE pgq_core)
+      add_test(NAME test_${component} COMMAND test_${component})
+    endif()
   endforeach()
 endif()

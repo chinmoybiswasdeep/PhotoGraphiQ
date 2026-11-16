@@ -1,7 +1,8 @@
-"""PhotoGraphiQML: logical MuTA and explicit photonic research boundaries."""
+"""PhotoGraphiQML: logical MuTA, GKP physical MuTA and CV-native learning (``photographiqml.cv``)."""
 
 from photographiq import Parameter
 
+from . import cv  # noqa: E402  (CV-native family; imports after the logical stack)
 from .ansatz.muta import MuTA
 from .ansatz.triangle import TriangleNeuron
 from .gkp import GKPBridge
@@ -9,12 +10,20 @@ from .kernels import MuTAKernel
 from .lowering import GKPPhysicalConfig, lower_muta_to_gkp
 from .models import MuTAClassifier, MuTARegressor, QuantumInstrumentModel
 from .physical import PhysicalMuTA, PhysicalMuTAResult, compare_logical_physical
-from .physical_training import DiscreteSearch
+from .physical_training import (
+    ContinuousPhysicalSearch,
+    DiscreteSearch,
+    physical_gradient,
+    physical_loss,
+)
 from .training import History, Trainer
 
 __version__ = "0.2.0"
 __all__ = [
+    "ContinuousPhysicalSearch",
     "DiscreteSearch",
+    "physical_gradient",
+    "physical_loss",
     "PhysicalMuTA",
     "PhysicalMuTAResult",
     "GKPPhysicalConfig",
@@ -30,4 +39,5 @@ __all__ = [
     "Trainer",
     "History",
     "Parameter",
+    "cv",
 ]

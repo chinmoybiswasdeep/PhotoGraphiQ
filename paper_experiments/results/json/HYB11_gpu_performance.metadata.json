@@ -1,0 +1,36 @@
+{
+  "timestamp_utc": "2026-11-16T17:39:42.128388+00:00",
+  "git_commit": "9dea4abf59dae4680fe0d30f6b37d367e1098f1c",
+  "git_branch": "upgraded",
+  "git_dirty": true,
+  "git_note": "uncommitted working-tree changes on top of git_commit; see source_sha256",
+  "source_sha256": "3bacd959e842d02f2bff747ed149ad3d808137dda6b54fdd1c033fb3a1c83ba0",
+  "python_version": "3.12.14",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cpu_model": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+  "cpu_count": 12,
+  "omp_num_threads": null,
+  "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU, 581.86",
+  "native": {
+    "available": true,
+    "components": [
+      "gaussian",
+      "fock",
+      "sampling"
+    ]
+  },
+  "packages": {
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "networkx": "3.6.1",
+    "matplotlib": "3.11.1",
+    "piquasso": "8.0.1",
+    "photographiq": "0.3.1",
+    "graphix": "0.4",
+    "jax": "0.11.1",
+    "mpmath": "1.3.0",
+    "numba": "0.67.0",
+    "cupy": null,
+    "mentpy": null
+  }
+}

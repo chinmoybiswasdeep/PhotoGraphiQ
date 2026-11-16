@@ -17,8 +17,9 @@ lowered.pattern.validate()
 
 ## Sequence and guards
 
-The audit binds every parameter, including frozen values, and calls upstream
-`GKPCode.logical_measurement("XY", alpha=...)` for every measured node. It then
+The audit binds every parameter, including frozen values, and, for the default
+`xy_protocol="signed-x"`, calls upstream `GKPCode.logical_measurement("XY", alpha=...)`
+for every measured node (the XY family is audited differently; see below). It then
 checks the decoder, supported backend and allocation estimates. Execution also
 checks mode, shot count, seed, analog postselection and normalized product inputs
 before constructing the finite codewords.
@@ -47,5 +48,54 @@ The lowering contains no analog displacement implementing a qubit Pauli correcti
 unsupported measurement vertices red. Inspect it before expensive simulation.
 
 ![Allocation-free visualization with an unsupported angle in red](../assets/physical_lowering.svg)
+
+## XY family (`xy_protocol`)
+
+`GKPPhysicalConfig(xy_protocol=..., max_injection_rounds=4)` selects the measurement
+instrument. The default `"signed-x"` reproduces the lowering above exactly. `"clifford"`,
+`"auto"` and `"injection"` lower every measured node to `pg.GKPLogicalXYMeasurement` and
+are used through `PhysicalMuTA(measurement_family="XY")`.
+
+**Capability audit.** Each node is classified without calling the upstream factory and
+without Fock allocation. An `angle_audit` row then carries `basis="XY"`, `protocol`,
+`clifford` (angle is k pi/2 within 1e-12) and `ancilla_rounds_max`
+(`max_injection_rounds` if the node may need a magic ancilla, else 0). A non-finite angle
+is unsupported for every protocol; with `"clifford"` so is any angle other than k pi/2, and
+`require_supported` raises `UnsupportedPhysicalMeasurement` naming the node before any
+codeword is built. Because an injection round keeps one ancilla alive next to the measured
+data mode, `peak_live_modes`, and with it `hilbert_dimension = comb(K+m-1, m)`, counts one
+extra mode when any node needs an ancilla. Injected models therefore often need a larger
+`max_dimension`. `required_operations` lists the logical-XY instrument, the
+frame-adaptive angle, and, when used, the Gaussian shear and the magic ancilla / logical
+CNOT / ancilla q homodyne.
+
+```python
+import numpy as np
+from photographiqml import GKPPhysicalConfig, PhysicalMuTA, lower_muta_to_gkp
+import photographiq as pg
+config = GKPPhysicalConfig(cutoff=56, backend="native-fock", xy_protocol="auto",
+                           max_dimension=200_000)
+model = PhysicalMuTA(1, 1, one_column=True, measurement_family="XY", physical_config=config)
+angles = dict(zip(model.parameters(), (0.0, 0.0, np.pi / 4, 0.0)))
+audit = model.physical_capabilities(angles)
+print(audit["peak_live_modes"], [r["ancilla_rounds_max"] for r in audit["angle_audit"]])
+lowered = lower_muta_to_gkp(model, angles)
+print([type(c.measurement).__name__ for c in lowered.pattern.commands
+       if isinstance(c, pg.Measure)])
+```
+
+**Emitted instrument.** Each measured node becomes
+`Measure(node, GKPLogicalXYMeasurement(angle, code, protocol=xy_protocol,
+max_rounds=max_injection_rounds, decoder=NearestCellDecoder()), ("raw", node))`, followed
+by the same interpreted-bit `Signal` as the signed-X lowering. The magic ancillas use the
+same `GKPCode` as the data modes. Preparation, CZ scheduling and output handling are
+unchanged.
+
+**Frame-adaptive angles.** A node with no frame sources gets its numerical angle a. A node
+whose frame depends on earlier interpreted bits gets a `CallableExpression` over those
+`("bit", v)` records that evaluates to (-1)^x a, where x is the X component of the node's
+frame. `simulate()` resolves it when the node is measured, so the physical instruction (for
+example which magic state is prepared) depends on earlier outcomes. The Z component stays
+the classical bit flip of the `Signal`; see [frames](pauli-frames.md).
 See [frames](pauli-frames.md) for the correction convention and
 [execution modes](execution-modes.md) for result semantics.

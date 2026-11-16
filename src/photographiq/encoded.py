@@ -2,7 +2,7 @@
 
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from functools import cached_property
+from functools import cached_property, lru_cache
 
 import numpy as np
 from scipy.integrate import quad_vec
@@ -83,8 +83,20 @@ class LogicalPauliFrame:
         )
 
 
+class EncodedGKPMeasurement(ABC):
+    """Destructive encoded-qubit instrument executed by a Fock engine on one data mode.
+
+    Fock backends hand the live engine to :meth:`execute`, so an instrument may perform a
+    multi-step bosonic protocol (ancilla preparation, Gaussian gates, homodyne detection,
+    classical feed-forward) before returning its classical record.
+    """
+
+    @abstractmethod
+    def execute(self, engine, node, outcome=None, angle=None): ...
+
+
 @dataclass(frozen=True)
-class PhysicalGKPReadout:
+class PhysicalGKPReadout(EncodedGKPMeasurement):
     """Analog ideal-detector homodyne followed by modular X or Z decoding.
 
     Postselection always specifies the raw analog value, never the decoded bit.
@@ -120,7 +132,7 @@ class PhysicalGKPReadout:
     def validate_backend(self, engine):
         engine.require(*self.required_capabilities)
 
-    def execute(self, engine, node, outcome=None):
+    def execute(self, engine, node, outcome=None, angle=None):
         from dataclasses import replace
 
         angle = 0.0 if self.basis == "Z" else np.pi / 2
@@ -153,12 +165,375 @@ class IdealLogicalXYMeasurement:
         return (p, 1 - p)
 
 
+CLIFFORD_ANGLE_TOLERANCE = 1e-12
+XY_PROTOCOLS = ("auto", "clifford", "injection")
+
+
+def quarter_turns(angle, tolerance=CLIFFORD_ANGLE_TOLERANCE):
+    """Return k in 0..3 if angle = k*pi/2 (mod 2pi) within an absolute tolerance, else None."""
+    reduced = float(np.remainder(angle, 2 * np.pi))
+    k = int(np.rint(reduced / (np.pi / 2)))
+    return k % 4 if abs(reduced - k * np.pi / 2) <= tolerance else None
+
+
+def apply_logical_cnot(engine, control, target):
+    """Square-lattice logical CNOT: unit CZ conjugated by quarter turns of the target.
+
+    q_target -> q_target + q_control and p_control -> p_control - p_target up to the lattice
+    symmetry R(pi); identical to the SUM used by ``correction_pattern``. Gaussian, so finite
+    codewords are distorted (envelope shear), which is part of the finite-energy error.
+    """
+    engine.rotate(target, np.pi / 2)
+    engine.entangle(control, target, 1.0)
+    engine.rotate(target, -np.pi / 2)
+
+
+def apply_logical_phase(engine, node, turns):
+    """Apply diag(1, i**turns) for turns in {1, 3} with the Gaussian shear exp(+-i q^2/4).
+
+    QuadraticPhase(+1) maps the finite |+i_L> to |-_L>, i.e. it is the logical S (checked in
+    tests/gkp/test_logical_xy.py); turns == 3 uses its inverse. Z (turns == 2) is a Pauli-frame
+    outcome flip and is handled by the caller.
+    """
+    if turns not in (1, 3):
+        raise ValueError("apply_logical_phase handles S (1) and S^dagger (3) only")
+    engine.quadratic_phase(node, 1.0 if turns == 1 else -1.0)
+
+
+@dataclass(frozen=True)
+class LogicalXYMeasurementResult(LogicalDecodeResult):
+    """Classical record of one physical logical-XY measurement trajectory.
+
+    ``raw_outcome``/``residual``/``cell`` refer to the final data-mode p homodyne. ``rounds``
+    lists every injection round (target phase, raw ancilla q outcome, decoded bit, residual,
+    point density). ``joint_density`` is the product of all homodyne point densities, i.e. the
+    likelihood density of the complete continuous record (not a probability). ``bit`` is the
+    logical M_L(angle) outcome (0 <-> +1) after the protocol's own Pauli-frame flips.
+    ``readout_probabilities`` are the exact (P(bit 0), P(bit 1)) of the final decoded X readout
+    given the data state just before it (cell-integrated POVM): averaging them over
+    trajectories is a lower-variance (Rao-Blackwell) estimate of the instrument's statistics.
+    """
+
+    angle: float = 0.0
+    protocol: str = "clifford"
+    rounds: tuple = ()
+    heralded_success: bool = True
+    applied_operations: tuple = ()
+    joint_density: float | None = None
+    resource: dict | None = None
+    retained_norm_min: float | None = None
+    cutoff: int | None = None
+    ancilla_modes: tuple = ()
+    readout_probabilities: tuple | None = None
+
+
+@dataclass(frozen=True)
+class GKPLogicalXYMeasurement(EncodedGKPMeasurement):
+    """Physical finite-energy GKP measurement of M_L(a) = cos(a) X_L + sin(a) Y_L.
+
+    Convention: the +1 eigenstate is (|0_L> + e^{ia}|1_L>)/sqrt(2), as in
+    :class:`IdealLogicalXYMeasurement` and the logical MuTA. Because the +1 eigenstate is
+    D(a)|+> with D(t) = diag(1, e^{it}), P(+) = |<+| D(-a) psi>|^2: measuring M_L(a) equals
+    applying D(-a) and then measuring X_L. The instrument physically applies D(-a) to the
+    data mode and finishes with the existing p-homodyne X readout:
+
+    * Clifford angles (a = k pi/2): D(-a) is I, S^dagger, Z or S. S/S^dagger are the Gaussian
+      shears exp(+-i q^2/4); Z before an X measurement is an exact outcome relabelling
+      (Pauli frame). Deterministic, no ancilla.
+    * Other angles ("injection"): repeat-until-success gate teleportation with programmable
+      ancilla rotations. Round k prepares the finite-energy encoded magic state
+      (|0~> + e^{i t_k}|1~>)/norm in a fresh mode, applies the logical CNOT (data control) and
+      measures the ancilla q quadrature with nearest-cell decoding. Bit 0 applies D(t_k);
+      bit 1 applies D(-t_k), so the next round targets t_{k+1} = 2 t_k. A remaining Clifford
+      angle is completed deterministically: pi is a frame flip, +-pi/2 is injected with the
+      Y-eigenstate ancilla, whose failure leaves exactly D(pi) = Z (a frame flip). Each
+      non-Clifford round is heralded; if ``max_rounds`` is exhausted the record has
+      ``heralded_success=False`` (the wrong angle was measured). ``protocol='injection'``
+      also realizes Clifford angles (including Y) through ancillas instead of the shear.
+
+    The encoded magic state is a supplied bosonic resource (a normalized finite-Fock vector);
+    its preparation is not simulated. Feed-forward uses decoded ancilla bits only, never the
+    analog residuals. Optional ``ancilla_transmissivity`` (loss before entangling) and
+    ``detector_efficiency``/``homodyne_noise`` (all homodynes) require a mixed Fock backend.
+    """
+
+    angle: object = 0.0
+    code: "GKPCode | None" = None
+    protocol: str = "auto"
+    max_rounds: int = 4
+    decoder: BaseGKPDecoder = NearestCellDecoder()
+    ancilla_transmissivity: float = 1.0
+    detector_efficiency: float = 1.0
+    homodyne_noise: float = 0.0
+    clifford_tolerance: float = CLIFFORD_ANGLE_TOLERANCE
+
+    def __post_init__(self):
+        self.validate()
+
+    @property
+    def noisy(self):
+        return (
+            self.ancilla_transmissivity != 1
+            or self.detector_efficiency != 1
+            or self.homodyne_noise != 0
+        )
+
+    @property
+    def required_capabilities(self):
+        features = {"encoded_gkp_xz", "encoded_gkp_xy", "homodyne", "quadratic_phase"}
+        if self.protocol != "clifford":
+            features |= {"fock_input", "multimode_fock"}
+        if self.noisy:
+            features.add("mixed_fock")
+        return frozenset(features)
+
+    def validate(self):
+        if self.protocol not in XY_PROTOCOLS:
+            raise ValueError(f"protocol must be one of {XY_PROTOCOLS}")
+        if not isinstance(self.decoder, BaseGKPDecoder):
+            raise ValueError("Supply a GKP decoder")
+        if isinstance(self.max_rounds, bool) or not isinstance(self.max_rounds, int):
+            raise ValueError("max_rounds must be a nonnegative integer")
+        if self.max_rounds < 0:
+            raise ValueError("max_rounds must be a nonnegative integer")
+        for name in ("ancilla_transmissivity", "detector_efficiency"):
+            value = getattr(self, name)
+            if not is_finite_real_scalar(value) or not 0 < value <= 1:
+                raise ValueError(f"{name} must lie in (0, 1]")
+        if not is_finite_real_scalar(self.homodyne_noise) or self.homodyne_noise < 0:
+            raise ValueError("homodyne_noise must be a finite nonnegative variance")
+        if not is_finite_real_scalar(self.clifford_tolerance) or self.clifford_tolerance < 0:
+            raise ValueError("clifford_tolerance must be finite and nonnegative")
+        if self.protocol != "clifford" and not isinstance(self.code, GKPCode):
+            raise ValueError("Injection needs the GKPCode that encodes its magic ancillas")
+        numeric = is_finite_real_scalar(self.angle)
+        if not numeric and not hasattr(self.angle, "evaluate"):
+            raise ValueError("angle must be a finite real number or a classical expression")
+        if (
+            numeric
+            and self.protocol == "clifford"
+            and quarter_turns(self.angle, self.clifford_tolerance) is None
+        ):
+            raise NotImplementedError(
+                "The Clifford protocol measures only angles k*pi/2; use protocol='injection'"
+            )
+        return self
+
+    def validate_backend(self, engine):
+        engine.require(*self.required_capabilities)
+        cutoff = getattr(engine, "cutoff", None)
+        if self.code is not None and cutoff is not None and self.code.cutoff > cutoff:
+            raise ValueError("Magic-ancilla code cutoff exceeds the engine's total-photon cutoff")
+
+    def resource_parameters(self):
+        if self.code is None:
+            return None
+        return {
+            "peak_width": self.code.peak_width,
+            "envelope": self.code.envelope,
+            "peaks": self.code.peaks,
+            "grid_points": self.code.grid_points,
+            "cutoff": self.code.cutoff,
+        }
+
+    @property
+    def _noisy_detection(self):
+        return self.detector_efficiency != 1 or self.homodyne_noise != 0
+
+    def _homodyne(self, angle):
+        return Homodyne(angle, efficiency=self.detector_efficiency, noise=self.homodyne_noise)
+
+    def execute(self, engine, node, outcome=None, angle=None):
+        alpha = self.angle if angle is None else angle
+        if not is_finite_real_scalar(alpha):
+            raise ValueError("Logical XY angle is unresolved: run the pattern with simulate()")
+        alpha = float(alpha)  # type: ignore[arg-type]  # checked finite real just above
+        ancilla_outcomes, data_outcome = _split_xy_outcome(outcome)
+        start = len(getattr(engine, "diagnostics", ()))
+        # phi: phase t of the D(t) still to be applied to the data mode before X readout.
+        phi, flip, density = -alpha, 0, 1.0
+        rounds: list[dict] = []
+        operations: list[str] = []
+        ancillas: list = []
+        success = True
+        while True:
+            turns = quarter_turns(phi, self.clifford_tolerance)
+            forced = self.protocol == "injection" and not rounds
+            if turns is not None and not forced:
+                if turns == 2:
+                    flip ^= 1
+                    operations.append("Z (Pauli-frame outcome flip)")
+                    break
+                if turns == 0:
+                    break
+                # S or S^dagger. The Gaussian shear is used on a fresh request; a remainder
+                # after injection rounds is completed by injecting the Y eigenstate instead:
+                # success applies it, failure leaves D(pi) = Z, an exact frame flip.
+                if self.protocol == "clifford" or not rounds:
+                    apply_logical_phase(engine, node, turns)
+                    operations.append("S" if turns == 1 else "S_dagger")
+                    break
+            elif self.protocol == "clifford":
+                raise NotImplementedError("Clifford protocol reached a non-Clifford angle")
+            if len(rounds) >= self.max_rounds and turns is None:
+                success = False
+                operations.append("round budget exhausted (heralded failure)")
+                break
+            ancilla = ("gkp-xy-ancilla", node, len(rounds))
+            assert self.code is not None  # validate(): every non-Clifford protocol carries a code
+            engine.prepare(ancilla, state=self.code.encode(1, np.exp(1j * phi)))
+            if self.ancilla_transmissivity != 1:
+                engine.loss(ancilla, self.ancilla_transmissivity)
+            apply_logical_cnot(engine, node, ancilla)
+            given = None
+            if ancilla_outcomes is not None:
+                if len(rounds) >= len(ancilla_outcomes):
+                    raise ValueError("Postselected record has fewer ancilla outcomes than rounds")
+                given = ancilla_outcomes[len(rounds)]
+            if given is None and not self._noisy_detection:
+                given = sample_quadrature(engine, ancilla, 0.0)
+            engine.last_measurement = {}
+            raw = engine.measure(ancilla, self._homodyne(0.0), 0.0, outcome=given)
+            point = engine.last_measurement.get("value")
+            density *= point if point is not None else np.nan
+            decoded = self.decoder.decode(raw)
+            rounds.append(
+                {
+                    "target_phase": phi,
+                    "raw_outcome": float(raw),
+                    "bit": int(decoded.bit),
+                    "residual": decoded.residual,
+                    "cell": decoded.cell,
+                    "density": point,
+                }
+            )
+            ancillas.append(ancilla)
+            operations.append(f"inject D({phi:.12g}); ancilla bit {decoded.bit}")
+            phi = 0.0 if decoded.bit == 0 else 2 * phi
+        if ancilla_outcomes is not None and len(ancilla_outcomes) != len(rounds):
+            raise ValueError("Postselected record has more ancilla outcomes than rounds")
+        readout = _x_readout_probabilities(engine, node) if not self._noisy_detection else None
+        if readout is not None and flip:
+            readout = readout[::-1]
+        if data_outcome is None and not self._noisy_detection:
+            data_outcome = sample_quadrature(engine, node, np.pi / 2)
+        engine.last_measurement = {}
+        raw = engine.measure(node, self._homodyne(np.pi / 2), np.pi / 2, outcome=data_outcome)
+        point = engine.last_measurement.get("value")
+        density *= point if point is not None else np.nan
+        decoded = self.decoder.decode(raw)
+        norms = [
+            d["retained_norm"]
+            for d in getattr(engine, "diagnostics", ())[start:]
+            if "retained_norm" in d
+        ]
+        engine.last_measurement = {
+            "kind": "joint_density",
+            "value": float(density),
+            "rounds": len(rounds),
+        }
+        return LogicalXYMeasurementResult(
+            bit=int(decoded.bit) ^ flip,
+            raw_outcome=float(raw),
+            cell=decoded.cell,
+            residual=decoded.residual,
+            decoder=decoded.decoder,
+            frame_correction=flip,
+            angle=alpha,
+            protocol="injection" if rounds else "clifford",
+            rounds=tuple(rounds),
+            heralded_success=success,
+            applied_operations=tuple(operations),
+            joint_density=float(density),
+            resource=self.resource_parameters(),
+            retained_norm_min=min(norms) if norms else None,
+            cutoff=getattr(engine, "cutoff", None),
+            ancilla_modes=tuple(ancillas),
+            readout_probabilities=readout,
+        )
+
+
+SAMPLING_GRID_POINTS = 16385
+
+
+def sample_quadrature(engine, node, angle, grid_points=SAMPLING_GRID_POINTS):
+    """Draw an ideal homodyne outcome from the mode's exact reduced marginal density.
+
+    The density <x_angle|rho_node|x_angle> is tabulated once on a uniform grid spanning the
+    oscillator turning point plus a Gaussian margin (the bound used by the generic sampler)
+    and inverted with one uniform variate from the engine's generator. The engine then
+    projects on that outcome itself, so the conditional state and the recorded density are
+    the engine's own. Equivalent in distribution to the generic adaptive-quadrature sampler;
+    much faster for repeated GKP readouts.
+    """
+    state = engine.get_state((node,))
+    rho = np.asarray(state.density_matrix)
+    occupations = np.asarray(state.basis)[:, 0]
+    cutoff = int(occupations.max()) + 1
+    bound = 2 * np.sqrt(engine.cutoff) + 10
+    x = np.linspace(-bound, bound, grid_points)
+    table = np.empty((grid_points, cutoff))
+    table[:, 0] = (2 * np.pi) ** (-0.25) * np.exp(-x * x / 4)
+    if cutoff > 1:
+        table[:, 1] = x * table[:, 0]
+    for n in range(2, cutoff):
+        table[:, n] = (x * table[:, n - 1] - np.sqrt(n - 1) * table[:, n - 2]) / np.sqrt(n)
+    amplitudes = table[:, occupations] * np.exp(-1j * angle * occupations)
+    density = np.maximum(np.sum((amplitudes @ rho) * amplitudes.conj(), axis=1).real, 0.0)
+    cdf = np.concatenate([[0.0], np.cumsum((density[1:] + density[:-1]) / 2 * np.diff(x))])
+    if abs(cdf[-1] - 1) > 1e-6:
+        raise ArithmeticError("Tabulated homodyne density is unresolved; refine the cutoff")
+    return float(np.interp(float(engine.rng.random()) * cdf[-1], cdf, x))
+
+
+@lru_cache(maxsize=8)
+def _x_effects(cutoff):
+    return modular_effects(cutoff, "X")
+
+
+def _x_readout_probabilities(engine, node):
+    """Exact decoded-X probabilities (raw parity 0, 1) of one mode's reduced state."""
+    state = engine.get_state((node,))
+    occupations = np.asarray(state.basis)[:, 0]
+    effects = _x_effects(int(engine.cutoff))
+    rho = np.asarray(state.density_matrix)
+    values = [
+        float(np.einsum("ij,ji->", rho, e[np.ix_(occupations, occupations)]).real) for e in effects
+    ]
+    return tuple(values)
+
+
+def _split_xy_outcome(outcome):
+    """Postselection record {'ancilla': [q_1, ...], 'data': p} or None (sample)."""
+    if outcome is None:
+        return None, None
+    if not isinstance(outcome, dict) or set(outcome) - {"ancilla", "data"} or "data" not in outcome:
+        raise ValueError(
+            "Postselect a logical XY measurement with {'ancilla': [q_1, ...], 'data': p}"
+        )
+    ancilla = tuple(outcome.get("ancilla", ()))
+    values = (*ancilla, outcome["data"])
+    if not all(is_finite_real_scalar(v) for v in values):
+        raise ValueError("Postselected analog outcomes must be finite real scalars")
+    return tuple(float(v) for v in ancilla), float(outcome["data"])
+
+
 class LogicalMeasurementSynthesis:
-    """Extension point for independently validated logical rotation protocols."""
+    """Lower a logical XY angle to a validated physical instrument (see GKPLogicalXYMeasurement)."""
+
+    def __init__(self, protocol=None, **options):
+        if protocol is not None and protocol not in XY_PROTOCOLS:
+            raise ValueError(f"protocol must be one of {XY_PROTOCOLS}")
+        self.protocol, self.options = protocol, options
 
     def lower(self, code, alpha, **kwargs):
-        raise NotImplementedError(
-            "No validated magic-state injection or arbitrary logical Rz protocol"
+        if self.protocol is None:
+            raise NotImplementedError(
+                "Choose an explicit validated protocol: LogicalMeasurementSynthesis('clifford' | "
+                "'injection' | 'auto'); no implicit rotated-homodyne substitution exists"
+            )
+        return GKPLogicalXYMeasurement(
+            angle=alpha, code=code, protocol=self.protocol, **{**self.options, **kwargs}
         )
 
 
@@ -225,7 +600,23 @@ class GKPCode:
             "stabilizers": stabilizers(state),
         }
 
-    def logical_measurement(self, basis="Z", *, alpha=None, **kwargs):
+    def logical_measurement(self, basis="Z", *, alpha=None, protocol=None, **kwargs):
+        """Physical logical readout. Without ``protocol`` only X, Z and XY at 0/pi exist.
+
+        ``protocol`` ('clifford', 'injection' or 'auto') selects the validated
+        :class:`GKPLogicalXYMeasurement` for basis 'Y' (alpha = pi/2) or 'XY' (any alpha).
+        """
+        if protocol is not None:
+            if basis not in ("XY", "Y"):
+                raise ValueError("protocol applies to the Y and XY bases only")
+            if basis == "Y":
+                if alpha is not None:
+                    raise ValueError("Y fixes alpha = pi/2")
+                alpha = np.pi / 2
+            elif alpha is None or not is_finite_real_scalar(alpha):
+                if not hasattr(alpha, "evaluate"):
+                    raise ValueError("XY requires a finite numerical logical angle")
+            return GKPLogicalXYMeasurement(angle=alpha, code=self, protocol=protocol, **kwargs)
         if basis == "XY":
             if alpha is None or not is_finite_real_scalar(alpha):
                 raise ValueError("XY requires a finite numerical logical angle")

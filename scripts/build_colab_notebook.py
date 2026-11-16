@@ -44,7 +44,9 @@ MODULES = {  # local modules the scripts import, besides common/metadata
     "test_val_fock": REPO / "tests" / "validation" / "test_val_fock.py",
     "bench_common": REPO / "benchmarks" / "bench_common.py",
     "bench_gbs": REPO / "benchmarks" / "gaussian_boson_sampling" / "bench_gbs.py",
-    "threshold_reference_matrix": REPO / "benchmarks" / "gaussian_boson_sampling"
+    "threshold_reference_matrix": REPO
+    / "benchmarks"
+    / "gaussian_boson_sampling"
     / "threshold_reference_matrix.py",
     "r43": REPO / "paper_experiments" / "14_native_gaussian" / "43_native_gaussian_validation.py",
 }
@@ -123,15 +125,19 @@ def join_plain(units) -> str:
     out, previous = [], None
     for unit in units:
         if previous is not None:
-            out.append("\n\n" if isinstance(unit.node, block) or isinstance(previous.node, block) else "")
+            out.append(
+                "\n\n" if isinstance(unit.node, block) or isinstance(previous.node, block) else ""
+            )
         out.append(unit.text)
         previous = unit
     return "".join(out)
 
 
 def is_docstring(unit: Unit) -> bool:
-    return isinstance(unit.node, ast.Expr) and isinstance(unit.node.value, ast.Constant) and isinstance(
-        unit.node.value.value, str
+    return (
+        isinstance(unit.node, ast.Expr)
+        and isinstance(unit.node.value, ast.Constant)
+        and isinstance(unit.node.value.value, str)
     )
 
 
@@ -183,7 +189,11 @@ def helper_members() -> dict[str, list[tuple[set[str], set[str], str]]]:
             unit = Unit(stmt, lines)
             if is_docstring(unit):
                 continue
-            names = defined_names(stmt) if not isinstance(stmt, (ast.FunctionDef, ast.ClassDef)) else {stmt.name}
+            names = (
+                defined_names(stmt)
+                if not isinstance(stmt, (ast.FunctionDef, ast.ClassDef))
+                else {stmt.name}
+            )
             deps = set(re.findall(r"\bcommon\.(\w+)", unit.text))
             if not isinstance(stmt, (ast.FunctionDef, ast.ClassDef)):
                 deps |= unit.uses  # class-body constants use earlier constants by bare name
@@ -305,7 +315,7 @@ class Inliner:
 # One experiment -> one cell
 # --------------------------------------------------------------------------------------------
 
-R44_SELF = '''# Each timing configuration runs in a fresh Python process (peak memory is per process), so the
+R44_SELF = """# Each timing configuration runs in a fresh Python process (peak memory is per process), so the
 # notebook cell saves its own source as the worker script those processes execute.
 if "__file__" in globals():  # this is a worker process running the saved script
     HERE = Path(__file__).resolve()
@@ -314,7 +324,7 @@ else:
 
     HERE = Path(tempfile.gettempdir()) / "R44_native_gaussian_performance_worker.py"
     HERE.write_text(get_ipython().user_ns["_ih"][-1], encoding="utf-8")
-'''
+"""
 R44_LOAD = '''def _load_r43():
     """R43's reference helpers, inlined above as ``r43``."""
     return r43
@@ -325,7 +335,9 @@ def experiment_cell(suite: str, script: Path) -> str:
     source = script.read_text(encoding="utf-8")
     units = units_of(source)
     inliner = Inliner()
-    future = any(isinstance(u.node, ast.ImportFrom) and u.node.module == "__future__" for u in units)
+    future = any(
+        isinstance(u.node, ast.ImportFrom) and u.node.module == "__future__" for u in units
+    )
     rid = experiment_id(suite, script)
     kept: list[tuple[Unit, str]] = []
     for unit in units:
@@ -344,17 +356,23 @@ def experiment_cell(suite: str, script: Path) -> str:
             elif module in HELPER_NAMES:
                 inliner.request(module, set(re.findall(rf"\b{binding}\.(\w+)", source)))
             else:
-                inliner.request_alias(module, binding, set(re.findall(rf"\b{binding}\.(\w+)", source)))
+                inliner.request_alias(
+                    module, binding, set(re.findall(rf"\b{binding}\.(\w+)", source))
+                )
             continue
         if "__file__" in unit.text and isinstance(unit.node, ast.Assign):
             (name,) = unit.defines
-            used_elsewhere = any(name in u.uses for u in units if u is not unit and not is_path_setup(u))
+            used_elsewhere = any(
+                name in u.uses for u in units if u is not unit and not is_path_setup(u)
+            )
             if not used_elsewhere:
                 continue
             if name == "HERE" and rid == "R44":
                 kept.append((unit, R44_SELF))
             elif name == "REPO":
-                kept.append((unit, "REPO = Path.cwd()  # the notebook runs from the repository clone\n"))
+                kept.append(
+                    (unit, "REPO = Path.cwd()  # the notebook runs from the repository clone\n")
+                )
             else:
                 raise SystemExit(f"{script}: cannot rewrite {unit.text.strip()!r}")
             continue
@@ -377,9 +395,11 @@ def experiment_cell(suite: str, script: Path) -> str:
     script_defines = set().union(*(u.defines for u, _ in kept))
     body = join_units(kept)
     reads_args = "parse_args" in body or "sys.argv" in body
-    body = (body.replace(".parse_args()", ".parse_args(ARGV)")
-            .replace(".parse_args(argv)", ".parse_args(ARGV if argv is None else argv)")
-            .replace("sys.argv[1:]", "ARGV"))
+    body = (
+        body.replace(".parse_args()", ".parse_args(ARGV)")
+        .replace(".parse_args(argv)", ".parse_args(ARGV if argv is None else argv)")
+        .replace("sys.argv[1:]", "ARGV")
+    )
 
     # Inlined modules, renamed where they collide with the script or each other.
     # Re-importing the same object under the same name (np, pg, ...) is not a collision.
@@ -399,34 +419,48 @@ def experiment_cell(suite: str, script: Path) -> str:
         mapping = dict(renames[module])
         for unit in units_m:  # names this module imports from another inlined module
             if unit.local_import and unit.local_import[0] == "from":
-                mapping |= {n: renames.get(unit.local_import[1], {}).get(n, n)
-                            for n in unit.local_import[2]}
+                mapping |= {
+                    n: renames.get(unit.local_import[1], {}).get(n, n) for n in unit.local_import[2]
+                }
         code = join_plain([u for u in units_m if not u.local_import])
         mapping = {k: v for k, v in mapping.items() if k != v}
         relative = MODULES[module].relative_to(REPO).as_posix()
-        blocks.append(f"# ---- from {relative} (only what this experiment uses) ----\n"
-                      + squeeze(rename(code, mapping)))
+        blocks.append(
+            f"# ---- from {relative} (only what this experiment uses) ----\n"
+            + squeeze(rename(code, mapping))
+        )
         for alias, (target, attributes) in inliner.aliases.items():  # after the module it wraps
             if target == module:
                 names = ", ".join(f"{a}={renames[module].get(a, a)}" for a in sorted(attributes))
                 blocks.append(f"{alias} = SimpleNamespace({names})\n")
     # imports from inlined modules used by the script (from X import y) follow renames too
-    script_map = {n: renames[m][n] for m in inliner.order() for n in renames[m]
-                  if n in inliner.requests.get(m, set()) and n not in script_defines}
+    script_map = {
+        n: renames[m][n]
+        for m in inliner.order()
+        for n in renames[m]
+        if n in inliner.requests.get(m, set()) and n not in script_defines
+    }
     body = rename(body, script_map)
 
-    common_src, more = helper_class("common", ["Shared", "Core" if suite == "core" else "ML"],
-                                    inliner.common | set(re.findall(r"\bcommon\.(\w+)", "".join(blocks))))
+    common_src, more = helper_class(
+        "common",
+        ["Shared", "Core" if suite == "core" else "ML"],
+        inliner.common | set(re.findall(r"\bcommon\.(\w+)", "".join(blocks))),
+    )
     parts = []
     if inliner.metadata:
         meta_src, meta_needs = helper_class("metadata", ["Metadata"], inliner.metadata)
-        common_src, _ = helper_class("common", ["Shared", "Core" if suite == "core" else "ML"],
-                                     inliner.common | meta_needs
-                                     | set(re.findall(r"\bcommon\.(\w+)", "".join(blocks))))
+        common_src, _ = helper_class(
+            "common",
+            ["Shared", "Core" if suite == "core" else "ML"],
+            inliner.common | meta_needs | set(re.findall(r"\bcommon\.(\w+)", "".join(blocks))),
+        )
         parts.append(meta_src)
     relative = script.relative_to(REPO).as_posix()
-    head = [f"# {rid} ({'PhotoGraphiQ' if suite == 'core' else 'PhotoGraphiQML'}): {relative}",
-            "# Self-contained: after the installation cell, this cell runs on its own.\n"]
+    head = [
+        f"# {rid} ({'PhotoGraphiQ' if suite == 'core' else 'PhotoGraphiQML'}): {relative}",
+        "# Self-contained: after the installation cell, this cell runs on its own.\n",
+    ]
     if future:
         head.append("from __future__ import annotations\n")
     if "__doc__" in body:  # argparse descriptions read the (moved) module docstring
@@ -434,10 +468,16 @@ def experiment_cell(suite: str, script: Path) -> str:
         head.append(f"__doc__ = {title!r}\n")
     if reads_args:
         if rid == "R44" and suite == "core":
-            head.append('import sys\n\n# Publication configuration; worker processes pass their own arguments.\n'
-                        'ARGV = sys.argv[1:] if "__file__" in globals() else ["--full"]\n')
+            head.append(
+                "import sys\n\n# Publication configuration; worker processes pass their own arguments.\n"
+                'ARGV = sys.argv[1:] if "__file__" in globals() else ["--full"]\n'
+            )
         else:
-            flag = '["--full"]  # publication configuration' if "--full" in source else "[]  # defaults"
+            flag = (
+                '["--full"]  # publication configuration'
+                if "--full" in source
+                else "[]  # defaults"
+            )
             head.append(f"ARGV = {flag}\n")
     imports = CELL_HEADER + ("from types import SimpleNamespace\n" if inliner.aliases else "")
     cell = "\n".join(head) + "\n" + imports + "\n\n" + common_src + "\n\n"
@@ -456,8 +496,10 @@ def import_bindings(units) -> dict[str, str]:
     for unit in units:
         node = unit.node
         if isinstance(node, ast.Import):
-            bound |= {(a.asname or a.name.split(".")[0]): a.name if a.asname else a.name.split(".")[0]
-                      for a in node.names}
+            bound |= {
+                (a.asname or a.name.split(".")[0]): a.name if a.asname else a.name.split(".")[0]
+                for a in node.names
+            }
         elif isinstance(node, ast.ImportFrom) and node.level == 0:
             bound |= {(a.asname or a.name): f"{node.module}.{a.name}" for a in node.names}
     return bound
@@ -499,12 +541,13 @@ def theory_sections() -> dict[str, tuple[str, str]]:
         return {}
     text = THEORY.read_text(encoding="utf-8")
     sections = {}
-    for match in re.finditer(r"<!-- ((?:core|ml):R\w+) -->\n(.*?)(?=\n<!-- (?:core|ml):R\w+ -->|\Z)",
-                             text, re.S):
+    for match in re.finditer(
+        r"<!-- ((?:core|ml):R\w+) -->\n(.*?)(?=\n<!-- (?:core|ml):R\w+ -->|\Z)", text, re.S
+    ):
         body = match.group(2).strip()
         title = re.match(r"\*\*Title:\*\*\s*(.+)", body)
         if title:
-            body = body[title.end():].strip()
+            body = body[title.end() :].strip()
         sections[match.group(1)] = (title.group(1).strip() if title else "", body)
     return sections
 
@@ -551,7 +594,7 @@ experiment). The last cell zips everything for download.
 
 *Generated by `scripts/build_colab_notebook.py` from the experiment scripts; do not edit by hand.*"""
 
-INSTALL = '''# Installation: run once per Colab runtime (several minutes; compiles the C++ engines).
+INSTALL = """# Installation: run once per Colab runtime (several minutes; compiles the C++ engines).
 # Outside Colab, install the repository yourself instead (from its root):
 #   pip install ".[dev,autodiff,visualization,validation,precision,ml-validation,ml-experiments]"
 import os
@@ -583,9 +626,9 @@ if "google.colab" in sys.modules:
     # PhotoGraphiQ + PhotoGraphiQML from source, with Piquasso, Graphix, MentPy, JAX, mpmath,
     # scikit-learn and the other optional dependencies the experiments use.
     sh(f'"{sys.executable}" -m pip install -q ".[{EXTRAS}]"')
-print("working directory:", Path.cwd())'''
+print("working directory:", Path.cwd())"""
 
-CHECK = '''# Environment check: package versions, native engines, figure font and GPU.
+CHECK = """# Environment check: package versions, native engines, figure font and GPU.
 import importlib.util
 from importlib.metadata import PackageNotFoundError, version
 
@@ -606,9 +649,9 @@ print("native engines:", native.AVAILABLE, list(native.components()))
 for font in __import__("glob").glob("/usr/share/fonts/truetype/msttcorefonts/Times_New_Roman*.ttf"):
     font_manager.fontManager.addfont(font)
 print("figure font:", font_manager.findfont(font_manager.FontProperties(family="Times New Roman")))
-print("CUDA GPU (CuPy):", importlib.util.find_spec("cupy") is not None)'''
+print("CUDA GPU (CuPy):", importlib.util.find_spec("cupy") is not None)"""
 
-ARCHIVE = '''# Archive every figure and result for download.
+ARCHIVE = """# Archive every figure and result for download.
 import shutil
 import sys
 from pathlib import Path
@@ -618,21 +661,34 @@ print("archive:", Path(archive).resolve())
 if "google.colab" in sys.modules:
     from google.colab import files
 
-    files.download(archive)'''
+    files.download(archive)"""
 
 PARTS = {
-    "core": ("Part I - PhotoGraphiQ manuscript experiments (R1-R60)",
-             "Continuous-variable photonic MBQC: from one-step teleportation wires to the compiled, "
-             "adaptive, non-Gaussian and fault-tolerance-relevant workloads of the PhotoGraphiQ "
-             "paper, each checked against an independent reference."),
-    "ml": ("Part II - PhotoGraphiQML manuscript experiments (R1-R59, R_PERF)",
-           "The learning layer: MuTA models on the logical level, their validation against MentPy "
-           "and analytic oracles, training, kernels and expressivity, then the physical lowering "
-           "to GKP-encoded CV MBQC and its statistics, convergence and cost."),
+    "core": (
+        "Part I - PhotoGraphiQ manuscript experiments (R1-R60)",
+        "Continuous-variable photonic MBQC: from one-step teleportation wires to the compiled, "
+        "adaptive, non-Gaussian and fault-tolerance-relevant workloads of the PhotoGraphiQ "
+        "paper, each checked against an independent reference.",
+    ),
+    "ml": (
+        "Part II - PhotoGraphiQML manuscript experiments (R1-R59, R_PERF)",
+        "The learning layer: MuTA models on the logical level, their validation against MentPy "
+        "and analytic oracles, training, kernels and expressivity, then the physical lowering "
+        "to GKP-encoded CV MBQC and its statistics, convergence and cost.",
+    ),
 }
-WORDS = {"mbqc": "MBQC", "gkp": "GKP", "gpu": "GPU", "non": "non-", "gaussian": "Gaussian",
-         "fock": "Fock", "piquasso": "Piquasso", "graphix": "Graphix", "mentpy": "MentPy",
-         "photographiqml": "PhotoGraphiQML"}
+WORDS = {
+    "mbqc": "MBQC",
+    "gkp": "GKP",
+    "gpu": "GPU",
+    "non": "non-",
+    "gaussian": "Gaussian",
+    "fock": "Fock",
+    "piquasso": "Piquasso",
+    "graphix": "Graphix",
+    "mentpy": "MentPy",
+    "photographiqml": "PhotoGraphiQML",
+}
 
 
 def section(folder: str) -> str:
@@ -643,7 +699,13 @@ def section(folder: str) -> str:
 def main() -> None:
     theory = theory_sections()
     md, code = nbf.v4.new_markdown_cell, nbf.v4.new_code_cell
-    cells = [md(INTRO), md("## Installation"), code(INSTALL), md("## Environment check"), code(CHECK)]
+    cells = [
+        md(INTRO),
+        md("## Installation"),
+        code(INSTALL),
+        md("## Environment check"),
+        code(CHECK),
+    ]
     missing = []
     for suite in ("core", "ml"):
         title, blurb = PARTS[suite]
@@ -673,7 +735,10 @@ def main() -> None:
     OUTPUT.write_text(nbf.writes(nb), encoding="utf-8", newline="\n")
     print(f"Wrote {OUTPUT} ({len(cells)} cells, {OUTPUT.stat().st_size / 1e6:.1f} MB)")
     if missing:
-        print(f"theory missing (docstring used) for {len(missing)}: {' '.join(missing)}", file=sys.stderr)
+        print(
+            f"theory missing (docstring used) for {len(missing)}: {' '.join(missing)}",
+            file=sys.stderr,
+        )
 
 
 if __name__ == "__main__":

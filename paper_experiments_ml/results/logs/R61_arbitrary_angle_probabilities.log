@@ -1,0 +1,14 @@
+reference broad done
+reference medium done
+reference sharp done
+engine a=0.0000 eng=0.7345+-0.0000 ref=0.7345 ideal=0.7230
+engine a=0.3927 eng=0.7238+-0.0158 ref=0.7491 ideal=0.8135
+engine a=0.7854 eng=0.7747+-0.0117 ref=0.7783 ideal=0.8563
+engine a=1.0472 eng=0.7247+-0.0227 ref=0.7388 ideal=0.8548
+engine a=1.5708 eng=0.7541+-0.0000 ref=0.7541 ideal=0.7810
+engine a=2.0944 eng=0.5784+-0.0124 ref=0.5896 ideal=0.6318
+engine a=2.3562 eng=0.5186+-0.0044 ref=0.5212 ideal=0.5410
+engine a=3.1416 eng=0.2655+-0.0000 ref=0.2655 ideal=0.2770
+heralded TVD summary {'broad': {'max': 0.20254921951872001, 'mean': 0.10891921100338785}, 'medium': {'max': 0.10266511341309634, 'mean': 0.055793294846157776}, 'sharp': {'max': 0.01665103693889783, 'mean': 0.008890777294703752}}
+R61 status=pass engine_failures=[] sharp_ok=True herald_ok=True
+exit=0

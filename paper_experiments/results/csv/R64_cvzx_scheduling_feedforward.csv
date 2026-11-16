@@ -1,0 +1,16 @@
+wires,columns,measurements,ff_commands_before,ff_commands_after,ff_dependencies_before,ff_dependencies_after,ff_instrument_exact,ff_executed_residual,commutations,depth_changes_under_commutation,flow_status,flow_layers,depth_flow_pattern,depth_layered,layered_logical,layered_physical,layered_conditional,layered_Y_residual,layered_instrument_residual
+1,3,2,3,2,3,3,True,1.1102230246251565e-16,50,0,certified,2,2,2,True,True,True,0.0,0.0
+1,4,3,5,3,5,5,True,2.7755575615628914e-17,50,0,certified,3,3,3,True,True,True,0.0,0.0
+1,5,4,7,4,7,7,True,5.551115123125783e-17,50,0,certified,4,4,4,True,True,True,0.0,0.0
+1,6,5,9,5,9,9,True,3.469446951953614e-18,50,0,certified,5,5,5,True,True,True,0.0,0.0
+1,7,6,11,6,11,11,True,2.220446049250313e-16,50,0,certified,6,6,6,True,True,True,0.0,0.0
+2,3,4,11,4,11,11,True,1.1102230246251565e-16,50,0,certified,2,3,2,True,True,True,9.992007221626409e-16,1.7763568394002505e-15
+2,4,6,18,6,18,17,True,3.3306690738754696e-16,50,0,certified,3,5,3,True,True,True,1.887379141862766e-15,2.0816681711721685e-15
+2,5,8,25,8,25,25,True,4.440892098500626e-16,50,0,certified,4,7,4,True,True,True,2.7200464103316335e-15,2.7200464103316335e-15
+2,6,10,32,10,32,29,True,1.3877787807814457e-16,50,0,certified,5,9,5,True,True,True,9.992007221626409e-16,2.6645352591003757e-15
+2,7,12,39,12,39,37,True,2.220446049250313e-16,50,0,certified,6,11,6,True,True,True,8.881784197001252e-16,1.7763568394002505e-15
+3,3,6,20,6,20,17,True,3.3306690738754696e-16,50,0,certified,2,4,2,True,True,True,8.881784197001252e-16,1.7763568394002505e-15
+3,4,9,33,9,33,30,True,3.3306690738754696e-16,50,0,certified,3,6,3,True,True,True,3.164135620181696e-15,3.164135620181696e-15
+3,5,12,46,12,46,40,True,4.440892098500626e-16,50,0,certified,4,8,4,True,True,True,5.551115123125783e-15,7.105427357601002e-15
+3,6,15,59,15,59,54,True,8.881784197001252e-16,50,0,certified,5,10,5,True,True,True,8.43769498715119e-15,8.43769498715119e-15
+3,7,18,72,18,72,63,True,1.7763568394002505e-15,50,0,certified,6,12,6,True,True,True,9.103828801926284e-15,9.103828801926284e-15

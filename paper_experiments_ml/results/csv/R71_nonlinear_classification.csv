@@ -1,0 +1,12 @@
+task,model,source,test_accuracy,test_log_loss,seconds,min_retained_norm
+circles,linear logistic (classical),classical baseline,0.6285714285714286,,,
+circles,quadratic logistic (classical),classical baseline,0.9285714285714286,,,
+circles,"Gaussian, displacement, linear readout",affine (no nonlinearity),0.6285714285714286,0.7091317391947525,0.2864873000071384,
+circles,(1) classical preprocessing x^2,classical feature encoding,1.0,0.024443976023990493,1.5937337999930605,
+circles,(2) rotation encoding,input-dependent Gaussian gates,0.9857142857142858,0.014434671707403627,3.1362476000213064,
+circles,"(3) squeezing encoding, variances",covariance observables,1.0,0.00010956298611501388,2.3899605000042357,
+circles,(5) Kerr (non-Gaussian),non-Gaussian quantum,0.8285714285714286,0.31544996147016463,642.1596905000042,0.9999999999999993
+circles,(4) quadratic classical head,classical nonlinear head,0.9285714285714286,,,
+blobs,linear logistic (classical),,0.975,,,
+blobs,"Gaussian cluster, logistic head",,0.975,,,
+blobs,"Gaussian, physical homodyne head",,0.975,,,

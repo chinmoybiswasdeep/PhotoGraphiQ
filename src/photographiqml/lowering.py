@@ -1,4 +1,5 @@
-"""Capability-audited lowering of signed-X MuTA to public PhotoGraphiQ commands."""
+"""Capability-audited lowering of physical MuTA (signed-X or logical-XY instruments) to
+public PhotoGraphiQ commands."""
 
 from dataclasses import asdict, dataclass, field
 from math import comb
@@ -33,6 +34,10 @@ REQUIRED_API = (
 
 
 VALIDATED_BACKENDS = ("piquasso-fock", "native-fock")
+# "signed-x" is the original categorical 0/pi family (unchanged default). The others lower
+# every XY node to pg.GKPLogicalXYMeasurement: "clifford" accepts k*pi/2 only (Gaussian shear),
+# "injection"/"auto" accept any finite angle (magic-state repeat-until-success injection).
+XY_PROTOCOLS = ("signed-x", "clifford", "auto", "injection")
 
 
 def check_photographiq_contract():
@@ -58,12 +63,19 @@ class GKPPhysicalConfig:
     backend: str = "piquasso-fock"
     max_dimension: int = 100_000
     max_matrix_bytes: int = 256_000_000
+    xy_protocol: str = "signed-x"
+    max_injection_rounds: int = 4
 
     def __post_init__(self):
         check_photographiq_contract()
         self.code()  # Validation only: GKPCode does not project until requested.
         if self.decoder not in ("nearest", "soft"):
             raise ValueError("decoder must be nearest or soft")
+        if self.xy_protocol not in XY_PROTOCOLS:
+            raise ValueError(f"xy_protocol must be one of {XY_PROTOCOLS}")
+        rounds = self.max_injection_rounds
+        if isinstance(rounds, bool) or not isinstance(rounds, int) or rounds < 0:
+            raise ValueError("max_injection_rounds must be a nonnegative integer")
         # native-fock is validated against piquasso-fock in tests/ml/cross_layer
         # (test_native_backend.py); piquasso-fock stays the default for reproducibility.
         if self.backend not in VALIDATED_BACKENDS:
@@ -126,6 +138,9 @@ def physical_capabilities(model, parameters=None, *, config=None):
     for node in model.measurement_order:
         name = model.parameter_name(node)
         angle = angles[name]
+        if config.xy_protocol != "signed-x":
+            audit.append(_xy_audit(node, name, angle, config))
+            continue
         try:
             readout = code.logical_measurement("XY", alpha=angle)
             audit.append(
@@ -150,6 +165,9 @@ def physical_capabilities(model, parameters=None, *, config=None):
                 }
             )
     _, peak = _schedule(model)
+    # An injection round keeps one magic ancilla alive next to the measured data mode.
+    ancilla = any(row.get("ancilla_rounds_max", 0) for row in audit)
+    peak += int(ancilla)
     dimension = comb(config.cutoff + peak - 1, peak)
     output_dimension = comb(config.cutoff + model.n_wires - 1, model.n_wires)
     # Joint POVM contraction allocates several output-size complex matrices.
@@ -181,7 +199,23 @@ def physical_capabilities(model, parameters=None, *, config=None):
             "physical X",
             "logical frame",
             "joint X/Z output POVM",
-        ],
+        ]
+        + (
+            []
+            if config.xy_protocol == "signed-x"
+            else [
+                "logical XY instrument (pg.GKPLogicalXYMeasurement)",
+                "frame-adaptive measurement angle",
+            ]
+            + (["Gaussian shear S/S^dagger"] if any(r["clifford"] for r in audit) else [])
+            + (
+                ["finite GKP magic ancilla", "logical CNOT (Gaussian SUM)", "ancilla q homodyne"]
+                if ancilla
+                else []
+            )
+        ),
+        "xy_protocol": config.xy_protocol,
+        "max_injection_rounds": config.max_injection_rounds,
         "resource_nodes": len(model.graph),
         "measurements": len(model.flow),
         "cz_operations": model.graph.number_of_edges(),
@@ -195,7 +229,36 @@ def physical_capabilities(model, parameters=None, *, config=None):
     }
 
 
+def _xy_audit(node, name, angle, config):
+    """Audit one node for the logical-XY instrument family (no Fock allocation)."""
+    from photographiq.encoded import quarter_turns
+
+    finite = bool(np.isscalar(angle) and np.isfinite(angle))
+    turns = quarter_turns(angle) if finite else None
+    supported = finite and (config.xy_protocol != "clifford" or turns is not None)
+    # The frame may flip the sign of the angle at run time; -angle is Clifford iff angle is.
+    needs_ancilla = supported and (config.xy_protocol == "injection" or turns is None)
+    return {
+        "node": node,
+        "parameter": name,
+        "angle": angle,
+        "supported": supported,
+        "basis": "XY" if supported else None,
+        "flip": None,
+        "protocol": config.xy_protocol,
+        "clifford": turns is not None,
+        "ancilla_rounds_max": config.max_injection_rounds if needs_ancilla else 0,
+    }
+
+
 def require_supported(report):
+    if report["unsupported_nodes"] and report.get("xy_protocol", "signed-x") != "signed-x":
+        row = report["unsupported_nodes"][0]
+        raise UnsupportedPhysicalMeasurement(
+            f"Physical GKP MuTA cannot lower {row['parameter']}={row['angle']!r} rad with "
+            f"xy_protocol={report['xy_protocol']!r}: the Clifford protocol measures only "
+            "k*pi/2 (use 'auto' or 'injection' for arbitrary finite angles)."
+        )
     if report["unsupported_nodes"]:
         row = report["unsupported_nodes"][0]
         raise UnsupportedPhysicalMeasurement(
@@ -268,11 +331,6 @@ def lower_muta_to_gkp(model, parameters=None, *, config=None):
     require_supported(report)
     code = config.code()
     decoder = pg.NearestCellDecoder()
-    readouts = {
-        row["node"]: code.logical_measurement("XY", alpha=row["angle"], decoder=decoder)
-        for row in report["angle_audit"]
-    }
-    pattern = pg.Pattern(inputs=model.input_nodes)
     keys = {node: ("raw", node) for node in model.measurement_order}
     dependencies = {
         node: tuple(
@@ -282,6 +340,17 @@ def lower_muta_to_gkp(model, parameters=None, *, config=None):
         )
         for node in model.graph
     }
+    if config.xy_protocol == "signed-x":
+        readouts = {
+            row["node"]: code.logical_measurement("XY", alpha=row["angle"], decoder=decoder)
+            for row in report["angle_audit"]
+        }
+    else:
+        readouts = {
+            row["node"]: _xy_instrument(model, row, code, config, decoder, dependencies)
+            for row in report["angle_audit"]
+        }
+    pattern = pg.Pattern(inputs=model.input_nodes)
     plus = code.plus()  # First Fock allocation: every angle/resource guard already passed.
     for operation, value in _schedule(model)[0]:
         if operation == "prepare":
@@ -310,6 +379,32 @@ def lower_muta_to_gkp(model, parameters=None, *, config=None):
         report,
         config,
         decoder,
+    )
+
+
+def _xy_instrument(model, row, code, config, decoder, dependencies):
+    """Logical-XY instrument whose angle follows the Pauli frame at run time.
+
+    An X byproduct conjugates M(a) to M(-a), so the node measures (-1)^x a; a Z byproduct
+    maps M(a) to -M(a), which stays the classical bit flip applied by the Signal.
+    """
+    node, alpha = row["node"], float(row["angle"])
+    sources = dependencies[node]
+    angle: float | pg.CallableExpression
+    if not sources:
+        angle = alpha
+    else:
+
+        def adaptive(records, node=node, alpha=alpha):
+            return (-1) ** node_frame(model, node, records).x_bit * alpha
+
+        angle = pg.CallableExpression(adaptive, frozenset(("bit", v) for v in sources))
+    return pg.GKPLogicalXYMeasurement(
+        angle=angle,
+        code=code,
+        protocol=config.xy_protocol,
+        max_rounds=config.max_injection_rounds,
+        decoder=decoder,
     )
 
 

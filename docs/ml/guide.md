@@ -9,9 +9,27 @@ linked from each section.
 | Layer | Object | What it is | Reference used to validate it |
 | --- | --- | --- | --- |
 | Ideal logical | `MuTA`, `TriangleNeuron`, `MuTAKernel`, `QuantumInstrumentModel`, `MuTAClassifier`, `MuTARegressor` | Qubit measurement-based model: open graph, flow, adaptive XY measurements, exact branch contraction | Analytic identities (Euler rotations, exp(i phi XX/2)), independent contraction code, MentPy 0.1.0a15 |
-| Restricted physical | `PhysicalMuTA`, `GKPBridge.run`, `lower_muta_to_gkp` | Finite-energy GKP modes in a truncated Fock space; signed-X measurements (angle 0 or pi only), homodyne + nearest-cell decoding, classical Pauli frame | Independently assembled PhotoGraphiQ patterns, raw Piquasso, a second Fock engine (`native-fock` vs `piquasso-fock`), the logical layer for decoded statistics |
+| Restricted physical | `PhysicalMuTA`, `GKPBridge.run`, `lower_muta_to_gkp` | Finite-energy GKP modes in a truncated Fock space; signed-X measurements (angle 0 or pi, the default) or, with `measurement_family="XY"`, the physical logical-XY instrument at any angle; homodyne + nearest-cell decoding, classical Pauli frame | Independently assembled PhotoGraphiQ patterns, raw Piquasso, a second Fock engine (`native-fock` vs `piquasso-fock`), the logical layer for decoded statistics |
 
 MentPy validates the logical layer only. It is never an oracle for GKP or Fock results.
+
+## Three model families
+
+The two layers above are the MuTA families. `photographiqml.cv` adds a third, separate
+family. It does not change either MuTA family.
+
+| | (1) Ideal logical-qubit MuTA | (2) Finite-energy GKP physical MuTA (restricted) | (3) CV-native Gaussian and non-Gaussian learning |
+| --- | --- | --- | --- |
+| Objects | `MuTA`, `MuTAKernel`, `MuTAClassifier`, `MuTARegressor` | `PhysicalMuTA`, `GKPBridge`, `lower_muta_to_gkp` | `photographiqml.cv`: `GaussianProgram`, `CVCluster`, `NonGaussianProgram`, `CVRegressor`, `CVClassifier`, `CVKernel` |
+| Computational model | Qubit MBQC: open graph, flow, adaptive XY measurements, exact branch contraction | MuTA graph lowered to finite GKP modes; homodyne + nearest-cell decoding, classical Pauli frame | CV states: Gaussian encoding, Gaussian programs (direct circuit or compiled finite-squeezing CV-MBQC channel), weighted CV clusters with CV-flow feedforward, Kerr/cubic gates on a Fock engine; homodyne readout + classical head |
+| Physical assumptions | None (ideal logical qubits) | Finite-energy GKP resources in a truncated Fock space; signed-X by default, XY with a supplied (not simulated) magic state | Finite resource squeezing r is the only Gaussian imperfection; no loss or detector noise; Fock cutoff for non-Gaussian gates |
+| Trainable parameters | XY measurement angles | Signed-X choices (0/pi, `DiscreteSearch`) or continuous XY angles (`measurement_family="XY"`) | Gaussian gate arguments, homodyne angles and optional CZ rung weights, Kerr/cubic strengths; classical head |
+| Backends | Exact logical contraction (MentPy as reference) | `piquasso-fock` or `native-fock` | In-package exact Gaussian moments; patterns on the `gaussian` / `native-gaussian` backends; `native-fock` for non-Gaussian programs |
+| Limitations | Logical only; no physical noise | Restricted measurement family; no physical kernels; no loss; product inputs | Gaussian models are efficiently classically simulable and affine in x for displacement encoding with mean readout; non-Gaussian path experimental and slow; no advantage claimed |
+
+`CVCluster` is a directly trainable weighted grid cluster. It is not the CVMuTA proposal on
+the roadmap, which remains planned. Details: [CV-native learning](cv-native/index.md),
+[direct MBQC](cv-native/direct-mbqc.md), [validation](cv-native/validation.md).
 
 ## Logical MuTA models
 
@@ -35,9 +53,11 @@ its limits are in [MuTA mapping](research/muta-mapping.md).
   objective. It agrees with the analytic parameter-shift rule to about 1e-10 in the
   manuscript suite. Stochastic score-function gradients and automatic differentiation of
   the physical path are not implemented.
-- **Physical training.** Only a discrete search over the 0/pi family exists
-  ([physical training](physical/physical-training.md)). It is a pipeline exercise, not a
-  demonstration of continuous trainability.
+- **Physical training.** `DiscreteSearch` searches the signed-X 0/pi family. For
+  `measurement_family="XY"`, `physical_loss`, `physical_gradient` (paired common-random-number
+  central differences) and `ContinuousPhysicalSearch` optimise sampled finite-energy losses;
+  no parameter-shift rule is assumed for the physical instrument
+  ([physical training](physical/physical-training.md)).
 
 ## Physical GKP lowering and restricted execution
 
@@ -52,6 +72,36 @@ Finite GKP codewords are not orthogonal. The physical instrument is therefore no
 logical unitary, even with exact numerics. The gap between decoded statistics and the
 logical target is a property of the finite resource (peak width, envelope, peaks), not an
 engine or truncation error. It shrinks as the resource narrows.
+
+## Arbitrary-angle physical measurements (`measurement_family="XY"`)
+
+The default `PhysicalMuTA` (`measurement_family="X"`, `GKPPhysicalConfig(xy_protocol="signed-x")`)
+is unchanged. `PhysicalMuTA(..., measurement_family="XY")` lowers every measured vertex to
+`pg.GKPLogicalXYMeasurement`, a physical instrument for cos(a) X_L + sin(a) Y_L:
+
+- `GKPPhysicalConfig(xy_protocol=...)`: `"clifford"` (k pi/2 only, Gaussian shear),
+  `"auto"` (shear for k pi/2, magic-state injection otherwise; the default for the XY
+  family) or `"injection"` (ancillas for every angle). `max_injection_rounds` (default 4)
+  bounds the repeat-until-success rounds; an exhausted budget is a reported heralded failure.
+- The capability audit runs before any Fock allocation and counts the magic ancilla as one
+  extra live mode in the Hilbert-dimension estimate.
+- Measurement angles are frame-adaptive: a node with an X byproduct measures (-1)^x a; a Z
+  byproduct stays a classical bit flip.
+- Angles are continuous (initialisation scale 0.1, angle space [0, 2 pi)).
+
+```python
+from photographiqml import GKPPhysicalConfig, PhysicalMuTA
+config = GKPPhysicalConfig(cutoff=56, backend="native-fock", xy_protocol="auto",
+                           max_dimension=200_000)
+model = PhysicalMuTA(1, 1, one_column=True, measurement_family="XY", physical_config=config)
+```
+
+The magic-state preparation is not simulated, and decoded statistics carry the
+finite-energy error of the resource. Details: [supported measurements](physical/supported-measurements.md),
+[lowering](physical/lowering.md), [Pauli frames](physical/pauli-frames.md),
+[XY measurement tutorial](physical/xy-measurement-tutorial.md); evidence in experiments
+R60-R67 (`paper_experiments_ml/14_gkp_xy/`) and the
+[final report](../development/GKP_ARBITRARY_ANGLE_FINAL_REPORT.md).
 
 ## Backend selection
 
@@ -128,9 +178,13 @@ interval and neither certifies resource accuracy.
 
 ## Limitations
 
-- Physical measurements are signed X only (angles 0 or pi). Arbitrary-angle physical
-  MuTA, physical kernels and continuous physical training are not supported.
-- No loss, detector inefficiency or soft adaptive decoding in the physical path.
+- The default physical family is signed X (angles 0 or pi). Arbitrary angles need
+  `measurement_family="XY"`, whose non-Clifford angles rely on a supplied (not simulated)
+  encoded magic state and a bounded repeat-until-success round budget. Physical kernels are
+  not supported.
+- No loss, detector inefficiency or soft adaptive decoding in the PhotoGraphiQML physical
+  path (the standalone `pg.GKPLogicalXYMeasurement` accepts loss and detector noise on a
+  mixed Fock backend, but the lowering validates pure Fock backends only).
 - Entangled logical inputs are rejected; product inputs only.
 - No decoded-state fidelity is computed; only decoded outcome statistics are compared.
 - Nothing here is a fault-tolerance, threshold, universality or quantum-advantage claim.

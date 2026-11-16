@@ -1,0 +1,114 @@
+{
+  "rows": [
+    {
+      "task": "circles",
+      "model": "linear logistic (classical)",
+      "source": "classical baseline",
+      "test_accuracy": 0.6285714285714286
+    },
+    {
+      "task": "circles",
+      "model": "quadratic logistic (classical)",
+      "source": "classical baseline",
+      "test_accuracy": 0.9285714285714286
+    },
+    {
+      "task": "circles",
+      "model": "Gaussian, displacement, linear readout",
+      "source": "affine (no nonlinearity)",
+      "test_accuracy": 0.6285714285714286,
+      "test_log_loss": 0.7091317391947525,
+      "seconds": 0.2864873000071384
+    },
+    {
+      "task": "circles",
+      "model": "(1) classical preprocessing x^2",
+      "source": "classical feature encoding",
+      "test_accuracy": 1.0,
+      "test_log_loss": 0.024443976023990493,
+      "seconds": 1.5937337999930605
+    },
+    {
+      "task": "circles",
+      "model": "(2) rotation encoding",
+      "source": "input-dependent Gaussian gates",
+      "test_accuracy": 0.9857142857142858,
+      "test_log_loss": 0.014434671707403627,
+      "seconds": 3.1362476000213064
+    },
+    {
+      "task": "circles",
+      "model": "(3) squeezing encoding, variances",
+      "source": "covariance observables",
+      "test_accuracy": 1.0,
+      "test_log_loss": 0.00010956298611501388,
+      "seconds": 2.3899605000042357
+    },
+    {
+      "task": "circles",
+      "model": "(5) Kerr (non-Gaussian)",
+      "source": "non-Gaussian quantum",
+      "test_accuracy": 0.8285714285714286,
+      "test_log_loss": 0.31544996147016463,
+      "seconds": 642.1596905000042,
+      "min_retained_norm": 0.9999999999999993
+    },
+    {
+      "task": "circles",
+      "model": "(4) quadratic classical head",
+      "source": "classical nonlinear head",
+      "test_accuracy": 0.9285714285714286
+    },
+    {
+      "task": "blobs",
+      "model": "linear logistic (classical)",
+      "test_accuracy": 0.975
+    },
+    {
+      "task": "blobs",
+      "model": "Gaussian cluster, logistic head",
+      "test_accuracy": 0.975
+    },
+    {
+      "task": "blobs",
+      "model": "Gaussian, physical homodyne head",
+      "test_accuracy": 0.975
+    }
+  ],
+  "oracle_class": "A",
+  "status": "pass",
+  "checks": {
+    "affine_matches_linear_logistic": true,
+    "blobs_gaussian_heads": true
+  },
+  "blobs": {
+    "linear logistic (classical)": 0.975,
+    "Gaussian cluster, logistic head": 0.975,
+    "Gaussian, physical homodyne head": 0.975
+  },
+  "circles": {
+    "linear logistic (classical)": 0.6285714285714286,
+    "quadratic logistic (classical)": 0.9285714285714286,
+    "Gaussian, displacement, linear readout": 0.6285714285714286,
+    "(1) classical preprocessing x^2": 1.0,
+    "(2) rotation encoding": 0.9857142857142858,
+    "(3) squeezing encoding, variances": 1.0,
+    "(5) Kerr (non-Gaussian)": 0.8285714285714286,
+    "(4) quadratic classical head": 0.9285714285714286
+  },
+  "seed": 0,
+  "epochs": 40,
+  "provenance": {
+    "revision": "c8d053a8c388d075086a7b642d52eddf3b318568",
+    "working_tree_modified": true,
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

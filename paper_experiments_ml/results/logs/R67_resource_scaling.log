@@ -1,0 +1,12 @@
+cutoff 56: Y 9.56s, injection 9.08s
+cutoff 64: Y 10.76s, injection 9.88s
+cutoff 80: Y 14.46s, injection 11.81s
+cutoff 96: Y 16.73s, injection 15.40s
+cutoff 112: Y 19.11s, injection 17.23s
+growth [2.86, 4.32, 5.71, 7.05, 8.33, 9.53]
+budget 1: engine heralded 0.406 expected 0.500
+budget 2: engine heralded 0.719 expected 0.750
+budget 3: engine heralded 0.906 expected 0.875
+budget 4: engine heralded 1.000 expected 0.938
+R67 status=pass
+exit=0

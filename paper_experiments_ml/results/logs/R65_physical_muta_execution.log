@@ -1,0 +1,9 @@
+convergence width 0.6: worst branch error 0.3756
+convergence width 0.45: worst branch error 0.1479
+convergence width 0.35: worst branch error 0.0241
+broad XY: tvd=0.4321+-0.0768 heralded=0.992 8.0s/shot
+broad X: tvd=0.2977+-0.0723 heralded=1.000 40.4s/shot
+medium XY: tvd=0.6102+-0.1040 heralded=1.000 9.8s/shot
+medium X: tvd=0.1724+-0.1004 heralded=1.000 63.8s/shot
+R65 status=pass
+exit=0
