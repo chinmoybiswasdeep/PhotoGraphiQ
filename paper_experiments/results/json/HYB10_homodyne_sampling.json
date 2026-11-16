@@ -1,0 +1,30 @@
+{
+  "rows": [
+    {
+      "samples": 5000,
+      "ks": 0.010316865539155895,
+      "ks_critical_1pct": 0.023051681066681446,
+      "max_tail_mass": 0.0,
+      "reproducible": true
+    }
+  ],
+  "configuration": {
+    "state": "CP(0.25) S(0.3) displaced, dim 30",
+    "theta": 0.3,
+    "seed": 10,
+    "grid": 4001
+  },
+  "validation_report": {
+    "status": "pass",
+    "checks": {
+      "ks": true,
+      "reproducible": true,
+      "tail": true
+    }
+  },
+  "source_revision": {
+    "revision": "9dea4abf59dae4680fe0d30f6b37d367e1098f1c",
+    "working_tree_modified": true
+  },
+  "status": "pass"
+}

@@ -1,0 +1,222 @@
+{
+  "rows": [
+    {
+      "workload": "3-mode cubic (pure)",
+      "engine": "hybrid numpy-reference",
+      "size": 8,
+      "hilbert_dimension": 512,
+      "median_seconds": 0.012101100000109,
+      "iqr_seconds": 0.001211549999879935,
+      "peak_bytes": 1167232,
+      "planned_state_bytes": 8192
+    },
+    {
+      "workload": "3-mode cubic (pure)",
+      "engine": "hybrid numpy-reference",
+      "size": 12,
+      "hilbert_dimension": 1728,
+      "median_seconds": 0.09778569999980391,
+      "iqr_seconds": 0.02807680000023538,
+      "peak_bytes": 1698336,
+      "planned_state_bytes": 27648
+    },
+    {
+      "workload": "3-mode cubic (pure)",
+      "engine": "hybrid numpy-reference",
+      "size": 16,
+      "hilbert_dimension": 4096,
+      "median_seconds": 0.11218529999996463,
+      "iqr_seconds": 0.009984799999983807,
+      "peak_bytes": 3241636,
+      "planned_state_bytes": 65536
+    },
+    {
+      "workload": "3-mode cubic (pure)",
+      "engine": "hybrid numpy-reference",
+      "size": 20,
+      "hilbert_dimension": 8000,
+      "median_seconds": 0.24773810000033336,
+      "iqr_seconds": 0.015672199999698933,
+      "peak_bytes": 7840546,
+      "planned_state_bytes": 128000
+    },
+    {
+      "workload": "3-mode cubic (pure)",
+      "engine": "hybrid numpy-reference",
+      "size": 24,
+      "hilbert_dimension": 13824,
+      "median_seconds": 0.4181941000001643,
+      "iqr_seconds": 0.038330699999960416,
+      "peak_bytes": 16180958,
+      "planned_state_bytes": 221184
+    },
+    {
+      "workload": "3-mode cubic (pure)",
+      "engine": "hybrid numpy-reference",
+      "size": 28,
+      "hilbert_dimension": 21952,
+      "median_seconds": 0.7581169000000045,
+      "iqr_seconds": 0.07847690000016883,
+      "peak_bytes": 29893148,
+      "planned_state_bytes": 351232
+    },
+    {
+      "workload": "3-mode cubic (pure)",
+      "engine": "hybrid numpy-reference",
+      "size": 32,
+      "hilbert_dimension": 32768,
+      "median_seconds": 1.3033003999998982,
+      "iqr_seconds": 0.04590274999986832,
+      "peak_bytes": 50899209,
+      "planned_state_bytes": 524288
+    },
+    {
+      "workload": "3-mode cubic (pure)",
+      "engine": "native-fock",
+      "size": 20,
+      "hilbert_dimension": 1540,
+      "median_seconds": 0.006228099999589176,
+      "iqr_seconds": 0.0023777999999765598,
+      "peak_bytes": 568193
+    },
+    {
+      "workload": "3-mode cubic (pure)",
+      "engine": "native-fock",
+      "size": 26,
+      "hilbert_dimension": 3276,
+      "median_seconds": 0.011068900000282156,
+      "iqr_seconds": 0.010095200000023397,
+      "peak_bytes": 1093378
+    },
+    {
+      "workload": "3-mode cubic (pure)",
+      "engine": "native-fock",
+      "size": 32,
+      "hilbert_dimension": 5984,
+      "median_seconds": 0.019237299999986135,
+      "iqr_seconds": 0.00043110000001433946,
+      "peak_bytes": 1772745
+    },
+    {
+      "workload": "3-mode cubic (pure)",
+      "engine": "native-fock",
+      "size": 40,
+      "hilbert_dimension": 11480,
+      "median_seconds": 0.05843120000008639,
+      "iqr_seconds": 0.0008771000000251661,
+      "peak_bytes": 3307497
+    },
+    {
+      "workload": "3-mode cubic (pure)",
+      "engine": "native-fock",
+      "size": 48,
+      "hilbert_dimension": 19600,
+      "median_seconds": 0.1088315000001785,
+      "iqr_seconds": 5.5750000228727004e-05,
+      "peak_bytes": 5274596
+    },
+    {
+      "workload": "2-mode lossy Kerr (mixed)",
+      "engine": "hybrid numpy-reference",
+      "size": 8,
+      "hilbert_dimension": 64,
+      "median_seconds": 0.008920499999931053,
+      "iqr_seconds": 0.00041284999997515115,
+      "peak_bytes": 1208459,
+      "planned_state_bytes": 65536
+    },
+    {
+      "workload": "2-mode lossy Kerr (mixed)",
+      "engine": "hybrid numpy-reference",
+      "size": 12,
+      "hilbert_dimension": 144,
+      "median_seconds": 0.03367680000019391,
+      "iqr_seconds": 0.021143999999821972,
+      "peak_bytes": 1987060,
+      "planned_state_bytes": 331776
+    },
+    {
+      "workload": "2-mode lossy Kerr (mixed)",
+      "engine": "hybrid numpy-reference",
+      "size": 16,
+      "hilbert_dimension": 256,
+      "median_seconds": 0.11503749999974389,
+      "iqr_seconds": 0.02611580000007052,
+      "peak_bytes": 4211507,
+      "planned_state_bytes": 1048576
+    },
+    {
+      "workload": "2-mode lossy Kerr (mixed)",
+      "engine": "hybrid numpy-reference",
+      "size": 20,
+      "hilbert_dimension": 400,
+      "median_seconds": 0.15958969999974215,
+      "iqr_seconds": 0.017851900000096066,
+      "peak_bytes": 10265229,
+      "planned_state_bytes": 2560000
+    },
+    {
+      "workload": "2-mode lossy Kerr (mixed)",
+      "engine": "hybrid numpy-reference",
+      "size": 24,
+      "hilbert_dimension": 576,
+      "median_seconds": 0.27546810000012556,
+      "iqr_seconds": 0.04094610000015564,
+      "peak_bytes": 21261021,
+      "planned_state_bytes": 5308416
+    },
+    {
+      "workload": "2-mode lossy Kerr (mixed)",
+      "engine": "native-mixed-fock",
+      "size": 18,
+      "hilbert_dimension": 171,
+      "median_seconds": 0.014032699999916076,
+      "iqr_seconds": 0.0003429500000038388,
+      "peak_bytes": 1439548
+    },
+    {
+      "workload": "2-mode lossy Kerr (mixed)",
+      "engine": "native-mixed-fock",
+      "size": 22,
+      "hilbert_dimension": 253,
+      "median_seconds": 0.05252180000024964,
+      "iqr_seconds": 0.004899349999959668,
+      "peak_bytes": 3119120
+    },
+    {
+      "workload": "2-mode lossy Kerr (mixed)",
+      "engine": "native-mixed-fock",
+      "size": 26,
+      "hilbert_dimension": 351,
+      "median_seconds": 0.08751399999982823,
+      "iqr_seconds": 0.0074254999999538995,
+      "peak_bytes": 5972961
+    },
+    {
+      "workload": "2-mode lossy Kerr (mixed)",
+      "engine": "native-mixed-fock",
+      "size": 30,
+      "hilbert_dimension": 465,
+      "median_seconds": 0.15915320000021893,
+      "iqr_seconds": 0.009683549999863317,
+      "peak_bytes": 10453360
+    }
+  ],
+  "configuration": {
+    "machine": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+    "engine": "numpy-reference (CPU)",
+    "note": "CPU only; not CUDA-Q, not GPU"
+  },
+  "validation_report": {
+    "status": "pass",
+    "checks": {
+      "plan_is_lower_bound": true,
+      "finite_timings": true
+    }
+  },
+  "source_revision": {
+    "revision": "9dea4abf59dae4680fe0d30f6b37d367e1098f1c",
+    "working_tree_modified": true
+  },
+  "status": "pass"
+}

@@ -13,6 +13,10 @@ wheels only. The development machine runs Windows without WSL, so `to_cudaq` and
 validated through the NumPy/SciPy reference path against `native-fock` (see
 [Validation](#validation)). Nothing on this page claims GPU simulation.
 
+Pattern-level execution around this adapter (Gaussian→Fock bridge, homodyne and
+photon-counting instruments, feed-forward) is provided by the experimental
+[hybrid Gaussian–Fock executor](hybrid-cudaq/architecture.md), not by this module.
+
 ## API
 
 ```python

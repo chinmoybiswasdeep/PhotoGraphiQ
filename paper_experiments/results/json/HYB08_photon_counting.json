@@ -1,0 +1,239 @@
+{
+  "rows": [
+    {
+      "dim": 8,
+      "count": 0,
+      "probability": 0.9783868784562089,
+      "native_probability": 0.9780647326605566,
+      "probability_error": 0.0003221457956522622,
+      "infidelity": 0.00029572766927599137,
+      "sum_all_counts": 1.0
+    },
+    {
+      "dim": 8,
+      "count": 1,
+      "probability": 0.020030460553022607,
+      "native_probability": 0.020249962097670375,
+      "probability_error": 0.00021950154464776828,
+      "infidelity": 0.011459329693846887,
+      "sum_all_counts": 1.0
+    },
+    {
+      "dim": 8,
+      "count": 2,
+      "probability": 0.0015154863037576594,
+      "native_probability": 0.001597734689328777,
+      "probability_error": 8.224838557111761e-05,
+      "infidelity": 0.052076230447591354,
+      "sum_all_counts": 1.0
+    },
+    {
+      "dim": 8,
+      "count": 3,
+      "probability": 6.42526751162665e-05,
+      "native_probability": 8.187832710365055e-05,
+      "probability_error": 1.7625651987384052e-05,
+      "infidelity": 0.21577109269050487,
+      "sum_all_counts": 1.0
+    },
+    {
+      "dim": 12,
+      "count": 0,
+      "probability": 0.9780803004106107,
+      "native_probability": 0.9780647326605566,
+      "probability_error": 1.556775005406852e-05,
+      "infidelity": 7.764602435345047e-06,
+      "sum_all_counts": 1.0
+    },
+    {
+      "dim": 12,
+      "count": 1,
+      "probability": 0.02024143240159301,
+      "native_probability": 0.020249962097670375,
+      "probability_error": 8.529696077366061e-06,
+      "infidelity": 0.00044489282988180445,
+      "sum_all_counts": 1.0
+    },
+    {
+      "dim": 12,
+      "count": 2,
+      "probability": 0.001592826490999314,
+      "native_probability": 0.001597734689328777,
+      "probability_error": 4.908198329462961e-06,
+      "infidelity": 0.0030955895225003305,
+      "sum_all_counts": 1.0
+    },
+    {
+      "dim": 12,
+      "count": 3,
+      "probability": 8.021173459745433e-05,
+      "native_probability": 8.187832710365055e-05,
+      "probability_error": 1.666592506196227e-06,
+      "infidelity": 0.02037774136402104,
+      "sum_all_counts": 1.0
+    },
+    {
+      "dim": 16,
+      "count": 0,
+      "probability": 0.9780654460409708,
+      "native_probability": 0.9780647326605566,
+      "probability_error": 7.133804141856714e-07,
+      "infidelity": 2.145754003368694e-07,
+      "sum_all_counts": 1.0
+    },
+    {
+      "dim": 16,
+      "count": 1,
+      "probability": 0.020249651766763,
+      "native_probability": 0.020249962097670375,
+      "probability_error": 3.103309073743121e-07,
+      "infidelity": 1.6268952560127836e-05,
+      "sum_all_counts": 1.0
+    },
+    {
+      "dim": 16,
+      "count": 2,
+      "probability": 0.001597492444227993,
+      "native_probability": 0.001597734689328777,
+      "probability_error": 2.4224510078397696e-07,
+      "infidelity": 0.00015256167089905404,
+      "sum_all_counts": 1.0
+    },
+    {
+      "dim": 16,
+      "count": 3,
+      "probability": 8.176537213290109e-05,
+      "native_probability": 8.187832710365055e-05,
+      "probability_error": 1.1295497074946613e-07,
+      "infidelity": 0.0013804893529567597,
+      "sum_all_counts": 1.0
+    },
+    {
+      "dim": 20,
+      "count": 0,
+      "probability": 0.9780647645650496,
+      "native_probability": 0.9780647326605566,
+      "probability_error": 3.1904493047463234e-08,
+      "infidelity": 6.104458272204738e-09,
+      "sum_all_counts": 1.0
+    },
+    {
+      "dim": 20,
+      "count": 1,
+      "probability": 0.020249951221395453,
+      "native_probability": 0.020249962097670375,
+      "probability_error": 1.0876274922355655e-08,
+      "infidelity": 5.758254603138724e-07,
+      "sum_all_counts": 1.0
+    },
+    {
+      "dim": 20,
+      "count": 2,
+      "probability": 0.001597723895675823,
+      "native_probability": 0.001597734689328777,
+      "probability_error": 1.0793652954060873e-08,
+      "infidelity": 6.794322026659749e-06,
+      "sum_all_counts": 1.0
+    },
+    {
+      "dim": 20,
+      "count": 3,
+      "probability": 8.187191908261666e-05,
+      "native_probability": 8.187832710365055e-05,
+      "probability_error": 6.4080210338972364e-09,
+      "infidelity": 7.830144697162922e-05,
+      "sum_all_counts": 1.0
+    },
+    {
+      "dim": 24,
+      "count": 0,
+      "probability": 0.9780647340703024,
+      "native_probability": 0.9780647326605566,
+      "probability_error": 1.4097457645689815e-09,
+      "infidelity": 1.769460133971279e-10,
+      "sum_all_counts": 0.9999999999999999
+    },
+    {
+      "dim": 24,
+      "count": 1,
+      "probability": 0.02024996172615372,
+      "native_probability": 0.020249962097670375,
+      "probability_error": 3.715166542461734e-10,
+      "infidelity": 1.9964844222286615e-08,
+      "sum_all_counts": 0.9999999999999999
+    },
+    {
+      "dim": 24,
+      "count": 2,
+      "probability": 0.0015977342382524013,
+      "native_probability": 0.001597734689328777,
+      "probability_error": 4.510763756872954e-10,
+      "infidelity": 2.839407600152555e-07,
+      "sum_all_counts": 0.9999999999999999
+    },
+    {
+      "dim": 24,
+      "count": 3,
+      "probability": 8.187800164542837e-05,
+      "native_probability": 8.187832710365055e-05,
+      "probability_error": 3.254582221805984e-10,
+      "infidelity": 3.97651903238927e-06,
+      "sum_all_counts": 0.9999999999999999
+    },
+    {
+      "dim": 28,
+      "count": 0,
+      "probability": 0.9780647327223777,
+      "native_probability": 0.9780647326605566,
+      "probability_error": 6.18211037917149e-11,
+      "infidelity": 5.192402063869395e-12,
+      "sum_all_counts": 1.0
+    },
+    {
+      "dim": 28,
+      "count": 1,
+      "probability": 0.02024996208525018,
+      "native_probability": 0.020249962097670375,
+      "probability_error": 1.24201968154658e-11,
+      "infidelity": 6.817435505013236e-10,
+      "sum_all_counts": 1.0
+    },
+    {
+      "dim": 28,
+      "count": 2,
+      "probability": 0.0015977346713124186,
+      "native_probability": 0.001597734689328777,
+      "probability_error": 1.801635837045401e-11,
+      "infidelity": 1.1344588601858163e-08,
+      "sum_all_counts": 1.0
+    },
+    {
+      "dim": 28,
+      "count": 3,
+      "probability": 8.187831180028522e-05,
+      "native_probability": 8.187832710365055e-05,
+      "probability_error": 1.5303365332223172e-11,
+      "infidelity": 1.8697213688412262e-07,
+      "sum_all_counts": 1.0
+    }
+  ],
+  "configuration": {
+    "tap": 0.3,
+    "input": "squeezed vacuum r=0.5 (bridge)",
+    "native_cutoff": 36
+  },
+  "validation_report": {
+    "status": "pass",
+    "checks": {
+      "probabilities": true,
+      "branch_states": true,
+      "sum": true
+    },
+    "first_run": "dims 20 vs cutoff 24, infidelity < 1e-8: failed for k >= 1 (see docstring)"
+  },
+  "source_revision": {
+    "revision": "9dea4abf59dae4680fe0d30f6b37d367e1098f1c",
+    "working_tree_modified": true
+  },
+  "status": "pass"
+}

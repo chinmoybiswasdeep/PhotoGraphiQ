@@ -1,0 +1,58 @@
+{
+  "rows": [
+    {
+      "experiment": "HYB01_cudaq_real_runtime",
+      "status": "blocked",
+      "reason": "CUDA-Q is not importable here (Linux-only wheels; no WSL/Linux runtime installed)"
+    }
+  ],
+  "configuration": {
+    "environment": {
+      "platform": "Windows-11-10.0.26200-SP0",
+      "python": "3.12.14",
+      "cudaq_importable": false,
+      "probe": {
+        "available": false,
+        "version": null,
+        "error": "ModuleNotFoundError: No module named 'cudaq'"
+      },
+      "capabilities": {
+        "installed": false,
+        "verified": false,
+        "documented_version": "0.16",
+        "documented": {
+          "bosonic_operators": "cudaq.operators.boson: create, annihilate, number, identity, position, momentum",
+          "truncation": "per-mode local dimension via evolve(..., dimensions={mode: d})",
+          "unitary_evolution": "cudaq.evolve with a pure initial cudaq.State",
+          "density_matrix_evolution": "cudaq.evolve with a density-matrix initial state",
+          "open_system_dynamics": "Lindblad master equation via evolve(collapse_operators=)",
+          "time_dependence": "cudaq.Schedule with time-dependent operator callbacks",
+          "target": "cudaq.set_target('dynamics')"
+        },
+        "adapter": [
+          "gate generators (rotation, displacement, squeezing, beamsplitter, controlled_z, quadratic_phase, kerr, cross_kerr, cubic_phase)",
+          "to_cudaq operator translation",
+          "evolve (unitary, Lindblad loss) with reference_evolve as the NumPy reference",
+          "per-mode <-> total-photon truncation mapping"
+        ],
+        "not_provided": [
+          "pattern execution",
+          "homodyne/photon-counting conditioning"
+        ]
+      },
+      "min_cudaq_version": "0.16",
+      "nvidia_smi": "NVIDIA GeForce RTX 4050 Laptop GPU, 581.86, 6141 MiB",
+      "wsl": "The Windows Subsystem for Linux is not installed. You can install by running 'wsl.exe --install'.\n\n\nFor more information please visit https://aka.ms/wslinstall",
+      "pip_index": "cudaq (0.17.0)\nAvailable versions: 0.17.0, 0.16.0.post1, 0.16.0, 0.15.1, 0.15.0, 0.14.2, 0.14.0, 0.13.0, 0.12.0.post1, 0.12.0, 0.11.0, 0.10.0, 0.9.1, 0.9.0"
+    }
+  },
+  "validation_report": {
+    "status": "blocked",
+    "reason": "CUDA-Q is not importable here (Linux-only wheels; no WSL/Linux runtime installed)"
+  },
+  "source_revision": {
+    "revision": "9dea4abf59dae4680fe0d30f6b37d367e1098f1c",
+    "working_tree_modified": true
+  },
+  "status": "blocked"
+}

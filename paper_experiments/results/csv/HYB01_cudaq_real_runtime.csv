@@ -1,0 +1,2 @@
+experiment,status,reason
+HYB01_cudaq_real_runtime,blocked,CUDA-Q is not importable here (Linux-only wheels; no WSL/Linux runtime installed)

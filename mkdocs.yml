@@ -100,6 +100,19 @@ nav:
       - Performance: performance.md
       - GPU acceleration: gpu.md
       - CUDA-Q adapter: cudaq.md
+      - Hybrid Gaussian-Fock executor (experimental):
+          - Architecture: hybrid-cudaq/architecture.md
+          - Installation: hybrid-cudaq/installation.md
+          - State representations: hybrid-cudaq/state-representations.md
+          - Gaussian to Fock bridge: hybrid-cudaq/gaussian-to-fock.md
+          - Dynamics execution: hybrid-cudaq/dynamics-execution.md
+          - Homodyne instruments: hybrid-cudaq/homodyne-instruments.md
+          - Feed-forward: hybrid-cudaq/feedforward.md
+          - Trajectories: hybrid-cudaq/trajectories.md
+          - Noise: hybrid-cudaq/noise.md
+          - Validation: hybrid-cudaq/validation.md
+          - Performance: hybrid-cudaq/performance.md
+          - Limitations: hybrid-cudaq/limitations.md
   - Learn:
       - Tutorials:
           - Overview: tutorials/index.md
@@ -161,6 +174,7 @@ nav:
       - Validation status (2026-11-12): validation/MASTER_VALIDATION_STATUS.md
       - Complete functionality: COMPLETE_FUNCTIONALITY.md
       - Numerical policy: validation/numerical-policy.md
+      - CUDA-Q real runtime validation: validation/CUDAQ_REAL_RUNTIME_VALIDATION.md
       - v0.2 evidence: release-hardening-report.md
       - References: references.md
   - API:
@@ -238,6 +252,8 @@ nav:
       - v0.3 release report: development/v0.3-release-report.md
       - v0.3 scientific hardening: development/v0.3-scientific-hardening.md
       - Upgrade implementation plan: development/UPGRADE_IMPLEMENTATION_PLAN.md
+      - Hybrid CUDA-Q baseline audit: development/HYBRID_CUDAQ_BASELINE_AUDIT.md
+      - Hybrid CUDA-Q CV-MBQC final report: development/HYBRID_CUDAQ_CVMBQC_FINAL_REPORT.md
       - Branding: development/branding.md
       - Roadmap: roadmap.md
       - Citation: citing.md

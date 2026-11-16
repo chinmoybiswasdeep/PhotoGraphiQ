@@ -1,0 +1,54 @@
+{
+  "rows": [
+    {
+      "resolution": 1.0,
+      "probability_error": 0.013872950215238655,
+      "state_error": 0.015958948029710658
+    },
+    {
+      "resolution": 0.5,
+      "probability_error": 0.0035566301933607214,
+      "state_error": 0.004133914604354724
+    },
+    {
+      "resolution": 0.25,
+      "probability_error": 0.0008948222788767168,
+      "state_error": 0.0010427308757119374
+    },
+    {
+      "resolution": 0.125,
+      "probability_error": 0.0002240618533609906,
+      "state_error": 0.0002612648167662435
+    },
+    {
+      "resolution": 0.0625,
+      "probability_error": 5.603776622542522e-05,
+      "state_error": 6.535264547112255e-05
+    },
+    {
+      "resolution": 0.03125,
+      "probability_error": 1.4010836036804086e-05,
+      "state_error": 1.6340439888883866e-05
+    }
+  ],
+  "configuration": {
+    "convention": "fine measurement then coarse graining, 64-point midpoint rule",
+    "state": "CZ(0.8)-entangled coherent x vacuum, dim 12, theta 0.4, centre 0.2"
+  },
+  "validation_report": {
+    "status": "pass",
+    "checks": {
+      "monotone": true,
+      "second_order": true
+    },
+    "slopes": {
+      "probability_error": 1.9919767597533047,
+      "state_error": 1.9887044172420512
+    }
+  },
+  "source_revision": {
+    "revision": "9dea4abf59dae4680fe0d30f6b37d367e1098f1c",
+    "working_tree_modified": true
+  },
+  "status": "pass"
+}

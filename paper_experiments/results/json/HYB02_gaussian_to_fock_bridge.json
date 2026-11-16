@@ -1,0 +1,267 @@
+{
+  "rows": [
+    {
+      "state": "1-mode squeezed coherent (pure, r=0.5)",
+      "dim": 8,
+      "representation": "pure-fock",
+      "mean_error": 0.007596948195445874,
+      "cov_error": 0.04420785269486105,
+      "lost_weight": 0.0010136094599900725,
+      "min_eigenvalue": 0.0,
+      "seconds": 0.00606629999992947
+    },
+    {
+      "state": "1-mode squeezed coherent (pure, r=0.5)",
+      "dim": 12,
+      "representation": "pure-fock",
+      "mean_error": 0.00048493623977013955,
+      "cov_error": 0.0036142782853803013,
+      "lost_weight": 5.823278544503374e-05,
+      "min_eigenvalue": 0.0,
+      "seconds": 0.0029051999999865075
+    },
+    {
+      "state": "1-mode squeezed coherent (pure, r=0.5)",
+      "dim": 16,
+      "representation": "pure-fock",
+      "mean_error": 3.0054028259840493e-05,
+      "cov_error": 0.0002612252630402878,
+      "lost_weight": 3.2353732983825267e-06,
+      "min_eigenvalue": 0.0,
+      "seconds": 0.0027915000000575674
+    },
+    {
+      "state": "1-mode squeezed coherent (pure, r=0.5)",
+      "dim": 20,
+      "representation": "pure-fock",
+      "mean_error": 1.8092779466849507e-06,
+      "cov_error": 1.743742868143272e-05,
+      "lost_weight": 1.7318767009388836e-07,
+      "min_eigenvalue": 0.0,
+      "seconds": 0.0031372999997074658
+    },
+    {
+      "state": "1-mode squeezed coherent (pure, r=0.5)",
+      "dim": 24,
+      "representation": "pure-fock",
+      "mean_error": 1.0590426369194716e-07,
+      "cov_error": 1.1037229734611742e-06,
+      "lost_weight": 9.038563786312181e-09,
+      "min_eigenvalue": 0.0,
+      "seconds": 0.0031355000000985456
+    },
+    {
+      "state": "1-mode squeezed coherent (pure, r=0.5)",
+      "dim": 28,
+      "representation": "pure-fock",
+      "mean_error": 6.047996659042099e-09,
+      "cov_error": 6.73307054555039e-08,
+      "lost_weight": 4.648430529385905e-10,
+      "min_eigenvalue": 0.0,
+      "seconds": 0.003148799999962648
+    },
+    {
+      "state": "1-mode displaced squeezed thermal (mixed)",
+      "dim": 8,
+      "representation": "mixed-fock",
+      "mean_error": 0.0002469707090135831,
+      "cov_error": 0.0024122800217654117,
+      "lost_weight": 3.455572948440899e-05,
+      "min_eigenvalue": 7.902157254292157e-07,
+      "seconds": 0.0021031999999649997
+    },
+    {
+      "state": "1-mode displaced squeezed thermal (mixed)",
+      "dim": 12,
+      "representation": "mixed-fock",
+      "mean_error": 3.093901804973598e-06,
+      "cov_error": 3.3917241030190226e-05,
+      "lost_weight": 3.2169753427790937e-07,
+      "min_eigenvalue": 2.466296005795865e-10,
+      "seconds": 0.0019101000002592627
+    },
+    {
+      "state": "1-mode displaced squeezed thermal (mixed)",
+      "dim": 16,
+      "representation": "mixed-fock",
+      "mean_error": 3.656817537667223e-08,
+      "cov_error": 4.3997476639745514e-07,
+      "lost_weight": 3.118383440359196e-09,
+      "min_eigenvalue": 7.331073727819362e-14,
+      "seconds": 0.0019293000000288885
+    },
+    {
+      "state": "1-mode displaced squeezed thermal (mixed)",
+      "dim": 20,
+      "representation": "mixed-fock",
+      "mean_error": 4.1819170348844636e-10,
+      "cov_error": 5.447470696751111e-09,
+      "lost_weight": 3.081235266932936e-11,
+      "min_eigenvalue": 2.133463592943514e-17,
+      "seconds": 0.0024441999998998654
+    },
+    {
+      "state": "1-mode displaced squeezed thermal (mixed)",
+      "dim": 24,
+      "representation": "mixed-fock",
+      "mean_error": 4.680755782970891e-12,
+      "cov_error": 6.537104191295384e-11,
+      "lost_weight": 3.076428001236309e-13,
+      "min_eigenvalue": 6.151943238543704e-21,
+      "seconds": 0.004933899999741698
+    },
+    {
+      "state": "1-mode displaced squeezed thermal (mixed)",
+      "dim": 28,
+      "representation": "mixed-fock",
+      "mean_error": 5.1514348342607263e-14,
+      "cov_error": 7.664979762012081e-13,
+      "lost_weight": 3.219646771412954e-15,
+      "min_eigenvalue": 1.7696313951549296e-24,
+      "seconds": 0.01608379999970566
+    },
+    {
+      "state": "2-mode squeezed CZ (pure)",
+      "dim": 6,
+      "representation": "pure-fock",
+      "mean_error": 0.01415786401984731,
+      "cov_error": 0.17077918365427935,
+      "lost_weight": 0.003917153551172836,
+      "min_eigenvalue": 0.0,
+      "seconds": 0.011117199999716831
+    },
+    {
+      "state": "2-mode squeezed CZ (pure)",
+      "dim": 8,
+      "representation": "pure-fock",
+      "mean_error": 0.0038684460493812467,
+      "cov_error": 0.047599449628357604,
+      "lost_weight": 0.0008264178871145722,
+      "min_eigenvalue": 0.0,
+      "seconds": 0.03186520000008386
+    },
+    {
+      "state": "2-mode squeezed CZ (pure)",
+      "dim": 12,
+      "representation": "pure-fock",
+      "mean_error": 0.00026563603180979056,
+      "cov_error": 0.0034359204169898128,
+      "lost_weight": 4.0264976642667705e-05,
+      "min_eigenvalue": 0.0,
+      "seconds": 0.12058000000024549
+    },
+    {
+      "state": "2-mode squeezed CZ (pure)",
+      "dim": 16,
+      "representation": "pure-fock",
+      "mean_error": 1.717849880433775e-05,
+      "cov_error": 0.00023386770845723603,
+      "lost_weight": 2.071238187073554e-06,
+      "min_eigenvalue": 0.0,
+      "seconds": 0.3731874999998581
+    },
+    {
+      "state": "2-mode squeezed CZ (pure)",
+      "dim": 20,
+      "representation": "pure-fock",
+      "mean_error": 1.0750279392235385e-06,
+      "cov_error": 1.5359004156945133e-05,
+      "lost_weight": 1.0930887728299865e-07,
+      "min_eigenvalue": 0.0,
+      "seconds": 0.8940890999997464
+    },
+    {
+      "state": "2-mode squeezed CZ (pure)",
+      "dim": 24,
+      "representation": "pure-fock",
+      "mean_error": 6.588804346563393e-08,
+      "cov_error": 9.846217601250373e-07,
+      "lost_weight": 5.854273288363743e-09,
+      "min_eigenvalue": 0.0,
+      "seconds": 1.7795131999996556
+    },
+    {
+      "state": "2-mode squeezed CZ + thermal noise (mixed)",
+      "dim": 6,
+      "representation": "mixed-fock",
+      "mean_error": 0.028876038470301013,
+      "cov_error": 0.39202054205994985,
+      "lost_weight": 0.010463242956414764,
+      "min_eigenvalue": 2.4338157099152875e-07,
+      "seconds": 0.07168460000002597
+    },
+    {
+      "state": "2-mode squeezed CZ + thermal noise (mixed)",
+      "dim": 8,
+      "representation": "mixed-fock",
+      "mean_error": 0.010269756589129875,
+      "cov_error": 0.14234116228935223,
+      "lost_weight": 0.0028144299843905207,
+      "min_eigenvalue": 5.764281114918619e-10,
+      "seconds": 0.18547699999999168
+    },
+    {
+      "state": "2-mode squeezed CZ + thermal noise (mixed)",
+      "dim": 12,
+      "representation": "mixed-fock",
+      "mean_error": 0.0011983606270715708,
+      "cov_error": 0.017298934536142063,
+      "lost_weight": 0.00022829327686024747,
+      "min_eigenvalue": 2.807649592002223e-15,
+      "seconds": 0.7950599999999213
+    },
+    {
+      "state": "2-mode squeezed CZ + thermal noise (mixed)",
+      "dim": 16,
+      "representation": "mixed-fock",
+      "mean_error": 0.00013169027362441854,
+      "cov_error": 0.0019747818992512656,
+      "lost_weight": 1.9635199845491336e-05,
+      "min_eigenvalue": 1.2595369583300474e-20,
+      "seconds": 3.9671611000003395
+    },
+    {
+      "state": "2-mode squeezed CZ + thermal noise (mixed)",
+      "dim": 20,
+      "representation": "mixed-fock",
+      "mean_error": 1.3995132435662416e-05,
+      "cov_error": 0.00021748860680981252,
+      "lost_weight": 1.7351967908085797e-06,
+      "min_eigenvalue": 5.426864462044393e-26,
+      "seconds": 19.210383800000272
+    },
+    {
+      "state": "2-mode squeezed CZ + thermal noise (mixed)",
+      "dim": 24,
+      "representation": "mixed-fock",
+      "mean_error": 1.4561433747672936e-06,
+      "cov_error": 2.3404146209049514e-05,
+      "lost_weight": 1.5588614210582108e-07,
+      "min_eigenvalue": -3.6861921114144457e-28,
+      "seconds": 71.09972639999978
+    }
+  ],
+  "configuration": {
+    "states": [
+      "1-mode squeezed coherent (pure, r=0.5)",
+      "1-mode displaced squeezed thermal (mixed)",
+      "2-mode squeezed CZ (pure)",
+      "2-mode squeezed CZ + thermal noise (mixed)"
+    ],
+    "pad": "max(dims)"
+  },
+  "validation_report": {
+    "status": "pass",
+    "checks": {
+      "1-mode squeezed coherent (pure, r=0.5)": true,
+      "1-mode displaced squeezed thermal (mixed)": true,
+      "2-mode squeezed CZ (pure)": true,
+      "2-mode squeezed CZ + thermal noise (mixed)": true
+    }
+  },
+  "source_revision": {
+    "revision": "9dea4abf59dae4680fe0d30f6b37d367e1098f1c",
+    "working_tree_modified": true
+  },
+  "status": "pass"
+}
