@@ -9,12 +9,20 @@ from .kernels import MuTAKernel
 from .lowering import GKPPhysicalConfig, lower_muta_to_gkp
 from .models import MuTAClassifier, MuTARegressor, QuantumInstrumentModel
 from .physical import PhysicalMuTA, PhysicalMuTAResult, compare_logical_physical
-from .physical_training import DiscreteSearch
+from .physical_training import (
+    ContinuousPhysicalSearch,
+    DiscreteSearch,
+    physical_gradient,
+    physical_loss,
+)
 from .training import History, Trainer
 
 __version__ = "0.2.0"
 __all__ = [
+    "ContinuousPhysicalSearch",
     "DiscreteSearch",
+    "physical_gradient",
+    "physical_loss",
     "PhysicalMuTA",
     "PhysicalMuTAResult",
     "GKPPhysicalConfig",

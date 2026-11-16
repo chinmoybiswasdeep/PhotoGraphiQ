@@ -106,7 +106,7 @@ print(pg.available_backends())
 
 | Field | Value |
 |---|---|
-| Description | Logical MuTA (measurement-based) learning models and a restricted signed-X physical GKP execution path built on public PhotoGraphiQ commands. It depends on `photographiq` only. |
+| Description | Logical MuTA (measurement-based) learning models and a restricted physical GKP execution path built on public PhotoGraphiQ commands: the signed-X family (default) or, opt-in, the physical logical-XY instrument family (`measurement_family="XY"`). It depends on `photographiq` only. |
 | Python API | `import photographiqml as pml`; `pml.MuTA`, `pml.PhysicalMuTA`, `pml.lower_muta_to_gkp`, `pml.Trainer` (full list in Section 4) |
 | Implementation | `src/photographiqml/` |
 | Backends | Logical models are ideal qubit calculations (no CV backend); `PhysicalMuTA` runs on Fock backends (`GKPPhysicalConfig(backend="piquasso-fock")` by default) |
@@ -408,12 +408,12 @@ Example: see `tests/integration/test_visualization.py` and `docs/user-guide/visu
 
 | Field | Value |
 |---|---|
-| Description | PhotoGraphiQML reuses `photographiq.Parameter` for trainable symbols and lowers signed-X MuTA layers to public PhotoGraphiQ commands (`lower_muta_to_gkp`) after a capability audit, then executes them on Fock backends with GKP resources and decoding. It does not modify core semantics. |
-| Python API | `pml.lower_muta_to_gkp(model, parameters=None, *, config=None)`, `pml.GKPPhysicalConfig(cutoff=48, peak_width=0.6, envelope=0.6, peaks=6, grid_points=2049, decoder="nearest", backend="piquasso-fock", max_dimension=100000, max_matrix_bytes=256000000)`, `pml.PhysicalMuTA(n_wires=1, n_layers=1, *, physical_config=None, measurement_family="X", **kwargs)` |
+| Description | PhotoGraphiQML reuses `photographiq.Parameter` for trainable symbols and lowers signed-X MuTA layers (default) or, with `xy_protocol` other than `"signed-x"`, layers of `pg.GKPLogicalXYMeasurement` instruments to public PhotoGraphiQ commands (`lower_muta_to_gkp`) after a capability audit, then executes them on Fock backends with GKP resources and decoding. It does not modify core semantics. |
+| Python API | `pml.lower_muta_to_gkp(model, parameters=None, *, config=None)`, `pml.GKPPhysicalConfig(cutoff=48, peak_width=0.6, envelope=0.6, peaks=6, grid_points=2049, decoder="nearest", backend="piquasso-fock", max_dimension=100000, max_matrix_bytes=256000000, xy_protocol="signed-x", max_injection_rounds=4)`, `pml.PhysicalMuTA(n_wires=1, n_layers=1, *, physical_config=None, measurement_family="X", **kwargs)` (`measurement_family="X"` or `"XY"`) |
 | Implementation | `src/photographiqml/lowering.py`, `src/photographiqml/physical.py`; contract in `docs/development/photographiqml-contract.md` |
 | Backends | Fock backends for the physical path |
 | CPU / GPU | CPU only |
-| Assumptions | Signed-X family only on the physical path; finite-energy GKP, nearest-cell decoding |
+| Assumptions | Signed-X family by default on the physical path (opt-in XY family through `pg.GKPLogicalXYMeasurement`, magic-state preparation not simulated); finite-energy GKP, nearest-cell decoding |
 | Tests | `tests/ml/lowering/`, `tests/ml/cross_layer/`, `tests/native/test_native_fock_cross_layer.py::test_physical_muta_conditional_run_matches_piquasso` |
 | Status | **Implemented but experimental** (summary; per-feature statuses of the lowering, audit and physical execution are in Section 28) |
 
@@ -460,7 +460,7 @@ This section is a reference listing of every module, one line each; feature stat
 | `photographiq.compiler` | `Circuit`, `compile_circuit`, `decompose_symplectic`, `CompilationStep`, `CompilationTrace` |
 | `photographiq.convergence` | `cutoff_convergence`, `CutoffStudy`: reproducible cutoff comparisons on any Fock backend (`backend=`, default `piquasso-fock`) |
 | `photographiq.cvflow` | `certify_cv_flow`, `flow_pattern`: supplied-order real-linear CV-flow certificate and corrections |
-| `photographiq.encoded` | GKP code (`GKPCode`), decoders, `LogicalPauliFrame`, `PhysicalGKPReadout`, `modular_effects`, `multimode_readout` |
+| `photographiq.encoded` | GKP code (`GKPCode`), decoders, `LogicalPauliFrame`, `PhysicalGKPReadout`, `EncodedGKPMeasurement`, `GKPLogicalXYMeasurement`, `LogicalXYMeasurementResult`, `LogicalMeasurementSynthesis`, helpers `quarter_turns`, `apply_logical_cnot`, `apply_logical_phase`, `sample_quadrature`, `modular_effects`, `multimode_readout` |
 | `photographiq.expressions` | `Expr`, `Parameter`, `Outcome`, `CallableExpression`, `sin`, `cos`, `exp`, `atan2`, `resolve` |
 | `photographiq.flow` | Command DAG scheduling (`dependency_graph`, `topological_schedule`); not a determinism certificate |
 | `photographiq.flows` | `analyze` plus causal flow, gflow, Pauli flow (qubit) and CV flow search/verification |
@@ -501,11 +501,11 @@ This section is a reference listing of every module, one line each; feature stat
 | `photographiqml.gkp` | `GKPBridge`: controlled GKP resource bridge |
 | `photographiqml.kernels` | `MuTAKernel`: feature map realized through a logical MuTA layer |
 | `photographiqml.logical` | Ideal qubit target operations (not a CV simulator) |
-| `photographiqml.lowering` | `GKPPhysicalConfig`, `lower_muta_to_gkp`: capability-audited lowering to PhotoGraphiQ commands |
+| `photographiqml.lowering` | `GKPPhysicalConfig`, `lower_muta_to_gkp`, `physical_capabilities`: capability-audited lowering to PhotoGraphiQ commands (signed-X or logical-XY instruments) |
 | `photographiqml.models` | `MuTAClassifier`, `MuTARegressor`, `QuantumInstrumentModel` |
 | `photographiqml.parameters` | Trainability metadata around PhotoGraphiQ expressions |
 | `photographiqml.physical` | `PhysicalMuTA`, `PhysicalMuTAResult`, `compare_logical_physical` |
-| `photographiqml.physical_training` | `DiscreteSearch`: bounded categorical search |
+| `photographiqml.physical_training` | `DiscreteSearch`: bounded categorical search (signed-X); `physical_loss`, `physical_gradient`, `ContinuousPhysicalSearch`: sampled continuous-angle tools (XY family) |
 | `photographiqml.training` | `Trainer`, `History`: deterministic objective training |
 | `photographiqml.validation` | Small independent logical validation and optional MentPy comparison |
 
@@ -579,7 +579,7 @@ The top-level `photographiq` namespace exports exactly the 85 names below (`phot
 | Backend registry | `available_backends`, `describe_backend`, `select_backend` |
 | Compilation | `Circuit`, `compile_circuit`, `CompilationStep`, `CompilationTrace`, `visualize_compilation` |
 | Analysis | `GaussianChannel`, `gaussian_channel`, `CutoffStudy`, `cutoff_convergence`, `fidelity`, `trace_distance`, `wigner`, `WignerGrid` |
-| GKP encoding | `GKPCode`, `BaseGKPDecoder`, `NearestCellDecoder`, `SoftDecisionDecoder`, `LogicalDecodeResult`, `LogicalPauliFrame`, `PhysicalGKPReadout`, `IdealLogicalXYMeasurement`, `LogicalMeasurementSynthesis`, `GKPMeasurementStudy`, `measurement_convergence`, `modular_effects`, `multimode_readout` |
+| GKP encoding | `GKPCode`, `BaseGKPDecoder`, `NearestCellDecoder`, `SoftDecisionDecoder`, `LogicalDecodeResult`, `LogicalPauliFrame`, `PhysicalGKPReadout`, `EncodedGKPMeasurement`, `GKPLogicalXYMeasurement`, `LogicalXYMeasurementResult`, `IdealLogicalXYMeasurement`, `LogicalMeasurementSynthesis`, `GKPMeasurementStudy`, `measurement_convergence`, `modular_effects`, `multimode_readout` |
 | Subpackages and modules | `protocols`, `cvflow`, `non_gaussian`, `gkp`, `synthesis`, `calculus`, `flows`, `interactive`, `ir`, `registry`, `sampling` |
 
 ### Name table: top-level `photographiqml`
@@ -587,7 +587,7 @@ The top-level `photographiq` namespace exports exactly the 85 names below (`phot
 | Purpose | Names |
 |---|---|
 | Logical models | `MuTA`, `TriangleNeuron`, `MuTAKernel`, `MuTAClassifier`, `MuTARegressor`, `QuantumInstrumentModel` |
-| Training | `Trainer`, `History`, `DiscreteSearch` |
+| Training | `Trainer`, `History`, `DiscreteSearch`, `physical_loss`, `physical_gradient`, `ContinuousPhysicalSearch` |
 | Physical GKP path | `GKPBridge`, `GKPPhysicalConfig`, `lower_muta_to_gkp`, `PhysicalMuTA`, `PhysicalMuTAResult`, `compare_logical_physical` |
 | Re-export | `Parameter` (the same object as `photographiq.Parameter`) |
 
@@ -1882,9 +1882,9 @@ except ValueError as exc:
 | Implementation | `src/photographiq/encoded.py`, `src/photographiq/gkp_studies.py` |
 | Backends | Fock backends (capabilities `encoded_gkp_xz`, `homodyne`) |
 | CPU / GPU | CPU (NumPy) |
-| Assumptions | Postselection fixes the raw analog value, never the decoded bit; leakage cannot be inferred from one outcome and is `None`; Y and general XY readout raise `NotImplementedError` (XY only for alpha = 0 mod pi, mapped to X) |
+| Assumptions | Postselection fixes the raw analog value, never the decoded bit; leakage cannot be inferred from one outcome and is `None`; without `protocol=`, `logical_measurement` keeps its original rule: Y and general XY raise `NotImplementedError` (XY only for alpha = 0 mod pi, mapped to X). With an explicit `protocol=` it returns the physical `GKPLogicalXYMeasurement` (next entry). `PhysicalGKPReadout` itself remains X/Z only |
 | Tests | `tests/gkp/measurements/test_encoded.py::test_physical_analog_result_and_feedforward`, `::test_unsupported_measurements_never_lower_to_rotated_homodyne`, `::test_frame_against_qubit_conjugation`, `tests/gkp/measurements/test_encoded_boundaries.py` |
-| Status | **Partially supported** (X and Z readout implemented and experimental; Y and arbitrary XY raise `NotImplementedError`) |
+| Status | **Partially supported** (X and Z readout implemented and experimental; Y and arbitrary XY require an explicit `protocol=` and are provided by `GKPLogicalXYMeasurement`) |
 
 Example:
 
@@ -1895,41 +1895,49 @@ p = pg.Pattern(inputs=(0,)).measure(0, code.logical_measurement("Z"), key="z")
 r = pg.simulate(p, backend="native-fock", cutoff=48, inputs={0: code.one()}, seed=2)
 print(r.outcomes["z"].bit, r.outcomes["z"].decoder)
 try:
-    code.logical_measurement("Y")
+    code.logical_measurement("Y")  # no protocol: the original restriction is unchanged
 except NotImplementedError as exc:
     print("NotImplementedError:", exc)
+print(type(code.logical_measurement("Y", protocol="clifford")).__name__)
 # 1 nearest-cell
 # NotImplementedError: Only physical GKP X/Z readout is implemented; Y/XY need validation
+# GKPLogicalXYMeasurement
 ```
 
 ### Logical Y and arbitrary XY measurement of GKP qubits
 
 | Field | Value |
 |---|---|
-| Description | No physical measurement of the GKP logical Y or a general XY observable exists. `IdealLogicalXYMeasurement` is a two-dimensional ideal-qubit reference (outcome probabilities of cos(alpha) X + sin(alpha) Y on a qubit state), not an oscillator POVM and not usable in `Measure`; `LogicalMeasurementSynthesis` is an extension point whose `lower` always raises. |
-| Python API | `pg.IdealLogicalXYMeasurement(alpha).probabilities(state)`, `pg.LogicalMeasurementSynthesis().lower(code, alpha, **kwargs)`, `pg.GKPCode(...).logical_measurement("XY", alpha=...)` |
-| Implementation | `src/photographiq/encoded.py` |
-| Backends | None for physical execution; the reference is a NumPy calculation on 2 x 2 states |
+| Description | `GKPLogicalXYMeasurement` is a physical finite-energy instrument for M_L(a) = cos(a) X_L + sin(a) Y_L, whose +1 eigenstate is (\|0_L> + e^{ia}\|1_L>)/sqrt(2). It applies D(-a) = diag(1, e^{-ia}) to the data mode and finishes with the p-homodyne X readout. Clifford angles k pi/2 use the Gaussian shear exp(+-i q^2/4) (S/S^dagger) or an exact outcome flip (Z). Other angles use repeat-until-success magic-state injection: a fresh finite-energy encoded ancilla (\|0~> + e^{i phi}\|1~>)/norm, a logical CNOT (Gaussian SUM), an ancilla q homodyne with nearest-cell decoding, and angle doubling on bit 1. A Clifford remainder is finished with a frame flip or a Y-state ancilla. `IdealLogicalXYMeasurement` remains the two-dimensional ideal-qubit reference (not an oscillator POVM, not usable in `Measure`). `LogicalMeasurementSynthesis(protocol)` lowers to the instrument. |
+| Python API | `pg.GKPLogicalXYMeasurement(angle=0.0, code=None, protocol="auto", max_rounds=4, decoder=NearestCellDecoder(), ancilla_transmissivity=1.0, detector_efficiency=1.0, homodyne_noise=0.0, clifford_tolerance=1e-12)`; `pg.GKPCode(...).logical_measurement(basis, *, alpha=None, protocol=None, **kwargs)` with basis `"Y"` or `"XY"`; `pg.LogicalMeasurementSynthesis(protocol=None, **options).lower(code, alpha, **kwargs)`; record `pg.LogicalXYMeasurementResult` (fields of `LogicalDecodeResult` plus `angle`, `protocol`, `rounds`, `heralded_success`, `applied_operations`, `joint_density`, `resource`, `retained_norm_min`, `cutoff`, `ancilla_modes`, `readout_probabilities`); base class `pg.EncodedGKPMeasurement`; helpers `photographiq.encoded.quarter_turns`, `apply_logical_cnot`, `apply_logical_phase`, `sample_quadrature`; `pg.IdealLogicalXYMeasurement(alpha).probabilities(state)` |
+| Implementation | `src/photographiq/encoded.py`; dispatch in `src/photographiq/backends/fock.py` and `mixed_fock.py` (`measure` hands an `EncodedGKPMeasurement` the live engine); angle resolution in `src/photographiq/simulator.py` |
+| Backends | Fock backends with capability `encoded_gkp_xy` (`piquasso-fock`, `native-fock` and their mixed variants). Injection also needs `fock_input` and `multimode_fock`; any noise option adds `mixed_fock` (`native-mixed-fock`, `piquasso-mixed-fock`). Tests and experiments use the native engines |
 | CPU / GPU | CPU only |
-| Assumptions | `logical_measurement("XY", alpha)` maps alpha = 0 mod pi to X readout (with `flip=1` at pi) and raises `NotImplementedError` "Physical logical XY supports only alpha=0 mod pi; no Y or injection" otherwise; `lower` raises `NotImplementedError` "No validated magic-state injection or arbitrary logical Rz protocol"; putting the reference in a pattern fails `validate()` with "Unsupported measurement description" |
-| Tests | `tests/gkp/measurements/test_encoded.py::test_ideal_reference` (qubit observable closed form), `::test_unsupported_measurements_never_lower_to_rotated_homodyne`, `tests/gkp/measurements/test_encoded_boundaries.py` |
-| Status | **Unsupported** (physical Y/XY readout raises `NotImplementedError`; only the ideal qubit reference is implemented) |
+| Assumptions | `protocol` is `"clifford"` (k pi/2 only, absolute tolerance 1e-12; other angles raise `NotImplementedError`), `"injection"` (ancillas for every angle) or `"auto"`. Without `protocol`, `logical_measurement("XY", alpha)` keeps the original rule (alpha = 0 mod pi mapped to X, `flip=1` at pi; otherwise `NotImplementedError` "Physical logical XY supports only alpha=0 mod pi; no Y or injection"), `"Y"` raises, and `LogicalMeasurementSynthesis().lower` raises `NotImplementedError` ("Choose an explicit validated protocol ..."). `angle` may be a classical expression resolved by `simulate()`. Postselection uses `{"ancilla": [q_1, ...], "data": p}` with exactly the rounds the protocol takes (`ValueError` otherwise). An exhausted `max_rounds` budget is a heralded failure (`heralded_success=False`); the ideal-code success probability for a generic angle is 1 - 2^-K. The encoded magic state is a supplied finite-Fock vector; its preparation is not simulated. No rotated homodyne is used. Finite-energy distortion from the SUM and shear, and energy added by failed rounds, are physical errors, so injected runs need larger cutoffs. Not a fault-tolerant protocol |
+| Tests | `tests/gkp/test_logical_xy.py` (conventions; cardinal-state Y readout and injection record likelihoods against the untruncated grid reference `tests/validation/gkp_xy_reference.py`; postselection and round-budget boundaries; trace preservation and ideal limit of the reference); `tests/gkp/measurements/test_encoded.py::test_ideal_reference`, `::test_unsupported_measurements_never_lower_to_rotated_homodyne`, `tests/gkp/measurements/test_encoded_boundaries.py` |
+| Status | **Implemented but experimental** (finite-energy instrument checked against an independent grid reference; magic-state preparation not simulated). Experiments R60-R67 in `paper_experiments_ml/14_gkp_xy/`; design in `docs/development/GKP_ARBITRARY_ANGLE_IMPLEMENTATION.md`, results in `docs/development/GKP_ARBITRARY_ANGLE_FINAL_REPORT.md` |
 
 Example:
 
 ```python
 import numpy as np, photographiq as pg
+code = pg.GKPCode(cutoff=56, peak_width=0.6, envelope=0.6, peaks=6, grid_points=2049)
 print(pg.IdealLogicalXYMeasurement(np.pi / 4).probabilities([1, 0]))
-try:
-    pg.LogicalMeasurementSynthesis().lower(pg.GKPCode(), np.pi / 4)
-except NotImplementedError as exc:
-    print("NotImplementedError:", exc)
-try:
-    pg.GKPCode().logical_measurement("XY", alpha=np.pi / 4)
-except NotImplementedError as exc:
-    print("NotImplementedError:", exc)
+m = code.logical_measurement("XY", alpha=np.pi / 4, protocol="auto")
+p = pg.Pattern(inputs=(0,)).measure(0, m, key="m")
+r = pg.simulate(p, backend="native-fock", cutoff=56, inputs={0: code.plus()},
+                measurement_outcomes={"m": {"ancilla": [0.31], "data": 0.4}})
+rec = r.outcomes["m"]
+print(rec.bit, [q["bit"] for q in rec.rounds], rec.heralded_success, rec.applied_operations)
+for call in (lambda: pg.LogicalMeasurementSynthesis().lower(code, np.pi / 4),
+             lambda: code.logical_measurement("XY", alpha=np.pi / 4)):
+    try:
+        call()
+    except NotImplementedError as exc:
+        print("NotImplementedError:", exc)
 # (0.4999999999999999, 0.5000000000000001)
-# NotImplementedError: No validated magic-state injection or arbitrary logical Rz protocol
+# 0 [0] True ('inject D(-0.785398163397); ancilla bit 0',)
+# NotImplementedError: Choose an explicit validated protocol: LogicalMeasurementSynthesis('clifford' | 'injection' | 'auto'); no implicit rotated-homodyne substitution exists
 # NotImplementedError: Physical logical XY supports only alpha=0 mod pi; no Y or injection
 ```
 
@@ -1961,7 +1969,7 @@ Example: see the four-backend homodyne example and the photon-counting example a
 | Tests | `tests/fock/test_preflight_hardening.py::test_mixed_channels_rejected_before_preparation`, `tests/cross_backend/test_registry_planner.py::test_required_features_basic` |
 | Status | **Implemented but experimental** (behavioural tests only) |
 
-Example: see `src/photographiq/encoded.py` (`PhysicalGKPReadout` implements the protocol).
+Example: see `src/photographiq/encoded.py` (`PhysicalGKPReadout` and `GKPLogicalXYMeasurement` implement the protocol through the `EncodedGKPMeasurement` base class).
 
 ## 11. Adaptive feedforward
 
@@ -4455,7 +4463,7 @@ print(flows.analyze(OpenGraph(Model.CV_NONGAUSSIAN, nx.path_graph(2), (0,), (1,)
 
 ## 27. GKP operations
 
-PhotoGraphiQ implements finite-energy square-lattice GKP resources in a truncated Fock basis, physical X/Z readout by homodyne detection plus classical decoding, Gaussian realizations of ideal-lattice logical gates, and finite-dimensional measurement instruments. The project classifies this layer as experimental ([feature matrix](validation/feature-matrix.md)). It does not implement a fault-tolerant architecture, a threshold study, physical Y or arbitrary XY measurement, or magic-state injection. All conventions use hbar=2 and [q,p]=2i, so the logical shift spacing is L = sqrt(2*pi) (`photographiq.gkp.SPACING`) and the stabilizer translations are 2L.
+PhotoGraphiQ implements finite-energy square-lattice GKP resources in a truncated Fock basis, physical X/Z readout by homodyne detection plus classical decoding, Gaussian realizations of ideal-lattice logical gates, and finite-dimensional measurement instruments. The project classifies this layer as experimental ([feature matrix](validation/feature-matrix.md)). Physical Y and arbitrary-angle XY measurements are available as an opt-in instrument (`GKPLogicalXYMeasurement`: Gaussian shear for k pi/2, repeat-until-success magic-state injection otherwise, with a supplied, not simulated, encoded magic state). It does not implement a fault-tolerant architecture, a threshold study or a standalone non-Clifford logical gate. All conventions use hbar=2 and [q,p]=2i, so the logical shift spacing is L = sqrt(2*pi) (`photographiq.gkp.SPACING`) and the stabilizer translations are 2L.
 
 ### Finite-energy GKP resource (`GKPResource`)
 
@@ -4573,7 +4581,7 @@ print(code.logical_cz(0, 1))
 | Implementation | `src/photographiq/encoded.py` |
 | Backends | None |
 | CPU / GPU | N/A |
-| Assumptions | A cubic-phase or magic-state route would need its own validated protocol. None exists. |
+| Assumptions | A cubic-phase or magic-state gate route would need its own validated protocol. None exists as a gate; magic-state injection exists only inside the logical XY measurement instrument (`GKPLogicalXYMeasurement`). |
 | Tests | `tests/gkp/measurements/test_encoded.py::test_resources_gram_projector_and_gate_interface` (asserts the `NotImplementedError`) |
 | Status | **Unsupported** |
 
@@ -4621,7 +4629,7 @@ print(r.measurement_statistics["x"]["kind"])
 | Implementation | `src/photographiq/encoded.py` |
 | Backends | Same as physical readout (four Fock backends) |
 | CPU / GPU | CPU |
-| Assumptions | The reduced angle is compared with an absolute tolerance of 1e-14. A nearby trainable angle is never rounded to X. Every other finite angle raises `NotImplementedError("Physical logical XY supports only alpha=0 mod pi; no Y or injection")`. A non-finite or non-scalar alpha raises `ValueError`. |
+| Assumptions | This is the behaviour without `protocol=` (unchanged). The reduced angle is compared with an absolute tolerance of 1e-14. A nearby trainable angle is never rounded to X. Every other finite angle raises `NotImplementedError("Physical logical XY supports only alpha=0 mod pi; no Y or injection")`. A non-finite or non-scalar alpha raises `ValueError`. With an explicit `protocol=` the call returns `GKPLogicalXYMeasurement` instead (next entry and Section 10). |
 | Tests | `tests/gkp/measurements/test_encoded.py::test_unsupported_measurements_never_lower_to_rotated_homodyne`; `tests/ml/lowering/test_preflight.py::test_authoritative_upstream_tolerance` |
 | Status | **Partially supported** |
 
@@ -4643,14 +4651,14 @@ except NotImplementedError as e:
 
 | Field | Value |
 |---|---|
-| Description | Physical Y readout, arbitrary-angle XY readout and magic-state or logical-Rz synthesis are not implemented. `LogicalMeasurementSynthesis` exists only as an extension point. |
-| Python API | `GKPCode.logical_measurement("Y")` and `PhysicalGKPReadout("Y")` raise `NotImplementedError("Only physical GKP X/Z readout is implemented; Y/XY need validation")`; `photographiq.LogicalMeasurementSynthesis().lower(code, alpha)` raises `NotImplementedError("No validated magic-state injection or arbitrary logical Rz protocol")` |
+| Description | Physical Y and arbitrary-angle XY readout are provided by `GKPLogicalXYMeasurement` (full entry in Section 10): Gaussian shear or frame flip for k pi/2, repeat-until-success magic-state injection for other angles, finished by the p-homodyne X readout. They are opt-in: a `protocol` must be named. `LogicalMeasurementSynthesis(protocol)` lowers a logical angle to the same instrument. No arbitrary logical Rz gate command exists outside this measurement instrument. |
+| Python API | `GKPCode.logical_measurement("Y", protocol=...)` (alpha fixed to pi/2), `GKPCode.logical_measurement("XY", alpha=..., protocol=...)`, `photographiq.GKPLogicalXYMeasurement(...)`, `photographiq.LogicalMeasurementSynthesis(protocol).lower(code, alpha)`. Without a protocol `GKPCode.logical_measurement("Y")` and `PhysicalGKPReadout("Y")` still raise `NotImplementedError("Only physical GKP X/Z readout is implemented; Y/XY need validation")`, and `LogicalMeasurementSynthesis().lower(code, alpha)` raises `NotImplementedError` ("Choose an explicit validated protocol ...") |
 | Implementation | `src/photographiq/encoded.py` |
-| Backends | None |
-| CPU / GPU | N/A |
-| Assumptions | The project's roadmap ([PhotoGraphiQML roadmap](ml/ROADMAP.md)) lists validated arbitrary XY measurement and injection instruments as future work. |
-| Tests | `tests/gkp/measurements/test_encoded.py::test_unsupported_measurements_never_lower_to_rotated_homodyne` |
-| Status | **Unsupported** |
+| Backends | Fock backends with `encoded_gkp_xy` (pure engines for noiseless use; mixed engines for loss or detector noise) |
+| CPU / GPU | CPU |
+| Assumptions | `"Y"` with `alpha=` raises `ValueError` ("Y fixes alpha = pi/2"); `protocol=` with basis `"X"` or `"Z"` raises `ValueError`. The encoded magic state is supplied, not prepared by a simulated protocol. See [GKP user guide](user-guide/gkp.md#physical-logical-y-and-xy-measurements). |
+| Tests | `tests/gkp/test_logical_xy.py`; `tests/gkp/measurements/test_encoded.py::test_unsupported_measurements_never_lower_to_rotated_homodyne` |
+| Status | **Implemented but experimental** |
 
 ```python
 import photographiq as pg
@@ -4658,7 +4666,10 @@ try:
     pg.GKPCode().logical_measurement("Y")
 except NotImplementedError as e:
     print("NotImplementedError:", e)
+m = pg.GKPCode().logical_measurement("Y", protocol="clifford")
+print(m.angle, m.protocol, sorted(m.required_capabilities))
 # NotImplementedError: Only physical GKP X/Z readout is implemented; Y/XY need validation
+# 1.5707963267948966 clifford ['encoded_gkp_xy', 'encoded_gkp_xz', 'homodyne', 'quadratic_phase']
 ```
 
 ### Ideal logical XY reference measurement
@@ -4900,7 +4911,7 @@ Example: none (not implemented).
 
 ## 28. PhotoGraphiQML
 
-`photographiqml` (version 0.2.0, shipped in the same distribution as `photographiq`) implements the measurement-based quantum machine learning ansatz MuTA. There are two execution paths. The ideal logical path runs on qubit statevectors in NumPy. The restricted physical path lowers the model to a PhotoGraphiQ GKP `Pattern` and executes it on a Fock backend, either `piquasso-fock` (the default) or `native-fock`. The physical path supports only signed-X measurements (angles 0 and pi). Arbitrary-angle physical MuTA, entangled physical inputs and mixed-Fock lowering are rejected before any Fock allocation. See [PhotoGraphiQML](ml/index.md) and the [physical architecture](ml/physical/architecture.md).
+`photographiqml` (version 0.2.0, shipped in the same distribution as `photographiq`) implements the measurement-based quantum machine learning ansatz MuTA. There are two execution paths. The ideal logical path runs on qubit statevectors in NumPy. The restricted physical path lowers the model to a PhotoGraphiQ GKP `Pattern` and executes it on a Fock backend, either `piquasso-fock` (the default) or `native-fock`. By default the physical path supports only signed-X measurements (angles 0 and pi). With `PhysicalMuTA(measurement_family="XY")` and `GKPPhysicalConfig(xy_protocol="clifford" | "auto" | "injection")` every measured node is lowered to the physical logical-XY instrument `pg.GKPLogicalXYMeasurement` (Gaussian shear for k pi/2, magic-state injection otherwise, frame-adaptive angles). Entangled physical inputs and mixed-Fock lowering are rejected before any Fock allocation, as are angles the chosen family cannot measure. See [PhotoGraphiQML](ml/index.md) and the [physical architecture](ml/physical/architecture.md).
 
 ### Triangle neuron geometry (`TriangleNeuron`)
 
@@ -5037,12 +5048,12 @@ print(b.logical_target(MuTA(1), [1, 0]).representation)
 
 | Field | Value |
 |---|---|
-| Description | `GKPPhysicalConfig` fixes the resource (cutoff, peak width, envelope, peaks, grid), the decoder, the backend and the allocation budgets. Constructing it first runs `check_photographiq_contract()`, which checks that every required PhotoGraphiQ API name exists and that the version satisfies 0.3.1 <= v < 0.4. |
-| Python API | `photographiqml.GKPPhysicalConfig(cutoff=48, peak_width=0.6, envelope=0.6, peaks=6, grid_points=2049, decoder="nearest", backend="piquasso-fock", max_dimension=100000, max_matrix_bytes=256000000)`; `photographiqml.lowering.check_photographiq_contract()`; `photographiqml.lowering.REQUIRED_API`; `photographiqml.lowering.VALIDATED_BACKENDS == ("piquasso-fock", "native-fock")` |
+| Description | `GKPPhysicalConfig` fixes the resource (cutoff, peak width, envelope, peaks, grid), the decoder, the backend, the allocation budgets and the measurement instrument (`xy_protocol`, `max_injection_rounds`). Constructing it first runs `check_photographiq_contract()`, which checks that every required PhotoGraphiQ API name exists and that the version satisfies 0.3.1 <= v < 0.4. |
+| Python API | `photographiqml.GKPPhysicalConfig(cutoff=48, peak_width=0.6, envelope=0.6, peaks=6, grid_points=2049, decoder="nearest", backend="piquasso-fock", max_dimension=100000, max_matrix_bytes=256000000, xy_protocol="signed-x", max_injection_rounds=4)`; `photographiqml.lowering.XY_PROTOCOLS == ("signed-x", "clifford", "auto", "injection")`; `photographiqml.lowering.check_photographiq_contract()`; `photographiqml.lowering.REQUIRED_API`; `photographiqml.lowering.VALIDATED_BACKENDS == ("piquasso-fock", "native-fock")` |
 | Implementation | `src/photographiqml/lowering.py` |
 | Backends | `backend` must be `"piquasso-fock"` (default) or `"native-fock"`. Any other name, including `native-mixed-fock` and `gaussian`, raises `ValueError` ("... mixed Fock lowering remains unsupported"). |
 | CPU / GPU | CPU |
-| Assumptions | `cutoff` is the exclusive total-photon cutoff. The defaults are research starting points, not validated precision settings. A missing API name or a wrong version raises `ImportError` that names the audited commit. |
+| Assumptions | `cutoff` is the exclusive total-photon cutoff. The defaults are research starting points, not validated precision settings. A missing API name or a wrong version raises `ImportError` that names the audited commit. The default `xy_protocol="signed-x"` reproduces the original signed-X lowering exactly; an unknown `xy_protocol` or a negative or non-integer `max_injection_rounds` raises `ValueError`. |
 | Tests | `tests/ml/cross_layer/test_contract.py::test_public_contract_and_dependency`; `tests/ml/lowering/test_preflight.py::test_config_validation_and_roundtrip`; `tests/ml/cross_layer/test_native_backend.py::test_config_accepts_native_fock_and_keeps_piquasso_default` |
 | Status | **Implemented and validated** |
 
@@ -5064,13 +5075,13 @@ except ValueError as e:
 
 | Field | Value |
 |---|---|
-| Description | Checks every bound angle with the upstream `GKPCode.logical_measurement("XY", alpha)` rule and estimates the peak number of live modes, the Hilbert dimension and the workspace bytes, all without any Fock projection. `require_supported` raises on the first unsupported node or on a budget or decoder violation. |
+| Description | Checks every bound angle (signed-X: with the upstream `GKPCode.logical_measurement("XY", alpha)` rule; XY family: by Clifford/non-Clifford classification and ancilla-round budget) and estimates the peak number of live modes, the Hilbert dimension and the workspace bytes, all without any Fock projection. `require_supported` raises on the first unsupported node or on a budget or decoder violation. |
 | Python API | `MuTA.physical_capabilities(parameters=None, *, config=None)`; `photographiqml.lowering.physical_capabilities(model, parameters=None, *, config=None)`; `photographiqml.lowering.require_supported(report)`; capability-only drawing `MuTA.draw_physical(parameters=None, *, config=None, ax=None)` / `photographiqml.lowering.visualize_lowering(model, parameters=None, *, config=None, ax=None)` (unsupported nodes drawn red, needs `matplotlib`) |
 | Implementation | `src/photographiqml/lowering.py` |
 | Backends | None (classical audit) |
 | CPU / GPU | CPU |
-| Assumptions | Angles are accepted only at 0 or pi mod 2*pi with absolute tolerance 1e-14. `decoder="soft"` is rejected for flow execution (its posteriors are not calibrated for adaptive node states). The memory figures are estimates; a request above `max_dimension` or `max_matrix_bytes` is rejected (`ValueError` from `require_supported`). |
-| Tests | `tests/ml/lowering/test_preflight.py::test_reject_every_angle_before_any_fock_allocation`, `::test_authoritative_upstream_tolerance` (reference: the upstream `GKPCode.logical_measurement` rule), `::test_resource_and_decoder_guards_preallocation`, `::test_execution_request_guards_preallocation`; `tests/ml/cross_layer/test_physical_execution.py::test_draw_capability_failure_without_projection` |
+| Assumptions | Signed-X: angles are accepted only at 0 or pi mod 2*pi with absolute tolerance 1e-14. XY family: every finite angle is accepted with `"auto"`/`"injection"`, only k pi/2 (tolerance 1e-12) with `"clifford"`; audit rows add `protocol`, `clifford` and `ancilla_rounds_max`, and the dimension estimate counts one extra live mode for the magic ancilla when any node may need one. `decoder="soft"` is rejected for flow execution (its posteriors are not calibrated for adaptive node states). The memory figures are estimates; a request above `max_dimension` or `max_matrix_bytes` is rejected (`ValueError` from `require_supported`). |
+| Tests | `tests/ml/lowering/test_preflight.py::test_reject_every_angle_before_any_fock_allocation`, `::test_authoritative_upstream_tolerance` (reference: the upstream `GKPCode.logical_measurement` rule), `::test_resource_and_decoder_guards_preallocation`, `::test_execution_request_guards_preallocation`; `tests/ml/cross_layer/test_physical_execution.py::test_draw_capability_failure_without_projection`; XY family: `tests/ml/cross_layer/test_physical_xy.py::test_clifford_protocol_rejects_other_angles_before_allocation`, `::test_lowering_emits_frame_adaptive_xy_instruments` |
 | Status | **Implemented and validated** |
 
 ```python
@@ -5086,7 +5097,7 @@ print(rep["supported"], [r["parameter"] for r in rep["unsupported_nodes"]], rep[
 
 | Field | Value |
 |---|---|
-| Description | Lowers a signed-X MuTA to a public PhotoGraphiQ `Pattern`: `Prepare(node, GKPCode.plus())` just before a node is needed, unit-weight `Entangle` (logical CZ) for every graph edge, `Measure(node, PhysicalGKPReadout("X", ...))` with a nearest-cell decoder, and a `Signal(("bit", node), CallableExpression(...))` that records the interpreted bit: the decoded bit XOR the X-basis correction of the classical Pauli frame built from earlier interpreted bits. The frame is virtual; no physical correction displacement is applied. Returns a `PhysicalLoweringResult` with the pattern, code, key maps, frame dependencies and audit. |
+| Description | Lowers a signed-X MuTA to a public PhotoGraphiQ `Pattern`: `Prepare(node, GKPCode.plus())` just before a node is needed, unit-weight `Entangle` (logical CZ) for every graph edge, `Measure(node, PhysicalGKPReadout("X", ...))` with a nearest-cell decoder, and a `Signal(("bit", node), CallableExpression(...))` that records the interpreted bit: the decoded bit XOR the X-basis correction of the classical Pauli frame built from earlier interpreted bits. The frame is virtual; no physical correction displacement is applied. Returns a `PhysicalLoweringResult` with the pattern, code, key maps, frame dependencies and audit. With `xy_protocol` other than `"signed-x"` each `Measure` carries `pg.GKPLogicalXYMeasurement(angle, code, protocol=xy_protocol, max_rounds=max_injection_rounds, decoder=...)`; a node with frame sources gets a frame-adaptive angle, a `CallableExpression` evaluating to (-1)^x a from earlier interpreted bits (X M(a) X = M(-a)); the Z component stays the `Signal` bit flip. |
 | Python API | `photographiqml.lower_muta_to_gkp(model, parameters=None, *, config=None)`; `photographiqml.lowering.node_frame(model, node, records)` |
 | Implementation | `src/photographiqml/lowering.py` |
 | Backends | The pattern uses only public commands and runs through `photographiq.simulate` / `run_shots` on the configured backend. |
@@ -5109,13 +5120,13 @@ print(len(names), names[:4], names[-2:])
 
 | Field | Value |
 |---|---|
-| Description | A finite-GKP MuTA restricted to the categorical angles {0, pi}. `mode="physical-conditional"` runs one trajectory with an explicit analog outcome for every measured node. This is a postselected branch, not a deterministic result. `mode="physical-shots"` samples `shots` trajectories with `photographiq.run_shots`. Its `decoded_joint_probabilities` are the mean over trajectories of the conditional joint output POVM (a Rao-Blackwell estimator); `sampled_output_bits` are drawn from each trajectory's joint POVM. The result also carries the logical target, frames, measurement records, standard errors and diagnostics (Gram, leakage, backend retained norms). |
-| Python API | `photographiqml.PhysicalMuTA(n_wires=1, n_layers=1, *, physical_config=None, measurement_family="X", **kwargs)`; `.run(input_state, parameters=None, **options)`, which forwards to `photographiqml.physical.run_physical(model, input_state, parameters=None, *, config=None, mode="physical-shots", shots=1, seed=0, analog_outcomes=None, output_basis="Z")`; `.initialize(seed=None, scale=None)` (random 0/pi choices; any `scale` raises `ValueError`); `.angle_space()`; `.state_dict()` (schema 2); `photographiqml.compare_logical_physical(result)` |
+| Description | A finite-GKP MuTA with an explicit measurement family: `measurement_family="X"` (default) restricts it to the categorical angles {0, pi}; `measurement_family="XY"` uses the physical logical-XY instrument with continuous angles. `mode="physical-conditional"` runs one trajectory with an explicit analog outcome for every measured node. This is a postselected branch, not a deterministic result. `mode="physical-shots"` samples `shots` trajectories with `photographiq.run_shots`. Its `decoded_joint_probabilities` are the mean over trajectories of the conditional joint output POVM (a Rao-Blackwell estimator); `sampled_output_bits` are drawn from each trajectory's joint POVM. The result also carries the logical target, frames, measurement records, standard errors and diagnostics (Gram, leakage, backend retained norms). |
+| Python API | `photographiqml.PhysicalMuTA(n_wires=1, n_layers=1, *, physical_config=None, measurement_family="X", **kwargs)`; `.run(input_state, parameters=None, **options)`, which forwards to `photographiqml.physical.run_physical(model, input_state, parameters=None, *, config=None, mode="physical-shots", shots=1, seed=0, analog_outcomes=None, output_basis="Z")`; `.initialize(seed=None, scale=None)` (signed-X: random 0/pi choices, any `scale` raises `ValueError`; XY: continuous, default scale 0.1); `.angle_space()` ([0, pi] for signed-X, [0, 2 pi) for XY); `.state_dict()` (schema 2, includes `measurement_family`); `photographiqml.compare_logical_physical(result)` |
 | Implementation | `src/photographiqml/physical.py` |
 | Backends | `piquasso-fock` (default) and `native-fock`, selected by `GKPPhysicalConfig.backend`. Mixed Fock is rejected. |
 | CPU / GPU | CPU (Piquasso, or the C++/OpenMP native Fock engine) |
-| Assumptions | Supported subset: signed-X angles, product inputs and X/Z output. The input must be a normalized product of single-qubit states (an entangled input raises `NotImplementedError`). The final readout is X or Z only. `unitary()` and `run_batch()` raise `NotImplementedError` because a finite-GKP instrument is not a logical unitary. The backend's norm guard can reject a supported pattern at low cutoff (`ValueError: Fock truncation norm ...; increase cutoff`). `compare_logical_physical` compares decoded statistics only (`finite_state_fidelity` is `None`). |
-| Tests | `tests/ml/cross_layer/test_physical_execution.py::test_conditional_against_independent_public_pattern` (reference: an independently built pattern), `::test_physical_shots_repeatability_and_error_estimates`, `::test_two_wire_joint_readout_retains_correlations`, `::test_physical_interface_boundaries` |
+| Assumptions | Supported subset: signed-X angles (or XY-family angles with `measurement_family="XY"`), product inputs and X/Z output. `measurement_family="X"` needs `xy_protocol="signed-x"` and `"XY"` needs one of the other protocols (`ValueError`); without a config the XY family uses `GKPPhysicalConfig(xy_protocol="auto")`. For XY nodes, `physical-conditional` takes analog records `{"ancilla": [q_1, ...], "data": p}` per node, each record is a `LogicalXYMeasurementResult` (with `heralded_success`), and `diagnostics["per_shot_joint_probabilities"]` keeps each trajectory's conditional joint POVM row. The input must be a normalized product of single-qubit states (an entangled input raises `NotImplementedError`). The final readout is X or Z only. `unitary()` and `run_batch()` raise `NotImplementedError` because a finite-GKP instrument is not a logical unitary. The backend's norm guard can reject a supported pattern at low cutoff (`ValueError: Fock truncation norm ...; increase cutoff`). `compare_logical_physical` compares decoded statistics only (`finite_state_fidelity` is `None`). |
+| Tests | `tests/ml/cross_layer/test_physical_execution.py::test_conditional_against_independent_public_pattern` (reference: an independently built pattern), `::test_physical_shots_repeatability_and_error_estimates`, `::test_two_wire_joint_readout_retains_correlations`, `::test_physical_interface_boundaries`; XY family: `tests/ml/cross_layer/test_physical_xy.py` (signed-X default unchanged, family/protocol agreement, XY at 0/pi reproduces signed-X, injected chain with heralded records, serialization) |
 | Status | **Partially supported** |
 
 ```python
@@ -5165,14 +5176,14 @@ print(res.diagnostics["estimator"])
 
 | Field | Value |
 |---|---|
-| Description | Physical execution or lowering with any measurement angle other than 0 or pi mod 2*pi. |
-| Python API | `lower_muta_to_gkp`, `PhysicalMuTA.run` and `GKPBridge.run` raise `photographiqml.lowering.UnsupportedPhysicalMeasurement` (a `NotImplementedError` subclass) naming the first offending parameter. `PhysicalMuTA(measurement_family=...)` accepts only `"X"` (`ValueError`). `PhysicalMuTA.initialize(scale=...)` raises `ValueError`. |
-| Implementation | `src/photographiqml/lowering.py`, `src/photographiqml/physical.py` |
-| Backends | None |
-| CPU / GPU | N/A |
-| Assumptions | The rejection happens in the capability audit, before any Fock allocation. Validated arbitrary XY instruments are on the [roadmap](ml/ROADMAP.md). |
-| Tests | `tests/ml/lowering/test_preflight.py::test_reject_every_angle_before_any_fock_allocation`; `tests/ml/cross_layer/test_physical_execution.py::test_physical_interface_boundaries` |
-| Status | **Unsupported** |
+| Description | Physical execution or lowering with measurement angles other than 0 or pi mod 2*pi. The default signed-X family rejects them. `PhysicalMuTA(measurement_family="XY")` supports them through `pg.GKPLogicalXYMeasurement` (magic-state injection in repeat-until-success form for non-Clifford angles; the encoded magic state is supplied, not simulated). |
+| Python API | Signed-X family: `lower_muta_to_gkp`, `PhysicalMuTA.run` and `GKPBridge.run` raise `photographiqml.lowering.UnsupportedPhysicalMeasurement` (a `NotImplementedError` subclass) naming the first offending parameter, and `PhysicalMuTA.initialize(scale=...)` raises `ValueError`. XY family: `PhysicalMuTA(n_wires, n_layers, measurement_family="XY", physical_config=GKPPhysicalConfig(xy_protocol="auto", ...))`; `measurement_family` accepts `"X"` or `"XY"` (`ValueError` otherwise); `xy_protocol="clifford"` rejects non-k pi/2 angles with `UnsupportedPhysicalMeasurement` |
+| Implementation | `src/photographiqml/lowering.py`, `src/photographiqml/physical.py`; instrument in `src/photographiq/encoded.py` |
+| Backends | XY family: `piquasso-fock` or `native-fock` (tests and experiments use `native-fock`) |
+| CPU / GPU | CPU |
+| Assumptions | Every rejection happens in the capability audit, before any Fock allocation. Injected nodes add a live ancilla mode and energy per failed round, so they need larger cutoffs and `max_dimension`. A trajectory whose round budget runs out is kept and reported with `heralded_success=False`. No fault-tolerance or advantage claim. Experiments R64-R67 in `paper_experiments_ml/14_gkp_xy/`; see the [XY measurement tutorial](ml/physical/xy-measurement-tutorial.md) |
+| Tests | `tests/ml/lowering/test_preflight.py::test_reject_every_angle_before_any_fock_allocation`; `tests/ml/cross_layer/test_physical_execution.py::test_physical_interface_boundaries`; `tests/ml/cross_layer/test_physical_xy.py` |
+| Status | **Partially supported** (rejected by the default signed-X family; implemented but experimental in the XY family) |
 
 ```python
 import numpy as np
@@ -5184,6 +5195,22 @@ except NotImplementedError as e:
     print(type(e).__name__, str(e)[:80])
 # UnsupportedPhysicalMeasurement Physical GKP MuTA cannot lower alpha.w0.c3=0.29999999999999999 rad: PhotoGraphiQ
 ```
+
+```python
+from photographiqml import GKPPhysicalConfig, PhysicalMuTA
+print(GKPPhysicalConfig().xy_protocol, PhysicalMuTA().measurement_family)
+model = PhysicalMuTA(measurement_family="XY")
+print(model.physical_config.xy_protocol, model.physical_config.backend)
+try:
+    PhysicalMuTA(measurement_family="XY", physical_config=GKPPhysicalConfig())
+except ValueError as exc:
+    print("ValueError:", exc)
+# signed-x X
+# auto piquasso-fock
+# ValueError: measurement_family='X' needs xy_protocol='signed-x'; 'XY' needs 'clifford', 'auto' or 'injection'
+```
+
+A complete runnable XY-family run is `examples/ml/physical_xy_measurement.py`.
 
 ### Other physical-path boundaries (entangled inputs, mixed Fock, soft decoder)
 
@@ -5360,7 +5387,7 @@ Example: none (not implemented).
 
 ## 29. Optimization algorithms
 
-PhotoGraphiQML provides deterministic first-order and quasi-Newton optimizers for scalar objectives of a parameter vector, a central finite-difference gradient, and a categorical coordinate search for physical signed-X models. `photographiq.autodiff` provides optional JAX derivatives of a fixed-topology, fixed-outcome, finite-cutoff Fock model, together with two stochastic gradient-estimator primitives. Neither layer differentiates through sampled photonic trajectories.
+PhotoGraphiQML provides deterministic first-order and quasi-Newton optimizers for scalar objectives of a parameter vector, a central finite-difference gradient, a categorical coordinate search for physical signed-X models, and sampled finite-difference tools for continuous angles of XY-family physical models. `photographiq.autodiff` provides optional JAX derivatives of a fixed-topology, fixed-outcome, finite-cutoff Fock model, together with two stochastic gradient-estimator primitives. Neither layer differentiates through sampled photonic trajectories.
 
 ### Adam
 
@@ -5494,14 +5521,14 @@ print(res.parameters.tolist(), res.loss, len(res.evaluations))
 
 | Field | Value |
 |---|---|
-| Description | Gradient-based training of physical signed-X angles is not allowed, because the angles are categorical. |
-| Python API | `MuTARegressor(PhysicalMuTA(...), trainer=Trainer())` raises `ValueError("Physical angles require DiscreteSearch; Adam cannot optimize categorical measurements")` |
-| Implementation | `src/photographiqml/models.py` |
-| Backends | None |
-| CPU / GPU | N/A |
-| Assumptions | The supported workflow trains a logical model, then validates or searches the physical model ([physical training](ml/physical/physical-training.md)). |
+| Description | Signed-X physical angles are categorical, so gradient-based training of them is refused. XY-family physical models (`measurement_family="XY"`) have continuous angles and three sampled tools: `physical_loss` (loss linear in the decoded output distribution, Rao-Blackwell per-shot values and their standard error), `physical_gradient` (central finite difference with paired common-random-number standard error) and `ContinuousPhysicalSearch` (bounded Brent minimisation of one angle). No parameter-shift rule is assumed for the physical instrument. |
+| Python API | `MuTARegressor(PhysicalMuTA(...), trainer=Trainer())` raises `ValueError("Physical angles require DiscreteSearch; Adam cannot optimize categorical measurements")`; `photographiqml.physical_loss(model, input_state, parameters, weights, *, shots=16, seed=0, output_basis="Z") -> PhysicalLossEstimate(value, standard_error, per_shot, probabilities, shots, seed)`; `photographiqml.physical_gradient(model, input_state, parameters, name, weights, *, step=0.1, shots=16, seed=0) -> (gradient, standard_error)`; `photographiqml.ContinuousPhysicalSearch(shots=16, seed=0, maxiter=12, xatol=0.05).fit(model, input_state, parameters, name, weights, bounds=(0, 2 pi)) -> ContinuousSearchResult(angle, loss, evaluations)` |
+| Implementation | `src/photographiqml/models.py`, `src/photographiqml/physical_training.py` |
+| Backends | The model's configured Fock backend |
+| CPU / GPU | CPU |
+| Assumptions | The continuous tools require `PhysicalMuTA(measurement_family="XY")` (`ValueError` otherwise) and at least two shots. They optimise a sampled finite-energy loss, not the ideal logical loss; the result holds for the chosen seed, shots and resource and must be revalidated at independent seeds. `physical_gradient` always uses `output_basis="Z"` and does not report finite-difference bias. `MuTAClassifier`/`MuTARegressor` still accept only `DiscreteSearch` for physical models. See [physical training](ml/physical/physical-training.md) and experiment R66 (`paper_experiments_ml/14_gkp_xy/`). |
 | Tests | `tests/ml/cross_layer/test_discrete.py::test_supervised_physical_guards` |
-| Status | **Unsupported** |
+| Status | **Partially supported** (refused for signed-X; implemented but experimental for the XY family) |
 
 ```python
 from photographiqml import PhysicalMuTA, MuTARegressor, Trainer
@@ -6369,7 +6396,7 @@ Example: see `examples/first_cluster.py`.
 - 44 gkp-cz: two-mode logical CZ (`native-fock`).
 - 45 gkp-frames: logical Pauli frames (`native-fock`).
 - 46 gkp-instrument: encoded finite measurement instrument.
-- 47 gkp-magic-boundary: the pi/4 measurement boundary (shows the `NotImplementedError`).
+- 47 gkp-magic-boundary: the pi/4 measurement boundary without `protocol=` (shows the `NotImplementedError`; the opt-in physical instrument is `GKPLogicalXYMeasurement`).
 - 48 gkp-convergence: independent GKP convergence axes (`measurement_convergence(..., backend="native-fock")`).
 - 49 gkp-downstream-step: preparing a downstream physical measurement step (`native-fock`).
 
@@ -6449,7 +6476,7 @@ Example: see `notebooks/01_quickstart.ipynb`.
 
 | Field | Value |
 |---|---|
-| Description | 44 tutorials (01-30 logical MuTA and training; 31-44 the physical signed-X GKP bridge), with an all-in-one Colab notebook `examples/ml/PhotoGraphiQML_tutorials.ipynb`. Index: [ML tutorials](ml/tutorials/index.md). |
+| Description | 44 tutorials (01-30 logical MuTA and training; 31-44 the physical signed-X GKP bridge), with an all-in-one Colab notebook `examples/ml/PhotoGraphiQML_tutorials.ipynb`. Index: [ML tutorials](ml/tutorials/index.md). The physical XY family is covered separately by `examples/ml/physical_xy_measurement.py` and the [XY measurement tutorial](ml/physical/xy-measurement-tutorial.md). |
 | Python API | `python examples/ml/tutorials/<NN>.py` |
 | Implementation | `examples/ml/tutorials/`, `docs/ml/tutorials/`, executed by `scripts/ml/execute_tutorials.py` |
 | Backends | Logical NumPy; `piquasso-fock` for the physical tutorials (32-44, through `PhysicalMuTA`/`GKPBridge` defaults or explicit `backend="piquasso-fock"`) |
@@ -6961,17 +6988,17 @@ This section collects limitations stated in Sections 1 to 33, in the code and in
 | Cross-Kerr has no Pattern command | Cross-Kerr (Sections 9 and 13) | **Partially supported**: method `cross_kerr(u, v, kappa)` on native Fock backend instances only; cannot be used in patterns, serialized or planned | Call the method on a backend instance |
 | Multi-Kraus instruments need mixed states | `MeasurementInstrument` on pure Fock backends | Preflight rejects outcomes with more than one Kraus operator; instrument dimension must equal the cutoff (`ValueError`) | `piquasso-mixed-fock` or `native-mixed-fock` |
 | Mixed Gaussian inputs on pure Fock backends | `GaussianInput` with covariance above vacuum | `NotImplementedError("Mixed Gaussian inputs require a mixed Fock backend")` | A mixed-Fock backend |
-| Physical GKP Y and arbitrary XY readout | `GKPCode.logical_measurement`, `PhysicalGKPReadout` (Sections 10 and 27) | `"Y"` raises `NotImplementedError("Only physical GKP X/Z readout is implemented; Y/XY need validation")`; `"XY"` works only at alpha = 0 or pi (mod 2 pi, tolerance 1e-14), otherwise `NotImplementedError` | `IdealLogicalXYMeasurement` as an ideal qubit reference (not an oscillator POVM) |
-| No magic-state injection or logical Rz | `LogicalMeasurementSynthesis().lower(...)`; non-Clifford logical gates | Always raises `NotImplementedError("No validated magic-state injection or arbitrary logical Rz protocol")`; only X, Z, H, S and CZ exist | None in the package |
+| Physical GKP Y and arbitrary XY readout need an explicit protocol | `GKPCode.logical_measurement`, `PhysicalGKPReadout` (Sections 10 and 27) | **Partially supported**: without `protocol=`, `"Y"` raises `NotImplementedError("Only physical GKP X/Z readout is implemented; Y/XY need validation")` and `"XY"` works only at alpha = 0 or pi (mod 2 pi, tolerance 1e-14); `PhysicalGKPReadout` stays X/Z only | `logical_measurement("Y" or "XY", ..., protocol="clifford" / "auto" / "injection")`, i.e. `GKPLogicalXYMeasurement` |
+| Magic-state injection only inside the XY measurement; magic-state preparation not simulated | `GKPLogicalXYMeasurement`, `LogicalMeasurementSynthesis` | **Partially supported**: non-Clifford angles use a supplied encoded magic state; `LogicalMeasurementSynthesis()` without a protocol raises `NotImplementedError`; no standalone logical Rz gate command (logical gates remain X, Z, H, S and CZ); a finite round budget gives heralded failures | `LogicalMeasurementSynthesis(protocol).lower(...)` |
 | No fault-tolerant GKP architecture or threshold | GKP layer (Section 27) | No concatenated code, threshold estimate or optimal finite-energy decoder; the feature matrix lists "Fault-tolerant GKP thresholds" as unsupported | None; see Section 36 |
 | CV local complementation | `photographiq.calculus.clifford.cv_local_complementation` | Always raises `NotImplementedError` (no sound CV analogue derived or verified) | Qubit `local_complement` / `lc_equivalence` for qubit graphs only |
 | Bialgebra rule limited to 2x2 | `photographiq.calculus.zx` | **Partially supported**: other arities, nonzero phases, self-loops raise `RewriteError` | Other sound rewrites (Section 23) |
 | No determinism analysis for non-Gaussian or GKP-logical graphs | `photographiq.flows.analyze` with `Model.CV_NONGAUSSIAN` / `Model.GKP_LOGICAL` | No exception; result `status == "unsupported"` with a reason | None; `not_certified` is never a proof of nondeterminism either |
 | Unconditional channel analyzer needs affine feed-forward | `photographiq.analysis` | `NotImplementedError` for outcome-dependent Gaussian gates, callable channels, vector outcomes, non-Gaussian preparation and non-homodyne measurements | Sample trajectories with `run_shots` |
-| Physical MuTA restricted to signed-X | `PhysicalMuTA`, `lower_muta_to_gkp`, `GKPBridge.run` (Section 28) | **Partially supported**: angles other than 0 or pi raise `UnsupportedPhysicalMeasurement`; entangled inputs raise `NotImplementedError`; mixed-Fock backends and `decoder="soft"` raise `ValueError`; `unitary()` and `run_batch()` raise `NotImplementedError`; final readout X or Z only | Train the logical `MuTA`, then validate the physical model at {0, pi} |
+| Physical MuTA restricted to signed-X by default | `PhysicalMuTA`, `lower_muta_to_gkp`, `GKPBridge.run` (Section 28) | **Partially supported**: in the default family, angles other than 0 or pi raise `UnsupportedPhysicalMeasurement` (use `measurement_family="XY"` for arbitrary angles); entangled inputs raise `NotImplementedError`; mixed-Fock backends and `decoder="soft"` raise `ValueError`; `unitary()` and `run_batch()` raise `NotImplementedError`; final readout X or Z only | Train the logical `MuTA`, then validate the physical model at {0, pi} |
 | Resource-only GKP MuTA cannot execute | `MuTA(representation="gkp-resource")` (`"gkp"` is deprecated) | `MuTA.run` raises `NotImplementedError` ("Physical GKP MuTA requires a validated logical XY measurement/injection instrument and decoder ...") | `PhysicalMuTA` |
 | Physical quantum-output instrument model | `QuantumInstrumentModel` | Requires logical MuTA; physical version raises `NotImplementedError` | Logical model only |
-| No continuous optimization of physical angles | PhotoGraphiQML training (Section 29) | Angles are categorical; gradient training of physical angles is refused | Discrete coordinate search over {0, pi} |
+| Continuous optimization of physical angles only for the XY family | PhotoGraphiQML training (Section 29) | Signed-X angles are categorical and gradient training is refused; XY-family angles use sampled finite-difference tools (no parameter-shift rule); the supervised wrappers accept only `DiscreteSearch` | Discrete coordinate search over {0, pi}; `physical_loss`, `physical_gradient`, `ContinuousPhysicalSearch` for `measurement_family="XY"` |
 | No differentiation through sampled trajectories | Full stochastic MBQC differentiation (Section 29) | Unsupported; `photographiq.autodiff` differentiates fixed branches only | Fixed-branch JAX gradients, score-function and pathwise estimators (experimental) |
 | JAX executor covers a subset | `photographiq.autodiff` | Thermal loss (`"Differentiable loss currently requires a vacuum environment"`), noisy homodyne, other measurements and Python callables raise; `jax_enable_x64` required (`RuntimeError`) | Restrict to vacuum loss, ideal homodyne and PNR |
 | No noise models beyond loss and detector noise | All backends | Phase diffusion, mode mismatch and complete hardware noise models are not implemented (`docs/specification-status.md`) | Model them externally through `Loss`, detector efficiency/noise or custom instruments |
@@ -7047,13 +7074,13 @@ The items below come only from the project's roadmaps (`ROADMAP.md`, identical t
 | Compilation with better resource efficiency, approximation control and temporal representations | `ROADMAP.md`, `docs/roadmap.md` ("Later compilation work can improve ...") | Gaussian compilation favours transparency over noise/resource efficiency; synthesis is approximate (Section 35) | **Planned** |
 | Broader GKP syndrome/decoder studies and independent finite-energy correction evidence, before any fault-tolerance claim | `ROADMAP.md`; Section 27 "Fault-tolerant GKP architecture and thresholds" | No fault-tolerant architecture, threshold or optimal decoder | **Planned** |
 | Faithful logical MuTA validation: tied measurement groups, bounds, mixed quantum inputs, noisier resource branches, the learned teleportation instrument, and independent training of the pinned MentPy reference | PhotoGraphiQML roadmap item 1 | Logical MuTA exists; MentPy comparison covers checkpoints only | **Planned** |
-| Validated arbitrary logical XY measurement and injection instruments for the physical bridge | PhotoGraphiQML roadmap item 2; `src/photographiq/encoded.py` ("Y/XY need validation"); `src/photographiqml/ansatz/muta.py` ("requires a validated logical XY measurement/injection instrument and decoder") | Signed-X only; other angles raise `UnsupportedPhysicalMeasurement` | **Planned** |
+| Validated arbitrary logical XY measurement and injection instruments for the physical bridge | PhotoGraphiQML roadmap item 2; `src/photographiq/encoded.py` (`GKPLogicalXYMeasurement`); `src/photographiqml/lowering.py` (`xy_protocol`); `src/photographiqml/ansatz/muta.py` (`representation="gkp-resource"` still raises "requires a validated logical XY measurement/injection instrument and decoder") | Implemented as the opt-in XY family (`PhysicalMuTA(measurement_family="XY")`), experimental; signed-X stays the default; magic-state preparation not simulated | **Partially implemented** |
 | Correlated input preparation and joint code-subspace leakage; expanded resource and whole-pattern convergence studies | PhotoGraphiQML roadmap item 2; Section 28 "Other physical-path boundaries" | Entangled inputs raise `NotImplementedError` | **Planned** |
 | CV-native MuTA (CVMuTA): ideal cell map, finite-resource channel, identity embeddings, validation against PhotoGraphiQ physics | PhotoGraphiQML roadmap item 3; Section 28 "CV-native MuTA" | Not implemented | **Planned** |
 | Training with valid autodiff, stochastic estimators, mini-batches, noise-aware readouts, callbacks and optimizer/model checkpointing | PhotoGraphiQML roadmap item 4 | Fixed-branch JAX gradients and experimental estimators; full stochastic MBQC differentiation unsupported | **Planned** |
 | Full paper reproduction, ten larger demo projects, the full release acceptance checklist, and the Python CI matrix on hosted runners | PhotoGraphiQML roadmap item 5 | Partial reproductions in `experiments/ml/` and `paper_experiments_ml/`; CI configured, no passing run claimed | **Planned** |
 | Reservoir computing and recurrent models | PhotoGraphiQML roadmap ("future directions") | Not implemented | **Planned** |
-| Magic-state injection or arbitrary logical Rz protocol behind the `LogicalMeasurementSynthesis` extension point | `src/photographiq/encoded.py` (`lower` raises "No validated magic-state injection or arbitrary logical Rz protocol") | Always raises | **Planned** |
+| Magic-state injection or arbitrary logical Rz protocol behind the `LogicalMeasurementSynthesis` extension point | `src/photographiq/encoded.py` (`LogicalMeasurementSynthesis(protocol).lower` returns `GKPLogicalXYMeasurement`) | Injection implemented inside the logical XY measurement (experimental; magic-state preparation not simulated); no standalone logical Rz gate | **Partially implemented** |
 | Physical quantum-output instrument model with a separately validated post-measurement map | `src/photographiqml/models.py` (`QuantumInstrumentModel` raises "a physical quantum-output instrument needs a separately validated post-measurement map") | Logical only | **Planned** |
 | A sound CV analogue of local complementation, verified by covariance/nullifier comparison | `src/photographiq/calculus/clifford.py` (`cv_local_complementation` docstring: "a sound CV analogue must be derived and verified ..., which this package has not done") | Always raises `NotImplementedError` | **Planned** |
 | CUDA-Q execution of patterns (measurement conditioning on CUDA-Q) and a verified CUDA-Q run of the adapter | `src/photographiq/cudaq_dynamics.py` (the gate-to-Hamiltonian translation exists and is validated against native-fock through the NumPy reference) | Adapter only; CUDA-Q path not run | **Planned** |

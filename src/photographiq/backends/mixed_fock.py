@@ -263,12 +263,12 @@ class MixedFockBackend(PiquassoFockBackend):
             ArithmeticError: Noisy homodyne convolution did not converge.
             ValueError: Photon count must be an integer within cutoff.
         """
-        angle = resolve_angle(measurement, angle)
-        from ..encoded import PhysicalGKPReadout
+        from ..encoded import EncodedGKPMeasurement
         from ..instruments import MeasurementInstrument, destructive_instrument
 
-        if isinstance(measurement, PhysicalGKPReadout):
-            return measurement.execute(self, node, outcome)
+        if isinstance(measurement, EncodedGKPMeasurement):
+            return measurement.execute(self, node, outcome, angle)
+        angle = resolve_angle(measurement, angle)
         if isinstance(measurement, MeasurementInstrument):
             return destructive_instrument(self, node, measurement, outcome, mixed=True)
         if not isinstance(measurement, (Homodyne, PhotonNumber)):

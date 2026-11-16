@@ -29,14 +29,29 @@ import numpy as np
 class Shared:
     # Validated colour-blind-safe categorical order (blue, orange, aqua, yellow, magenta, green,
     # violet, red) for any series a script does not colour explicitly; white print background.
-    PALETTE = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#6250d6", "#e34948"]
+    PALETTE = [
+        "#2a78d6",
+        "#eb6834",
+        "#1baf7a",
+        "#eda100",
+        "#e87ba4",
+        "#008300",
+        "#6250d6",
+        "#e34948",
+    ]
     MANUSCRIPT_RC = {
         "figure.facecolor": "white",
         "axes.facecolor": "white",
         "savefig.facecolor": "white",
         "savefig.edgecolor": "white",
         "font.family": "serif",
-        "font.serif": ["Times New Roman", "Times", "Liberation Serif", "Nimbus Roman", "STIXGeneral"],
+        "font.serif": [
+            "Times New Roman",
+            "Times",
+            "Liberation Serif",
+            "Nimbus Roman",
+            "STIXGeneral",
+        ],
         "mathtext.fontset": "stix",
         "font.size": 8,
         "axes.titlesize": 8.5,
@@ -77,7 +92,13 @@ class Shared:
         "ps.fonttype": 42,
         "svg.fonttype": "none",
     }
-    SINGLE_COLUMN_IN, DOUBLE_COLUMN_IN, MAX_HEIGHT_IN, MIN_HEIGHT_IN, MIN_FONT_PT = 3.4, 7.0, 9.0, 2.4, 6.0
+    SINGLE_COLUMN_IN, DOUBLE_COLUMN_IN, MAX_HEIGHT_IN, MIN_HEIGHT_IN, MIN_FONT_PT = (
+        3.4,
+        7.0,
+        9.0,
+        2.4,
+        6.0,
+    )
     _RUN_ID_PREFIX = re.compile(r"^\s*R(?:\d+|_PERF)[a-z]?\s*[:–—-]\s*")
     _STATUS_FLAG = re.compile(r"status\s*=\s*[\w-]+(?:\s*,\s*)?")
     _EMPTY_PARENS = re.compile(r"\s*\(\s*\)")
@@ -104,7 +125,11 @@ class Shared:
     @staticmethod
     def _words(text):
         """Print code identifiers as words (``n_qubits`` -> ``n qubits``, ``->`` -> arrow)."""
-        return text if "$" in text else re.sub(r"(?<=[a-z0-9])_(?=[a-z0-9])", " ", text).replace("->", "→")
+        return (
+            text
+            if "$" in text
+            else re.sub(r"(?<=[a-z0-9])_(?=[a-z0-9])", " ", text).replace("->", "→")
+        )
 
     @staticmethod
     def _sentence_case(text):
@@ -126,8 +151,11 @@ class Shared:
         """Long tick labels, many annotations or a long legend: a single plot needing two columns."""
         legend = ax.get_legend()
         labels = [t.get_text() for t in ax.get_xticklabels() + ax.get_yticklabels()]
-        return (max(map(len, labels), default=0) > 14 or len(ax.texts) > 8
-                or (legend is not None and len(legend.get_texts()) > 6))
+        return (
+            max(map(len, labels), default=0) > 14
+            or len(ax.texts) > 8
+            or (legend is not None and len(legend.get_texts()) > 6)
+        )
 
     @staticmethod
     def _reflow(fig, panels):
@@ -146,7 +174,11 @@ class Shared:
             return None
         if any(spec.get_gridspec().nrows != 1 for spec in specs):
             return None
-        crowded = [ax for ax in panels if ax.get_legend() is not None and len(ax.get_legend().get_texts()) > 6]
+        crowded = [
+            ax
+            for ax in panels
+            if ax.get_legend() is not None and len(ax.get_legend().get_texts()) > 6
+        ]
         if len(panels) >= 4:
             rows, cols = ceil(len(panels) / 2), 2
         elif crowded:
@@ -161,8 +193,15 @@ class Shared:
                 legend = ax.get_legend()
                 handles = getattr(legend, "legend_handles", None) or legend.legendHandles
                 labels = [text.get_text() for text in legend.get_texts()]
-                ax.legend(handles, labels, loc="center left", bbox_to_anchor=(1.01, 0.5), fontsize=6,
-                          ncol=1 if len(labels) <= 12 else 2, frameon=False)
+                ax.legend(
+                    handles,
+                    labels,
+                    loc="center left",
+                    bbox_to_anchor=(1.01, 0.5),
+                    fontsize=6,
+                    ncol=1 if len(labels) <= 12 else 2,
+                    frameon=False,
+                )
         return rows * (2.4 if cols == 2 else 2.0)
 
     @staticmethod
@@ -185,10 +224,14 @@ class Shared:
                 seen.add(bounds)
         reflowed_height = common._reflow(fig, panels)
         width, height = fig.get_size_inches()
-        single_plot = len(panels) == 1 and panels[0].axison and width <= 8 and not common._crowded(panels[0])
+        single_plot = (
+            len(panels) == 1 and panels[0].axison and width <= 8 and not common._crowded(panels[0])
+        )
         target = common.SINGLE_COLUMN_IN if width <= 4.5 or single_plot else common.DOUBLE_COLUMN_IN
         new_height = reflowed_height or height * target / width
-        fig.set_size_inches(target, min(max(new_height, common.MIN_HEIGHT_IN), common.MAX_HEIGHT_IN))
+        fig.set_size_inches(
+            target, min(max(new_height, common.MIN_HEIGHT_IN), common.MAX_HEIGHT_IN)
+        )
         fig.patch.set_facecolor("white")
         if getattr(fig, "_suptitle", None) is not None:
             fig._suptitle.set_text("")
@@ -206,7 +249,9 @@ class Shared:
                     words._as_words = True
                     axis.set_major_formatter(words)
         texts = [t for t in fig.findobj(Text) if t.get_text()]
-        if len(panels) > 1 and not any(common._PANEL_TAG.match(t.get_text().strip()) for t in texts):
+        if len(panels) > 1 and not any(
+            common._PANEL_TAG.match(t.get_text().strip()) for t in texts
+        ):
             for index, ax in enumerate(panels):
                 tag = f"({chr(ord('a') + index)})"
                 if ax.title.get_text():
@@ -215,7 +260,9 @@ class Shared:
                     ax.set_title(tag, loc="left", fontweight="bold")
         for ax in panels:  # wrap titles to the panel width (~0.5 em per character)
             title = ax.title.get_text()
-            chars = int(ax.get_position().width * fig.get_figwidth() * 144 / ax.title.get_fontsize())
+            chars = int(
+                ax.get_position().width * fig.get_figwidth() * 144 / ax.title.get_fontsize()
+            )
             if len(title) > chars > 10 and "$" not in title:
                 ax.title.set_text(textwrap.fill(title, chars))
         for text in texts:
@@ -237,7 +284,9 @@ class Shared:
             paths["svg"] = common.FIG_SVG / f"{name}.svg"
         for kind, path in paths.items():
             path.parent.mkdir(parents=True, exist_ok=True)
-            fig.savefig(path, bbox_inches="tight", facecolor="white", dpi=600 if kind == "png" else None)
+            fig.savefig(
+                path, bbox_inches="tight", facecolor="white", dpi=600 if kind == "png" else None
+            )
         if "ipykernel" in sys.modules:
             from IPython.display import display
 
@@ -291,7 +340,9 @@ class Shared:
         """Write an object as pretty JSON under results/json/<name>.json."""
         path = common.JSON_DIR / f"{name}.json"
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(obj, indent=2, default=common._json_default) + "\n", encoding="utf-8")
+        path.write_text(
+            json.dumps(obj, indent=2, default=common._json_default) + "\n", encoding="utf-8"
+        )
         return path
 
     @staticmethod
@@ -319,8 +370,21 @@ class Shared:
                 return None
 
         packages = {}
-        for package in ("photographiq", "numpy", "scipy", "networkx", "matplotlib", "piquasso",
-                        "graphix", "jax", "mpmath", "numba", "cupy", "mentpy", "scikit-learn"):
+        for package in (
+            "photographiq",
+            "numpy",
+            "scipy",
+            "networkx",
+            "matplotlib",
+            "piquasso",
+            "graphix",
+            "jax",
+            "mpmath",
+            "numba",
+            "cupy",
+            "mentpy",
+            "scikit-learn",
+        ):
             try:
                 packages[package] = version(package)
             except PackageNotFoundError:
@@ -328,7 +392,10 @@ class Shared:
         try:
             from photographiq import native
 
-            native_info = {"available": bool(native.AVAILABLE), "components": list(native.components())}
+            native_info = {
+                "available": bool(native.AVAILABLE),
+                "components": list(native.components()),
+            }
         except Exception as exc:  # report, never fail provenance collection
             native_info = {"available": False, "error": f"{type(exc).__name__}: {exc}"}
         return {
@@ -445,18 +512,24 @@ class Core:
 
     @staticmethod
     def frobenius_error(actual, expected):
-        return float(np.linalg.norm(np.asarray(actual, dtype=float) - np.asarray(expected, dtype=float)))
+        return float(
+            np.linalg.norm(np.asarray(actual, dtype=float) - np.asarray(expected, dtype=float))
+        )
 
     @staticmethod
     def relative_error(actual, expected, *, floor=1e-300):
         actual, expected = np.asarray(actual, dtype=float), np.asarray(expected, dtype=float)
-        return float(np.linalg.norm(actual - expected) / max(float(np.linalg.norm(expected)), floor))
+        return float(
+            np.linalg.norm(actual - expected) / max(float(np.linalg.norm(expected)), floor)
+        )
 
     @staticmethod
     def is_finite_real(value):
         import math
 
-        return isinstance(value, (int, float, np.floating, np.integer)) and math.isfinite(float(value))
+        return isinstance(value, (int, float, np.floating, np.integer)) and math.isfinite(
+            float(value)
+        )
 
     @staticmethod
     def safe_cutoff_run(fn, *, label="run"):
@@ -534,8 +607,16 @@ class ML:
     @staticmethod
     def panel_label(ax, label):
         """Bold (a)/(b)/... panel label at the top-left of an axes."""
-        ax.text(-0.12, 1.05, f"({label})", transform=ax.transAxes, fontsize=9,
-                fontweight="bold", va="bottom", ha="right")
+        ax.text(
+            -0.12,
+            1.05,
+            f"({label})",
+            transform=ax.transAxes,
+            fontsize=9,
+            fontweight="bold",
+            va="bottom",
+            ha="right",
+        )
 
     @staticmethod
     def write_metadata(name, **extra):
@@ -562,13 +643,23 @@ class ML:
         extra.setdefault("execution_status", "completed")
         extra.setdefault("structural_status", structural)
         extra.setdefault("scientific_outcome", outcome)
-        extra.setdefault("claim_supported",
-                         "structural contract only" if descriptive else "declared experiment contract")
-        extra.setdefault("claim_not_supported", "no scientific performance conclusion"
-                         if descriptive else "no claim beyond declared protocol")
+        extra.setdefault(
+            "claim_supported",
+            "structural contract only" if descriptive else "declared experiment contract",
+        )
+        extra.setdefault(
+            "claim_not_supported",
+            "no scientific performance conclusion"
+            if descriptive
+            else "no claim beyond declared protocol",
+        )
         meta_extra = dict(meta_extra or {})
-        meta_extra.update({key: extra[key] for key in
-                           ("execution_status", "structural_status", "scientific_outcome")})
+        meta_extra.update(
+            {
+                key: extra[key]
+                for key in ("execution_status", "structural_status", "scientific_outcome")
+            }
+        )
         if "seeds" in extra:
             meta_extra.setdefault("seed_set", extra["seeds"])
             meta_extra.setdefault("n_repetitions", len(extra["seeds"]))
@@ -605,11 +696,27 @@ class ML:
         values = np.asarray(values, dtype=float)
         name = getattr(statistic, "__name__", str(statistic))
         if len(values) == 0:
-            return {"point": None, "low": None, "high": None, "n_boot": n_boot, "n": 0, "statistic": name}
+            return {
+                "point": None,
+                "low": None,
+                "high": None,
+                "n_boot": n_boot,
+                "n": 0,
+                "statistic": name,
+            }
         index = np.random.default_rng(seed).integers(0, len(values), size=(n_boot, len(values)))
-        low, high = np.percentile(statistic(values[index], axis=1), [100 * alpha / 2, 100 * (1 - alpha / 2)])
-        return {"point": float(statistic(values)), "low": float(low), "high": float(high),
-                "n_boot": n_boot, "alpha": alpha, "n": int(len(values)), "statistic": name}
+        low, high = np.percentile(
+            statistic(values[index], axis=1), [100 * alpha / 2, 100 * (1 - alpha / 2)]
+        )
+        return {
+            "point": float(statistic(values)),
+            "low": float(low),
+            "high": float(high),
+            "n_boot": n_boot,
+            "alpha": alpha,
+            "n": int(len(values)),
+            "statistic": name,
+        }
 
     @staticmethod
     def paired_difference_ci(a, b, **kwargs):

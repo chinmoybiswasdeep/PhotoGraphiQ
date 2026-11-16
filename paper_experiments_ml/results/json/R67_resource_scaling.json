@@ -1,0 +1,190 @@
+{
+  "rows": [
+    {
+      "study": "cost",
+      "cutoff": 56,
+      "clifford_y_seconds": 9.564654400048312,
+      "clifford_y_python_peak_bytes": 66819197,
+      "injection_round_seconds": 9.081522199965548,
+      "injection_python_peak_bytes": 3302856,
+      "two_mode_dimension": 1596,
+      "two_mode_vector_bytes": 25536
+    },
+    {
+      "study": "cost",
+      "cutoff": 64,
+      "clifford_y_seconds": 10.755199099949095,
+      "clifford_y_python_peak_bytes": 75986910,
+      "injection_round_seconds": 9.876724099973217,
+      "injection_python_peak_bytes": 3761284,
+      "two_mode_dimension": 2080,
+      "two_mode_vector_bytes": 33280
+    },
+    {
+      "study": "cost",
+      "cutoff": 80,
+      "clifford_y_seconds": 14.460694100009277,
+      "clifford_y_python_peak_bytes": 94975222,
+      "injection_round_seconds": 11.80961539997952,
+      "injection_python_peak_bytes": 4679404,
+      "two_mode_dimension": 3240,
+      "two_mode_vector_bytes": 51840
+    },
+    {
+      "study": "cost",
+      "cutoff": 96,
+      "clifford_y_seconds": 16.72670110000763,
+      "clifford_y_python_peak_bytes": 113994218,
+      "injection_round_seconds": 15.400445000035688,
+      "injection_python_peak_bytes": 5597872,
+      "two_mode_dimension": 4656,
+      "two_mode_vector_bytes": 74496
+    },
+    {
+      "study": "cost",
+      "cutoff": 112,
+      "clifford_y_seconds": 19.109675400017295,
+      "clifford_y_python_peak_bytes": 133028526,
+      "injection_round_seconds": 17.23165600001812,
+      "injection_python_peak_bytes": 6515876,
+      "two_mode_dimension": 6328,
+      "two_mode_vector_bytes": 101248
+    },
+    {
+      "study": "energy_growth",
+      "failed_rounds": 1,
+      "data_mean_photons": 2.861634015788356,
+      "min_retained_norm": 0.9999999537796461,
+      "cutoff": 112
+    },
+    {
+      "study": "energy_growth",
+      "failed_rounds": 2,
+      "data_mean_photons": 4.321708091584335,
+      "min_retained_norm": 0.9999995369010753,
+      "cutoff": 112
+    },
+    {
+      "study": "energy_growth",
+      "failed_rounds": 3,
+      "data_mean_photons": 5.707621198859055,
+      "min_retained_norm": 0.9999907081873403,
+      "cutoff": 112
+    },
+    {
+      "study": "energy_growth",
+      "failed_rounds": 4,
+      "data_mean_photons": 7.04994154440998,
+      "min_retained_norm": 0.9999608902774322,
+      "cutoff": 112
+    },
+    {
+      "study": "energy_growth",
+      "failed_rounds": 5,
+      "data_mean_photons": 8.327492717572659,
+      "min_retained_norm": 0.9998443818684155,
+      "cutoff": 112
+    },
+    {
+      "study": "energy_growth",
+      "failed_rounds": 6,
+      "data_mean_photons": 9.529263765960902,
+      "min_retained_norm": 0.9996490688097751,
+      "cutoff": 112
+    },
+    {
+      "study": "heralding",
+      "source": "grid",
+      "max_rounds": 0,
+      "heralded_success": 0,
+      "expected": 0.0
+    },
+    {
+      "study": "heralding",
+      "source": "grid",
+      "max_rounds": 1,
+      "heralded_success": 0.5000469595907356,
+      "expected": 0.5
+    },
+    {
+      "study": "heralding",
+      "source": "grid",
+      "max_rounds": 2,
+      "heralded_success": 0.7500508106634803,
+      "expected": 0.75
+    },
+    {
+      "study": "heralding",
+      "source": "grid",
+      "max_rounds": 3,
+      "heralded_success": 0.8750390673429492,
+      "expected": 0.875
+    },
+    {
+      "study": "heralding",
+      "source": "grid",
+      "max_rounds": 4,
+      "heralded_success": 0.9375263629659227,
+      "expected": 0.9375
+    },
+    {
+      "study": "heralding",
+      "source": "grid",
+      "max_rounds": 5,
+      "heralded_success": 0.96876659527474,
+      "expected": 0.96875
+    },
+    {
+      "study": "heralding",
+      "source": "grid",
+      "max_rounds": 6,
+      "heralded_success": 0.9843850041056024,
+      "expected": 0.984375
+    },
+    {
+      "study": "heralding",
+      "source": "engine",
+      "max_rounds": 1,
+      "heralded_success": 0.40625,
+      "expected": 0.5,
+      "se": 0.08838834764831845,
+      "mean_rounds": 1.0
+    },
+    {
+      "study": "heralding",
+      "source": "engine",
+      "max_rounds": 2,
+      "heralded_success": 0.71875,
+      "expected": 0.75,
+      "se": 0.07654655446197431,
+      "mean_rounds": 1.65625
+    },
+    {
+      "study": "heralding",
+      "source": "engine",
+      "max_rounds": 3,
+      "heralded_success": 0.90625,
+      "expected": 0.875,
+      "se": 0.05846339666834283,
+      "mean_rounds": 1.75
+    },
+    {
+      "study": "heralding",
+      "source": "engine",
+      "max_rounds": 4,
+      "heralded_success": 1.0,
+      "expected": 0.9375,
+      "se": 0.0427908248050911,
+      "mean_rounds": 1.8125
+    }
+  ],
+  "oracle_class": "A",
+  "status": "pass",
+  "heralding_ok": true,
+  "timing_status": "PROVISIONAL",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

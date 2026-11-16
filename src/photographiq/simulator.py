@@ -183,6 +183,7 @@ def simulate(
         raise ValueError("Input supplied for a non-input node")
     engine = _backend(backend, cutoff)
     from .capabilities import preflight
+    from .encoded import GKPLogicalXYMeasurement
     from .states import FockDensityMatrix, FockSuperposition
 
     measurement_outcomes = dict(measurement_outcomes or {})
@@ -261,7 +262,12 @@ def simulate(
             engine.beamsplitter(c.u, c.v, theta)
             propagate((c.u, c.v), beamsplitter(theta))
         elif isinstance(c, Measure):
-            angle = value(c.measurement.angle) if isinstance(c.measurement, Homodyne) else 0.0
+            if isinstance(c.measurement, Homodyne):
+                angle = value(c.measurement.angle)
+            elif isinstance(c.measurement, GKPLogicalXYMeasurement):
+                angle = float(value(c.measurement.angle))
+            else:
+                angle = 0.0
             virtual = (
                 frame
                 and isinstance(engine, GaussianBackend)

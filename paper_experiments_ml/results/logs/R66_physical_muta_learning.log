@@ -1,0 +1,33 @@
+A sweep a=0.000 physical=0.3587+-0.0846 logical=0.1516
+A sweep a=0.785 physical=0.4600+-0.0467 logical=0.4523
+A sweep a=1.571 physical=0.5018+-0.0807 logical=0.7810
+A sweep a=2.356 physical=0.5630+-0.0439 logical=0.9450
+A sweep a=3.142 physical=0.6413+-0.0846 logical=0.8484
+A sweep a=3.927 physical=0.4925+-0.0496 logical=0.5477
+A sweep a=4.712 physical=0.3962+-0.0627 logical=0.2190
+A sweep a=5.498 physical=0.3840+-0.0478 logical=0.0550
+A search a=5.366 logical=0.0651 (min 0.0525)
+B sweep a=0.000 physical=0.2655 reference=0.2655 ideal=0.2770
+B sweep a=0.524 physical=0.2419 reference=0.2627 ideal=0.1664
+B sweep a=1.047 physical=0.2461 reference=0.2612 ideal=0.1452
+B sweep a=1.571 physical=0.2459 reference=0.2459 ideal=0.2190
+B sweep a=2.094 physical=0.4189 reference=0.4104 ideal=0.3682
+B sweep a=2.618 physical=0.5692 reference=0.5603 ideal=0.5526
+B sweep a=3.142 physical=0.7345 reference=0.7345 ideal=0.7230
+B sweep a=3.665 physical=0.7564 reference=0.7366 ideal=0.8336
+B sweep a=4.189 physical=0.7506 reference=0.7376 ideal=0.8548
+B sweep a=4.712 physical=0.7454 reference=0.7453 ideal=0.7810
+B sweep a=5.236 physical=0.5799 reference=0.5858 ideal=0.6318
+B sweep a=5.760 physical=0.4301 reference=0.4372 ideal=0.4474
+B gradient a=1.047 physical=0.0644+-0.0329 reference=-0.0583
+B gradient a=3.142 physical=0.1641+-0.0474 reference=0.0561
+B gradient a=5.236 physical=-0.2776+-0.0258 reference=-0.3813
+B found a=0.7774 reference optimum 0.7867 ideal loss 0.1440 (min 0.1413)
+R66 status=fail checks=(np.True_, True, np.False_)
+Traceback (most recent call last):
+  File "D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\paper_experiments_ml\14_gkp_xy\66_physical_muta_learning.py", line 176, in <module>
+    main()
+  File "D:\Research\QML\results_1\cvqc\thesis_part_2\softwares\PhotoGraphiQ\paper_experiments_ml\14_gkp_xy\66_physical_muta_learning.py", line 172, in main
+    raise AssertionError("R66 acceptance failed")
+AssertionError: R66 acceptance failed
+exit=1

@@ -1,0 +1,7 @@
+ideal: worst adaptive fidelity 1.000000000000000, worst non-adaptive 0.4327
+physical first bit 0 adaptive=True: angle=+1.0000 tvd=0.3150
+physical first bit 0 adaptive=False: angle=+1.0000 tvd=0.3150
+physical first bit 1 adaptive=True: angle=-1.0000 tvd=0.3427
+physical first bit 1 adaptive=False: angle=+1.0000 tvd=0.5049
+R64 status=pass
+exit=0

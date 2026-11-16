@@ -1,4 +1,5 @@
-"""Finite-energy signed-X MuTA execution with separate quantum and decoded results."""
+"""Finite-energy physical MuTA execution (signed-X or logical-XY family) with separate
+quantum and decoded results."""
 
 from dataclasses import dataclass, field, replace
 from itertools import product
@@ -47,7 +48,17 @@ class PhysicalMuTAResult:
     representation: str = "gkp-physical"
 
 
-def _check_execution(model, input_state, mode, shots, analog_outcomes, output_basis):
+def _analog_value_ok(value, xy):
+    """Signed-X node: a scalar homodyne outcome. XY node: {'ancilla': [...], 'data': p}."""
+    if not xy:
+        return is_finite_real_scalar(value)
+    if not isinstance(value, dict) or set(value) - {"ancilla", "data"} or "data" not in value:
+        return False
+    values = (*value.get("ancilla", ()), value.get("data"))
+    return all(is_finite_real_scalar(v) for v in values)
+
+
+def _check_execution(model, input_state, mode, shots, analog_outcomes, output_basis, xy=False):
     if mode not in ("physical-conditional", "physical-shots"):
         raise ValueError(
             "Choose physical-conditional or physical-shots; logical-exact uses MuTA.run"
@@ -65,9 +76,10 @@ def _check_execution(model, input_state, mode, shots, analog_outcomes, output_ba
             raise ValueError(
                 "physical-conditional requires shots=1 and one explicit analog outcome per measured logical node"
             )
-        if not all(is_finite_real_scalar(v) for v in analog_outcomes.values()):
+        if not all(_analog_value_ok(v, xy) for v in analog_outcomes.values()):
             raise ValueError(
-                "Analog outcomes must be finite real scalars, not requested logical bits"
+                "Analog outcomes must be finite real scalars (logical-XY nodes: "
+                "{'ancilla': [q_1, ...], 'data': p}), not requested logical bits"
             )
     elif analog_outcomes is not None:
         raise ValueError(
@@ -94,8 +106,9 @@ def run_physical(
     require_supported(report)
     if seed is not None and (isinstance(seed, bool) or not isinstance(seed, int) or seed < 0):
         raise ValueError("seed must be a nonnegative integer or None")
+    xy = config.xy_protocol != "signed-x"
     joint_input, factors = _check_execution(
-        model, input_state, mode, shots, analog_outcomes, output_basis
+        model, input_state, mode, shots, analog_outcomes, output_basis, xy
     )
     start = perf_counter()
     lowering = lower_muta_to_gkp(model, parameters, config=config)
@@ -106,7 +119,8 @@ def run_physical(
     kwargs = {"inputs": encoded, "backend": config.backend, "cutoff": config.cutoff}
     if mode == "physical-conditional":
         kwargs["measurement_outcomes"] = {
-            lowering.measurement_keys[node]: float(v) for node, v in analog_outcomes.items()
+            lowering.measurement_keys[node]: v if isinstance(v, dict) else float(v)
+            for node, v in analog_outcomes.items()
         }
         raw_result = pg.simulate(lowering.pattern, seed=seed, **kwargs)
         trajectories = [raw_result]
@@ -190,6 +204,8 @@ def run_physical(
         "simulation_seconds": simulation_seconds,
         "readout_seconds": perf_counter() - decode_start,
         "resource_accounting": report,
+        # Per-trajectory conditional joint POVM rows (label order of decoded_joint_probabilities).
+        "per_shot_joint_probabilities": values.tolist(),
         "estimator": "conditional joint POVM"
         if mode == "physical-conditional"
         else "mean conditional joint POVM (Rao-Blackwell estimator)",
@@ -288,23 +304,42 @@ def validate_physical_model(
 
 
 class PhysicalMuTA(MuTA):
-    """Restricted finite-GKP MuTA with a categorical signed-X measurement family."""
+    """Finite-GKP MuTA with an explicit physical measurement family.
+
+    ``measurement_family='X'`` (default) is the original categorical signed-X family (0/pi).
+    ``measurement_family='XY'`` lowers every node to the physical logical-XY instrument
+    (``pg.GKPLogicalXYMeasurement``): continuous angles, Gaussian shears for Clifford angles
+    and repeat-until-success magic-state injection otherwise, with frame-adaptive angles. It
+    requires ``physical_config.xy_protocol`` in {'clifford', 'auto', 'injection'}.
+    """
 
     def __init__(
         self, n_wires=1, n_layers=1, *, physical_config=None, measurement_family="X", **kwargs
     ):
-        if measurement_family != "X":
-            raise ValueError("PhysicalMuTA currently supports measurement_family='X' (0/pi) only")
+        if measurement_family not in ("X", "XY"):
+            raise ValueError("PhysicalMuTA supports measurement_family='X' (0/pi) or 'XY'")
         if kwargs.pop("representation", "gkp-physical") != "gkp-physical":
             raise ValueError("PhysicalMuTA requires representation='gkp-physical'")
         super().__init__(n_wires, n_layers, **kwargs)
         self.representation = "gkp-physical"
-        self.physical_config = physical_config or GKPPhysicalConfig()
+        if physical_config is None:
+            physical_config = GKPPhysicalConfig(
+                xy_protocol="auto" if measurement_family == "XY" else "signed-x"
+            )
+        self.physical_config = physical_config
         if not isinstance(self.physical_config, GKPPhysicalConfig):
             raise TypeError("physical_config must be GKPPhysicalConfig")
+        signed = self.physical_config.xy_protocol == "signed-x"
+        if signed != (measurement_family == "X"):
+            raise ValueError(
+                "measurement_family='X' needs xy_protocol='signed-x'; 'XY' needs "
+                "'clifford', 'auto' or 'injection'"
+            )
         self.measurement_family = measurement_family
 
     def initialize(self, seed=None, scale=None):
+        if self.measurement_family == "XY":
+            return super().initialize(seed, 0.1 if scale is None else scale)
         if scale is not None:
             raise ValueError(
                 "Physical angles are categorical; continuous initialization is unsupported"
@@ -317,6 +352,8 @@ class PhysicalMuTA(MuTA):
         )
 
     def angle_space(self):
+        if self.measurement_family == "XY":
+            return {name: (0.0, float(2 * np.pi)) for name in self.trainable_parameters()}
         return {name: (0.0, float(np.pi)) for name in self.trainable_parameters()}
 
     def run(self, input_state, parameters=None, **options):

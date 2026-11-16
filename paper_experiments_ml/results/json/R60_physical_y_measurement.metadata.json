@@ -1,0 +1,52 @@
+{
+  "timestamp_utc": "2026-11-16T02:02:23.012069+00:00",
+  "git_commit": "981fd654f3cbc07e2a877ba1ddf806524495110b",
+  "git_branch": "upgraded",
+  "git_dirty": true,
+  "worktree_dirty": true,
+  "source_dirty": true,
+  "source_dirty_paths": [
+    "src/photographiq/__init__.py",
+    "src/photographiq/backends/fock.py",
+    "src/photographiq/backends/mixed_fock.py",
+    "src/photographiq/encoded.py",
+    "src/photographiq/simulator.py",
+    "src/photographiqml/lowering.py",
+    "src/photographiqml/physical.py",
+    "paper_experiments_ml/14_gkp_xy/",
+    "tests/ml/cross_layer/test_physical_xy.py"
+  ],
+  "source_tree_fingerprint": "7888692c4f3286d3dcb0a27a8a990fd8e9fcc55d85e82b3e18fb6c094cb555cd",
+  "provenance_schema_version": 3,
+  "python_version": "3.12.14",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cpu_model": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+  "packages": {
+    "photographiqml": null,
+    "photographiq": "0.3.1",
+    "mentpy": null,
+    "piquasso": "8.0.1",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "networkx": "3.6.1",
+    "matplotlib": "3.11.1",
+    "scikit-learn": "1.9.1"
+  },
+  "package_import_origins": {
+    "photographiqml": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\src\\photographiqml\\__init__.py",
+    "photographiq": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\src\\photographiq\\__init__.py",
+    "mentpy": null,
+    "piquasso": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Lib\\site-packages\\piquasso\\__init__.py"
+  },
+  "upstream_repositories": {
+    "PhotoGraphiQ": {
+      "path": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ",
+      "commit": "981fd654f3cbc07e2a877ba1ddf806524495110b",
+      "dirty": true
+    }
+  },
+  "experiment_id": "R60",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive"
+}

@@ -78,9 +78,9 @@ and the [complete functionality reference](docs/COMPLETE_FUNCTIONALITY.md).
 | Status | Features |
 |---|---|
 | **Validated** (independent reference, passing) | NumPy and native Gaussian engines (max error 6.5e-13 vs analytic/`expm`); native pure and mixed Fock gates (5e-16 vs mpmath / enlarged-space `expm`); boson sampling and GBS kernels (incl. a 382-case threshold-probability matrix); causal/g/Pauli flow (360/360 agreement with Graphix); CV flow with exact rational witnesses; measurement calculus, local Cliffords, ZX subset; Gaussian graphical calculus; CuPy GPU kernels (correctness, max deviation 7.2e-16); PhotoGraphiQML logical MuTA vs MentPy |
-| **Experimental** | density-matrix (mixed-Fock) evolution with Kraus instruments; Gaussian-plus-cubic compilation with Kerr/quartic synthesis; finite-energy GKP; JAX differentiation of fixed-outcome Fock execution; CUDA-Q adapter (gate translation validated, **CUDA-Q execution unverified**) |
-| **Restricted** | physical PhotoGraphiQML lowering (signed-X angle family only); multi-mode displaced native Fock Gaussian unitaries (no derived error bound); threshold GBS in double precision with many clicks at low squeezing (use `precision="auto"`); interactive views verified in Microsoft Edge only |
-| **Unsupported** (rejected by the code) | general CV-ZX calculus; CV local complementation; Fock heterodyne/general-dyne; GPU pattern simulation and GPU outcome sampling; GPU permanents/hafnians (measured, not shipped); arbitrary-angle physical MuTA; physical GKP Y/magic-angle measurements |
+| **Experimental** | density-matrix (mixed-Fock) evolution with Kraus instruments; Gaussian-plus-cubic compilation with Kerr/quartic synthesis; finite-energy GKP; physical GKP logical Y / arbitrary-angle XY measurement (opt-in; magic-state injection with a supplied, not simulated, magic state); JAX differentiation of fixed-outcome Fock execution; CUDA-Q adapter (gate translation validated, **CUDA-Q execution unverified**) |
+| **Restricted** | physical PhotoGraphiQML lowering (signed-X angle family by default; opt-in `measurement_family="XY"`, experimental); multi-mode displaced native Fock Gaussian unitaries (no derived error bound); threshold GBS in double precision with many clicks at low squeezing (use `precision="auto"`); interactive views verified in Microsoft Edge only |
+| **Unsupported** (rejected by the code) | general CV-ZX calculus; CV local complementation; Fock heterodyne/general-dyne; GPU pattern simulation and GPU outcome sampling; GPU permanents/hafnians (measured, not shipped); rotated-homodyne substitutes for GKP logical XY measurements |
 
 Physics caveats that hold everywhere: finite squeezing is **physical noise**, not a numerical
 error; Fock truncation (total photon number, `sum(n) < cutoff`) is a **numerical
@@ -294,6 +294,29 @@ decoded probabilities and the logical target separately. See the
 [PhotoGraphiQML documentation](docs/ml/index.md) and the
 [core/ML contract](docs/development/photographiqml-contract.md).
 
+The default physical family is signed X (angles 0 and pi). Arbitrary angles are opt-in:
+`pg.GKPLogicalXYMeasurement` measures cos(a) X_L + sin(a) Y_L on a GKP mode with a
+Gaussian shear for k pi/2 and repeat-until-success magic-state injection otherwise (the
+encoded magic state is supplied, not simulated; an exhausted round budget is reported as a
+heralded failure), and `PhysicalMuTA(..., measurement_family="XY")` uses it for every
+measured vertex:
+
+```python
+import numpy as np
+import photographiq as pg
+
+code = pg.GKPCode(cutoff=56, peak_width=0.6, envelope=0.6, peaks=6, grid_points=2049)
+pattern = pg.Pattern(inputs=("d",))
+pattern.append(pg.Measure("d", code.logical_measurement("XY", alpha=np.pi / 3, protocol="auto"), "m"))
+record = pg.simulate(pattern, seed=1, backend="native-fock", cutoff=56,
+                     inputs={"d": code.plus()}).records["m"]
+print(record.bit, record.heralded_success, record.applied_operations)
+```
+
+See the [XY measurement tutorial](docs/ml/physical/xy-measurement-tutorial.md),
+[`examples/ml/physical_xy_measurement.py`](examples/ml/physical_xy_measurement.py) and
+experiments R60-R67 in [`paper_experiments_ml/14_gkp_xy/`](paper_experiments_ml/14_gkp_xy/README.md).
+
 ## Scientific validation
 
 Numerical physics is checked against **independent references**: closed-form CV results,
@@ -334,7 +357,7 @@ to re-run them.
 | Suite | Directory | IDs | Scope |
 |---|---|---|---|
 | PhotoGraphiQ core | [`paper_experiments/`](paper_experiments/README.md) | PGQ-R… ([index](paper_experiments/EXPERIMENT_INDEX.md)) | CV-MBQC transport, compilation, feed-forward, non-Gaussian, GKP, cross-validation, convergence, native engines, sampling, flow and calculus, performance |
-| PhotoGraphiQML | [`paper_experiments_ml/`](paper_experiments_ml/README.md) | PGML-R1–R59 | logical MuTA, MentPy validation, training, kernels, GKP lowering, physical statistics |
+| PhotoGraphiQML | [`paper_experiments_ml/`](paper_experiments_ml/README.md) | PGML-R1–R59 (+ R60-R67 extension) | logical MuTA, MentPy validation, training, kernels, GKP lowering, physical statistics; R60-R67: physical arbitrary-angle GKP XY measurements |
 
 Both suites start at R1, so always cite the suite prefix. Each result file carries a
 `.metadata.json` provenance record (commit, dirty flag, source hash, packages, hardware).

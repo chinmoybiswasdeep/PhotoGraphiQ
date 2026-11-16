@@ -1,0 +1,567 @@
+{
+  "rows": [
+    {
+      "alpha": 0.7853981633974483,
+      "bit": 0,
+      "reference_probability": 0.5700920523399571,
+      "engine_count": 13,
+      "ideal_bloch": [
+        0.7071067811865476,
+        -0.7071067811865476,
+        0.0
+      ],
+      "reference_bloch": [
+        0.6395943682310729,
+        -0.2011278258636935,
+        -0.005382200693413518
+      ],
+      "reference_length": 0.670494091169986,
+      "reference_direction_error": 0.4807272744543377,
+      "heralded_fraction": 1.0,
+      "engine_bloch": [
+        0.6600270478729983,
+        -0.14549276659295202,
+        -0.16182056352989452
+      ],
+      "engine_se": [
+        0.0623501330255035,
+        0.08656783785399007,
+        0.134205866565177
+      ],
+      "pass": true
+    },
+    {
+      "alpha": 0.7853981633974483,
+      "bit": 1,
+      "reference_probability": 0.4299079476600312,
+      "engine_count": 11,
+      "ideal_bloch": [
+        -0.7071067811865476,
+        0.7071067811865476,
+        0.0
+      ],
+      "reference_bloch": [
+        -0.07280668939857264,
+        0.3028727834577369,
+        0.0072706284873044905
+      ],
+      "reference_length": 0.3115856206875051,
+      "reference_direction_error": 0.5494872620121394,
+      "heralded_fraction": 1.0,
+      "engine_bloch": [
+        -0.08378596179302439,
+        0.4520453727445345,
+        0.019793078733361256
+      ],
+      "engine_se": [
+        0.13518857268187684,
+        0.07473475116015217,
+        0.17542680782435563
+      ],
+      "pass": true
+    },
+    {
+      "alpha": 1.0471975511965976,
+      "bit": 0,
+      "reference_probability": 0.5466951966610698,
+      "engine_count": 12,
+      "ideal_bloch": [
+        0.5000000000000001,
+        -0.8660254037844386,
+        0.0
+      ],
+      "reference_bloch": [
+        0.5432423661643851,
+        -0.21428851158574178,
+        -0.00356787402608785
+      ],
+      "reference_length": 0.5839902090947917,
+      "reference_direction_error": 0.6714743440784845,
+      "heralded_fraction": 0.875,
+      "engine_bloch": [
+        0.446025742308043,
+        -0.2651552603031019,
+        0.12513300131003627
+      ],
+      "engine_se": [
+        0.10834241278838852,
+        0.0906001879080062,
+        0.15840968454194662
+      ],
+      "pass": true
+    },
+    {
+      "alpha": 1.0471975511965976,
+      "bit": 1,
+      "reference_probability": 0.4533048033389184,
+      "engine_count": 12,
+      "ideal_bloch": [
+        -0.5000000000000001,
+        0.8660254037844386,
+        0.0
+      ],
+      "reference_bloch": [
+        0.0801657056403079,
+        0.2927313823177232,
+        0.004429449477098914
+      ],
+      "reference_length": 0.3035421265279725,
+      "reference_direction_error": 0.7908993926967485,
+      "heralded_fraction": 0.875,
+      "engine_bloch": [
+        0.12773907779827187,
+        0.46192907162008856,
+        -0.09642546657905783
+      ],
+      "engine_se": [
+        0.11203429012265963,
+        0.08209125043287605,
+        0.16557634083719694
+      ],
+      "pass": true
+    },
+    {
+      "alpha": 1.5707963267948966,
+      "bit": 0,
+      "reference_probability": 0.5077730208545392,
+      "engine_count": 8,
+      "ideal_bloch": [
+        6.123233995736766e-17,
+        -1.0,
+        0.0
+      ],
+      "reference_bloch": [
+        0.32995434214405617,
+        -0.5012788572212401,
+        0.06277372851315983
+      ],
+      "reference_length": 0.6033994544148952,
+      "reference_direction_error": 0.582135673362052,
+      "heralded_fraction": 1.0,
+      "engine_bloch": [
+        0.3822089907386843,
+        -0.5342508402299664,
+        0.1482087716126828
+      ],
+      "engine_se": [
+        0.09675470171171609,
+        0.05992180262839709,
+        0.13427044028776017
+      ],
+      "pass": true
+    },
+    {
+      "alpha": 1.5707963267948966,
+      "bit": 1,
+      "reference_probability": 0.4922269791454489,
+      "engine_count": 16,
+      "ideal_bloch": [
+        -6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      "reference_bloch": [
+        0.3368071755593895,
+        0.5486938602994039,
+        -0.06463980231418026
+      ],
+      "reference_length": 0.6470566666697527,
+      "reference_direction_error": 0.5505298112567336,
+      "heralded_fraction": 1.0,
+      "engine_bloch": [
+        0.32443167331862577,
+        0.5640675307692593,
+        -0.061165076166254
+      ],
+      "engine_se": [
+        0.08228347846591468,
+        0.0637667253797605,
+        0.07790461979057567
+      ],
+      "pass": true
+    },
+    {
+      "alpha": 2.0943951023931953,
+      "bit": 0,
+      "reference_probability": 0.46808571209588323,
+      "engine_count": 13,
+      "ideal_bloch": [
+        -0.4999999999999998,
+        -0.8660254037844387,
+        0.0
+      ],
+      "reference_bloch": [
+        0.15511271661855183,
+        -0.2601573001691979,
+        0.00418788365960452
+      ],
+      "reference_length": 0.3029179989001309,
+      "reference_direction_error": 1.061239137501591,
+      "heralded_fraction": 0.875,
+      "engine_bloch": [
+        0.2884244519543603,
+        -0.2689126889503077,
+        0.08376469786156172
+      ],
+      "engine_se": [
+        0.11956466446593836,
+        0.10345236585491308,
+        0.15936152558537714
+      ],
+      "pass": true
+    },
+    {
+      "alpha": 2.0943951023931953,
+      "bit": 1,
+      "reference_probability": 0.531914287904105,
+      "engine_count": 11,
+      "ideal_bloch": [
+        0.4999999999999998,
+        0.8660254037844387,
+        0.0
+      ],
+      "reference_bloch": [
+        0.49015687517713497,
+        0.25816557279711283,
+        -0.003577526335524336
+      ],
+      "reference_length": 0.5540000216207182,
+      "reference_direction_error": 0.5624188873444202,
+      "heralded_fraction": 0.875,
+      "engine_bloch": [
+        0.4339265672414164,
+        0.355941913540194,
+        0.1747834708004903
+      ],
+      "engine_se": [
+        0.1074103198876032,
+        0.07711844076297014,
+        0.1723564392707355
+      ],
+      "pass": true
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 0.7853981633974483,
+      "bit": 0,
+      "resource": "broad",
+      "heralded_bloch": [
+        0.6395943682310729,
+        -0.2011278258636935,
+        -0.005382200693413518
+      ],
+      "direction_error": 0.4807272744543377,
+      "length_deficit": 0.32950590883001396
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 0.7853981633974483,
+      "bit": 0,
+      "resource": "medium",
+      "heralded_bloch": [
+        0.5992325797639206,
+        -0.46825330719833336,
+        -0.00040446818272414387
+      ],
+      "direction_error": 0.12208859209568101,
+      "length_deficit": 0.23951265102750652
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 0.7853981633974483,
+      "bit": 0,
+      "resource": "sharp",
+      "heralded_bloch": [
+        0.6898599987650637,
+        -0.68459726979845,
+        1.0211682031402489e-07
+      ],
+      "direction_error": 0.00382893187623401,
+      "length_deficit": 0.028104820615085124
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 0.7853981633974483,
+      "bit": 1,
+      "resource": "broad",
+      "heralded_bloch": [
+        -0.07280668939857264,
+        0.3028727834577369,
+        0.0072706284873044905
+      ],
+      "direction_error": 0.5494872620121394,
+      "length_deficit": 0.6884143793124948
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 0.7853981633974483,
+      "bit": 1,
+      "resource": "medium",
+      "heralded_bloch": [
+        -0.49700789859195005,
+        0.5039665301044597,
+        0.00040305497672908115
+      ],
+      "direction_error": 0.006951745435856527,
+      "length_deficit": 0.29218697583215547
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 0.7853981633974483,
+      "bit": 1,
+      "resource": "sharp",
+      "heralded_bloch": [
+        -0.6891332607085454,
+        0.685078122485393,
+        1.6850334195739605e-07
+      ],
+      "direction_error": 0.002950875318365576,
+      "length_deficit": 0.028281581463574623
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 1.0471975511965976,
+      "bit": 0,
+      "resource": "broad",
+      "heralded_bloch": [
+        0.564023412394562,
+        -0.2303661083266121,
+        -0.0038402258985158564
+      ],
+      "direction_error": 0.6594420449069249,
+      "length_deficit": 0.39073347299420247
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 1.0471975511965976,
+      "bit": 0,
+      "resource": "medium",
+      "heralded_bloch": [
+        0.4369090843944322,
+        -0.5523051420671674,
+        -0.0002641030237137354
+      ],
+      "direction_error": 0.14566999690997395,
+      "length_deficit": 0.2957766066576444
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 1.0471975511965976,
+      "bit": 0,
+      "resource": "sharp",
+      "heralded_bloch": [
+        0.48197294584313116,
+        -0.8280300227665769,
+        6.501662079735154e-08
+      ],
+      "direction_error": 0.003533926426564804,
+      "length_deficit": 0.041912509669639886
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 1.0471975511965976,
+      "bit": 1,
+      "resource": "broad",
+      "heralded_bloch": [
+        0.0498887016183782,
+        0.3176811516972136,
+        0.004910009538830982
+      ],
+      "direction_error": 0.679366761529087,
+      "length_deficit": 0.6783879590461405
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 1.0471975511965976,
+      "bit": 1,
+      "resource": "medium",
+      "heralded_bloch": [
+        -0.3140673057019274,
+        0.5807226484330228,
+        0.0002589866546343217
+      ],
+      "direction_error": 0.02782968191910529,
+      "length_deficit": 0.33979008339163863
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 1.0471975511965976,
+      "bit": 1,
+      "resource": "sharp",
+      "heralded_bloch": [
+        -0.4809917078081674,
+        0.8284236815794502,
+        1.0588019570340103e-07
+      ],
+      "direction_error": 0.0024419196800704586,
+      "length_deficit": 0.04206533668423973
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 1.5707963267948966,
+      "bit": 0,
+      "resource": "broad",
+      "heralded_bloch": [
+        0.32995434214405617,
+        -0.5012788572212401,
+        0.06277372851315983
+      ],
+      "direction_error": 0.582135673362052,
+      "length_deficit": 0.3966005455851048
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 1.5707963267948966,
+      "bit": 0,
+      "resource": "medium",
+      "heralded_bloch": [
+        0.07022253184781288,
+        -0.8121466937001958,
+        0.011312662171944425
+      ],
+      "direction_error": 0.08625081251196587,
+      "length_deficit": 0.18474456003489736
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 1.5707963267948966,
+      "bit": 0,
+      "resource": "sharp",
+      "heralded_bloch": [
+        0.0006039149597584536,
+        -0.9873736737427313,
+        6.692784403216337e-05
+      ],
+      "direction_error": 0.0006116376205989038,
+      "length_deficit": 0.012626139300400241
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 1.5707963267948966,
+      "bit": 1,
+      "resource": "broad",
+      "heralded_bloch": [
+        0.3368071755593895,
+        0.5486938602994039,
+        -0.06463980231418026
+      ],
+      "direction_error": 0.5505298112567336,
+      "length_deficit": 0.3529433333302473
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 1.5707963267948966,
+      "bit": 1,
+      "resource": "medium",
+      "heralded_bloch": [
+        0.07029048095197948,
+        0.8153327204746615,
+        -0.01136219505113437
+      ],
+      "direction_error": 0.08599815958087964,
+      "length_deficit": 0.1815641159715361
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 1.5707963267948966,
+      "bit": 1,
+      "resource": "sharp",
+      "heralded_bloch": [
+        0.0006051151318373411,
+        0.987377289779646,
+        -6.66573686175007e-05
+      ],
+      "direction_error": 0.0006128508953400225,
+      "length_deficit": 0.012622522547669934
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 2.0943951023931953,
+      "bit": 0,
+      "resource": "broad",
+      "heralded_bloch": [
+        0.1315164239264364,
+        -0.2807599904625592,
+        0.00462692486887127
+      ],
+      "direction_error": 0.9616730123843313,
+      "length_deficit": 0.6899287977888359
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 2.0943951023931953,
+      "bit": 0,
+      "resource": "medium",
+      "heralded_bloch": [
+        -0.3028740663832922,
+        -0.5809757259962468,
+        0.0002581348211299814
+      ],
+      "direction_error": 0.043041271708034845,
+      "length_deficit": 0.3448163914458766
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 2.0943951023931953,
+      "bit": 0,
+      "resource": "sharp",
+      "heralded_bloch": [
+        -0.480948427789743,
+        -0.8284421497806593,
+        1.103686999456603e-07
+      ],
+      "direction_error": 0.0023931668245014137,
+      "length_deficit": 0.04207109568265033
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 2.0943951023931953,
+      "bit": 1,
+      "resource": "broad",
+      "heralded_bloch": [
+        0.5083828394304346,
+        0.27257722258214817,
+        -0.003850688555276705
+      ],
+      "direction_error": 0.5550380227436298,
+      "length_deficit": 0.4231410211322886
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 2.0943951023931953,
+      "bit": 1,
+      "resource": "medium",
+      "heralded_bloch": [
+        0.42695032680009726,
+        0.5571018003723301,
+        -0.0002637094345400699
+      ],
+      "direction_error": 0.13030185027394547,
+      "length_deficit": 0.298110359760548
+    },
+    {
+      "kind": "ideal_limit",
+      "alpha": 2.0943951023931953,
+      "bit": 1,
+      "resource": "sharp",
+      "heralded_bloch": [
+        0.4819304382140378,
+        0.8280534139334554,
+        6.052774455391931e-08
+      ],
+      "direction_error": 0.0034833000429432825,
+      "length_deficit": 0.04191367632972198
+    }
+  ],
+  "oracle_class": "B",
+  "status": "pass",
+  "failures": [],
+  "resource": "broad",
+  "cutoff": 56,
+  "shots": 24,
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

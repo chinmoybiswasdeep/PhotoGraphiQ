@@ -1,0 +1,63 @@
+{
+  "timestamp_utc": "2026-11-16T02:57:09.780802+00:00",
+  "git_commit": "981fd654f3cbc07e2a877ba1ddf806524495110b",
+  "git_branch": "upgraded",
+  "git_dirty": true,
+  "worktree_dirty": true,
+  "source_dirty": true,
+  "source_dirty_paths": [
+    "docs/ml/guide.md",
+    "docs/ml/physical/execution-modes.md",
+    "docs/ml/physical/lowering.md",
+    "docs/ml/physical/pauli-frames.md",
+    "docs/ml/physical/physical-training.md",
+    "docs/ml/physical/supported-measurements.md",
+    "src/photographiq/__init__.py",
+    "src/photographiq/backends/fock.py",
+    "src/photographiq/backends/mixed_fock.py",
+    "src/photographiq/encoded.py",
+    "src/photographiq/simulator.py",
+    "src/photographiqml/__init__.py",
+    "src/photographiqml/lowering.py",
+    "src/photographiqml/physical.py",
+    "src/photographiqml/physical_training.py",
+    "docs/ml/assets/xy_measurement_pipeline.svg",
+    "docs/ml/physical/xy-measurement-tutorial.md",
+    "examples/ml/physical_xy_measurement.py",
+    "paper_experiments_ml/14_gkp_xy/",
+    "tests/ml/cross_layer/test_physical_xy.py"
+  ],
+  "source_tree_fingerprint": "9b0926e73b469b99dd3380cb1485c228159b72b6bce4e74772d8003cb417fc8d",
+  "provenance_schema_version": 3,
+  "python_version": "3.12.14",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cpu_model": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+  "packages": {
+    "photographiqml": null,
+    "photographiq": "0.3.1",
+    "mentpy": null,
+    "piquasso": "8.0.1",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "networkx": "3.6.1",
+    "matplotlib": "3.11.1",
+    "scikit-learn": "1.9.1"
+  },
+  "package_import_origins": {
+    "photographiqml": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\src\\photographiqml\\__init__.py",
+    "photographiq": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\src\\photographiq\\__init__.py",
+    "mentpy": null,
+    "piquasso": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Lib\\site-packages\\piquasso\\__init__.py"
+  },
+  "upstream_repositories": {
+    "PhotoGraphiQ": {
+      "path": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ",
+      "commit": "981fd654f3cbc07e2a877ba1ddf806524495110b",
+      "dirty": true
+    }
+  },
+  "experiment_id": "R64",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive"
+}
