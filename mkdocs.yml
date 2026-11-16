@@ -80,6 +80,20 @@ nav:
       - Flow: user-guide/flow.md
       - MBQC calculus: user-guide/mbqc-calculus.md
       - Gaussian graphical calculus: user-guide/gaussian-graphical-calculus.md
+      - CV diagrams:
+          - Introduction: user-guide/cv-diagrams/introduction.md
+          - Mathematical semantics: user-guide/cv-diagrams/mathematical-semantics.md
+          - Gaussian generators: user-guide/cv-diagrams/gaussian-generators.md
+          - Rewrite rules: user-guide/cv-diagrams/rewrite-rules.md
+          - Rewrite verification: user-guide/cv-diagrams/rewrite-verification.md
+          - GaussianGraph integration: user-guide/cv-diagrams/gaussian-graph-integration.md
+          - MBQC translation: user-guide/cv-diagrams/mbqc-translation.md
+          - Resource optimisation: user-guide/cv-diagrams/resource-optimization.md
+          - Finite squeezing: user-guide/cv-diagrams/finite-squeezing.md
+          - Non-Gaussian: user-guide/cv-diagrams/non-gaussian.md
+          - GKP: user-guide/cv-diagrams/gkp.md
+          - Examples: user-guide/cv-diagrams/examples.md
+          - Limitations: user-guide/cv-diagrams/limitations.md
       - Convergence: user-guide/convergence.md
       - Visualization: user-guide/visualization.md
       - Interactive visualization: user-guide/interactive.md
@@ -192,6 +206,22 @@ nav:
       - Convergence: ml/physical/convergence.md
       - Physical training: ml/physical/physical-training.md
       - XY measurement tutorial: ml/physical/xy-measurement-tutorial.md
+      - CV-native learning:
+          - Overview: ml/cv-native/index.md
+          - Architecture: ml/cv-native/architecture.md
+          - Mathematical model: ml/cv-native/mathematical-model.md
+          - Gaussian layers: ml/cv-native/gaussian-layers.md
+          - Feature encoding: ml/cv-native/feature-encoding.md
+          - Direct MBQC (CVCluster): ml/cv-native/direct-mbqc.md
+          - Compilation: ml/cv-native/compilation.md
+          - Training: ml/cv-native/training.md
+          - Gradients: ml/cv-native/gradients.md
+          - Kernels: ml/cv-native/kernels.md
+          - Finite squeezing: ml/cv-native/finite-squeezing.md
+          - Non-Gaussian: ml/cv-native/non-gaussian.md
+          - Resource analysis: ml/cv-native/resource-analysis.md
+          - Validation: ml/cv-native/validation.md
+          - Examples: ml/cv-native/examples.md
       - Release report: ml/release-report.md
   - Contribute:
       - Development: development/index.md

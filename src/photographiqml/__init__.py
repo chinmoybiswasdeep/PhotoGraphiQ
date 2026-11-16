@@ -1,7 +1,8 @@
-"""PhotoGraphiQML: logical MuTA and explicit photonic research boundaries."""
+"""PhotoGraphiQML: logical MuTA, GKP physical MuTA and CV-native learning (``photographiqml.cv``)."""
 
 from photographiq import Parameter
 
+from . import cv  # noqa: E402  (CV-native family; imports after the logical stack)
 from .ansatz.muta import MuTA
 from .ansatz.triangle import TriangleNeuron
 from .gkp import GKPBridge
@@ -38,4 +39,5 @@ __all__ = [
     "Trainer",
     "History",
     "Parameter",
+    "cv",
 ]

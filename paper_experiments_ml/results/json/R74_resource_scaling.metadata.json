@@ -1,0 +1,47 @@
+{
+  "timestamp_utc": "2026-11-16T13:06:53.704774+00:00",
+  "git_commit": "c8d053a8c388d075086a7b642d52eddf3b318568",
+  "git_branch": "upgraded",
+  "git_dirty": true,
+  "worktree_dirty": true,
+  "source_dirty": true,
+  "source_dirty_paths": [
+    "src/photographiqml/__init__.py",
+    "paper_experiments_ml/15_cv_native/",
+    "src/photographiqml/cv/",
+    "tests/ml/cv_native/"
+  ],
+  "source_tree_fingerprint": "cad7b7aa69220260afa20893243a58c0bd9cb3d5880f7fbaa047b78366ec0c07",
+  "provenance_schema_version": 3,
+  "python_version": "3.12.14",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cpu_model": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+  "packages": {
+    "photographiqml": null,
+    "photographiq": "0.3.1",
+    "mentpy": null,
+    "piquasso": "8.0.1",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "networkx": "3.6.1",
+    "matplotlib": "3.11.1",
+    "scikit-learn": "1.9.1"
+  },
+  "package_import_origins": {
+    "photographiqml": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\src\\photographiqml\\__init__.py",
+    "photographiq": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\src\\photographiq\\__init__.py",
+    "mentpy": null,
+    "piquasso": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ\\.venv\\Lib\\site-packages\\piquasso\\__init__.py"
+  },
+  "upstream_repositories": {
+    "PhotoGraphiQ": {
+      "path": "D:\\Research\\QML\\results_1\\cvqc\\thesis_part_2\\softwares\\PhotoGraphiQ",
+      "commit": "c8d053a8c388d075086a7b642d52eddf3b318568",
+      "dirty": false
+    }
+  },
+  "experiment_id": "R74",
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive"
+}

@@ -1,0 +1,686 @@
+{
+  "rows": [
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 0.25,
+      "cutoff": 8,
+      "error": 1.950829912800156e-05,
+      "retained_norm": 0.9999979016248587,
+      "seconds": 0.0038041999796405435
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 0.25,
+      "cutoff": 12,
+      "error": 1.4440606044274773e-08,
+      "retained_norm": 0.9999999965345153,
+      "seconds": 0.0013447999954223633
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 0.25,
+      "cutoff": 16,
+      "error": 1.0110334791590958e-10,
+      "retained_norm": 0.9999999999942992,
+      "seconds": 0.0013194999773986638
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 0.25,
+      "cutoff": 24,
+      "error": 4.440892098500626e-16,
+      "retained_norm": 0.9999999999999998,
+      "seconds": 0.0015406999737024307
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 0.25,
+      "cutoff": 32,
+      "error": 2.220446049250313e-16,
+      "retained_norm": 0.9999999999999998,
+      "seconds": 0.0016373000107705593
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 0.25,
+      "cutoff": 48,
+      "error": 2.220446049250313e-16,
+      "retained_norm": 0.9999999999999998,
+      "seconds": 0.002081999962683767
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 0.25,
+      "cutoff": 64,
+      "error": 2.220446049250313e-16,
+      "retained_norm": 0.9999999999999998,
+      "seconds": 0.002479200018569827
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 1.0,
+      "cutoff": 8,
+      "error": 0.0001563790630911832,
+      "retained_norm": 0.9999685210533056,
+      "seconds": 0.0016755000106059015
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 1.0,
+      "cutoff": 12,
+      "error": 2.24447202379352e-07,
+      "retained_norm": 0.9999999309192291,
+      "seconds": 0.0012611999991349876
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 1.0,
+      "cutoff": 16,
+      "error": 2.8572855192976476e-09,
+      "retained_norm": 0.999999999815189,
+      "seconds": 0.001248300017323345
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 1.0,
+      "cutoff": 24,
+      "error": 1.5765166949677223e-14,
+      "retained_norm": 0.9999999999999987,
+      "seconds": 0.0014255999703891575
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 1.0,
+      "cutoff": 32,
+      "error": 1.3322676295501878e-15,
+      "retained_norm": 0.9999999999999998,
+      "seconds": 0.0016284000012092292
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 1.0,
+      "cutoff": 48,
+      "error": 1.3322676295501878e-15,
+      "retained_norm": 0.9999999999999998,
+      "seconds": 0.002237899985630065
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 1.0,
+      "cutoff": 64,
+      "error": 1.3322676295501878e-15,
+      "retained_norm": 0.9999999999999998,
+      "seconds": 0.0024797000223770738
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 2.0,
+      "cutoff": 8,
+      "error": null,
+      "retained_norm": null,
+      "refused": true
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 2.0,
+      "cutoff": 12,
+      "error": 2.8648127754937747e-05,
+      "retained_norm": 0.999998490544965,
+      "seconds": 0.0014788000262342393
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 2.0,
+      "cutoff": 16,
+      "error": 1.97324037110036e-08,
+      "retained_norm": 0.9999999961671752,
+      "seconds": 0.001352099992800504
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 2.0,
+      "cutoff": 24,
+      "error": 4.716227408607665e-13,
+      "retained_norm": 0.9999999999999581,
+      "seconds": 0.001610299979802221
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 2.0,
+      "cutoff": 32,
+      "error": 2.220446049250313e-16,
+      "retained_norm": 0.9999999999999999,
+      "seconds": 0.0017382000223733485
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 2.0,
+      "cutoff": 48,
+      "error": 2.220446049250313e-16,
+      "retained_norm": 0.9999999999999999,
+      "seconds": 0.0021407000022009015
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 2.0,
+      "cutoff": 64,
+      "error": 2.220446049250313e-16,
+      "retained_norm": 0.9999999999999999,
+      "seconds": 0.0025712999631650746
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 4.0,
+      "cutoff": 8,
+      "error": null,
+      "retained_norm": null,
+      "refused": true
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 4.0,
+      "cutoff": 12,
+      "error": 0.015943139235952475,
+      "retained_norm": 0.9990847708527296,
+      "seconds": 0.0013535000034607947
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 4.0,
+      "cutoff": 16,
+      "error": 0.0002580524602536771,
+      "retained_norm": 0.9999951073892799,
+      "seconds": 0.0013079000054858625
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 4.0,
+      "cutoff": 24,
+      "error": 6.325529933182139e-09,
+      "retained_norm": 0.999999999979771,
+      "seconds": 0.0014575000386685133
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 4.0,
+      "cutoff": 32,
+      "error": 1.8596235662471372e-14,
+      "retained_norm": 0.9999999999999997,
+      "seconds": 0.0016498000477440655
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 4.0,
+      "cutoff": 48,
+      "error": 1.6653345369377348e-16,
+      "retained_norm": 0.9999999999999997,
+      "seconds": 0.002704499987885356
+    },
+    {
+      "study": "convergence",
+      "program": "kerr",
+      "photons": 4.0,
+      "cutoff": 64,
+      "error": 1.6653345369377348e-16,
+      "retained_norm": 0.9999999999999997,
+      "seconds": 0.0026971999905072153
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 0.25,
+      "cutoff": 8,
+      "error": 1.8024838597252568e-06,
+      "retained_norm": 0.9999981209564902,
+      "seconds": 0.0014491999754682183
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 0.25,
+      "cutoff": 12,
+      "error": 3.742353360536299e-08,
+      "retained_norm": 0.9999999885152181,
+      "seconds": 0.001186799956485629
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 0.25,
+      "cutoff": 16,
+      "error": 3.3858460479763153e-10,
+      "retained_norm": 0.9999999999542554,
+      "seconds": 0.0012414000229910016
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 0.25,
+      "cutoff": 24,
+      "error": 1.8318679906315083e-14,
+      "retained_norm": 0.9999999999999977,
+      "seconds": 0.0014791000285185874
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 0.25,
+      "cutoff": 32,
+      "error": 2.55351295663786e-15,
+      "retained_norm": 1.0000000000000002,
+      "seconds": 0.0019833999685943127
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 0.25,
+      "cutoff": 48,
+      "error": 2.886579864025407e-15,
+      "retained_norm": 0.9999999999999991,
+      "seconds": 0.002273599966429174
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 0.25,
+      "cutoff": 64,
+      "error": 2.220446049250313e-15,
+      "retained_norm": 0.9999999999999971,
+      "seconds": 0.0030465000309050083
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 1.0,
+      "cutoff": 8,
+      "error": 4.8109388261163843e-05,
+      "retained_norm": 0.9998623143973098,
+      "seconds": 0.0013518999912776053
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 1.0,
+      "cutoff": 12,
+      "error": 4.251591013026967e-06,
+      "retained_norm": 0.9999982289994479,
+      "seconds": 0.0013747999910265207
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 1.0,
+      "cutoff": 16,
+      "error": 8.858260724942113e-08,
+      "retained_norm": 0.9999999800835075,
+      "seconds": 0.0013189000310376287
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 1.0,
+      "cutoff": 24,
+      "error": 1.748934330692009e-11,
+      "retained_norm": 0.9999999999965422,
+      "seconds": 0.0013811999815516174
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 1.0,
+      "cutoff": 32,
+      "error": 1.3100631690576847e-14,
+      "retained_norm": 0.9999999999999988,
+      "seconds": 0.001567100000102073
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 1.0,
+      "cutoff": 48,
+      "error": 5.329070518200751e-15,
+      "retained_norm": 0.9999999999999993,
+      "seconds": 0.002116899995598942
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 1.0,
+      "cutoff": 64,
+      "error": 5.10702591327572e-15,
+      "retained_norm": 0.9999999999999981,
+      "seconds": 0.002604899986181408
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 2.0,
+      "cutoff": 8,
+      "error": null,
+      "retained_norm": null,
+      "refused": true
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 2.0,
+      "cutoff": 12,
+      "error": 7.386181061397323e-05,
+      "retained_norm": 0.9999502510998141,
+      "seconds": 0.001188600028399378
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 2.0,
+      "cutoff": 16,
+      "error": 3.7848725997768895e-06,
+      "retained_norm": 0.9999987632955327,
+      "seconds": 0.0012695000041276217
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 2.0,
+      "cutoff": 24,
+      "error": 2.478708793773876e-09,
+      "retained_norm": 0.99999999936118,
+      "seconds": 0.001390000048559159
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 2.0,
+      "cutoff": 32,
+      "error": 2.4087398742267396e-12,
+      "retained_norm": 0.9999999999992841,
+      "seconds": 0.0015418000402860343
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 2.0,
+      "cutoff": 48,
+      "error": 4.884981308350689e-15,
+      "retained_norm": 0.9999999999999996,
+      "seconds": 0.0019391000387258828
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 2.0,
+      "cutoff": 64,
+      "error": 4.884981308350689e-15,
+      "retained_norm": 0.9999999999999982,
+      "seconds": 0.0023779000039212406
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 4.0,
+      "cutoff": 8,
+      "error": null,
+      "retained_norm": null,
+      "refused": true
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 4.0,
+      "cutoff": 12,
+      "error": null,
+      "retained_norm": null,
+      "refused": true
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 4.0,
+      "cutoff": 16,
+      "error": 0.00021968610383638065,
+      "retained_norm": 0.9998945653249839,
+      "seconds": 0.0015202999929897487
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 4.0,
+      "cutoff": 24,
+      "error": 6.830331416018964e-07,
+      "retained_norm": 0.9999997117692451,
+      "seconds": 0.0015335999778471887
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 4.0,
+      "cutoff": 32,
+      "error": 1.5822676502352806e-09,
+      "retained_norm": 0.999999998910476,
+      "seconds": 0.0016177999787032604
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 4.0,
+      "cutoff": 48,
+      "error": 9.459100169806334e-14,
+      "retained_norm": 0.9999999999999848,
+      "seconds": 0.0020339000038802624
+    },
+    {
+      "study": "convergence",
+      "program": "cubic",
+      "photons": 4.0,
+      "cutoff": 64,
+      "error": 2.6645352591003757e-15,
+      "retained_norm": 0.9999999999999992,
+      "seconds": 0.002391300047747791
+    },
+    {
+      "study": "negativity",
+      "gate": "kerr",
+      "strength": 0.0,
+      "negative_volume": 5.276405443483757e-18,
+      "captured_mass": 0.9999678815884647
+    },
+    {
+      "study": "negativity",
+      "gate": "kerr",
+      "strength": 0.05,
+      "negative_volume": 1.660990031116448e-06,
+      "captured_mass": 0.9999886344076077
+    },
+    {
+      "study": "negativity",
+      "gate": "kerr",
+      "strength": 0.1,
+      "negative_volume": 0.002240171428497416,
+      "captured_mass": 0.9999859262254422
+    },
+    {
+      "study": "negativity",
+      "gate": "kerr",
+      "strength": 0.2,
+      "negative_volume": 0.035035540936260504,
+      "captured_mass": 0.9999826073463893
+    },
+    {
+      "study": "negativity",
+      "gate": "kerr",
+      "strength": 0.4,
+      "negative_volume": 0.1260970423537651,
+      "captured_mass": 0.9999818324970327
+    },
+    {
+      "study": "negativity",
+      "gate": "cubic",
+      "strength": 0.0,
+      "negative_volume": 6.428994861976246e-18,
+      "captured_mass": 0.999967881588465
+    },
+    {
+      "study": "negativity",
+      "gate": "cubic",
+      "strength": 0.02,
+      "negative_volume": 8.668734491232273e-18,
+      "captured_mass": 0.9999678810100618
+    },
+    {
+      "study": "negativity",
+      "gate": "cubic",
+      "strength": 0.05,
+      "negative_volume": 2.88333227532842e-12,
+      "captured_mass": 0.9999678776710016
+    },
+    {
+      "study": "negativity",
+      "gate": "cubic",
+      "strength": 0.1,
+      "negative_volume": 5.900297681377702e-06,
+      "captured_mass": 0.9999676256737811
+    },
+    {
+      "study": "negativity",
+      "gate": "cubic",
+      "strength": 0.2,
+      "negative_volume": 0.0017512904774502937,
+      "captured_mass": 0.9992547074279805
+    },
+    {
+      "study": "regression",
+      "model": "Gaussian D R S (affine)",
+      "test_mse": 0.040736545563242035,
+      "seconds": 0.056168199982494116,
+      "evaluations": 84
+    },
+    {
+      "study": "regression",
+      "model": "Gaussian, rotation encoding",
+      "test_mse": 0.01193974302501928,
+      "seconds": 0.1341707000392489,
+      "evaluations": 155
+    },
+    {
+      "study": "regression",
+      "model": "Kerr D(b) K R",
+      "test_mse": 0.0004335504779175025,
+      "seconds": 84.49353620002512,
+      "evaluations": 1250,
+      "min_retained_norm": 0.9999999999999994
+    },
+    {
+      "study": "regression",
+      "model": "cubic D(b) CP R",
+      "test_mse": 0.022889437063832795,
+      "seconds": 81.25424079998629,
+      "evaluations": 1211,
+      "min_retained_norm": 0.9999999999999974
+    },
+    {
+      "study": "regression",
+      "model": "OLS (classical, affine)",
+      "test_mse": 0.04073657094061551
+    },
+    {
+      "study": "regression",
+      "model": "cubic polynomial (classical)",
+      "test_mse": 0.0005353226841275882
+    },
+    {
+      "study": "injection",
+      "r": 0.2,
+      "fidelity": 0.8654330667990997,
+      "outcome_probability": 0.9999996535328818,
+      "min_retained_norm": 0.999957868948013,
+      "seconds": 1.6146177999908105,
+      "ancillas": 1,
+      "entangling_operations": 1,
+      "feedforward_corrections": 2,
+      "heralding_probability": 1.0
+    },
+    {
+      "study": "injection",
+      "r": 0.4,
+      "fidelity": 0.9036372560947181,
+      "outcome_probability": 0.9999927597021586,
+      "min_retained_norm": 0.9999905012726105,
+      "seconds": 1.634092700027395,
+      "ancillas": 1,
+      "entangling_operations": 1,
+      "feedforward_corrections": 2,
+      "heralding_probability": 1.0
+    },
+    {
+      "study": "injection",
+      "r": 0.6,
+      "fidelity": 0.9323219985425166,
+      "outcome_probability": 0.9998997200971016,
+      "min_retained_norm": 0.999932745529792,
+      "seconds": 1.6514916000305675,
+      "ancillas": 1,
+      "entangling_operations": 1,
+      "feedforward_corrections": 2,
+      "heralding_probability": 1.0
+    },
+    {
+      "study": "injection",
+      "r": 0.8,
+      "fidelity": 0.95334402709528,
+      "outcome_probability": 0.9991905958163,
+      "min_retained_norm": 0.9997979860435501,
+      "seconds": 1.6514515000162646,
+      "ancillas": 1,
+      "entangling_operations": 1,
+      "feedforward_corrections": 2,
+      "heralding_probability": 1.0
+    }
+  ],
+  "oracle_class": "B",
+  "status": "pass",
+  "checks": {
+    "fock_convergence": true,
+    "negativity": true,
+    "injection_normalisation": true
+  },
+  "provenance": {
+    "revision": "c8d053a8c388d075086a7b642d52eddf3b318568",
+    "working_tree_modified": true,
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "execution_status": "completed",
+  "structural_status": "pass",
+  "scientific_outcome": "positive",
+  "claim_supported": "declared experiment contract",
+  "claim_not_supported": "no claim beyond declared protocol"
+}

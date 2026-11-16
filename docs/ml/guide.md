@@ -13,6 +13,24 @@ linked from each section.
 
 MentPy validates the logical layer only. It is never an oracle for GKP or Fock results.
 
+## Three model families
+
+The two layers above are the MuTA families. `photographiqml.cv` adds a third, separate
+family. It does not change either MuTA family.
+
+| | (1) Ideal logical-qubit MuTA | (2) Finite-energy GKP physical MuTA (restricted) | (3) CV-native Gaussian and non-Gaussian learning |
+| --- | --- | --- | --- |
+| Objects | `MuTA`, `MuTAKernel`, `MuTAClassifier`, `MuTARegressor` | `PhysicalMuTA`, `GKPBridge`, `lower_muta_to_gkp` | `photographiqml.cv`: `GaussianProgram`, `CVCluster`, `NonGaussianProgram`, `CVRegressor`, `CVClassifier`, `CVKernel` |
+| Computational model | Qubit MBQC: open graph, flow, adaptive XY measurements, exact branch contraction | MuTA graph lowered to finite GKP modes; homodyne + nearest-cell decoding, classical Pauli frame | CV states: Gaussian encoding, Gaussian programs (direct circuit or compiled finite-squeezing CV-MBQC channel), weighted CV clusters with CV-flow feedforward, Kerr/cubic gates on a Fock engine; homodyne readout + classical head |
+| Physical assumptions | None (ideal logical qubits) | Finite-energy GKP resources in a truncated Fock space; signed-X by default, XY with a supplied (not simulated) magic state | Finite resource squeezing r is the only Gaussian imperfection; no loss or detector noise; Fock cutoff for non-Gaussian gates |
+| Trainable parameters | XY measurement angles | Signed-X choices (0/pi, `DiscreteSearch`) or continuous XY angles (`measurement_family="XY"`) | Gaussian gate arguments, homodyne angles and optional CZ rung weights, Kerr/cubic strengths; classical head |
+| Backends | Exact logical contraction (MentPy as reference) | `piquasso-fock` or `native-fock` | In-package exact Gaussian moments; patterns on the `gaussian` / `native-gaussian` backends; `native-fock` for non-Gaussian programs |
+| Limitations | Logical only; no physical noise | Restricted measurement family; no physical kernels; no loss; product inputs | Gaussian models are efficiently classically simulable and affine in x for displacement encoding with mean readout; non-Gaussian path experimental and slow; no advantage claimed |
+
+`CVCluster` is a directly trainable weighted grid cluster. It is not the CVMuTA proposal on
+the roadmap, which remains planned. Details: [CV-native learning](cv-native/index.md),
+[direct MBQC](cv-native/direct-mbqc.md), [validation](cv-native/validation.md).
+
 ## Logical MuTA models
 
 A MuTA is a stack of triangle neurons on `n_wires` wires. Each measured vertex carries a

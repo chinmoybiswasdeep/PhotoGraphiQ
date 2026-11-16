@@ -1,0 +1,449 @@
+{
+  "rows": [
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 15,
+      "diagram": "original",
+      "infidelity": 0.000190607949350996
+    },
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 15,
+      "diagram": "fused",
+      "infidelity": 0.00018555803635023072
+    },
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 15,
+      "diagram": "fused + propagated",
+      "infidelity": 0.000159023810254455
+    },
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 15,
+      "diagram": "false rule",
+      "infidelity": 0.017577252788804065
+    },
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 20,
+      "diagram": "original",
+      "infidelity": 2.8633360731999957e-05
+    },
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 20,
+      "diagram": "fused",
+      "infidelity": 2.8288609456472713e-05
+    },
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 20,
+      "diagram": "fused + propagated",
+      "infidelity": 2.4290930623283025e-05
+    },
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 20,
+      "diagram": "false rule",
+      "infidelity": 0.017572489340397346
+    },
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 30,
+      "diagram": "original",
+      "infidelity": 1.039757116849671e-06
+    },
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 30,
+      "diagram": "fused",
+      "infidelity": 1.0671927609395837e-06
+    },
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 30,
+      "diagram": "fused + propagated",
+      "infidelity": 9.081056718818203e-07
+    },
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 30,
+      "diagram": "false rule",
+      "infidelity": 0.017572747111842313
+    },
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 40,
+      "diagram": "original",
+      "infidelity": 5.955342552432796e-08
+    },
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 40,
+      "diagram": "fused",
+      "infidelity": 6.160232735030746e-08
+    },
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 40,
+      "diagram": "fused + propagated",
+      "infidelity": 5.1704418302378485e-08
+    },
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 40,
+      "diagram": "false rule",
+      "infidelity": 0.01757276842709199
+    },
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 55,
+      "diagram": "original",
+      "infidelity": 1.404796501347505e-09
+    },
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 55,
+      "diagram": "fused",
+      "infidelity": 1.432036267345893e-09
+    },
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 55,
+      "diagram": "fused + propagated",
+      "infidelity": 1.183692921458146e-09
+    },
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 55,
+      "diagram": "false rule",
+      "infidelity": 0.01757276932675078
+    },
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 70,
+      "diagram": "original",
+      "infidelity": 5.0636606019338615e-11
+    },
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 70,
+      "diagram": "fused",
+      "infidelity": 5.097122723896064e-11
+    },
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 70,
+      "diagram": "fused + propagated",
+      "infidelity": 4.193956293363499e-11
+    },
+    {
+      "study": "cubic",
+      "x0": 0.5,
+      "cutoff": 70,
+      "diagram": "false rule",
+      "infidelity": 0.01757276933593277
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 15,
+      "diagram": "original",
+      "infidelity": 0.005824603134040429
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 15,
+      "diagram": "fused",
+      "infidelity": 0.005746500450172998
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 15,
+      "diagram": "fused + propagated",
+      "infidelity": null
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 15,
+      "diagram": "false rule",
+      "infidelity": 0.045992817323130764
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 20,
+      "diagram": "original",
+      "infidelity": 0.0013333525252181566
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 20,
+      "diagram": "fused",
+      "infidelity": 0.001334470010456168
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 20,
+      "diagram": "fused + propagated",
+      "infidelity": 0.0011663948359950105
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 20,
+      "diagram": "false rule",
+      "infidelity": 0.04567032920174818
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 30,
+      "diagram": "original",
+      "infidelity": 9.356963076412317e-05
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 30,
+      "diagram": "fused",
+      "infidelity": 9.724230056884497e-05
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 30,
+      "diagram": "fused + propagated",
+      "infidelity": 8.415430250530154e-05
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 30,
+      "diagram": "false rule",
+      "infidelity": 0.04566567014992384
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 40,
+      "diagram": "original",
+      "infidelity": 8.993579538207896e-06
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 40,
+      "diagram": "fused",
+      "infidelity": 9.404411264291035e-06
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 40,
+      "diagram": "fused + propagated",
+      "infidelity": 8.038403359722501e-06
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 40,
+      "diagram": "false rule",
+      "infidelity": 0.04566808606208239
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 55,
+      "diagram": "original",
+      "infidelity": 3.9636726412162204e-07
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 55,
+      "diagram": "fused",
+      "infidelity": 4.064709115958465e-07
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 55,
+      "diagram": "fused + propagated",
+      "infidelity": 3.4248718328022676e-07
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 55,
+      "diagram": "false rule",
+      "infidelity": 0.04566830268507904
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 70,
+      "diagram": "original",
+      "infidelity": 2.376704089090964e-08
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 70,
+      "diagram": "fused",
+      "infidelity": 2.3964176532054182e-08
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 70,
+      "diagram": "fused + propagated",
+      "infidelity": 2.0101836528674255e-08
+    },
+    {
+      "study": "cubic",
+      "x0": 1.5,
+      "cutoff": 70,
+      "diagram": "false rule",
+      "infidelity": 0.04566830759009344
+    },
+    {
+      "study": "subtraction",
+      "cutoff": 6,
+      "probability": 0.05283877228740415,
+      "analytic": 0.0528543198382091,
+      "mean_photons": 0.582527133426512,
+      "analytic_mean_photons": 0.5841073967710971
+    },
+    {
+      "study": "subtraction",
+      "cutoff": 8,
+      "probability": 0.05285419453336002,
+      "analytic": 0.0528543198382091,
+      "mean_photons": 0.5840894311172656,
+      "analytic_mean_photons": 0.5841073967710971
+    },
+    {
+      "study": "subtraction",
+      "cutoff": 12,
+      "probability": 0.05285431983640273,
+      "analytic": 0.0528543198382091,
+      "mean_photons": 0.58410739635616,
+      "analytic_mean_photons": 0.5841073967710971
+    },
+    {
+      "study": "subtraction",
+      "cutoff": 16,
+      "probability": 0.05285431983820912,
+      "analytic": 0.0528543198382091,
+      "mean_photons": 0.5841073967710952,
+      "analytic_mean_photons": 0.5841073967710971
+    },
+    {
+      "study": "subtraction",
+      "cutoff": 24,
+      "probability": 0.052854319838209124,
+      "analytic": 0.0528543198382091,
+      "mean_photons": 0.5841073967710974,
+      "analytic_mean_photons": 0.5841073967710971
+    },
+    {
+      "study": "gkp_readout",
+      "cutoff": 40,
+      "diagram": 0.7868611299989998,
+      "existing": 0.7868376098383573,
+      "grid_reference": 0.7867516557163163,
+      "ideal": 0.8483533546735827
+    },
+    {
+      "study": "gkp_readout",
+      "cutoff": 48,
+      "diagram": 0.7868610888488956,
+      "existing": 0.7868375688125403,
+      "grid_reference": 0.7867516557163163,
+      "ideal": 0.8483533546735827
+    },
+    {
+      "study": "gkp_syndrome",
+      "cutoff": 64,
+      "syndrome_readout": 0.7231019104429188,
+      "syndrome_grid_reference": 0.7231018594020322,
+      "grid_total_mass": 0.999999999999996,
+      "direct_readout": 0.7867516557163163,
+      "ideal": 0.8483533546735827
+    }
+  ],
+  "configuration": {
+    "F": [
+      0.0,
+      0.1,
+      0.05,
+      0.03
+    ],
+    "G": [
+      0.0,
+      0.0,
+      -0.02,
+      0.01
+    ],
+    "inputs": [
+      0.5,
+      1.5
+    ],
+    "reference_cutoff": 150,
+    "alpha": 0.8,
+    "theta": 0.3,
+    "gkp": {
+      "width": 0.6,
+      "envelope": 0.6,
+      "peaks": 6
+    },
+    "outcome_grid": "cell-aligned midpoints, 13 cells x 60"
+  },
+  "validation_report": {
+    "status": "pass",
+    "checks": {
+      "true_rules_converge": true,
+      "false_rule_detected": true,
+      "subtraction_probability": true,
+      "subtraction_mean": true,
+      "gkp_readout": true,
+      "gkp_syndrome": true
+    },
+    "note": "Finite-cutoff agreement is numerical evidence for operator identities proved analytically, not a proof."
+  },
+  "source_revision": {
+    "revision": "c8d053a8c388d075086a7b642d52eddf3b318568",
+    "working_tree_modified": true
+  },
+  "status": "pass"
+}

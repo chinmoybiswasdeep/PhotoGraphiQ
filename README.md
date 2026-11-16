@@ -59,12 +59,12 @@ backend registry: gaussian · native-gaussian · native-fock · native-mixed-foc
 | Patterns and compilation | command IR with symbolic `Outcome` feed-forward; Gaussian circuit → teleportation-step compiler with a provenance trace; Gaussian-plus-cubic target with experimental Kerr/quartic synthesis | [patterns](docs/user-guide/patterns.md), [compilation](docs/user-guide/compilation.md) |
 | Simulation | NumPy and native C++20 Gaussian, pure-Fock and mixed-Fock engines behind one capability-checked backend contract | [backends](docs/user-guide/backends.md) |
 | Flow and corrections | causal flow, gflow, Pauli flow (qubit); CV flow with certified / impossible / numerically-uncertain classification | [flow](docs/user-guide/flow.md) |
-| Calculus | qubit measurement calculus, local Cliffords, a qubit ZX subset, and the Gaussian-pure-state graphical calculus | [MBQC calculus](docs/user-guide/mbqc-calculus.md), [Gaussian graphical calculus](docs/user-guide/gaussian-graphical-calculus.md) |
+| Calculus | qubit measurement calculus, local Cliffords, a qubit ZX subset, the Gaussian-pure-state graphical calculus, and typed CV process diagrams with proved rewrites and verified CV-MBQC resource optimisation (`calculus.cv_diagrams`; not a complete CV-ZX calculus) | [MBQC calculus](docs/user-guide/mbqc-calculus.md), [Gaussian graphical calculus](docs/user-guide/gaussian-graphical-calculus.md), [CV diagrams](docs/user-guide/cv-diagrams/introduction.md) |
 | Boson sampling and GBS | permanents, hafnians, loop hafnians, torontonians (native C++), exact distributions and samplers | [sampling](docs/user-guide/sampling.md) |
 | Non-Gaussian and GKP | Fock inputs, cat and cubic resources, heralded photon subtraction, finite-energy GKP codewords, readout and decoding | [non-Gaussian](docs/user-guide/non-gaussian.md), [GKP](docs/user-guide/gkp.md) |
 | Visualization | static SVG/PNG/PDF drawings and interactive, draggable graph views with flow, correction and execution-trace overlays | [visualization](docs/user-guide/visualization.md), [interactive](docs/user-guide/interactive.md) |
 | Acceleration | optional CuPy batched Gaussian and Fock kernels; a CUDA-Q Hamiltonian adapter (execution unverified) | [GPU](docs/gpu.md), [CUDA-Q](docs/cudaq.md) |
-| PhotoGraphiQML | measurement-based learning (MuTA) with logical-to-physical GKP lowering | [PhotoGraphiQML](docs/ml/index.md) |
+| PhotoGraphiQML | measurement-based learning (MuTA) with logical-to-physical GKP lowering; CV-native learning (`photographiqml.cv`): trainable Gaussian programs, their compiled finite-squeezing CV-MBQC channels, directly trainable weighted clusters, CV kernels, experimental non-Gaussian Fock models | [PhotoGraphiQML](docs/ml/index.md), [CV-native](docs/ml/cv-native/index.md) |
 
 One distribution ships two import packages. `photographiq` (the core) needs only NumPy,
 SciPy and NetworkX plus its compiled extension; `photographiqml` builds on it, and the core
@@ -77,8 +77,8 @@ and the [complete functionality reference](docs/COMPLETE_FUNCTIONALITY.md).
 
 | Status | Features |
 |---|---|
-| **Validated** (independent reference, passing) | NumPy and native Gaussian engines (max error 6.5e-13 vs analytic/`expm`); native pure and mixed Fock gates (5e-16 vs mpmath / enlarged-space `expm`); boson sampling and GBS kernels (incl. a 382-case threshold-probability matrix); causal/g/Pauli flow (360/360 agreement with Graphix); CV flow with exact rational witnesses; measurement calculus, local Cliffords, ZX subset; Gaussian graphical calculus; CuPy GPU kernels (correctness, max deviation 7.2e-16); PhotoGraphiQML logical MuTA vs MentPy |
-| **Experimental** | density-matrix (mixed-Fock) evolution with Kraus instruments; Gaussian-plus-cubic compilation with Kerr/quartic synthesis; finite-energy GKP; physical GKP logical Y / arbitrary-angle XY measurement (opt-in; magic-state injection with a supplied, not simulated, magic state); JAX differentiation of fixed-outcome Fock execution; CUDA-Q adapter (gate translation validated, **CUDA-Q execution unverified**) |
+| **Validated** (independent reference, passing) | NumPy and native Gaussian engines (max error 6.5e-13 vs analytic/`expm`); native pure and mixed Fock gates (5e-16 vs mpmath / enlarged-space `expm`); boson sampling and GBS kernels (incl. a 382-case threshold-probability matrix); causal/g/Pauli flow (360/360 agreement with Graphix); CV flow with exact rational witnesses; measurement calculus, local Cliffords, ZX subset; Gaussian graphical calculus; CuPy GPU kernels (correctness, max deviation 7.2e-16); PhotoGraphiQML logical MuTA vs MentPy; typed Gaussian CV process diagrams (`calculus.cv_diagrams`: every rewrite against `gaussian_channel` of the executed Pattern, postselected trajectories and `GaussianGraph`, residuals <= 1e-15; logical-mode CV-MBQC optimisation with certified CV flow and executed-trajectory checks); CV-native Gaussian learning (`photographiqml.cv`: compiled channels equal `gaussian_channel` of the executed Pattern to ~1e-13, trajectory ensembles within 4 SE, complex-step gradients vs finite differences and closed forms, Gaussian kernels vs closed forms) |
+| **Experimental** | density-matrix (mixed-Fock) evolution with Kraus instruments; Gaussian-plus-cubic compilation with Kerr/quartic synthesis; finite-energy GKP; physical GKP logical Y / arbitrary-angle XY measurement (opt-in; magic-state injection with a supplied, not simulated, magic state); JAX differentiation of fixed-outcome Fock execution; CV-native non-Gaussian (Kerr / cubic) learning on the Fock engine and the cubic-injection lowering; non-Gaussian CV diagram rules (1->1 q-spider fusion and displacement propagation, Nagayoshi et al. 2025) with Fock convergence evidence, heralded and GKP diagrams; CUDA-Q adapter (gate translation validated, **CUDA-Q execution unverified**) |
 | **Restricted** | physical PhotoGraphiQML lowering (signed-X angle family by default; opt-in `measurement_family="XY"`, experimental); multi-mode displaced native Fock Gaussian unitaries (no derived error bound); threshold GBS in double precision with many clicks at low squeezing (use `precision="auto"`); interactive views verified in Microsoft Edge only |
 | **Unsupported** (rejected by the code) | general CV-ZX calculus; CV local complementation; Fock heterodyne/general-dyne; GPU pattern simulation and GPU outcome sampling; GPU permanents/hafnians (measured, not shipped); rotated-homodyne substitutes for GKP logical XY measurements |
 
@@ -288,7 +288,22 @@ model = pqml.MuTA(2, 1, one_column=True)
 print(model.run([1, 0, 0, 0], {"alpha.w1.c1": np.pi / 2}).probabilities)   # [0.5, 0, 0, 0.5]
 ```
 
-Logical MuTA is an ideal qubit-level model, checked against MentPy. Physical execution
+Logical MuTA is an ideal qubit-level model, checked against MentPy. CV-native learning is a
+separate family that encodes data into CV states and trains Gaussian CV-MBQC programs directly
+(homodyne angles of a weighted cluster, or a compiled circuit); finite squeezing is kept as
+physical channel noise:
+
+```python
+from photographiqml.cv import CVCluster, CVRegressor
+
+model = CVRegressor(CVCluster(2, 3, squeezing=1.0), mode="physical", epochs=80).fit(X, y)
+model.score(X, y)            # affine target: {'mse': 1.5e-05, ...}
+model.resource_report(X)     # 4 homodyne measurements, added noise 0.135 vacuum units
+```
+
+Gaussian models with displacement encoding and mean readout are affine in the features and
+efficiently classically simulable; no quantum advantage is claimed
+([CV-native documentation](docs/ml/cv-native/index.md)). Physical execution
 lowers a restricted angle family onto finite-energy GKP resources and reports raw records,
 decoded probabilities and the logical target separately. See the
 [PhotoGraphiQML documentation](docs/ml/index.md) and the
@@ -356,8 +371,8 @@ to re-run them.
 
 | Suite | Directory | IDs | Scope |
 |---|---|---|---|
-| PhotoGraphiQ core | [`paper_experiments/`](paper_experiments/README.md) | PGQ-R… ([index](paper_experiments/EXPERIMENT_INDEX.md)) | CV-MBQC transport, compilation, feed-forward, non-Gaussian, GKP, cross-validation, convergence, native engines, sampling, flow and calculus, performance |
-| PhotoGraphiQML | [`paper_experiments_ml/`](paper_experiments_ml/README.md) | PGML-R1–R59 (+ R60-R67 extension) | logical MuTA, MentPy validation, training, kernels, GKP lowering, physical statistics; R60-R67: physical arbitrary-angle GKP XY measurements |
+| PhotoGraphiQ core | [`paper_experiments/`](paper_experiments/README.md) | PGQ-R… ([index](paper_experiments/EXPERIMENT_INDEX.md)); R61-R68 extension in [`22_cv_diagrams/`](paper_experiments/22_cv_diagrams/README.md) | CV-MBQC transport, compilation, feed-forward, non-Gaussian, GKP, cross-validation, convergence, native engines, sampling, flow and calculus, performance; R61-R68: CV diagram rewrites and CV-MBQC resource optimisation |
+| PhotoGraphiQML | [`paper_experiments_ml/`](paper_experiments_ml/README.md) | PGML-R1–R59 (+ R60-R67, R68-R75 extensions) | logical MuTA, MentPy validation, training, kernels, GKP lowering, physical statistics; R60-R67: physical arbitrary-angle GKP XY measurements; R68-R75: CV-native learning (figures CVML-1 to CVML-8) |
 
 Both suites start at R1, so always cite the suite prefix. Each result file carries a
 `.metadata.json` provenance record (commit, dirty flag, source hash, packages, hardware).

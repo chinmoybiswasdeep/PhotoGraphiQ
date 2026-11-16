@@ -18,14 +18,14 @@ vacuum covariance `I`, Fock truncation by total photon number `sum n < cutoff`.
 
 | Status | Meaning | Features |
 |---|---|---|
-| **Implemented and validated** | implemented, and tests compare it with an independent reference (closed form, brute-force definition, `expm` on an enlarged space, Piquasso, Graphix, mpmath, MentPy, another backend) | 168 |
-| **Implemented but experimental** | works and is tested, but validation is limited or the code labels it experimental | 91 |
-| **Partially supported** | some cases work, others raise (stated per feature) | 8 |
-| **Unsupported** | explicitly rejected by the code (the error is stated) | 13 |
+| **Implemented and validated** | implemented, and tests compare it with an independent reference (closed form, brute-force definition, `expm` on an enlarged space, Piquasso, Graphix, mpmath, MentPy, another backend) | 175 |
+| **Implemented but experimental** | works and is tested, but validation is limited or the code labels it experimental | 95 |
+| **Partially supported** | some cases work, others raise (stated per feature) | 10 |
+| **Unsupported** | explicitly rejected by the code (the error is stated) | 9 |
 | **Planned** | not implemented; never counted as complete | 2 |
 
-The counts are the first status label of each per-feature `Status` row (282 rows), recounted
-by script on 2026-11-12. The **Planned** rows of the Section 36 table are roadmap items, not
+The counts are the first status label of each per-feature `Status` row (291 rows), recounted
+by script on 2026-11-16. The **Planned** rows of the Section 36 table are roadmap items, not
 feature entries, and are not counted. Until 2026-11-11 every Fock path was listed as
 experimental because the code and `docs/validation/feature-matrix.md` call Fock execution
 experimental; native Fock entries with a first-principles reference in `tests/validation/`
@@ -4094,6 +4094,66 @@ print(np.allclose(s.matrix(), run_branch(p, {1: 1}).operator), len(bd.spiders())
 # True 5 2
 ```
 
+### Typed CV process diagrams and Gaussian semantics (`calculus.cv_diagrams`)
+
+| Field | Value |
+|---|---|
+| Description | Immutable typed diagrams with linear bosonic wires and copyable real record wires; typing errors raise `DiagramTypeError`. Generators: Prepare / PrepareState, Rotation, Squeezer, Shear, Displacement, BeamSplitter, CZ, Symplectic, GaussianLoss, GaussianChannelBox (complete positivity checked), Homodyne (efficiency, noise), Feedforward (exact affine in records), ClassicalSource, Discard. Semantics are hybrid classical-quantum Gaussian: z = A x_in + b + ξ over live Wigner variables and records. They give the unitary, the outcome-averaged channel (X, Y, d) and the conditional instrument (conditional state and record density, by Schur complement). Interoperability with `GaussianGraph` covers pure states only. |
+| Python API | `CVDiagram(inputs, boxes, outputs)`, `.then`, `.tensor`, `.permute_outputs`, `.to_json`, `.fingerprint`; `evaluate(d)`, `channel_semantics`, `unitary_semantics`, `conditional_semantics`, `compose_channels`, `is_completely_positive`; `from_gaussian_graph`, `to_gaussian_graph` |
+| Implementation | `src/photographiq/calculus/cv_diagrams/{ir,semantics,translate}.py` |
+| Backends | NumPy (semantics); references: Gaussian backends |
+| CPU / GPU | CPU only |
+| Assumptions | hbar = 2; Gaussian boxes only for Gaussian semantics; not a complete CV-ZX calculus |
+| Tests | `tests/calculus/test_cv_diagrams.py`: typing; generators vs `photographiq.gaussian`; associativity, identity, tensor, permutation; channel vs `analysis.gaussian_channel` (with loss and inefficient homodyne); conditional vs postselected trajectories; `GaussianGraph` round trip and the MFvL q/p measurement rules |
+| Status | **Implemented and validated** |
+
+Example: `examples/cv_diagrams/01_build_gaussian_diagram.py`.
+
+### Sound Gaussian rewrites with traces (`calculus.cv_diagrams.rules`)
+
+| Field | Value |
+|---|---|
+| Description | Rules, each with a proof or a cited theorem and an equivalence class (exact-instrument / exact-channel / logical); full statements in `docs/theory/CV_ZX_FOUNDATIONS.md`. The rules are rotation, squeezing, shear and displacement fusion (Weyl phase recorded); identity removal; commute; symplectic fusion; channel fusion; feed-forward merge; CZ followed by ideal q homodyne becoming feed-forward (MFvL vertex deletion); preparation followed by homodyne becoming a classical source (ancilla elimination). Rewrites never mutate their input and append `RewriteStep` traces (`trace_json`). |
+| Python API | `apply_rewrite(diagram, rule, match=None)`, `RULES`, `RewriteStep`, `compare(a, b) -> EquivalenceReport` |
+| Implementation | `src/photographiq/calculus/cv_diagrams/rules.py`, `optimize.compare` |
+| Backends | NumPy |
+| CPU / GPU | CPU only |
+| Assumptions | Matches are wire-adjacent; the CZ rule needs an ideal q homodyne |
+| Tests | `tests/calculus/test_cv_diagrams.py` (random instances; exact instrument residuals). R61: 40 instances per rule against `gaussian_channel`, postselected trajectories and dense `expm` (worst residual 8.8e-16; phase residual of order 1e-16). |
+| Status | **Implemented and validated** |
+
+Example: `examples/cv_diagrams/02_sound_rewrite.py`.
+
+### CV-MBQC translation and verified resource optimisation (`calculus.cv_diagrams.optimize`)
+
+| Field | Value |
+|---|---|
+| Description | Translation `Pattern` ↔ diagram (affine feed-forward only; adaptive angles rejected; a ClassicalSource recompiles to an ancilla measured in q) and `Circuit` ↔ diagram. `resource_cost` covers resource and ancilla modes, classical sources, entangling edges, measurements, depth, feed-forward commands and dependencies, maximum gain, squeezing energy, optical energy and added noise. `weighted_cost` and `pareto_front`. `pattern_flow_report` runs `find_cv_flow` on the underlying cluster. `optimize_cv_pattern(equivalence="physical"|"logical"|"approximate")` is a deterministic greedy or beam search; every candidate is verified against the original and must recompile. In logical mode the teleport-chain resynthesis keeps the logical map exact while the noise and records change, and the change is reported. |
+| Python API | `from_pattern`, `to_pattern`, `from_circuit`, `to_circuit`, `resource_cost`, `weighted_cost`, `pareto_front`, `pattern_flow_report`, `optimize_cv_pattern(source, *, equivalence, objective, strategy, beam_width, max_steps, epsilon, executable, weights)` |
+| Implementation | `src/photographiq/calculus/cv_diagrams/{translate,optimize}.py` |
+| Backends | Gaussian backends for execution |
+| CPU / GPU | CPU only |
+| Assumptions | Approximate mode uses an entrywise max\|ΔY\| budget, not a diamond-norm bound. Physical mode finds no exact rewrite in `compile_circuit` patterns. |
+| Tests | `tests/calculus/test_cv_diagrams_optimize.py` (physical unchanged, logical shortening, determinism, epsilon budget, flow certified before and after, identity wires removed, cost counts). Experiments R62–R67, including executed trajectories (R67). |
+| Status | **Implemented and validated** |
+
+Example: `examples/cv_diagrams/05_optimize_mbqc.py`.
+
+### Restricted non-Gaussian and GKP diagrams (`calculus.cv_diagrams`, Fock semantics)
+
+| Field | Value |
+|---|---|
+| Description | PhasePolynomial exp(i f(q)): the 1 → 1 q-spider of Nagayoshi et al., PRR 7, 033141 (2025), at hbar = 2. Its fusion (their Eq. 70) and displacement-propagation (Eq. 79) rules are implemented as operator identities. Also Kerr, FockPrepare, PhotonCount, Postselect (the heralding probability is reported apart from the normalised state), GKPPrepare (finite-energy) and ModularDecode. Execution is truncated Fock on the native engines (`run_fock`, `cutoff_study`) with retained norms; finite-cutoff agreement is evidence, not proof. |
+| Python API | `PhasePolynomial`, `Kerr`, `FockPrepare`, `PhotonCount`, `Postselect`, `GKPPrepare`, `ModularDecode`, `run_fock(diagram, cutoff, *, inputs, outcomes, seed, backend)`, `cutoff_study` |
+| Implementation | `src/photographiq/calculus/cv_diagrams/{ir,rules,fock}.py` |
+| Backends | `native-fock`, `native-mixed-fock` |
+| CPU / GPU | CPU only |
+| Assumptions | No multi-leg spiders, Fourier boxes or other Nagayoshi rules; no rewrite that changes heralding; GKP diagrams only execute existing primitives |
+| Tests | `tests/calculus/test_cv_diagrams_optimize.py`: phase rules converge to a dense `expm` reference; herald probability equals the Poisson value; Kerr against the reference; GKP Z readout against the existing readout and the grid reference. R68 adds a false-rule control, cutoff sweeps and SUM-syndrome extraction against an untruncated grid computation. |
+| Status | **Implemented but experimental** |
+
+Example: `examples/cv_diagrams/08_non_gaussian_diagram.py`, `09_gkp_syndrome_diagram.py`.
+
 ## 24. Flow and gflow
 
 Flow analysis works on the typed graph IR `photographiq.ir.OpenGraph`. `photographiq.flows.analyze` applies only the flow notion that belongs to the graph's `Model`: causal flow, gflow and Pauli flow (GF(2), unweighted) for `Model.QUBIT`, and real-linear CV flow for `Model.CV_GAUSSIAN` (section 26). Every finder returns a `FlowAnalysisResult` and checks its certificate with an independent verifier before returning it. A result of `not_certified` is never a proof of nondeterminism; for CV graphs `diagnostics['decision'] == "impossible"` proves only that no CV flow exists for the given weights (Section 26). The Graphix comparison benchmark is `benchmarks/graphix/bench_graphix_mbqc.py` (see `benchmarks/README.md`); no timing numbers are quoted here. The guide page is [MBQC calculus and flows](user-guide/mbqc-calculus.md).
@@ -5376,7 +5436,7 @@ Example: see `examples/ml/tutorials/20.py` (requires MentPy).
 |---|---|
 | Description | A MuTA whose cells are continuous-variable gates rather than GKP-encoded qubits. |
 | Python API | None. `MuTA(representation=...)` accepts no CV option (`ValueError` "... CVMuTA is a separate proposal"). |
-| Implementation | None (`examples/ml/tutorials/29.py` only checks one Gaussian teleportation ingredient and prints "CVMuTA is a proposal") |
+| Implementation | None (`examples/ml/tutorials/29.py` only checks one Gaussian teleportation ingredient and prints "CVMuTA is a proposal"). A different, implemented construction (directly trainable weighted grid clusters, `photographiqml.cv.CVCluster`) is listed in the CV-native learning entries below; it does not implement this proposal. |
 | Backends | None |
 | CPU / GPU | N/A |
 | Assumptions | Listed as item 3 of the [PhotoGraphiQML roadmap](ml/ROADMAP.md). |
@@ -5384,6 +5444,81 @@ Example: see `examples/ml/tutorials/20.py` (requires MentPy).
 | Status | **Planned** |
 
 Example: none (not implemented).
+
+### CV-native learning: data encoding and trainable Gaussian programs (`photographiqml.cv`)
+
+| Field | Value |
+|---|---|
+| Description | A CV-native learning family, separate from logical and GKP MuTA. `CVFeatureMap` encodes one feature per mode as a coherent displacement (q or p), as squeezing r = s x (bounded by `max_squeezing`), or as a rotation of a coherent reference. `Feature(index, scale)` marks data-dependent gate arguments for re-uploading, and string arguments are trainable parameters. `GaussianProgram` / `layered_program` hold rotation, squeezing (optional `bound * tanh` budget), shear, displacement (optional bound), beam splitter and weighted CZ gates. `mode="ideal"` propagates the intended symplectic map. `mode="physical", squeezing=r` evaluates the unconditional channel of the pattern produced by `compile_circuit`, with the finite-squeezing noise Y kept separate. `circuit()` and `gate_pattern()` return the executable `Circuit` and the direct gate-level `Pattern`. |
+| Python API | `CVFeatureMap(modes, encoding="displacement", *, scale=1.0, quadrature="q", offset=1.0, max_squeezing=1.5, input_squeezing=0.0)`; `GaussianProgram(modes).rotate/squeeze/shear/displace/beamsplitter/cz`; `program.channel(params, x=(), *, mode="ideal", squeezing=None) -> (X, t, Y, steps)`; `layered_program(modes, layers, *, reupload=False, squeezing_bound=1.0)` |
+| Implementation | `src/photographiqml/cv/gaussian.py` |
+| Backends | Moment propagation (NumPy); executable patterns on `gaussian` / `native-gaussian` |
+| CPU / GPU | CPU only |
+| Assumptions | hbar = 2; product Gaussian inputs; the compiled channel mirrors the compiler's lowering (validated against it) |
+| Tests | `tests/ml/cv_native/test_cv_gaussian_programs.py`: encoders vs analytic moments; ideal map vs independent `photographiq.gaussian` products and gate-level pattern execution (`gaussian`, `native-gaussian`); compiled X, Y, t vs `gaussian_channel` of the compiled `Pattern` (≤ 1e-10); Y ∝ e^{−2r}; trajectory ensembles vs channel. R69: worst error below 1e-13 over 36 programs. |
+| Status | **Implemented and validated** |
+
+Example: `examples/ml/cv_native/04_circuit_to_mbqc_equivalence.py`.
+
+### CV-native learning: directly trainable weighted clusters (`CVCluster`)
+
+| Field | Value |
+|---|---|
+| Description | A w × c grid cluster: column 0 holds the encoded inputs, the last column the outputs, and all other nodes are finite-squeezing p-squeezed resources. Trainable homodyne angles θ_i: by default θ = π/2 + (π/2 − margin) tanh(φ), which covers one period without the singular θ = 0 mod π; with `angles="direct"` singular values are rejected. Rung weights can optionally be trained. Feedforward uses CV flow (Booth–Markham, `certify_cv_flow`), recertified for every weight tuple, and uncertifiable layouts are rejected. The exact unconditional channel is computed by forward substitution, and `pattern()` returns the executable `flow_pattern`. This is not the CVMuTA proposal above, which remains planned. |
+| Python API | `CVCluster(wires, columns, *, squeezing=1.0, rungs=None, rung_weight=1.0, trainable_weights=False, angles="bounded", margin=0.05)`; `.channel(params, x=(), *, mode, squeezing=None)`, `.pattern(params)`, `.angles(params)`, `.angle_parameters(thetas)`, `.certificate(params)` |
+| Implementation | `src/photographiqml/cv/mbqc.py` |
+| Backends | Moment propagation (NumPy); executable patterns on Gaussian backends |
+| CPU / GPU | CPU only |
+| Assumptions | Fixed (non-adaptive) homodyne angles; affine flow corrections; supplied column-major order |
+| Tests | `tests/ml/cv_native/test_cv_cluster.py`: channel vs `gaussian_channel(flow_pattern)` (≤ 1e-11); ideal map symplectic; single wire = product of T(cot θ); π-periodicity; singular-angle rejection; recertification; conditional (outcome-independent covariance) vs ensemble trajectories; independent Schur-complement check of homodyne conditioning |
+| Status | **Implemented and validated** |
+
+Example: `examples/ml/cv_native/03_trainable_homodyne_angles.py`.
+
+### CV-native learning: regressors, classifiers, gradients, shots and resources
+
+| Field | Value |
+|---|---|
+| Description | `CVRegressor` uses an affine head; `CVClassifier` uses a logistic head, the physical `homodyne` head (Born probability of a binned q outcome) or a softmax head for more than two classes. Readouts are `q`, `p`, `qp` or `moments` (means plus q variances). Shot readout gives exact S-shot sample means, μ + chol(C/S) z with fixed normals (CRN); `qp` splits the shots. Training uses the existing `Trainer` (Adam, SGD, L-BFGS). Gradients are complex-step (exact to rounding, the default for Gaussian programs), central differences (Fock programs) or a user callable. Penalties are `noise` (mean added noise, vacuum units) and `squeezing` (Σ sinh² r, photons); with a penalty the task MSE is divided by Var y. `CVTrainingHistory` records parameters, losses, validation losses, gradient norms, runtime, simulator evaluations and settings (seed, mode, squeezing, shots, steps). `resource_report(X)` / `pattern_resources(pattern)` report resource modes, edges, weighted edges, measurements, measurement depth, feedforward corrections, peak live modes, squeezing (r, dB), added noise, input photons, runtime and memory. |
+| Python API | `CVRegressor(program, feature_map=None, *, readout="q", readout_modes=None, mode="ideal", squeezing=None, shots=None, penalty=None, penalty_weight=0.0, optimizer="adam", epochs=100, learning_rate=0.05, gradient="auto", init_scale=0.1, seed=0, cutoff=None, fd_step=1e-6)`; `CVClassifier(..., head="logistic", classes=2)`; `.fit(X, y, X_val=None, y_val=None)`, `.predict`, `.predict_proba`, `.score`, `.resource_report`; `complex_step_gradient`, `central_difference` |
+| Implementation | `src/photographiqml/cv/learning.py`, `src/photographiqml/cv/resources.py` |
+| Backends | As the program |
+| CPU / GPU | CPU only |
+| Assumptions | Classical heads are classical post-processing, not quantum nonlinearity. With displacement encoding and mean readout a Gaussian model is affine in x. Finite squeezing leaves flow-corrected unconditional means unchanged and enters through the covariance. |
+| Tests | `tests/ml/cv_native/test_cv_learning.py` (complex step vs closed form and finite differences at several squeezings and near the angle margin; affinity; reproducibility; optimisers; user gradients; heads; shot estimator exact in distribution; penalties; resource reports). Experiments: R70 (test MSE equals OLS), R72 (shot model exact), R73 (complex step vs finite differences and closed form). |
+| Status | **Implemented and validated** (numerics); learning performance is task-specific and reported per experiment |
+
+Example: `examples/ml/cv_native/01_first_regressor.py`, `02_first_classifier.py`, `05_noise_aware_training.py`, `08_resource_quality_tradeoffs.py`.
+
+### CV-native learning: Gaussian quantum kernels (`CVKernel`)
+
+| Field | Value |
+|---|---|
+| Description | Kernels from closed-form Gaussian functionals of the encoded (optionally processed) states. `overlap` is Tr[ρ(x)ρ(x′)] and is PSD; `normalized` divides by the square root of the purities; `fidelity` is the squared Uhlmann fidelity (BBP), which equals the overlap only if one state is pure. Coherent displacement encoding gives exp(−s²‖x − x′‖²/4). Gaussian unitaries leave the kernel invariant; finite-squeezing channels (`mode="physical"`) change it. The Gram matrix is meant for classical kernel methods. |
+| Python API | `CVKernel(feature_map=None, program=None, params=None, *, kind="overlap", mode="ideal", squeezing=None)`; `kernel(X1, X2)`, `.gram_matrix(X)`, `.diagnostics(X)`, `.states(X)` |
+| Implementation | `src/photographiqml/cv/kernels.py` (uses `GaussianState.overlap`, `.fidelity`, `.purity`) |
+| Backends | NumPy |
+| CPU / GPU | CPU only |
+| Assumptions | hbar = 2 normalisation |
+| Tests | `tests/ml/cv_native/test_cv_kernels_nongaussian.py`: RBF closed form (1e-13), unitary invariance, symmetry, PSD, purity diagonal, convergence to the ideal kernel with squeezing, fidelity vs Hilbert–Schmidt for mixed states |
+| Status | **Implemented and validated** |
+
+Example: `examples/ml/cv_native/06_gaussian_kernel_learning.py`.
+
+### CV-native learning: non-Gaussian programs on the Fock engine (`NonGaussianProgram`)
+
+| Field | Value |
+|---|---|
+| Description | Gaussian gates plus Kerr exp(iκn²) and cubic phase exp(iγq³/6), executed gate by gate on `native-fock` with an explicit cutoff. The engine refuses truncation beyond its norm tolerance, and the minimum retained norm is reported. Readout is through boundary-correct Fock quadrature moments. Cubic gates can optionally be lowered to finite-energy cubic-phase resource injection (`pattern(cubic="injection")`): cubic ancilla, inverse SUM, ancilla q homodyne, quadratic-phase and displacement feedforward. `injection_channel` integrates the outcome record into the unconditional output. That lowering is an approximate conditional filter, not an exact gate. Training uses central differences, without training shots (sample means of non-Gaussian outcomes are not Gaussian). |
+| Python API | `NonGaussianProgram(modes).kerr(mode, kappa).cubic_phase(mode, gamma)` (plus the Gaussian gates); `.run(params, x, feature_map, cutoff)`, `.fock_moments(...)`, `.pattern(params, x, *, cubic="gate", injection_squeezing=0.5)`, `.injection_channel(...)`; `CVRegressor(program, ..., cutoff=...)` |
+| Implementation | `src/photographiqml/cv/nongaussian.py` |
+| Backends | `native-fock` (default), other Fock backends via `backend=` |
+| CPU / GPU | CPU only |
+| Assumptions | Cutoff convergence must be checked per problem; Kerr, rotation and squeezing commute with parity, so a displacement is needed to break the odd symmetry of ⟨q⟩ |
+| Tests | `tests/ml/cv_native/test_cv_kernels_nongaussian.py`: engine vs independent dense `expm` reference (`tests/validation/cv_fock_reference.py`) at two cutoffs; cutoff convergence and retained norm; Gaussian-only agreement with moment propagation; capability rejection on Gaussian backends; Kerr regressor beats the affine Gaussian model on x²; injection outcome normalisation. R75: Fock convergence, Wigner negativity, learning, injection fidelity. |
+| Status | **Implemented but experimental** |
+
+Example: `examples/ml/cv_native/07_non_gaussian_learning.py`.
 
 ## 29. Optimization algorithms
 
@@ -6530,7 +6665,7 @@ Example: see `paper_experiments/README.md`.
 
 | Field | Value |
 |---|---|
-| Description | 59 experiments (R1-R48, R_PERF, R50-R59) in 13 folders: logical foundations, MentPy validation, parameter contracts, gradients and training, kernels, expressivity, GKP resources, physical lowering, Piquasso validation, physical statistics, convergence, performance and extended studies. Each experiment has a declared oracle class (A-E, N/A) and tolerances. `PhotoGraphiQML_Manuscript_Experiments.ipynb` is a Colab notebook. |
+| Description | 59 canonical experiments (R1-R48, R_PERF, R50-R59) in 13 folders, plus two extension catalogues run individually, outside the canonical contract: `14_gkp_xy/` (R60-R67, physical arbitrary-angle GKP XY measurements) and `15_cv_native/` (R68-R75, CV-native learning, figures CVML-1 to CVML-8). The 13 canonical folders cover: logical foundations, MentPy validation, parameter contracts, gradients and training, kernels, expressivity, GKP resources, physical lowering, Piquasso validation, physical statistics, convergence, performance and extended studies. Each experiment has a declared oracle class (A-E, N/A) and tolerances. `PhotoGraphiQML_Manuscript_Experiments.ipynb` is a Colab notebook. |
 | Python API | `python paper_experiments_ml/run_all_safe.py`, `run_all_full.py`, `generate_tables.py`, `verify_evidence.py`, `build_notebook.py` |
 | Implementation | `paper_experiments_ml/` (see `EXPERIMENT_INDEX.md`, `EXPERIMENT_CONTRACTS.json`, `EXPERIMENT_MANIFEST.json`, `STATUS.md`, `ISSUES_FOUND.md`) |
 | Backends | Logical NumPy, `piquasso-fock`, MentPy (02_mentpy_validation), scikit-learn, Plotly (notebook atlas) |
@@ -6982,6 +7117,9 @@ This section collects limitations stated in Sections 1 to 33, in the code and in
 | No GPU trajectory or sampling execution | `simulate`, `run_shots`, all registered backends, `photographiq.sampling` (Section 15) | `simulate(..., backend="gpu")` raises `ValueError: Unknown backend: 'gpu'`; all pattern execution, conditioning and sampling run on the CPU. GPU permanents, hafnians and torontonians were measured and not shipped (single matrices slower than native; batched gains only for many small same-size matrices, which no workload uses) | `native-gaussian` (C++/OpenMP) for single trajectories; `photographiq.gpu` batched Gaussian kernels for many states with given outcomes and `photographiq.gpu.fock` for batched Fock gates |
 | GPU Fock kernels help only batched workloads | `photographiq.gpu.apply_operator`, `apply_phase` (Section 15) | A single small state is slower on the GPU than the native kernel; phase gates gain nothing end to end over NumPy; host-device transfers dominate end-to-end time for large batches; no renormalisation or diagnostics; the kernels do not accelerate `simulate` | Keep batches on the device (`on_device=True`); use the native engine for single states |
 | Photon counting on Gaussian backends | `PhotonNumber` with `gaussian`, `piquasso`, `native-gaussian` | Rejected by the capability check; a direct `measure` call raises `NotImplementedError("Photon counting has non-Gaussian conditional states; use ...")`, naming `native-fock`, `native-mixed-fock`, `piquasso-fock` and `piquasso-mixed-fock` | A Fock or mixed-Fock backend; GBS probabilities via `photographiq.sampling` |
+| CV-native Gaussian models are classically simulable | `photographiqml.cv` Gaussian programs and clusters | Gaussian operations on Gaussian inputs stay Gaussian; with displacement encoding and mean readout the model is affine in x. No quantum advantage is claimed. | Attribute nonlinearity explicitly (R71); use `NonGaussianProgram` for genuine non-Gaussian processing |
+| CV-native shot training only for mean readouts | `CVRegressor` / `CVClassifier` with `shots` | `readout="moments"` with shots, the `homodyne` head with training shots, and non-Gaussian programs with shots raise `ValueError` | Exact moments, or a mean readout with the CRN shot estimator |
+| CV-native non-Gaussian execution is gate-level | `NonGaussianProgram` | Only cubic gates have an (approximate, finite-energy) MBQC lowering; Kerr runs as a Fock gate; no complex-step derivatives on the Fock engine | Central differences; check cutoff convergence and retained norms |
 | Noisy or inefficient homodyne on pure Fock backends | `piquasso-fock`, `native-fock` | `NotImplementedError("Noisy Fock homodyne requires mixed-state conditioning")` | `piquasso-mixed-fock` or `native-mixed-fock` |
 | Heterodyne and generaldyne on Fock backends | All four Fock backends | `NotImplementedError` ("Fock backend supports ideal Homodyne and PhotonNumber measurements only" / "Mixed Fock supports PhotonNumber and Homodyne") | Gaussian backends |
 | No threshold detector measurement class | Click detection inside patterns (Section 10) | **Partially supported**: only through a user-built `MeasurementInstrument` on mixed-Fock backends | Build the instrument {\|0><0\|, I - \|0><0\|}; use `photographiq.sampling.threshold_probability` for Gaussian states |
